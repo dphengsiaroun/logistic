@@ -1,0 +1,65 @@
+	<section class="section-padding-bottom" id="more">
+		<div class="container">
+			<div class="row">
+				<div class="tm-section-header section-margin-top">
+					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Inscription</h2></div>
+					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>	
+				</div>				
+			</div>
+			<div class="row" ng-controller="inscri-control">
+				<!-- contact form -->
+				<form action="#" method="post" class="tm-contact-form">
+				<div class="col-lg-3 col-md-6 tm-contact-form-input"></div>
+					<div class="col-lg-6 col-md-6 tm-contact-form-input">
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" name="pseudo" ng-model="pseudo" placeholder="Pseudo" />
+						</div>
+						<div class="form-group">
+							<input type="password" id="contact_subject" class="form-control" name="mdp" ng-model="mdp" placeholder="Mot de passe" />
+						</div>
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" name="nom" ng-model="nom" placeholder="Nom" />
+						</div>
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" name="prenom" ng-model="prenom" placeholder="Prénom" />
+						</div>
+						<div class="form-group">
+							<input type="email" id="contact_email" class="form-control" name="email" ng-model="email" placeholder="Email" />
+						</div>
+						<div class="radio">
+						  <label class="checkbox-inline">
+						    <input type="radio" name="sexe" id="optionsRadios1" value="m" ng-model="sexe" checked>
+						    Homme 
+						  </label>
+						  <label class="checkbox-inline">
+						    <input type="radio" name="sexe" id="optionsRadios1" value="f" ng-model="sexe">
+						    Femme 
+						  </label>
+						</div>
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" name="adresse" ng-model="adresse" placeholder="Adresse" />
+						</div>
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" name="cp" ng-model="cp" placeholder="Code postal" />
+						</div>
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" name="ville" ng-model="ville" placeholder="Ville" />
+						</div>
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" name="pays" ng-model="pays" placeholder="Pays" />
+						</div>
+						<!--<div class="form-group">
+							<select class="form-control">
+							  <option>1</option>
+							  <option>2</option>
+							</select>
+						</div>-->
+						<div class="form-group">
+							<button class="tm-submit-btn" type="submit" name="enregistrer" ng-click="insertData()">Valider</button> 
+						</div>
+					</div>
+				</form>
+			</div>			
+		</div>
+	</section>

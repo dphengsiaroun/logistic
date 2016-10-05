@@ -15,17 +15,9 @@
 							<li><a href="tours.html">Nos offres</a></li>
 							<li><a href="contact.php">Contact</a></li>
 							<li><a href="depot-annonce.php" class="active">Déposer une annonce</a></li>
-							<?php
-							if(!utilisateurEstconnecte())
-							{
-								echo '<li><a href="connexion.php"><i class="fa fa-user" aria-hidden="true"></i> Se connecter</a></li>';
-							}
-							else
-							{
-								echo '<li><a href="connexion.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>';
-								echo '<li><a href="connexion.php?action=deconnexion"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>';
-							}
-							?>
+							<li ng-show="!isConnected"><a href="#/signin"><i class="fa fa-user" aria-hidden="true"></i> Se connecter</a></li>
+							<li ng-show="isConnected"><a href="profil.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+							<li ng-show="isConnected"><a href="connexion.php?action=deconnexion"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>		
 	  			</div>				

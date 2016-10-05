@@ -241,7 +241,7 @@ body { overflow-x: hidden; }
 	background-color: #fff;
 }
 .tm-home-box-1 {
-	width: 346px;
+	width: 550px;
 	height: 436px;
 }
 .tm-home-box-1-center {
@@ -385,8 +385,11 @@ hr { border-top: 1px solid #111010; }
 /* Tours */
 .tm-tours-box-1 {
 	width: 100%;
-	max-width: 532px;
+	max-width: 555px;
 	margin-bottom: 50px;
+}
+.img-size{
+	width: 100%;
 }
 .tm-tours-box-1-info {
 	background: white;
