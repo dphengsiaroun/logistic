@@ -59,12 +59,17 @@ body { overflow-x: hidden; }
 .tm-nav li a {
 	color: #838383;
 	display: block;
-	padding: 45px 20px 15px 20px;
+	padding: 45px 20px 17px 20px;
+	font-size: 13px;
 	text-transform: uppercase;
 	transition: all 0.3s ease;
 }
 .tm-nav li i{
 	font-size: 17px;
+}
+.size-li{
+	margin-top: -18px;
+    text-align: center;
 }
 .tm-nav li a.active,
 .tm-nav li a:focus,
@@ -786,6 +791,40 @@ hr { border-top: 1px solid #111010; }
 		max-width: 100%;
 	}
 	.tm-contact-form-input { margin-top: 50px; }
+	.tm-nav.show {
+		opacity: 1;
+		height: auto;
+		transition: opacity 1s, height 0;
+	}
+	.tm-nav {
+	    opacity: 0;
+		transition: opacity 1s, height 0 1s;
+		height: 0;
+	    position: fixed;
+	    z-index: 1000;
+	    top: 69px;
+	    right: 15px;
+	    background: rgba(15,15,15,0.7);
+	    transition: all 0.3s ease;
+	}
+	.tm-nav li { float: none; }
+	.tm-nav li a {
+		color: white;
+	    display: block;
+	    padding: 20px 30px 20px;
+	}
+	.mobile-menu-icon {
+	    display: block;
+	    cursor: pointer;
+	    color: #FCDD44;
+	    font-size: 30px;
+	    position: fixed;
+	    top: 15px;
+	    right: 15px;
+	    background-color: rgba(15, 15, 15, 0.7);
+	    padding: 6px 15px;
+	    z-index: 1000;
+	}
 }
 
 @media screen and (max-width: 767px) {
