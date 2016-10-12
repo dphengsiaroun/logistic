@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	console.log('Coucou');
+	//console.log('Coucou');
 
 	$(window).load(function() {
 		$('.flexslider').flexslider();
@@ -20,6 +20,9 @@
 			})
 			.when('/signup', {
 				templateUrl: 'tmpl/signup.html'
+			})
+			.when('/profile', {
+				templateUrl: 'tmpl/profile.html'
 			})
 			.otherwise({
 				redirectTo: '/'
@@ -50,6 +53,13 @@
 		};
 	});
 
+	app.directive('jlgBanner', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'tmpl/jlg-banner.html'
+		};
+	});
+
 	app.directive('jlgFooter', function() {
 		return {
 			restrict: 'E',
@@ -57,12 +67,7 @@
 		};
 	});
 
-	app.directive('jlgBanner', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'tmpl/jlg-banner.html'
-		};
-	});
+	
 
 
 

@@ -1,25 +1,19 @@
 <?php
 
-	echo '{"result":"ok"}';
+	//echo '{"result":"ok"}';
+	require_once("config.php");
 
-	$host = 'localhost';
-	$user = 'root';
-	$mdp = 'root';
-	$bdd = 'logistic';
+	$pseudo = $_POST['signinData.login'];
+	$mdp = hash('sha256', $_POST['signinData.password']);
 
-	$connex = new mysqli($host, $user, $mdp, $bdd);
-
-	$pseudo = $_POST['pseudo'];
-	$mdp = $_POST['mdp'];
-
-	$req = "SELECT * FROM membre WHERE pseudo='$pseudo' AND mdp='$mdp'";
+	$req = "SELECT * FROM membre WHERE pseudo='$pseudo' AND mdp ='$mdp'";
 	$lancereq = $connex->query($req);
-  
-   //Récupérer tous les détails de Angular HTTP Request  
-    $postdata = file_get_contents ( "php: // input" ) ; 
-    $request = json_decode ($postdata) ; 
-    @ $login = $request->login ; 
-    @ $passe = $request->password ; 
-    echo $login ;
+
+	if($lancereq->num_rows != 0)
+	{
+		$membre = $lancereq->fetch_assoc();
+	}
+
+	echo json_encode($membre);
 
 ?>
