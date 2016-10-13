@@ -7,8 +7,10 @@
 		$('.flexslider').flexslider();
 	});
 
+// ANGULAR CODE
 	var app = angular.module('mainApp', ['ngRoute']);
 
+// le $routeProvider permet de définir les liens lors du clic
 	app.config(['$routeProvider', function($routeProvider) {
 
 		$routeProvider
@@ -35,17 +37,19 @@
 			});
 	}]);
 
+// permet de récuperer les valeurs en post sous format json
 	app.run(['$rootScope', '$http', function($rootScope, $http) {
 		$rootScope.isConnected = false;
 		$rootScope.signinData = {};
 		$rootScope.signin = function() {
 			console.log('sign in');
-			var SHA256 = new Hashes.SHA256;
+			var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 			$http({
 				url: 'ws/signin.php',
 				method: 'POST',
 				data: {
 					login: $rootScope.signinData.login,
+					// permet de crypter le password
 					password: SHA256.hex($rootScope.signinData.password)
 				},
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -55,8 +59,8 @@
 		};
 	}]);
 
+// directives pour la création des balises
 	app.directive('jlgHeader', function() {
-		console.log('Hello');
 		return {
 			restrict: 'E',
 			templateUrl: 'tmpl/jlg-header.html'
@@ -85,7 +89,5 @@
 	});
 
 	
-
-
 
 })();

@@ -3,3 +3,4 @@
 *.log
 *.bak
 *.DS_Store
+*config.ini*

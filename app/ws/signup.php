@@ -2,7 +2,6 @@
 	
 	define("BASE_DIR", ".");
 	require_once(BASE_DIR . "/include/misc.inc.php");
-	session_start();
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
@@ -13,6 +12,7 @@
 	$pseudo = $request->login;
 	// On récupère le password qu'on place dans une variable 
 	$mdp = $request->password;
+    $user = $request->password;
 
 	// On lance notre requête de vérification
 	$req = "SELECT * FROM membre WHERE pseudo='$pseudo' AND mdp ='$mdp'";

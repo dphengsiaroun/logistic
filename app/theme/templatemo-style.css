@@ -57,7 +57,7 @@ body { overflow-x: hidden; }
 	float: left;
 }
 .tm-nav li a {
-	color: #838383;
+	color: #fff;
 	display: block;
 	padding: 45px 20px 17px 20px;
 	font-size: 13px;
@@ -73,7 +73,7 @@ body { overflow-x: hidden; }
 .tm-nav li a.active,
 .tm-nav li a:focus,
 .tm-nav li a:hover {
-	background: #FCDD44;
+	background: #F5D11D;
 	color: #000;
 }
 
@@ -290,18 +290,44 @@ body { overflow-x: hidden; }
 }
 /* Footer */
 .tm-black-bg { background-color: #000; }
-.tm-copyright-text {
+.tm-copyright-text, 
+.tm-copyright-txt {
 	color: white;
 	text-align: center;
+	font-size: 12px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-.tm-copyright-text a {
+.tm-copyright-txt{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.tm-copyright-txt h3{
+	color: #FCDD44;
+    text-align: left;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid;
+}
+.tm-copyright-txt a i{
+	font-size: 45px;
+	margin: 0 5px;
+}
+.tm-copyright-txt a i:hover{
+	color:#fff;
+}
+.tm-copyright-text a, 
+.tm-copyright-txt a {
 	color: #FCDD44;
 }
 
 .tm-copyright-text a:hover {
 	color: white;
+}
+.tm-copyright-txt ul{
+	list-style-type: none;
+	text-align: left;
+	font-size: 15px;
 }
 
 .hotel-search-form .form-group { margin-bottom: 30px; }
@@ -657,7 +683,6 @@ hr { border-top: 1px solid #111010; }
 	border: none;
 	height: 40px;
 	text-transform: uppercase;
-	font-style: italic;
 	font-size: 12px;
 	font-weight: 600;
 }
