@@ -13,6 +13,7 @@
     "bootstrap-datepicker": "1.6.4",
     "moment": "2.15.1",
     "flexslider": "2.6.3",
-    "angular-route": "1.5.8"
+    "angular-route": "1.5.8",
+    "jshashes": "1.0.5"
   }
 }

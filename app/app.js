@@ -21,8 +21,14 @@
 			.when('/signup', {
 				templateUrl: 'tmpl/signup.html'
 			})
-			.when('/profile', {
-				templateUrl: 'tmpl/profile.html'
+			.when('/offers', {
+				templateUrl: 'tmpl/offers.html'
+			})
+			.when('/depot-annonce', {
+				templateUrl: 'tmpl/depot-annonce.html'
+			})
+			.when('/contact', {
+				templateUrl: 'tmpl/contact.html'
 			})
 			.otherwise({
 				redirectTo: '/'
@@ -34,10 +40,14 @@
 		$rootScope.signinData = {};
 		$rootScope.signin = function() {
 			console.log('sign in');
+			var SHA256 = new Hashes.SHA256;
 			$http({
 				url: 'ws/signin.php',
 				method: 'POST',
-				data: $rootScope.signinData,
+				data: {
+					login: $rootScope.signinData.login,
+					password: SHA256.hex($rootScope.signinData.password)
+				},
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {
 				console.log('response', response);
@@ -57,6 +67,13 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'tmpl/jlg-banner.html'
+		};
+	});
+
+	app.directive('jlgBannerpic', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'tmpl/jlg-bannerpic.html'
 		};
 	});
 
