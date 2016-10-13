@@ -1,8 +1,5 @@
 <?php
-	$host = 'localhost';
-	$user = 'root';
-	$mdp = 'root';
-	$bdd = 'logistic';
+	require_once("config.ini");
 
 	$connex = new mysqli($host, $user, $mdp, $bdd);
 
