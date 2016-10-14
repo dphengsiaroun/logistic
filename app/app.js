@@ -58,6 +58,18 @@
 			});
 		};
 
+		$rootScope.signupData = {
+			login: 'test',
+			// permet de crypter le password
+			password: 'test',
+			lastname: 'mon nom',
+			firstname: 'mon prenom',
+			email: 'email@email.com',
+			address: 'mon adresse',
+			zipcode: '77200'
+
+		};
+
 		$rootScope.signup = function() {
 			console.log('sign up');
 			var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
@@ -65,13 +77,17 @@
 				url: 'ws/signup.php',
 				method: 'POST',
 				data: {
-					login: $rootScope.signinData.login,
+					login: $rootScope.signupData.login,
 					// permet de crypter le password
-					password: SHA256.hex($rootScope.signinData.password),
-					lastname: $rootScope.signinData.lastname,
-					firstname: $rootScope.signinData.firstname,
-					email: $rootScope.signinData.email,
-					//login: $rootScope.signinData.login,
+					password: SHA256.hex($rootScope.signupData.password),
+					lastname: $rootScope.signupData.lastname,
+					firstname: $rootScope.signupData.firstname,
+					email: $rootScope.signupData.email,
+					address: $rootScope.signupData.address,
+					zipcode: $rootScope.signupData.zipcode
+					//address: $rootScope.signupData.address
+					//address: $rootScope.signupData.address,
+
 
 				},
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

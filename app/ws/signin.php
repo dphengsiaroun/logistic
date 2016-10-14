@@ -18,11 +18,12 @@
 
 	// On lance notre requête de vérification
 	$req = "SELECT * FROM membre WHERE pseudo='$pseudo' AND mdp ='$mdp'";
-	$sqlResult = $connex->query($req);
+	$sqlResult = $db->query($req);
 
 	// Si le résultat est différent de 0 alors on récupère les données 
-	if ($sqlResult->num_rows != 0) {
-		$result = $sqlResult->fetch_assoc(); // On le transforme en tableau array
+	if ($sqlResult->rowCount() != 0) {
+		$result = $sqlResult->fetch(PDO::FETCH_ASSOC); // On le transforme en tableau array
+
 		$result['status'] = 'ok';
 	} else {
 		$result['status'] = 'ko';
