@@ -9,22 +9,20 @@
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
 	// on décode le json en variable PHP
-    $request = json_decode($postdata); 
-
-	// On récupère le login qu'on place dans une variable
-	$pseudo = $request->login;
-	// On récupère le password qu'on place dans une variable 
-	$mdp = $request->password;
+    $request = json_decode($postdata);
+	debug("start");
+	debug_r("request", $request);
 
 	// On lance notre requête de vérification
-	$req = "SELECT * FROM membre WHERE pseudo='$pseudo' AND mdp ='$mdp'";
-	$sqlResult = $db->query($req);
+	$sql = "SELECT * FROM account WHERE email='{$request->email}' AND password ='{$request->password}'";
+	$sqlResult = $db->query($sql);
 
 	// Si le résultat est différent de 0 alors on récupère les données 
 	if ($sqlResult->rowCount() != 0) {
 		$result = $sqlResult->fetch(PDO::FETCH_ASSOC); // On le transforme en tableau array
 
 		$result['status'] = 'ok';
+		$result['content'] = json_decode($result['content']);
 	} else {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = ERROR_BAD_LOGIN_MSG;

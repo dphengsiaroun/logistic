@@ -48,7 +48,7 @@
 				url: 'ws/signin.php',
 				method: 'POST',
 				data: {
-					login: $rootScope.signinData.login,
+					email: $rootScope.signinData.email,
 					// permet de crypter le password
 					password: SHA256.hex($rootScope.signinData.password)
 				},
@@ -59,14 +59,16 @@
 		};
 
 		$rootScope.signupData = {
-			login: 'test',
-			// permet de crypter le password
+			email: 'email@email.com',
 			password: 'test',
 			lastname: 'mon nom',
 			firstname: 'mon prenom',
-			email: 'email@email.com',
-			address: 'mon adresse',
-			zipcode: '77200'
+			address: {
+				street: '99 rue de Paris',
+				city: 'Torcy',
+				zipcode: '77200',
+				country: 'France'
+			}
 
 		};
 
@@ -77,18 +79,14 @@
 				url: 'ws/signup.php',
 				method: 'POST',
 				data: {
-					login: $rootScope.signupData.login,
+					email: $rootScope.signupData.email,
 					// permet de crypter le password
 					password: SHA256.hex($rootScope.signupData.password),
-					lastname: $rootScope.signupData.lastname,
-					firstname: $rootScope.signupData.firstname,
-					email: $rootScope.signupData.email,
-					address: $rootScope.signupData.address,
-					zipcode: $rootScope.signupData.zipcode
-					//address: $rootScope.signupData.address
-					//address: $rootScope.signupData.address,
-
-
+					content: {
+						lastname: $rootScope.signupData.lastname,
+						firstname: $rootScope.signupData.firstname,
+						address: $rootScope.signupData.address
+					}
 				},
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {

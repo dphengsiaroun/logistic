@@ -13,7 +13,7 @@
 				<div class="col-lg-3 col-md-6 tm-contact-form-input"></div>
 					<div class="col-lg-6 col-md-6 tm-contact-form-input">
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signupData.login" placeholder="Pseudo" />
+							<input type="email" id="contact_email" class="form-control" ng-model="signupData.email" placeholder="Email" />
 						</div>
 						<div class="form-group">
 							<input type="password" id="contact_subject" class="form-control" ng-model="signupData.password" placeholder="Mot de passe" />
@@ -25,19 +25,16 @@
 							<input type="text" id="contact_name" class="form-control" ng-model="signupData.firstname" placeholder="Prénom" />
 						</div>
 						<div class="form-group">
-							<input type="email" id="contact_email" class="form-control" ng-model="signupData.email" placeholder="Email" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signupData.address.street" placeholder="Adresse" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signupData.address" placeholder="Adresse" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signupData.address.zipcode" placeholder="Code postal" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signupData.zipcode" placeholder="Code postal" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signupData.address.city" placeholder="Ville" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signupData.city" placeholder="Ville" />
-						</div>
-						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signupData.country" placeholder="Pays" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signupData.address.country" placeholder="Pays" />
 						</div>
 						<div class="form-group">
 							<button class="tm-submit-btn" type="submit" name="record">Valider</button> 
