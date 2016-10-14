@@ -1,4 +1,4 @@
-installation
+Installation
 
 <form name="installForm" ng-submit="install()">
     <label for="hostname">Hostname</label>
@@ -9,6 +9,11 @@ installation
     <input type="text" id="password" ng-model="obj.password" /><br/>
     <label for="databaseName">Database name</label>
     <input type="text" id="databaseName" ng-model="obj.databaseName" /><br/>
+
+   
+    <input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
+    <label for="dbCreation">Create the tables</label><br/>
+    
 
     <input type="submit" value="Install" />
 </form>

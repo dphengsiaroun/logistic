@@ -1,7 +1,9 @@
 <?php
 	
 	define("BASE_DIR", ".");
+	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
+	require_once(BASE_DIR . "/include/database.inc.php");
 	session_start();
 	
 	// Permet de récuperer les données au format Json
@@ -16,15 +18,18 @@
 
 	// On lance notre requête de vérification
 	$req = "SELECT * FROM membre WHERE pseudo='$pseudo' AND mdp ='$mdp'";
-	$lancereq = $connex->query($req);
+	$sqlResult = $connex->query($req);
 
 	// Si le résultat est différent de 0 alors on récupère les données 
-	if ($lancereq->num_rows != 0) {
-		$membre = $lancereq->fetch_assoc(); // On le transforme en tableau array
+	if ($sqlResult->num_rows != 0) {
+		$result = $sqlResult->fetch_assoc(); // On le transforme en tableau array
+		$result['status'] = 'ok';
+	} else {
+		$result['status'] = 'ko';
+		$result['errorMsg'] = ERROR_BAD_LOGIN_MSG;
+		$result['errorCode'] = ERROR_BAD_LOGIN_CODE;
 	}
 
-	$membre['pseudo2'] = $pseudo;
-
 	// On encode le tableau array en format json pour angular
-	echo json_encode($membre);
+	echo json_encode($result);
 ?>
