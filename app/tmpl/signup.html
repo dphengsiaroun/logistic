@@ -9,54 +9,38 @@
 			</div>
 			<div class="row">
 				<!-- contact form -->
-				<form action="#" method="post" class="tm-contact-form">
+				<form name="signupForm" ng-submit="signup()" class="tm-contact-form">
 				<div class="col-lg-3 col-md-6 tm-contact-form-input"></div>
 					<div class="col-lg-6 col-md-6 tm-contact-form-input">
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signinData.pseudo" placeholder="Pseudo" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signinData.login" placeholder="Pseudo" />
 						</div>
 						<div class="form-group">
 							<input type="password" id="contact_subject" class="form-control" ng-model="signinData.password" placeholder="Mot de passe" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signinData.nom" placeholder="Nom" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signinData.lastname" placeholder="Nom" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signinData.prenom" placeholder="Prénom" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signinData.firstname" placeholder="Prénom" />
 						</div>
 						<div class="form-group">
 							<input type="email" id="contact_email" class="form-control" ng-model="signinData.email" placeholder="Email" />
 						</div>
-						<div class="radio">
-						  <label class="checkbox-inline">
-						    <input type="radio" id="optionsRadios1" ng-model="signinData.sexe" checked>
-						    Homme 
-						  </label>
-						  <label class="checkbox-inline">
-						    <input type="radio" id="optionsRadios1" ng-model="signinData.sexe">
-						    Femme 
-						  </label>
+						<div class="form-group">
+							<input type="text" id="contact_name" class="form-control" ng-model="signinData.address" placeholder="Adresse" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signinData.adresse" placeholder="Adresse" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signinData.zipcode" placeholder="Code postal" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signinData.cp" placeholder="Code postal" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signinData.city" placeholder="Ville" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signinData.ville" placeholder="Ville" />
+							<input type="text" id="contact_name" class="form-control" ng-model="signinData.country" placeholder="Pays" />
 						</div>
 						<div class="form-group">
-							<input type="text" id="contact_name" class="form-control" ng-model="signinData.pays" placeholder="Pays" />
-						</div>
-						<!--<div class="form-group">
-							<select class="form-control">
-							  <option>1</option>
-							  <option>2</option>
-							</select>
-						</div>-->
-						<div class="form-group">
-							<button class="tm-submit-btn" type="submit" name="enregistrer" ng-click="insertData()">Valider</button> 
+							<button class="tm-submit-btn" type="submit" name="record">Valider</button> 
 						</div>
 					</div>
 				</form>

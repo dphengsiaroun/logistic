@@ -57,6 +57,28 @@
 				console.log('response', response);
 			});
 		};
+
+		$rootScope.signup = function() {
+			console.log('sign up');
+			var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
+			$http({
+				url: 'ws/signup.php',
+				method: 'POST',
+				data: {
+					login: $rootScope.signinData.login,
+					// permet de crypter le password
+					password: SHA256.hex($rootScope.signinData.password),
+					lastname: $rootScope.signinData.lastname,
+					firstname: $rootScope.signinData.firstname,
+					email: $rootScope.signinData.email,
+					//login: $rootScope.signinData.login,
+
+				},
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			}).then(function(response) {
+				console.log('response', response);
+			});
+		};
 	}]);
 
 // directives pour la création des balises

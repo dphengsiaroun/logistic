@@ -150,7 +150,13 @@ body { overflow-x: hidden; }
 	position: relative;
 	top: -50px;
 }
-.form-control {	border-radius: 0; }
+.form-control {	border-radius: 0; height: 45px;}
+.msgError{
+	color: red;
+	background: none;
+	border: none;
+	padding: 0;
+}
 .form-control:focus {
 	border-color: #FCDD44;
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(252, 221, 68, 0.6);
@@ -329,7 +335,15 @@ body { overflow-x: hidden; }
 	text-align: left;
 	font-size: 15px;
 }
-
+.link{
+	text-align: center;
+}
+.btnRadio{
+	 margin-bottom: 15px;
+}
+.sexe{
+	border-radius: 0;
+}
 .hotel-search-form .form-group { margin-bottom: 30px; }
 
 /*Section 2, index.html */
