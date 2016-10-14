@@ -30,7 +30,7 @@
 		return FALSE;
 	}
 
-	function default_str($val1, $val2) {
+	function default_str(&$val1, $val2) {
 		if (is_null_or_empty($val1)) {
 			return $val2;
 		}

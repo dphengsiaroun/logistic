@@ -44,7 +44,10 @@
 		var $location = $injector.get('$location');
 
 		$rootScope.isConnected = false;
-		$rootScope.signinData = {};
+		$rootScope.signinData = {
+			email: 'email@email.com',
+			password: 'test'
+		};
 		$rootScope.signin = function() {
 			console.log('sign in');
 			var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
@@ -111,6 +114,24 @@
 				$rootScope.isSignupError = false;
 				$rootScope.account = data;
 				$rootScope.isConnected = true;
+				$location.path('/');
+			});
+		};
+
+		$rootScope.signout = function() {
+			console.log('sign out');
+			$http({
+				url: 'ws/signout.php',
+				method: 'GET'
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === "ko") {
+					$rootScope.isSignoutError = true;
+					return;
+				}
+				$rootScope.isSignoutError = false;
+				$rootScope.account = undefined;
+				$rootScope.isConnected = false;
 				$location.path('/');
 			});
 		};
