@@ -114,6 +114,24 @@
 				$location.path('/');
 			});
 		};
+
+		$rootScope.isConnected = function() {
+			console.log('is connected?', arguments);
+			$http({
+				url: 'ws/isConnected.php',
+				method: 'GET'
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === "ko") {
+					$rootScope.isConnected = false;
+					return;
+				}
+				$rootScope.isConnected = true;
+				$rootScope.account = response.data;
+			});
+		};
+
+		$rootScope.isConnected();
 	}]);
 
 // directives pour la création des balises

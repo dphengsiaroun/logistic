@@ -4,6 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
+	session_start();
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
