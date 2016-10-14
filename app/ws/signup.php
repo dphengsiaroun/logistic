@@ -35,6 +35,7 @@ EOF;
 			throw new Exception("Table creation: ".sprint_r($db->errorInfo()));
 		}
 		$result['status'] = 'ok';
+		$_SESSION['email'] = $request->email;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

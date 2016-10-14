@@ -16,7 +16,7 @@
 							<li><a href="#/contact">Contact</a></li>
 							<li><a href="#/depot-annonce" class="active size-li">Déposer <br/>une annonce</a></li>
 							<li ng-show="!isConnected"><a href="#/signin"><i class="fa fa-user" aria-hidden="true"></i> Se connecter</a></li>
-							<li ng-show="isConnected"><a href="profil.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+							<li ng-show="isConnected"><a href="profil.php"><i class="fa fa-user" aria-hidden="true"></i> {{account.email}}</a></li>
 							<li ng-show="isConnected"><a href="connexion.php?action=deconnexion"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
 						</ul>
 					</nav>		

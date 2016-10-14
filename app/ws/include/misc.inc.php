@@ -17,6 +17,26 @@
 		file_put_contents('trace.log', $msg . " " . sprint_r($content) . "\n", FILE_APPEND);
 	}
 
+	function is_null_or_empty(&$var) {
+		if (!isset($var)) {
+			return TRUE;
+		}
+		if ($var == NULL) {
+			return TRUE;
+		}
+		if ($var == "") {
+			return TRUE;
+		}
+		return FALSE;
+	}
+
+	function default_str($val1, $val2) {
+		if (is_null_or_empty($val1)) {
+			return $val2;
+		}
+		return $val1;
+	}
+
 
 ?>
 
