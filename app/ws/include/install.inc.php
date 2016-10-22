@@ -78,7 +78,7 @@ EOF;
 	}
 
 	function removeConfigIniFile() {
-
+		unlink(CONFIG_INI);
 	}
 
 
