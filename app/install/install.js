@@ -7,7 +7,8 @@
 
 		$routeProvider
 			.when('/', {
-				templateUrl: 'tmpl/home.html'
+				templateUrl: 'tmpl/home.html',
+				controller: 'HomeCtrl'
 			})
 			.when('/install', {
 				templateUrl: 'tmpl/install.html'
@@ -72,8 +73,12 @@
 			});
         };
 
-		$rootScope.isInstalled();
+	}]);
 
+	app.controller('HomeCtrl', ['$injector', function($injector) {
+		console.log('HomeCtrl', arguments);
+		var $rootScope = $injector.get('$rootScope');
+		$rootScope.isInstalled();
 	}]);
 
 })();
