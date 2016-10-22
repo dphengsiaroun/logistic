@@ -49,6 +49,7 @@
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {
 				console.log('response', response);
+				$location.path('/successfully-installed');
 			}).catch(function(error) {
 				console.error('error', error);
 			});
@@ -68,6 +69,19 @@
 					console.log('no');
 					$location.path('/install');
 				}
+			}).catch(function(error) {
+				console.error('error', error);
+			});
+        };
+
+		$rootScope.uninstall = function() {
+            console.log('uninstall', arguments);
+			 $http({
+				url: '../ws/uninstall.php',
+				method: 'GET'
+			}).then(function(response) {
+				console.log('response', response);
+				$location.path('/install');
 			}).catch(function(error) {
 				console.error('error', error);
 			});
