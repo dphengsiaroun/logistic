@@ -30,6 +30,7 @@
 
 		var $rootScope = $injector.get('$rootScope');
 		var $http = $injector.get('$http');
+		var $location = $injector.get('$location');
 
         $rootScope.obj = {
             hostname: 'localhost',
@@ -60,9 +61,11 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.answer === 'yes') {
-					$location.hash('/already-installed');
+					console.log('yes');
+					$location.path('/already-installed');
 				} else {
-					$location.hash('/install');
+					console.log('no');
+					$location.path('/install');
 				}
 			}).catch(function(error) {
 				console.error('error', error);

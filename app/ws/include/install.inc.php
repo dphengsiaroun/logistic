@@ -1,5 +1,13 @@
 <?php
 
+	function isConfigIniFileExisting() {
+		return true;
+	}
+
+	function isDatabaseExisting() {
+		return true;
+	}
+
 	// fonction qui permet de créer le fichier config.ini afin de verifier les données récuperer
 	function createConfigIniFile($request) {
 		$content = <<<EOF
