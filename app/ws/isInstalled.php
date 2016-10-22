@@ -13,7 +13,7 @@
 	debug_r("start", $mdp);
 	debug_r("start", $bdd);
 	$result = array(
-		"result" => "ok"
+		"status" => "ok"
 	);
 	try {
 		if (!isConfigIniFileExisting()) {

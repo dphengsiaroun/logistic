@@ -37,6 +37,16 @@
 		return $val1;
 	}
 
+	function initAttr(&$object, $key) {
+		$array = (array)$object;
+		if (array_key_exists($key, $array)) {
+			return;
+		}
+
+		$array[$key] = NULL;
+		$object = (object)$array;
+	}
+
 
 ?>
 

@@ -49,7 +49,13 @@
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {
 				console.log('response', response);
-				$location.path('/successfully-installed');
+				if (response.data.status === 'ok') {
+					$location.path('/successfully-installed');
+				} else {
+					$rootScope.errorMsg = response.data;
+					$location.path('/install-failed');
+				}
+				
 			}).catch(function(error) {
 				console.error('error', error);
 			});

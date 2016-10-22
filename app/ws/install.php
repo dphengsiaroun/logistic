@@ -12,6 +12,7 @@
 		debug("start2");
 		// on décode le json en variable PHP
 		$request = json_decode($postdata);
+		initAttr($request, 'dbCreation');
 		debug("start2");
 		debug("request=" . $request->username);
 		debug("dbCreation=" . $request->dbCreation);
@@ -21,14 +22,14 @@
 
 
 		$result = array(
-			"result" => "ok"
+			"status" => "ok"
 		);
 
 		// On encode le tableau array en format json pour angular
 		echo json_encode($result);
 	} catch (Exception $e) {
 		echo json_encode(array(
-			"result" => "ko",
+			"status" => "ko",
 			"errorMsg" => $e->getMessage()
 		));
 	}
