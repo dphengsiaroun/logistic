@@ -1,11 +1,20 @@
 <?php
 
 	function isConfigIniFileExisting() {
-		return true;
+		global $host, $user, $mdp, $bdd;
+		return isset($host)
+		&& isset($user)
+		&& isset($mdp)
+		&& isset($bdd);
 	}
 
 	function isDatabaseExisting() {
-		return true;
+		global $host, $user, $mdp, $bdd, $db;
+		$sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$bdd'";
+		$sqlResult = $db->query($sql);
+
+		// Si le résultat est différent de 0 alors on récupère les données 
+		return ($sqlResult->rowCount() != 0);
 	}
 
 	// fonction qui permet de créer le fichier config.ini afin de verifier les données récuperer
