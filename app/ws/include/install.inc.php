@@ -66,9 +66,17 @@ EOF;
 	}
 
 	function removeDatabase() {
-
+		global $host, $user, $mdp, $bdd, $db;
+		$sql = <<<EOF
+DROP DATABASE IF EXISTS $bdd;
+EOF;
+		$st = $db->prepare($sql,
+			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute() === FALSE) {
+			throw new Exception("Table creation: ".sprint_r($db->errorInfo())." InnoDB?");
+		}
 	}
-	
+
 	function removeConfigIniFile() {
 
 	}
