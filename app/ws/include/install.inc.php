@@ -35,7 +35,7 @@ EOF;
 		//chmod(CONFIG_INI, 0400);
 	}
 
-	function install($request) {
+	function installDatabase($request) {
 		try {
 			debug("Starting to install: " . "mysql:host=$request->hostname");
 			$db = new PDO("mysql:host={$request->hostname}", $request->username, $request->password);
@@ -63,6 +63,14 @@ EOF;
 		} catch (Exception $e) {
 			throw $e;
 		}
+	}
+
+	function removeDatabase() {
+
+	}
+	
+	function removeConfigIniFile() {
+
 	}
 
 

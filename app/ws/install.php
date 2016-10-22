@@ -17,7 +17,7 @@
 		debug("dbCreation=" . $request->dbCreation);
 
 		createConfigIniFile($request);
-		install($request);
+		installDatabase($request);
 
 
 		$result = array(
