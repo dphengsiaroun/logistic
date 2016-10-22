@@ -52,6 +52,25 @@
 			});
         };
 
+		$rootScope.isInstalled = function() {
+            console.log('isInstalled', arguments);
+            $http({
+				url: '../ws/isInstalled.php',
+				method: 'GET'
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.answer === 'yes') {
+					$location.hash('/already-installed');
+				} else {
+					$location.hash('/install');
+				}
+			}).catch(function(error) {
+				console.error('error', error);
+			});
+        };
+
+		$rootScope.isInstalled();
+
 	}]);
 
 })();
