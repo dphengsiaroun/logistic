@@ -91,7 +91,7 @@ jlg-header {
 /* Menu content */
 
 .lg-menu-content {
-    display: block;
+    display: none;
     background-color: white;
 }
 
@@ -174,8 +174,9 @@ jlg-header {
     color: black;
 }
 
-.square a img {
+.square a img, .square a svg {
     width: 85px;
+    height: 85px;
 }
 
 .square a p {
