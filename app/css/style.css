@@ -1,0 +1,596 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(font/SourceSansPro.woff) format('woff');
+}
+
+* { 
+     box-sizing: border-box; 
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+
+/* Header */
+
+nav {
+    padding:0px;
+    background-color: #223c5d;
+    width: 100%;
+    display: table;
+}
+.back {
+    display: table-cell;
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    vertical-align: top;
+    padding: 12px 4px;
+}
+.back i {
+    color: #fff;
+    font-size: 50px;
+}
+.logo {
+    display: table-cell;
+    text-align: center;
+
+}
+.logo img {
+    width: 60px;
+    margin-top: 11px;
+}
+.menu {
+    display: table-cell;
+    margin: 0px;
+    width: 50px;
+    vertical-align: top;
+    padding: 12px 4px;
+}
+.menu i{
+    color: #fff;
+    font-size: 50px;
+}
+
+/* Home */
+
+.tagline {
+    text-align: center;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.home {
+    margin: 0px;
+    padding: 0px;
+}
+    
+.home h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #223c5d;
+    text-align: center;
+}
+
+.square-parent {
+    width: 100%;
+    font-size: 0px;
+    margin: 0px;
+    padding: 0px 5px;
+}
+
+.square {
+    display: inline-block;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.square > div {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 10px;
+}
+
+.square a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #ffea5b;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 15px 0px;
+    color: black;
+}
+
+.square a img {
+    width: 85px;
+}
+
+.square a p {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Footer */
+
+footer p {
+    color: hsla(0, 0%, 80%, 1);
+    padding: 0px 20px;
+    text-align: center;
+    margin: 0px;
+}
+
+
+    /**** FIN HOME ****/
+        
+    /**** CREER ANNONCE STEP 1 ****/
+    .banner{
+        text-align: center;
+        width: 100%;
+        background: #ffea5b;
+        padding: 50px 20px;
+    }
+    .banner h1{
+        font-size: 75px;
+        margin: 20px 0;
+    }
+    .banner h2{
+        font-size: 50px;
+        margin: 20px 0;
+    }
+    .banner img{
+        width: 250px;
+    }
+    .form{
+        text-align: center;
+        width: 100%;
+        padding: 50px 20px;
+    }
+    .form form{
+        width: 100%;
+        font-size: 35px;
+        margin: 0 auto;
+    }
+    .form form>input{
+        width: 75%;
+        height: 80px;
+        margin: 20px;
+        font-size: 35px;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #d5d5d5;
+    }
+    .form form>label{
+        margin-bottom: 20px;
+    }
+    .form span{
+        position: relative;
+        background: #fff;
+        color: #223c5d;
+        padding: 0 54px;
+        top: -53px;
+        font-size: 50px;
+    }
+    .dimension{
+        width: 96%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .dimension img {
+        width: 200px;
+    }
+    .hauteur, .largeur, .profondeur{
+        float: left;
+        width: 313px;
+    }
+    .dimension input{
+        width: 40%;
+        height: 110px;
+        text-align: center;
+        font-size: 35px;
+        padding: 20px;
+        border: none;
+        border-left: 2px solid #d5d5d5;
+        border-right: 2px solid #d5d5d5;
+    }
+    .plus, .moins{
+        background: #01c3a7;
+        color: #fff;
+        border: none;
+        width: 168px;
+        height: 140px;
+        font-size: 65px;
+    }
+    .plus{
+        border-radius: 10px 10px 0 0;
+    }
+    .moins{
+        border-radius: 0 0 10px 10px;
+    }
+    .photo input{
+        font-size: 26px;
+        width: 50%;
+        margin: 30px 0 80px;
+        padding: 100px;
+        border-radius: 10px;
+        background: #efefef;
+    }
+    .qty{
+        width: 40%;
+        height: 80px;
+    }
+    .complement{
+        margin-bottom: 40px;
+    }
+    .complement input{
+        width: 40%;
+        height: 90px;
+        text-align: center;
+        font-size: 35px;
+        padding: 20px;
+        margin-top: 23px;
+        border: none;
+        border-top: 2px solid #d5d5d5;
+        border-bottom: 2px solid #d5d5d5;
+    }
+    .plus2, .moins2{
+        background: #01c3a7;
+        color: #fff;
+        border: none;
+        position: relative;
+        top: 11px;
+        width: 171px;
+        height: 134px;
+        font-size: 65px;
+    }
+    .plus2{
+        border-radius: 10px 0 0 10px;
+    }
+    .moins2{
+        border-radius: 0 10px 10px 0;
+    }
+    .bouton input{
+        width: 80%;
+        background: #01c3a7;
+        color: #fff;
+        height: 150px;
+        font-size: 40px;
+        border: none;
+        border-radius: 10px;
+    }
+    /**** FIN CREER ANNONCE STEP 1 ****/
+
+    /**** CREER ANNONCE STEP 2 ****/
+    .valide{
+        text-align: center;
+        width: 100%;
+        padding: 50px 20px;
+    }
+    .valide h1{
+        font-size: 75px;
+        margin: 20px 0;
+    }
+    .valide h2{
+        font-size: 50px;
+        margin: 100px 0;
+    }
+    .valide img{
+        width: 250px;
+        margin-top: 60px;
+    }
+    .valide a{
+        padding: 60px 145px;
+        background: #01c3a7;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 40px;
+    }
+    /**** FIN CREER ANNONCE STEP 2 ****/
+
+    /**** AJOUT SOCIETE ****/
+
+    .adresse input{
+        width: 75%;
+        height: 450px;
+        margin: 20px;
+        font-size: 35px;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #d5d5d5;
+    }
+    /**** FIN AJOUT SOCIETE ****/
+
+    /**** INSCRIPTION ****/
+    .ou{
+        font-size: 40px;
+        width: 200px;
+        top: -69px;
+        left: 390px;
+        background: #fff;
+        position: relative;
+    }
+    .ou2{
+        font-size: 40px;
+        width: 200px;
+        top: 63px;
+        left: 390px;
+        background: #fff;
+        position: relative;
+    }
+    .creer-compte{
+        border-top: 1px solid #d5d5d5;
+        border-bottom: 1px solid #d5d5d5;
+        margin-top: 150px;
+    }
+    .creer-compte a{
+        text-decoration: none;
+        font-size: 45px;
+        color: #223c5d;
+    }
+    .connect-fbg{
+        margin-top: 100px;
+    }
+    .connect-fbg img{
+        width: 100px;
+        float: left;
+    }
+    .btn-fb, .btn-google{
+        float: left;
+        width: 400px;
+        height: 100px;
+        margin: 0 44px;
+        text-align: left;
+    }
+    .btn-fb{
+        border: 1px solid #3a559f;
+    }
+    .btn-google{
+        border: 1px solid #db402c;
+    }
+    .lien{
+        float: left;
+        font-size: 40px;
+        margin: 23px 40px;
+    }
+    .lien-fb a{
+        color: #3a559f;
+    }
+    .lien-google a{
+        color: #db402c;
+    }
+
+    /**** COMPTE CREE ****/
+    .compte-cree{
+        width: 890px;
+        padding: 65px;
+        text-align: center;
+    }
+    .compte-cree div{
+        margin-left: 20px;
+    }
+    .compte-cree h3{
+        font-size: 60px;
+        margin-top: 60px;
+        color: #233e60;
+    }
+    .compte-cree p{
+        font-size: 30px;
+        margin: 150px 0;
+    }
+    .oui{
+        font-size: 40px;
+        border: 1px solid #01c3a7;
+        padding: 30px 50px;
+        margin: 50px;
+        color: #01c3a7;
+    }
+    .non{
+        font-size: 40px;
+        border: 1px solid tomato;
+        padding: 30px 50px;
+        margin: 50px;
+        color: tomato;
+    }
+    /**** FIN COMPTE CREE ****/
+
+    /**** LISTE ANNONCE ****/
+    .banner-annonce{
+        width: 100%;
+        padding: 65px 20px;
+        background: #ffea5b;
+    }
+    .banner-annonce img{
+        width: 114px;
+        float: left;
+        margin-left: 30px;
+    }
+    .banner-annonce h1{
+        font-size: 60px;
+        margin: 20px 0 20px 120px;
+        float: left;
+    }
+    .liste-annonce{
+        width: 1020px;
+    }
+    .block-annonce{
+        height: 251px;
+        border: 1px solid #d5d5d5;
+        border-left: none;
+        border-right: none;
+    }
+    .identity{
+        background: #01c3a7;
+        color: #fff;
+        padding: 0 50px;
+    float: left;
+    height: 251px;
+    line-height: 244px;
+    font-size: 95px;
+    }
+    .details{
+        float: left;
+        margin: 4px 28px;
+        width: 70%;
+    }
+    .details p{
+        color: #223c5d;
+        font-size: 50px;
+        margin: 20px 0;
+    }
+    .details-comp div{
+        margin: 15px 0 0;
+    }
+    .date, .duree{
+        font-size: 40px;
+    }
+    .date{
+        color: #d5d5d5;
+    }
+    .duree{
+        margin-left: 62px;
+        color: #01c3a7;
+    }
+    .vehicule, .tarif{
+        font-size: 40px;
+        color: #000
+    }
+    .tarif{
+        margin-left: 158px;
+        color: #01c3a7;
+    }
+    /**** FIN LISTE ANNONCE ****/
+
+    /**** DETAILS ANNONCE ****/
+    .details-annonce{
+        width: 1020px;
+    }
+    .recap{
+        width: 890px;
+        padding: 65px;
+        min-height: 1350px;
+    }
+    .recap h3{
+        margin-top: 100px;
+        font-size: 50px;
+    }
+    .publie, .expire{
+        color: #d5d5d5;
+        font-size: 40px;
+    }
+    .recap h2{
+        margin-top: 100px;
+        margin-bottom: 130px;
+        font-size: 61px;
+        text-align: center;
+    }
+    .recap a{
+        padding: 100px 164px;
+        margin: 30px 84px;
+        background: #01c3a7;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 40px;
+    }
+    .recap p{
+        font-size: 40px;
+    }
+    /**** FIN DETAILS ANNONCE ****/
+
+    /**** CREER PROPOSITION TRANSPORTEUR/CHARGEUR ****/
+    .proposition{
+        width: 890px;
+        padding: 65px;
+    }
+    .proposition h1{
+        font-size: 70px;
+        text-align: center;
+    }
+    .form-proposition{
+        text-align: left;
+        padding: 50px 20px;
+    }
+    .form-proposition form{
+        width: 100%;
+        font-size: 35px;
+        margin: 0 auto;
+    }
+    .form-proposition form>input{
+        width: 94%;
+        height: 80px;
+        margin: 20px;
+        font-size: 35px;
+        position: relative;
+        left: -19px;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #d5d5d5;
+    }
+    .form-proposition form>label{
+        margin-bottom: 20px;
+    }
+    .btn-proposition input{
+        width: 844px;
+        background: #01c3a7;
+        color: #fff;
+        height: 150px;
+        font-size: 40px;
+        border: none;
+        border-radius: 10px;
+    }
+    .tarif-initial{
+        width: 637px;
+        margin: 0 auto 40px;
+    }
+    .tarif-initial input{
+        width: 40%;
+        height: 90px;
+        text-align: center;
+        font-size: 35px;
+        padding: 20px;
+        margin-top: 23px;
+        border: none;
+        border-top: 2px solid #d5d5d5;
+        border-bottom: 2px solid #d5d5d5;
+    }
+    /**** FIN CREER PROPOSITION TRANSPORTEUR/CHARGEUR ****/
+    .message{
+        width: 890px;
+        padding: 65px;
+        text-align: center;
+    }
+    .message h1{
+        font-size: 65px;
+        text-align: center;
+        margin-bottom: 200px;
+        margin-top: 100px;
+    }
+    .message a{
+        padding: 100px;
+        background: #01c3a7;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 40px;
+    }
