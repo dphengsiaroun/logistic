@@ -6,7 +6,14 @@
 }
 
 * { 
-     box-sizing: border-box; 
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    color: #223c5d;
+}
+
+svg {
+    fill: #223c5d;
 }
 
 body {
@@ -20,6 +27,7 @@ h1, h2, h3, h4, h5, h6{
 }
 a {
     text-decoration: none;
+    color: #223c5d;
 }
 .clear {
     clear: both;
@@ -28,11 +36,25 @@ a {
 /* Header */
 
 nav {
+    position: fixed;
+    top: 0px;
+    height: 75px;
     padding:0px;
-    background-color: #223c5d;
     width: 100%;
-    display: table;
+    display: block;
 }
+
+nav > div {
+    display: table;
+    width: 100%;
+    background-color: #223c5d;
+}
+
+jlg-header {
+    display: block;
+    height: 75px;
+}
+
 .back {
     display: table-cell;
     width: 50px;
@@ -59,12 +81,42 @@ nav {
     margin: 0px;
     width: 50px;
     vertical-align: top;
-    padding: 12px 4px;
+    padding: 12px 10px;
 }
 .menu i{
     color: #fff;
     font-size: 50px;
 }
+
+/* Menu content */
+
+.lg-menu-content {
+    display: block;
+    background-color: white;
+}
+
+.lg-menu-content a {
+    display: block;
+    border: 1px solid #223c5d;
+    padding: 10px; 
+    width: 100%;
+    font-size: 30px;
+}
+
+.lg-menu-content a i {
+    display: inline-block;
+    width: 30%;
+    font-size: 50px;
+    height: 100%;
+}
+
+.lg-menu-content a span {
+    display: inline-block;
+    vertical-align: top;
+    padding: 6px;
+    height: 100%;
+}
+
 
 /* Home */
 
