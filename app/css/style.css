@@ -2,7 +2,7 @@
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 400;
-  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(font/SourceSansPro.woff) format('woff');
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(../font/SourceSansPro.woff) format('woff');
 }
 
 * { 
@@ -217,18 +217,16 @@ footer p {
     .form{
         text-align: center;
         width: 100%;
-        padding: 50px 20px;
     }
     .form form{
         width: 100%;
-        font-size: 35px;
+        font-size: 20px;
         margin: 0 auto;
     }
     .form form>input{
         width: 75%;
-        height: 80px;
         margin: 20px;
-        font-size: 35px;
+        font-size: 15px;
         padding: 20px;
         border-radius: 10px;
         border: 2px solid #d5d5d5;
@@ -323,11 +321,11 @@ footer p {
         border-radius: 0 10px 10px 0;
     }
     .bouton input{
-        width: 80%;
+        width: 74%;
         background: #01c3a7;
         color: #fff;
-        height: 150px;
-        font-size: 40px;
+        height: 90px;
+        font-size: 20px;
         border: none;
         border-radius: 10px;
     }
@@ -375,44 +373,33 @@ footer p {
     /**** FIN AJOUT SOCIETE ****/
 
     /**** INSCRIPTION ****/
-    .ou{
-        font-size: 40px;
+    .ou, .ou2{
+        font-size: 20px;
         width: 200px;
-        top: -69px;
-        left: 390px;
         background: #fff;
-        position: relative;
-    }
-    .ou2{
-        font-size: 40px;
-        width: 200px;
-        top: 63px;
-        left: 390px;
-        background: #fff;
-        position: relative;
     }
     .creer-compte{
         border-top: 1px solid #d5d5d5;
         border-bottom: 1px solid #d5d5d5;
-        margin-top: 150px;
+        margin-top: 100px;
     }
     .creer-compte a{
         text-decoration: none;
-        font-size: 45px;
+        font-size: 25px;
         color: #223c5d;
     }
     .connect-fbg{
-        margin-top: 100px;
+        margin: 50px auto;
+        width: 100%;
     }
     .connect-fbg img{
-        width: 100px;
+        width: 65px;
         float: left;
     }
     .btn-fb, .btn-google{
         float: left;
-        width: 400px;
-        height: 100px;
-        margin: 0 44px;
+        width: 40%;
+        margin: 0 24px;
         text-align: left;
     }
     .btn-fb{
@@ -423,8 +410,8 @@ footer p {
     }
     .lien{
         float: left;
-        font-size: 40px;
-        margin: 23px 40px;
+        font-size: 15px;
+        margin: 23px 20px;
     }
     .lien-fb a{
         color: #3a559f;
