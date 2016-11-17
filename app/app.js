@@ -15,6 +15,9 @@
 			.when('/signup', {
 				templateUrl: 'tmpl/signup.html'
 			})
+			.when('/signout', {
+				templateUrl: 'tmpl/signout.html'
+			})
 			.when('/offers', {
 				templateUrl: 'tmpl/offers.html'
 			})
@@ -34,6 +37,7 @@
 		var $rootScope = $injector.get('$rootScope');
 		var $http = $injector.get('$http');
 		var $location = $injector.get('$location');
+		var $window = $injector.get('$window');
 
 		$rootScope.isBackPresent = true;
 
@@ -43,17 +47,14 @@
 			password: 'test'
 		};
 
-		$rootScope.connect = function() {
-			$rootScope.isConnected = true;
-			$rootScope.account = {
-				firstname: 'Merouane',
-				lastname: 'Debbah'
-			};
+		$rootScope.goto = function() {
+			console.log('goto', arguments);
+			
 		};
 
-		$rootScope.disconnect = function() {
-			$rootScope.isConnected = false;
-			$rootScope.account = undefined;
+		$rootScope.back = function() {
+			console.log('back', arguments);
+			$window.history.back();
 		};
 
 		$rootScope.signin = function() {
