@@ -3,8 +3,12 @@
 		<div class="back">
 			<i ng-show="isBackPresent" class="fa fa-chevron-left" aria-hidden="true"></i>
 		</div>
-		<div class="logo">
+		<div class="logo" ng-show="!isConnected">
 			<a href="#/"><img src="img/logo.png"/></a>
+		</div>
+		<div class="logo" ng-show="isConnected">
+			<a href="#/"><img src="img/logo.png"/></a>
+			{{account.firstname}} {{account.lastname | uppercase }}
 		</div>
 		<div class="menu">
 			<i ng-click="lgMenu.toggle()" class="fa fa-bars" aria-hidden="true"></i>
@@ -12,6 +16,15 @@
 	</div>
 
 	<div class="lg-menu-content">
-		<a href=""><i class="fa fa-sign-in fa-6" aria-hidden="true"></i> <span>Se connecter</span></a>
+		<div ng-show="!isConnected">
+			<a ng-click="connect(); lgMenu.toggle();" href=""><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Se connecter</span></a>
+		</div>
+		<div ng-show="isConnected">
+			<a href=""><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Se connecter</span></a>
+			<a href=""><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Se connecter</span></a>
+			<a href=""><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Se connecter</span></a>
+			<a href=""><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Se connecter</span></a>
+			<a ng-click="disconnect(); lgMenu.toggle();" href=""><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Se déconnecter</span></a>
+		</div>
 	</div>
 </nav>

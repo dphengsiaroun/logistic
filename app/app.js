@@ -42,6 +42,20 @@
 			email: 'email@email.com',
 			password: 'test'
 		};
+
+		$rootScope.connect = function() {
+			$rootScope.isConnected = true;
+			$rootScope.account = {
+				firstname: 'Merouane',
+				lastname: 'Debbah'
+			};
+		};
+
+		$rootScope.disconnect = function() {
+			$rootScope.isConnected = false;
+			$rootScope.account = undefined;
+		};
+
 		$rootScope.signin = function() {
 			console.log('sign in');
 			var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage

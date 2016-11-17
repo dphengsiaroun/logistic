@@ -70,7 +70,7 @@ jlg-header {
 .logo {
     display: table-cell;
     text-align: center;
-
+    color: white;
 }
 .logo img {
     width: 60px;
