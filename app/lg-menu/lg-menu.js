@@ -15,6 +15,7 @@
 // permet de récuperer les valeurs en post sous format json
 	app.directive('lgMenu', ['$injector', function($injector) {
 		var $http = $injector.get('$http');
+		var $location = $injector.get('$location');
 
 		return {
 			restrict: 'A',
@@ -23,6 +24,14 @@
 				console.log('lgMenu controller', arguments);
 
 				var ctrl = this;
+
+				this.isBackPresent = false;
+				$scope.$on('$routeChangeStart', function(next, current) { 
+					console.log('routeChangeStart', arguments);
+					var path = $location.path();
+					console.log('path', path);
+					ctrl.isBackPresent = !($location.path() === '/');
+				});
 
 				this.isMenuOn = false;
 
@@ -48,8 +57,15 @@
 
 					} else {
 						console.log('remove the menu', arguments);
-						ctrl.lgMenuContentElt.css('display', 'none');
+						ctrl.off();
 					}
+					
+				};
+
+				this.off = function() {
+					console.log('off', arguments);
+					ctrl.isMenuOn = false;
+					ctrl.lgMenuContentElt.css('display', 'none');
 					
 				};
 

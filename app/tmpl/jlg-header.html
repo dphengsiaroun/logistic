@@ -1,13 +1,13 @@
 <nav lg-menu>
 	<div>
 		<div class="back">
-			<i ng-show="isBackPresent" class="fa fa-chevron-left" aria-hidden="true"></i>
+			<i ng-show="lgMenu.isBackPresent" ng-click="lgMenu.off(); back();" class="fa fa-chevron-left" aria-hidden="true"></i>
 		</div>
 		<div class="logo" ng-show="!userCtrl.account">
-			<a href="#/"><img src="img/logo.png"/></a>
+			<a ng-click="lgMenu.off()" href="#/"><img src="img/logo.png"/></a>
 		</div>
 		<div class="logo" ng-show="userCtrl.account">
-			<a href="#/"><img src="img/logo.png"/></a>
+			<a ng-click="lgMenu.off()" href="#/"><img src="img/logo.png"/></a>
 			{{userCtrl.account.content.firstname}} {{userCtrl.account.content.lastname | uppercase }}
 		</div>
 		<div class="menu">

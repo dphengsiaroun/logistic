@@ -37,7 +37,6 @@
 		var $rootScope = $injector.get('$rootScope');
 		var $window = $injector.get('$window');
 
-		$rootScope.isBackPresent = true;
 
 		$rootScope.goto = function() {
 			console.log('goto', arguments);
