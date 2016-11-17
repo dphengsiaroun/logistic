@@ -3,41 +3,43 @@
 
 	var app = angular.module('lg-user', []);
 
-	app.controller('userCtrl', ['$scope', '$injector', function($scope, $injector) {
+	app.controller('UserCtrl', ['$scope', '$injector', function($scope, $injector) {
 		var $http = $injector.get('$http');
 		var $location = $injector.get('$location');
 		var $window = $injector.get('$window');
 
-		$scope.signinData = {
+		var ctrl = this;
+
+		this.signinData = {
 			email: 'email@email.com',
 			password: 'test'
 		};
 
-		$scope.signin = function() {
+		this.signin = function() {
 			console.log('sign in');
 			var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 			$http({
 				url: 'ws/signin.php',
 				method: 'POST',
 				data: {
-					email: $scope.signinData.email,
+					email: ctrl.signinData.email,
 					// permet de crypter le password
-					password: SHA256.hex($scope.signinData.password)
+					password: SHA256.hex(ctrl.signinData.password)
 				},
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					$scope.isSigninError = true;
+					ctrl.isSigninError = true;
 					return;
 				}
-				$scope.isSigninError = false;
-				$scope.account = response.data;
+				ctrl.isSigninError = false;
+				ctrl.account = response.data;
 				$location.path('/');
 			});
 		};
 
-		$scope.signupData = {
+		this.signupData = {
 			email: 'email@email.com',
 			password: 'test',
 			lastname: 'mon nom',
@@ -51,17 +53,17 @@
 
 		};
 
-		$scope.signup = function() {
+		this.signup = function() {
 			console.log('sign up');
 			var SHA256 = new Hashes.SHA256;
 			var data = {
-				email: $scope.signupData.email,
+				email: ctrl.signupData.email,
 				// permet de crypter le password
-				password: SHA256.hex($scope.signupData.password),
+				password: SHA256.hex(ctrl.signupData.password),
 				content: {
-					lastname: $scope.signupData.lastname,
-					firstname: $scope.signupData.firstname,
-					address: $scope.signupData.address
+					lastname: ctrl.signupData.lastname,
+					firstname: ctrl.signupData.firstname,
+					address: ctrl.signupData.address
 				}
 			};
 			$http({
@@ -72,17 +74,16 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					$scope.isSignupError = true;
+					ctrl.isSignupError = true;
 					return;
 				}
-				$scope.isSignupError = false;
-				$scope.account = data;
-				$scope.isConnected = true;
+				ctrl.isSignupError = false;
+				ctrl.account = data;
 				$location.path('/');
 			});
 		};
 
-		$scope.signout = function() {
+		this.signout = function() {
 			console.log('sign out');
 			$http({
 				url: 'ws/signout.php',
@@ -90,16 +91,16 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					$scope.isSignoutError = true;
+					ctrl.isSignoutError = true;
 					return;
 				}
-				$scope.isSignoutError = false;
-				$scope.account = undefined;
+				ctrl.isSignoutError = false;
+				ctrl.account = undefined;
 				$location.path('/');
 			});
 		};
 
-		$scope.isConnected = function() {
+		this.isConnected = function() {
 			console.log('is connected?', arguments);
 			$http({
 				url: 'ws/isConnected.php',
@@ -107,14 +108,14 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					$scope.account = undefined;
+					ctrl.account = undefined;
 					return;
 				}
-				$scope.account = response.data;
+				ctrl.account = response.data;
 			});
 		};
 
-		$scope.isConnected();
+		this.isConnected();
 	}]);
 	
 
