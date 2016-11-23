@@ -1,6 +1,10 @@
-<section class="form">
-	Voulez vous vraiment vous déconnecter ?
-		
-	<button ng-click="userCtrl.signout();">Oui</button>
-	<button ng-click="back();">Non</button>
+<section class="logout">
+	<h3>Voulez vous vraiment vous déconnecter ?</h3>
+	<div class="response">
+		<div>
+			<button class="oui" ng-click="userCtrl.signout();">Oui</button>
+		</div>
+		<div>
+			<button class="non" ng-click="back();">Non</button>
+		</div>
 </section>

@@ -9,11 +9,11 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    color: #223c5d;
+    color: hsla(214, 46%, 25%, 1);
 }
 
 svg {
-    fill: #223c5d;
+    fill: hsla(214, 46%, 25%, 1);
 }
 
 body {
@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6{
 }
 a {
     text-decoration: none;
-    color: #223c5d;
+    color: hsla(214, 46%, 25%, 1);
 }
 .clear {
     clear: both;
@@ -42,12 +42,13 @@ nav {
     padding:0px;
     width: 100%;
     display: block;
+    z-index: 99;
 }
 
 nav > div {
     display: table;
     width: 100%;
-    background-color: #223c5d;
+    background-color: hsla(214, 46%, 25%, 1);
 }
 
 jlg-header {
@@ -64,16 +65,17 @@ jlg-header {
     padding: 12px 4px;
 }
 .back i {
-    color: #fff;
+    color: white;
     font-size: 50px;
 }
 .logo {
     display: table-cell;
     text-align: center;
     color: white;
+    font-size: 13px;
 }
 .logo img {
-    width: 60px;
+    width: 50px;
     margin-top: 11px;
 }
 .menu {
@@ -84,8 +86,12 @@ jlg-header {
     padding: 12px 10px;
 }
 .menu i{
-    color: #fff;
+    color: white;
     font-size: 50px;
+}
+
+.marge{
+    margin-top: 74px;
 }
 
 /* Menu content */
@@ -97,24 +103,32 @@ jlg-header {
 
 .lg-menu-content a {
     display: block;
-    border: 1px solid #223c5d;
+    border: 1px solid hsla(214, 46%, 25%, 1);
     padding: 10px; 
     width: 100%;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .lg-menu-content a i {
     display: inline-block;
     width: 30%;
-    font-size: 50px;
+    font-size: 42px;
     height: 100%;
 }
 
 .lg-menu-content a span {
     display: inline-block;
     vertical-align: top;
-    padding: 6px;
-    height: 100%;
+    padding: 5px 11px;
+}
+
+.notification {
+    position: absolute;
+    left: 55px;
+    margin: 8px 15px;
+    font-size: 16px;
+    border-radius: 80px;
+    background-color: hsla(52, 100%, 68%, 1);
 }
 
 
@@ -135,7 +149,7 @@ jlg-header {
 .home h1 {
     font-size: 30px;
     margin-bottom: 10px;
-    color: #223c5d;
+    color: hsla(214, 46%, 25%, 1);
     text-align: center;
 }
 
@@ -167,7 +181,7 @@ jlg-header {
     display: block;
     width: 100%;
     height: 100%;
-    background: #ffea5b;
+    background: hsla(52, 100%, 68%, 1);
     border-radius: 10px;
     margin: 0px;
     padding: 15px 0px;
@@ -192,445 +206,618 @@ footer p {
     text-align: center;
     margin: 0px;
 }
-
-
-    /**** FIN HOME ****/
         
-    /**** CREER ANNONCE STEP 1 ****/
-    .banner{
-        text-align: center;
-        width: 100%;
-        background: #ffea5b;
-        padding: 50px 20px;
-    }
-    .banner h1{
-        font-size: 75px;
-        margin: 20px 0;
-    }
-    .banner h2{
-        font-size: 50px;
-        margin: 20px 0;
-    }
-    .banner img{
-        width: 250px;
-    }
-    .form{
-        text-align: center;
-        width: 100%;
-    }
-    .form form{
-        width: 100%;
-        font-size: 20px;
-        margin: 0 auto;
-    }
-    .form form>input{
-        width: 75%;
-        margin: 20px;
-        font-size: 15px;
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #d5d5d5;
-    }
-    .form form>label{
-        margin-bottom: 20px;
-    }
-    .form span{
-        position: relative;
-        background: #fff;
-        color: #223c5d;
-        padding: 0 54px;
-        top: -53px;
-        font-size: 50px;
-    }
-    .dimension{
-        width: 96%;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    .dimension img {
-        width: 200px;
-    }
-    .hauteur, .largeur, .profondeur{
-        float: left;
-        width: 313px;
-    }
-    .dimension input{
-        width: 40%;
-        height: 110px;
-        text-align: center;
-        font-size: 35px;
-        padding: 20px;
-        border: none;
-        border-left: 2px solid #d5d5d5;
-        border-right: 2px solid #d5d5d5;
-    }
-    .plus, .moins{
-        background: #01c3a7;
-        color: #fff;
-        border: none;
-        width: 168px;
-        height: 140px;
-        font-size: 65px;
-    }
-    .plus{
-        border-radius: 10px 10px 0 0;
-    }
-    .moins{
-        border-radius: 0 0 10px 10px;
-    }
-    .photo input{
-        font-size: 26px;
-        width: 50%;
-        margin: 30px 0 80px;
-        padding: 100px;
-        border-radius: 10px;
-        background: #efefef;
-    }
-    .qty{
-        width: 40%;
-        height: 80px;
-    }
-    .complement{
-        margin-bottom: 40px;
-    }
-    .complement input{
-        width: 40%;
-        height: 90px;
-        text-align: center;
-        font-size: 35px;
-        padding: 20px;
-        margin-top: 23px;
-        border: none;
-        border-top: 2px solid #d5d5d5;
-        border-bottom: 2px solid #d5d5d5;
-    }
-    .plus2, .moins2{
-        background: #01c3a7;
-        color: #fff;
-        border: none;
-        position: relative;
-        top: 11px;
-        width: 171px;
-        height: 134px;
-        font-size: 65px;
-    }
-    .plus2{
-        border-radius: 10px 0 0 10px;
-    }
-    .moins2{
-        border-radius: 0 10px 10px 0;
-    }
-    .bouton input{
-        width: 74%;
-        background: #01c3a7;
-        color: #fff;
-        height: 90px;
-        font-size: 20px;
-        border: none;
-        border-radius: 10px;
-    }
-    /**** FIN CREER ANNONCE STEP 1 ****/
+/* Créer annonce step 1 */
+.banner{
+    text-align: center;
+    width: 100%;
+    background: hsla(52, 100%, 68%, 1);
+    padding: 30px 0px;
+}
 
-    /**** CREER ANNONCE STEP 2 ****/
-    .valide{
-        text-align: center;
-        width: 100%;
-        padding: 50px 20px;
-    }
-    .valide h1{
-        font-size: 75px;
-        margin: 20px 0;
-    }
-    .valide h2{
-        font-size: 50px;
-        margin: 100px 0;
-    }
-    .valide img{
-        width: 250px;
-        margin-top: 60px;
-    }
-    .valide a{
-        padding: 60px 145px;
-        background: #01c3a7;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        font-size: 40px;
-    }
-    /**** FIN CREER ANNONCE STEP 2 ****/
+.banner h1 {
+    font-size: 35px;
+    margin: 20px 0;
+}
 
-    /**** AJOUT SOCIETE ****/
+.banner h2 {
+    font-size: 25px;
+    margin: 20px 0;
+}
 
-    .adresse input{
-        width: 75%;
-        height: 450px;
-        margin: 20px;
-        font-size: 35px;
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #d5d5d5;
-    }
-    /**** FIN AJOUT SOCIETE ****/
+.banner img {
+    width: 120px;
+}
 
-    /**** INSCRIPTION ****/
-    .ou, .ou2{
-        font-size: 20px;
-        width: 200px;
-        background: #fff;
-    }
-    .creer-compte{
-        border-top: 1px solid #d5d5d5;
-        border-bottom: 1px solid #d5d5d5;
-        margin-top: 100px;
-    }
-    .creer-compte a{
-        text-decoration: none;
-        font-size: 25px;
-        color: #223c5d;
-    }
-    .connect-fbg{
-        margin: 50px auto;
-        width: 100%;
-    }
-    .connect-fbg img{
-        width: 65px;
-        float: left;
-    }
-    .btn-fb, .btn-google{
-        float: left;
-        width: 40%;
-        margin: 0 24px;
-        text-align: left;
-    }
-    .btn-fb{
-        border: 1px solid #3a559f;
-    }
-    .btn-google{
-        border: 1px solid #db402c;
-    }
-    .lien{
-        float: left;
-        font-size: 15px;
-        margin: 23px 20px;
-    }
-    .lien-fb a{
-        color: #3a559f;
-    }
-    .lien-google a{
-        color: #db402c;
-    }
+.form{
+    text-align: left;
+    width: 100%;
+    padding: 20px 25px;
+}
 
-    /**** COMPTE CREE ****/
-    .compte-cree{
-        width: 890px;
-        padding: 65px;
-        text-align: center;
-    }
-    .compte-cree div{
-        margin-left: 20px;
-    }
-    .compte-cree h3{
-        font-size: 60px;
-        margin-top: 60px;
-        color: #233e60;
-    }
-    .compte-cree p{
-        font-size: 30px;
-        margin: 150px 0;
-    }
-    .oui{
-        font-size: 40px;
-        border: 1px solid #01c3a7;
-        padding: 30px 50px;
-        margin: 50px;
-        color: #01c3a7;
-    }
-    .non{
-        font-size: 40px;
-        border: 1px solid tomato;
-        padding: 30px 50px;
-        margin: 50px;
-        color: tomato;
-    }
-    /**** FIN COMPTE CREE ****/
+.form form {
+    width: 100%;
+    font-size: 20px;
+    margin: 0 auto;
+}
 
-    /**** LISTE ANNONCE ****/
-    .banner-annonce{
-        width: 100%;
-        padding: 65px 20px;
-        background: #ffea5b;
-    }
-    .banner-annonce img{
-        width: 114px;
-        float: left;
-        margin-left: 30px;
-    }
-    .banner-annonce h1{
-        font-size: 60px;
-        margin: 20px 0 20px 120px;
-        float: left;
-    }
-    .liste-annonce{
-        width: 1020px;
-    }
-    .block-annonce{
-        height: 251px;
-        border: 1px solid #d5d5d5;
-        border-left: none;
-        border-right: none;
-    }
-    .identity{
-        background: #01c3a7;
-        color: #fff;
-        padding: 0 50px;
+.form form > input {
+    width: 100%;
+    margin: 5px 0px;
+    font-size: 13px;
+    padding: 17px 10px;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+.form form > label {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.form span {
+    position: relative;
+    background: white;
+    color: hsla(214, 46%, 25%, 1);
+    padding: 0px 20px 0px 0px;
+    top: -15px;
+    font-size: 20px;
+    z-index: 9;
+}
+
+.dimension {
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+}
+
+.dimension img {
+    width: 70px;
+}
+
+.hauteur, .largeur, .profondeur {
     float: left;
-    height: 251px;
-    line-height: 244px;
-    font-size: 95px;
-    }
-    .details{
-        float: left;
-        margin: 4px 28px;
-        width: 70%;
-    }
-    .details p{
-        color: #223c5d;
-        font-size: 50px;
-        margin: 20px 0;
-    }
-    .details-comp div{
-        margin: 15px 0 0;
-    }
-    .date, .duree{
-        font-size: 40px;
-    }
-    .date{
-        color: #d5d5d5;
-    }
-    .duree{
-        margin-left: 62px;
-        color: #01c3a7;
-    }
-    .vehicule, .tarif{
-        font-size: 40px;
-        color: #000
-    }
-    .tarif{
-        margin-left: 158px;
-        color: #01c3a7;
-    }
-    /**** FIN LISTE ANNONCE ****/
+    width: 33%;
+    text-align: center;
+}
 
-    /**** DETAILS ANNONCE ****/
-    .details-annonce{
-        width: 1020px;
-    }
-    .recap{
-        width: 890px;
-        padding: 65px;
-        min-height: 1350px;
-    }
-    .recap h3{
-        margin-top: 100px;
-        font-size: 50px;
-    }
-    .publie, .expire{
-        color: #d5d5d5;
-        font-size: 40px;
-    }
-    .recap h2{
-        margin-top: 100px;
-        margin-bottom: 130px;
-        font-size: 61px;
-        text-align: center;
-    }
-    .recap a{
-        padding: 100px 164px;
-        margin: 30px 84px;
-        background: #01c3a7;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        font-size: 40px;
-    }
-    .recap p{
-        font-size: 40px;
-    }
-    /**** FIN DETAILS ANNONCE ****/
+.hauteur p, .largeur p, .profondeur p {
+    font-size: 16px;
+    margin: 0px 0px 10px;
+}
 
-    /**** CREER PROPOSITION TRANSPORTEUR/CHARGEUR ****/
-    .proposition{
-        width: 890px;
-        padding: 65px;
-    }
-    .proposition h1{
-        font-size: 70px;
-        text-align: center;
-    }
-    .form-proposition{
-        text-align: left;
-        padding: 50px 20px;
-    }
-    .form-proposition form{
-        width: 100%;
-        font-size: 35px;
-        margin: 0 auto;
-    }
-    .form-proposition form>input{
-        width: 94%;
-        height: 80px;
-        margin: 20px;
-        font-size: 35px;
-        position: relative;
-        left: -19px;
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #d5d5d5;
-    }
-    .form-proposition form>label{
-        margin-bottom: 20px;
-    }
-    .btn-proposition input{
-        width: 844px;
-        background: #01c3a7;
-        color: #fff;
-        height: 150px;
-        font-size: 40px;
-        border: none;
-        border-radius: 10px;
-    }
-    .tarif-initial{
-        width: 637px;
-        margin: 0 auto 40px;
-    }
-    .tarif-initial input{
-        width: 40%;
-        height: 90px;
-        text-align: center;
-        font-size: 35px;
-        padding: 20px;
-        margin-top: 23px;
-        border: none;
-        border-top: 2px solid #d5d5d5;
-        border-bottom: 2px solid #d5d5d5;
-    }
-    /**** FIN CREER PROPOSITION TRANSPORTEUR/CHARGEUR ****/
-    .message{
-        width: 890px;
-        padding: 65px;
-        text-align: center;
-    }
-    .message h1{
-        font-size: 65px;
-        text-align: center;
-        margin-bottom: 200px;
-        margin-top: 100px;
-    }
-    .message a{
-        padding: 100px;
-        background: #01c3a7;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        font-size: 40px;
-    }
+.dimension input {
+    width: 62px;
+    height: 57px;
+    text-align: center;
+    font-size: 13px;
+    padding: 15px 10px;
+    border: none;
+    border-left: 1px solid hsla(0, 0%, 84%, 1);
+    border-right: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+.dimension > p{
+    font-size: 17px;
+}
+
+.plus, .moins {
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    border: none;
+    width: 62px;
+    height: 50px;
+    font-size: 22px;
+}
+
+.plus {
+    border-radius: 5px 5px 0 0;
+}
+
+.moins {
+    border-radius: 0 0 5px 5px;
+}
+
+.photo input {
+    font-size: 11px;
+    width: 100%;
+    margin: 5px 0px 30px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #efefef;
+}
+
+.photo > label {
+    font-size: 17px;
+}
+
+.qty {
+    width: 40%;
+    height: 80px;
+}
+
+.complement {
+    margin-bottom: 40px;
+}
+
+.complement label {
+    font-size: 16px;
+}
+
+.complement input {
+    width: 51%;
+    text-align: center;
+    font-size: 18px;
+    margin: 5px 0px;
+    padding: 15px 10px;
+    border: none;
+    border-top: 1px solid hsla(0, 0%, 84%, 1);
+    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+.plus2, .moins2 {
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    font-size: 18px;
+}
+
+.plus2 {
+    border-radius: 10px 0 0 10px;
+}
+
+.moins2 {
+    border-radius: 0 10px 10px 0;
+}
+
+.bouton input {
+    width: 100%;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    height: 70px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Créer annonce step 2 */
+.valide {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.valide h1 {
+    font-size: 35px;
+    margin: 20px 0;
+}
+.valide h2 {
+    font-size: 25px;
+    margin: 20px 0;
+}
+.valide img{
+    width: 120px;
+}
+.valide a{
+    padding: 20px 0px;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 100%;
+    display: block;
+}
+
+/* Ajout société */
+
+.adresse input {
+    width: 100%;
+    height: 450px;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+/* Inscription */
+.ou, .ou2 {
+    font-size: 17px;
+    width: 100px;
+    margin: 11px auto;
+    background: white;
+    position: relative;
+}
+
+.ou {
+    top: -24px;
+}
+
+.ou2 {
+    top: 21px;
+}
+
+.creer-compte {
+    border-top: 1px solid hsla(0, 0%, 84%, 1);
+    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
+    text-align: center;
+    margin: 40px 0;
+}
+
+.creer-compte a {
+    text-decoration: none;
+    font-size: 20px;
+    color: hsla(214, 46%, 25%, 1);
+}
+
+.connect-fbg {
+    margin: 50px auto;
+    width: 100%;
+    font-size: 0px;
+    padding: 0px 5px;
+}
+
+.connect-fbg img {
+    width: 40px;
+    float: left;
+}
+
+.btn-fb, .btn-google {
+    display: inline-block;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.btn-fb > div, .btn-google > div {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 2px;
+}
+
+.lien-fb {
+    border: 1px solid hsla(224, 47%, 43%, 1);
+}
+
+.lien-google {
+    border: 1px solid hsla(7, 71%, 52%, 1);
+}
+
+.lien {
+    display: block;
+    margin: 0px;
+    color: black;
+}
+
+.lien-fb a {
+    color: hsla(224, 47%, 43%, 1);
+    padding: 10px 0px;
+    width: 68%;
+    height: 100%;
+    display: inline-block;
+    
+}
+
+.lien-google a {
+    color: hsla(7, 71%, 52%, 1);
+    padding: 10px 0px;
+    width: 68%;
+    height: 100%;
+    display: inline-block;
+}
+
+/* Compte créé */
+.compte-cree {
+    width: 100%;
+    text-align: center;
+}
+
+.compte-cree div {
+    padding: 1px 20px;
+}
+
+.compte-cree h3 {
+    font-size: 30px;
+    margin: 20px 0px;
+    color: #233e60;
+}
+
+.compte-cree p {
+    font-size: 14px;
+    margin: 50px 0;
+}
+
+.response {
+    margin: 50px auto;
+    width: 100%;
+    font-size: 0px;
+    padding: 0px 5px;
+}
+
+.response > div {
+    display: inline-block;
+    width: 50%;
+    margin: 0px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.oui, .non {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 15px 30px;
+}
+
+.oui {
+    border: 1px solid hsla(171, 99%, 38%, 1);
+    color: hsla(171, 99%, 38%, 1);
+}
+
+.non {
+    border: 1px solid tomato;
+    color: tomato;
+}
+
+/* Liste annonce */
+.banner-annonce {
+    width: 100%;
+    padding: 20px;
+    background: hsla(52, 100%, 68%, 1);
+}
+
+.banner-img {
+    width: 28%;
+    display: inline-block;
+}
+.banner-title {
+    width: 70%;
+    display: inline-block;
+}
+
+.banner-annonce img {
+    width: 30px;
+    display: inline-block;
+}
+
+.banner-annonce h1 {
+    font-size: 20px;
+    float: left;
+    display: inline-block;
+}
+
+.liste-annonce {
+    width: 100%;
+    display: block;
+}
+
+.block-annonce {
+    width: 100%;
+    font-size: 0px;
+    margin: 0px;
+    border-bottom: 1px solid hsla(0, 0%, 93%, 1);
+}
+
+.identity {
+    display: inline-block;
+    width: 25%;
+    margin: 0px;
+    padding: 27px 0px;
+    font-size: 27px;
+    text-align: center;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    float: left;
+}
+
+.details {
+    display: inline-block;
+    width: 75%;
+    margin: 0px;
+    padding: 10px;
+    text-align: left;
+}
+
+.details p {
+    color: hsla(214, 46%, 25%, 1);
+    font-size: 17px;
+}
+
+.details-time {
+    margin: 5px 0;
+}
+
+.date, .duree, .vehicule, .tarif{
+    font-size: 14px;
+}
+
+.date{
+    color: hsla(0, 0%, 84%, 1);
+    float: left;
+}
+
+.duree{
+    color: hsla(171, 99%, 38%, 1);
+    float: right;
+}
+
+.vehicule {
+    float: left;
+    color: black;
+}
+
+.tarif{
+    color: hsla(171, 99%, 38%, 1);
+    float: right;
+}
+
+/* Détails annonce */
+.details-annonce {
+    width: 100%;
+}
+
+.recap {
+    width: 100%;
+    padding: 20px;
+}
+
+.recap h3 {
+    margin: 25px 0;
+    font-size: 19px;
+}
+
+.publie, .expire {
+    color: hsla(0, 0%, 84%, 1);
+    font-size: 20px;
+}
+
+.recap h2 {
+    margin: 40px 0px;
+    font-size: 21px;
+    text-align: center;
+}
+
+.recap a {
+    padding: 20px 0px;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.recap p {
+    font-size: 16px;
+}
+
+/* Créer proposition Transporteur / Chargeur */
+.proposition{
+    width: 100%;
+    padding: 20px;
+}
+
+.proposition h1 {
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 0px 40px;
+}
+.proposition h3 {
+    font-size: 16px;
+}
+
+.proposition span {
+    font-size: 13px;
+}
+
+.proposition form {
+    width: 100%;
+    font-size: 18px;
+    margin: 0 auto;
+}
+
+.proposition form > input {
+    width: 100%;
+    margin: 5px 0px;
+    font-size: 13px;
+    padding: 17px 10px;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+.proposition form > label {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.btn-proposition input {
+    width: 100%;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    height: 70px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+
+.input-lieu, .input-date, .input-country, .input-city, .input-address {
+    border: 1px solid hsla(0, 0%, 84%, 1);
+    border-radius: 5px;
+    margin: 5px 0px;
+}
+
+.input-lieu a, .input-date a, .input-country a, .input-city a {
+    padding: 16px;
+    font-size: 14px;
+    color: hsla(0, 0%, 66%, 1);
+    display: inline-block;
+    width: 100%;
+}
+
+.input-address a {
+    padding: 50px 14px;
+    font-size: 14px;
+    color: hsla(0, 0%, 66%, 1);
+    display: inline-block;
+    width: 100%;
+}
+
+.tarif-initial {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tarif-initial label {
+    font-size: 16px;
+}
+
+.tarif-initial input {
+    width: 52%;
+    text-align: center;
+    font-size: 18px;
+    margin: 5px 0px;
+    padding: 15px 10px;
+    border: none;
+    border-top: 1px solid hsla(0, 0%, 84%, 1);
+    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+/* Chargeur proposition envoyée */
+.message {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.message h1 {
+    font-size: 25px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.message div {
+    margin: 30px 0;
+    width: 100%;
+}
+
+.message a { 
+    padding: 20px 0px;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
