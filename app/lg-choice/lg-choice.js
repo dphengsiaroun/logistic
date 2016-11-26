@@ -31,7 +31,7 @@
 
 				scope.start = function() {
 					console.log('start', arguments);
-					var elt = angular.element('<div ng-include="\'tmpl/address-autocomplete.html\'"></div>');
+					var elt = angular.element('<lg-choice title="' + attr.title + '"></lg-choice>');
 					element.after(elt);
 					$compile(elt)(scope);
 
@@ -54,6 +54,16 @@
 		};
 
 	}]);
+
+	app.component('lgChoice', {
+		templateUrl: 'lg-choice/tmpl/lg-choice.html',
+		controller: function() {
+
+		},
+		bindings: {
+			title: '='
+		}
+	});
 
 	
 

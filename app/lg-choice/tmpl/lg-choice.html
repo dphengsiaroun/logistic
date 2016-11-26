@@ -1,0 +1,17 @@
+<nav>
+    <div class="back">
+        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+    </div>
+    <div class="logo">
+        <p>{{$ctrl.title}}</p>
+    </div>
+    <div class="menu">
+        <i class="fa fa-check" aria-hidden="true"></i>
+    </div>
+</nav>
+<section class="input-auto">
+    <input type="text" name="" id="" placeholder="Départ (Ex: Alger)" ng-model="coucou" />
+</section>
+<section class="list" >
+    <p ng-repeat="choice in ['Alger', 'Annaba']">{{choice}}</p>
+</section>

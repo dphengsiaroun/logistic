@@ -8,7 +8,13 @@ lg-choice {
     background-color: white;
 }
 
-.input-auto {
+lg-choice .logo p {
+    color: white;
+    padding: 24px 0 0;
+    font-size: 20px;
+}
+
+lg-choice .input-auto {
     text-align: left;
     width: 100%;
     padding: 74px 10px 0px;
@@ -16,7 +22,7 @@ lg-choice {
 }
 
 
-.input-auto form > input {
+lg-choice .input-auto input {
     width: 100%;
     margin: 5px 0px;
     font-size: 13px;
@@ -25,7 +31,8 @@ lg-choice {
     border: 1px solid hsla(0, 0%, 84%, 1);
 }
 
-.result p {
+lg-choice .list p {
     padding: 20px 30px;
     font-size: 20px;
+    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
 }
