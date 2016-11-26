@@ -1,0 +1,93 @@
+/* Header */
+
+nav {
+    position: fixed;
+    top: 0px;
+    height: 75px;
+    padding:0px;
+    width: 100%;
+    display: block;
+    z-index: 99;
+}
+
+nav > div {
+    display: table;
+    width: 100%;
+    background-color: hsla(214, 46%, 25%, 1);
+}
+
+jlg-header {
+    display: block;
+    height: 75px;
+}
+
+.back {
+    display: table-cell;
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    vertical-align: top;
+    padding: 12px 4px;
+}
+.back i {
+    color: white;
+    font-size: 50px;
+}
+.logo {
+    display: table-cell;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+}
+.logo img {
+    width: 50px;
+    margin-top: 11px;
+}
+.menu {
+    display: table-cell;
+    margin: 0px;
+    width: 50px;
+    vertical-align: top;
+    padding: 12px 10px;
+}
+.menu i{
+    color: white;
+    font-size: 50px;
+}
+
+/* Menu content */
+
+.lg-menu-content {
+    display: none;
+    background-color: white;
+}
+
+.lg-menu-content a {
+    display: block;
+    border: 1px solid hsla(214, 46%, 25%, 1);
+    padding: 10px; 
+    width: 100%;
+    font-size: 24px;
+}
+
+.lg-menu-content a i {
+    display: inline-block;
+    width: 30%;
+    font-size: 42px;
+    height: 100%;
+}
+
+.lg-menu-content a span {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 11px;
+}
+
+.notification {
+    position: absolute;
+    left: 55px;
+    margin: 8px 15px;
+    font-size: 16px;
+    border-radius: 80px;
+    background-color: hsla(52, 100%, 68%, 1);
+}

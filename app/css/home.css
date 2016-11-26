@@ -1,0 +1,57 @@
+home {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+home .tagline {
+    text-align: center;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+home .square-parent {
+    width: 100%;
+    font-size: 0px;
+    margin: 0px;
+    padding: 0px 5px;
+}
+
+home .square {
+    display: inline-block;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    text-align: center;
+}
+
+home .square > div {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 10px;
+}
+
+home .square a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: hsla(52, 100%, 68%, 1);
+    border-radius: 10px;
+    margin: 0px;
+    padding: 15px 0px;
+    color: black;
+}
+
+home .square a img, .square a svg {
+    width: 85px;
+    height: 85px;
+}
+
+home .square a p {
+    margin: 0px;
+    padding: 0px;
+}

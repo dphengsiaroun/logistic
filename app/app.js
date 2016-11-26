@@ -21,8 +21,11 @@
 			.when('/offers', {
 				templateUrl: 'tmpl/offers.html'
 			})
-			.when('/depot-annonce', {
-				templateUrl: 'tmpl/depot-annonce.html'
+			.when('/loader-create-add-step1', {
+				templateUrl: 'tmpl/loader-create-add-step1.html'
+			})
+			.when('/carrier-create-add-step1', {
+				templateUrl: 'tmpl/carrier-create-add-step1.html'
 			})
 			.when('/contact', {
 				templateUrl: 'tmpl/contact.html'
