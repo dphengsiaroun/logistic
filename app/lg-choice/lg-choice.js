@@ -18,6 +18,7 @@
 				+ '<div class="lg-choice" ng-click="start();"></div>');
 				element.after(elt);
 				element.attr('style', 'display: none !important');
+				$compile(elt)(scope);
 
 				ctrl.$render = function() {
 					console.log('ctrl', ctrl);
@@ -27,7 +28,7 @@
 					console.log('html', html);
 					elt.html(html);
 					// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
-					$compile(elt)(scope);
+					
 					checkValidity(1);
 				};
 
@@ -40,12 +41,15 @@
 
 				scope.stop = function() {
 					console.log('stop', arguments);
+					console.log('scope.elt', scope.elt);
 					scope.elt.remove();
+					scope.elt = undefined;
 				};
 
 				scope.update = function(choice) {
 					console.log('input choice update', arguments);
 					scope.stop();
+					
 					ctrl.$setViewValue(choice);
 					ctrl.$render();
 					// because we have no blur event, then we must set the touched ourselves.
