@@ -1,0 +1,31 @@
+lg-choice {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: white;
+}
+
+.input-auto {
+    text-align: left;
+    width: 100%;
+    padding: 74px 10px 0px;
+    background-color: hsla(0, 0%, 84%, 1);
+}
+
+
+.input-auto form > input {
+    width: 100%;
+    margin: 5px 0px;
+    font-size: 13px;
+    padding: 17px 10px;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+.result p {
+    padding: 20px 30px;
+    font-size: 20px;
+}

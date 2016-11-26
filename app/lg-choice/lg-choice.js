@@ -15,13 +15,13 @@
 				}
 				console.log('input type="choice"', arguments);
 				var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->'
-				+ '<div class="lg-choice" ng-click="start();">' + attr.placeholder + '</div>');
+				+ '<div class="lg-choice" ng-click="start();"></div>');
 				element.after(elt);
 				element.attr('style', 'display: none !important');
 
 				ctrl.$render = function() {
 					console.log('ctrl', ctrl);
-					var html = 'coucou';
+					var html = attr.placeholder;
 					console.log('html', html);
 					elt.html(html);
 					// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
@@ -31,6 +31,10 @@
 
 				scope.start = function() {
 					console.log('start', arguments);
+					var elt = angular.element('<div ng-include="\'tmpl/address-autocomplete.html\'"></div>');
+					element.after(elt);
+					$compile(elt)(scope);
+
 				};
 
 				scope.update = function(note) {
