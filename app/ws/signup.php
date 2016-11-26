@@ -10,7 +10,10 @@
 	$postdata = file_get_contents("php://input");
 	// on décode le json en variable PHP
     $request = json_decode($postdata); 
-	$request->content = json_encode($request->content);
+	$account = clone $request;
+	$account->content = json_encode($account->content);
+	debug("signup start");
+	debug_r("account", $account);
 
 	$result = [];
 	try {
@@ -27,15 +30,20 @@
 		
 		$sql = <<<EOF
 INSERT INTO account (email, password, content) VALUES 
-	('$request->email', '$request->password', '$request->content')
+	(:email, :password, :content)
 EOF;
 
 		$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-		if ($st->execute() === FALSE) {
+		if ($st->execute(array(
+			':email' => $account->email,
+			':password' => $account->password,
+			':content' => $account->content
+		)) === FALSE) {
 			throw new Exception("Table creation: ".sprint_r($db->errorInfo()));
 		}
 		$result['status'] = 'ok';
+		$result['account'] = $request;
 		$_SESSION['email'] = $request->email;
 
 	} catch (Exception $e) {

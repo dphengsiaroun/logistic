@@ -42,30 +42,28 @@
 		this.signupData = {
 			email: 'email@email.com',
 			password: 'test',
-			lastname: 'mon nom',
-			firstname: 'mon prenom',
-			address: {
-				street: '99 rue de Paris',
-				city: 'Torcy',
-				zipcode: '77200',
-				country: 'France'
+			content: {
+				lastname: 'Debbah',
+				firstname: 'Mérouane',
+				pseudo: 'Meme',
+				address: {
+					street: '99 rue de Paris',
+					city: 'Torcy',
+					zipcode: '77200',
+					country: 'France'
+				}
 			}
+
+			
 
 		};
 
 		this.signup = function() {
 			console.log('sign up');
 			var SHA256 = new Hashes.SHA256;
-			var data = {
-				email: ctrl.signupData.email,
-				// permet de crypter le password
-				password: SHA256.hex(ctrl.signupData.password),
-				content: {
-					lastname: ctrl.signupData.lastname,
-					firstname: ctrl.signupData.firstname,
-					address: ctrl.signupData.address
-				}
-			};
+			var data = angular.copy(ctrl.signupData);
+			data.password = SHA256.hex(ctrl.signupData.password);
+			
 			$http({
 				url: 'ws/signup.php',
 				method: 'POST',
@@ -78,7 +76,7 @@
 					return;
 				}
 				ctrl.isSignupError = false;
-				ctrl.account = data;
+				ctrl.account = response.data.account;
 				$location.path('/');
 			});
 		};

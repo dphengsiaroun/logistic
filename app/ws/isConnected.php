@@ -22,6 +22,8 @@
 	if ($sqlResult->rowCount() != 0) {
 		$result = $sqlResult->fetch(PDO::FETCH_ASSOC); // On le transforme en tableau array
 
+		debug_r("content", $result['content']);
+
 		$result['status'] = 'ok';
 		$result['content'] = json_decode($result['content']);
 	} else {

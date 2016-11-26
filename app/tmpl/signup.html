@@ -1,11 +1,11 @@
 <section class="form">
 	<form name="signupCtrl" ng-submit="userCtrl.signup();">
-		<input type="text" placeholder="Nom" ng-model="userCtrl.signupData.name" /><br/>
-		<input type="text" placeholder="Prenom" /><br/><br/>
-		<input type="text" placeholder="Pseudo" />
-		<input type="text" placeholder="Téléphone" /><br/>
+		<input type="text" placeholder="Nom" ng-model="userCtrl.signupData.content.lastname" /><br/>
+		<input type="text" placeholder="Prenom" ng-model="userCtrl.signupData.content.firstname" /><br/><br/>
+		<input type="text" placeholder="Pseudo" ng-model="userCtrl.signupData.content.pseudo" />
+		<input type="text" placeholder="Téléphone" ng-model="userCtrl.signupData.content.phone" /><br/>
 		<input type="text" placeholder="Email" ng-model="userCtrl.signupData.email" /><br/><br/>
-		<input type="text" placeholder="Mot de passe" /><br/><br/>
+		<input type="text" placeholder="Mot de passe" ng-model="userCtrl.signupData.password" /><br/><br/>
 		<div class="segmented-control" style="width: 100%; color: #223c5d; margin-bottom: 50px; border-radius: 5px;">
 			<input type="radio" name="sc-1-1" id="sc-1-1-1" checked>
 			<input type="radio" name="sc-1-1" id="sc-1-1-2">
