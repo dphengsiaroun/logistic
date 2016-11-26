@@ -10,8 +10,8 @@
     </div>
 </nav>
 <section class="input-auto">
-    <input type="text" name="" id="" placeholder="Départ (Ex: Alger)" ng-model="coucou" />
+    <input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="myFilter" />
 </section>
 <section class="list" >
-    <p ng-click="$ctrl.update(choice);" ng-repeat="choice in $ctrl.choices">{{choice}}</p>
+    <p ng-click="$ctrl.update(choice);" ng-repeat="choice in $ctrl.choices | filter: myFilter">{{choice}}</p>
 </section>
