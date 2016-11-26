@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.lg-choice.filled {
+    color: black;
+}
+
 lg-choice {
     position: fixed;
     height: 100%;

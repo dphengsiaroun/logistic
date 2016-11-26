@@ -25,6 +25,11 @@
 					var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
 
 					var html = choice || attr.placeholder;
+					if (choice !== undefined) {
+						elt.addClass('filled');
+					} else {
+						elt.removeClass('filled');
+					}
 					console.log('html', html);
 					elt.html(html);
 					// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
