@@ -8,6 +8,7 @@
 		var $rootScope = $injector.get('$rootScope');
 		$rootScope.config = {};
 		$rootScope.config.vehicleTypes = ['Benne', 'Frigo', 'Bâche'];
+		$rootScope.config.countries = ['France', 'Algérie', 'Maroc'];
 	}]);
 
 	

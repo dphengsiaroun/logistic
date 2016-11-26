@@ -39,7 +39,8 @@
 
 				scope.start = function() {
 					console.log('start', arguments, attr);
-					scope.elt = angular.element('<lg-choice update="update" placeholder="\'' + attr.placeholder + '\'" choices="' + attr.choices + '" title="' + attr.title + '"></lg-choice>');
+					scope.elt = angular.element('<lg-choice update="update" placeholder="\'' 
+						+ attr.placeholder + '\'" choices="' + attr.choices + '" title="\'' + attr.title + '\'"></lg-choice>');
 					element.after(scope.elt);
 					$compile(scope.elt)(scope);
 				};

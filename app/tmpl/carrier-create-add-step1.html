@@ -6,10 +6,11 @@
 <section class="form">
     <form name="createAddForm" ng-submit="createAdd();">
         <label>Description du type de véhicule</label><br/>
-        <input type="choice" choices="$root.config.vehicleTypes" title="'Type de véhicule'"  placeholder="Ex : Benne, Bâché, etc." ng-model="addCtrl.vehicle.type" /><br/>
+        <input type="choice" choices="$root.config.vehicleTypes" title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc." ng-model="addCtrl.vehicle.type" /><br/>
         <br/>
         <hr/>
-        <br/><!--
+        <br/>
+        <!--
         <div class="dimension">
             <p>Dimension de la capacité de la remorque</p><br/>
             <div class="hauteur">
@@ -44,16 +45,14 @@
         <div class="photo">
             <label for="photo">Inserer une photo</label><br/>
             <input type="file" name="" id="photo" ng-model="addCtrl.vehicle.image" />
-        </div>
+        </div>-->
 
         <hr/><br/>
 
         <label>Pays d'origine du véhicule</label><br/>
-        <div class="input-country">
-            <a href="#">Ex : Algérie, Maroc, Tunisie, etc.</a>
-        </div>
+        <input type="choice" choices="$root.config.countries" title="Pays d\'origine"  placeholder="Ex : Algérie, Maroc, etc." ng-model="addCtrl.vehicle.country" /><br/>
         <br/>
-
+        <!--
         <label>Ville</label><br/>
         <div class="input-city">
             <a href="#">Ex : Oran, Alger, etc.</a>
