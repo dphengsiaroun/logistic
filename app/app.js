@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ngRoute', 'lg-menu', 'lg-svg', 'lg-user']);
+	var app = angular.module('mainApp', ['ngRoute', 'lg-menu', 'lg-svg', 'lg-user', 'lg-choice']);
 
 	app.config(['$routeProvider', function($routeProvider) {
 

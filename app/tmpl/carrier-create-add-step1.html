@@ -4,33 +4,33 @@
     <h2>Déposer une annonce</h2>
 </section>
 <section class="form">
-    <form method="" action="">
+    <form name="createAddForm" ng-submit="createAdd();">
         <label>Description du type de véhicule</label><br/>
-        <input type="text" name="" id="" placeholder="Ex : Benne, Bâché, Frigo, etc." /><br/>
+        <input type="choice" placeholder="Ex : Benne, Bâché, etc." ng-model="addCtrl.vehicle.type" /><br/>
         <br/>
         <hr/>
-        <br/>
+        <br/><!--
         <div class="dimension">
             <p>Dimension de la capacité de la remorque</p><br/>
             <div class="hauteur">
                 <img src="img/hauteur.png"/>
                 <p>Hauteur</p>
                 <button class="plus">+</button><br/>
-                <input type="text" name="" id="" placeholder="3,20" />
+                <input type="text" name="" id="" placeholder="3,20" ng-model="addCtrl.vehicle.box.height" />
                 <button class="moins">-</button>
             </div>
             <div class="profondeur">
                 <img src="img/profondeur.png"/>
                 <p>Profondeur</p>
                 <button class="plus">+</button><br/>
-                <input type="text" name="" id="" placeholder="3,20" />
+                <input type="text" name="" id="" placeholder="3,20" ng-model="addCtrl.vehicle.box.deep" />
                 <button class="moins">-</button>
             </div>
             <div class="largeur">
                 <img src="img/largeur.png"/>
                 <p>Largeur</p>
                 <button class="plus">+</button><br/>
-                <input type="text" name="" id="" placeholder="3,20" /><br/>
+                <input type="text" name="" id="" placeholder="3,20" ng-model="addCtrl.vehicle.box.width" /><br/>
                 <button class="moins">-</button>
             </div>
             <div class="clear"></div>
@@ -43,7 +43,7 @@
 
         <div class="photo">
             <label for="photo">Inserer une photo</label><br/>
-            <input type="file" name="" id="photo" />
+            <input type="file" name="" id="photo" ng-model="addCtrl.vehicle.image" />
         </div>
 
         <hr/><br/>
@@ -61,19 +61,19 @@
         <br/>
 
         <label>Type de conditionnement</label><br/>
-        <input type="text" name="" id="" placeholder="Ex : Colis, Palettes, Vrac, Indifférent" /><br/><br/>
+        <input type="text" name="" id="" placeholder="Ex : Colis, Palettes, Vrac, Indifférent" ng-model="addCtrl.vehicle.conditionment" /><br/><br/>
         <div class="complement">
             <label>Volume maximum de chargement (en m3)</label><br/>
-            <button class="plus2">+</button><input type="text" name="" id="" placeholder="42" /><button class="moins2"> - </button>
+            <button class="plus2">+</button><input type="text" name="" id="" placeholder="42" ng-model="addCtrl.vehicle.maxVolume" /><button class="moins2"> - </button>
         </div>
         <div class="complement">
             <label>Poids maximum de chargement du véhicule (en tonne)</label><br/>
-            <button class="plus2">+</button><input type="text" name="" id="" placeholder="35" /><button class="moins2"> - </button>
+            <button class="plus2">+</button><input type="text" name="" id="" placeholder="35" ng-model="addCtrl.vehicle.maxWeight" /><button class="moins2"> - </button>
         </div>
         <label>Année du camion</label><br/>
-        <input type="text" name="" id="" placeholder="Ex : 2005" /><br/><br/>
+        <input type="text" name="" id="" placeholder="Ex : 2005" ng-model="addCtrl.vehicle.birthyear" /><br/><br/>
         <div class="bouton">
-            <input type="submit" name="" id="" value="Envoyer >" />
-        </div>
+            <input type="submit" value="Envoyer >" />
+        </div>-->
     </form>
 </section>
