@@ -13,5 +13,5 @@
     <input type="text" name="" id="" placeholder="Départ (Ex: Alger)" ng-model="coucou" />
 </section>
 <section class="list" >
-    <p ng-repeat="choice in ['Alger', 'Annaba']">{{choice}}</p>
+    <p ng-click="$ctrl.update(choice);" ng-repeat="choice in $ctrl.choices">{{choice}}</p>
 </section>

@@ -1,3 +1,12 @@
+.lg-choice {
+    border: 1px solid hsla(0, 0%, 84%, 1);
+    border-radius: 5px;
+    margin: 5px 0px;
+    color: hsla(0, 0%, 66%, 1);
+    padding: 16px;
+    width: 100%;
+}
+
 lg-choice {
     position: fixed;
     height: 100%;

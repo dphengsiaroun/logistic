@@ -6,7 +6,7 @@
 <section class="form">
     <form name="createAddForm" ng-submit="createAdd();">
         <label>Description du type de véhicule</label><br/>
-        <input type="choice" title="'Type de véhicule'" placeholder="Ex : Benne, Bâché, etc." ng-model="addCtrl.vehicle.type" /><br/>
+        <input type="choice" choices="$root.config.vehicleTypes" title="'Type de véhicule'"  placeholder="Ex : Benne, Bâché, etc." ng-model="addCtrl.vehicle.type" /><br/>
         <br/>
         <hr/>
         <br/><!--

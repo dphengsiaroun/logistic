@@ -21,7 +21,9 @@
 
 				ctrl.$render = function() {
 					console.log('ctrl', ctrl);
-					var html = attr.placeholder;
+					var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
+
+					var html = choice || attr.placeholder;
 					console.log('html', html);
 					elt.html(html);
 					// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
@@ -31,14 +33,20 @@
 
 				scope.start = function() {
 					console.log('start', arguments);
-					var elt = angular.element('<lg-choice title="' + attr.title + '"></lg-choice>');
-					element.after(elt);
-					$compile(elt)(scope);
-
+					scope.elt = angular.element('<lg-choice update="update" choices="' + attr.choices + '" title="' + attr.title + '"></lg-choice>');
+					element.after(scope.elt);
+					$compile(scope.elt)(scope);
 				};
 
-				scope.update = function(note) {
-					ctrl.$setViewValue(note);
+				scope.stop = function() {
+					console.log('stop', arguments);
+					scope.elt.remove();
+				};
+
+				scope.update = function(choice) {
+					console.log('input choice update', arguments);
+					scope.stop();
+					ctrl.$setViewValue(choice);
 					ctrl.$render();
 					// because we have no blur event, then we must set the touched ourselves.
 					ctrl.$setTouched();
@@ -58,10 +66,16 @@
 	app.component('lgChoice', {
 		templateUrl: 'lg-choice/tmpl/lg-choice.html',
 		controller: function() {
+			console.log('lgChoice controller', arguments, this);
+			this.$onInit = function() {
+				console.log('lgChoice controller onInit', arguments, this);
+			};
 
 		},
 		bindings: {
-			title: '='
+			title: '=',
+			choices: '=',
+			update: '=',
 		}
 	});
 

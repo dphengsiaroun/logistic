@@ -1,7 +1,15 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ngRoute', 'ngSanitize', 'lg-menu', 'lg-svg', 'lg-user', 'lg-choice']);
+	var app = angular.module('mainApp', [
+		'ngRoute', 
+		'ngSanitize',
+		'lg-menu',
+		'lg-svg',
+		'lg-user',
+		'lg-choice',
+		'lg-config',
+		]);
 
 	app.config(['$routeProvider', function($routeProvider) {
 
