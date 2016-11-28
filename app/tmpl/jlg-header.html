@@ -4,11 +4,12 @@
 			<i ng-show="lgMenu.isBackPresent" ng-click="lgMenu.off(); back();" class="fa fa-chevron-left" aria-hidden="true"></i>
 		</div>
 		<div class="logo" ng-show="!userCtrl.account">
-			<a ng-click="lgMenu.off()" href="#/"><img src="img/logo.png"/><br/>LOGISTIC</a>
+			<a ng-click="lgMenu.off()" href="#/"><img src="img/logo.png" /></a>
 		</div>
 		<div class="logo" ng-show="userCtrl.account">
-			<a ng-click="lgMenu.off()" href="#/"><img src="img/logo.png"/><br/></a>
-			{{userCtrl.account.content.firstname}} {{userCtrl.account.content.lastname | uppercase }}
+			<a ng-click="lgMenu.off()" href="#/"><img class="lg-svg" src="img/logo.svg" /><br/>
+				{{userCtrl.account.content.firstname}} {{userCtrl.account.content.lastname | uppercase }}
+			</a>
 		</div>
 		<div class="menu">
 			<i ng-click="lgMenu.toggle()" class="fa fa-bars" aria-hidden="true"></i>
@@ -20,13 +21,13 @@
 			<a ng-click="lgMenu.toggle();" href="#/signin"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Se connecter</span></a>
 		</div>
 		<div ng-show="userCtrl.account">
-			<a href=""><i class="fa fa-tag" aria-hidden="true"></i><span class="notification">2</span><span>Mes propositions</span></a>
-			<a href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="notification">2</span><span>Mes engagements</span></a>
-			<a href=""><i class="fa fa-bullhorn" aria-hidden="true"></i><span class="notification">2</span><span>Mes annonces</span></a>
-			<a href=""><i class="fa fa-user" aria-hidden="true"></i> <span>Mon profil</span></a>
-			<a href=""><i class="fa fa-truck" aria-hidden="true"></i> <span>Mes véhicules</span></a>
-			<a href=""> <span></span></a>
-			<a ng-click="lgMenu.toggle();" href="#/signout"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Se déconnecter</span></a>
+			<a ng-click="lgMenu.toggle();" href=""><i class="fa fa-tag" aria-hidden="true"></i><span class="notification">2</span><span>Mes propositions</span></a>
+			<a ng-click="lgMenu.toggle();" href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="notification">1</span><span>Mes engagements</span></a>
+			<a ng-click="lgMenu.toggle();" href=""><i class="fa fa-bullhorn" aria-hidden="true"></i><span class="notification">10</span><span>Mes annonces</span></a>
+			<a ng-click="lgMenu.toggle();" href="#/profile"><i class="fa fa-user" aria-hidden="true"></i> <span>Mon profil</span></a>
+			<a ng-click="lgMenu.toggle();" href=""><i class="fa fa-truck" aria-hidden="true"></i> <span>Mes véhicules</span></a>
+			<br/><br/>
+			<a ng-click="lgMenu.toggle();" href="#/signout" class="btn-logout" ><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Se déconnecter</span></a>
 		</div>
 	</div>
 </nav>

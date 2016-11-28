@@ -20,6 +20,7 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: 'Source Sans Pro', sans-serif;
+    background: hsla(0, 0%, 96%, 1);
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -34,12 +35,14 @@ h1 {
 }
 
 input {
-    font-size: 20px;
+    font-size: 18px;
     width: 100%;
     margin: 5px 0px;
+    background: white;
+    box-shadow: none;
     padding: 17px 10px;
     border-radius: 5px;
-    border: 1px solid hsla(0, 0%, 84%, 1);
+    border: 1px solid hsla(0, 0%, 92%, 1);
 }
 
 a {
@@ -91,12 +94,32 @@ a {
     border: 1px solid hsla(0, 0%, 84%, 1);
 }
 
+/* All Sign */
+.form-sign {
+    text-align: left;
+    width: 100%;
+    padding: 0px 10px 20px;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+}
+
 /* Inscription */
+.eyeClosed {
+    position: relative;
+    top: -51px;
+    left: 89%;
+    font-size: 25px;
+}
+
 .ou, .ou2 {
     font-size: 17px;
     width: 100px;
     margin: 11px auto;
-    background: white;
+    background: hsla(0, 0%, 95%, 1);
     position: relative;
 }
 
@@ -221,6 +244,7 @@ a {
 .logout h3 {
     text-align: center;
     padding: 20px;
+    font-size: 22px;
 }
 
 .oui, .non {
@@ -229,7 +253,6 @@ a {
     height: 100%;
     margin: 0px;
     padding: 15px 30px;
-
     border: 1px solid hsla(171, 99%, 38%, 1);
     color: white;
 }
@@ -257,6 +280,7 @@ a {
 
 .banner-annonce h1 {
     font-size: 20px;
+    margin: 3px 0;
     float: left;
     display: inline-block;
 }
@@ -291,6 +315,7 @@ a {
     margin: 0px;
     padding: 10px;
     text-align: left;
+    background-color: white;
 }
 
 .details p {
@@ -334,15 +359,17 @@ a {
 .recap {
     width: 100%;
     padding: 20px;
+    background-color: white;
 }
 
 .recap h3 {
+    text-align: left;
     margin: 25px 0;
     font-size: 19px;
 }
 
 .publie, .expire {
-    color: hsla(0, 0%, 84%, 1);
+    color: hsla(0, 0%, 76%, 1);
     font-size: 20px;
 }
 
@@ -371,7 +398,7 @@ a {
 /* Créer proposition Transporteur / Chargeur */
 .proposition{
     width: 100%;
-    padding: 20px;
+    padding: 20px 10px;
 }
 
 .proposition h1 {
@@ -380,6 +407,7 @@ a {
     margin: 20px 0px 40px;
 }
 .proposition h3 {
+    text-align: left;
     font-size: 16px;
 }
 
@@ -417,14 +445,15 @@ a {
     border-radius: 5px;
 }
 
-.input-lieu, .input-date, .input-country, .input-city, .input-address {
-    border: 1px solid hsla(0, 0%, 84%, 1);
+.input-date, .input-address {
+    border: 1px solid hsla(0, 0%, 92%, 1);
     border-radius: 5px;
     margin: 5px 0px;
+    background-color: white;
 }
 
-.input-lieu a, .input-date a, .input-country a, .input-city a {
-    padding: 16px;
+.input-date a {
+    padding: 20px;
     font-size: 14px;
     color: hsla(0, 0%, 66%, 1);
     display: inline-block;
@@ -454,6 +483,7 @@ a {
     font-size: 18px;
     margin: 5px 0px;
     padding: 15px 10px;
+    border-radius: 0px;
     border: none;
     border-top: 1px solid hsla(0, 0%, 84%, 1);
     border-bottom: 1px solid hsla(0, 0%, 84%, 1);
@@ -499,6 +529,35 @@ button {
     border: none;
     border-radius: 5px;
     font-size: 18px;
+}
+
+/* Profile */
+.profil {
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+    margin: 30px 0px;
+}
+
+.profil svg {
+    width: 85px;
+    height: 85px;
+}
+
+.profil h1 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.profil h2 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.edit-profil {
+    text-align: left;
+    width: 100%;
+    padding: 20px 10px;
 }
 
 

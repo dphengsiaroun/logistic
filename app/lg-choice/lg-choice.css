@@ -1,10 +1,11 @@
 .lg-choice {
-    border: 1px solid hsla(0, 0%, 84%, 1);
+    border: 1px solid hsla(0, 0%, 92%, 1);
     border-radius: 5px;
     margin: 5px 0px;
     color: hsla(0, 0%, 66%, 1);
     padding: 16px;
     width: 100%;
+    background-color: white;
 }
 
 .lg-choice.filled {
@@ -23,15 +24,15 @@ lg-choice {
 
 lg-choice .logo p {
     color: white;
-    padding: 24px 0 0;
-    font-size: 20px;
+    padding: 19px 0 0;
+    font-size: 17px;
 }
 
 lg-choice .input-auto {
     text-align: left;
     width: 100%;
-    padding: 74px 10px 0px;
-    background-color: hsla(0, 0%, 84%, 1);
+    padding: 59px 10px 0px;
+    background-color: hsla(0, 0%, 87%, 1);
 }
 
 
@@ -39,13 +40,13 @@ lg-choice .input-auto input {
     width: 100%;
     margin: 5px 0px;
     font-size: 17px;
-    padding: 17px 10px;
+    padding: 15px 10px;
     border-radius: 5px;
-    border: 1px solid hsla(0, 0%, 84%, 1);
+    border: 1px solid hsla(0, 0%, 92%, 1);
 }
 
 lg-choice .list p {
-    padding: 20px 30px;
+    padding: 15px 25px;
     font-size: 20px;
-    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
+    border-bottom: 1px solid hsla(0, 0%, 92%, 1);
 }

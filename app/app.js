@@ -26,17 +26,32 @@
 			.when('/signout', {
 				templateUrl: 'tmpl/signout.html'
 			})
-			.when('/offers', {
-				templateUrl: 'tmpl/offers.html'
+			.when('/profile', {
+				templateUrl: 'tmpl/profile.html'
 			})
-			.when('/loader-create-add-step1', {
-				templateUrl: 'tmpl/loader-create-add-step1.html'
+			.when('/loader-create-ad-step1', {
+				templateUrl: 'tmpl/loader-create-ad-step1.html'
 			})
-			.when('/carrier-create-add-step1', {
-				templateUrl: 'tmpl/carrier-create-add-step1.html'
+			.when('/loader-list-ad', {
+				templateUrl: 'tmpl/loader-list-ad.html'
 			})
-			.when('/contact', {
-				templateUrl: 'tmpl/contact.html'
+			.when('/loader-detail-ad', {
+				templateUrl: 'tmpl/loader-detail-ad.html'
+			})
+			.when('/loader-create-proposal', {
+				templateUrl: 'tmpl/loader-create-proposal.html'
+			})
+			.when('/carrier-create-ad-step1', {
+				templateUrl: 'tmpl/carrier-create-ad-step1.html'
+			})
+			.when('/carrier-list-ad', {
+				templateUrl: 'tmpl/carrier-list-ad.html'
+			})
+			.when('/carrier-detail-ad', {
+				templateUrl: 'tmpl/carrier-detail-ad.html'
+			})
+			.when('/carrier-create-proposal', {
+				templateUrl: 'tmpl/carrier-create-proposal.html'
 			})
 			.otherwise({
 				redirectTo: '/'

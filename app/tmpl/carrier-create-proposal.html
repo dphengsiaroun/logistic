@@ -21,22 +21,27 @@
 </section>
 <section class="proposition">
     <h1>Faire une proposition<br/>de chargement</h1>
-    <form method="" action="">
+    <form name="createAddForm" ng-submit="createAdd();">
         <label>Lieu de chargement :</label>
-        <input type="text" name="" id="" placeholder="Ex : 2 rue de Paris, 1000 ALGER" /><br/><br/>
+        <input type="choice" choices="$root.config.Address" title="Lieu de chargement"  placeholder="Ex : 2 rue de Paris, 1000 ALGER" ng-model="addCtrl.loadingAddress" />
+        <br/>
         <label>Lieu de déchargement :</label>
-        <input type="text" name="" id="" placeholder="Ex : 15 rue de Tripoli, 1100 ORAN" />
+        <input type="choice" choices="$root.config.Address" title="Lieu de déchargement"  placeholder="Ex : 15 rue de Tripoli, 1100 ORAN" ng-model="addCtrl.unloadingAddress" />
         <h3>Distance supplémentaire :</h3>
         <span>1.5km</span>
         <br/><br/>
+
         <label>Nature de la marchandise :</label>
-        <input type="text" name="" id="" placeholder="Ex : Fruits et Légumes frais" /><br/><br/>
+        <input type="choice" choices="$root.config.goodTypes" title="Nature de la marchandise"  placeholder="Ex : Fruits et Légumes frais" ng-model="addCtrl.goods" />
+        <br/>
         <label>Poids max en Tonne (< 1 ) :</label>
-        <input type="text" name="" id="" placeholder="Ex : 0.5" /><br/><br/>
+        <input type="choice" choices="$root.config.weight" title="Poids du chargement" placeholder="Ex : 0.5" ng-model="addCtrl.loaderWeight" />
+        <br/>
         <label>Volume max en m3 (< 3 ) :</label>
-        <input type="text" name="" id="" placeholder="Ex 1.5" /><br/><br/>
-        <div class="btn-proposition">
-            <input type="submit" name="" id="" value="ENVOYER VOTRE PROPOSITION >" />
-        </div>
+        <input type="choice" choices="$root.config.volumes" title="Volume résultant" placeholder="Ex 1.5" ng-model="addCtrl.volume" />
+        <br/>
+        <div class="bouton">
+			<button>Envoyer votre proposition ></button>
+		</div>
     </form>
 </section>

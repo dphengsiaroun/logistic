@@ -3,7 +3,6 @@
 nav {
     position: fixed;
     top: 0px;
-    height: 75px;
     padding:0px;
     width: 100%;
     display: block;
@@ -18,76 +17,101 @@ nav > div {
 
 jlg-header {
     display: block;
-    height: 75px;
+    height: 58px;
 }
 
 .back {
     display: table-cell;
     width: 50px;
-    height: 50px;
     margin: 0px;
     vertical-align: top;
-    padding: 12px 4px;
+    padding: 17px 10px 0;
 }
+
 .back i {
     color: white;
-    font-size: 50px;
+    font-size: 26px;
 }
+
 .logo {
     display: table-cell;
     text-align: center;
     color: white;
     font-size: 13px;
 }
-.logo img {
-    width: 50px;
-    margin-top: 11px;
+
+.logo a {
+    color: white;
 }
+
+.logo img {
+    width: 60px;
+    padding-top: 10px;
+}
+
+.logo svg {
+    width: 40px;
+    height: 36px;
+    margin-top: -1px;
+}
+
+.sizeLogo {
+    width: 40px;
+    height: 40px;
+    margin-top: 7px;
+}
+
 .menu {
     display: table-cell;
     margin: 0px;
     width: 50px;
     vertical-align: top;
-    padding: 12px 10px;
+    padding: 14px 10px;
 }
+
 .menu i{
     color: white;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 /* Menu content */
 
 .lg-menu-content {
     display: none;
-    background-color: white;
+    background-color: hsla(0, 0%, 97%, 1);
 }
 
 .lg-menu-content a {
     display: block;
-    border: 1px solid hsla(214, 46%, 25%, 1);
+    background: white;
+    border-bottom: 1px solid hsla(0, 0%, 92%, 1);
     padding: 10px; 
     width: 100%;
-    font-size: 24px;
+    font-size: 23px;
+}
+
+.btn-logout {
+    border-top: 1px solid hsla(0, 0%, 91%, 1);
 }
 
 .lg-menu-content a i {
     display: inline-block;
     width: 30%;
-    font-size: 42px;
+    font-size: 40px;
     height: 100%;
 }
 
 .lg-menu-content a span {
     display: inline-block;
     vertical-align: top;
-    padding: 5px 11px;
+    padding: 6px 11px;
 }
 
 .notification {
     position: absolute;
-    left: 55px;
-    margin: 8px 15px;
-    font-size: 16px;
-    border-radius: 80px;
+    left: 50px;
+    margin: 6px 15px;
+    font-size: 13px;
+    border-radius: 20px;
     background-color: hsla(52, 100%, 68%, 1);
 }

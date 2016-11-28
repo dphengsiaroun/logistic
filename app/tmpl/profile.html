@@ -1,17 +1,19 @@
-<section class="welcome">
-		<img src="img/user.png" />
-		<h3>Bienvenue</h3><span>Nom prenom</span>
+<section class="profil">
+		<img class="lg-svg" src="img/user.svg" />
+		<h3>Bienvenue</h3><span>{{userCtrl.account.content.firstname}} {{userCtrl.account.content.lastname | uppercase }}</span>
 </section>
 <section class="edit-profil">
 		<form method="" action="">
-				<h3>Nom</h3>
-				<input type="text" name="" id="" placeholder="Nom" /><br/>
-				<input type="text" name="" id="" placeholder="Prenom" /><br/><br/>
-				<h3>Informations complémentaires</h3>
-				<input type="text" name="" id="" placeholder="Pseudo" />
-				<input type="text" name="" id="" placeholder="Téléphone" /><br/>
-				<input type="text" name="" id="" placeholder="Email" /><br/><br/>
-				<input type="text" name="" id="" placeholder="Statut" /><br/><br/>
-				
+			<h3>Identité</h3>
+			<input type="text" placeholder="Nom" value="{{userCtrl.account.content.lastname}}" /><br/>
+			<input type="text" placeholder="Prenom" value="{{userCtrl.account.content.firstname}}" /><br/><br/>
+			<h3>Informations complémentaires</h3>
+			<input type="text" placeholder="Pseudo" />
+			<input type="text" placeholder="Téléphone" /><br/>
+			<input type="text" placeholder="Email" /><br/><br/>
+			<input type="text" placeholder="Statut" /><br/><br/>
+			<div class="bouton">
+				<button>Modifier</button>
+			</div>
 		</form>
 </section>

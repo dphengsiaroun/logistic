@@ -5,6 +5,11 @@
     padding: 0px;
 }
 
+.banner svg {
+    width: 85px;
+    height: 85px;
+}
+
 .banner h1 {
     font-size: 30px;
     margin: 10px 0;
@@ -16,7 +21,7 @@
 }
 
 .banner img {
-    width: 100px;
+    width: 85px;
 }
 
 .form{
@@ -39,7 +44,7 @@
 
 .form span {
     position: relative;
-    background: white;
+    background: hsla(0, 0%, 95%, 1);;
     color: hsla(214, 46%, 25%, 1);
     padding: 0px 20px 0px 0px;
     top: -15px;
@@ -58,8 +63,8 @@
 }
 
 .hauteur, .largeur, .profondeur {
-    float: left;
-    width: 33%;
+    display: inline-block;
+    width: 32%;
     text-align: center;
 }
 
@@ -69,26 +74,33 @@
 }
 
 .dimension input {
-    width: 62px;
+    width: 60%;
     height: 57px;
     text-align: center;
     font-size: 13px;
     padding: 15px 10px;
     border: none;
-    border-left: 1px solid hsla(0, 0%, 84%, 1);
-    border-right: 1px solid hsla(0, 0%, 84%, 1);
+    margin: 0px;
+    border-radius: 0px;
+    border-left: 1px solid hsla(0, 0%, 92%, 1);
+    border-right: 1px solid hsla(0, 0%, 92%, 1);
 }
 
-.dimension > p{
+.dimension > div > p{
     font-size: 17px;
+}
+
+.comments {
+    font-size: 14px;
+    text-align: center;
 }
 
 .plus, .moins {
     background: hsla(171, 99%, 38%, 1);
     color: white;
     border: none;
-    width: 62px;
-    height: 50px;
+    width: 60%;
+    height: 45px;
     font-size: 22px;
 }
 
@@ -106,7 +118,7 @@
     margin: 5px 0px 30px;
     padding: 10px;
     border-radius: 5px;
-    background: #efefef;
+    background: white;
 }
 
 .photo > label {
@@ -119,7 +131,8 @@
 }
 
 .complement {
-    margin-bottom: 40px;
+    width: 100%;
+    margin-bottom: 28px;
 }
 
 .complement label {
@@ -127,11 +140,12 @@
 }
 
 .complement input {
-    width: 51%;
+    width: 52%;
     text-align: center;
     font-size: 18px;
     margin: 5px 0px;
     padding: 15px 10px;
+    border-radius: 0px;
     border: none;
     border-top: 1px solid hsla(0, 0%, 84%, 1);
     border-bottom: 1px solid hsla(0, 0%, 84%, 1);
@@ -143,6 +157,8 @@
     border: none;
     padding: 16px 28px;
     font-size: 18px;
+    width: 24%;
+    height: 53px;
 }
 
 .plus2 {
