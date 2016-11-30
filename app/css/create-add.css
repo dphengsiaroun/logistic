@@ -6,17 +6,17 @@
 }
 
 .banner svg {
-    width: 85px;
-    height: 85px;
+    width: 75px;
+    height: 75px;
 }
 
 .banner h1 {
-    font-size: 30px;
+    font-size: 28px;
     margin: 10px 0;
 }
 
 .banner h2 {
-    font-size: 30px;
+    font-size: 28px;
     margin: 10px 0;
 }
 
@@ -147,8 +147,8 @@
     padding: 15px 10px;
     border-radius: 0px;
     border: none;
-    border-top: 1px solid hsla(0, 0%, 84%, 1);
-    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
+    border-top: 1px solid hsla(0, 0%, 92%, 1);
+    border-bottom: 1px solid hsla(0, 0%, 92%, 1);
 }
 
 .plus2, .moins2 {
@@ -178,4 +178,34 @@
     cursor: pointer;
     border: none;
     border-radius: 5px;
+}
+
+/* Créer annonce step 2 */
+.valide {
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+}
+
+.valide h1 {
+    font-size: 30px;
+    margin: 20px 0;
+}
+.valide h2 {
+    font-size: 28px;
+    margin: 20px 0;
+}
+.valide svg{
+    width: 120px;
+    height: 120px;
+}
+.valide a{
+    padding: 20px 0px;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 100%;
+    display: block;
 }

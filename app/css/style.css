@@ -54,37 +54,7 @@ a {
     clear: both;
 }
 
-/* Créer annonce step 2 */
-.valide {
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-}
-
-.valide h1 {
-    font-size: 35px;
-    margin: 20px 0;
-}
-.valide h2 {
-    font-size: 25px;
-    margin: 20px 0;
-}
-.valide img{
-    width: 120px;
-}
-.valide a{
-    padding: 20px 0px;
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    width: 100%;
-    display: block;
-}
-
 /* Ajout société */
-
 .adresse input {
     width: 100%;
     height: 450px;
@@ -92,169 +62,6 @@ a {
     padding: 20px;
     border-radius: 5px;
     border: 1px solid hsla(0, 0%, 84%, 1);
-}
-
-/* All Sign */
-.form-sign {
-    text-align: left;
-    width: 100%;
-    padding: 0px 10px 20px;
-}
-
-.errorMsg {
-    color: red;
-    font-size: 12px;
-    text-align: center;
-}
-
-/* Inscription */
-.eyeClosed {
-    position: relative;
-    top: -51px;
-    left: 89%;
-    font-size: 25px;
-}
-
-.ou, .ou2 {
-    font-size: 17px;
-    width: 100px;
-    margin: 11px auto;
-    background: hsla(0, 0%, 95%, 1);
-    position: relative;
-}
-
-.ou {
-    top: -24px;
-}
-
-.ou2 {
-    top: 21px;
-}
-
-.creer-compte {
-    border-top: 1px solid hsla(0, 0%, 84%, 1);
-    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
-    text-align: center;
-    margin: 40px 0;
-}
-
-.creer-compte a {
-    text-decoration: none;
-    font-size: 20px;
-    color: hsla(214, 46%, 25%, 1);
-}
-
-.connect-fbg {
-    margin: 50px auto;
-    width: 100%;
-    font-size: 0px;
-    padding: 0px 5px;
-}
-
-.connect-fbg img {
-    width: 40px;
-    float: left;
-}
-
-.btn-fb, .btn-google {
-    display: inline-block;
-    width: 50%;
-    margin: 0px;
-    padding: 0px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.btn-fb > div, .btn-google > div {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 2px;
-}
-
-.lien-fb {
-    border: 1px solid hsla(224, 47%, 43%, 1);
-}
-
-.lien-google {
-    border: 1px solid hsla(7, 71%, 52%, 1);
-}
-
-.lien {
-    display: block;
-    margin: 0px;
-    color: black;
-}
-
-.lien-fb a {
-    color: hsla(224, 47%, 43%, 1);
-    padding: 10px 0px;
-    width: 68%;
-    height: 100%;
-    display: inline-block;
-    
-}
-
-.lien-google a {
-    color: hsla(7, 71%, 52%, 1);
-    padding: 10px 0px;
-    width: 68%;
-    height: 100%;
-    display: inline-block;
-}
-
-/* Compte créé */
-.compte-cree {
-    width: 100%;
-    text-align: center;
-}
-
-.compte-cree div {
-    padding: 1px 20px;
-}
-
-.compte-cree h3 {
-    font-size: 30px;
-    margin: 20px 0px;
-    color: #233e60;
-}
-
-.compte-cree p {
-    font-size: 14px;
-    margin: 50px 0;
-}
-
-.response {
-    margin: 50px auto;
-    width: 100%;
-    font-size: 0px;
-    padding: 0px 5px;
-}
-
-.response > div {
-    display: inline-block;
-    width: 50%;
-    margin: 0px;
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.logout h3 {
-    text-align: center;
-    padding: 20px;
-    font-size: 22px;
-}
-
-.oui, .non {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 15px 30px;
-    border: 1px solid hsla(171, 99%, 38%, 1);
-    color: white;
 }
 
 /* Liste annonce */
@@ -509,7 +316,7 @@ button {
 }
 
 .message h1 {
-    font-size: 25px;
+    font-size: 30px;
     text-align: center;
     margin: 30px 0;
 }
@@ -555,9 +362,14 @@ button {
 }
 
 .edit-profil {
-    text-align: left;
     width: 100%;
     padding: 20px 10px;
+}
+
+.edit-profil p {
+    text-align: center;
+    margin: 20px auto;
+    text-decoration: underline;
 }
 
 

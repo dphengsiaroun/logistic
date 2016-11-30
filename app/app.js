@@ -32,6 +32,9 @@
 			.when('/loader-create-ad-step1', {
 				templateUrl: 'tmpl/loader-create-ad-step1.html'
 			})
+			.when('/loader-create-ad-step2', {
+				templateUrl: 'tmpl/loader-create-ad-step2.html'
+			})
 			.when('/loader-list-ad', {
 				templateUrl: 'tmpl/loader-list-ad.html'
 			})
@@ -41,8 +44,14 @@
 			.when('/loader-create-proposal', {
 				templateUrl: 'tmpl/loader-create-proposal.html'
 			})
+			.when('/loader-proposal-sent', {
+				templateUrl: 'tmpl/loader-proposal-sent.html'
+			})
 			.when('/carrier-create-ad-step1', {
 				templateUrl: 'tmpl/carrier-create-ad-step1.html'
+			})
+			.when('/carrier-create-ad-step2', {
+				templateUrl: 'tmpl/carrier-create-ad-step2.html'
 			})
 			.when('/carrier-list-ad', {
 				templateUrl: 'tmpl/carrier-list-ad.html'
@@ -52,6 +61,12 @@
 			})
 			.when('/carrier-create-proposal', {
 				templateUrl: 'tmpl/carrier-create-proposal.html'
+			})
+			.when('/carrier-proposal-sent', {
+				templateUrl: 'tmpl/carrier-proposal-sent.html'
+			})
+			.when('/calendar', {
+				templateUrl: 'tmpl/calendar.html'
 			})
 			.otherwise({
 				redirectTo: '/'

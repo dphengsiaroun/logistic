@@ -1,0 +1,107 @@
+.cont-calendar {
+	width: 100%;
+}
+
+.calendar {
+	text-align: center;
+    padding: 10px;
+    background: white;
+    border-bottom: 1px solid hsla(0, 0%, 92%, 1); 
+
+}
+
+.calendar header {
+	position: relative;
+}
+
+.calendar h2 {
+	text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    margin: 20px 0;
+    color: hsla(189, 7%, 81%, 1);
+}
+
+.calendar table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+    margin-bottom: 20px;
+}
+
+.calendar thead {
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.calendar thead td {
+    color: hsla(189, 7%, 81%, 1);
+}
+
+.calendar tbody tr{
+	border-bottom: 1px solid hsla(0, 0%, 92%, 1);
+    font-family: 'Lato', sans-serif;
+}
+
+.calendar tbody td:hover {
+	background-color: hsla(171, 99%, 38%, 1);
+	color: white;
+}
+
+.calendar td {
+	border: 2px solid transparent;
+    border-radius: 84%;
+    display: inline-block;
+    line-height: 38px;
+    text-align: center;
+    width: 14%;
+    font-family: 'Lato', sans-serif;
+}
+
+.calendar tbody td {
+    font-weight: 400;
+}
+
+.calendar .prev-month,
+.calendar .next-month {
+	color: hsla(189, 7%, 81%, 1);
+}
+
+.current-day {
+	background: hsla(171, 99%, 38%, 1);
+	color: hsla(0, 0%, 98%, 1);
+}
+
+.event.current-day:after {
+	background: hsla(0, 0%, 98%, 1);
+}
+
+.hour {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background: white;
+}
+
+.hour span {
+	padding: 10px 5px;
+	font-size: 13px;
+}
+
+.selector{
+	position: relative;
+    width: 48px;
+    top: -25px;
+    margin: 0 auto;
+    border-radius: 5px;
+    height: 32px;
+    border: 2px solid hsla(171, 99%, 38%, 1);
+}
+
+.select {
+	font-weight: bold;
+	color: hsla(171, 99%, 38%, 1);
+}
+
+.none{
+	border-bottom: none !important;
+}
