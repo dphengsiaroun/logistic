@@ -64,6 +64,18 @@
     background: hsla(7, 71%, 55%, 1);
 }
 
+.bouton button {
+    width: 100%;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    height: 70px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    margin: 5px 0px;
+    border-radius: 5px;
+}
+
 /* Compte créé */
 .compte-cree {
     width: 100%;

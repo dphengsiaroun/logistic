@@ -1,14 +1,23 @@
-.lg-choice {
+lg-choice-wrapper {
+    display: block;
+}
+
+lg-choice {
+    display: none;
+}
+
+my-input {
+    display: block;
     border: 1px solid hsla(0, 0%, 92%, 1);
     border-radius: 5px;
     margin: 5px 0px;
-    color: hsla(0, 0%, 66%, 1);
+    color: hsla(0, 0%, 66%, 1); /* Placeholder */
     padding: 16px;
     width: 100%;
     background-color: white;
 }
 
-.lg-choice.filled {
+my-input.filled {
     color: black;
 }
 
@@ -20,6 +29,10 @@ lg-choice {
     left: 0;
     z-index: 100;
     background-color: white;
+}
+
+lg-choice nav {
+    
 }
 
 lg-choice .logo p {

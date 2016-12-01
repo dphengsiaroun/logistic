@@ -7,7 +7,7 @@
 		console.log('lg-config run', arguments);
 		var $rootScope = $injector.get('$rootScope');
 		$rootScope.config = {};
-		$rootScope.config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
+		$rootScope.config.vehicleTypes = ['Bâche', 'Benne', 'Frigo', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012'];
 		$rootScope.config.countries = ['Algérie', 'France', 'Maroc'];
 		$rootScope.config.cities = ['Alger', 'Abbana','Bejaia', 'Biskra', 'Constantine', 'Oran'];
 		$rootScope.config.conditionings = ['Colis', 'Palette','Vrac'];

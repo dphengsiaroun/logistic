@@ -45,6 +45,10 @@ input {
     border: 1px solid hsla(0, 0%, 92%, 1);
 }
 
+label {
+    font-weight: bold;
+}
+
 a {
     text-decoration: none;
     color: hsla(214, 46%, 25%, 1);
@@ -304,7 +308,6 @@ button {
     font-size: 18px;
     cursor: pointer;
     border: none;
-    margin: 5px 0px;
     border-radius: 5px;
 }
 

@@ -1,0 +1,21 @@
+<style>{{$ctrl.style}}</style>
+<my-input ng-click="$ctrl.start();" >{{$ctrl.placeholder}}</my-input>
+<lg-choice id="lgChoice{{$ctrl.id}}" >
+    <nav>
+        <div class="back">
+            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+        </div>
+        <div class="logo">
+            <p>{{$ctrl.title}}</p>
+        </div>
+        <div class="menu">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+    </nav>
+    <section class="input-auto">
+        <input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="myFilter" />
+    </section>
+    <section class="list" >
+        <p ng-click="$ctrl.update(choice);" ng-repeat="choice in $ctrl.choices | filter: myFilter">{{choice}}</p>
+    </section>
+</lg-choice>
