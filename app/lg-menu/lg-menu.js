@@ -26,12 +26,14 @@
 				var ctrl = this;
 
 				this.isBackPresent = false;
-				$scope.$on('$routeChangeStart', function(next, current) { 
-					console.log('routeChangeStart', arguments);
+				var refreshBack = function() { 
+					console.log('refreshBack');
 					var path = $location.path();
 					console.log('path', path);
-					ctrl.isBackPresent = !($location.path() === '/');
-				});
+					ctrl.isBackPresent = ($location.path() !== '/');
+				};
+				refreshBack();
+				$scope.$on('$routeChangeStart', refreshBack);
 
 				this.isMenuOn = false;
 

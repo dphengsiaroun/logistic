@@ -1,13 +1,11 @@
 <section class="profil">
-		<img class="lg-svg" src="img/user.svg" />
+		<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 		<h3>Bienvenue</h3><span>{{userCtrl.account.content.firstname}} {{userCtrl.account.content.lastname | uppercase }}</span>
 </section>
 <section class="edit-profil">
 		<form method="" action="">
-			<h3>Identité</h3>
 			<input type="text" placeholder="Nom" value="{{userCtrl.account.content.lastname}}" /><br/>
 			<input type="text" placeholder="Prenom" value="{{userCtrl.account.content.firstname}}" /><br/><br/>
-			<h3>Informations complémentaires</h3>
 			<input type="text" placeholder="Pseudo" />
 			<input type="text" placeholder="Téléphone" /><br/>
 			<input type="text" placeholder="Email" /><br/><br/>
