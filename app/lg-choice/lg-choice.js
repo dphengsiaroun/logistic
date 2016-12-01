@@ -41,7 +41,11 @@
 			ngModel: 'ngModel',
 		},
 		templateUrl: 'lg-choice/tmpl/lg-choice-wrapper.html',
-		controller: ['$scope', '$element', 'lgChoiceSequence', function($scope, $element, lgChoiceSequence) {
+		controller: ['$scope', '$element', '$injector', function($scope, $element, $injector) {
+			var lgChoiceSequence = $injector.get('lgChoiceSequence');
+			var $location = $injector.get('$location');
+			var $anchorScroll = $injector.get('$anchorScroll');
+
 			this.style = '';
 			this.id = lgChoiceSequence.next();
 			
@@ -60,6 +64,9 @@
 				this.ngModel.$render();
 				// because we have no blur event, then we must set the touched ourselves.
 				this.ngModel.$setTouched();
+
+				$location.hash('lgChoiceInput' + this.id);
+				$anchorScroll();
 			};
 
 			
