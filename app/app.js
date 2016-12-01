@@ -8,6 +8,7 @@
 		'lg-svg',
 		'lg-user',
 		'lg-choice',
+		'lg-eyepassword',
 		'lg-config',
 		]);
 

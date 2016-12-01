@@ -4,8 +4,7 @@
 <section class="form-sign">
 	<form name="signinCtrl" ng-submit="userCtrl.signin();">
 		<input type="text" placeholder="email, n°tel, pseudo" ng-model="userCtrl.signinData.email" />
-		<input type="text" placeholder="Mot de passe" ng-model="userCtrl.signinData.password" />
-		<span class="eyeClosed"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+		<input type="eyepassword" placeholder="Mot de passe" ng-model="userCtrl.signinData.password" />
 		<p class="errorMsg">Le login ou mot de passe saisi est incorrect.<br/>Veuillez réessayer.</p><br/><br/>
 		<div class="bouton">
 			<button>Se connecter</button>

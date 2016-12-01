@@ -67,7 +67,7 @@ a {
 /* Liste annonce */
 .banner-annonce {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     background: hsla(52, 100%, 68%, 1);
 }
 
@@ -81,7 +81,7 @@ a {
 }
 
 .banner-annonce img {
-    width: 30px;
+    width: 25px;
     display: inline-block;
 }
 
