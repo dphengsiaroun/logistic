@@ -66,6 +66,7 @@
 				this.ngModel.$setTouched();
 
 				$location.hash('lgChoiceInput' + this.id);
+				$anchorScroll.yOffset = 100;
 				$anchorScroll();
 			};
 
