@@ -10,6 +10,7 @@
 		'lg-choice',
 		'lg-eyepassword',
 		'lg-config',
+		'lg-widget',
 		]);
 
 	app.config(['$routeProvider', function($routeProvider) {
@@ -23,6 +24,9 @@
 			})
 			.when('/signup', {
 				templateUrl: 'tmpl/signup.html'
+			})
+			.when('/signup_success', {
+				templateUrl: 'tmpl/signup_success.html'
 			})
 			.when('/signout', {
 				templateUrl: 'tmpl/signout.html'
@@ -120,6 +124,8 @@
 			templateUrl: 'tmpl/jlg-footer.html'
 		};
 	});
+
+
 
 	
 

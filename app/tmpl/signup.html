@@ -2,13 +2,21 @@
 	<h1>Inscription</h1>
 </section>
 <section class="form-sign">
+	<div class="connect-fbg">
+		<div class="btn-fb">
+			<img src="img/facebook.svg" />
+		</div>
+		<div class="btn-google">
+			<img src="img/google-plus.svg" />
+		</div>
+		<div class="clear"></div>
+	</div>
 	<form name="signupCtrl" ng-submit="userCtrl.signup();">
 		<input type="text" placeholder="Nom" ng-model="userCtrl.signupData.content.lastname" /><br/>
 		<input type="text" placeholder="Prenom" ng-model="userCtrl.signupData.content.firstname" /><br/><br/>
 		<input type="text" placeholder="Pseudo" ng-model="userCtrl.signupData.content.pseudo" />
 		<input type="text" placeholder="Téléphone" ng-model="userCtrl.signupData.content.phone" /><br/>
 		<input type="text" placeholder="Email" ng-model="userCtrl.signupData.email" />
-		<p class="errorMsg">Cet email est existe déjà. Veuillez en saisir un différent.</p><br/><br/>
 		<input type="eyepassword" placeholder="Mot de passe" ng-model="userCtrl.signupData.password" />
 		<div class="segmented-control" style="width: 100%; color: #223c5d; margin-bottom: 35px; border-radius: 5px;">
 			<input type="radio" name="sc-1-1" id="sc-1-1-1" checked>
@@ -16,6 +24,9 @@
 			<label for="sc-1-1-1" data-value="Chargeur">Chargeur</label>
 			<label for="sc-1-1-2" data-value="Transporteur">Transporteur</label>
 		</div>
+		<p ng-show="userCtrl.isSignupError" class="errorMsg">Cet email est existe déjà.</p>
+		<p ng-hide="userCtrl.isSignupError" class="errorMsg">&nbsp;</p>
+		<br/><br/>
 		<div class="bouton">
 			<button>Valider</button>
 		</div>

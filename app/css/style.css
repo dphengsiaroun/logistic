@@ -304,6 +304,7 @@ button {
     font-size: 18px;
     cursor: pointer;
     border: none;
+    margin: 5px 0px;
     border-radius: 5px;
 }
 

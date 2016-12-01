@@ -7,31 +7,12 @@
 
 .errorMsg {
     color: red;
-    font-size: 12px;
+    font-size: 20px;
+    padding: 20px 0;
     text-align: center;
 }
 
-/* Inscription */
-
-.ou, .ou2 {
-    font-size: 17px;
-    width: 100px;
-    margin: 11px auto;
-    background: hsla(0, 0%, 95%, 1);
-    position: relative;
-}
-
-.ou {
-    top: -24px;
-}
-
-.ou2 {
-    top: 21px;
-}
-
 .creer-compte {
-    border-top: 1px solid hsla(0, 0%, 84%, 1);
-    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
     text-align: center;
     margin: 40px 0;
 }
@@ -43,21 +24,21 @@
 }
 
 .connect-fbg {
-    margin: 50px auto;
+    display: block;
+    margin: 20px auto 0;
     width: 100%;
-    font-size: 0px;
-    padding: 0px 5px;
+    padding: 0px 60px 25px;
 }
 
 .connect-fbg img {
-    width: 40px;
-    float: left;
+    width: 50px;
 }
 
 .btn-fb, .btn-google {
     display: inline-block;
-    width: 50%;
-    margin: 0px;
+    width: 29%;
+    height: 52px;
+    margin: 0 18px;
     padding: 0px;
     font-size: 14px;
     text-align: center;
@@ -71,35 +52,16 @@
     padding: 2px;
 }
 
-.lien-fb {
+.btn-fb {
     border: 1px solid hsla(224, 47%, 43%, 1);
+    border-radius: 5px;
+    background: hsla(224, 47%, 43%, 1);
 }
 
-.lien-google {
-    border: 1px solid hsla(7, 71%, 52%, 1);
-}
-
-.lien {
-    display: block;
-    margin: 0px;
-    color: black;
-}
-
-.lien-fb a {
-    color: hsla(224, 47%, 43%, 1);
-    padding: 10px 0px;
-    width: 68%;
-    height: 100%;
-    display: inline-block;
-    
-}
-
-.lien-google a {
-    color: hsla(7, 71%, 52%, 1);
-    padding: 10px 0px;
-    width: 68%;
-    height: 100%;
-    display: inline-block;
+.btn-google {
+    border: 1px solid hsla(7, 71%, 55%, 1);
+    border-radius: 5px;
+    background: hsla(7, 71%, 55%, 1);
 }
 
 /* Compte créé */

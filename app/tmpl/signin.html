@@ -2,37 +2,28 @@
 	<h1>Connexion</h1>
 </section>
 <section class="form-sign">
+	<div class="connect-fbg">
+		<div class="btn-fb">
+			<img src="img/facebook.svg" />
+		</div>
+		<div class="btn-google">
+			<img src="img/google-plus.svg" />
+		</div>
+	</div>
+	<lg-hr>ou</lg-hr>
+	
 	<form name="signinCtrl" ng-submit="userCtrl.signin();">
 		<input type="text" placeholder="email, n°tel, pseudo" ng-model="userCtrl.signinData.email" />
 		<input type="eyepassword" placeholder="Mot de passe" ng-model="userCtrl.signinData.password" />
-		<p class="errorMsg">Le login ou mot de passe saisi est incorrect.<br/>Veuillez réessayer.</p><br/><br/>
+		<p ng-show="userCtrl.isSigninError" class="errorMsg">Mot de passe incorrect.</p>
+		
 		<div class="bouton">
 			<button>Se connecter</button>
 		</div>
 	</form>
 		
 	<div class="creer-compte">
-		<p class="ou">ou</p>
+		<lg-hr>ou</lg-hr>
 		<a href="#/signup">Créer un nouveau compte</a>
-		<p class="ou2">ou</p>
-	</div>
-	<div class="connect-fbg">
-		<div class="btn-fb">
-			<div>
-				<img src="img/facebook.png"/>
-				<div class="lien lien-fb">
-					<a href="">Se connecter</a>
-				</div>
-			</div>
-		</div>
-		<div class="btn-google">
-			<div>
-				<img src="img/google-plus.png"/>
-				<div class="lien lien-google">
-					<a href="">Se connecter</a>
-				</div>
-			</div>
-		</div>
-		<div class="clear"></div>
 	</div>
 </section>

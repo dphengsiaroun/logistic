@@ -77,7 +77,7 @@
 				}
 				ctrl.isSignupError = false;
 				ctrl.account = response.data.account;
-				$location.path('/');
+				$location.path('/signup_success');
 			});
 		};
 
