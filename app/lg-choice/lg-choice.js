@@ -35,6 +35,18 @@
 			return this.current;
 		};
 	});
+	
+	app.service('lgChoiceScroll', ['$injector', function LgChoiceScroll($injector) {
+		var $window = $injector.get('$window');
+		this.lastSaved = 0;
+		this.save = function() {
+			this.lastSaved = $window.scrollY;
+			console.log('this.lastSaved', this.lastSaved);
+		};
+		this.restore = function() {
+			$window.scrollTo(0, this.lastSaved);
+		};
+	}]);
 
 	app.component('lgChoiceWrapper', {
 		require: {
@@ -43,17 +55,18 @@
 		templateUrl: 'lg-choice/tmpl/lg-choice-wrapper.html',
 		controller: ['$scope', '$element', '$injector', function($scope, $element, $injector) {
 			var lgChoiceSequence = $injector.get('lgChoiceSequence');
-			var $location = $injector.get('$location');
-			var $anchorScroll = $injector.get('$anchorScroll');
+			var lgChoiceScroll = $injector.get('lgChoiceScroll');
 
 			this.style = '';
 			this.id = lgChoiceSequence.next();
 			
 			this.start = function() {
+				lgChoiceScroll.save();
 				this.style = '#lgChoice' + this.id + ' {display: block;}';
 			};
 
 			this.stop = function() {
+				lgChoiceScroll.restore();
 				this.style = '#lgChoice' + this.id + ' {display: none;}';
 			};
 
@@ -64,10 +77,6 @@
 				this.ngModel.$render();
 				// because we have no blur event, then we must set the touched ourselves.
 				this.ngModel.$setTouched();
-
-				$location.hash('lgChoiceInput' + this.id);
-				$anchorScroll.yOffset = 100;
-				$anchorScroll();
 			};
 
 			
