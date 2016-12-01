@@ -7,7 +7,7 @@
 		var $compile = $injector.get('$compile');
 		return {
 			restrict: 'E',
-			require: 'ngModel',
+			require: '?ngModel',
 			link: function (scope, element, attr, ctrl) {
 				if (attr.type !== 'choice') {
 					return;
