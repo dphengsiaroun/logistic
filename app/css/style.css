@@ -58,6 +58,14 @@ a {
     clear: both;
 }
 
+lg-title {
+	display: block;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 0px 20px;
+}
+
 /* Ajout société */
 .adresse input {
     width: 100%;

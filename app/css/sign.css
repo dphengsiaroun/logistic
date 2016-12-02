@@ -1,8 +1,28 @@
 /* All Sign */
-.form-sign {
+sign-form {
+	display: block;
     text-align: left;
     width: 100%;
-    padding: 0px 10px 20px;
+    padding: 0px 10px;
+}
+
+sign-form .table {
+	display: table;
+	width: 100%;
+}
+
+sign-form .row {
+	display: table-row;
+}
+
+sign-form .cell {
+	display: table-cell;
+	text-align: center;
+}
+
+sign-form img {
+	display: inline-block;
+	width: 60px;
 }
 
 .errorMsg {
@@ -21,47 +41,6 @@
     text-decoration: none;
     font-size: 20px;
     color: hsla(214, 46%, 25%, 1);
-}
-
-.connect-fbg {
-    display: block;
-    margin: 20px auto 0;
-    width: 100%;
-    padding: 0px 60px 25px;
-}
-
-.connect-fbg img {
-    width: 50px;
-}
-
-.btn-fb, .btn-google {
-    display: inline-block;
-    width: 29%;
-    height: 52px;
-    margin: 0 18px;
-    padding: 0px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.btn-fb > div, .btn-google > div {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 2px;
-}
-
-.btn-fb {
-    border: 1px solid hsla(224, 47%, 43%, 1);
-    border-radius: 5px;
-    background: hsla(224, 47%, 43%, 1);
-}
-
-.btn-google {
-    border: 1px solid hsla(7, 71%, 55%, 1);
-    border-radius: 5px;
-    background: hsla(7, 71%, 55%, 1);
 }
 
 .bouton button {
