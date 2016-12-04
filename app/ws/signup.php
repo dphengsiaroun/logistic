@@ -30,7 +30,7 @@
 		
 		$sql = <<<EOF
 INSERT INTO account (email, password, content) VALUES 
-	(:email, :password, :content)
+	(:email, :password, :content); 
 EOF;
 
 		$st = $db->prepare($sql,
@@ -40,9 +40,25 @@ EOF;
 			':password' => $account->password,
 			':content' => $account->content
 		)) === FALSE) {
-			throw new Exception("Table creation: ".sprint_r($db->errorInfo()));
+			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 		}
+		
+		$sql = <<<EOF
+SELECT * FROM account WHERE email=:email
+EOF;
+		
+		$st = $db->prepare($sql,
+					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute(array(
+			':email' => $account->email
+		)) === FALSE) {
+			throw new Exception('Table interrogation: '.sprint_r($db->errorInfo()));
+		}
+		
+		$array = $st->fetch();
+		$id = $array['id'];
 		$result['status'] = 'ok';
+		$request->id = $id;
 		$result['account'] = $request;
 		$_SESSION['email'] = $request->email;
 

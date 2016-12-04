@@ -7,6 +7,7 @@
 	<label>Inserer des photos</label><br/>
 	<input id="fileupload" type="file" name="files[]" data-url="ws/upload.php" multiple>
 </div>
+<p>account: {{userCtrl.account | json}}</p>
 <script>
 	$(function() {
 		console.log('starting script', arguments);
