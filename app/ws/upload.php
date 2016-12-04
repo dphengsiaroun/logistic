@@ -17,10 +17,22 @@ require_once(BASE_DIR . "/include/database.inc.php");
 session_start();
 debug("UPLOAD_DIR " . UPLOAD_DIR);
 debug("UPLOAD_URL " . UPLOAD_URL);
+debug_r("SESSION ", $_SESSION);
 error_reporting(E_ALL | E_STRICT);
 require(BASE_DIR . '/include/lib/UploadHandler.php');
 $options = array(
 	'upload_dir' => UPLOAD_DIR,
-	'upload_url' => UPLOAD_URL
+	'upload_url' => UPLOAD_URL,
+	'user_dirs' => true,
 );
-$upload_handler = new UploadHandler($options);
+
+class MyUploadHandler extends UploadHandler
+{
+
+    protected function get_user_id() {
+        @session_start();
+        return 'acct_'.$_SESSION['accountId'];
+    }
+}
+
+$upload_handler = new MyUploadHandler($options);

@@ -20,10 +20,12 @@
 	// Si le résultat est différent de 0 alors on récupère les données 
 	if ($sqlResult->rowCount() != 0) {
 		$result = $sqlResult->fetch(PDO::FETCH_ASSOC); // On le transforme en tableau array
-
+		debug_r('signin result', $result);
 		$result['status'] = 'ok';
 		$result['content'] = json_decode($result['content']);
 		$_SESSION['email'] = $request->email;
+		$_SESSION['accountId'] = $result['id'];
+		debug_r('signin session', $_SESSION);
 	} else {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = ERROR_BAD_LOGIN_MSG;

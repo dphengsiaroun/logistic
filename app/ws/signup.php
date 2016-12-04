@@ -61,6 +61,7 @@ EOF;
 		$request->id = $id;
 		$result['account'] = $request;
 		$_SESSION['email'] = $request->email;
+		$_SESSION['accountId'] = $request->id;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
