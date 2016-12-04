@@ -5,12 +5,13 @@
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
 	session_start();
+	debug("isConnected.php");
     debug_r('_SESSION', $_SESSION);
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
 	
-	debug("start");
+	
 	
     $email = default_str($_SESSION['email'], '');
 

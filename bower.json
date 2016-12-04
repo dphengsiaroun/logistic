@@ -15,6 +15,7 @@
     "flexslider": "2.6.3",
     "angular-route": "1.5.8",
     "jshashes": "1.0.5",
-    "angular-sanitize": "1.5.8"
+    "angular-sanitize": "1.5.8",
+    "blueimp-file-upload": "9.14.1"
   }
 }

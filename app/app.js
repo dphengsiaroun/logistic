@@ -73,6 +73,9 @@
 			.when('/calendar', {
 				templateUrl: 'tmpl/calendar.html'
 			})
+			.when('/test', {
+				templateUrl: 'tmpl/test.html'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
