@@ -4,3 +4,4 @@
 *.bak
 *.DS_Store
 *config.ini*
+files/
