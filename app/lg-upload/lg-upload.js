@@ -8,6 +8,8 @@
 	app.config(['$httpProvider', 'fileUploadProvider', function ($httpProvider, fileUploadProvider) {
 		//delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		//fileUploadProvider.defaults.redirect = window.location.href.replace(/\/[^\/]*$/, '/cors/result.html?%s');
+		console.log('fileUploadProvider.defaults', fileUploadProvider.defaults);
+		fileUploadProvider.defaults.autoUpload = true;
 	}]);
 
 	app.controller('FileDestroyController', ['$scope', '$http', function ($scope, $http) {

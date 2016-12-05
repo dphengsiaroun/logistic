@@ -1,5 +1,7 @@
 lg-upload {
     display: block;
+    padding: 0px 10px;
+    color: yellow;
 }
 
 lg-upload my-input {
@@ -8,7 +10,7 @@ lg-upload my-input {
     background-color: white;
     width: 100%;
     height: 100px;
-    margin: 0px;
+    margin: 0px 0px 10px;
     padding: 0px;
     text-align: center;
     padding-top: 32px; 
@@ -31,5 +33,26 @@ lg-upload my-input input {
 }
 
 lg-upload my-input i, lg-upload my-input span {
-    color: hsla(0, 0%, 84%, 1);
+    color: hsla(0, 0%, 80%, 1);
 }
+
+lg-upload progress-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+lg-upload progress-bar lg-progress {
+    display: block;
+    height: 2px;
+    background-color: hsla(214, 46%, 25%, 1);
+    border: 0px;
+}
+
+lg-upload progress-bar remaining {
+    display: block;
+    height: 2px;
+    background-color: transparent;
+}
+

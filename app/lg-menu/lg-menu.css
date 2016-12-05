@@ -86,7 +86,7 @@ jlg-header {
     bottom: 0;
     left: 0;
     z-index: 75;
-    background-color: white;
+    background-color: hsla(0, 0%, 92%, 1);
 }
 
 .lg-menu-content a {

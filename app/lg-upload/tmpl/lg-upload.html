@@ -1,11 +1,12 @@
 <div file-upload="options">
     <my-input>
         <i class="fa fa-camera" aria-hidden="true"></i>
-        <span> Insérer une photo </span>
+        <span> Insérer une photo</span>
         <input type="file" name="files[]">
     </my-input>
-    <button type="button" class="btn btn-primary start" data-ng-click="submit()">
-        <i class="glyphicon glyphicon-upload">U</i>
-        <span>Start upload</span>
-    </button>
+    <progress-bar ng-show="active()" file-upload-progress="progress()">
+        <lg-progress ng-style="{width: num + '%'}">
+        </lg-progress>
+        <remaining class="progress-extended">&nbsp;</remaining>
+    </progress-bar>
 </div>
