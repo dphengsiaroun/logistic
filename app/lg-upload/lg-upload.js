@@ -54,7 +54,9 @@
 	});
 
 	app.controller('LgUploadInitCtrl', ['$scope', '$http', function ($scope, $http) {
-		$http.get(url).then(function (response) {
+		var formData = $scope.$parent.$ctrl.formData;
+		console.log('formData XXX', formData);
+		$http.get(url + '?suffix=' + formData.suffix).then(function (response) {
 			console.log('$http get return', response);
 			$scope.loadingFiles = false;
 			$scope.queue = response.data.files || [];
@@ -72,7 +74,7 @@
 			$scope.file = $scope.queue[0];
 			$scope.file.$destroy = function() {
 				return $http({
-					url: $scope.file.deleteUrl,
+					url: $scope.file.deleteUrl + '&suffix=' + formData.suffix,
 					method: $scope.file.deleteType
 				}).then(function(response) {
 					console.log('response', response);

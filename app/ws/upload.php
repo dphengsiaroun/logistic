@@ -33,7 +33,14 @@ class MyUploadHandler extends UploadHandler
 {
 
     protected function get_user_id() {
-        return 'acct_'.$_SESSION['accountId'];
+        $suffix = '';
+        if (isset($_POST['suffix'])) {
+            $suffix = $_POST['suffix'];
+        }
+        if (isset($_GET['suffix'])) {
+            $suffix = $_GET['suffix'];
+        }
+        return 'acct_'.$_SESSION['accountId'].$suffix;
     }
 }
 
