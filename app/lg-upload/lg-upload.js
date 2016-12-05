@@ -34,48 +34,56 @@
 		},
 		controller: ['$scope', '$http', function ($scope, $http) {
 			console.log('DemoFileUploadController', arguments);
-			//this.$onInit = function() {
-				console.log('this.formData', this.formData);
-				$scope.options = {
-					url: url,
-					formData: this.formData
-				};
-			//};
+			console.log('this.formData', this.formData);
+			$scope.options = {
+				url: url,
+				formData: this.formData
+			};
 			
 
 			$scope.$on('fileuploaddone', function(data) {
 				console.log('on fileuploaddone', arguments);
 				var scope = data.targetScope;
 				console.log('scope', scope);
-				if (scope.queue.length === 0) {
-					return;
-				}
-				scope.file = scope.queue[0];
-				scope.file.$destroy = function() {
-					return $http({
-						url: scope.file.deleteUrl,
-						method: scope.file.deleteType
-					}).then(function(response) {
-						console.log('response', response);
-						scope.clear(scope.file);
-						delete scope.file;
-					}).catch(function(error) {
-						console.error('error', error);
-					});
-				};
+				scope.refresh();
 			});
 
 			$scope.loadingFiles = true;
-			$http.get(url).then(function (response) {
-				console.log('$http get return', response);
-				$scope.loadingFiles = false;
-				$scope.queue = response.data.files || [];
-			}).catch(function (error) {
-				console.log('$http get error', error);
-				$scope.loadingFiles = false;
-			});
+			
 		}]
 	});
+
+	app.controller('LgUploadInitCtrl', ['$scope', '$http', function ($scope, $http) {
+		$http.get(url).then(function (response) {
+			console.log('$http get return', response);
+			$scope.loadingFiles = false;
+			$scope.queue = response.data.files || [];
+			$scope.refresh();
+		}).catch(function (error) {
+			console.log('$http get error', error);
+			$scope.loadingFiles = false;
+		});
+
+		$scope.refresh = function() {
+			if ($scope.queue.length === 0) {
+				delete $scope.file;
+				return;
+			}
+			$scope.file = $scope.queue[0];
+			$scope.file.$destroy = function() {
+				return $http({
+					url: $scope.file.deleteUrl,
+					method: $scope.file.deleteType
+				}).then(function(response) {
+					console.log('response', response);
+					$scope.clear($scope.file);
+					delete $scope.file;
+				}).catch(function(error) {
+					console.error('error', error);
+				});
+			};
+		};
+	}]);
 	
 
 	
