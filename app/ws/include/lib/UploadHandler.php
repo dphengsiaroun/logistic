@@ -170,7 +170,6 @@ class UploadHandler
         if ($initialize) {
             $this->initialize();
         }
-		debug("hello");
 		debug_r("options", $this->options);
     }
 

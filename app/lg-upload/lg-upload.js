@@ -29,11 +29,19 @@
 
 	app.component('lgUpload', {
 		templateUrl: './lg-upload/tmpl/lg-upload.html',
+		bindings: {
+			formData: '='
+		},
 		controller: ['$scope', '$http', function ($scope, $http) {
 			console.log('DemoFileUploadController', arguments);
-			$scope.options = {
-				url: url
-			};
+			//this.$onInit = function() {
+				console.log('this.formData', this.formData);
+				$scope.options = {
+					url: url,
+					formData: this.formData
+				};
+			//};
+			
 
 			$scope.$on('fileuploaddone', function(data) {
 				console.log('on fileuploaddone', arguments);

@@ -18,6 +18,8 @@ session_start();
 debug("UPLOAD_DIR " . UPLOAD_DIR);
 debug("UPLOAD_URL " . UPLOAD_URL);
 debug_r("SESSION ", $_SESSION);
+debug_r("POST ", $_POST);
+debug_r("SERVER ", $_SERVER);
 error_reporting(E_ALL | E_STRICT);
 require(BASE_DIR . '/include/lib/UploadHandler.php');
 $options = array(
