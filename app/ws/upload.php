@@ -24,13 +24,13 @@ $options = array(
 	'upload_dir' => UPLOAD_DIR,
 	'upload_url' => UPLOAD_URL,
 	'user_dirs' => true,
+    'mkdir_mode' => 0700,
 );
 
 class MyUploadHandler extends UploadHandler
 {
 
     protected function get_user_id() {
-        @session_start();
         return 'acct_'.$_SESSION['accountId'];
     }
 }

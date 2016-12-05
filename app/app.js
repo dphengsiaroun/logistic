@@ -4,6 +4,7 @@
 	var app = angular.module('mainApp', [
 		'ngRoute', 
 		'ngSanitize',
+		'lg-upload',
 		'lg-menu',
 		'lg-svg',
 		'lg-user',
@@ -11,6 +12,7 @@
 		'lg-eyepassword',
 		'lg-config',
 		'lg-widget',
+		'lg-debug',
 		]);
 
 	app.config(['$routeProvider', function($routeProvider) {
@@ -75,6 +77,9 @@
 			})
 			.when('/test', {
 				templateUrl: 'tmpl/test.html'
+			})
+			.when('/test2', {
+				templateUrl: 'tmpl/test2.html'
 			})
 			.otherwise({
 				redirectTo: '/'

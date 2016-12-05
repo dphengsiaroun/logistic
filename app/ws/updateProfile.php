@@ -17,8 +17,6 @@
 	$result = [];
 	try {
 
-
-
 		// Si le résultat est différent de 0 alors on récupère les données 
 		if ($sqlResult->rowCount() != 0) {
 			throw new Exception(ERROR_BAD_PSEUDO_MSG, ERROR_BAD_PSEUDO_CODE);
@@ -26,8 +24,8 @@
 		
 		$sql = <<<EOF
 UPDATE account
-SET email = ':email', password=':password', content=':content'
-WHERE email='$request->email'
+SET email = ':email', password = ':password', content = ':content'
+WHERE email = '$request->email'
 EOF;
 
 		$st = $db->prepare($sql,

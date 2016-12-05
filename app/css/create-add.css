@@ -117,7 +117,7 @@
     border-radius: 0 0 5px 5px;
 }
 
-.photo input {
+.photo > input {
     font-size: 11px;
     width: 100%;
     margin: 5px 0px 30px;

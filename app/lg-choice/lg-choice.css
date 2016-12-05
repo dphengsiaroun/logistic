@@ -6,7 +6,7 @@ lg-choice {
     display: none;
 }
 
-my-input {
+lg-choice-wrapper my-input {
     display: block;
     border: 1px solid hsla(0, 0%, 92%, 1);
     border-radius: 5px;
@@ -17,7 +17,7 @@ my-input {
     background-color: white;
 }
 
-my-input.filled {
+lg-choice-wrapper my-input.filled {
     color: black;
 }
 

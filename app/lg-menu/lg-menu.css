@@ -6,7 +6,7 @@ nav {
     padding:0px;
     width: 100%;
     display: block;
-    z-index: 99;
+    z-index: 50;
 }
 
 nav > div {
@@ -78,7 +78,15 @@ jlg-header {
 
 .lg-menu-content {
     display: none;
-    background-color: hsla(0, 0%, 97%, 1);
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    top: 58px;
+    bottom: 0;
+    left: 0;
+    z-index: 75;
+    background-color: white;
 }
 
 .lg-menu-content a {
