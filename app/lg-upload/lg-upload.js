@@ -19,18 +19,6 @@
 			file.$state = function() {
 				return state;
 			};
-			file.$destroy = function() {
-				state = 'pending';
-				return $http({
-					url: file.deleteUrl,
-					method: file.deleteType
-				}).then(function () {
-					state = 'resolved';
-					$scope.clear(file);
-				}).catch(function() {
-					state = 'rejected';
-				});
-			};
 
 		} else if (!file.$cancel && !file._index) {
 			file.$cancel = function () {
@@ -46,6 +34,28 @@
 			$scope.options = {
 				url: url
 			};
+
+			$scope.$on('fileuploaddone', function(data) {
+				console.log('on fileuploaddone', arguments);
+				var scope = data.targetScope;
+				console.log('scope', scope);
+				if (scope.queue.length === 0) {
+					return;
+				}
+				scope.file = scope.queue[0];
+				scope.file.$destroy = function() {
+					return $http({
+						url: scope.file.deleteUrl,
+						method: scope.file.deleteType
+					}).then(function(response) {
+						console.log('response', response);
+						scope.clear(scope.file);
+						delete scope.file;
+					}).catch(function(error) {
+						console.error('error', error);
+					});
+				};
+			});
 
 			$scope.loadingFiles = true;
 			$http.get(url).then(function (response) {

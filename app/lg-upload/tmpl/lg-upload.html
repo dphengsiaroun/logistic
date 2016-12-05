@@ -1,12 +1,25 @@
 <div file-upload="options">
-    <my-input>
-        <i class="fa fa-camera" aria-hidden="true"></i>
-        <span> Insérer une photo</span>
-        <input type="file" name="files[]">
-    </my-input>
-    <progress-bar ng-show="active()" file-upload-progress="progress()">
-        <lg-progress ng-style="{width: num + '%'}">
-        </lg-progress>
-        <remaining class="progress-extended">&nbsp;</remaining>
-    </progress-bar>
+    <state empty ng-hide="file">
+        <my-input>
+            <i class="fa fa-camera" aria-hidden="true"></i>
+            <span> Insérer une photo</span>
+            <input type="file" name="files[]">
+        </my-input>
+        <progress-bar ng-show="active()" file-upload-progress="progress()">
+            <lg-progress ng-style="{width: num + '%'}">
+            </lg-progress>
+            <remaining class="progress-extended">&nbsp;</remaining>
+        </progress-bar>
+    </state>
+    <state loaded ng-show="file">
+        <my-input>
+            <img ng-src="{{file.thumbnailUrl}}" />
+            <button ng-hide="!file.$destroy" ng-click="file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</button>
+        </my-input>
+    </state>
+
+    
+    
+    {{queue}}<br/>
+    file: {{file}}
 </div>
