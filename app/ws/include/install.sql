@@ -8,14 +8,14 @@ CREATE TABLE `account` (
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `carrier` (
-  `id` int(5) unsigned NOT NULL,
+  `id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `content` longtext NOT NULL,
   `account_id` int(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `loader` (
-  `id` int(5) unsigned NOT NULL,
+  `id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `content` longtext NOT NULL,
   `account_id` int(5) NOT NULL,
   PRIMARY KEY (`id`)

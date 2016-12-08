@@ -11,7 +11,7 @@
 	// on décode le json en variable PHP
     $request = json_decode($postdata); 
 	$carrier = clone $request;
-	$carrier->content = json_encode($adCarrier->content);
+	$carrier->content = json_encode($carrier->content);
 	debug("Carrier start");
 	debug_r("carrier", $carrier);
 
@@ -27,14 +27,14 @@ EOF;
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
 			':content' => $carrier->content,
-			':account_id' => $carrier->accountId
+			':account_id' => $_SESSION['id']
 		)) === FALSE) {
 			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 		}
 		$lastId = $db->lastInsertId();
 
 		$result['status'] = 'ok';
-		$request->id = $id;
+		$request->id = $lastId;
 		$result['carrier'] = $request;
 
 	} catch (Exception $e) {

@@ -70,12 +70,14 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					ctrl.isAdcarrierError = true;
+					service.isAdcarrierError = true;
 					return;
 				}
 				service.isAdcarrierError = false;
 				service.ads = response.data.ads;
 				$state.go('carrier:createAdStep2');
+			}).catch(function(error) {
+				console.error('error', error);
 			});
 		};
 

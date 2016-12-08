@@ -14,6 +14,7 @@
 		'lg-config',
 		'lg-widget',
 		'lg-debug',
+		'lg-http',
 		]);
 
 	
