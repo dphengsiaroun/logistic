@@ -331,6 +331,10 @@ button i {
     text-align: center;
 }
 
+.message i {
+    color: white;
+}
+
 .message h1 {
     font-size: 30px;
     text-align: center;

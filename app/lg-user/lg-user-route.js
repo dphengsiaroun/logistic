@@ -63,8 +63,17 @@
 	});
 
 	app.component('lgUserSignoutRoute', {
-		templateUrl: 'lg-user/tmpl/signout.html',
-		controller: 'UserCtrl'
+		templateUrl: 'lg-widget/tmpl/lg-prompt.html',
+		controller: ['$injector', function User($injector) {
+			this.user = $injector.get('user');
+			var $rootScope = $injector.get('$rootScope');
+			this.doNo = function() {
+				$rootScope.back();
+			};
+			this.doYes = function() {
+				this.user.signout();
+			};
+		}]
 	});
 
 	app.component('lgUserRetrieveRoute', {
