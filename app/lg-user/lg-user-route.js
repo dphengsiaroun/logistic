@@ -59,7 +59,11 @@
 	});
 	app.component('lgUserSignupSuccessRoute', {
 		templateUrl: 'lg-user/tmpl/signup_success.html',
-		controller: 'UserCtrl'
+		controller: ['$injector', function User($injector) {
+			this.state = 'home';
+			this.label = 'Accueil';
+			this.message = 'Votre compte a bien été crée&nbsp;!';
+		}]
 	});
 
 	app.component('lgUserSignoutRoute', {
@@ -105,8 +109,12 @@
 	});
 
 	app.component('lgUserDeletedRoute', {
-		templateUrl: 'lg-user/tmpl/delete_success.html',
-		controller: 'UserCtrl'
+		templateUrl: 'lg-widget/tmpl/lg-message.html',
+		controller: ['$injector', function User($injector) {
+			this.state = 'home';
+			this.label = 'Accueil';
+			this.message = 'Votre compte a bien été supprimé.';
+		}]
 	});
 
 	
