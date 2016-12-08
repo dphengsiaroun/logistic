@@ -73,6 +73,7 @@
 			this.doYes = function() {
 				this.user.signout();
 			};
+			this.questionMsg = 'Voulez vous vraiment vous déconnecter&nbsp;?';
 		}]
 	});
 
@@ -87,8 +88,20 @@
 	});
 
 	app.component('lgUserConfirmDeletedRoute', {
-		templateUrl: 'lg-user/tmpl/confirm_delete.html',
-		controller: 'UserCtrl'
+		templateUrl: 'lg-widget/tmpl/lg-confirm.html',
+		controller: ['$injector', function User($injector) {
+			this.user = $injector.get('user');
+			var $state = $injector.get('$state');
+			this.doCancel = function() {
+				$state.go('user:retrieve');
+			};
+			this.doConfirm = function() {
+				this.user.delete();
+			};
+			this.confirmationMsg = 'Voulez-vous vraiment supprimer votre compte&nbsp;?';
+			this.cancelMsg = 'Non, annuler';
+			this.confirmMsg = 'Oui, supprimer';
+		}]
 	});
 
 	app.component('lgUserDeletedRoute', {

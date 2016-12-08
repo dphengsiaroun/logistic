@@ -1,0 +1,25 @@
+<style>
+lg-confirm {
+	display: block;
+	width: 100%;
+	padding: 10px;
+}
+
+lg-confirm title {
+	display: block;
+	margin: 20px 0px 40px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+</style>
+<lg-confirm>
+	<title ng-bind-html="$ctrl.confirmationMsg"></title>
+	<div>
+		<button class="normal" ng-click="$ctrl.doCancel();">{{$ctrl.cancelMsg}}</button>
+	</div>
+	<div>
+		<button class="critical" ng-click="$ctrl.doConfirm();">{{$ctrl.confirmMsg}}</button>
+	</div>
+</lg-confirm>
