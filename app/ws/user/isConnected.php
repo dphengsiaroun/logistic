@@ -13,10 +13,10 @@
 	
 	
 	
-    $email = default_str($_SESSION['email'], '');
+    $id = default_str($_SESSION['id'], '');
 
 	// On lance notre requête de vérification
-	$sql = "SELECT * FROM account WHERE email='{$email}'";
+	$sql = "SELECT * FROM account WHERE id='{$id}'";
 	$sqlResult = $db->query($sql);
 
 	// Si le résultat est différent de 0 alors on récupère les données 

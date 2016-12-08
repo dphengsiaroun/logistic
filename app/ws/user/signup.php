@@ -60,8 +60,7 @@ EOF;
 		$result['status'] = 'ok';
 		$request->id = $id;
 		$result['account'] = $request;
-		$_SESSION['email'] = $request->email;
-		$_SESSION['accountId'] = $request->id;
+		$_SESSION['id'] = $request->id;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

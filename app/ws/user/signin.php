@@ -23,8 +23,7 @@
 		debug_r('signin result', $result);
 		$result['status'] = 'ok';
 		$result['content'] = json_decode($result['content']);
-		$_SESSION['email'] = $request->email;
-		$_SESSION['accountId'] = $result['id'];
+		$_SESSION['id'] = $result['id'];
 		debug_r('signin session', $_SESSION);
 	} else {
 		$result['status'] = 'ko';

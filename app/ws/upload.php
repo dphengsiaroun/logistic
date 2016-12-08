@@ -40,7 +40,7 @@ class MyUploadHandler extends UploadHandler
         if (isset($_GET['suffix'])) {
             $suffix = $_GET['suffix'];
         }
-        return 'acct_'.$_SESSION['accountId'].$suffix;
+        return 'acct_'.$_SESSION['id'].$suffix;
     }
 }
 

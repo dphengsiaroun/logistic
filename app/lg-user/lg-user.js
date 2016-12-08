@@ -134,13 +134,14 @@
 		};
 
 		this.delete = function() {
-			console.log('user->delete');
-			var data = angular.copy(service.deleteData);
+			console.log('user->delete', service.account);
 			
 			$http({
 				url: 'ws/user/delete.php',
 				method: 'POST',
-				data: data,
+				data: {
+					id: service.account.id
+				},
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {
 				console.log('response', response);
@@ -148,8 +149,8 @@
 					service.isDeleteError = true;
 					return;
 				}
-				service.isDeleteprofileError = false;
-				service.account = response.data.account;
+				service.isDeleteError = false;
+				service.account = undefined;
 				$state.go('user:deleted');
 			});
 		};

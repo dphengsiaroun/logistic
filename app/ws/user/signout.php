@@ -8,7 +8,7 @@
 	
     $result = [];
     $result['status'] = 'ok';
-    unset($_SESSION['email']);
+	unset($_SESSION['id']);
 
 	// On encode le tableau array en format json pour angular
 	echo json_encode($result);

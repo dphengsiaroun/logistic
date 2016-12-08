@@ -12,33 +12,26 @@
 	// on décode le json dans une variable PHP
     $request = json_decode($postdata); 
 	$account = clone $request;
-	$account->content = json_encode($account->content);
-
+	debug_r("delete account", $account);
 
 	$result = [];
 	try {
-				// On lance notre requête de vérification
-			$sql = "SELECT * FROM account WHERE email='$request->email'";
-			$sqlResult = $db->query($sql);
-			debug_r("sqlResult", $sqlResult);
 
-			// Si le résultat est différent de 0 alors on récupère les données 
-			if ($sqlResult->rowCount() != 0) {
-				throw new Exception(ERROR_BAD_PSEUDO_MSG, ERROR_BAD_PSEUDO_CODE);
-			}
-
-			$sql = <<<EOF
+		$sql = <<<EOF
 DELETE FROM account
-WHERE email = :email
+WHERE id = :id;
 EOF;
 
-			$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':email' => $account->email,
-			)) === FALSE) {
-				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
-			}
+		$st = $db->prepare($sql,
+				array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute(array(
+			':id' => $account->id,
+		)) === FALSE) {
+			throw new Exception('Cannot delete account : '.sprint_r($db->errorInfo()));
+		}
+		unset($_SESSION['id']);
+		debug("delete account ok");
+		$result['status'] = 'ok';
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
