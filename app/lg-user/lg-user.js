@@ -112,9 +112,8 @@
 
 		this.isConnected();
 
-		this.update = function() {
+		this.update = function(data) {
 			console.log('user->update');
-			var data = angular.copy(service.account);
 			
 			$http({
 				url: 'ws/user/update.php',
@@ -158,6 +157,12 @@
 
 	app.controller('UserCtrl', ['$scope', '$injector', function($scope, $injector) {
 		this.user = $injector.get('user');
+
+	}]);
+
+	app.controller('UserUpdateCtrl', ['$scope', '$injector', function($scope, $injector) {
+		this.user = $injector.get('user');
+		this.updateData = angular.copy(this.user.account);
 
 	}]);
 	

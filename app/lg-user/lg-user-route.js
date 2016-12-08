@@ -69,7 +69,7 @@
 
 	app.component('lgUserRetrieveRoute', {
 		templateUrl: 'lg-user/tmpl/profile.html',
-		controller: 'UserCtrl'
+		controller: 'UserUpdateCtrl'
 	});
 
 	app.component('lgUserUpdatedRoute', {

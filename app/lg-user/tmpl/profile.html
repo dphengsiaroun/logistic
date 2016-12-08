@@ -4,23 +4,23 @@
 </section>
 <section class="edit-profil">
 		<form name="updateCtrl">
-			<input type="text" placeholder="Nom" ng-model="$ctrl.user.account.content.lastname"/><br/>
+			<input type="text" placeholder="Nom" ng-model="$ctrl.updateData.content.lastname"/><br/>
 
-			<input type="text" placeholder="Prenom" ng-model="$ctrl.user.account.content.firstname" /><br/><br/>
+			<input type="text" placeholder="Prenom" ng-model="$ctrl.updateData.content.firstname" /><br/><br/>
 
-			<input type="text" placeholder="Pseudo" ng-model="$ctrl.user.account.content.pseudo" />
+			<input type="text" placeholder="Pseudo" ng-model="$ctrl.updateData.content.pseudo" />
 
 			<br/><br/>
 
-			<input type="text" placeholder="Adresse" ng-model="$ctrl.user.account.content.address.street" /><br/>
+			<input type="text" placeholder="Adresse" ng-model="$ctrl.updateData.content.address.street" /><br/>
 
-			<input type="text" placeholder="Code postal" ng-model="$ctrl.user.account.content.address.zipcode" /><br/>
+			<input type="text" placeholder="Code postal" ng-model="$ctrl.updateData.content.address.zipcode" /><br/>
 
-			<input type="text" placeholder="Ville" ng-model="$ctrl.user.account.content.address.city" /><br/>
+			<input type="text" placeholder="Ville" ng-model="$ctrl.updateData.content.address.city" /><br/>
 
-			<input type="text" placeholder="Pays" ng-model="$ctrl.user.account.content.address.country" /><br/>
+			<input type="text" placeholder="Pays" ng-model="$ctrl.updateData.content.address.country" /><br/>
 
-			<input type="text" placeholder="Téléphone" ng-model="$ctrl.user.account.content.phone" /><br/><br/>
+			<input type="text" placeholder="Téléphone" ng-model="$ctrl.updateData.content.phone" /><br/><br/>
 
 			<div class="segmented-control" style="width: 100%; color: #223c5d; border-radius: 5px;">
 				<input type="radio" name="sc-1-1" id="sc-1-1-1" checked>
@@ -30,7 +30,7 @@
 			</div>
 			<br/><br/>
 			<div class="bouton">
-				<button ng-click="$ctrl.user.update();">Modifier</button>
+				<button ng-click="$ctrl.user.update($ctrl.updateData);">Modifier</button>
 			</div>
 			<lg-hr>ou</lg-hr>
 			<a ui-sref="user:confirmDelete" class="remove">Supprimer mon compte</p>

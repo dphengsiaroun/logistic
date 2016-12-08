@@ -319,6 +319,10 @@ button {
     border-radius: 5px;
 }
 
+button i {
+    color: white;
+}
+
 
 /* Chargeur proposition envoyée */
 .message {
