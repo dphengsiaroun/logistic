@@ -42,6 +42,7 @@
 		var $http = $injector.get('$http');
 		var $state = $injector.get('$state');
 		var $window = $injector.get('$window');
+		this.user = $injector.get('user');
 
 		var service = this;
 		this.createData = {
@@ -56,9 +57,13 @@
 
 		this.create = function() {
 			console.log('carrier->create');
+			if (this.user.account === undefined) {
+				$state.go('user:signin');
+				return;
+			}
 			
 			$http({
-				url: 'ws/insertAdCarrier.php',
+				url: 'ws/carrier/create.php',
 				method: 'POST',
 				data: service.createData,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
