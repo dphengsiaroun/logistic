@@ -8,6 +8,7 @@
 		'lg-menu',
 		'lg-svg',
 		'lg-user',
+		'lg-adcarrier',
 		'lg-choice',
 		'lg-eyepassword',
 		'lg-config',
@@ -35,6 +36,12 @@
 			})
 			.when('/profile', {
 				templateUrl: 'tmpl/profile.html'
+			})
+			.when('/update_success', {
+				templateUrl: 'tmpl/updateprofile_success.html'
+			})
+			.when('/confirm-delete', {
+				templateUrl: 'tmpl/confirm-delete.html'
 			})
 			.when('/loader-create-ad-step1', {
 				templateUrl: 'tmpl/loader-create-ad-step1.html'

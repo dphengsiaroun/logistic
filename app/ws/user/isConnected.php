@@ -1,31 +1,32 @@
 <?php
 	
-	define("BASE_DIR", ".");
+	define("BASE_DIR", dirname(dirname($_SERVER["SCRIPT_FILENAME"])));
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
 	session_start();
+	debug("isConnected.php");
+    debug_r('_SESSION', $_SESSION);
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
-	// on décode le json en variable PHP
-    $request = json_decode($postdata);
-	debug("start");
-	debug_r("request", $request);
+	
+	
+	
+    $email = default_str($_SESSION['email'], '');
 
 	// On lance notre requête de vérification
-	$sql = "SELECT * FROM account WHERE email='{$request->email}' AND password ='{$request->password}'";
+	$sql = "SELECT * FROM account WHERE email='{$email}'";
 	$sqlResult = $db->query($sql);
 
 	// Si le résultat est différent de 0 alors on récupère les données 
 	if ($sqlResult->rowCount() != 0) {
 		$result = $sqlResult->fetch(PDO::FETCH_ASSOC); // On le transforme en tableau array
-		debug_r('signin result', $result);
+
+		debug_r("content", $result['content']);
+
 		$result['status'] = 'ok';
 		$result['content'] = json_decode($result['content']);
-		$_SESSION['email'] = $request->email;
-		$_SESSION['accountId'] = $result['id'];
-		debug_r('signin session', $_SESSION);
 	} else {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = ERROR_BAD_LOGIN_MSG;

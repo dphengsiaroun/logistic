@@ -375,11 +375,11 @@ button {
 .edit-profil {
     width: 100%;
     padding: 20px 10px;
+    text-align: center;
 }
 
-.edit-profil p {
-    text-align: center;
-    margin: 20px auto;
+.remove {
+    color: red;
     text-decoration: underline;
 }
 
