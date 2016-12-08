@@ -25,7 +25,7 @@
 		$sql = <<<EOF
 UPDATE account
 SET email = :email, password = :password, content = :content
-WHERE email = '$request->email'
+WHERE id = :id
 EOF;
 
 	$st = $db->prepare($sql,
@@ -33,7 +33,8 @@ EOF;
 		if ($st->execute(array(
 			':email' => $account->email,
 			':password' => $account->password,
-			':content' => $account->content
+			':content' => $account->content,
+			':id' => $account->id
 		)) === FALSE) {
 			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 		}
