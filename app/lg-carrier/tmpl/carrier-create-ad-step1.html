@@ -46,20 +46,24 @@
         <div class="photo">
             <label>Inserer une photo</label><br/>
             <input type="file" ng-model="addCtrl.vehicle.image" accept="image/*" />
-        </div>
+        </div>-->
 
         <hr/><br/>
 
         <label>Pays d'origine du véhicule</label><br/>
         <input type="choice" choices="$root.config.countries" 
-            title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc." ng-model="adcarrierCtrl.content.country" />
+            title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc." 
+            ng-model="$ctrl.carrier.createData.content.country" />
         <br/>
         <label>Ville</label><br/>
-        <input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.carrier.content.city" />
+        <input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc." 
+            ng-model="$ctrl.carrier.createData.content.city" />
         <br/>
         <label>Type de conditionnement</label><br/>
-        <input type="choice" choices="$root.config.conditionings" title="Type de conditionnement" placeholder="Ex : Colis, Palettes, Vrac" ng-model="adcarrierCtrl.content.conditioning" />
-        <br/>
+        <input type="choice" choices="$root.config.conditionings" title="Type de conditionnement" 
+            placeholder="Ex : Colis, Palettes, Vrac" 
+            ng-model="$ctrl.carrier.createData.content.conditioning" />
+        <br/><!--
         <div class="complement">
             <label>Volume maximum de chargement (en m3)</label><br/>
             <button class="plus2">+</button><input type="text" name="" id="" placeholder="42" ng-model="addCtrl.vehicle.maxVolume" /><button class="moins2"> - </button>
@@ -67,10 +71,11 @@
         <div class="complement">
             <label>Poids maximum de chargement du véhicule (en tonne)</label><br/>
             <button class="plus2">+</button><input type="text" name="" id="" placeholder="35" ng-model="addCtrl.vehicle.maxWeight" /><button class="moins2"> - </button>
-        </div>
+        </div>-->
         <label>Année du camion</label><br/>
-        <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="adcarrierCtrl.content.birthyear" />
-        <br/>-->
+        <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" 
+            ng-model="$ctrl.carrier.createData.content.birthyear" />
+        <br/>
 		<button ng-click="$ctrl.carrier.create();">Envoyer ></button>
     </form>
 </section>

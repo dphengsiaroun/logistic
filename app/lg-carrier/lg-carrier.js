@@ -38,7 +38,11 @@
 		
 	}]);
 
-	app.service('carrier', ['$injector', function($scope, $injector) {
+	app.service('carrier', ['$injector', function($injector) {
+		var $http = $injector.get('$http');
+		var $state = $injector.get('$state');
+		var $window = $injector.get('$window');
+
 		var service = this;
 		this.createData = {
 			content: {
