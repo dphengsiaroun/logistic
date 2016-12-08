@@ -8,7 +8,7 @@
 		'lg-menu',
 		'lg-svg',
 		'lg-user',
-		'lg-adcarrier',
+		'lg-carrier',
 		'lg-choice',
 		'lg-eyepassword',
 		'lg-config',

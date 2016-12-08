@@ -22,7 +22,6 @@
 				element.after(elt);
 				element.attr('style', 'display: none !important');
 				$compile(elt)(scope);
-
 			}
 		};
 
@@ -41,7 +40,6 @@
 		this.lastSaved = 0;
 		this.save = function() {
 			this.lastSaved = $window.scrollY;
-			console.log('this.lastSaved', this.lastSaved);
 		};
 		this.restore = function() {
 			$window.scrollTo(0, this.lastSaved);
@@ -83,14 +81,18 @@
 
 			this.$onInit = function() {
 				var ctrl = this.ngModel;
+				var self = this;
 				ctrl.$render = function() {
 					var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
-					var html = choice || this.placeholder;
+					var html = choice || self.placeholder;
 					var elt = $element.find('my-input');
 					if (choice !== undefined) {
+						console.log('filled');
 						elt.addClass('filled');
 					} else {
+						console.log('not filled');
 						elt.removeClass('filled');
+
 					}
 					elt.html(html);
 					// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
@@ -99,7 +101,7 @@
 				};
 
 				var checkValidity = function(value) {
-					var isOutOfChoice = true;
+					var isOutOfChoice = false;
 					ctrl.$setValidity('outOfChoice', isOutOfChoice);
 				};
 			};
