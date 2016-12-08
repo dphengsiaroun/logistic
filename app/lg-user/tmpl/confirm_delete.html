@@ -1,0 +1,23 @@
+<style>
+lg-user-confirm-deleted-route {
+	display: block;
+	width: 100%;
+	padding: 10px;
+}
+
+lg-user-confirm-deleted-route title {
+	display: block;
+	margin: 20px 0px 40px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+</style>
+<title>Voulez-vous vraiment vous supprimer votre compte&nbsp;?</title>
+<div>
+	<button class="normal" ui-sref="user:retrieve">Non, annuler</button>
+</div>
+<div>
+	<button class="critical" ng-click="$ctrl.user.delete();">Oui, supprimer mon compte</button>
+</div>

@@ -76,21 +76,7 @@ sign-form img {
     margin: 50px 0;
 }
 
-.response {
-    margin: 50px auto;
-    width: 100%;
-    font-size: 0px;
-    padding: 0px 5px;
-}
 
-.response > div {
-    display: inline-block;
-    width: 50%;
-    margin: 0px;
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-}
 
 .logout h3 {
     text-align: center;
@@ -118,20 +104,6 @@ sign-form img {
     border: 1px solid hsla(0, 0%, 84%, 1);
 }
 
-/* Delete account */
-user-confirm-delete {
-    display: block;
-    width: 100%;
-    padding: 10px;
-}
-
-user-confirm-delete title {
-    display: block;
-    margin: 20px 0px 40px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
 
 .critical, .normal{
     display: block;

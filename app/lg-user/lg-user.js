@@ -3,12 +3,12 @@
 
 	var app = angular.module('lg-user', []);
 
-	app.controller('UserCtrl', ['$scope', '$injector', function($scope, $injector) {
+	app.service('user', ['$injector', function User($injector) {
 		var $http = $injector.get('$http');
-		var $location = $injector.get('$location');
+		var $state = $injector.get('$state');
 		var $window = $injector.get('$window');
 
-		var ctrl = this;
+		var service = this;
 
 		this.signupData = {
 			email: 'email@email.com',
@@ -29,8 +29,8 @@
 		this.signup = function() {
 			console.log('sign up');
 			var SHA256 = new Hashes.SHA256;
-			var data = angular.copy(ctrl.signupData);
-			data.password = SHA256.hex(ctrl.signupData.password);
+			var data = angular.copy(service.signupData);
+			data.password = SHA256.hex(service.signupData.password);
 			
 			$http({
 				url: 'ws/user/signup.php',
@@ -40,12 +40,12 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					ctrl.isSignupError = true;
+					service.isSignupError = true;
 					return;
 				}
-				ctrl.isSignupError = false;
-				ctrl.account = response.data.account;
-				$location.path('/signup_success');
+				service.isSignupError = false;
+				service.account = response.data.account;
+				$state.go('user:signupSuccess');
 			});
 		};
 
@@ -61,20 +61,20 @@
 				url: 'ws/user/signin.php',
 				method: 'POST',
 				data: {
-					email: ctrl.signinData.email,
+					email: service.signinData.email,
 					// permet de crypter le password
-					password: SHA256.hex(ctrl.signinData.password)
+					password: SHA256.hex(service.signinData.password)
 				},
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					ctrl.isSigninError = true;
+					service.isSigninError = true;
 					return;
 				}
-				ctrl.isSigninError = false;
-				ctrl.account = response.data;
-				$location.path('/');
+				service.isSigninError = false;
+				service.account = response.data;
+				$state.go('home');
 			});
 		};
 
@@ -86,12 +86,12 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					ctrl.isSignoutError = true;
+					service.isSignoutError = true;
 					return;
 				}
-				ctrl.isSignoutError = false;
-				ctrl.account = undefined;
-				$location.path('/');
+				service.isSignoutError = false;
+				service.account = undefined;
+				$state.go('home');
 			});
 		};
 
@@ -103,37 +103,18 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					ctrl.account = undefined;
+					service.account = undefined;
 					return;
 				}
-				ctrl.account = response.data;
+				service.account = response.data;
 			});
 		};
 
 		this.isConnected();
 
-		this.updateData = {
-			email: 'email@email.com',
-			password: 'test',
-			content: {
-				lastname: 'Debbah',
-				firstname: 'Mérouane',
-				pseudo: 'Meme',
-				phone: '0617172643',
-				address: {
-					street: '98 rue de Paris',
-					city: 'Torcy',
-					zipcode: '77200',
-					country: 'France'
-				}
-			}
-		};
-
 		this.update = function() {
 			console.log('user->update');
-			var SHA256 = new Hashes.SHA256;
-			var data = angular.copy(ctrl.updateData);
-			data.password = SHA256.hex(ctrl.updateData.password);
+			var data = angular.copy(service.account);
 			
 			$http({
 				url: 'ws/user/update.php',
@@ -143,18 +124,18 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					ctrl.isUpdateError = true;
+					service.isUpdateError = true;
 					return;
 				}
-				ctrl.isUpdateError = false;
-				ctrl.account = response.data.account;
-				$location.path('/update_success');
+				service.isUpdateError = false;
+				service.account = response.data.account;
+				$state.go('user:updated');
 			});
 		};
 
 		this.delete = function() {
 			console.log('user->delete');
-			var data = angular.copy(ctrl.deleteData);
+			var data = angular.copy(service.deleteData);
 			
 			$http({
 				url: 'ws/user/delete.php',
@@ -164,14 +145,18 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					ctrl.isDeleteError = true;
+					service.isDeleteError = true;
 					return;
 				}
-				ctrl.isDeleteprofileError = false;
-				ctrl.account = response.data.account;
-				$location.path('/delete_success');
+				service.isDeleteprofileError = false;
+				service.account = response.data.account;
+				$state.go('user:deleted');
 			});
 		};
+	}]);
+
+	app.controller('UserCtrl', ['$scope', '$injector', function($scope, $injector) {
+		this.user = $injector.get('user');
 
 	}]);
 	

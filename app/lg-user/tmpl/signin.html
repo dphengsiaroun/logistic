@@ -12,10 +12,10 @@
 	</div>
 	<lg-hr>ou</lg-hr>
 	
-	<form name="signinCtrl" ng-submit="userCtrl.signin();">
-		<input type="text" placeholder="email, n°tel, pseudo" ng-model="userCtrl.signinData.email" />
-		<input type="eyepassword" placeholder="Mot de passe" ng-model="userCtrl.signinData.password" />
-		<p ng-show="userCtrl.isSigninError" class="errorMsg">Mot de passe incorrect.</p>
+	<form name="signinCtrl" ng-submit="$ctrl.user.signin();">
+		<input type="text" placeholder="email, n°tel, pseudo" ng-model="$ctrl.user.signinData.email" />
+		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signinData.password" />
+		<p ng-show="$ctrl.user.isSigninError" class="errorMsg">Mot de passe incorrect.</p>
 		
 		<div class="bouton">
 			<button>Se connecter</button>
@@ -23,6 +23,6 @@
 	</form>
 	<div class="creer-compte">
 		<lg-hr>ou</lg-hr>
-		<a href="#/signup">Créer un nouveau compte</a>
+		<a ui-sref="user:signup">Créer un nouveau compte</a>
 	</div>
 </sign-form>

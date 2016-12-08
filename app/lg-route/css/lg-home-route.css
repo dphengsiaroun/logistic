@@ -1,24 +1,24 @@
-home {
+lg-home-route {
     display: block;
     margin: 0px;
     padding: 20px 0px 30px;
 }
 
-home .tagline {
+lg-home-route .tagline {
     text-align: center;
     font-size: 17px;
     margin-top: 0px;
     margin-bottom: 10px;
 }
 
-home .square-parent {
+lg-home-route .square-parent {
     width: 100%;
     font-size: 0px;
     margin: 0px;
     padding: 0px 5px;
 }
 
-home .square {
+lg-home-route .square {
     display: inline-block;
     width: 50%;
     margin: 0px;
@@ -27,7 +27,7 @@ home .square {
     text-align: center;
 }
 
-home .square > div {
+lg-home-route .square > div {
     display: block;
     width: 100%;
     height: 100%;
@@ -35,7 +35,7 @@ home .square > div {
     padding: 10px;
 }
 
-home .square a {
+lg-home-route .square a {
     display: block;
     width: 100%;
     height: 100%;
@@ -46,12 +46,12 @@ home .square a {
     color: black;
 }
 
-home .square a img, .square a svg {
+lg-home-route .square a img, .square a svg {
     width: 70px;
     height: 70px;
 }
 
-home .square a p {
+lg-home-route .square a p {
     margin: 0px;
     padding: 0px;
 }
