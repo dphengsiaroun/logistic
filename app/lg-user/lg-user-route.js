@@ -59,11 +59,7 @@
 	});
 	app.component('lgUserSignupSuccessRoute', {
 		templateUrl: 'lg-user/tmpl/signup_success.html',
-		controller: ['$injector', function User($injector) {
-			this.state = 'home';
-			this.label = 'Accueil';
-			this.message = 'Votre compte a bien été crée&nbsp;!';
-		}]
+		controller: 'UserCtrl'
 	});
 
 	app.component('lgUserSignoutRoute', {

@@ -52,7 +52,7 @@ EOF;
 			$db = new PDO("mysql:host={$request->hostname};dbname={$request->databaseName}", $request->username, $request->password);
 			
 			if ($request->dbCreation == 1) {
-				$sql = file_get_contents("include/install.sql");
+				$sql = file_get_contents(BASE_DIR . "/include/install.sql");
 				//$requests = str_replace("ENGINE=InnoDB", "", $requests);
 				$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));

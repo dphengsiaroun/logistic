@@ -43,7 +43,7 @@
         $rootScope.install = function() {
             console.log('install', arguments);
             $http({
-				url: '../ws/install.php',
+				url: '../ws/install/install.php',
 				method: 'POST',
 				data: $rootScope.obj,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -64,7 +64,7 @@
 		$rootScope.isInstalled = function() {
             console.log('isInstalled', arguments);
             $http({
-				url: '../ws/isInstalled.php',
+				url: '../ws/install/isInstalled.php',
 				method: 'GET'
 			}).then(function(response) {
 				console.log('response', response);
@@ -83,7 +83,7 @@
 		$rootScope.uninstall = function() {
             console.log('uninstall', arguments);
 			 $http({
-				url: '../ws/uninstall.php',
+				url: '../ws/install/uninstall.php',
 				method: 'GET'
 			}).then(function(response) {
 				console.log('response', response);
