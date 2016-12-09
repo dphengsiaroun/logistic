@@ -65,10 +65,10 @@
 				url: 'ws/carrier/create.php',
 				method: 'POST',
 				data: service.createData,
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function(response) {
 				console.log('response', response);
-				if (response.data.status === "ko") {
+				if (response.data.status === 'ko') {
 					service.isAdcarrierError = true;
 					return;
 				}
@@ -96,7 +96,6 @@
 		templateUrl: 'lg-carrier/tmpl/carrier-create-ad-step2.html',
 		controller: 'CarrierCtrl',
 	});
-
 
 
 })();

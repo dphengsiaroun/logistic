@@ -105,7 +105,6 @@ lg-title {
 .banner-annonce h1 {
     font-size: 20px;
     margin: 3px 0;
-    float: left;
     display: inline-block;
 }
 
@@ -130,7 +129,6 @@ lg-title {
     text-align: center;
     background: hsla(171, 99%, 38%, 1);
     color: white;
-    float: left;
 }
 
 .details {

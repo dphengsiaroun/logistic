@@ -18,8 +18,6 @@
 		'lg-error',
 		]);
 
-
-
 // permet de récuperer les valeurs en post sous format json
 	app.run(['$injector', function($injector) {
 		var $rootScope = $injector.get('$rootScope');
@@ -52,8 +50,5 @@
 			templateUrl: 'tmpl/jlg-footer.html'
 		};
 	});
-
-
-
 
 })();
