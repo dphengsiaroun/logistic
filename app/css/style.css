@@ -416,13 +416,13 @@ question {
 }
 
 /* lg-message */
-message {
+lg-message {
     display: block;
     padding: 20px;
     text-align: center;
 }
 
-message title {
+lg-message title {
     display: block;
     width: 100%;
     font-size: 25px;
@@ -431,7 +431,7 @@ message title {
     font-weight: bold;
 }
 
-message a {
+lg-message a {
     padding: 20px 0px;
     background: hsla(171, 99%, 38%, 1);
     color: white;
@@ -443,7 +443,7 @@ message a {
     font-size: 18px;
 }
 
-message i {
+lg-message i {
     color: white;
 }
 

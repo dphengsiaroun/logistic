@@ -17,4 +17,11 @@
 		}
 	});
 	
+	app.component('lgMessage', {
+		templateUrl: 'lg-widget/tmpl/lg-message.html',
+		bindings: {
+			service: '<'
+		}
+	});
+	
 })();

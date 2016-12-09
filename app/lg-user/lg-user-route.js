@@ -76,7 +76,16 @@
 		$stateProvider.state({
 			name: 'user:deleted',
 			url: '/user_delete',
-			component: 'lgUserDeletedRoute',
+			component: 'lgMessage',
+			resolve: {
+				service: ['$injector', function User($injector) {
+					return {
+						state: 'home',
+						label: 'Accueil',
+						message: 'Votre compte a bien été supprimé.'
+					}
+				}]
+			},
 			back: false
 		});
 	
@@ -105,18 +114,5 @@
 		templateUrl: 'lg-user/tmpl/update_success.html',
 		controller: 'UserCtrl'
 	});
-
-	app.component('lgUserDeletedRoute', {
-		templateUrl: 'lg-widget/tmpl/lg-message.html',
-		controller: ['$injector', function User($injector) {
-			this.state = 'home';
-			this.label = 'Accueil';
-			this.message = 'Votre compte a bien été supprimé.';
-		}]
-	});
-
-	
-	
-	
 
 })();
