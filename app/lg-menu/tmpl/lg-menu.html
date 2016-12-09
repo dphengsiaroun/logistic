@@ -1,13 +1,13 @@
 <div>
 	<div class="back">
-		<i ng-show="$ctrl.isBackPresent" ng-click="$ctrl.off(); back();" class="fa fa-chevron-left" aria-hidden="true"></i>
+		<i ng-show="$ctrl.isBackPresent" ng-click="$ctrl.off(); $root.back();" class="fa fa-chevron-left" aria-hidden="true"></i>
 	</div>
-	<div class="logo" ng-show="!userCtrl.user.account">
+	<div class="logo" ng-show="!$ctrl.user.account">
 		<a ng-click="$ctrl.off()" href="#/"><img src="img/logo.png" /></a>
 	</div>
-	<div class="logo" ng-show="userCtrl.user.account">
+	<div class="logo" ng-show="$ctrl.user.account">
 		<a ng-click="$ctrl.off()" href="#/"><img class="lg-svg" src="img/logo.svg" /><br/>
-			{{userCtrl.user.account.content.firstname}} {{userCtrl.user.account.content.lastname | uppercase }}
+			{{$ctrl.user.account.content.firstname}} {{$ctrl.user.account.content.lastname | uppercase }}
 		</a>
 	</div>
 	<div class="menu">
@@ -16,10 +16,10 @@
 </div>
 
 <div class="lg-menu-content">
-	<div ng-hide="userCtrl.user.account">
+	<div ng-hide="$ctrl.user.account">
 		<a ng-click="$ctrl.toggle();" href="#/signin"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Se connecter</span></a>
 	</div>
-	<div ng-show="userCtrl.user.account">
+	<div ng-show="$ctrl.user.account">
 		<a ng-click="$ctrl.toggle();" href=""><i class="fa fa-tag" aria-hidden="true"></i><span class="notification">2</span><span>Mes propositions</span></a>
 		<a ng-click="$ctrl.toggle();" href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="notification">1</span><span>Mes engagements</span></a>
 		<a ng-click="$ctrl.toggle();" href=""><i class="fa fa-bullhorn" aria-hidden="true"></i><span class="notification">10</span><span>Mes annonces</span></a>

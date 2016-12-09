@@ -83,6 +83,7 @@ lg-menu .menu i {
     left: 0;
     z-index: 75;
     background-color: hsla(0, 0%, 92%, 1);
+	text-align: left;
 }
 
 .lg-menu-content a {

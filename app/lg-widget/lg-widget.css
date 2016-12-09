@@ -39,3 +39,29 @@ lg-error span {
     text-align: center;
 }
 
+/* lg-prompt */
+lg-prompt question {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+lg-prompt .response {
+    margin: 50px auto;
+    width: 100%;
+    font-size: 0px;
+    padding: 0px 5px;
+}
+
+lg-prompt .response > div {
+    display: inline-block;
+    width: 50%;
+    margin: 0px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+

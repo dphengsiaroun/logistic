@@ -18,7 +18,7 @@
 		controller: ['$element', '$scope', '$injector', function LgMenuCtrl($element, $scope, $injector) {
 			var $state = $injector.get('$state');
 			var $rootScope = $injector.get('$rootScope');
-			var user = $injector.get('user');
+			this.user = $injector.get('user');
 
 			console.log('LgMenuCtrl', arguments);
 			var ctrl = this;
@@ -33,7 +33,7 @@
 					ctrl.isBackPresent = $state.$current.back;
 				}
 
-				if ($state.$current.needsUser && user.account === undefined) {
+				if ($state.$current.needsUser && ctrl.user.account === undefined) {
 					$state.go('home');
 				}
 			};
