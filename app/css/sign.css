@@ -25,13 +25,6 @@ sign-form img {
 	width: 60px;
 }
 
-.errorMsg {
-    color: red;
-    font-size: 20px;
-    padding: 20px 0;
-    text-align: center;
-}
-
 .creer-compte {
     text-align: center;
     margin: 0px;
@@ -41,18 +34,6 @@ sign-form img {
     text-decoration: none;
     font-size: 20px;
     color: hsla(214, 46%, 25%, 1);
-}
-
-.bouton button {
-    width: 100%;
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-    height: 70px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
-    margin: 5px 0px;
-    border-radius: 5px;
 }
 
 /* Compte créé */
@@ -76,22 +57,10 @@ sign-form img {
     margin: 50px 0;
 }
 
-
-
 .logout h3 {
     text-align: center;
     padding: 20px;
     font-size: 22px;
-}
-
-.yes, .no {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 15px 30px;
-    border: 1px solid hsla(171, 99%, 38%, 1);
-    color: white;
 }
 
 /* Ajout société */
@@ -105,18 +74,9 @@ sign-form img {
 }
 
 
-.critical, .normal{
+section {
     display: block;
+    text-align: left;
     width: 100%;
-    margin: 10px 0px;
-    padding: 10px;
-    text-align: center;
-}
-
-.critical {
-    background-color: red;
-}
-
-.normal {
-    background-color: green;
+    padding: 0px 10px;
 }
