@@ -78,13 +78,13 @@
 			url: '/user_delete',
 			component: 'lgMessage',
 			resolve: {
-				service: ['$injector', function User($injector) {
+				service: function() {
 					return {
 						state: 'home',
 						label: 'Accueil',
 						message: 'Votre compte a bien été supprimé.'
 					}
-				}]
+				}
 			},
 			back: false
 		});
