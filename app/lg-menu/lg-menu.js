@@ -17,6 +17,7 @@
 		var $http = $injector.get('$http');
 		var $state = $injector.get('$state');
 		var $rootScope = $injector.get('$rootScope');
+		var user = $injector.get('user');
 
 		return {
 			restrict: 'A',
@@ -28,19 +29,22 @@
 				var ctrl = this;
 
 				this.isBackPresent = false;
-				var refreshBack = function() { 
+				var refresh = function() { 
 					console.log('refreshBack');
 					console.log('$state.$current', $state.$current);
 					if ($state.$current.back === undefined) {
 						ctrl.isBackPresent = true;
-						return;
+					} else {
+						ctrl.isBackPresent = $state.$current.back;
 					}
-					
-					ctrl.isBackPresent = $state.$current.back;
+										
+					if ($state.$current.needsUser && user.account === undefined) {
+						$state.go('home');
+					}
 				};
-				refreshBack();
+				refresh();
 				// UI router throw this event when route changes.
-				$rootScope.$on('$viewContentLoaded', refreshBack);
+				$rootScope.$on('$viewContentLoaded', refresh);
 
 				this.isMenuOn = false;
 

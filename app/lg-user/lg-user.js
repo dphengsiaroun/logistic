@@ -104,6 +104,9 @@
 				console.log('response', response);
 				if (response.data.status === "ko") {
 					service.account = undefined;
+					if ($state.$current.needsUser) {
+						$state.go('home');
+					}
 					return;
 				}
 				service.account = response.data;

@@ -24,12 +24,6 @@
 		var $rootScope = $injector.get('$rootScope');
 		var $window = $injector.get('$window');
 
-
-		$rootScope.goto = function() {
-			console.log('goto', arguments);
-			
-		};
-
 		$rootScope.back = function() {
 			console.log('back', arguments);
 			$window.history.back();

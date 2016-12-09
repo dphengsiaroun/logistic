@@ -35,17 +35,20 @@
 						doYes: user.signout
 					};
 				}]
-			}
+			},
+			needsUser: true
 		});
 		$stateProvider.state({
 			name: 'user:retrieve',
 			url: '/profile',
-			component: 'lgUserRetrieveRoute'
+			component: 'lgUserRetrieveRoute',
+			needsUser: true
 		});
 		$stateProvider.state({
 			name: 'user:updated',
 			url: '/profile',
-			component: 'lgUserUpdatedRoute'
+			component: 'lgUserUpdatedRoute',
+			needsUser: true
 		});
 		$stateProvider.state({
 			name: 'user:confirmDelete',
@@ -67,7 +70,8 @@
 					result.confirmMsg = 'Oui, supprimer';
 					return result;
 				}]
-			}
+			},
+			needsUser: true
 		});
 		$stateProvider.state({
 			name: 'user:deleted',
