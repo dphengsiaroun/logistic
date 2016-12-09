@@ -14,12 +14,10 @@ lg-confirm title {
 }
 
 </style>
-<lg-confirm>
-	<title ng-bind-html="$ctrl.confirmationMsg"></title>
-	<div>
-		<button class="normal" ng-click="$ctrl.doCancel();">{{$ctrl.cancelMsg}}</button>
-	</div>
-	<div>
-		<button class="critical" ng-click="$ctrl.doConfirm();">{{$ctrl.confirmMsg}}</button>
-	</div>
-</lg-confirm>
+<title ng-bind-html="$ctrl.service.confirmationMsg"></title>
+<div>
+	<button class="normal" ng-click="$ctrl.service.doCancel();">{{$ctrl.service.cancelMsg}}</button>
+</div>
+<div>
+	<button class="critical" ng-click="$ctrl.service.doConfirm();">{{$ctrl.service.confirmMsg}}</button>
+</div>

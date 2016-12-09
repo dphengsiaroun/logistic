@@ -14,7 +14,8 @@
 		$stateProvider.state({
 			name: 'home',
 			url: '/',
-			component: 'lgHomeRoute'
+			component: 'lgHomeRoute',
+			back: false
 		});
 		['loader'].forEach(function(type) {
 			$stateProvider.state({

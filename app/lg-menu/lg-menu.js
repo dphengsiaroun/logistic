@@ -15,25 +15,32 @@
 // permet de récuperer les valeurs en post sous format json
 	app.directive('lgMenu', ['$injector', function($injector) {
 		var $http = $injector.get('$http');
-		var $location = $injector.get('$location');
+		var $state = $injector.get('$state');
+		var $rootScope = $injector.get('$rootScope');
 
 		return {
 			restrict: 'A',
 			scope: true,
 			controller: ['$element', '$scope', function($element, $scope) {
 				console.log('lgMenu controller', arguments);
+				
 
 				var ctrl = this;
 
 				this.isBackPresent = false;
 				var refreshBack = function() { 
 					console.log('refreshBack');
-					var path = $location.path();
-					console.log('path', path);
-					ctrl.isBackPresent = ($location.path() !== '/');
+					console.log('$state.$current', $state.$current);
+					if ($state.$current.back === undefined) {
+						ctrl.isBackPresent = true;
+						return;
+					}
+					
+					ctrl.isBackPresent = $state.$current.back;
 				};
 				refreshBack();
-				$scope.$on('$routeChangeStart', refreshBack);
+				// UI router throw this event when route changes.
+				$rootScope.$on('$viewContentLoaded', refreshBack);
 
 				this.isMenuOn = false;
 

@@ -18,7 +18,8 @@
 		$stateProvider.state({
 			name: 'user:signupSuccess',
 			url: '/signup',
-			component: 'lgUserSignupSuccessRoute'
+			component: 'lgUserSignupSuccessRoute',
+			back: false
 		});
 		$stateProvider.state({
 			name: 'user:signout',
@@ -48,13 +49,31 @@
 		});
 		$stateProvider.state({
 			name: 'user:confirmDelete',
-			url: '/profile',
-			component: 'lgUserConfirmDeletedRoute'
+			url: '/user_delete',
+			component: 'lgConfirm',
+			resolve: {
+				service: ['$injector', function($injector) {
+					var user = $injector.get('user');
+					var $state = $injector.get('$state');
+					var result = {};
+					result.doCancel = function() {
+						$state.go('user:retrieve');
+					};
+					result.doConfirm = function() {
+						user.delete();
+					};
+					result.confirmationMsg = 'Voulez-vous vraiment supprimer votre compte&nbsp;?';
+					result.cancelMsg = 'Non, annuler';
+					result.confirmMsg = 'Oui, supprimer';
+					return result;
+				}]
+			}
 		});
 		$stateProvider.state({
 			name: 'user:deleted',
-			url: '/profile',
-			component: 'lgUserDeletedRoute'
+			url: '/user_delete',
+			component: 'lgUserDeletedRoute',
+			back: false
 		});
 	
 	}]);
@@ -83,21 +102,11 @@
 		controller: 'UserCtrl'
 	});
 
-	app.component('lgUserConfirmDeletedRoute', {
+	app.component('lgConfirm', {
 		templateUrl: 'lg-widget/tmpl/lg-confirm.html',
-		controller: ['$injector', function User($injector) {
-			this.user = $injector.get('user');
-			var $state = $injector.get('$state');
-			this.doCancel = function() {
-				$state.go('user:retrieve');
-			};
-			this.doConfirm = function() {
-				this.user.delete();
-			};
-			this.confirmationMsg = 'Voulez-vous vraiment supprimer votre compte&nbsp;?';
-			this.cancelMsg = 'Non, annuler';
-			this.confirmMsg = 'Oui, supprimer';
-		}]
+		bindings: {
+			service: '<'
+		}
 	});
 
 	app.component('lgUserDeletedRoute', {
