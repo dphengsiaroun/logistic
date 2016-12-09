@@ -37,7 +37,11 @@
 			console.log('this.formData', this.formData);
 			$scope.options = {
 				url: url,
-				formData: this.formData
+				formData: this.formData,
+				disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent),
+				imageMaxWidth: 1280,
+				imageMaxHeight: 960,
+				imageCrop: true // Force cropped images
 			};
 
 
