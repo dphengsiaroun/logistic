@@ -35,13 +35,12 @@
 			url: '/carrier-create-proposal',
 			component: 'lgCarrierCreateProposalSentRoute'
 		});
-		
+
 	}]);
 
-	app.service('carrier', ['$injector', function($injector) {
+	app.service('carrier', ['$injector', function Carrier($injector) {
 		var $http = $injector.get('$http');
 		var $state = $injector.get('$state');
-		var $window = $injector.get('$window');
 		this.user = $injector.get('user');
 
 		var service = this;
@@ -61,7 +60,7 @@
 				$state.go('user:signin');
 				return;
 			}
-			
+
 			$http({
 				url: 'ws/carrier/create.php',
 				method: 'POST',
@@ -83,10 +82,9 @@
 
 	}]);
 
-	app.controller('CarrierCtrl', ['$scope', '$injector', function($scope, $injector) {
+	app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
 		this.user = $injector.get('user');
 		this.carrier = $injector.get('carrier');
-
 	}]);
 
 	app.component('lgCarrierCreateAdStep1Route', {
@@ -99,6 +97,6 @@
 		controller: 'CarrierCtrl',
 	});
 
-	
+
 
 })();
