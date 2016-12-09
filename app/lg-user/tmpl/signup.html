@@ -29,10 +29,9 @@
 			<label for="sc-1-1-1" data-value="Chargeur">Chargeur</label>
 			<label for="sc-1-1-2" data-value="Transporteur">Transporteur</label>
 		</div>
-		<p ng-show="$ctrl.user.isSignupError" class="errorMsg">Cet email existe déjà.</p>
-		<p ng-hide="$ctrl.user.isSignupError" class="errorMsg">&nbsp;</p>
-		<div class="bouton">
-			<button>Créer le compte</button>
-		</div>
+		<lg-error error="$ctrl.user.error"></lg-error>
+		
+		<button>Créer le compte</button>
+		
 	</form>
 </sign-form>

@@ -45,10 +45,10 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.isSignupError = true;
+					service.error = response.data;
 					return;
 				}
-				service.isSignupError = false;
+				service.error = undefined;
 				service.account = response.data.account;
 				$state.go('user:signupSuccess');
 			});

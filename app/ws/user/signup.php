@@ -25,8 +25,10 @@
 
 		// Si le résultat est différent de 0 alors on récupère les données 
 		if ($sqlResult->rowCount() != 0) {
-			throw new Exception(ERROR_BAD_PSEUDO_MSG, ERROR_BAD_PSEUDO_CODE);
-		} 
+			throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
+		}
+		
+		//TODO: faire pareil pour les pseudos (rendre possible de se logguer de differente facon (pseudo, email, tel, etc.)
 		
 		$sql = <<<EOF
 INSERT INTO account (email, password, content) VALUES 

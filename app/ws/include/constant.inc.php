@@ -18,12 +18,11 @@
 
 	define('ERROR_BAD_PSEUDO_CODE', 2);
 	define('ERROR_BAD_PSEUDO_MSG', 'pseudo already exists');
-
 	
 	define('ERROR_MYSQL_CONNECT_CODE', 3);
 	define('ERROR_MYSQL_CONNECT_MSG', 'cannot connect to mysql (bad login password or database down)');
+	
+	define('ERROR_EMAIL_ALREADY_TAKEN_CODE', 4);
+	define('ERROR_EMAIL_ALREADY_TAKEN_MSG', 'Email already taken');
 
-	
-	
-	
 ?>
