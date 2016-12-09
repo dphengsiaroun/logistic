@@ -13,93 +13,80 @@
 	var app = angular.module('lg-menu', []);
 
 // permet de récuperer les valeurs en post sous format json
-	app.directive('lgMenu', ['$injector', function($injector) {
-		var $http = $injector.get('$http');
-		var $state = $injector.get('$state');
-		var $rootScope = $injector.get('$rootScope');
-		var user = $injector.get('user');
+	app.component('lgMenu', {
+		templateUrl: 'lg-menu/tmpl/lg-menu.html',
+		controller: ['$element', '$scope', '$injector', function LgMenuCtrl($element, $scope, $injector) {
+			var $state = $injector.get('$state');
+			var $rootScope = $injector.get('$rootScope');
+			var user = $injector.get('user');
 
-		return {
-			restrict: 'A',
-			scope: true,
-			controller: ['$element', '$scope', function($element, $scope) {
-				console.log('lgMenu controller', arguments);
-				
+			console.log('LgMenuCtrl', arguments);
+			var ctrl = this;
 
-				var ctrl = this;
+			this.isBackPresent = false;
+			var refreshState = function() {
+				console.log('refreshBack');
+				console.log('$state.$current', $state.$current);
+				if ($state.$current.back === undefined) {
+					ctrl.isBackPresent = true;
+				} else {
+					ctrl.isBackPresent = $state.$current.back;
+				}
 
-				this.isBackPresent = false;
-				var refresh = function() { 
-					console.log('refreshBack');
-					console.log('$state.$current', $state.$current);
-					if ($state.$current.back === undefined) {
-						ctrl.isBackPresent = true;
-					} else {
-						ctrl.isBackPresent = $state.$current.back;
-					}
-										
-					if ($state.$current.needsUser && user.account === undefined) {
-						$state.go('home');
-					}
-				};
-				refresh();
-				// UI router throw this event when route changes.
-				$rootScope.$on('$viewContentLoaded', refresh);
+				if ($state.$current.needsUser && user.account === undefined) {
+					$state.go('home');
+				}
+			};
+			refreshState();
+			// UI router throw this event when route changes.
+			$rootScope.$on('$viewContentLoaded', refreshState);
 
-				this.isMenuOn = false;
+			this.isMenuOn = false;
 
-				this.refresh = function() {
-					console.log('refresh', arguments);
-					ctrl.isSmallScreen = window.innerWidth < 768;
-					ctrl.isMobile = window.mobilecheck() || ctrl.isSmallScreen;
-					ctrl.isLandscape = window.innerWidth > window.innerHeight;
-					ctrl.innerHeight = window.innerHeight;
-					console.log('ctrl.isSmallScreen', ctrl.isSmallScreen);
-					console.log('ctrl.isMobile', ctrl.isMobile);
-					console.log('ctrl.isLandscape', ctrl.isLandscape);
-					console.log('ctrl.innerHeight', ctrl.innerHeight);
-				};
+			this.toggle = function() {
+				console.log('toggle', arguments);
+				ctrl.isMenuOn = !ctrl.isMenuOn;
+				if (ctrl.isMenuOn) {
+					//ctrl.lgMenuContentElt.css('height', ctrl.innerHeight + 'px');
+					ctrl.lgMenuContentElt.css('display', 'block');
 
-				this.toggle = function() {
-					console.log('toggle', arguments);
-					ctrl.isMenuOn = !ctrl.isMenuOn;
-					if (ctrl.isMenuOn) {
-						//ctrl.lgMenuContentElt.css('height', ctrl.innerHeight + 'px');
-						ctrl.lgMenuContentElt.css('display', 'block');
-						
 
-					} else {
-						console.log('remove the menu', arguments);
-						ctrl.off();
-					}
-					
-				};
+				} else {
+					console.log('remove the menu', arguments);
+					ctrl.off();
+				}
 
-				this.off = function() {
-					console.log('off', arguments);
-					ctrl.isMenuOn = false;
-					ctrl.lgMenuContentElt.css('display', 'none');
-					
-				};
+			};
 
-				window.onresize = function(event) {
-					ctrl.refresh();
-					$scope.$apply();
-				};
+			this.off = function() {
+				console.log('off', arguments);
+				ctrl.isMenuOn = false;
+				ctrl.lgMenuContentElt.css('display', 'none');
+
+			};
+
+			this.refresh = function() {
+				console.log('refresh', arguments);
+				ctrl.isSmallScreen = window.innerWidth < 768;
+				ctrl.isMobile = window.mobilecheck() || ctrl.isSmallScreen;
+				ctrl.isLandscape = window.innerWidth > window.innerHeight;
+				ctrl.innerHeight = window.innerHeight;
+				console.log('ctrl.isSmallScreen', ctrl.isSmallScreen);
+				console.log('ctrl.isMobile', ctrl.isMobile);
+				console.log('ctrl.isLandscape', ctrl.isLandscape);
+				console.log('ctrl.innerHeight', ctrl.innerHeight);
+			};
+
+			window.onresize = function(event) {
 				ctrl.refresh();
-				
-			}],
-			controllerAs: 'lgMenu',
-			link: function(scope, element, attrs) {
-				console.log('lgMenu link', arguments);
-				element.css('cursor', 'pointer');
-			}
-		};
-	}]);
+				$scope.$apply();
+			};
+			ctrl.refresh();
+
+		}]
+	});
 
 	app.directive('lgMenuContent', ['$injector', function($injector) {
-		var $http = $injector.get('$http');
-
 		return {
 			require: '^^lgMenu',
 			restrict: 'C',
@@ -110,6 +97,6 @@
 		};
 	}]);
 
-	
+
 
 })();

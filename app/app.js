@@ -18,7 +18,7 @@
 		'lg-error',
 		]);
 
-	
+
 
 // permet de récuperer les valeurs en post sous format json
 	app.run(['$injector', function($injector) {
@@ -31,14 +31,6 @@
 		};
 
 	}]);
-
-// directives pour la création des balises
-	app.directive('jlgHeader', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'tmpl/jlg-header.html'
-		};
-	});
 
 	app.directive('jlgBanner', function() {
 		return {
@@ -62,6 +54,6 @@
 	});
 
 
-	
+
 
 })();

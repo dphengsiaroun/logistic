@@ -1,26 +1,22 @@
 /* Header */
 
-nav {
+lg-menu {
     position: fixed;
     top: 0px;
     padding:0px;
     width: 100%;
     display: block;
     z-index: 50;
+	text-align: center;
 }
 
-nav > div {
+lg-menu > div {
     display: table;
     width: 100%;
     background-color: hsla(214, 46%, 25%, 1);
 }
 
-jlg-header {
-    display: block;
-    height: 58px;
-}
-
-.back {
+lg-menu .back {
     display: table-cell;
     width: 50px;
     margin: 0px;
@@ -28,40 +24,40 @@ jlg-header {
     padding: 17px 10px 0;
 }
 
-.back i {
+lg-menu .back i {
     color: white;
     font-size: 26px;
 }
 
-.logo {
+lg-menu.logo {
     display: table-cell;
     text-align: center;
     color: white;
     font-size: 13px;
 }
 
-.logo a {
+lg-menu .logo a {
     color: white;
 }
 
-.logo img {
+lg-menu .logo img {
     width: 60px;
     padding-top: 10px;
 }
 
-.logo svg {
+lg-menu .logo svg {
     width: 40px;
     height: 36px;
     margin-top: -1px;
 }
 
-.sizeLogo {
+lg-menu .sizeLogo {
     width: 40px;
     height: 40px;
     margin-top: 7px;
 }
 
-.menu {
+lg-menu .menu {
     display: table-cell;
     margin: 0px;
     width: 50px;
@@ -69,7 +65,7 @@ jlg-header {
     padding: 14px 10px;
 }
 
-.menu i{
+lg-menu .menu i {
     color: white;
     font-size: 30px;
 }
@@ -93,7 +89,7 @@ jlg-header {
     display: block;
     background: white;
     border-bottom: 1px solid hsla(0, 0%, 92%, 1);
-    padding: 10px; 
+    padding: 10px;
     width: 100%;
     font-size: 23px;
 }

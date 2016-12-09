@@ -5,7 +5,7 @@
   src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(../font/SourceSansPro.woff) format('woff');
 }
 
-* { 
+* {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
@@ -21,6 +21,11 @@ body {
     margin: 0px;
     font-family: 'Source Sans Pro', sans-serif;
     background: hsla(0, 0%, 96%, 1);
+}
+
+ui-view {
+	display: block;
+	margin: 58px 0px 0px;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -317,7 +322,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-	margin: 20px 0px; 
+	margin: 20px 0px;
 }
 
 button i {
