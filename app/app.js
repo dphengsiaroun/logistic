@@ -30,22 +30,4 @@
 
 	}]);
 
-	app.directive('jlgBanner', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'tmpl/jlg-banner.html'
-		};
-	});
-
-	app.directive('jlgBannerpic', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'tmpl/jlg-bannerpic.html'
-		};
-	});
-
-	app.component('lgFooter', {
-		templateUrl: 'lg-widget/tmpl/lg-footer.html'
-	});
-
 })();

@@ -24,4 +24,8 @@
 		}
 	});
 
+	app.component('lgFooter', {
+		templateUrl: 'lg-widget/tmpl/lg-footer.html'
+	});
+
 })();
