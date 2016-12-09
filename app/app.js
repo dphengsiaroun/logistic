@@ -44,11 +44,8 @@
 		};
 	});
 
-	app.directive('jlgFooter', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'tmpl/jlg-footer.html'
-		};
+	app.component('lgFooter', {
+		templateUrl: 'lg-widget/tmpl/lg-footer.html'
 	});
 
 })();

@@ -64,4 +64,15 @@ lg-prompt .response > div {
     text-align: center;
 }
 
+/* lg-footer */
+
+lg-footer p {
+    color: hsla(214, 46%, 25%, 1);
+    padding: 15px;
+    font-size: 12px;
+    text-align: center;
+    margin: 0px;
+}
+
+
 
