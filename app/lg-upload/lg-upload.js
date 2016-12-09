@@ -39,7 +39,7 @@
 				url: url,
 				formData: this.formData
 			};
-			
+
 
 			$scope.$on('fileuploaddone', function(data) {
 				console.log('on fileuploaddone', arguments);
@@ -49,7 +49,7 @@
 			});
 
 			$scope.loadingFiles = true;
-			
+
 		}]
 	});
 
@@ -84,10 +84,16 @@
 					console.error('error', error);
 				});
 			};
+
+			$scope.$watch(function() {
+				return $scope.active();
+			}, function(newValue, oldValue) {
+				console.log(oldValue + '->' + newValue);
+			});
 		};
 	}]);
-	
 
-	
+
+
 
 })();

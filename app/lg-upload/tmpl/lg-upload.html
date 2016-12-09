@@ -1,9 +1,13 @@
 <div file-upload="options" ng-controller="LgUploadInitCtrl">
-    <state empty ng-hide="file">
-        <my-input>
+    <state ng-hide="file">
+        <my-input empty ng-hide="active()">
             <i class="fa fa-camera" aria-hidden="true"></i>
             <span> Insérer une photo</span>
             <input type="file" name="files[]">
+        </my-input>
+		<my-input active ng-show="active()">
+			<span> Chargement...</span>
+            <button cancel ng-click="cancel();"><i class="fa fa-times" aria-hidden="true"></i> Annuler</button>
         </my-input>
         <progress-bar ng-show="active()" file-upload-progress="progress()">
             <lg-progress ng-style="{width: num + '%'}">
@@ -11,10 +15,10 @@
             <remaining class="progress-extended">&nbsp;</remaining>
         </progress-bar>
     </state>
-    <state loaded ng-show="file">
-        <my-input>
+    <state ng-show="file">
+        <my-input loaded>
             <img ng-src="{{file.thumbnailUrl}}" />
-            <button ng-hide="!file.$destroy" ng-click="file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</button>
+            <button ng-show="file.$destroy" ng-click="file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</button>
         </my-input>
     </state>
 </div>
