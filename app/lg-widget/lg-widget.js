@@ -28,4 +28,19 @@
 		templateUrl: 'lg-widget/tmpl/lg-footer.html'
 	});
 
+	app.service('lgPicture', function LgPicture() {
+		this.ctrl = undefined;
+		this.show = function(url) {
+			console.log('lgPicture.show', arguments);
+			this.ctrl.url = url;
+		};
+	});
+
+	app.component('lgShowPicture', {
+		templateUrl: 'lg-widget/tmpl/lg-show-picture.html',
+		controller: function(lgPicture) {
+			lgPicture.ctrl = this;
+		}
+	});
+
 })();

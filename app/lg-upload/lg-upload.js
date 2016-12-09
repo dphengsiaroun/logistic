@@ -57,7 +57,9 @@
 		}]
 	});
 
-	app.controller('LgUploadInitCtrl', ['$scope', '$http', function ($scope, $http) {
+	app.controller('LgUploadInitCtrl', ['$scope', '$injector', function ($scope, $injector) {
+		var $http = $injector.get('$http');
+		var lgPicture = $injector.get('lgPicture');
 		var formData = $scope.$parent.$ctrl.formData;
 		console.log('formData XXX', formData);
 		$http.get(url + '?suffix=' + formData.suffix).then(function (response) {
@@ -94,6 +96,11 @@
 			}, function(newValue, oldValue) {
 				console.log(oldValue + '->' + newValue);
 			});
+		};
+
+		$scope.showImage = function() {
+			console.log('showImage', arguments, $scope.file);
+			lgPicture.show($scope.file.url);
 		};
 	}]);
 
