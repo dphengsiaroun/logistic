@@ -1,0 +1,41 @@
+/* lg-message */
+lg-message {
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+lg-message title {
+    display: block;
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    margin: 30px 0;
+    font-weight: bold;
+}
+
+lg-message a {
+    padding: 20px 0px;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+lg-message i {
+    color: white;
+}
+
+/* lg-error */
+lg-error span {
+	display: block;
+	color: red;
+    font-size: 20px;
+    padding: 20px 0;
+    text-align: center;
+}
+

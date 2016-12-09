@@ -15,6 +15,7 @@
 		'lg-widget',
 		'lg-debug',
 		'lg-http',
+		'lg-error',
 		]);
 
 	

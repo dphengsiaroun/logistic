@@ -15,7 +15,7 @@
 	<form name="signinCtrl" ng-submit="$ctrl.user.signin();">
 		<input type="text" placeholder="email, n°tel, pseudo" ng-model="$ctrl.user.signinData.email" />
 		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signinData.password" />
-		<p ng-show="$ctrl.user.isSigninError" class="errorMsg">Mot de passe incorrect.</p>
+		<lg-error error="$ctrl.user.error"></lg-error>
 		
 		<div class="bouton">
 			<button>Se connecter</button>

@@ -323,41 +323,6 @@ button i {
     color: white;
 }
 
-
-/* Chargeur proposition envoyée */
-.message {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-}
-
-.message i {
-    color: white;
-}
-
-.message h1 {
-    font-size: 30px;
-    text-align: center;
-    margin: 30px 0;
-}
-
-.message div {
-    margin: 30px 0;
-    width: 100%;
-}
-
-.message a { 
-    padding: 20px 0px;
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-}
-
 /* Profile */
 .profil {
     text-align: center;
@@ -413,37 +378,5 @@ question {
     padding: 10px;
     font-size: 14px;
     text-align: center;
-}
-
-/* lg-message */
-lg-message {
-    display: block;
-    padding: 20px;
-    text-align: center;
-}
-
-lg-message title {
-    display: block;
-    width: 100%;
-    font-size: 25px;
-    text-align: center;
-    margin: 30px 0;
-    font-weight: bold;
-}
-
-lg-message a {
-    padding: 20px 0px;
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-}
-
-lg-message i {
-    color: white;
 }
 

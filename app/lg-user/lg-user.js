@@ -74,10 +74,10 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.isSigninError = true;
+					service.error = response.data;
 					return;
 				}
-				service.isSigninError = false;
+				service.error = undefined;
 				service.account = response.data;
 				$state.go('home');
 			});
@@ -163,15 +163,16 @@
 		};
 	}]);
 
-	app.controller('UserCtrl', ['$scope', '$injector', function($scope, $injector) {
+	app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
 		this.user = $injector.get('user');
+		this.user.error = undefined;
 
 	}]);
 
-	app.controller('UserUpdateCtrl', ['$scope', '$injector', function($scope, $injector) {
+	app.controller('UserUpdateCtrl', ['$scope', '$injector', function UserUpdateCtrl($scope, $injector) {
 		this.user = $injector.get('user');
 		this.updateData = angular.copy(this.user.account);
-
+		this.user.error = undefined;
 	}]);
 	
 
