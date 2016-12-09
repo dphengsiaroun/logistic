@@ -2,6 +2,11 @@
 	'use strict';
 
 	var app = angular.module('lg-user', []);
+	
+	
+	var makeUrl = function(str) {
+		return 'ws/user/' + str + '.php';
+	};
 
 	app.service('user', ['$injector', function User($injector) {
 		var $http = $injector.get('$http');
@@ -33,7 +38,7 @@
 			data.password = SHA256.hex(service.signupData.password);
 			
 			$http({
-				url: 'ws/user/signup.php',
+				url: makeUrl('signup'),
 				method: 'POST',
 				data: data,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -58,7 +63,7 @@
 			console.log('sign in');
 			var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 			$http({
-				url: 'ws/user/signin.php',
+				url: makeUrl('signin'),
 				method: 'POST',
 				data: {
 					email: service.signinData.email,
@@ -81,7 +86,7 @@
 		this.signout = function() {
 			console.log('sign out');
 			$http({
-				url: 'ws/user/signout.php',
+				url: makeUrl('signout'),
 				method: 'GET'
 			}).then(function(response) {
 				console.log('response', response);
@@ -98,7 +103,7 @@
 		this.isConnected = function() {
 			console.log('is connected?', arguments);
 			$http({
-				url: 'ws/user/isConnected.php',
+				url: makeUrl('isConnected'),
 				method: 'GET'
 			}).then(function(response) {
 				console.log('response', response);
@@ -119,7 +124,7 @@
 			console.log('user->update');
 			
 			$http({
-				url: 'ws/user/update.php',
+				url: makeUrl('update'),
 				method: 'POST',
 				data: data,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -139,7 +144,7 @@
 			console.log('user->delete', service.account);
 			
 			$http({
-				url: 'ws/user/delete.php',
+				url:  makeUrl('delete'),
 				method: 'POST',
 				data: {
 					id: service.account.id

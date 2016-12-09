@@ -47,7 +47,16 @@
 		$stateProvider.state({
 			name: 'user:updated',
 			url: '/profile',
-			component: 'lgUserUpdatedRoute',
+			component: 'lgMessage',
+			resolve: {
+				service: function() {
+					return {
+						state: 'home',
+						label: 'Accueil',
+						message: 'Votre compte a bien été mis à jour.'
+					}
+				}
+			},
 			needsUser: true
 		});
 		$stateProvider.state({
@@ -108,11 +117,6 @@
 	app.component('lgUserRetrieveRoute', {
 		templateUrl: 'lg-user/tmpl/profile.html',
 		controller: 'UserUpdateCtrl'
-	});
-
-	app.component('lgUserUpdatedRoute', {
-		templateUrl: 'lg-user/tmpl/update_success.html',
-		controller: 'UserCtrl'
 	});
 
 })();
