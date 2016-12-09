@@ -24,13 +24,15 @@ sign-form img {
 	display: inline-block;
 	width: 60px;
 }
-
-.creer-compte {
-    text-align: center;
-    margin: 0px;
+create-account {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
 }
 
-.creer-compte a {
+sign-form a {
+	
+    margin: 0px;
     text-decoration: none;
     font-size: 20px;
     color: hsla(214, 46%, 25%, 1);
