@@ -85,15 +85,17 @@
 		}]
 	});
 
-	app.directive('lgMenuContent', ['$injector', function($injector) {
-		return {
-			require: '^^lgMenu',
-			restrict: 'C',
-			link: function(scope, element, attrs, ctrl) {
-				console.log('lgMenuContent link', arguments);
-				ctrl.lgMenuContentElt = element;
-			}
-		};
-	}]);
+	app.component('lgMenuContent', {
+		require: {
+			lgMenu: '^^lgMenu',
+		},
+		controller: ['$element', function LgMenuContentCtrl($element) {
+			console.log('lgMenuContent ctrl', arguments, this);
+			this.$onInit = function() {
+				this.lgMenu.lgMenuContentElt = $element;
+			};
+
+		}]
+	});
 
 })();
