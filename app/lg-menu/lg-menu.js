@@ -47,7 +47,6 @@
 				console.log('toggle', arguments);
 				ctrl.isMenuOn = !ctrl.isMenuOn;
 				if (ctrl.isMenuOn) {
-					//ctrl.lgMenuContentElt.css('height', ctrl.innerHeight + 'px');
 					ctrl.lgMenuContentElt.css('display', 'block');
 
 
