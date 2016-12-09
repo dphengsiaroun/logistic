@@ -10,4 +10,11 @@
 		}
 	});
 	
+	app.component('lgConfirm', {
+		templateUrl: 'lg-widget/tmpl/lg-confirm.html',
+		bindings: {
+			service: '<'
+		}
+	});
+	
 })();

@@ -102,13 +102,6 @@
 		controller: 'UserCtrl'
 	});
 
-	app.component('lgConfirm', {
-		templateUrl: 'lg-widget/tmpl/lg-confirm.html',
-		bindings: {
-			service: '<'
-		}
-	});
-
 	app.component('lgUserDeletedRoute', {
 		templateUrl: 'lg-widget/tmpl/lg-message.html',
 		controller: ['$injector', function User($injector) {
