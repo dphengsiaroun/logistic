@@ -23,7 +23,18 @@
 		$stateProvider.state({
 			name: 'user:signout',
 			url: '/signout',
-			component: 'lgUserSignoutRoute'
+			component: 'lgPrompt',
+			resolve: {
+				service: ['$injector', function($injector) {
+					var $rootScope = $injector.get('$rootScope');
+					var user = $injector.get('user');
+					return {
+						questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
+						doNo: $rootScope.back,
+						doYes: user.signout
+					};
+				}]
+			}
 		});
 		$stateProvider.state({
 			name: 'user:retrieve',
@@ -60,21 +71,6 @@
 	app.component('lgUserSignupSuccessRoute', {
 		templateUrl: 'lg-user/tmpl/signup_success.html',
 		controller: 'UserCtrl'
-	});
-
-	app.component('lgUserSignoutRoute', {
-		templateUrl: 'lg-widget/tmpl/lg-prompt.html',
-		controller: ['$injector', function User($injector) {
-			this.user = $injector.get('user');
-			var $rootScope = $injector.get('$rootScope');
-			this.doNo = function() {
-				$rootScope.back();
-			};
-			this.doYes = function() {
-				this.user.signout();
-			};
-			this.questionMsg = 'Voulez vous vraiment vous déconnecter&nbsp;?';
-		}]
 	});
 
 	app.component('lgUserRetrieveRoute', {
