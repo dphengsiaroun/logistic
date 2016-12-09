@@ -65,13 +65,21 @@
 			url: '/test2',
 			component: 'lgTest2Route'
 		});
-		
+
 		$urlRouterProvider.otherwise('/');
 	}]);
-	
+
 	app.component('lgHomeRoute', {
 		templateUrl: 'lg-route/tmpl/home.html'
 	});
 
-	
+	app.component('lgTestRoute', {
+		templateUrl: 'lg-route/tmpl/test.html'
+	});
+
+	app.component('lgTest2Route', {
+		templateUrl: 'lg-route/tmpl/test2.html'
+	});
+
+
 })();
