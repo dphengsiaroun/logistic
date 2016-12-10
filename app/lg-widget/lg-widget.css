@@ -84,10 +84,38 @@ lg-show-picture {
 }
 
 lg-show-picture img {
+	display: inline-block;
     max-width: 100%;
 	max-height: 100%;
 	width: auto;
 	height: auto;
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	right: 0px;
+}
+
+lg-veil {
+	display: block;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	text-align: center;
+
+}
+
+lg-veil .fa {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	font-size: 40px;
+	color: white;
+	background-color: black;
 }
 
 
