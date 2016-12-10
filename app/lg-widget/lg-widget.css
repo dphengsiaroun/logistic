@@ -76,6 +76,7 @@ lg-footer p {
 
 /* lg-picture */
 lg-show-picture {
+	display: none;
 	position: fixed;
 	z-index: 200;
 	top: 0px;

@@ -32,14 +32,23 @@
 		this.ctrl = undefined;
 		this.show = function(url) {
 			console.log('lgPicture.show', arguments);
-			this.ctrl.url = url;
+			this.ctrl.open(url);
 		};
 	});
 
 	app.component('lgShowPicture', {
 		templateUrl: 'lg-widget/tmpl/lg-show-picture.html',
-		controller: function(lgPicture) {
+		controller: function LgShowPictureCtrl($element, lgPicture) {
 			lgPicture.ctrl = this;
+
+			this.open = function(url) {
+				this.url = url;
+				$element.css('display', 'block');
+			};
+			this.close = function() {
+				console.log('LgShowPictureCtrl.close', arguments);
+				$element.css('display', 'none');
+			};
 		}
 	});
 
