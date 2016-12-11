@@ -10,7 +10,7 @@
 	define('UPLOAD_URL', getUrlFromPath(UPLOAD_DIR));
 
 	// 20 Mega par personne d'image max.
-	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 2000000);
+	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 2000);
 
 
 

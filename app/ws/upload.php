@@ -53,10 +53,11 @@ try {
 
 
 } catch (Exception $e) {
-	$result = array();
-	$result['status'] = 'ko';
-	$result['errorMsg'] = $e->getMessage();
-	$result['errorCode'] = $e->getCode();
+	$result = array('files' => array(
+		array(
+			'error' => $e->getMessage()
+		)
+	));
 	echo json_encode($result);
 }
 
