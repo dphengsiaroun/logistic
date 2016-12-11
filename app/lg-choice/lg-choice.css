@@ -34,7 +34,32 @@ lg-choice {
 }
 
 lg-choice nav {
-    
+	z-index: 102;
+	position: fixed;
+	display: table;
+	width: 100%;
+	background-color: hsla(214, 46%, 25%, 1);
+}
+
+lg-choice .back {
+    display: table-cell;
+    width: 50px;
+    margin: 0px;
+    vertical-align: top;
+    padding: 17px 10px 0;
+}
+
+lg-choice .back i {
+    color: white;
+    font-size: 26px;
+}
+
+lg-choice .logo {
+    display: table-cell;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+	line-height: 0px;
 }
 
 lg-choice .logo p {
@@ -43,7 +68,24 @@ lg-choice .logo p {
     font-size: 17px;
 }
 
+lg-choice .menu {
+    display: table-cell;
+    margin: 0px;
+    width: 50px;
+    vertical-align: top;
+    padding: 14px 10px;
+}
+
+lg-choice .menu i {
+    color: white;
+    font-size: 30px;
+}
+
+
+
 lg-choice .input-auto {
+	position: fixed;
+	z-index: 101;
     text-align: left;
     width: 100%;
     padding: 59px 10px 0px;
@@ -58,6 +100,11 @@ lg-choice .input-auto input {
     padding: 15px 10px;
     border-radius: 5px;
     border: 1px solid hsla(0, 0%, 92%, 1);
+}
+
+lg-choice .list {
+	position: relative;
+	top: 123px;
 }
 
 lg-choice .list p {
