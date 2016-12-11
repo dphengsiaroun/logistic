@@ -78,6 +78,14 @@
 				return;
 			}
 			$scope.file = $scope.queue[0];
+
+			if ($scope.file.error !== undefined) {
+				$scope.file.reset = function() {
+					$scope.queue.pop();
+					$scope.refresh();
+				}
+			}
+
 			$scope.file.$destroy = function() {
 				return $http({
 					url: $scope.file.deleteUrl + '&suffix=' + formData.suffix,

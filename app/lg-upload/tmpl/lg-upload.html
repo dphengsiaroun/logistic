@@ -15,10 +15,15 @@
             <remaining class="progress-extended">&nbsp;</remaining>
         </progress-bar>
     </state>
-    <state ng-show="file">
+    <state ng-show="file.thumbnailUrl">
         <my-input loaded>
             <img ng-click="showImage();" ng-src="{{file.thumbnailUrl}}" />
             <button ng-show="file.$destroy" ng-click="file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</button>
+        </my-input>
+    </state>
+	<state ng-show="file.error">
+        <my-input>
+            <error-message ng-click="file.reset();"> {{file.error}}</error-message>
         </my-input>
     </state>
 </div>

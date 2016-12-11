@@ -9,6 +9,10 @@
 	define('UPLOAD_DIR', dirname(BASE_DIR) . '/files/');
 	define('UPLOAD_URL', getUrlFromPath(UPLOAD_DIR));
 
+	// 20 Mega par personne d'image max.
+	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 2000000);
+
+
 
 
 	define('ERROR_TECHNICAL_CODE', 0);
@@ -24,5 +28,11 @@
 
 	define('ERROR_EMAIL_ALREADY_TAKEN_CODE', 4);
 	define('ERROR_EMAIL_ALREADY_TAKEN_MSG', 'Email already taken');
+
+	define('ERROR_NEED_AUTHENTICATION_CODE', 5);
+	define('ERROR_NEED_AUTHENTICATION_MSG', 'Need to be identified.');
+
+	define('ERROR_MAX_SIZE_EXCEEDED_CODE', 6);
+	define('ERROR_MAX_SIZE_EXCEEDED_MSG', 'Too much pictures loaded.');
 
 ?>

@@ -41,7 +41,7 @@ class UploadHandler
     protected $image_objects = array();
 
     public function __construct($options = null, $initialize = true, $error_messages = null) {
-		
+
         $this->response = array();
         $this->options = array(
             'script_url' => $this->get_full_url().'/'.$this->basename($this->get_server_var('SCRIPT_NAME')),
@@ -170,7 +170,6 @@ class UploadHandler
         if ($initialize) {
             $this->initialize();
         }
-		debug_r("options", $this->options);
     }
 
     protected function initialize() {

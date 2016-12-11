@@ -10,38 +10,53 @@
  * http://www.opensource.org/licenses/MIT
  */
 
+session_start();
 define("BASE_DIR", dirname($_SERVER["SCRIPT_FILENAME"]));
 require_once(BASE_DIR . "/include/constant.inc.php");
 require_once(BASE_DIR . "/include/misc.inc.php");
 require_once(BASE_DIR . "/include/database.inc.php");
-session_start();
+require_once(BASE_DIR . "/include/account.inc.php");
+
 debug("UPLOAD_DIR " . UPLOAD_DIR);
 debug("UPLOAD_URL " . UPLOAD_URL);
 debug_r("SESSION ", $_SESSION);
 debug_r("POST ", $_POST);
 debug_r("SERVER ", $_SERVER);
+@debug_r("FILE ", $_FILES);
 error_reporting(E_ALL | E_STRICT);
 require(BASE_DIR . '/include/lib/UploadHandler.php');
-$options = array(
-	'upload_dir' => UPLOAD_DIR,
-	'upload_url' => UPLOAD_URL,
-	'user_dirs' => true,
-    'mkdir_mode' => 0700,
-);
 
-class MyUploadHandler extends UploadHandler
-{
 
-    protected function get_user_id() {
-        $suffix = '';
-        if (isset($_POST['suffix'])) {
-            $suffix = $_POST['suffix'];
-        }
-        if (isset($_GET['suffix'])) {
-            $suffix = $_GET['suffix'];
-        }
-        return 'acct_'.$_SESSION['id'].$suffix;
-    }
+try {
+	$account = new Account();
+
+
+	class MyUploadHandler extends UploadHandler
+	{
+		protected function get_user_id() {
+			return Account::getPictureDir();
+		}
+	}
+
+	$options = array(
+		'upload_dir' => UPLOAD_DIR,
+		'upload_url' => UPLOAD_URL,
+		'user_dirs' => true,
+		'mkdir_mode' => 0700,
+		'max_file_size' => $account->getRemainingMaxFileSize()
+	);
+
+	$upload_handler = new MyUploadHandler($options);
+	debug_r('output', $upload_handler);
+	$account->loadPicture();
+	debug('done');
+
+
+} catch (Exception $e) {
+	$result = array();
+	$result['status'] = 'ko';
+	$result['errorMsg'] = $e->getMessage();
+	$result['errorCode'] = $e->getCode();
+	echo json_encode($result);
 }
 
-$upload_handler = new MyUploadHandler($options);
