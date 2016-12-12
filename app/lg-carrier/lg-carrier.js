@@ -80,6 +80,32 @@
 			});
 		};
 
+		this.update = function() {
+			console.log('carrier->update');
+			if (this.user.account === undefined) {
+				$state.go('user:signin');
+				return;
+			}
+
+			$http({
+				url: 'ws/carrier/update.php',
+				method: 'POST',
+				data: service.updateData,
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === 'ko') {
+					service.isAdcarrierError = true;
+					return;
+				}
+				service.isAdcarrierError = false;
+				service.ads = response.data.ads;
+				$state.go('carrier:createAdStep2');
+			}).catch(function(error) {
+				console.error('error', error);
+			});
+		};
+
 	}]);
 
 	app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {

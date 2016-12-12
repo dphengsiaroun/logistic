@@ -161,6 +161,34 @@
 				$state.go('user:deleted');
 			});
 		};
+
+		this.updatePasswordData = {
+			password: 'test'
+		};
+
+		this.updatePassword = function(data) {
+			console.log('user->updatePassword');
+			var SHA256 = new Hashes.SHA256;
+			var data = angular.copy(service.updatePasswordData);
+			data.password = SHA256.hex(service.updatePasswordData.password);
+			
+			$http({
+				url: makeUrl('updatePassword'),
+				method: 'POST',
+				data: data,
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === "ko") {
+					service.isUpdatePasswordError = true;
+					return;
+				}
+				service.isUpdatePasswordError = false;
+				service.account = response.data.account;
+				$state.go('user:updatedPassword');
+			});
+		};
+
 	}]);
 
 	app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
@@ -174,6 +202,13 @@
 		this.updateData = angular.copy(this.user.account);
 		this.user.error = undefined;
 	}]);
+
+	app.controller('UserUpdatePasswordCtrl', ['$scope', '$injector', function UserUpdatePasswordCtrl($scope, $injector) {
+		this.user = $injector.get('user');
+		this.updatePasswordData = angular.copy(this.user.account);
+		this.user.error = undefined;
+	}]);
+
 	
 
 })();

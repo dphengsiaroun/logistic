@@ -20,3 +20,10 @@ CREATE TABLE `loader` (
   `account_id` int(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `truck` (
+  `id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `content` longtext NOT NULL,
+  `account_id` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

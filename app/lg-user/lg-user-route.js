@@ -97,6 +97,27 @@
 			},
 			back: false
 		});
+		$stateProvider.state({
+			name: 'user:updatePassword',
+			url: '/update_password',
+			component: 'lgUserUpdatePasswordRoute',
+			back: false
+		});
+		$stateProvider.state({
+			name: 'user:updatedPassword',
+			url: '/profile',
+			component: 'lgMessage',
+			resolve: {
+				service: function() {
+					return {
+						state: 'home',
+						label: 'Accueil',
+						message: 'Votre mot de passe a bien été mis à jour.'
+					}
+				}
+			},
+			needsUser: true
+		});	
 	
 	}]);
 
@@ -116,6 +137,11 @@
 
 	app.component('lgUserRetrieveRoute', {
 		templateUrl: 'lg-user/tmpl/profile.html',
+		controller: 'UserUpdateCtrl'
+	});
+
+	app.component('lgUserUpdatePasswordRoute', {
+		templateUrl: 'lg-user/tmpl/update_password.html',
 		controller: 'UserUpdateCtrl'
 	});
 

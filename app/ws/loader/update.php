@@ -8,53 +8,38 @@
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
-
-	// on décode le json dans une variable PHP
+	// on décode le json en variable PHP
     $request = json_decode($postdata); 
-	$account = clone $request;
-	$account->content = json_encode($account->content);
-
+	$loader = clone $request;
+	$loader->content = json_encode($loader->content);
+	debug("Loader start");
+	debug_r("loader", $loader);
 
 	$result = [];
 	try {
-				// On lance notre requête de vérification
-		$sql = "SELECT * FROM account WHERE email='$request->email'";
+
+		// On lance notre requête de vérification
+		$sql = "SELECT * FROM loader WHERE account_id='$request->id'";
 		$sqlResult = $db->query($sql);
 		debug_r("sqlResult", $sqlResult);
-
+		
 		$sql = <<<EOF
-UPDATE account
-SET email = :email, content = :content
-WHERE id = :id
+UPDATE loader
+SET :content
+WHERE account_id = :account_id;
 EOF;
 
-	$st = $db->prepare($sql,
+		$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
-			':email' => $account->email,
-			':content' => $account->content,
-			':id' => $account->id
+			':content' => $loader->content,
+			':account_id' => $_SESSION['id']
 		)) === FALSE) {
 			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 		}
 
-		$sql = <<<EOF
-SELECT * FROM account WHERE email=:email
-EOF;
-		
-		$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-		if ($st->execute(array(
-			':email' => $account->email
-		)) === FALSE) {
-			throw new Exception('Table interrogation: '.sprint_r($db->errorInfo()));
-		}
-		
-		$array = $st->fetch();
-		$id = $array['id'];
 		$result['status'] = 'ok';
-		$request->id = $id;
-		$result['account'] = $request;
+		$result['loader'] = $request;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

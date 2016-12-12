@@ -9,6 +9,7 @@
 		'lg-svg',
 		'lg-user',
 		'lg-carrier',
+		'lg-loader',
 		'lg-choice',
 		'lg-eyepassword',
 		'lg-config',

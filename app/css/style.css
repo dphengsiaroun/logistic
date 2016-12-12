@@ -111,6 +111,7 @@ lg-title {
 .liste-annonce {
     width: 100%;
     display: block;
+    padding: 0px;
 }
 
 .block-annonce {
@@ -122,6 +123,7 @@ lg-title {
 
 .identity {
     display: inline-block;
+    float: left;
     width: 25%;
     margin: 0px;
     padding: 27px 0px;
@@ -320,7 +322,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-	margin: 20px 0px;
+	margin: 10px 0px;
 }
 
 button i {

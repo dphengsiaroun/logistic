@@ -17,7 +17,7 @@
 			component: 'lgHomeRoute',
 			back: false
 		});
-		['loader'].forEach(function(type) {
+		/*['loader'].forEach(function(type) {
 			$stateProvider.state({
 				name: type + ':createAdStep1',
 				url: '/' + type + '-create-ad',
@@ -48,7 +48,7 @@
 				url: '/loader-create-proposal',
 				component: 'lgLoaderCreateProposalSentRoute'
 			});
-		});
+		});*/
 
 		$stateProvider.state({
 			name: 'calendar',
