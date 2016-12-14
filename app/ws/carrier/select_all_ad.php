@@ -9,9 +9,12 @@
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
 	// on décode le json en variable PHP
-    $request = json_decode($postdata); 
+    
+	$request = json_decode($postdata);
+	‡
 	$carrier = clone $request;
 	$carrier->content = json_encode($carrier->content);
+
 	debug("Carrier start");
 	debug_r("carrier", $carrier);
 
@@ -22,13 +25,7 @@
 SELECT * FROM carrier;
 EOF;
 
-		$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-		if ($st->execute(array(
-			':account_id' => $_SESSION['id']
-		)) === FALSE) {
-			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
-		}
+		$st = $db->prepare($sql, array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 
 		$result['status'] = 'ok';
 		$result['carrier'] = $request;

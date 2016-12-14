@@ -22,7 +22,7 @@
 		debug_r("sqlResult", $sqlResult);
 
 		$sql = <<<EOF
-UPDATE account SET password = :password WHERE id = :id;
+UPDATE account SET password = :password WHERE id = :email;
 EOF;
 
 	$st = $db->prepare($sql,

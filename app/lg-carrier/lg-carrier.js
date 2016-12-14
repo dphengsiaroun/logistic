@@ -17,13 +17,28 @@
 		});
 		$stateProvider.state({
 			name: 'carrier:listAd',
-			url: '/carrier-list',
+			url: '/carrier-list-ad',
 			component: 'lgCarrierListAdRoute'
 		});
 		$stateProvider.state({
-			name: 'carrier:ad',
-			url: '/carrier-ad',
-			component: 'lgCarrierAdRoute'
+			name: 'carrier:detailAd',
+			url: '/carrier-detail-ad',
+			component: 'lgCarrierDetailAdRoute'
+		});
+		$stateProvider.state({
+			name: 'carrier:listMyAd',
+			url: '/carrier-list-my-ad',
+			component: 'lgCarrierListMyAdRoute'
+		});
+		$stateProvider.state({
+			name: 'carrier:detailMyAd',
+			url: '/carrier-detail-my-ad',
+			component: 'lgCarrierDetailMyAdRoute'
+		});
+		$stateProvider.state({
+			name: 'carrier:updateMyAd',
+			url: '/carrier-update-my-ad',
+			component: 'lgCarrierUpdateMyAdRoute'
 		});
 		$stateProvider.state({
 			name: 'carrier:createProposal',
@@ -80,6 +95,17 @@
 			});
 		};
 
+		var service = this;
+		this.updateData = {
+			content: {
+				type: 'benne',
+				country: 'Algerie',
+				city: 'Alger',
+				conditioning: 'Palette',
+				birthyear: '2008',
+			}
+		};
+
 		this.update = function() {
 			console.log('carrier->update');
 			if (this.user.account === undefined) {
@@ -108,6 +134,12 @@
 
 	}]);
 
+	function ListCtrl($scope, $http) {
+		$http.get('ws/carrier/select_my_ad.php').success(function(data) {
+			$scope.ads = data;
+		});
+	}
+
 	app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
 		this.user = $injector.get('user');
 		this.carrier = $injector.get('carrier');
@@ -120,6 +152,36 @@
 
 	app.component('lgCarrierCreateAdStep2Route', {
 		templateUrl: 'lg-carrier/tmpl/carrier-create-ad-step2.html',
+		controller: 'CarrierCtrl',
+	});
+
+	app.component('lgCarrierListAdRoute', {
+		templateUrl: 'lg-carrier/tmpl/carrier-list-ad.html',
+		controller: 'CarrierCtrl',
+	});
+
+	app.component('lgCarrierDetailAdRoute', {
+		templateUrl: 'lg-carrier/tmpl/carrier-detail-ad.html',
+		controller: 'CarrierCtrl',
+	});
+
+	app.component('lgCarrierListMyAdRoute', {
+		templateUrl: 'lg-carrier/tmpl/carrier-list-my-ad.html',
+		controller: 'CarrierCtrl',
+	});
+
+	app.component('lgCarrierDetailMyAdRoute', {
+		templateUrl: 'lg-carrier/tmpl/carrier-detail-my-ad.html',
+		controller: 'CarrierCtrl',
+	});
+
+	app.component('lgCarrierUpdateMyAdRoute', {
+		templateUrl: 'lg-carrier/tmpl/carrier-update-my-ad.html',
+		controller: 'CarrierCtrl',
+	});
+
+	app.component('lgCarrierCreateProposalRoute', {
+		templateUrl: 'lg-carrier/tmpl/carrier-create-proposal.html',
 		controller: 'CarrierCtrl',
 	});
 

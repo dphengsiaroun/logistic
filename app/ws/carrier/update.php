@@ -9,9 +9,13 @@
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
 	// on décode le json en variable PHP
+
+	$id = default_str($_SESSION['id'], '');
+
     $request = json_decode($postdata); 
 	$carrier = clone $request;
 	$carrier->content = json_encode($carrier->content);
+
 	debug("Carrier start");
 	debug_r("carrier", $carrier);
 
@@ -19,24 +23,39 @@
 	try {
 
 		// On lance notre requête de vérification
-		$sql = "SELECT * FROM carrier WHERE account_id='$request->id'";
+		$sql = "SELECT * FROM carrier WHERE account_id = '{$id}'";
 		$sqlResult = $db->query($sql);
 		debug_r("sqlResult", $sqlResult);
 		
 		$sql = <<<EOF
 UPDATE carrier
 SET :content
-WHERE account_id = :account_id;
+WHERE id = :id;
 EOF;
 
 		$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
-			':content' => $carrier->content,
-			':account_id' => $_SESSION['id']
+			':id' => $carrier->id,
+			':content' => $carrier->content
 		)) === FALSE) {
 			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 		}
+
+$sql = <<<EOF
+SELECT * FROM carrier WHERE id=:id
+EOF;
+		
+		$st = $db->prepare($sql,
+					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute(array(
+			':id' => $carrier->id,
+		)) === FALSE) {
+			throw new Exception('Table interrogation: '.sprint_r($db->errorInfo()));
+		}
+		
+		$array = $st->fetch();
+		$id = $array['id'];
 
 		$result['status'] = 'ok';
 		$result['carrier'] = $request;

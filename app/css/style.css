@@ -178,6 +178,7 @@ lg-title {
 /* Détails annonce */
 .details-annonce {
     width: 100%;
+    padding: 0px;
 }
 
 .recap {
