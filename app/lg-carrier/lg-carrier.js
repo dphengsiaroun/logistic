@@ -50,6 +50,36 @@
 			url: '/carrier-create-proposal',
 			component: 'lgCarrierCreateProposalSentRoute'
 		});
+		$stateProvider.state({
+			name: 'carrier:adDeleted',
+			url: '/carrier_ad_delete',
+			component: 'lgMessage',
+			resolve: {
+				service: function() {
+					return {
+						state: 'home',
+						label: 'Accueil',
+						message: 'Votre annonce a bien été supprimé.'
+					}
+				}
+			},
+			back: false
+		});
+		$stateProvider.state({
+			name: 'carrier:truckAdd',
+			url: '/carrier_truck_add',
+			component: 'lgMessage',
+			resolve: {
+				service: function() {
+					return {
+						state: 'home',
+						label: 'Accueil',
+						message: 'Votre camion a bien été ajouté.'
+					}
+				}
+			},
+			back: false
+		});
 
 	}]);
 
@@ -95,6 +125,32 @@
 			});
 		};
 
+		this.createTruck = function() {
+			console.log('carrier->createTruck');
+			if (this.user.account === undefined) {
+				$state.go('user:signin');
+				return;
+			}
+
+			$http({
+				url: 'ws/truck/create.php',
+				method: 'POST',
+				data: service.createData,
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === 'ko') {
+					service.isTruckcarrierError = true;
+					return;
+				}
+				service.isTruckcarrierError = false;
+				service.ads = response.data.ads;
+				$state.go('carrier:truckAdd');
+			}).catch(function(error) {
+				console.error('error', error);
+			});
+		};
+
 		var service = this;
 		this.updateData = {
 			content: {
@@ -132,13 +188,29 @@
 			});
 		};
 
-	}]);
+		this.delete = function() {
+			console.log('user->delete');
+			
+			$http({
+				url:  'ws/carrier/delete.php',
+				method: 'POST',
+				data: {
+					id: service.ads.id
+				},
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === "ko") {
+					service.isDeleteError = true;
+					return;
+				}
+				service.isDeleteError = false;
+				service.ads = undefined;
+				$state.go('carrier:adDeleted');
+			});
+		};
 
-	function ListCtrl($scope, $http) {
-		$http.get('ws/carrier/select_my_ad.php').success(function(data) {
-			$scope.ads = data;
-		});
-	}
+	}]);
 
 	app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
 		this.user = $injector.get('user');

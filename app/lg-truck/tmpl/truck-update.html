@@ -8,7 +8,7 @@
         <label>Description du type de véhicule</label><br/>
         <input type="choice" choices="$root.config.vehicleTypes" 
             title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc." 
-            ng-model="$ctrl.carrier.createData.content.type" />
+            ng-model="$ctrl.carrier.updateData.content.type" />
         <br/>
         <hr/>
         <br/>
@@ -53,16 +53,16 @@
         <label>Pays d'origine du véhicule</label><br/>
         <input type="choice" choices="$root.config.countries" 
             title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc." 
-            ng-model="$ctrl.carrier.createData.content.country" />
+            ng-model="$ctrl.carrier.updateData.content.country" />
         <br/>
         <label>Ville</label><br/>
         <input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc." 
-            ng-model="$ctrl.carrier.createData.content.city" />
+            ng-model="$ctrl.carrier.updateData.content.city" />
         <br/>
         <label>Type de conditionnement</label><br/>
         <input type="choice" choices="$root.config.conditionings" title="Type de conditionnement" 
             placeholder="Ex : Colis, Palettes, Vrac" 
-            ng-model="$ctrl.carrier.createData.content.conditioning" />
+            ng-model="$ctrl.carrier.updateData.content.conditioning" />
         <br/><!--
         <div class="complement">
             <label>Volume maximum de chargement (en m3)</label><br/>
@@ -74,9 +74,8 @@
         </div>-->
         <label>Année du camion</label><br/>
         <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" 
-            ng-model="$ctrl.carrier.createData.content.birthyear" />
+            ng-model="$ctrl.carrier.updateData.content.birthyear" />
         <br/>
-        <button ng-click="$ctrl.carrier.createTruck();">Ajouter à ma liste de vehicule ></button>
-		<button ng-click="$ctrl.carrier.create();">Envoyer ></button>
+		<button ng-click="$ctrl.carrier.update();">Modifier ></button>
     </form>
 </section>

@@ -10,6 +10,7 @@
 		'lg-user',
 		'lg-carrier',
 		'lg-loader',
+		'lg-truck',
 		'lg-choice',
 		'lg-eyepassword',
 		'lg-config',

@@ -16,19 +16,29 @@
 			component: 'lgLoaderCreateAdStep2Route'
 		});
 		$stateProvider.state({
-			name: 'loader:updateAd',
-			url: '/loader-update-ad',
-			component: 'lgLoaderUpdateAdRoute'
-		});
-		$stateProvider.state({
 			name: 'loader:listAd',
 			url: '/loader-list',
 			component: 'lgLoaderListAdRoute'
 		});
 		$stateProvider.state({
-			name: 'loader:ad',
-			url: '/loader-ad',
-			component: 'lgLoaderAdRoute'
+			name: 'loader:detailAd',
+			url: '/loader-detail-ad',
+			component: 'lgLoaderDetailAdRoute'
+		});
+		$stateProvider.state({
+			name: 'loader:listMyAd',
+			url: '/loader-list-my-ad',
+			component: 'lgLoaderListMyAdRoute'
+		});
+		$stateProvider.state({
+			name: 'loader:detailMyAd',
+			url: '/loader-detail-my-ad',
+			component: 'lgLoaderDetailMyAdRoute'
+		});
+		$stateProvider.state({
+			name: 'loader:updateMyAd',
+			url: '/loader-update-my-ad',
+			component: 'lgLoaderUpdateMyAdRoute'
 		});
 		$stateProvider.state({
 			name: 'loader:createProposal',
@@ -39,6 +49,21 @@
 			name: 'loader:createProposalSent',
 			url: '/loader-create-proposal',
 			component: 'lgLoaderCreateProposalSentRoute'
+		});
+		$stateProvider.state({
+			name: 'loader:adDeleted',
+			url: '/loader_ad_delete',
+			component: 'lgMessage',
+			resolve: {
+				service: function() {
+					return {
+						state: 'home',
+						label: 'Accueil',
+						message: 'Votre annonce a bien été supprimé.'
+					}
+				}
+			},
+			back: false
 		});
 
 	}]);
@@ -119,6 +144,28 @@
 			});
 		};
 
+		this.delete = function() {
+			console.log('user->delete');
+			
+			$http({
+				url:  'ws/loader/delete.php',
+				method: 'POST',
+				data: {
+					id: service.ads.id
+				},
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === "ko") {
+					service.isDeleteError = true;
+					return;
+				}
+				service.isDeleteError = false;
+				service.ads = undefined;
+				$state.go('loader:adDeleted');
+			});
+		};
+
 	}]);
 
 	app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope, $injector) {
@@ -138,6 +185,31 @@
 
 	app.component('lgLoaderListAdRoute', {
 		templateUrl: 'lg-loader/tmpl/loader-list-ad.html',
+		controller: 'LoaderCtrl',
+	});
+
+	app.component('lgLoaderDetailAdRoute', {
+		templateUrl: 'lg-loader/tmpl/loader-detail-ad.html',
+		controller: 'LoaderCtrl',
+	});
+
+	app.component('lgLoaderListMyAdRoute', {
+		templateUrl: 'lg-loader/tmpl/loader-list-my-ad.html',
+		controller: 'LoaderCtrl',
+	});
+
+	app.component('lgLoaderDetailMyAdRoute', {
+		templateUrl: 'lg-loader/tmpl/loader-detail-my-ad.html',
+		controller: 'LoaderCtrl',
+	});
+
+	app.component('lgLoaderUpdateMyAdRoute', {
+		templateUrl: 'lg-loader/tmpl/loader-update-my-ad.html',
+		controller: 'LoaderCtrl',
+	});
+
+	app.component('lgLoaderCreateProposalRoute', {
+		templateUrl: 'lg-loader/tmpl/loader-create-proposal.html',
 		controller: 'LoaderCtrl',
 	});
 
