@@ -1,4 +1,9 @@
 <?php
+
+	require_once(BASE_DIR . "/include/constant.inc.php");
+	require_once(BASE_DIR . "/include/misc.inc.php");
+	require_once(BASE_DIR . "/include/database.inc.php");
+
 	class Account {
 
 
@@ -8,7 +13,7 @@
 			}
 			$this->id = $_SESSION['id'];
 			$this->retrieve();
-			debug_r('account', $this);
+			debug('account', $this);
 		}
 
 		protected function retrieve() {
@@ -49,7 +54,7 @@ EOF;
 				$this->save();
 			} else if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
 				if (isset($this->content->loaded)) {
-					debug_r('$this->content->loaded', $this->content->loaded);
+					debug('$this->content->loaded', $this->content->loaded);
 					if (isset($this->content->loaded->{$pictureDir})) {
 						unset($this->content->loaded->{$pictureDir});
 					}
@@ -57,7 +62,7 @@ EOF;
 				$this->save();
 			}
 
-			debug_r('loadPicture', $this);
+			debug('loadPicture', $this);
 		}
 
 		public function getRemainingMaxFileSize() {
@@ -73,7 +78,7 @@ EOF;
 			foreach ($this->content->loaded as $key => $value) {
 				$result += $value;
 			}
-			debug_r('totalSize', $result);
+			debug('totalSize', $result);
 			return $result;
 		}
 
@@ -107,6 +112,26 @@ EOF;
 			)) === FALSE) {
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
+		}
+
+		public function delete() {
+			global $db;
+
+			$sql = <<<EOF
+DELETE FROM account
+WHERE id = :id;
+EOF;
+
+			$st = $db->prepare($sql,
+					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $this->id,
+			)) === FALSE) {
+				throw new Exception('Cannot delete account : '.sprint_r($db->errorInfo()));
+			}
+			unset($_SESSION['id']);
+			debug("delete account ok");
+		
 		}
 	}
 

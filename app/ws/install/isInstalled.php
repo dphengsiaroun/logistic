@@ -6,12 +6,12 @@
 	require_once(BASE_DIR . "/include/database.inc.php");
 	require_once(BASE_DIR . "/include/install.inc.php");
 
-	session_start();
+	
 	debug("start");
-	debug_r("start", $host);
-	debug_r("start", $user);
-	debug_r("start", $mdp);
-	debug_r("start", $bdd);
+	debug("start", $host);
+	debug("start", $user);
+	debug("start", $mdp);
+	debug("start", $bdd);
 	$result = array(
 		"status" => "ok"
 	);

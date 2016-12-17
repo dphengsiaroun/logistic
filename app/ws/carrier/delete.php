@@ -4,7 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
-	session_start();
+	
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
@@ -12,7 +12,7 @@
 	// on décode le json dans une variable PHP
     $request = json_decode($postdata); 
 	$carrier = clone $request;
-	debug_r("delete carrier ad", $carrier);
+	debug("delete carrier ad", $carrier);
 
 	$result = [];
 	try {

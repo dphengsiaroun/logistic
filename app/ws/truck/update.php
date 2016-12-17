@@ -4,7 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
-	session_start();
+	
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
@@ -13,7 +13,7 @@
 	$truck = clone $request;
 	$truck->content = json_encode($truck->content);
 	debug("Truck start");
-	debug_r("truck", $truck);
+	debug("truck", $truck);
 
 	$result = [];
 	try {
@@ -21,7 +21,7 @@
 		// On lance notre requête de vérification
 		$sql = "SELECT * FROM truck WHERE account_id='$request->id'";
 		$sqlResult = $db->query($sql);
-		debug_r("sqlResult", $sqlResult);
+		debug("sqlResult", $sqlResult);
 		
 		$sql = <<<EOF
 UPDATE truck

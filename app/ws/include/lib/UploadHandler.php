@@ -208,7 +208,7 @@ class UploadHandler
     }
 
     protected function get_user_id() {
-        @session_start();
+        @
         return session_id();
     }
 

@@ -4,7 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
-	session_start();
+	
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
@@ -13,7 +13,7 @@
 	$loader = clone $request;
 	$loader->content = json_encode($loader->content);
 	debug("Loader start");
-	debug_r("loader", $loader);
+	debug("loader", $loader);
 
 	$result = [];
 	try {
@@ -21,7 +21,7 @@
 		// On lance notre requête de vérification
 		$sql = "SELECT * FROM loader WHERE account_id='$request->id'";
 		$sqlResult = $db->query($sql);
-		debug_r("sqlResult", $sqlResult);
+		debug("sqlResult", $sqlResult);
 		
 		$sql = <<<EOF
 UPDATE loader

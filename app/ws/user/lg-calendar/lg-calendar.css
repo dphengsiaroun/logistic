@@ -1,0 +1,116 @@
+.cont-calendar {
+	width: 100%;
+}
+
+.lg-choice.filled {
+    color: black;
+}
+
+.calendar {
+	text-align: center;
+    padding: 70px 10px 10px;
+    background: white;
+    border-bottom: 1px solid hsla(0, 0%, 92%, 1); 
+
+}
+
+lg-choice .calendar header {
+	position: relative;
+}
+
+lg-choice .calendar h2 {
+	text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-size: 23px;
+    margin: 20px 0;
+    color: hsla(189, 7%, 81%, 1);
+}
+
+lg-choice .calendar table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+    margin-bottom: 20px;
+}
+
+lg-choice .calendar thead {
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+lg-choice .calendar thead td {
+    color: hsla(189, 7%, 81%, 1);
+    font-size: 17px;
+}
+
+lg-choice .calendar tbody tr{
+	border-bottom: 1px solid hsla(0, 0%, 92%, 1);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+lg-choice .calendar tbody td:hover {
+	background-color: hsla(171, 99%, 38%, 1);
+	color: white;
+}
+
+lg-choice .calendar td {
+	border: 2px solid transparent;
+    border-radius: 84%;
+    display: inline-block;
+    line-height: 38px;
+    text-align: center;
+    width: 14%;
+    font-family: 'Lato', sans-serif;
+}
+
+lg-choice .calendar tbody td {
+    font-weight: 400;
+}
+
+lg-choice .calendar .prev-month,
+lg-choice .calendar .next-month {
+	color: hsla(189, 7%, 81%, 1);
+}
+
+lg-choice .current-day {
+	background: hsla(171, 99%, 38%, 1);
+	color: hsla(0, 0%, 98%, 1);
+}
+
+lg-choice .event.current-day:after {
+	background: hsla(0, 0%, 98%, 1);
+}
+
+lg-choice .hour {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background: white;
+    margin-top: 20px;
+}
+
+lg-choice .hour span {
+	padding: 10px 5px !important;
+	font-size: 13px !important;
+    background-color: transparent;
+}
+
+lg-choice .selector{
+	position: relative;
+    width: 48px;
+    top: -40px;
+    margin: 0 auto;
+    border-radius: 5px;
+    height: 32px;
+    border: 2px solid hsla(171, 99%, 38%, 1);
+}
+
+lg-choice .select {
+	font-weight: bold;
+	color: hsla(171, 99%, 38%, 1);
+}
+
+lg-choice .none{
+	border-bottom: none !important;
+}

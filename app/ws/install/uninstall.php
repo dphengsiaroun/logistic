@@ -6,7 +6,7 @@
 	require_once(BASE_DIR . "/include/database.inc.php");
 	require_once(BASE_DIR . "/include/install.inc.php");
 
-	session_start();
+	
 	debug("start");
 	$result = array(
 		"status" => "ok"

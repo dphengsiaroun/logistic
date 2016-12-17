@@ -4,7 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
-	session_start();
+	
 	
 	
 	// Permet de récuperer les données au format Json
@@ -14,7 +14,7 @@
 	$account = clone $request;
 	$account->content = json_encode($account->content);
 	debug("signup start");
-	debug_r("account", $request);
+	debug("account", $request);
 
 	$result = [];
 	try {
@@ -22,7 +22,7 @@
 		// On lance notre requête de vérification
 		$sql = "SELECT * FROM account WHERE email='$request->email'";
 		$sqlResult = $db->query($sql);
-		debug_r("sqlResult", $sqlResult);
+		debug("sqlResult", $sqlResult);
 
 		// Si le résultat est différent de 0 alors on récupère les données 
 		if ($sqlResult->rowCount() != 0) {

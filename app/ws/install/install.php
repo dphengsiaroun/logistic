@@ -4,7 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/install.inc.php");
-	session_start();
+	
 	debug("start");
 	try {
 		// Permet de récuperer les données au format Json depuis angular

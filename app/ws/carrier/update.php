@@ -4,7 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
-	session_start();
+	
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
@@ -17,7 +17,7 @@
 	$carrier->content = json_encode($carrier->content);
 
 	debug("Carrier start");
-	debug_r("carrier", $carrier);
+	debug("carrier", $carrier);
 
 	$result = [];
 	try {
@@ -25,7 +25,7 @@
 		// On lance notre requête de vérification
 		$sql = "SELECT * FROM carrier WHERE account_id = '{$id}'";
 		$sqlResult = $db->query($sql);
-		debug_r("sqlResult", $sqlResult);
+		debug("sqlResult", $sqlResult);
 		
 		$sql = <<<EOF
 UPDATE carrier

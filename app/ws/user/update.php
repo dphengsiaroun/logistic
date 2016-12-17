@@ -4,7 +4,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
-	session_start();
+	
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
@@ -20,7 +20,7 @@
 				// On lance notre requête de vérification
 		$sql = "SELECT * FROM account WHERE email='$request->email'";
 		$sqlResult = $db->query($sql);
-		debug_r("sqlResult", $sqlResult);
+		debug("sqlResult", $sqlResult);
 
 		$sql = <<<EOF
 UPDATE account

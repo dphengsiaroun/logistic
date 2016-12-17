@@ -120,7 +120,7 @@
 					}
 					return;
 				}
-				service.account = response.data;
+				service.account = response.data.account;
 			}).catch(function(error) {
 				service.error = error;
 			});

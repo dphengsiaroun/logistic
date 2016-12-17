@@ -5,7 +5,7 @@
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
 	require_once(BASE_DIR . "/include/account.inc.php");
-	session_start();
+	
 	
 	$request = getRequest();
 
