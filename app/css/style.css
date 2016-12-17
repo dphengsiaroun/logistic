@@ -350,6 +350,11 @@ button i {
     color: white;
 }
 
+button.critical {
+    background: hsla(0, 100%, 50%, 1);
+    color: white;
+}
+
 .critical {
     color: red;
 }
