@@ -18,6 +18,7 @@
 		'lg-debug',
 		'lg-http',
 		'lg-error',
+		'lg-misc',
 		]);
 
 // permet de récuperer les valeurs en post sous format json

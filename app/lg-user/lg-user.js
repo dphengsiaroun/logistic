@@ -51,6 +51,8 @@
 				service.error = undefined;
 				service.account = response.data.account;
 				$state.go('user:signupSuccess');
+			}).catch(function(error) {
+				service.error = error;
 			});
 		};
 
@@ -80,6 +82,8 @@
 				service.error = undefined;
 				service.account = response.data;
 				$state.go('home');
+			}).catch(function(error) {
+				service.error = error;
 			});
 		};
 
@@ -97,6 +101,8 @@
 				service.isSignoutError = false;
 				service.account = undefined;
 				$state.go('home');
+			}).catch(function(error) {
+				service.error = error;
 			});
 		};
 
@@ -115,6 +121,8 @@
 					return;
 				}
 				service.account = response.data;
+			}).catch(function(error) {
+				service.error = error;
 			});
 		};
 
@@ -137,6 +145,8 @@
 				service.isUpdateError = false;
 				service.account = response.data.account;
 				$state.go('user:updated');
+			}).catch(function(error) {
+				service.error = error;
 			});
 		};
 
@@ -159,6 +169,8 @@
 				service.isDeleteError = false;
 				service.account = undefined;
 				$state.go('user:deleted');
+			}).catch(function(error) {
+				service.error = error;
 			});
 		};
 
@@ -186,6 +198,8 @@
 				service.isUpdatePasswordError = false;
 				service.account = response.data.account;
 				$state.go('user:updatedPassword');
+			}).catch(function(error) {
+				service.error = error;
 			});
 		};
 
