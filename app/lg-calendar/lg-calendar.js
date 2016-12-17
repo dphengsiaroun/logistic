@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('lg-calendar', []);
+	var app = angular.module('lg-calendar', ['lg-misc']);
 
 	app.directive('input', ['$injector', function($injector) {
 		var $compile = $injector.get('$compile');
@@ -14,7 +14,8 @@
 				}
 				var elt = angular.element('<!-- input type="lgDate" ng-model="' + attr.ngModel + '" -->' +
 					'<lg-calendar-wrapper ' +
-					'title="\'' + attr.placeholder + '\'" ' +
+					'placeholder="\'' + attr.placeholder + '\'" ' +
+					'title="\'' + attr.title + '\'" ' +
 					'ng-model="' + attr.ngModel + '" ' +
 					'></lg-calendar-wrapper>');
 				element.after(elt);
@@ -32,21 +33,21 @@
 		},
 		templateUrl: 'lg-calendar/tmpl/lg-calendar-wrapper.html',
 		controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
-			var lgChoiceSequence = $injector.get('lgChoiceSequence');
-			var lgChoiceScroll = $injector.get('lgChoiceScroll');
+			var lgSequence = $injector.get('lgSequence');
+			var lgScroll = $injector.get('lgScroll');
 			var self = this;
 
 			this.style = '';
-			this.id = lgChoiceSequence.next();
+			this.id = lgSequence.next();
 			
 			this.start = function() {
-				lgChoiceScroll.save();
+				lgScroll.save();
 				this.style = '#lgChoice' + this.id + ' {display: block;}';
 				console.log('choice ctrl', this);
 			};
 
 			this.stop = function() {
-				lgChoiceScroll.restore();
+				lgScroll.restore();
 				this.style = '#lgChoice' + this.id + ' {display: none;}';
 			};
 

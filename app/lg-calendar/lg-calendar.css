@@ -1,3 +1,40 @@
+lg-calendar-wrapper {
+    position: relative;
+    display: block;
+}
+
+lg-calendar {
+    display: none;
+}
+
+lg-calendar-wrapper my-input {
+    display: block;
+    border: 1px solid hsla(0, 0%, 92%, 1);
+    border-radius: 5px;
+    margin: 5px 0px;
+    color: hsla(0, 0%, 66%, 1); /* Placeholder */
+    padding: 16px;
+    width: 100%;
+    background-color: white;
+}
+
+lg-calendar-wrapper my-input.filled {
+    color: black;
+}
+
+lg-calendar-wrapper .icon {
+    position: absolute;
+    top: 13px;
+    left: 87%;
+    font-size: 25px;
+    color: hsla(0, 0%, 66%, 1);
+}
+
+lg-calendar-wrapper .icon i {
+    color: hsla(0, 0%, 66%, 1);
+}
+
+
 .cont-calendar {
 	width: 100%;
 }

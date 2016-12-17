@@ -1,198 +1,203 @@
-<nav>
-    <div class="back">
-        <i class="fa fa-location-arrow" aria-hidden="true"></i>
-    </div>
-    <div class="logo">
-        <p>{{$ctrl.title}}</p>
-    </div>
-    <div class="menu">
-        <i class="fa fa-check" aria-hidden="true"></i>
-    </div>
-</nav>
-<section class="cont-calendar">
-    <div class="calendar">
-        <header>				
-            <h2>Novembre 2016</h2>
-        </header>
-        <table>
-            <thead>
-                <tr>
-                    <td>Lu</td>
-                    <td>Ma</td>
-                    <td>Me</td>
-                    <td>Je</td>
-                    <td>Ve</td>
-                    <td>Sa</td>
-                    <td>Di</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="prev-month">31</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td class="prev-month">5</td>
-                    <td class="prev-month">6</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td class="prev-month">12</td>
-                    <td class="prev-month">13</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td>17</td>
-                    <td>18</td>
-                    <td class="prev-month">19</td>
-                    <td class="prev-month">20</td>
-                </tr>
-                <tr>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>24</td>
-                    <td>25</td>
-                    <td>26</td>
-                    <td class="prev-month">27</td>
-                    <td class="prev-month">28</td>
-                </tr>
-                <tr class="none">
-                    <td>27</td>
-                    <td>28</td>
-                    <td>29</td>
-                    <td>30</td>
-                    <td class="next-month">1</td>
-                    <td class="next-month">2</td>
-                    <td class="next-month">3</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="hour">
-            <span>00:00</span>
-            <span>01:00</span>
-            <span>02:00</span>
-            <span class="select">03:00</span>
-            <span>04:00</span>
-            <span>05:00</span>
-            <span>06:00</span>
-            <!--<span>07:00</span>
-            <span>08:00</span>
-            <span>09:00</span>
-            <span>10:00</span>
-            <span>11:00</span>
-            <span>12:00</span>
-            <span>13:00</span>
-            <span>14:00</span>
-            <span>15:00</span>
-            <span>16:00</span>
-            <span>17:00</span>
-            <span>18:00</span>
-            <span>19:00</span>
-            <span>20:00</span>
-            <span>21:00</span>
-            <span>22:00</span>
-            <span>23:00</span>-->
-            <div class="selector"></div>
+<style>{{$ctrl.style}}</style>
+<my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
+<span ng-hide="$ctrl.show" class="icon"><i ng-click="$ctrl.toggle();" class="fa fa-calendar" aria-hidden="true"></i></span>
+<lg-calendar id="lgCalendar{{$ctrl.id}}" >
+    <nav>
+        <div class="back">
+            <i class="fa fa-location-arrow" aria-hidden="true"></i>
         </div>
-    </div>
-    <div class="calendar">
-        <header>				
-            <h2>Decembre 2016</h2>
-        </header>
-        <table>
-            <thead>
-                <tr>
-                    <td>Lu</td>
-                    <td>Ma</td>
-                    <td>Me</td>
-                    <td>Je</td>
-                    <td>Ve</td>
-                    <td>Sa</td>
-                    <td>Di</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="prev-month">28</td>
-                    <td class="prev-month">29</td>
-                    <td class="prev-month">30</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td class="prev-month">3</td>
-                    <td class="prev-month">4</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td class="prev-month">10</td>
-                    <td class="prev-month">11</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td class="prev-month">17</td>
-                    <td class="prev-month">18</td>
-                </tr>
-                <tr>
-                    <td>19</td>
-                    <td>20</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td class="prev-month">24</td>
-                    <td class="prev-month">25</td>
-                </tr>
+        <div class="logo">
+            <p>{{$ctrl.title}}</p>
+        </div>
+        <div class="menu">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </div>
+    </nav>
+    <section class="cont-calendar">
+        <div class="calendar">
+            <header>				
+                <h2>Novembre 2016</h2>
+            </header>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Lu</td>
+                        <td>Ma</td>
+                        <td>Me</td>
+                        <td>Je</td>
+                        <td>Ve</td>
+                        <td>Sa</td>
+                        <td>Di</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="prev-month">31</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td class="prev-month">5</td>
+                        <td class="prev-month">6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td class="prev-month">12</td>
+                        <td class="prev-month">13</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td class="prev-month">19</td>
+                        <td class="prev-month">20</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td>25</td>
+                        <td>26</td>
+                        <td class="prev-month">27</td>
+                        <td class="prev-month">28</td>
+                    </tr>
+                    <tr class="none">
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td class="next-month">1</td>
+                        <td class="next-month">2</td>
+                        <td class="next-month">3</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="hour">
+                <span>00:00</span>
+                <span>01:00</span>
+                <span>02:00</span>
+                <span class="select">03:00</span>
+                <span>04:00</span>
+                <span>05:00</span>
+                <span>06:00</span>
+                <!--<span>07:00</span>
+                <span>08:00</span>
+                <span>09:00</span>
+                <span>10:00</span>
+                <span>11:00</span>
+                <span>12:00</span>
+                <span>13:00</span>
+                <span>14:00</span>
+                <span>15:00</span>
+                <span>16:00</span>
+                <span>17:00</span>
+                <span>18:00</span>
+                <span>19:00</span>
+                <span>20:00</span>
+                <span>21:00</span>
+                <span>22:00</span>
+                <span>23:00</span>-->
+                <div class="selector"></div>
+            </div>
+        </div>
+        <div class="calendar">
+            <header>				
+                <h2>Decembre 2016</h2>
+            </header>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Lu</td>
+                        <td>Ma</td>
+                        <td>Me</td>
+                        <td>Je</td>
+                        <td>Ve</td>
+                        <td>Sa</td>
+                        <td>Di</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="prev-month">28</td>
+                        <td class="prev-month">29</td>
+                        <td class="prev-month">30</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td class="prev-month">3</td>
+                        <td class="prev-month">4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td class="prev-month">10</td>
+                        <td class="prev-month">11</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td class="prev-month">17</td>
+                        <td class="prev-month">18</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td class="prev-month">24</td>
+                        <td class="prev-month">25</td>
+                    </tr>
 
-                <tr class="none">
-                    <td>26</td>
-                    <td>27</td>
-                    <td>28</td>
-                    <td>29</td>
-                    <td>30</td>
-                    <td class="prev-month">31</td>
-                    <td class="next-month">1</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="hour">
-            <span>00:00</span>
-            <span>01:00</span>
-            <span>02:00</span>
-            <span class="select">03:00</span>
-            <span>04:00</span>
-            <span>05:00</span>
-            <span>06:00</span>
-            <!--<span>07:00</span>
-            <span>08:00</span>
-            <span>09:00</span>
-            <span>10:00</span>
-            <span>11:00</span>
-            <span>12:00</span>
-            <span>13:00</span>
-            <span>14:00</span>
-            <span>15:00</span>
-            <span>16:00</span>
-            <span>17:00</span>
-            <span>18:00</span>
-            <span>19:00</span>
-            <span>20:00</span>
-            <span>21:00</span>
-            <span>22:00</span>
-            <span>23:00</span>-->
-            <div class="selector"></div>
+                    <tr class="none">
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td class="prev-month">31</td>
+                        <td class="next-month">1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="hour">
+                <span>00:00</span>
+                <span>01:00</span>
+                <span>02:00</span>
+                <span class="select">03:00</span>
+                <span>04:00</span>
+                <span>05:00</span>
+                <span>06:00</span>
+                <!--<span>07:00</span>
+                <span>08:00</span>
+                <span>09:00</span>
+                <span>10:00</span>
+                <span>11:00</span>
+                <span>12:00</span>
+                <span>13:00</span>
+                <span>14:00</span>
+                <span>15:00</span>
+                <span>16:00</span>
+                <span>17:00</span>
+                <span>18:00</span>
+                <span>19:00</span>
+                <span>20:00</span>
+                <span>21:00</span>
+                <span>22:00</span>
+                <span>23:00</span>-->
+                <div class="selector"></div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</lg-calendar>
