@@ -51,9 +51,9 @@
 		});*/
 
 		$stateProvider.state({
-			name: 'calendar',
-			url: '/calendar',
-			component: 'lgCalendarRoute'
+			name: 'test:calendar',
+			url: '/test-calendar',
+			component: 'lgTestCalendarRoute'
 		});
 		$stateProvider.state({
 			name: 'test',
@@ -79,6 +79,10 @@
 
 	app.component('lgTest2Route', {
 		templateUrl: 'lg-route/tmpl/test2.html'
+	});
+
+	app.component('lgTestCalendarRoute', {
+		templateUrl: 'lg-route/tmpl/test-calendar.html'
 	});
 
 

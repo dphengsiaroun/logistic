@@ -40,6 +40,10 @@ h1 {
     margin-bottom: 10px;
 }
 
+form {
+    padding: 0px 10px;
+}
+
 input {
     font-size: 18px;
     width: 100%;
