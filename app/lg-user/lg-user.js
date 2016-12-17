@@ -80,7 +80,7 @@
 					return;
 				}
 				service.error = undefined;
-				service.account = response.data;
+				service.account = response.data.account;
 				$state.go('home');
 			}).catch(function(error) {
 				service.error = error;

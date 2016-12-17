@@ -12,7 +12,6 @@
 			throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
 		}
 		
-		//TODO: faire pareil pour les pseudos (rendre possible de se logguer de differente facon (pseudo, email, tel, etc.)
 		$account = new Account($request);
 		
 		$result['status'] = 'ok';

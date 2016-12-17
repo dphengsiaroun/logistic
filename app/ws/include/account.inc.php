@@ -175,6 +175,33 @@ EOF;
 
 			return $st->rowCount() == 1;
 		}
+
+		public static function signin($email, $password) {
+			global $db;
+
+			$sql = <<<EOF
+SELECT id FROM account WHERE 
+	email = :email AND 
+	password = :password;
+EOF;
+			
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':email' => $email,
+				':password' => $password,
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			
+			if ($st->rowCount() == 0) {
+				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
+			}
+			$_SESSION['id'] = $st->fetch()['id'];
+
+			return new Account();
+		}
 	}
 
 
