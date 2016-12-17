@@ -1,5 +1,5 @@
 <style>{{$ctrl.style}}</style>
-<my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start();" ></my-input>
+<my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
 <lg-choice id="lgChoice{{$ctrl.id}}" >
     <nav>
         <div class="back">
@@ -8,14 +8,14 @@
         <div class="logo">
             <p>{{$ctrl.title}}</p>
         </div>
-        <div class="menu">
-            <i class="fa fa-check" aria-hidden="true"></i>
+        <div ng-click="$ctrl.stop()" class="menu">
+            <i class="fa fa-times" aria-hidden="true"></i>
         </div>
     </nav>
     <section class="input-auto">
         <input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="myFilter" />
     </section>
     <section class="list" >
-        <p ng-click="$ctrl.update(choice);" ng-repeat="choice in $ctrl.choices | filter: myFilter">{{choice}}</p>
+        <p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.choices | filter: myFilter">{{choice}}</p>
     </section>
 </lg-choice>
