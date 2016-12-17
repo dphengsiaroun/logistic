@@ -12,6 +12,7 @@
 		'lg-loader',
 		'lg-truck',
 		'lg-choice',
+		'lg-calendar',
 		'lg-eyepassword',
 		'lg-config',
 		'lg-widget',

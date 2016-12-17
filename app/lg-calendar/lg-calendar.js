@@ -1,11 +1,7 @@
 (function() {
 	'use strict';
 
-	var removeDiacritic = function(str) {
-		return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-	};
-
-	var app = angular.module('lg-choice', ['lg-misc']);
+	var app = angular.module('lg-calendar', []);
 
 	app.directive('input', ['$injector', function($injector) {
 		var $compile = $injector.get('$compile');
@@ -13,22 +9,14 @@
 			restrict: 'E',
 			require: '?ngModel',
 			link: function (scope, element, attr, ctrl) {
-				if (attr.type !== 'choice') {
+				if (attr.type !== 'lgDate') {
 					return;
 				}
-				var requiredAttr = '';
-				if (element.prop('required')) {
-					console.log('required');
-					requiredAttr = ' is-mandatory="true" ';
-				}
-				var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
-					'<lg-choice-wrapper ' +
-					'placeholder="\'' + attr.placeholder + '\'" ' +
-					'choices="' + attr.choices + '" ' +
-					'title="\'' + attr.title + '\'" ' +
+				var elt = angular.element('<!-- input type="lgDate" ng-model="' + attr.ngModel + '" -->' +
+					'<lg-calendar-wrapper ' +
+					'title="\'' + attr.placeholder + '\'" ' +
 					'ng-model="' + attr.ngModel + '" ' +
-					requiredAttr +
-					'></lg-choice-wrapper>');
+					'></lg-calendar-wrapper>');
 				element.after(elt);
 				
 				element.attr('style', 'display: none !important');
@@ -38,27 +26,27 @@
 
 	}]);
 
-	app.component('lgChoiceWrapper', {
+	app.component('lgCalendarWrapper', {
 		require: {
 			ngModel: 'ngModel',
 		},
-		templateUrl: 'lg-choice/tmpl/lg-choice-wrapper.html',
+		templateUrl: 'lg-calendar/tmpl/lg-calendar-wrapper.html',
 		controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
-			var lgSequence = $injector.get('lgSequence');
-			var lgScroll = $injector.get('lgScroll');
+			var lgChoiceSequence = $injector.get('lgChoiceSequence');
+			var lgChoiceScroll = $injector.get('lgChoiceScroll');
 			var self = this;
 
 			this.style = '';
-			this.id = lgSequence.next();
+			this.id = lgChoiceSequence.next();
 			
 			this.start = function() {
-				lgScroll.save();
+				lgChoiceScroll.save();
 				this.style = '#lgChoice' + this.id + ' {display: block;}';
 				console.log('choice ctrl', this);
 			};
 
 			this.stop = function() {
-				lgScroll.restore();
+				lgChoiceScroll.restore();
 				this.style = '#lgChoice' + this.id + ' {display: none;}';
 			};
 
