@@ -7,13 +7,37 @@
 	class Account {
 
 
-		public function __construct() {
-			if (!isset($_SESSION['id'])) {
-				throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
+		public function __construct($request = NULL) {
+			if ($request != NULL) {
+				$this->create($request);
+			} else {
+				if (!isset($_SESSION['id'])) {
+					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
+				}
 			}
 			$this->id = $_SESSION['id'];
 			$this->retrieve();
-			debug('account', $this);
+			debug('account', $this);	
+		}
+
+		protected function create($request) {
+			global $db;
+
+			$sql = <<<EOF
+INSERT INTO account (email, password, content) VALUES 
+	(:email, :password, :content); 
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':email' => $request->email,
+				':password' => $request->password,
+				':content' => json_encode($request->content)
+			)) === FALSE) {
+				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
+			}
+			$_SESSION['id'] = $db->lastInsertId();
 		}
 
 		protected function retrieve() {
@@ -132,6 +156,24 @@ EOF;
 			unset($_SESSION['id']);
 			debug("delete account ok");
 		
+		}
+
+		public static function exists($email) {
+			global $db;
+
+			$sql = <<<EOF
+SELECT * FROM account WHERE email=:email;
+EOF;
+			
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':email' => $email
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			return $st->rowCount() == 1;
 		}
 	}
 

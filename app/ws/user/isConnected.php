@@ -7,7 +7,6 @@
 	
 	$result = [];
 	try {
-
 		$account = new Account();
 		$result['status'] = 'ok';
 		$result['account'] = $account;
