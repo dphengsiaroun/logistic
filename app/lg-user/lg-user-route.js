@@ -61,7 +61,7 @@
 		});
 		$stateProvider.state({
 			name: 'user:confirmDelete',
-			url: '/user_delete',
+			url: '/user-delete',
 			component: 'lgConfirm',
 			resolve: {
 				service: ['$injector', function($injector) {
@@ -84,7 +84,7 @@
 		});
 		$stateProvider.state({
 			name: 'user:deleted',
-			url: '/user_delete',
+			url: '/user-delete',
 			component: 'lgMessage',
 			resolve: {
 				service: function() {
@@ -99,13 +99,13 @@
 		});
 		$stateProvider.state({
 			name: 'user:updatePassword',
-			url: '/update_password',
+			url: '/update-password',
 			component: 'lgUserUpdatePasswordRoute',
 			back: false
 		});
 		$stateProvider.state({
 			name: 'user:updatedPassword',
-			url: '/profile',
+			url: '/update-password',
 			component: 'lgMessage',
 			resolve: {
 				service: function() {
