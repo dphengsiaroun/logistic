@@ -38,6 +38,7 @@ lg-choice nav {
 	position: fixed;
 	display: table;
 	width: 100%;
+    height: 59px;
 	background-color: hsla(214, 46%, 25%, 1);
 }
 
@@ -111,4 +112,9 @@ lg-choice .list p {
     padding: 15px 25px;
     font-size: 20px;
     border-bottom: 1px solid hsla(0, 0%, 92%, 1);
+}
+
+lg-choice .list p i {
+    position: absolute;
+    left: 8px;
 }

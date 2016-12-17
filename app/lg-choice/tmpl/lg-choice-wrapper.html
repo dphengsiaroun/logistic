@@ -8,14 +8,20 @@
         <div class="logo">
             <p>{{$ctrl.title}}</p>
         </div>
-        <div ng-click="$ctrl.stop()" class="menu">
+        <div ng-hide="$ctrl.isMandatory" ng-click="$ctrl.stop()" class="menu">
             <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div ng-show="$ctrl.isMandatory" class="menu">
+            &nbsp;
         </div>
     </nav>
     <section class="input-auto">
-        <input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="myFilter" />
+        <input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" />
     </section>
     <section class="list" >
-        <p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.choices | filter: myFilter">{{choice}}</p>
+        <p ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== undefined">
+            <i class="fa fa-check" aria-hidden="true"></i>{{$ctrl.ngModel.$modelValue}}
+        </p>
+        <p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.choices | filter: $ctrl.myFilter">{{choice}}</p>
     </section>
 </lg-choice>

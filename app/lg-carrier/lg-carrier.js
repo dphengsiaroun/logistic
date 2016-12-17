@@ -91,7 +91,7 @@
 		var service = this;
 		this.createData = {
 			content: {
-				type: 'bache',
+				type: 'Bâche',
 				country: 'Algerie',
 				city: 'Alger',
 				conditioning: 'Palette',

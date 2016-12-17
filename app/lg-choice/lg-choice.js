@@ -1,6 +1,10 @@
 (function() {
 	'use strict';
 
+	var removeDiacritic = function(str) {
+		return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+	};
+
 	var app = angular.module('lg-choice', []);
 
 	app.directive('input', ['$injector', function($injector) {
@@ -12,14 +16,21 @@
 				if (attr.type !== 'choice') {
 					return;
 				}
+				var requiredAttr = '';
+				if (element.prop('required')) {
+					console.log('required');
+					requiredAttr = ' is-mandatory="true" ';
+				}
 				var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
 					'<lg-choice-wrapper ' +
 					'placeholder="\'' + attr.placeholder + '\'" ' +
 					'choices="' + attr.choices + '" ' +
 					'title="\'' + attr.title + '\'" ' +
 					'ng-model="' + attr.ngModel + '" ' +
+					requiredAttr +
 					'></lg-choice-wrapper>');
 				element.after(elt);
+				
 				element.attr('style', 'display: none !important');
 				$compile(elt)(scope);
 			}
@@ -51,9 +62,10 @@
 			ngModel: 'ngModel',
 		},
 		templateUrl: 'lg-choice/tmpl/lg-choice-wrapper.html',
-		controller: ['$scope', '$element', '$injector', function($scope, $element, $injector) {
+		controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
 			var lgChoiceSequence = $injector.get('lgChoiceSequence');
 			var lgChoiceScroll = $injector.get('lgChoiceScroll');
+			var self = this;
 
 			this.style = '';
 			this.id = lgChoiceSequence.next();
@@ -61,6 +73,7 @@
 			this.start = function() {
 				lgChoiceScroll.save();
 				this.style = '#lgChoice' + this.id + ' {display: block;}';
+				console.log('choice ctrl', this);
 			};
 
 			this.stop = function() {
@@ -81,7 +94,7 @@
 
 			this.$onInit = function() {
 				var ctrl = this.ngModel;
-				var self = this;
+				
 				ctrl.$render = function() {
 					var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
 					var html = choice || self.placeholder;
@@ -99,19 +112,37 @@
 					
 					checkValidity(1);
 				};
+				console.log('this.ngModel', this.ngModel);
+				
 
 				var checkValidity = function(value) {
 					var isOutOfChoice = false;
 					ctrl.$setValidity('outOfChoice', isOutOfChoice);
+				};
+
+				this.myFilter = function(value, index, array) {
+			
+					if (self.ngModel.$modelValue !== undefined && self.ngModel.$modelValue === value) {
+						return false;
+					}
+					if (self.myInput === undefined) {
+						return true;
+					}
+					
+					if (removeDiacritic(value.toLowerCase()).indexOf(removeDiacritic(self.myInput.toLowerCase())) !== -1) {
+						return true;
+					}
+					return false;
 				};
 			};
 
 			
 		}],
 		bindings: {
-			title: '=',
-			choices: '=',
-			placeholder: '=',
+			title: '<',
+			choices: '<',
+			placeholder: '<',
+			isMandatory: '<',
 		}
 	});
 	
