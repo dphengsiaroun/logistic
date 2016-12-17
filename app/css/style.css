@@ -63,12 +63,31 @@ a {
     clear: both;
 }
 
-lg-title {
+lg-title, title {
 	display: block;
 	font-size: 30px;
 	font-weight: bold;
 	text-align: center;
 	padding: 10px 0px 20px;
+}
+
+title {
+    padding: 0px;
+}
+
+subtitle {
+	display: block;
+	font-size: 20px;
+	text-align: center;
+	padding: 0px;
+}
+
+title-icon {
+    display: block;
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+	padding: 0px;
 }
 
 /* Ajout société */
@@ -328,38 +347,5 @@ button {
 
 button i {
     color: white;
-}
-
-/* Profile */
-.profil {
-    text-align: center;
-    width: 100%;
-    padding: 0px;
-    margin: 20px 0px 10px;
-}
-
-.profil i {
-    font-size: 70px;
-}
-
-.profil h1 {
-    font-size: 30px;
-    margin: 10px 0;
-}
-
-.profil h2 {
-    font-size: 30px;
-    margin: 10px 0;
-}
-
-.edit-profil {
-    width: 100%;
-    padding: 20px 10px;
-    text-align: center;
-}
-
-.remove {
-    color: red;
-    text-decoration: underline;
 }
 

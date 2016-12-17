@@ -1,7 +1,45 @@
-<section class="profil">
-		<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-		<h3>Bienvenue</h3><span>{{$ctrl.user.account.content.firstname}} {{$ctrl.user.account.content.lastname | uppercase }}</span>
-</section>
+<style>
+.profil {
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+    margin: 20px 0px 10px;
+}
+
+.profil i {
+    font-size: 70px;
+}
+
+.profil h1 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.profil h2 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.edit-profil {
+    width: 100%;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.critical {
+    color: red;
+}
+
+.action {
+    text-decoration: underline;
+}
+</style>
+
+
+<title-icon><i class="fa fa-user-circle-o" aria-hidden="true"></i></title-icon>
+<title>Bienvenue</title>
+<subtitle>{{$ctrl.user.account.content.firstname}} {{$ctrl.user.account.content.lastname | uppercase }}</subtitle>
+
 <section class="edit-profil">
 		<form name="updateCtrl">
 			<input type="text" placeholder="Nom" ng-model="$ctrl.updateData.content.lastname"/><br/>
@@ -26,10 +64,9 @@
 			<div class="bouton">
 				<button ng-click="$ctrl.user.update($ctrl.updateData);">Modifier</button>
 			</div>
-			<div class="bouton">
-				<button ui-sref="user:updatePassword">Modifier mot de passe</button>
-			</div>
 			<lg-hr>ou</lg-hr>
-			<a ui-sref="user:confirmDelete" class="remove">Supprimer mon compte</p>
+			<a ui-sref="user:updatePassword" class="action">Modifier mot de passe</p>
+			<lg-hr>ou</lg-hr>
+			<a ui-sref="user:confirmDelete" class="action critical">Supprimer mon compte</p>
 		</form>
 </section>
