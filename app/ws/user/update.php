@@ -1,61 +1,17 @@
 <?php
 	
 	define("BASE_DIR", dirname(dirname($_SERVER["SCRIPT_FILENAME"])));
-	require_once(BASE_DIR . "/include/constant.inc.php");
-	require_once(BASE_DIR . "/include/misc.inc.php");
-	require_once(BASE_DIR . "/include/database.inc.php");
+	require_once(BASE_DIR . "/include/account.inc.php");
 	
-	
-	// Permet de récuperer les données au format Json
-	$postdata = file_get_contents("php://input");
-
-	// on décode le json dans une variable PHP
-    $request = json_decode($postdata); 
-	$account = clone $request;
-	$account->content = json_encode($account->content);
-
-
+    $request = getRequest();
 	$result = [];
 	try {
-				// On lance notre requête de vérification
-		$sql = "SELECT * FROM account WHERE email='$request->email'";
-		$sqlResult = $db->query($sql);
-		debug("sqlResult", $sqlResult);
-
-		$sql = <<<EOF
-UPDATE account
-SET email = :email, content = :content
-WHERE id = :id
-EOF;
-
-	$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-		if ($st->execute(array(
-			':email' => $account->email,
-			':content' => $account->content,
-			':id' => $account->id
-		)) === FALSE) {
-			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
-		}
-
-		$sql = <<<EOF
-SELECT * FROM account WHERE email=:email
-EOF;
-		
-		$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-		if ($st->execute(array(
-			':email' => $account->email
-		)) === FALSE) {
-			throw new Exception('Table interrogation: '.sprint_r($db->errorInfo()));
-		}
-		
-		$array = $st->fetch();
-		$id = $array['id'];
+		$account = new Account();
+		$account->email = $request->email;
+		$account->content = $request->content;
+		$account->save();
 		$result['status'] = 'ok';
-		$request->id = $id;
-		$result['account'] = $request;
-
+		$result['account'] = $account;
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = $e->getMessage();
