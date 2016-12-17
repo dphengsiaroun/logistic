@@ -102,7 +102,7 @@ lg-calendar .menu i {
 
 .calendar {
 	text-align: center;
-    padding: 70px 10px 10px;
+    padding: 70px 0px 10px;
     background: white;
     border-bottom: 1px solid hsla(0, 0%, 92%, 1); 
 
@@ -193,7 +193,7 @@ lg-calendar .hour span {
 lg-calendar .selector{
 	position: relative;
     width: 48px;
-    top: -40px;
+    top: -25px;
     margin: 0 auto;
     border-radius: 5px;
     height: 32px;
