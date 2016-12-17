@@ -16,7 +16,13 @@
 					var url = response.config.url;
 
 					if (lgMisc.isWebService(url) && typeof response.data === 'string') {
-						console.error('error', response);
+						var str = response.data;
+						response.data = {
+							status: 'ko',
+							errorCode: '-1',
+							errorMsg: str,
+						};
+						console.error('data', response.data);
 						return $q.reject(response);
 					}
 					return response;

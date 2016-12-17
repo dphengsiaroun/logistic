@@ -141,7 +141,7 @@
 	});
 
 	app.component('lgUserUpdatePasswordRoute', {
-		templateUrl: 'lg-user/tmpl/update_password.html',
+		templateUrl: 'lg-user/tmpl/update-password.html',
 		controller: 'UserUpdateCtrl'
 	});
 

@@ -47,6 +47,15 @@
 		$object = (object)$array;
 	}
 
+	function getRequest() {
+		// Permet de récuperer les données au format Json
+		$postdata = file_get_contents("php://input");
+		// on décode le json dans une variable PHP
+		$result = json_decode($postdata); 
+		debug_r('request', $result);
+		return $result;
+	}
+
 
 ?>
 

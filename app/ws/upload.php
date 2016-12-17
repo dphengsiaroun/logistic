@@ -48,7 +48,7 @@ try {
 
 	$upload_handler = new MyUploadHandler($options);
 	debug_r('output', $upload_handler);
-	$account->loadPicture();
+	$account->reportLoadedPicture();
 	debug('done');
 
 

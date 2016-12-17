@@ -9,6 +9,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+    font-size: 20px;
     color: hsla(214, 46%, 25%, 1);
 }
 
@@ -349,3 +350,6 @@ button i {
     color: white;
 }
 
+.critical {
+    color: red;
+}

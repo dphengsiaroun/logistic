@@ -35,4 +35,7 @@
 	define('ERROR_MAX_SIZE_EXCEEDED_CODE', 6);
 	define('ERROR_MAX_SIZE_EXCEEDED_MSG', 'Too much pictures loaded.');
 
+	define('ERROR_INCORRECT_OLD_PASSWORD_CODE', 7);
+	define('ERROR_INCORRECT_OLD_PASSWORD_MSG', 'Incorrect old password.');
+
 ?>

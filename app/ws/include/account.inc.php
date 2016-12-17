@@ -33,7 +33,7 @@ EOF;
 			debug('account retrieved');
 		}
 
-		public function loadPicture() {
+		public function reportLoadedPicture() {
 			global $db;
 			$pictureDir = $this->getPictureDir();
 			$size = 123;
@@ -88,7 +88,7 @@ EOF;
 			return 'acct_'.$_SESSION['id'].$suffix;
 		}
 
-		protected function save() {
+		public function save() {
 			global $db;
 
 			$sql = <<<EOF

@@ -25,14 +25,6 @@
     padding: 20px 10px;
     text-align: center;
 }
-
-.critical {
-    color: red;
-}
-
-.action {
-    text-decoration: underline;
-}
 </style>
 
 
@@ -65,8 +57,8 @@
 				<button ng-click="$ctrl.user.update($ctrl.updateData);">Modifier</button>
 			</div>
 			<lg-hr>ou</lg-hr>
-			<a ui-sref="user:updatePassword" class="action">Modifier mot de passe</p>
+			<a ui-sref="user:updatePassword">Modifier mot de passe</p>
 			<lg-hr>ou</lg-hr>
-			<a ui-sref="user:confirmDelete" class="action critical">Supprimer mon compte</p>
+			<a ui-sref="user:confirmDelete" class="critical">Supprimer mon compte</p>
 		</form>
 </section>

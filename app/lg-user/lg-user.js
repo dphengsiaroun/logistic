@@ -45,7 +45,7 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.error = response.data;
+					service.error = response;
 					return;
 				}
 				service.error = undefined;
@@ -76,7 +76,7 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.error = response.data;
+					service.error = response;
 					return;
 				}
 				service.error = undefined;
@@ -95,7 +95,7 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.isSignoutError = true;
+					service.error = response;
 					return;
 				}
 				service.isSignoutError = false;
@@ -139,10 +139,10 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.isUpdateError = true;
+					service.error = response;
 					return;
 				}
-				service.isUpdateError = false;
+				service.error = undefined;
 				service.account = response.data.account;
 				$state.go('user:updated');
 			}).catch(function(error) {
@@ -163,10 +163,10 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.isDeleteError = true;
+					service.error = response;
 					return;
 				}
-				service.isDeleteError = false;
+				service.error = undefined;
 				service.account = undefined;
 				$state.go('user:deleted');
 			}).catch(function(error) {
@@ -175,14 +175,18 @@
 		};
 
 		this.updatePasswordData = {
-			password: 'test'
+			oldPassword: 'test',
+			newPassword: 'test'
 		};
 
 		this.updatePassword = function(data) {
 			console.log('user->updatePassword');
 			var SHA256 = new Hashes.SHA256;
-			var data = angular.copy(service.updatePasswordData);
-			data.password = SHA256.hex(service.updatePasswordData.password);
+			var data = {
+				oldPassword: SHA256.hex(this.updatePasswordData.oldPassword),
+				newPassword: SHA256.hex(this.updatePasswordData.newPassword)
+			};
+			
 			
 			$http({
 				url: makeUrl('updatePassword'),
@@ -192,13 +196,14 @@
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === "ko") {
-					service.isUpdatePasswordError = true;
+					service.error = response;
 					return;
 				}
-				service.isUpdatePasswordError = false;
+				service.error = undefined;
 				service.account = response.data.account;
 				$state.go('user:updatedPassword');
 			}).catch(function(error) {
+				console.error('error', error);
 				service.error = error;
 			});
 		};
