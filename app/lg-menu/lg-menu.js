@@ -24,7 +24,7 @@
 			var ctrl = this;
 
 			this.isBackPresent = false;
-			var refreshState = function() {
+			var refreshBack = function() {
 				console.log('refreshBack');
 				console.log('$state.$current', $state.$current);
 				if ($state.$current.back === undefined) {
@@ -32,12 +32,15 @@
 				} else {
 					ctrl.isBackPresent = $state.$current.back;
 				}
-
+			};
+			var refreshState = function() {
+				refreshBack();
 				if ($state.$current.needsUser && ctrl.user.account === undefined) {
+					console.log('go home because need user');
 					$state.go('home');
 				}
 			};
-			refreshState();
+			refreshBack();
 			// UI router throw this event when route changes.
 			$rootScope.$on('$viewContentLoaded', refreshState);
 
