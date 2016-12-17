@@ -42,13 +42,13 @@
 			
 			this.start = function() {
 				lgScroll.save();
-				this.style = '#lgChoice' + this.id + ' {display: block;}';
+				this.style = '#lgCalendar' + this.id + ' {display: block;}';
 				console.log('choice ctrl', this);
 			};
 
 			this.stop = function() {
 				lgScroll.restore();
-				this.style = '#lgChoice' + this.id + ' {display: none;}';
+				this.style = '#lgCalendar' + this.id + ' {display: none;}';
 			};
 
 			this.update = function(choice) {

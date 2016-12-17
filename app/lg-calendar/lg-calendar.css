@@ -34,13 +34,70 @@ lg-calendar-wrapper .icon i {
     color: hsla(0, 0%, 66%, 1);
 }
 
+lg-calendar {
+    position: fixed;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: white;
+}
+
+lg-calendar nav {
+	z-index: 102;
+	position: fixed;
+	display: table;
+	width: 100%;
+    height: 59px;
+	background-color: hsla(214, 46%, 25%, 1);
+}
+
+lg-calendar .back {
+    display: table-cell;
+    width: 50px;
+    margin: 0px;
+    vertical-align: top;
+    padding: 17px 10px 0;
+}
+
+lg-calendar .back i {
+    color: white;
+    font-size: 26px;
+}
+
+lg-calendar .logo {
+    display: table-cell;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+	line-height: 0px;
+}
+
+lg-calendar .logo p {
+    color: white;
+    padding: 29px 0 0;
+    font-size: 17px;
+}
+
+lg-calendar .menu {
+    display: table-cell;
+    margin: 0px;
+    width: 50px;
+    vertical-align: top;
+    padding: 14px 10px;
+}
+
+lg-calendar .menu i {
+    color: white;
+    font-size: 30px;
+}
+
 
 .cont-calendar {
 	width: 100%;
-}
-
-.lg-choice.filled {
-    color: black;
 }
 
 .calendar {
@@ -51,11 +108,11 @@ lg-calendar-wrapper .icon i {
 
 }
 
-lg-choice .calendar header {
+lg-calendar .calendar header {
 	position: relative;
 }
 
-lg-choice .calendar h2 {
+lg-calendar .calendar h2 {
 	text-transform: uppercase;
     font-family: 'Lato', sans-serif;
     font-size: 23px;
@@ -63,35 +120,35 @@ lg-choice .calendar h2 {
     color: hsla(189, 7%, 81%, 1);
 }
 
-lg-choice .calendar table {
+lg-calendar .calendar table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	width: 100%;
     margin-bottom: 20px;
 }
 
-lg-choice .calendar thead {
+lg-calendar .calendar thead {
 	font-weight: 600;
 	text-transform: uppercase;
 }
 
-lg-choice .calendar thead td {
+lg-calendar .calendar thead td {
     color: hsla(189, 7%, 81%, 1);
     font-size: 17px;
 }
 
-lg-choice .calendar tbody tr{
+lg-calendar .calendar tbody tr{
 	border-bottom: 1px solid hsla(0, 0%, 92%, 1);
     font-family: 'Lato', sans-serif;
     font-size: 16px;
 }
 
-lg-choice .calendar tbody td:hover {
+lg-calendar .calendar tbody td:hover {
 	background-color: hsla(171, 99%, 38%, 1);
 	color: white;
 }
 
-lg-choice .calendar td {
+lg-calendar .calendar td {
 	border: 2px solid transparent;
     border-radius: 84%;
     display: inline-block;
@@ -101,25 +158,25 @@ lg-choice .calendar td {
     font-family: 'Lato', sans-serif;
 }
 
-lg-choice .calendar tbody td {
+lg-calendar .calendar tbody td {
     font-weight: 400;
 }
 
-lg-choice .calendar .prev-month,
-lg-choice .calendar .next-month {
+lg-calendar .calendar .prev-month,
+lg-calendar .calendar .next-month {
 	color: hsla(189, 7%, 81%, 1);
 }
 
-lg-choice .current-day {
+lg-calendar .current-day {
 	background: hsla(171, 99%, 38%, 1);
 	color: hsla(0, 0%, 98%, 1);
 }
 
-lg-choice .event.current-day:after {
+lg-calendar .event.current-day:after {
 	background: hsla(0, 0%, 98%, 1);
 }
 
-lg-choice .hour {
+lg-calendar .hour {
     display: inline-block;
     text-align: center;
     width: 100%;
@@ -127,13 +184,13 @@ lg-choice .hour {
     margin-top: 20px;
 }
 
-lg-choice .hour span {
+lg-calendar .hour span {
 	padding: 10px 5px !important;
 	font-size: 13px !important;
     background-color: transparent;
 }
 
-lg-choice .selector{
+lg-calendar .selector{
 	position: relative;
     width: 48px;
     top: -40px;
@@ -143,11 +200,11 @@ lg-choice .selector{
     border: 2px solid hsla(171, 99%, 38%, 1);
 }
 
-lg-choice .select {
+lg-calendar .select {
 	font-weight: bold;
 	color: hsla(171, 99%, 38%, 1);
 }
 
-lg-choice .none{
+lg-calendar .none{
 	border-bottom: none !important;
 }
