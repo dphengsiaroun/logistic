@@ -17,6 +17,7 @@
 					'<lg-calendar-wrapper ' +
 					'placeholder="\'' + attr.placeholder + '\'" ' +
 					'title="\'' + title + '\'" ' +
+					'options="' + attr.options + '" ' +
 					'ng-model="' + attr.ngModel + '" ' +
 					'></lg-calendar-wrapper>');
 				element.after(elt);
@@ -36,7 +37,14 @@
 		controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
 			var lgSequence = $injector.get('lgSequence');
 			var lgScroll = $injector.get('lgScroll');
+			var $locale = $injector.get('$locale');
 			var self = this;
+
+			this.myOptions = {
+				position: 'now',
+				monthNbr: 6,
+				constraint: {}
+			};
 
 			this.style = '';
 			this.id = lgSequence.next();
@@ -61,13 +69,42 @@
 				this.ngModel.$setTouched();
 			};
 
+			this.compute = function() {
+				this.myOptions.start = new Date();
+				if (this.myOptions.position === 'now') {
+					this.myOptions.start = new Date();
+				}
+				this.months = [];
+				for (var i = 0; i < this.myOptions.monthNbr; i++) {
+					var date = new Date(this.myOptions.start);
+					date.setMonth(date.getMonth() + i);
+					var year = date.getFullYear();
+					var month = date.getMonth();
+					var monthName = $locale.DATETIME_FORMATS.MONTH[month];
+					var firstDayDate = new Date(year, month, 1);
+					var firstDay = firstDayDate.getDay();
+					this.months.push({name: monthName, year: year, firstDay: firstDay});
+				}
+
+			};
+
 
 
 			this.$onInit = function() {
-				var ctrl = this.ngModel;
+				console.log('lgCalendarWrapper ctrl $onInit', this);
+				var ngModelctrl = this.ngModel;
 
-				ctrl.$render = function() {
-					var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
+				console.log('options', this.options);
+				angular.extend(this.myOptions, this.options);
+
+				this.compute();
+
+
+				ngModelctrl.$render = function() {
+					console.log('ngModelctrl.$render', arguments);
+
+
+					var choice = (ngModelctrl.$viewValue === '') ? undefined : ngModelctrl.$viewValue;
 					var html = choice || self.placeholder;
 					var elt = $element.find('my-input');
 					if (choice !== undefined) {
@@ -88,7 +125,7 @@
 
 				var checkValidity = function(value) {
 					var isOutOfChoice = false;
-					ctrl.$setValidity('outOfChoice', isOutOfChoice);
+					ngModelctrl.$setValidity('outOfChoice', isOutOfChoice);
 				};
 
 				this.myFilter = function(value, index, array) {
@@ -114,6 +151,7 @@
 			choices: '<',
 			placeholder: '<',
 			isMandatory: '<',
+			options: '<'
 		}
 	});
 

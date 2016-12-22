@@ -17,6 +17,7 @@
     "jshashes": "1.0.5",
     "angular-sanitize": "1.5.8",
     "blueimp-file-upload": "9.14.1",
-    "angular-ui-router": "1.0.0-beta.3"
+    "angular-ui-router": "1.0.0-beta.3",
+    "angular-i18n": "1.6.0"
   }
 }
