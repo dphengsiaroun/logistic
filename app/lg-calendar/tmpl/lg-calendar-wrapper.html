@@ -16,7 +16,7 @@
     <month-list>
         <month ng-repeat="month in $ctrl.months track by $index">
             <header>
-                <h2>{{ month.name }}  {{ month.year}}</h2>
+                <h2>{{::month.name }}  {{::month.year}}</h2>
             </header>
             <table>
                 <thead>
@@ -32,9 +32,8 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="week in month.weeks track by $index">
-					{{week}}
                         <td ng-class="{'prev-month': day.isPrevMonth, 'week-end': day.isWeekEnd, 'next-month': day.isNextMonth}"
-							ng-repeat="day in week.days">{{day.date}}</td>
+							ng-repeat="day in week.days">{{::day.date}}</td>
                     </tr>
                 </tbody>
             </table>
