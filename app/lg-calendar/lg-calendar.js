@@ -58,7 +58,7 @@
 			this.start = function() {
 				lgScroll.save();
 				this.style = '#lgCalendar' + this.id + ' {display: block;}';
-				console.log('choice ctrl', this);
+				//console.log('choice ctrl', this);
 			};
 
 			this.stop = function() {
@@ -96,10 +96,10 @@
 					var dayDate = lastMonday;
 					var weeks = [];
 					for (var j = 0; j < 5; j++) {
-						console.log('j', j);
+						//console.log('j', j);
 						var days = [];
 						for (var k = 0; k < 7; k++) {
-							console.log('k', k);
+							//console.log('k', k);
 							var day = {};
 							day.date = dayDate.getDate();
 							day.isPrevMonth = dayDate.getMonth() < firstDayDate.getMonth();
@@ -110,12 +110,12 @@
 						}
 						weeks.push({days: days});
 						if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {
-							console.log('j===4 && ', dayDate.getMonth(), firstDayDate.getMonth());
+							//console.log('j===4 && ', dayDate.getMonth(), firstDayDate.getMonth());
 							j--;
 						}
 					}
 					this.months.push({name: monthName, year: year, weeks: weeks});
-					console.log('this.months', this.months);
+					//console.log('this.months', this.months);
 				}
 
 			};
