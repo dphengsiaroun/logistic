@@ -1,27 +1,26 @@
 <style>{{$ctrl.style}}</style>
 <my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
 <lg-choice id="lgChoice{{$ctrl.id}}" >
-    <nav>
-        <div class="back">
-            <i class="fa fa-location-arrow" aria-hidden="true"></i>
-        </div>
-        <div class="logo">
-            <p>{{$ctrl.title}}</p>
-        </div>
-        <div ng-hide="$ctrl.isMandatory" ng-click="$ctrl.stop()" class="menu">
-            <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <div ng-show="$ctrl.isMandatory" class="menu">
-            &nbsp;
-        </div>
-    </nav>
-    <section class="input-auto">
-        <input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" />
-    </section>
-    <section class="list" >
-        <p ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== undefined">
-            <i class="fa fa-check" aria-hidden="true"></i>{{$ctrl.ngModel.$modelValue}}
-        </p>
-        <p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.choices | filter: $ctrl.myFilter">{{choice}}</p>
-    </section>
+	<my-head>
+		<head-left>
+			<i class="fa fa-location-arrow" aria-hidden="true"></i>
+		</head-left>
+		<head-center>
+			<p>{{$ctrl.title}}</p>
+		</head-center>
+		<head-right ng-hide="$ctrl.isMandatory" ng-click="$ctrl.stop()" class="menu">
+			<i class="fa fa-times" aria-hidden="true"></i>
+		</head-right>
+		<head-right ng-show="$ctrl.isMandatory" class="menu">
+		</head-right>
+	</my-head>
+	<section class="input-auto">
+		<input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" />
+	</section>
+	<section class="list" >
+		<p ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== undefined">
+			<i class="fa fa-check" aria-hidden="true"></i>{{$ctrl.ngModel.$modelValue}}
+		</p>
+		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.choices | filter: $ctrl.myFilter">{{choice}}</p>
+	</section>
 </lg-choice>

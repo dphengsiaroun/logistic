@@ -23,7 +23,7 @@ my-head head-left {
     padding: 17px 10px 0;
 }
 
-my-head head-left i {
+my-head head-left i.fa {
     color: white;
     font-size: 26px;
 }

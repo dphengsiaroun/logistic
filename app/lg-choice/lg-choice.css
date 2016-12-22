@@ -33,7 +33,7 @@ lg-choice {
     background-color: white;
 }
 
-lg-choice nav {
+lg-choice my-head {
 	z-index: 102;
 	position: fixed;
 	display: table;
@@ -41,48 +41,6 @@ lg-choice nav {
     height: 59px;
 	background-color: hsla(214, 46%, 25%, 1);
 }
-
-lg-choice .back {
-    display: table-cell;
-    width: 50px;
-    margin: 0px;
-    vertical-align: top;
-    padding: 17px 10px 0;
-}
-
-lg-choice .back i {
-    color: white;
-    font-size: 26px;
-}
-
-lg-choice .logo {
-    display: table-cell;
-    text-align: center;
-    color: white;
-    font-size: 13px;
-	line-height: 0px;
-}
-
-lg-choice .logo p {
-    color: white;
-    padding: 29px 0 0;
-    font-size: 17px;
-}
-
-lg-choice .menu {
-    display: table-cell;
-    margin: 0px;
-    width: 50px;
-    vertical-align: top;
-    padding: 14px 10px;
-}
-
-lg-choice .menu i {
-    color: white;
-    font-size: 30px;
-}
-
-
 
 lg-choice .input-auto {
 	position: fixed;
