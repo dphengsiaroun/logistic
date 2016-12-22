@@ -14,7 +14,7 @@
         </head-right>
     </my-head>
     <month-list>
-        <month ng-repeat="month in $ctrl.months">
+        <month ng-repeat="month in $ctrl.months track by $index">
             <header>
                 <h2>{{ month.name }}  {{ month.year}}</h2>
             </header>
@@ -31,50 +31,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="prev-month">31</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td class="prev-month">5</td>
-                        <td class="prev-month">6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td class="prev-month">12</td>
-                        <td class="prev-month">13</td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>18</td>
-                        <td class="prev-month">19</td>
-                        <td class="prev-month">20</td>
-                    </tr>
-                    <tr>
-                        <td>22</td>
-                        <td>23</td>
-                        <td>24</td>
-                        <td>25</td>
-                        <td>26</td>
-                        <td class="prev-month">27</td>
-                        <td class="prev-month">28</td>
-                    </tr>
-                    <tr class="none">
-                        <td>27</td>
-                        <td>28</td>
-                        <td>29</td>
-                        <td>30</td>
-                        <td class="next-month">1</td>
-                        <td class="next-month">2</td>
-                        <td class="next-month">3</td>
+                    <tr ng-repeat="week in month.weeks track by $index">
+					{{week}}
+                        <td ng-class="{'prev-month': day.isPrevMonth, 'week-end': day.isWeekEnd, 'next-month': day.isNextMonth}"
+							ng-repeat="day in week.days">{{day.date}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -1,6 +1,12 @@
 (function() {
 	'use strict';
 
+	function addDays(date, days) {
+		var result = new Date(date);
+		result.setDate(result.getDate() + days);
+		return result;
+	}
+
 	var app = angular.module('lg-calendar', ['lg-misc']);
 
 	app.directive('input', ['$injector', function($injector) {
@@ -82,8 +88,27 @@
 					var month = date.getMonth();
 					var monthName = $locale.DATETIME_FORMATS.MONTH[month];
 					var firstDayDate = new Date(year, month, 1);
-					var firstDay = firstDayDate.getDay();
-					this.months.push({name: monthName, year: year, firstDay: firstDay});
+					var day = firstDayDate.getDay();
+					var lastMonday = addDays(firstDayDate, -day + 1);
+					var dayDate = lastMonday;
+					var weeks = [];
+					for (var j = 0; j < 5; j++) {
+						console.log('j', j);
+						var days = [];
+						for (var k = 0; k < 7; k++) {
+							console.log('k', k);
+							var day = {};
+							day.date = dayDate.getDate();
+							day.isPrevMonth = false;
+							day.isNextMonth = false;
+							day.isWeekEnd = k >= 5;
+							days.push(day);
+							dayDate = addDays(dayDate, 1);
+						}
+						weeks.push({days: days});
+					}
+					this.months.push({name: monthName, year: year, weeks: weeks});
+					console.log('this.months', this.months);
 				}
 
 			};
