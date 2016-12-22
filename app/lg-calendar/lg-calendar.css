@@ -13,7 +13,7 @@ lg-calendar-wrapper my-input.filled {
 
 lg-calendar-wrapper .icon {
     position: absolute;
-    top: 13px;
+    top: 10px;
     left: 87%;
     font-size: 25px;
     color: hsla(0, 0%, 66%, 1);
@@ -21,6 +21,7 @@ lg-calendar-wrapper .icon {
 
 lg-calendar-wrapper .icon i.fa {
 	font-size: 25px;
+	line-height: 18px;
     color: hsla(0, 0%, 66%, 1);
 }
 

@@ -57,24 +57,25 @@ input, my-input {
     border: 1px solid hsla(0, 0%, 92%, 1);
 }
 
+/* placeholder */
 ::-webkit-input-placeholder { /* Chrome */
-  color: red;
+  color: hsla(0, 0%, 60%, 1);
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: red;
+  color: hsla(0, 0%, 60%, 1);
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: red;
+  color: hsla(0, 0%, 60%, 1);
   opacity: 1;
 }
 :-moz-placeholder { /* Firefox 4 - 18 */
-  color: red;
+  color: hsla(0, 0%, 60%, 1);
   opacity: 1;
 }
 
-
 my-input {
 	color: hsla(0, 0%, 60%, 1);
+	line-height: 18px;
 }
 
 my-input.filled {
