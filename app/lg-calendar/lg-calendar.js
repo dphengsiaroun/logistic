@@ -86,6 +86,10 @@
 
 			};
 
+			this.action = function() {
+				console.log('action', arguments);
+			};
+
 
 
 			this.$onInit = function() {

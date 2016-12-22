@@ -11,7 +11,7 @@
 
 	app.component('lgMonth', {
 		templateUrl: 'lg-calendar/tmpl/lg-month.html',
-		controller: function LgChoiceWrapperCtrl($locale, $element, $compile) {
+		controller: function LgChoiceWrapperCtrl($scope, $element, $locale, $compile) {
 			var self = this;
 			//console.log('lgMonth ctrl', this, arguments);
 			this.$onInit = function() {
@@ -20,7 +20,7 @@
 				var date = new Date(this.date);
 				this.year = date.getFullYear();
 				this.month = date.getMonth();
-				var monthName = $locale.DATETIME_FORMATS.MONTH[this.month];
+				this.monthName = $locale.DATETIME_FORMATS.MONTH[this.month];
 				var firstDayDate = new Date(this.year, this.month, 1);
 				var day = firstDayDate.getDay();
 				if (day === 0) {
@@ -38,7 +38,9 @@
 						var myClass = (dayDate.getMonth() < this.month) ? 'prev-month' : '';
 						myClass += (dayDate.getMonth() > this.month) ? ' next-month' : '';
 						myClass += (k >= 5) ? ' week-end' : '';
-						html += '<td class="' + myClass + '">' + dayDate.getDate() + '</td>';
+						var dayOfMonth = dayDate.getDate();
+						var actionArgs = this.year + ', ' + this.month + ', ' + dayOfMonth;
+						html += '<td ng-click="$ctrl.action(' + actionArgs + ')" class="' + myClass + '">' + dayOfMonth + '</td>';
 						dayDate = addDays(dayDate, 1);
 					}
 					if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {
@@ -48,6 +50,7 @@
 					html += '</tr>';
 				}
 				elt.html(html);
+				$compile(elt.contents())($scope);
 			};
 
 			var printDays = function($element) {
@@ -62,6 +65,7 @@
 		},
 		bindings: {
 			date: '<',
+			action: '<'
 		}
 	});
 

@@ -14,6 +14,6 @@
         </head-right>
     </my-head>
     <month-list >
-        <lg-month date="month" ng-repeat="month in $ctrl.months track by $index"></lg-month>
+        <lg-month date="month" action="$ctrl.action" ng-repeat="month in $ctrl.months track by $index"></lg-month>
     </month-list>
 </lg-calendar>
