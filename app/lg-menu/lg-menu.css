@@ -9,13 +9,13 @@ lg-menu {
     z-index: 50;
 }
 
-lg-menu > div {
+my-head {
     display: table;
     width: 100%;
     background-color: hsla(214, 46%, 25%, 1);
 }
 
-lg-menu .back {
+my-head head-left {
     display: table-cell;
     width: 50px;
     margin: 0px;
@@ -23,12 +23,12 @@ lg-menu .back {
     padding: 17px 10px 0;
 }
 
-lg-menu .back i {
+my-head head-left i {
     color: white;
     font-size: 26px;
 }
 
-lg-menu .logo {
+my-head head-center {
     display: table-cell;
     text-align: center;
     color: white;
@@ -36,29 +36,29 @@ lg-menu .logo {
 	line-height: 0px;
 }
 
-lg-menu .logo a {
+my-head head-center a {
     color: white;
     font-size: 13px;
 }
 
-lg-menu .logo img {
+my-head head-center img {
     width: 60px;
     padding-top: 10px;
 }
 
-lg-menu .logo svg {
+my-head head-center svg {
     width: 50px;
     height: 50px;
     margin-top: -2px;
 }
 
-lg-menu .sizeLogo {
-    width: 40px;
-    height: 40px;
-    margin-top: 7px;
+my-head head-center p {
+    color: white;
+    padding: 29px 0 0;
+    font-size: 17px;
 }
 
-lg-menu .menu {
+my-head head-right {
     display: table-cell;
     margin: 0px;
     width: 50px;
@@ -66,7 +66,7 @@ lg-menu .menu {
     padding: 14px 10px;
 }
 
-lg-menu .menu i {
+my-head head-right i.fa {
     color: white;
     font-size: 30px;
 }

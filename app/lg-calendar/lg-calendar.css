@@ -46,53 +46,8 @@ lg-calendar {
     background-color: white;
 }
 
-my-head {
+lg-calendar my-head {
 	z-index: 102;
-	position: fixed;
-	display: table;
-	width: 100%;
-    height: 59px;
-	background-color: hsla(214, 46%, 25%, 1);
-}
-
-my-head head-left {
-    display: table-cell;
-    width: 50px;
-    margin: 0px;
-    vertical-align: top;
-    padding: 17px 10px 0;
-}
-
-my-head head-left i {
-    color: white;
-    font-size: 26px;
-}
-
-my-head head-center {
-    display: table-cell;
-    text-align: center;
-    color: white;
-    font-size: 13px;
-	line-height: 0px;
-}
-
-my-head head-center p {
-    color: white;
-    padding: 29px 0 0;
-    font-size: 17px;
-}
-
-my-head head-right {
-    display: table-cell;
-    margin: 0px;
-    width: 50px;
-    vertical-align: top;
-    padding: 14px 10px;
-}
-
-my-head head-right i {
-    color: white;
-    font-size: 30px;
 }
 
 
