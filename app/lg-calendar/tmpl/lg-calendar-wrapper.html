@@ -1,21 +1,21 @@
 <style>{{$ctrl.style}}</style>
-<my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
-<span ng-hide="$ctrl.show" class="icon"><i ng-click="$ctrl.toggle();" class="fa fa-calendar" aria-hidden="true"></i></span>
+<my-input id="lgCalendarInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
+<span class="icon"><i ng-click="$ctrl.toggle();" class="fa fa-calendar" aria-hidden="true"></i></span>
 <lg-calendar id="lgCalendar{{$ctrl.id}}" >
-    <nav>
-        <div class="back">
-            <i class="fa fa-location-arrow" aria-hidden="true"></i>
-        </div>
-        <div class="logo">
+    <my-head>
+        <head-left>
+<!-- nothing to put here at this time -->
+        </head-left>
+        <head-center>
             <p>{{$ctrl.title}}</p>
-        </div>
-        <div class="menu">
+        </head-center>
+        <head-right>
             <i class="fa fa-check" aria-hidden="true"></i>
-        </div>
-    </nav>
+        </head-right>
+    </my-head>
     <section class="cont-calendar">
         <div class="calendar">
-            <header>				
+            <header>
                 <h2>Novembre 2016</h2>
             </header>
             <table>
@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="calendar">
-            <header>				
+            <header>
                 <h2>Decembre 2016</h2>
             </header>
             <table>

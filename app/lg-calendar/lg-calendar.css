@@ -46,7 +46,7 @@ lg-calendar {
     background-color: white;
 }
 
-lg-calendar nav {
+my-head {
 	z-index: 102;
 	position: fixed;
 	display: table;
@@ -55,7 +55,7 @@ lg-calendar nav {
 	background-color: hsla(214, 46%, 25%, 1);
 }
 
-lg-calendar .back {
+my-head head-left {
     display: table-cell;
     width: 50px;
     margin: 0px;
@@ -63,12 +63,12 @@ lg-calendar .back {
     padding: 17px 10px 0;
 }
 
-lg-calendar .back i {
+my-head head-left i {
     color: white;
     font-size: 26px;
 }
 
-lg-calendar .logo {
+my-head head-center {
     display: table-cell;
     text-align: center;
     color: white;
@@ -76,13 +76,13 @@ lg-calendar .logo {
 	line-height: 0px;
 }
 
-lg-calendar .logo p {
+my-head head-center p {
     color: white;
     padding: 29px 0 0;
     font-size: 17px;
 }
 
-lg-calendar .menu {
+my-head head-right {
     display: table-cell;
     margin: 0px;
     width: 50px;
@@ -90,7 +90,7 @@ lg-calendar .menu {
     padding: 14px 10px;
 }
 
-lg-calendar .menu i {
+my-head head-right i {
     color: white;
     font-size: 30px;
 }
@@ -104,7 +104,7 @@ lg-calendar .menu i {
 	text-align: center;
     padding: 70px 0px 10px;
     background: white;
-    border-bottom: 1px solid hsla(0, 0%, 92%, 1); 
+    border-bottom: 1px solid hsla(0, 0%, 92%, 1);
 
 }
 
