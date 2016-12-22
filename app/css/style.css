@@ -44,15 +44,41 @@ form {
     padding: 0px 10px;
 }
 
-input {
+input, my-input {
+	display: block;
     font-size: 18px;
     width: 100%;
+	height: 55px;
     margin: 5px 0px;
     background: white;
     box-shadow: none;
     padding: 17px 10px;
     border-radius: 5px;
     border: 1px solid hsla(0, 0%, 92%, 1);
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: red;
+  opacity: 1;
+}
+
+
+my-input {
+	color: hsla(0, 0%, 60%, 1);
+}
+
+my-input.filled {
+    color: black;
 }
 
 label {

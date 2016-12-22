@@ -7,17 +7,6 @@ lg-calendar {
     display: none;
 }
 
-lg-calendar-wrapper my-input {
-    display: block;
-    border: 1px solid hsla(0, 0%, 92%, 1);
-    border-radius: 5px;
-    margin: 5px 0px;
-    color: hsla(0, 0%, 66%, 1); /* Placeholder */
-    padding: 16px;
-    width: 100%;
-    background-color: white;
-}
-
 lg-calendar-wrapper my-input.filled {
     color: black;
 }
@@ -30,7 +19,8 @@ lg-calendar-wrapper .icon {
     color: hsla(0, 0%, 66%, 1);
 }
 
-lg-calendar-wrapper .icon i {
+lg-calendar-wrapper .icon i.fa {
+	font-size: 25px;
     color: hsla(0, 0%, 66%, 1);
 }
 
