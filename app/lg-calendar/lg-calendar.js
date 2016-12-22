@@ -12,14 +12,15 @@
 				if (attr.type !== 'lgDate') {
 					return;
 				}
+				var title = attr.title || attr.placeholder;
 				var elt = angular.element('<!-- input type="lgDate" ng-model="' + attr.ngModel + '" -->' +
 					'<lg-calendar-wrapper ' +
 					'placeholder="\'' + attr.placeholder + '\'" ' +
-					'title="\'' + attr.title + '\'" ' +
+					'title="\'' + title + '\'" ' +
 					'ng-model="' + attr.ngModel + '" ' +
 					'></lg-calendar-wrapper>');
 				element.after(elt);
-				
+
 				element.attr('style', 'display: none !important');
 				$compile(elt)(scope);
 			}
@@ -39,7 +40,7 @@
 
 			this.style = '';
 			this.id = lgSequence.next();
-			
+
 			this.start = function() {
 				lgScroll.save();
 				this.style = '#lgCalendar' + this.id + ' {display: block;}';
@@ -53,18 +54,18 @@
 
 			this.update = function(choice) {
 				this.stop();
-				
+
 				this.ngModel.$setViewValue(choice);
 				this.ngModel.$render();
 				// because we have no blur event, then we must set the touched ourselves.
 				this.ngModel.$setTouched();
 			};
 
-			
+
 
 			this.$onInit = function() {
 				var ctrl = this.ngModel;
-				
+
 				ctrl.$render = function() {
 					var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
 					var html = choice || self.placeholder;
@@ -79,11 +80,11 @@
 					}
 					elt.html(html);
 					// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
-					
+
 					checkValidity(1);
 				};
 				console.log('this.ngModel', this.ngModel);
-				
+
 
 				var checkValidity = function(value) {
 					var isOutOfChoice = false;
@@ -91,14 +92,14 @@
 				};
 
 				this.myFilter = function(value, index, array) {
-			
+
 					if (self.ngModel.$modelValue !== undefined && self.ngModel.$modelValue === value) {
 						return false;
 					}
 					if (self.myInput === undefined) {
 						return true;
 					}
-					
+
 					if (removeDiacritic(value.toLowerCase()).indexOf(removeDiacritic(self.myInput.toLowerCase())) !== -1) {
 						return true;
 					}
@@ -106,7 +107,7 @@
 				};
 			};
 
-			
+
 		}],
 		bindings: {
 			title: '<',
@@ -115,6 +116,6 @@
 			isMandatory: '<',
 		}
 	});
-	
+
 
 })();
