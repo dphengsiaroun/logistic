@@ -6,15 +6,15 @@
         <head-left>
 <!-- nothing to put here at this time -->
         </head-left>
-        <head-center ng-click="$ctrl.stop()">
+        <head-center>
             <p>{{$ctrl.title}}</p>
         </head-center>
-        <head-right>
+        <head-right ng-click="$ctrl.stop()">
             <i class="fa fa-check" aria-hidden="true"></i>
         </head-right>
     </my-head>
-    <section class="cont-calendar">
-        <div class="calendar">
+    <month-list>
+        <month>
             <header>
                 <h2>Novembre 2016</h2>
             </header>
@@ -105,8 +105,8 @@
                 <span>23:00</span>-->
                 <div class="selector"></div>
             </div>
-        </div>
-        <div class="calendar">
+        </month>
+        <month>
             <header>
                 <h2>Decembre 2016</h2>
             </header>
@@ -198,6 +198,6 @@
                 <span>23:00</span>-->
                 <div class="selector"></div>
             </div>
-        </div>
-    </section>
+        </month>
+    </month-list>
 </lg-calendar>
