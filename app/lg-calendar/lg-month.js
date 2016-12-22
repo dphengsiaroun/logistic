@@ -16,6 +16,7 @@
 			//console.log('lgMonth ctrl', this, arguments);
 			this.$onInit = function() {
 				//console.log('lgMonth ctrl $onInit', this);
+				printDays($element);
 				var date = new Date(this.date);
 				this.year = date.getFullYear();
 				this.month = date.getMonth();
@@ -47,7 +48,15 @@
 					html += '</tr>';
 				}
 				elt.html(html);
+			};
 
+			var printDays = function($element) {
+				var elt = $element.find('tr');
+				var html = '';
+				for (var k = 0; k < 7; k++) {
+					html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k].substr(0, 2) + '</td>';
+				}
+				elt.html(html);
 			};
 
 		},
