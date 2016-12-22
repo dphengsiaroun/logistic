@@ -89,6 +89,9 @@
 					var monthName = $locale.DATETIME_FORMATS.MONTH[month];
 					var firstDayDate = new Date(year, month, 1);
 					var day = firstDayDate.getDay();
+					if (day === 0) {
+						day += 7;
+					}
 					var lastMonday = addDays(firstDayDate, -day + 1);
 					var dayDate = lastMonday;
 					var weeks = [];
@@ -99,13 +102,17 @@
 							console.log('k', k);
 							var day = {};
 							day.date = dayDate.getDate();
-							day.isPrevMonth = false;
-							day.isNextMonth = false;
+							day.isPrevMonth = dayDate.getMonth() < firstDayDate.getMonth();
+							day.isNextMonth = dayDate.getMonth() > firstDayDate.getMonth();
 							day.isWeekEnd = k >= 5;
 							days.push(day);
 							dayDate = addDays(dayDate, 1);
 						}
 						weeks.push({days: days});
+						if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {
+							console.log('j===4 && ', dayDate.getMonth(), firstDayDate.getMonth());
+							j--;
+						}
 					}
 					this.months.push({name: monthName, year: year, weeks: weeks});
 					console.log('this.months', this.months);

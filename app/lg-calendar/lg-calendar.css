@@ -116,14 +116,16 @@ month tbody td {
     font-weight: 400;
 }
 
+month .week-end {
+	color: hsla(189, 7%, 60%, 1);
+}
+
 month .prev-month,
 month .next-month {
 	color: hsla(189, 7%, 81%, 1);
 }
 
-month .week-end {
-	color: hsla(189, 7%, 60%, 1);
-}
+
 
 month .current-day {
 	background: hsla(171, 99%, 38%, 1);
