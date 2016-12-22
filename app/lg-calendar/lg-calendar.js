@@ -1,12 +1,6 @@
 (function() {
 	'use strict';
 
-	function addDays(date, days) {
-		var result = new Date(date);
-		result.setDate(result.getDate() + days);
-		return result;
-	}
-
 	var app = angular.module('lg-calendar', ['lg-misc']);
 
 	app.directive('input', ['$injector', function($injector) {
@@ -57,6 +51,7 @@
 
 			this.start = function() {
 				lgScroll.save();
+				this.compute();
 				this.style = '#lgCalendar' + this.id + ' {display: block;}';
 				//console.log('choice ctrl', this);
 			};
@@ -76,6 +71,7 @@
 			};
 
 			this.compute = function() {
+				console.log('compute');
 				this.myOptions.start = new Date();
 				if (this.myOptions.position === 'now') {
 					this.myOptions.start = new Date();
@@ -84,37 +80,7 @@
 				for (var i = 0; i < this.myOptions.monthNbr; i++) {
 					var date = new Date(this.myOptions.start);
 					date.setMonth(date.getMonth() + i);
-					var year = date.getFullYear();
-					var month = date.getMonth();
-					var monthName = $locale.DATETIME_FORMATS.MONTH[month];
-					var firstDayDate = new Date(year, month, 1);
-					var day = firstDayDate.getDay();
-					if (day === 0) {
-						day += 7;
-					}
-					var lastMonday = addDays(firstDayDate, -day + 1);
-					var dayDate = lastMonday;
-					var weeks = [];
-					for (var j = 0; j < 5; j++) {
-						//console.log('j', j);
-						var days = [];
-						for (var k = 0; k < 7; k++) {
-							//console.log('k', k);
-							var day = {};
-							day.date = dayDate.getDate();
-							day.isPrevMonth = dayDate.getMonth() < firstDayDate.getMonth();
-							day.isNextMonth = dayDate.getMonth() > firstDayDate.getMonth();
-							day.isWeekEnd = k >= 5;
-							days.push(day);
-							dayDate = addDays(dayDate, 1);
-						}
-						weeks.push({days: days});
-						if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {
-							//console.log('j===4 && ', dayDate.getMonth(), firstDayDate.getMonth());
-							j--;
-						}
-					}
-					this.months.push({name: monthName, year: year, weeks: weeks});
+					this.months.push(date);
 					//console.log('this.months', this.months);
 				}
 
@@ -129,7 +95,7 @@
 				console.log('options', this.options);
 				angular.extend(this.myOptions, this.options);
 
-				this.compute();
+
 
 
 				ngModelctrl.$render = function() {

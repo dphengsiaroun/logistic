@@ -13,57 +13,7 @@
             <i class="fa fa-check" aria-hidden="true"></i>
         </head-right>
     </my-head>
-    <month-list>
-        <month ng-repeat="month in $ctrl.months track by $index">
-            <header>
-                <h2>{{::month.name }}  {{::month.year}}</h2>
-            </header>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Lu</td>
-                        <td>Ma</td>
-                        <td>Me</td>
-                        <td>Je</td>
-                        <td>Ve</td>
-                        <td>Sa</td>
-                        <td>Di</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="week in month.weeks track by $index">
-                        <td ng-class="{'prev-month': day.isPrevMonth, 'week-end': day.isWeekEnd, 'next-month': day.isNextMonth}"
-							ng-repeat="day in week.days">{{::day.date}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="hour">
-                <span>00:00</span>
-                <span>01:00</span>
-                <span>02:00</span>
-                <span class="select">03:00</span>
-                <span>04:00</span>
-                <span>05:00</span>
-                <span>06:00</span>
-                <!--<span>07:00</span>
-                <span>08:00</span>
-                <span>09:00</span>
-                <span>10:00</span>
-                <span>11:00</span>
-                <span>12:00</span>
-                <span>13:00</span>
-                <span>14:00</span>
-                <span>15:00</span>
-                <span>16:00</span>
-                <span>17:00</span>
-                <span>18:00</span>
-                <span>19:00</span>
-                <span>20:00</span>
-                <span>21:00</span>
-                <span>22:00</span>
-                <span>23:00</span>-->
-                <div class="selector"></div>
-            </div>
-        </month>
+    <month-list >
+        <lg-month date="month" ng-repeat="month in $ctrl.months track by $index"></lg-month>
     </month-list>
 </lg-calendar>
