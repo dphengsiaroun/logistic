@@ -29,7 +29,9 @@
 				if (this.selectedHours === undefined) {
 					return;
 				}
-				var myClass = 'h' + this.selectedHours;
+				var hour = this.selectedHours % 12;
+				var ampm = (this.selectedHours > 12) ? 'pm' : 'am';
+				var myClass = 'h' + hour + ' ' + ampm;
 				angular.element($element[0].getElementsByClassName(myClass)).addClass('selected');
 			};
 
