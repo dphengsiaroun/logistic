@@ -187,6 +187,9 @@ pendule {
 	margin: 20px;
 	border-radius: 50%;
 	border: 5px solid hsla(171, 99%, 38%, 1);
+	text-align: center;
+	line-height: 60px;
+
 }
 
 pendule hour {
@@ -207,6 +210,18 @@ pendule hour.selected {
 	background-color: hsla(171, 99%, 38%, 1);
 	color: hsla(0, 0%, 95%, 1);
 	line-height: 28px;
+}
+
+ampm {
+	display: inline-block;
+	font-size: 80px;
+	color: hsla(0, 0%, 85%, 1);
+}
+
+pendule span {
+	display: inline-block;
+	font-size: 16px;
+	color: hsla(0, 0%, 85%, 1);
 }
 
 .h12 {
