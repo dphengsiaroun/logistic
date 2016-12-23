@@ -9,8 +9,8 @@
 
 	var app = angular.module('lg-route', ['ui.router']);
 
-	app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-
+	app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+		$locationProvider.hashPrefix('');
 		$stateProvider.state({
 			name: 'home',
 			url: '/',
