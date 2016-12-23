@@ -18,7 +18,7 @@
 				//console.log('lgMonth ctrl $onInit', this);
 				this.printDays($element);
 
-				this.refresh();
+				this.build();
 			};
 
 			this.$onChanges = function(map) {
@@ -31,7 +31,7 @@
 				this.action.apply(null, arguments);
 			};
 
-			this.refresh = function() {
+			this.build = function() {
 				console.log('lg-month refresh', arguments);
 				var date = new Date(this.monthDate);
 				this.year = date.getFullYear();
@@ -68,7 +68,8 @@
 						myClass += (k >= 5) ? ' week-end' : '';
 						myClass += (this.isSelected(dayDate)) ? ' selected' : '';
 						var dayOfMonth = dayDate.getDate();
-						var actionArgs = this.year + ', ' + this.month + ', ' + dayOfMonth;
+						var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
+						myClass += ' ' + dayDate.getFullYear() + '-' + dayDate.getMonth() + '-' + dayOfMonth;
 						html += '<td ng-click="$ctrl.update(' + actionArgs + ')" class="' + myClass + '">' + dayOfMonth + '</td>';
 						dayDate = addDays(dayDate, 1);
 					}
@@ -80,6 +81,17 @@
 				}
 				elt.html(html);
 				$compile(elt.contents())($scope);
+			};
+
+			this.refresh = function() {
+				// this part needs a real jquery
+				var elt = $element.find('tbody');
+				angular.element(elt[0].getElementsByClassName('selected')).removeClass('selected');
+				if (this.selectedDate === undefined) {
+					return;
+				}
+				var myClass = this.selectedDate.getFullYear() + '-' + this.selectedDate.getMonth() + '-' + this.selectedDate.getDate();
+				angular.element(elt[0].getElementsByClassName(myClass)).addClass('selected');
 			};
 
 
