@@ -74,15 +74,6 @@
 				}
 			};
 
-			this.update = function(choice) {
-				this.stop();
-
-				this.ngModel.$setViewValue(choice);
-				this.ngModel.$render();
-				// because we have no blur event, then we must set the touched ourselves.
-				this.ngModel.$setTouched();
-			};
-
 			this.compute = function() {
 				console.log('compute');
 				this.myOptions.start = new Date();
@@ -102,12 +93,23 @@
 			this.setDate = function(year, month, day) {
 				console.log('setDate', arguments);
 				console.log('year', year);
-				var date = new Date(year, month, day);
+				var date = new Date(year, month, day, 8);
 				console.log('date', date);
 				ngModelCtrl.$setViewValue(date);
 				console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
 				self.selectedDate = date;
+				self.selectedHours = date.getHours();
 				ngModelCtrl.$render();
+				ngModelCtrl.$setTouched();
+			};
+
+			this.setHours = function(hour) {
+				console.log('setHours', arguments);
+				var date = ngModelCtrl.$viewValue;
+				date.setHours(hour);
+				console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
+				ngModelCtrl.$render();
+				ngModelCtrl.$setTouched();
 			};
 
 

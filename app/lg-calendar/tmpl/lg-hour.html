@@ -1,0 +1,12 @@
+<pendule>
+	<hour ng-repeat="hour in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+		class="h{{hour}}"
+		ng-click="$ctrl.update(hour)" >{{hour}}</hour>
+</pendule>
+<pendule>
+	<hour ng-repeat="hour in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+		class="h{{hour}}"
+		ng-click="$ctrl.update(hour+12)" >{{hour}}</hour>
+</pendule>
+<div class="hour">
+</div>

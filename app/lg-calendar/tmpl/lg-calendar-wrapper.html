@@ -17,16 +17,6 @@
 	<month-list ng-show="$ctrl.state === 'dateState'">
 		<lg-month month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ng-repeat="month in $ctrl.months track by $index"></lg-month>
 	</month-list>
-	<lg-hour ng-show="$ctrl.state === 'hourState'">
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
-	Toto<br/>
+	<lg-hour ng-show="$ctrl.state === 'hourState'" action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
 	</lg-hour>
 </lg-calendar>
