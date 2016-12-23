@@ -4,7 +4,7 @@ lg-calendar-wrapper {
 }
 
 lg-calendar {
-    display: none;
+    display: block;
 }
 
 lg-calendar-wrapper my-input.filled {
@@ -167,4 +167,13 @@ lg-month .select {
 
 lg-month .none {
 	border-bottom: none !important;
+}
+
+/* Hour picker */
+lg-hour {
+	position: relative;
+	top: 50px;
+	z-index: 101;
+	display: block;
+	width: 100%;
 }

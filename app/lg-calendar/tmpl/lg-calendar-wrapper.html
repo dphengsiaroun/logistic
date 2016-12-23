@@ -1,19 +1,32 @@
-<style>{{$ctrl.style}}</style>
 <my-input id="lgCalendarInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
 <span class="icon"><i ng-click="$ctrl.toggle();" class="fa fa-calendar" aria-hidden="true"></i></span>
-<lg-calendar id="lgCalendar{{$ctrl.id}}" >
+
+
+<lg-calendar ng-show="$ctrl.state !== 'outsideState'" id="lgCalendar{{$ctrl.id}}" >
     <my-head>
-        <head-left>
-<!-- nothing to put here at this time -->
+        <head-left ng-click="$ctrl.cancel()">
+			<i class="fa fa-times" aria-hidden="true"></i>
         </head-left>
         <head-center>
             <p>{{$ctrl.title}}</p>
         </head-center>
-        <head-right ng-click="$ctrl.stop()">
+        <head-right ng-click="$ctrl.next()">
             <i class="fa fa-check" aria-hidden="true"></i>
         </head-right>
     </my-head>
-    <month-list >
-        <lg-month date="month" action="$ctrl.action" ng-repeat="month in $ctrl.months track by $index"></lg-month>
-    </month-list>
+	<month-list ng-show="$ctrl.state === 'dateState'">
+		<lg-month date="month" action="$ctrl.setDate" ng-repeat="month in $ctrl.months track by $index"></lg-month>
+	</month-list>
+	<lg-hour ng-show="$ctrl.state === 'hourState'">
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	Toto<br/>
+	</lg-hour>
 </lg-calendar>

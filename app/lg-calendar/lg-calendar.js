@@ -34,11 +34,14 @@
 			ngModel: 'ngModel',
 		},
 		templateUrl: 'lg-calendar/tmpl/lg-calendar-wrapper.html',
-		controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
-			var lgSequence = $injector.get('lgSequence');
+		controller: ['$scope', '$element', '$injector', function lgCalendarWrapperCtrl($scope, $element, $injector) {
 			var lgScroll = $injector.get('lgScroll');
 			var $locale = $injector.get('$locale');
+			var $filter = $injector.get('$filter');
 			var self = this;
+			var ngModelCtrl;
+
+			this.state = 'outsideState';
 
 			this.myOptions = {
 				position: 'now',
@@ -46,19 +49,29 @@
 				constraint: {}
 			};
 
-			this.style = '';
-			this.id = lgSequence.next();
-
 			this.start = function() {
+				this.state = 'dateState';
 				lgScroll.save();
 				this.compute();
-				this.style = '#lgCalendar' + this.id + ' {display: block;}';
-				//console.log('choice ctrl', this);
 			};
 
 			this.stop = function() {
+				this.state = 'outsideState';
 				lgScroll.restore();
-				this.style = '#lgCalendar' + this.id + ' {display: none;}';
+			};
+
+			this.cancel = function() {
+				self.stop();
+			};
+
+			this.next = function() {
+
+				if (this.state === 'dateState') {
+					if (this.ngModel.$viewValue === undefined) {
+						return;
+					}
+					this.state = 'hourState';
+				}
 			};
 
 			this.update = function(choice) {
@@ -86,30 +99,33 @@
 
 			};
 
-			this.action = function() {
-				console.log('action', arguments);
+			this.setDate = function(year, month, day) {
+				console.log('setDate', arguments);
+				ngModelCtrl.$setViewValue(new Date(year, month, day));
+				console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$setViewValue);
+				ngModelCtrl.$render();
 			};
 
 
 
 			this.$onInit = function() {
 				console.log('lgCalendarWrapper ctrl $onInit', this);
-				var ngModelctrl = this.ngModel;
+				console.log('this.ngModel', this.ngModel);
+				ngModelCtrl = this.ngModel;
 
 				console.log('options', this.options);
 				angular.extend(this.myOptions, this.options);
 
+				ngModelCtrl.$render = function() {
+					console.log('ngModelCtrl.$render', arguments);
 
-
-
-				ngModelctrl.$render = function() {
-					console.log('ngModelctrl.$render', arguments);
-
-
-					var choice = (ngModelctrl.$viewValue === '') ? undefined : ngModelctrl.$viewValue;
-					var html = choice || self.placeholder;
+					var datetime = undefined;
+					if (ngModelCtrl.$viewValue !== undefined) {
+						datetime = $filter('date')(ngModelCtrl.$viewValue, 'yyyy/MM/dd HH:mm:ss');
+					}
+					var html = datetime || self.placeholder;
 					var elt = $element.find('my-input');
-					if (choice !== undefined) {
+					if (datetime !== undefined) {
 						console.log('filled');
 						elt.addClass('filled');
 					} else {
@@ -118,34 +134,14 @@
 
 					}
 					elt.html(html);
-					// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
-
 					checkValidity(1);
 				};
-				console.log('this.ngModel', this.ngModel);
-
 
 				var checkValidity = function(value) {
 					var isOutOfChoice = false;
-					ngModelctrl.$setValidity('outOfChoice', isOutOfChoice);
-				};
-
-				this.myFilter = function(value, index, array) {
-
-					if (self.ngModel.$modelValue !== undefined && self.ngModel.$modelValue === value) {
-						return false;
-					}
-					if (self.myInput === undefined) {
-						return true;
-					}
-
-					if (removeDiacritic(value.toLowerCase()).indexOf(removeDiacritic(self.myInput.toLowerCase())) !== -1) {
-						return true;
-					}
-					return false;
+					ngModelCtrl.$setValidity('outOfChoice', isOutOfChoice);
 				};
 			};
-
 
 		}],
 		bindings: {

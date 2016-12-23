@@ -11,7 +11,7 @@
 
 	app.component('lgMonth', {
 		templateUrl: 'lg-calendar/tmpl/lg-month.html',
-		controller: function LgChoiceWrapperCtrl($scope, $element, $locale, $compile) {
+		controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
 			var self = this;
 			//console.log('lgMonth ctrl', this, arguments);
 			this.$onInit = function() {
