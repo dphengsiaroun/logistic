@@ -1,5 +1,5 @@
 <my-input id="lgCalendarInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
-<span class="icon"><i ng-click="$ctrl.toggle();" class="fa fa-calendar" aria-hidden="true"></i></span>
+<span ng-click="$ctrl.start()" class="icon"><i ng-click="$ctrl.toggle();" class="fa fa-calendar" aria-hidden="true"></i></span>
 
 
 <lg-calendar ng-show="$ctrl.state !== 'outsideState'" id="lgCalendar{{$ctrl.id}}" >
@@ -15,7 +15,7 @@
         </head-right>
     </my-head>
 	<month-list ng-show="$ctrl.state === 'dateState'">
-		<lg-month date="month" action="$ctrl.setDate" ng-repeat="month in $ctrl.months track by $index"></lg-month>
+		<lg-month month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ng-repeat="month in $ctrl.months track by $index"></lg-month>
 	</month-list>
 	<lg-hour ng-show="$ctrl.state === 'hourState'">
 	Toto<br/>

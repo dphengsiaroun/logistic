@@ -97,7 +97,7 @@ lg-month tbody tr{
     font-size: 16px;
 }
 
-lg-month tbody td:hover {
+lg-month tbody td.selected {
 	background-color: hsla(171, 99%, 38%, 1);
 	color: white;
 }

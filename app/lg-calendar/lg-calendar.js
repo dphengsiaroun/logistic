@@ -101,8 +101,12 @@
 
 			this.setDate = function(year, month, day) {
 				console.log('setDate', arguments);
-				ngModelCtrl.$setViewValue(new Date(year, month, day));
-				console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$setViewValue);
+				console.log('year', year);
+				var date = new Date(year, month, day);
+				console.log('date', date);
+				ngModelCtrl.$setViewValue(date);
+				console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
+				self.selectedDate = date;
 				ngModelCtrl.$render();
 			};
 
