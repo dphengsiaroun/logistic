@@ -17,15 +17,15 @@
 			}
 			$this->id = $_SESSION['id'];
 			$this->retrieve();
-			debug('account', $this);	
+			debug('account', $this);
 		}
 
 		protected function create($request) {
 			global $db;
 
 			$sql = <<<EOF
-INSERT INTO account (email, password, content) VALUES 
-	(:email, :password, :content); 
+INSERT INTO account (email, password, content) VALUES
+	(:email, :password, :content);
 EOF;
 
 			$st = $db->prepare($sql,
@@ -109,9 +109,10 @@ EOF;
 		public static function getPictureDir() {
 			$suffix = '';
 			if (isset($_POST['suffix'])) {
+				debug('extract suffix from POST');
 				$suffix = $_POST['suffix'];
-			}
-			if (isset($_GET['suffix'])) {
+			} else if (isset($_GET['suffix'])) {
+				debug('extract suffix from GET');
 				$suffix = $_GET['suffix'];
 			}
 			return 'acct_'.$_SESSION['id'].$suffix;
@@ -155,7 +156,7 @@ EOF;
 			}
 			unset($_SESSION['id']);
 			debug("delete account ok");
-		
+
 		}
 
 		public static function exists($email) {
@@ -164,7 +165,7 @@ EOF;
 			$sql = <<<EOF
 SELECT * FROM account WHERE email=:email;
 EOF;
-			
+
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
@@ -180,11 +181,11 @@ EOF;
 			global $db;
 
 			$sql = <<<EOF
-SELECT id FROM account WHERE 
-	email = :email AND 
+SELECT id FROM account WHERE
+	email = :email AND
 	password = :password;
 EOF;
-			
+
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
@@ -194,7 +195,7 @@ EOF;
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
 
-			
+
 			if ($st->rowCount() == 0) {
 				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
 			}

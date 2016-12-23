@@ -6,18 +6,19 @@
   "license": "",
   "private": true,
   "dependencies": {
-    "angular": "1.5.8",
+    "angular": "1.6.0",
     "jquery": "2.x",
     "bootstrap": "3.3.7",
     "font-awesome": "4.7.0",
     "bootstrap-datepicker": "1.6.4",
     "moment": "2.15.1",
     "flexslider": "2.6.3",
-    "angular-route": "1.5.8",
+    "angular-route": "1.6.0",
     "jshashes": "1.0.5",
-    "angular-sanitize": "1.5.8",
+    "angular-sanitize": "1.6.0",
     "blueimp-file-upload": "9.14.1",
     "angular-ui-router": "1.0.0-beta.3",
-    "angular-i18n": "1.6.0"
+    "angular-i18n": "1.6.0",
+    "angular-touch": "1.6.0"
   }
 }
