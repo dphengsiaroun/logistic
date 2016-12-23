@@ -107,6 +107,7 @@
 				console.log('setHours', arguments);
 				var date = ngModelCtrl.$viewValue;
 				date.setHours(hour);
+				self.selectedHours = date.getHours();
 				console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
 				ngModelCtrl.$render();
 				ngModelCtrl.$setTouched();
