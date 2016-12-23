@@ -30,7 +30,10 @@
 					return;
 				}
 				var hour = this.selectedHours % 12;
-				var ampm = (this.selectedHours >= 12) ? 'pm' : 'am';
+				if (hour === 0) {
+					hour = 12;
+				}
+				var ampm = (this.selectedHours > 12 || this.selectedHours === 0) ? 'pm' : 'am';
 				var myClass = 'h' + hour + ' ' + ampm;
 				angular.element($element[0].getElementsByClassName(myClass)).addClass('selected');
 			};

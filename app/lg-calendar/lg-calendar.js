@@ -46,7 +46,8 @@
 			this.myOptions = {
 				position: 'now',
 				monthNbr: 6,
-				constraint: {}
+				constraint: {},
+				lgHour: 1
 			};
 
 			this.start = function() {
@@ -71,6 +72,11 @@
 						return;
 					}
 					this.state = 'hourState';
+				} else if (this.state === 'hourState') {
+					if (this.ngModel.$viewValue === undefined) {
+						return;
+					}
+					this.state = 'outsideState';
 				}
 			};
 

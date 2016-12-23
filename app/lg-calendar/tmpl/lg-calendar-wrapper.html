@@ -17,6 +17,8 @@
 	<month-list ng-show="$ctrl.state === 'dateState'">
 		<lg-month month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ng-repeat="month in $ctrl.months track by $index"></lg-month>
 	</month-list>
-	<lg-hour ng-show="$ctrl.state === 'hourState'" action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
+	<lg-hour ng-show="$ctrl.state === 'hourState' && $ctrl.myOptions.lgHour === 1" action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
 	</lg-hour>
+	<lg-hour2 ng-show="$ctrl.state === 'hourState' && $ctrl.myOptions.lgHour === 2" action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
+	</lg-hour2>
 </lg-calendar>
