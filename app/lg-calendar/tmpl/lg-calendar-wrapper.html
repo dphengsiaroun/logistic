@@ -3,19 +3,21 @@
 
 
 <lg-calendar ng-show="$ctrl.state !== 'outsideState'" id="lgCalendar{{$ctrl.id}}" >
-    <my-head>
-        <head-left ng-click="$ctrl.cancel()">
+	<my-head>
+		<head-left ng-click="$ctrl.cancel()">
 			<i class="fa fa-times" aria-hidden="true"></i>
-        </head-left>
-        <head-center>
-            <p>{{$ctrl.title}}</p>
-        </head-center>
-        <head-right ng-click="$ctrl.next()">
-            <i class="fa fa-check" aria-hidden="true"></i>
-        </head-right>
-    </my-head>
-	<month-list ng-show="$ctrl.state === 'dateState'">
-		<lg-month month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ng-repeat="month in $ctrl.months track by $index"></lg-month>
+		</head-left>
+		<head-center>
+			<p>{{$ctrl.title}}</p>
+		</head-center>
+		<head-right ng-show="$ctrl.selectedDate" ng-click="$ctrl.next()">
+			<i class="fa fa-check" aria-hidden="true"></i>
+		</head-right>
+		<head-right ng-hide="$ctrl.selectedDate" >
+		</head-right>
+	</my-head>
+	<month-list ng-show="$ctrl.state === 'dateState'" ng-repeat="month in $ctrl.months track by $index">
+		<lg-month month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ></lg-month>
 	</month-list>
 	<lg-hour ng-show="$ctrl.state === 'hourState' && $ctrl.myOptions.lgHour === 1" action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
 	</lg-hour>

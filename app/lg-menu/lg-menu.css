@@ -13,6 +13,7 @@ my-head {
     display: table;
     width: 100%;
     background-color: hsla(214, 46%, 25%, 1);
+	height: 59px;
 }
 
 my-head head-left {
