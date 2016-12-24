@@ -19,7 +19,7 @@
 		<head-right ng-hide="$ctrl.selectedDate" >
 		</head-right>
 	</my-head>
-	<retroaction-msg ng-show="$ctrl.selectedDate" >{{$ctrl.selectedDate | date : 'EEEE dd LLLL' }}</retroaction-msg>
+	<retroaction-msg ng-show="$ctrl.selectedDate" >{{$ctrl.selectedDate | date : $ctrl.format }}</retroaction-msg>
 	<month-list ng-show="$ctrl.state === 'dateState'" >
 		<lg-month ng-repeat="month in $ctrl.months track by $index" month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ></lg-month>
 	</month-list>

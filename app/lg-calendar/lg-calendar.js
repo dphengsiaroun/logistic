@@ -40,7 +40,7 @@
 			var $filter = $injector.get('$filter');
 			var self = this;
 			var ngModelCtrl;
-			this.format = 'EEEE dd LLLL - HH:mm';
+			this.format = 'EEEE dd LLLL';
 
 			this.state = 'outsideState';
 
@@ -82,11 +82,13 @@
 					if (self.ngModel.$viewValue === undefined) {
 						return;
 					}
+					self.format = 'EEEE dd LLLL - HH:mm';
 					self.state = 'hourState';
 				} else if (self.state === 'hourState') {
 					if (self.ngModel.$viewValue === undefined) {
 						return;
 					}
+					self.format = 'EEEE dd LLLL';
 					self.state = 'outsideState';
 				}
 			};
