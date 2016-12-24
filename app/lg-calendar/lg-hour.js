@@ -4,6 +4,9 @@
 	var app = angular.module('lg-calendar');
 
 	app.component('lgHour', {
+		require: {
+			lgCalendarWrapper: '^^lgCalendarWrapper'
+		},
 		templateUrl: 'lg-calendar/tmpl/lg-hour.html',
 		controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
 			var self = this;
@@ -25,7 +28,9 @@
 			};
 
 			this.refresh = function() {
-				angular.element($element[0].getElementsByClassName('selected')).removeClass('selected');
+				var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
+				selectedElt.removeClass('selected');
+				selectedElt.off('click');
 				if (this.selectedHours === undefined) {
 					return;
 				}
@@ -35,7 +40,12 @@
 				}
 				var ampm = (this.selectedHours > 12 || this.selectedHours === 0) ? 'pm' : 'am';
 				var myClass = 'h' + hour + ' ' + ampm;
-				angular.element($element[0].getElementsByClassName(myClass)).addClass('selected');
+				var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
+				newSelectedElt.addClass('selected');
+				newSelectedElt.on('click', function() {
+					self.lgCalendarWrapper.next();
+					$scope.$apply();
+				});
 			};
 
 		},
