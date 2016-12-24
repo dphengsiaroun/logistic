@@ -48,7 +48,8 @@
 				position: 'now',
 				monthNbr: 6,
 				constraint: {},
-				lgHour: 1
+				lgHour: 1,
+				defaultHour: 6
 			};
 
 			this.start = function() {
@@ -117,7 +118,7 @@
 			this.setDate = function(year, month, day) {
 				console.log('setDate', arguments);
 				console.log('year', year);
-				var date = new Date(year, month, day, 8);
+				var date = new Date(year, month, day, self.myOptions.defaultHour);
 				console.log('date', date);
 				self.update(date);
 				self.selectedHours = date.getHours();
