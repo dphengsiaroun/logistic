@@ -66,17 +66,18 @@
 			};
 
 			this.next = function() {
-
-				if (this.state === 'dateState') {
-					if (this.ngModel.$viewValue === undefined) {
+				console.log('next', arguments);
+				console.log('next', self);
+				if (self.state === 'dateState') {
+					if (self.ngModel.$viewValue === undefined) {
 						return;
 					}
-					this.state = 'hourState';
-				} else if (this.state === 'hourState') {
-					if (this.ngModel.$viewValue === undefined) {
+					self.state = 'hourState';
+				} else if (self.state === 'hourState') {
+					if (self.ngModel.$viewValue === undefined) {
 						return;
 					}
-					this.state = 'outsideState';
+					self.state = 'outsideState';
 				}
 			};
 

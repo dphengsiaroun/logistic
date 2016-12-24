@@ -10,6 +10,9 @@
 	var app = angular.module('lg-calendar');
 
 	app.component('lgMonth', {
+		require: {
+			lgCalendarWrapper: '^^lgCalendarWrapper'
+		},
 		templateUrl: 'lg-calendar/tmpl/lg-month.html',
 		controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
 			var self = this;
@@ -86,12 +89,20 @@
 			this.refresh = function() {
 				// this part needs a real jquery
 				var elt = $element.find('tbody');
-				angular.element(elt[0].getElementsByClassName('selected')).removeClass('selected');
+				var selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
+				selectedElt.off('click');
+				selectedElt.removeClass('selected');
+
 				if (this.selectedDate === undefined) {
 					return;
 				}
 				var myClass = this.selectedDate.getFullYear() + '-' + this.selectedDate.getMonth() + '-' + this.selectedDate.getDate();
-				angular.element(elt[0].getElementsByClassName(myClass)).addClass('selected');
+				var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
+				newSelectedElt.addClass('selected');
+				newSelectedElt.on('click', function() {
+					self.lgCalendarWrapper.next();
+					$scope.$apply();
+				});
 			};
 
 
