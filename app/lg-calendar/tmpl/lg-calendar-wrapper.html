@@ -19,8 +19,9 @@
 		<head-right ng-hide="$ctrl.selectedDate" >
 		</head-right>
 	</my-head>
-	<month-list ng-show="$ctrl.state === 'dateState'" ng-repeat="month in $ctrl.months track by $index">
-		<lg-month month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ></lg-month>
+	<retroaction-msg ng-show="$ctrl.selectedDate" >{{$ctrl.selectedDate | date : 'EEEE dd LLLL' }}</retroaction-msg>
+	<month-list ng-show="$ctrl.state === 'dateState'" >
+		<lg-month ng-repeat="month in $ctrl.months track by $index" month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate" ></lg-month>
 	</month-list>
 	<lg-hour ng-show="$ctrl.state === 'hourState' && $ctrl.myOptions.lgHour === 1" action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
 	</lg-hour>

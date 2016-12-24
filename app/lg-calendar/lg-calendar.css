@@ -40,15 +40,26 @@ lg-calendar {
 lg-calendar my-head {
 	z-index: 102;
 	position: fixed;
-	top: 0;
-    bottom: 0;
-    left: 0;
+	top: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+lg-calendar retroaction-msg {
+	z-index: 102;
+	position: fixed;
+	top: 59px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	background-color: hsla(0, 0%, 92%, 1);
+	padding: 5px;
 }
 
 
 month-list {
 	position: relative;
-	top: 50px;
+	top: 85px;
 	z-index: 101;
 	display: block;
 	width: 100%;

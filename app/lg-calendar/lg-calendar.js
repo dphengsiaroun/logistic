@@ -40,6 +40,7 @@
 			var $filter = $injector.get('$filter');
 			var self = this;
 			var ngModelCtrl;
+			this.format = 'EEEE dd LLLL - HH:mm';
 
 			this.state = 'outsideState';
 
@@ -147,7 +148,7 @@
 
 					var datetime = undefined;
 					if (ngModelCtrl.$viewValue !== undefined) {
-						datetime = $filter('date')(ngModelCtrl.$viewValue, 'EEEE dd LLLL - HH:mm');
+						datetime = $filter('date')(ngModelCtrl.$viewValue, self.format);
 					}
 					var html = datetime || self.placeholder;
 					var elt = $element.find('my-input');

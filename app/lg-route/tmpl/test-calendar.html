@@ -1,7 +1,7 @@
 <lg-title>Test calendar</lg-title>
 <form>
 	<input type="text" placeholder="name" ng-model="name" />
-	<input type="lgDate" title="Choose your date" placeholder="Aller" ng-model="departDate" options="{position: 'next-days', constraint: 'only-future'}" />
+	<input type="lgDate" title="Choisir une date d\'aller" placeholder="Aller" ng-model="departDate" options="{position: 'next-days', constraint: 'only-future'}" />
 	<input type="lgDate" placeholder="Retour" ng-model="arrivalDate" options="{lgHour: 2, position: 'next-days', constraint: { after: 'departDate'}}"/>
 	<br/>
 	<br/>
