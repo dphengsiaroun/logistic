@@ -5,6 +5,9 @@
 	var id = 0;
 
 	app.component('lgHour2', {
+		require: {
+			lgCalendarWrapper: '^^lgCalendarWrapper'
+		},
 		templateUrl: 'lg-calendar/tmpl/lg-hour2.html',
 		controller: function LgMonth2Ctrl($scope, $element, $locale, $compile) {
 			var self = this;
@@ -24,7 +27,7 @@
 			this.radius = 147;
 
 			this.$onInit = function() {
-				console.log('lgHour ctrl $onInit', this);
+				console.log('lgHour2 ctrl $onInit', this);
 				this.refreshStyle();
 			};
 
@@ -38,11 +41,6 @@
 				}
 			};
 
-			$scope.$watch('$ctrl', function() {
-				console.log('watch radius', arguments);
-				self.refreshStyle();
-			}, true);
-
 			this.$onChanges = function(map) {
 				if (map.selectedHours !== undefined) {
 					this.refresh();
@@ -50,18 +48,26 @@
 			};
 
 			this.update = function(hour) {
+				console.log('lgHour2 ctrl update', this);
 				this.selectedHours = hour;
 				this.action.apply(null, arguments);
 				this.refresh();
 			};
 
 			this.refresh = function() {
-				angular.element($element[0].getElementsByClassName('selected')).removeClass('selected');
+				var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
+				selectedElt.removeClass('selected');
+				selectedElt.off('click');
 				if (this.selectedHours === undefined) {
 					return;
 				}
 				var myClass = 'h-' + this.selectedHours;
-				angular.element($element[0].getElementsByClassName(myClass)).addClass('selected');
+				var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
+				newSelectedElt.addClass('selected');
+				newSelectedElt.on('click', function() {
+					self.lgCalendarWrapper.next();
+					$scope.$apply();
+				});
 			};
 
 		},
