@@ -4,8 +4,11 @@
 
 <lg-calendar ng-show="$ctrl.state !== 'outsideState'">
 	<my-head>
-		<head-left ng-click="$ctrl.cancel()">
+		<head-left ng-click="$ctrl.cancel()" ng-show="$ctrl.state === 'dateState'">
 			<i class="fa fa-times" aria-hidden="true"></i>
+		</head-left>
+		<head-left ng-click="$ctrl.back()" ng-show="$ctrl.state === 'hourState'">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
 		</head-left>
 		<head-center>
 			<p>{{$ctrl.title}}</p>

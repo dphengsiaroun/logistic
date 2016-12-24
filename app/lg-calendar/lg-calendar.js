@@ -61,7 +61,15 @@
 				lgScroll.restore();
 			};
 
+			this.update = function(date) {
+				self.selectedDate = date;
+				ngModelCtrl.$setViewValue(date);
+				ngModelCtrl.$render();
+				ngModelCtrl.$setTouched();
+			};
+
 			this.cancel = function() {
+				self.update(undefined);
 				self.stop();
 			};
 
@@ -78,6 +86,14 @@
 						return;
 					}
 					self.state = 'outsideState';
+				}
+			};
+
+			this.back = function() {
+				console.log('back', arguments);
+				console.log('back', self);
+				if (self.state === 'hourState') {
+					self.state = 'dateState';
 				}
 			};
 
@@ -102,12 +118,8 @@
 				console.log('year', year);
 				var date = new Date(year, month, day, 8);
 				console.log('date', date);
-				ngModelCtrl.$setViewValue(date);
-				console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
-				self.selectedDate = date;
+				self.update(date);
 				self.selectedHours = date.getHours();
-				ngModelCtrl.$render();
-				ngModelCtrl.$setTouched();
 			};
 
 			this.setHours = function(hour) {
