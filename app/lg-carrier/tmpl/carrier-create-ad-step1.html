@@ -5,44 +5,35 @@
 </section>
 <section class="form">
     <form name="adcarrierCtrl">
-        <label>Description du type de véhicule</label><br/>
+        <label>Description du type de véhicule</label>
         <input type="choice" choices="$root.config.vehicleTypes"
             title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc."
             ng-model="$ctrl.carrier.createData.content.type" required/>
         <br/>
         <hr/>
         <br/>
-        <div class="dimension">
-            <p>Dimension de la capacité de la remorque</p><br/>
-            <div class="hauteur">
-                <img src="img/hauteur.png"/>
-                <p>Hauteur</p>
-                <button class="plus">+</button><br/>
-                <input type="text" name="" id="" placeholder="3,20" ng-model="addCtrl.vehicle.box.height" />
-                <button class="moins">-</button>
-            </div>
-            <div class="profondeur">
-                <img src="img/profondeur.png"/>
-                <p>Profondeur</p>
-                <button class="plus">+</button><br/>
-                <input type="text" name="" id="" placeholder="3,20" ng-model="addCtrl.vehicle.box.deep" />
-                <button class="moins">-</button>
-            </div>
-            <div class="largeur">
-                <img src="img/largeur.png"/>
-                <p>Largeur</p>
-                <button class="plus">+</button><br/>
-                <input type="text" name="" id="" placeholder="3,20" ng-model="addCtrl.vehicle.box.width" /><br/>
-                <button class="moins">-</button>
-            </div>
-            <div class="clear"></div>
-            <br/>
-            <p class="comments">Mesures en mètre</p>
-            <br/>
-            <hr/>
-            <br/>
-        </div>
-
+        
+        <label>Dimension de la capacité de la remorque</label>
+        <comment>Mesures en mètre</comment>
+        <truck-dim>
+            <dimension>
+                <div>
+                    <img src="img/hauteur.png"/>
+                    <p>Hauteur</p>
+                    <input type="num" placeholder="H." vertical ng-model="addCtrl.vehicle.box.height" options="{format: 2, step: 0.1}"/>
+                </div>
+                <div>
+                    <img src="img/profondeur.png"/>
+                    <p>Profondeur</p>
+                    <input type="num" placeholder="P." vertical ng-model="addCtrl.vehicle.box.deep" options="{format: 2, step: 0.1}"/>
+                </div>
+                <div>
+                    <img src="img/largeur.png"/>
+                    <p>Largeur</p>
+                    <input type="num" placeholder="L." vertical ng-model="addCtrl.vehicle.box.width" options="{format: 2, step: 0.1}"/>
+                </div>
+            </dimension>
+        </truck-dim>
         <div class="photo">
             <label>Inserer une photo</label><br/>
             <input type="file" ng-model="addCtrl.vehicle.image" accept="image/*" />

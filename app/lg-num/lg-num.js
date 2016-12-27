@@ -8,16 +8,16 @@
 		return {
 			restrict: 'E',
 			require: '?ngModel',
-			link: function (scope, element, attr, ctrl) {
-				if (attr.type !== 'num') {
+			link: function (scope, element, attrs, ctrl) {
+				if (attrs.type !== 'num') {
 					return;
 				}
 				console.log('input type="num"', arguments);
-				
-				var elt = angular.element('<!-- input type="num" ng-model="' + attr.ngModel + '" -->' +
-					'<lg-num ng-model="' + attr.ngModel + 
-					'" options="' + attr.options + 
-					'" placeholder="\'' + attr.placeholder + '\'"></lg-num>');
+				var myClass = ('vertical' in attrs) ? 'class="vertical"' : '';
+				var elt = angular.element('<!-- input type="num" ng-model="' + attrs.ngModel + '" -->' +
+					'<lg-num ' + myClass + ' ng-model="' + attrs.ngModel + 
+					'" options="' + attrs.options + 
+					'" placeholder="\'' + attrs.placeholder + '\'"></lg-num>');
 				element.after(elt);
 				element.attr('style', 'display: none !important');
 				$compile(elt)(scope);
@@ -31,7 +31,14 @@
 		require: {
 			ngModel: 'ngModel'
 		},
-		templateUrl: 'lg-num/tmpl/lg-num.html',
+		templateUrl: function($attrs) {
+			console.log('lgNum templateUrl', arguments, this);
+			if ($attrs.class === 'vertical') {
+				console.log('lgNum vertical');
+				return 'lg-num/tmpl/lg-num-vertical.html';
+			}
+			return 'lg-num/tmpl/lg-num.html';
+		},
 		controller: function($element, $filter, $interval, $timeout) {
 			'ngInject';
 			console.log('lgNum controller', arguments, this);

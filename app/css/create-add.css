@@ -53,46 +53,27 @@
     font-weight: bold;
 }
 
-.dimension {
+truck-dim {
+    display: block;
+    text-align: center;
+}
+
+dimension {
+    display: table;
     width: 100%;
     margin: 0;
     padding: 0px;
 }
 
-.dimension p {
-    font-weight: bold;
-}
+dimension > div {
+    display: table-cell;
+    width: 30%;
+    text-align: center;
+} 
 
-.dimension img {
-    width: 70px;
-}
-
-.hauteur, .largeur, .profondeur {
+dimension > div > img {
     display: inline-block;
-    width: 32%;
-    text-align: center;
-}
-
-.hauteur p, .largeur p, .profondeur p {
-    font-size: 16px;
-    margin: 0px 0px 10px;
-}
-
-.dimension input {
-    width: 60%;
-    height: 57px;
-    text-align: center;
-    font-size: 13px;
-    padding: 15px 10px;
-    border: none;
-    margin: 0px;
-    border-radius: 0px;
-    border-left: 1px solid hsla(0, 0%, 92%, 1);
-    border-right: 1px solid hsla(0, 0%, 92%, 1);
-}
-
-.dimension > div > p{
-    font-size: 17px;
+    width: 70px;
 }
 
 .comments {
