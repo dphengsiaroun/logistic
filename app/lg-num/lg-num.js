@@ -49,16 +49,27 @@
 
 			var timeout = undefined;
 			var interval = undefined;
+			var interval2 = undefined;
 
 			var touchstart = function(callback) {
 				return function() {
 					console.log('touchstart', arguments);
 					callback();
 					timeout = $timeout(function() {
+						timeout = undefined;
 						elt.addClass('editing');
 						interval = $interval(function() {
 							callback();
 						}, 100);
+						timeout = $timeout(function() {
+							interval2 = $interval(function() {
+							callback();
+							if (interval !== undefined) {
+								$interval.cancel(interval);
+								interval = undefined;
+							}
+						}, 20);
+						}, 2000);
 					}, 800);
 				};
 				
@@ -70,12 +81,19 @@
 				elt.removeClass('editing');
 				if (timeout !== undefined) {
 					$timeout.cancel(timeout);
+					timeout = undefined;
 				}
-				timeout = undefined;
+				
 				if (interval !== undefined) {
 					$interval.cancel(interval);
+					interval = undefined;
 				}
-				interval = undefined;
+
+				if (interval2 !== undefined) {
+					$interval.cancel(interval2);
+					interval2 = undefined;
+				}
+				
 			};
 
 			this.build = function() {
