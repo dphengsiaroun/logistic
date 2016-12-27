@@ -41,7 +41,8 @@
 			var elt = $element.find('my-input');
 			
 			this.myOptions = {
-				format: 3
+				format: 3,
+				step: 1
 			};
 
 			this.$onInit = function() {
@@ -54,19 +55,34 @@
 
 				ngModelCtrl.$render = function() {
 					console.log('ngModelCtrl.$render', arguments, this);
-					var value = ctrl.placeholder;
+					var valueStr = ctrl.placeholder;
 					if (ngModelCtrl.$viewValue !== undefined) {
-						value = ngModelCtrl.$viewValue;
+						valueStr = $filter('number')(ngModelCtrl.$viewValue, ctrl.myOptions.format);
+						elt.addClass('filled');
+					} else {
+						elt.removeClass('filled');
 					}
-					var valueStr = $filter('number')(value, ctrl.myOptions.format);
+				
 					elt.html(valueStr);
 				};
 			};
 			this.plus = function() {
 				console.log('lgNum plus', arguments, this);
+				if (ngModelCtrl.$viewValue === undefined) {
+					ngModelCtrl.$viewValue = 0;
+				}
+				ngModelCtrl.$setViewValue(ngModelCtrl.$viewValue + ctrl.myOptions.step);
+				ngModelCtrl.$render();
+				ngModelCtrl.$setTouched();
 			};
 			this.minus = function() {
 				console.log('lgNum minus', arguments, this);
+				if (ngModelCtrl.$viewValue === undefined) {
+					ngModelCtrl.$viewValue = 0;
+				}
+				ngModelCtrl.$setViewValue(ngModelCtrl.$viewValue - ctrl.myOptions.step);
+				ngModelCtrl.$render();
+				ngModelCtrl.$setTouched();
 			};
 
 		},

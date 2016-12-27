@@ -37,6 +37,11 @@ lg-num my-input {
     text-align: center;
 }
 
+lg-num my-input.filled {
+    color: black;
+}
+
+
 lg-num .fa {
     color: white;
 }
