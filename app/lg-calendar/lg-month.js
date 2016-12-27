@@ -92,6 +92,7 @@
 				var selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
 				selectedElt.off('click');
 				selectedElt.removeClass('selected');
+				$compile(selectedElt)($scope);
 
 				if (this.selectedDate === undefined) {
 					return;
