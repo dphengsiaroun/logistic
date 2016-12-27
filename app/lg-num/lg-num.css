@@ -16,6 +16,10 @@ lg-num plus, lg-num minus {
     margin: 5px 0px;
     vertical-align: middle;
     text-align: center;
+    /* Pour Safari iPhone */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 lg-num minus {
