@@ -37,7 +37,17 @@
             hostname: 'localhost',
             username: 'root',
             password: '',
-            databaseName: 'logistic'
+            databaseName: 'logistic',
+			oauth2: {
+				google: {
+					clientID: 'TBD1',
+					clientSecret: 'TBD2'
+				},
+				facebook: {
+					clientID: 'TBD3',
+					clientSecret: 'TBD4'
+				},
+			}
         };
 
         $rootScope.install = function() {

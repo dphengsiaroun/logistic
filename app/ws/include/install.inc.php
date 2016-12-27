@@ -19,6 +19,9 @@
 
 	// fonction qui permet de créer le fichier config.ini afin de verifier les données récuperer
 	function createConfigIniFile($request) {
+		debug('request', $request);
+		debug('request', $request->oauth2->google->clientID);
+		debug('done');
 		$content = <<<EOF
 
 			<?php
@@ -27,6 +30,12 @@
 				\$user = '$request->username';
 				\$mdp = '$request->password';
 				\$bdd = '$request->databaseName';
+
+				\$oauth2GoogleClientId = '{$request->oauth2->google->clientID}';
+				\$oauth2GoogleClientSecret = '{$request->oauth2->google->clientSecret}';
+
+				\$oauth2FacebookClientId = '{$request->oauth2->facebook->clientID}';
+				\$oauth2FacebookClientSecret = '{$request->oauth2->facebook->clientSecret}';
 
 			?>
 

@@ -1,19 +1,34 @@
-Installation
+<h1>Installation</h1>
 
 <form name="installForm" ng-submit="install()">
-    <label for="hostname">Hostname</label>
-    <input type="text" id="hostname" ng-model="obj.hostname" /><br/>
-    <label for="username">Username</label>
-    <input type="text" id="username" ng-model="obj.username" /><br/>
-    <label for="password">Password</label>
-    <input type="text" id="password" ng-model="obj.password" /><br/>
-    <label for="databaseName">Database name</label>
-    <input type="text" id="databaseName" ng-model="obj.databaseName" /><br/>
+    <h2>Database</h2>
+    <label for="hostname">Hostname</label><br/>
+    <input type="text" id="hostname" ng-model="obj.hostname" />
+    <label for="username">Username</label><br/>
+    <input type="text" id="username" ng-model="obj.username" />
+    <label for="password">Password</label><br/>
+    <input type="text" id="password" ng-model="obj.password" />
+    <label for="databaseName">Database name</label><br/>
+    <input type="text" id="databaseName" ng-model="obj.databaseName" />
 
    
     <input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
     <label for="dbCreation">Create the tables</label><br/>
+
+    <h2>OAuth2</h2>
+    <h3>Google</h3>
+
+    <label for="OAuth2.Google.ClientID">ClientID</label><br/>
+    <input type="text" id="OAuth2.Google.ClientID" ng-model="obj.oauth2.google.clientID" />
+    <label for="OAuth2.Google.ClientSecret">Client Secret</label><br/>
+    <input type="text" id="OAuth2.Google.ClientSecret" ng-model="obj.oauth2.google.clientSecret" />
+
+    <h3>Facebook</h3>
+    <label for="OAuth2.Facebook.ClientID">ClientID</label><br/>
+    <input type="text" id="OAuth2.Facebook.ClientID" ng-model="obj.oauth2.facebook.clientID" />
+    <label for="OAuth2.Facebook.ClientSecret">Client Secret</label><br/>
+    <input type="text" id="OAuth2.Facebook.ClientSecret" ng-model="obj.oauth2.facebook.clientSecret" />
     
 
-    <input type="submit" value="Install" />
+    <button type="installForm.$submit()">Install</button>
 </form>

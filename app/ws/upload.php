@@ -11,7 +11,7 @@
  */
 
 
-define("BASE_DIR", dirname($_SERVER["SCRIPT_FILENAME"]));
+define("BASE_DIR", __DIR__);
 require_once(BASE_DIR . "/include/constant.inc.php");
 require_once(BASE_DIR . "/include/misc.inc.php");
 require_once(BASE_DIR . "/include/database.inc.php");

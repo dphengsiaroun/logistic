@@ -1,6 +1,6 @@
 <?php
 	
-	define("BASE_DIR", dirname(dirname($_SERVER["SCRIPT_FILENAME"])));
+	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/account.inc.php");
 	
     $request = getRequest();

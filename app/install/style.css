@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    color: hsla(214, 46%, 25%, 1);
+}
+
+body {
+	padding: 10px;
+}
+
+h1, h2, h3, label {
+	padding: 10px 0px;
+}
+
+input {
+	display: block;
+	border: 1px solid black;
+	width: 300px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+input[type=checkbox] {
+	display: inline-block;
+	border: 1px solid black;
+	width: 20px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+button {
+	display: block;
+	border: 1px solid black;
+	width: 300px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
