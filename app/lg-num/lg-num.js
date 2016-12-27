@@ -32,17 +32,62 @@
 			ngModel: 'ngModel'
 		},
 		templateUrl: 'lg-num/tmpl/lg-num.html',
-		controller: function($element, $filter) {
+		controller: function($element, $filter, $interval, $timeout) {
 			'ngInject';
 			console.log('lgNum controller', arguments, this);
 			console.log('lgNum controller', arguments, this.ngModel);
 			var ctrl = this;
 			var ngModelCtrl;
 			var elt = $element.find('my-input');
+			var plusElt = $element.find('plus');
+			var minusElt = $element.find('minus');
 			
 			this.myOptions = {
 				format: 3,
 				step: 1
+			};
+
+			var timeout = undefined;
+			var interval = undefined;
+
+			var touchstart = function(callback) {
+				return function() {
+					console.log('touchstart', arguments);
+					callback();
+					timeout = $timeout(function() {
+						elt.addClass('editing');
+						interval = $interval(function() {
+							callback();
+						}, 100);
+					}, 800);
+				};
+				
+				
+			};
+
+			var touchend = function() {
+				console.log('touchend', arguments);
+				elt.removeClass('editing');
+				if (timeout !== undefined) {
+					$timeout.cancel(timeout);
+				}
+				timeout = undefined;
+				if (interval !== undefined) {
+					$interval.cancel(interval);
+				}
+				interval = undefined;
+			};
+
+			this.build = function() {
+				console.log('build', arguments);
+				
+				plusElt.on('touchstart', touchstart(ctrl.plus));	
+				plusElt.on('touchend', touchend);
+				plusElt.on('mouseup', touchend);
+
+				minusElt.on('touchstart', touchstart(ctrl.minus));	
+				minusElt.on('touchend', touchend);
+				minusElt.on('mouseup', touchend);
 			};
 
 			this.$onInit = function() {
@@ -65,6 +110,10 @@
 				
 					elt.html(valueStr);
 				};
+
+				this.build();
+
+				
 			};
 			this.plus = function() {
 				console.log('lgNum plus', arguments, this);

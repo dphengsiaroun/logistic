@@ -1,6 +1,7 @@
 lg-num {
     display: table;
     width: 100%;
+    margin: 5px 0px;
 }
 
 lg-num plus, lg-num minus {
@@ -8,7 +9,7 @@ lg-num plus, lg-num minus {
     background: hsla(171, 99%, 38%, 1);
     color: white;
     border: 1px solid hsla(0, 0%, 92%, 1);;
-    width: 15%;
+    width: 20%;
     height: 55px;
     font-size: 22px;
     line-height: 22px;
@@ -29,7 +30,7 @@ lg-num plus {
 
 lg-num my-input {
     display: table-cell;
-    width: 70%;
+    width: 60%;
     border-radius: 0px;
     border-left: none;
     border-right: none; 
@@ -39,6 +40,10 @@ lg-num my-input {
 
 lg-num my-input.filled {
     color: black;
+}
+
+lg-num my-input.editing {
+    background-color: hsla(0, 0%, 95%, 1);
 }
 
 
