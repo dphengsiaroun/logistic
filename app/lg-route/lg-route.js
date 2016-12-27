@@ -56,9 +56,9 @@
 			component: 'lgTestCalendarRoute'
 		});
 		$stateProvider.state({
-			name: 'test',
-			url: '/test',
-			component: 'lgTestRoute'
+			name: 'test:num',
+			url: '/test-num',
+			component: 'lgTestNumRoute'
 		});
 		$stateProvider.state({
 			name: 'test2',
@@ -73,8 +73,8 @@
 		templateUrl: 'lg-route/tmpl/home.html'
 	});
 
-	app.component('lgTestRoute', {
-		templateUrl: 'lg-route/tmpl/test.html'
+	app.component('lgTestNumRoute', {
+		templateUrl: 'lg-route/tmpl/test-num.html'
 	});
 
 	app.component('lgTest2Route', {

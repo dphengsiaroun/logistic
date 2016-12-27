@@ -1,0 +1,6 @@
+<lg-title ng-init="width = 3.20">Test num</lg-title>
+<form>
+	<input type="text" placeholder="name" ng-model="name" />
+	<input type="num" placeholder="Largeur" ng-model="width" options="{format: 2}" />
+</form>
+width: {{width | number : 2}}

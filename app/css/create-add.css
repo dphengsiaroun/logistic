@@ -100,22 +100,9 @@
     text-align: center;
 }
 
-.plus, .moins {
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-    border: none;
-    width: 60%;
-    height: 45px;
-    font-size: 22px;
-}
 
-.plus {
-    border-radius: 5px 5px 0 0;
-}
 
-.moins {
-    border-radius: 0 0 5px 5px;
-}
+
 
 .photo > input {
     font-size: 11px;

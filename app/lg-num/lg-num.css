@@ -1,11 +1,42 @@
-lg-eyepassword {
-    position: relative;
-    display: block;
+lg-num {
+    display: table;
+    width: 100%;
 }
 
-lg-eyepassword .eye {
-    position: absolute;
-    top: 17px;
-    left: 87%;
-    font-size: 25px;
+lg-num plus, lg-num minus {
+    display: table-cell;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
+    border: 1px solid hsla(0, 0%, 92%, 1);;
+    width: 15%;
+    height: 55px;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 5px 0px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+lg-num minus {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+lg-num plus {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+lg-num my-input {
+    display: table-cell;
+    width: 70%;
+    border-radius: 0px;
+    border-left: none;
+    border-right: none; 
+    vertical-align: top;
+    text-align: center;
+}
+
+lg-num .fa {
+    color: white;
 }
