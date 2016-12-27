@@ -12,10 +12,18 @@
 
 
 define("BASE_DIR", __DIR__);
+require __DIR__ . '/vendor/autoload.php';
 require_once(BASE_DIR . "/include/constant.inc.php");
 require_once(BASE_DIR . "/include/misc.inc.php");
 require_once(BASE_DIR . "/include/database.inc.php");
 require_once(BASE_DIR . "/include/account.inc.php");
+
+$log = new Monolog\Logger('name');
+$log->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/monolog.log', Monolog\Logger::WARNING));
+$log->addWarning('Foo');
+
+
+debug('log', $log);
 
 debug("UPLOAD_DIR " . UPLOAD_DIR);
 debug("UPLOAD_URL " . UPLOAD_URL);
