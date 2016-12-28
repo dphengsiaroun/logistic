@@ -1,4 +1,5 @@
 <?php
+	require_once(BASE_DIR . '/vendor/autoload.php');
 	
 	function isHttps() {
 		$result = !empty($_SERVER['HTTPS']) && strcasecmp($_SERVER['HTTPS'], 'on') === 0 ||

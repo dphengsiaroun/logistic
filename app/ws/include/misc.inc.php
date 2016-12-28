@@ -2,13 +2,22 @@
 
 	session_start();
 
+
+	$log = new Monolog\Logger('log');
+	$stream = new Monolog\Handler\StreamHandler(BASE_DIR . '/monolog.log', Monolog\Logger::DEBUG);
+	$format = "[%datetime%] %channel%.%level_name%: %message% \n";
+	$formatter = new Monolog\Formatter\LineFormatter($format, null, true);
+	$stream->setFormatter($formatter);
+	$log->pushHandler($stream);
+
 	// fonction qui permet de créer le fichier trace.log afin de verifier les données récuperer
 	function debug($msg, $object = NULL) {
+		global $log;
 		if ($object == NULL) {
-			file_put_contents(TRACE_LOG, $msg . "\n", FILE_APPEND);
+			$log->addDebug($msg);
 			return;
 		}
-		file_put_contents(TRACE_LOG, $msg . " " . sprint_r($object) . "\n", FILE_APPEND);
+		$log->addDebug($msg . " " . sprint_r($object));
 	}
 
 	function sprint_r($var) {
