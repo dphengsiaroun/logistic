@@ -127,6 +127,11 @@
 			back: false,
 			needsUser: true
 		});
+		$stateProvider.state({
+			name: 'user:forgottenPassword',
+			url: '/forgotten-password',
+			component: 'lgUserForgottenPasswordRoute'
+		});
 
 	}]);
 
@@ -157,6 +162,11 @@
 	app.component('lgUserInitiatePasswordRoute', {
 		templateUrl: 'lg-user/tmpl/initiate-password.html',
 		controller: 'UserUpdateCtrl'
+	});
+
+	app.component('lgUserForgottenPasswordRoute', {
+		templateUrl: 'lg-user/tmpl/forgotten-password.html',
+		controller: 'UserCtrl'
 	});
 
 })();

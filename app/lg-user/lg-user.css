@@ -31,11 +31,16 @@ create-account {
 }
 
 sign-form a {
-	
+
     margin: 0px;
     text-decoration: none;
     font-size: 20px;
     color: hsla(214, 46%, 25%, 1);
+}
+
+sign-form comment {
+
+    text-align: center;
 }
 
 /* Compte créé */
