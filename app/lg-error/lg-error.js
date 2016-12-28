@@ -19,7 +19,7 @@
 				return '';
 			}
 			if (error.data && error.data.errorCode && cfg[error.data.errorCode]) {
-				return cfg[code];
+				return cfg[error.data.errorCode];
 			}
 			if (error.status && error.status >= 400) {
 				return 'Technical Error: HTTP status = ' + error.status;

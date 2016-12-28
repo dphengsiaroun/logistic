@@ -5,7 +5,7 @@
 
 	define('TRACE_LOG', BASE_DIR . '/_trace.log');
 	define('TRACE_LEVEL', Monolog\Logger::DEBUG);
-	
+
 
 	define('DOMAIN_URL', getDomainUrl());
 
@@ -15,7 +15,7 @@
 	// 20 Mega par personne d'image max.
 	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 20000000);
 
-
+	define('MAIL_FORGOTTEN_PASSWORD', 0);
 
 
 	define('ERROR_TECHNICAL_CODE', 0);

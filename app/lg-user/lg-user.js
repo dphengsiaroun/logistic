@@ -209,7 +209,8 @@
 		};
 
 		this.forgottenPasswordData = {
-			email: 'toto@titi.fr'
+			email: 'toto@titi.fr',
+			type: 'forgotten-password'
 		};
 
 		this.forgottenPassword = function(data) {
@@ -217,7 +218,7 @@
 
 			// TODO: include recaptcha data
 			$http({
-				url: makeUrl('forgottenPassword'),
+				url: makeUrl('sendEmail'),
 				method: 'POST',
 				data: data,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
