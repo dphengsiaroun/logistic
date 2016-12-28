@@ -6,3 +6,5 @@
 *config.ini*
 app/files/
 app/ws/vendor/
+composer.lock
+
