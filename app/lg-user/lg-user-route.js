@@ -113,7 +113,7 @@
 		});
 		$stateProvider.state({
 			name: 'user:updatedPassword',
-			url: '/update-password',
+			url: '/updated-password',
 			component: 'lgMessage',
 			resolve: {
 				service: function() {
@@ -124,9 +124,10 @@
 					}
 				}
 			},
+			back: false,
 			needsUser: true
-		});	
-	
+		});
+
 	}]);
 
 	app.component('lgUserSigninRoute', {

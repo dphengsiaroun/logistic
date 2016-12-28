@@ -2,8 +2,8 @@
 	'use strict';
 
 	var app = angular.module('lg-user', []);
-	
-	
+
+
 	var makeUrl = function(str) {
 		return 'ws/user/' + str + '.php';
 	};
@@ -36,7 +36,7 @@
 			var SHA256 = new Hashes.SHA256;
 			var data = angular.copy(service.signupData);
 			data.password = SHA256.hex(service.signupData.password);
-			
+
 			$http({
 				url: makeUrl('signup'),
 				method: 'POST',
@@ -130,7 +130,7 @@
 
 		this.update = function(data) {
 			console.log('user->update');
-			
+
 			$http({
 				url: makeUrl('update'),
 				method: 'POST',
@@ -152,7 +152,7 @@
 
 		this.delete = function() {
 			console.log('user->delete', service.account);
-			
+
 			$http({
 				url:  makeUrl('delete'),
 				method: 'POST',
@@ -186,8 +186,8 @@
 				oldPassword: SHA256.hex(this.updatePasswordData.oldPassword),
 				newPassword: SHA256.hex(this.updatePasswordData.newPassword)
 			};
-			
-			
+
+
 			$http({
 				url: makeUrl('updatePassword'),
 				method: 'POST',
@@ -221,13 +221,5 @@
 		this.updateData = angular.copy(this.user.account);
 		this.user.error = undefined;
 	}]);
-
-	app.controller('UserUpdatePasswordCtrl', ['$scope', '$injector', function UserUpdatePasswordCtrl($scope, $injector) {
-		this.user = $injector.get('user');
-		this.updatePasswordData = angular.copy(this.user.account);
-		this.user.error = undefined;
-	}]);
-
-	
 
 })();
