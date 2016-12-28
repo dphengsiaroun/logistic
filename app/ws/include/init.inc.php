@@ -23,4 +23,3 @@
 		return getDomainUrl() . substr($path, strlen($_SERVER['DOCUMENT_ROOT']));
 	}
 	
-?>

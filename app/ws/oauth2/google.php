@@ -1,22 +1,7 @@
 <?php
 
-require_once('./../vendor/autoload.php');
-
-function sprint_r($var) {
-    ob_start();
-    print_r($var);
-    $output=ob_get_contents();
-    ob_end_clean();
-    return $output;
-}
-
-function debug($msg, $object = NULL) {
-    if ($object == NULL) {
-        file_put_contents('google.log', $msg . "\n", FILE_APPEND);
-        return;
-    }
-    file_put_contents('google.log', $msg . " " . sprint_r($object) . "\n", FILE_APPEND);
-}
+define("BASE_DIR", dirname(__DIR__));
+require_once(BASE_DIR . "/include/account.inc.php");
 
 debug('google');
 

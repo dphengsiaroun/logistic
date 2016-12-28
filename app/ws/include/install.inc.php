@@ -36,7 +36,6 @@
 	\$oauth2FacebookClientId = '{$request->oauth2->facebook->clientID}';
 	\$oauth2FacebookClientSecret = '{$request->oauth2->facebook->clientSecret}';
 
-?>
 
 EOF;
 		file_put_contents(CONFIG_INI, $content);
@@ -88,9 +87,4 @@ EOF;
 	function removeConfigIniFile() {
 		unlink(CONFIG_INI);
 	}
-
-
-
-
-?>
 

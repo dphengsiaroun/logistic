@@ -68,7 +68,3 @@
 		debug('request', $result);
 		return $result;
 	}
-
-
-?>
-
