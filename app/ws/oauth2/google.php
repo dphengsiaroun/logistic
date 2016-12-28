@@ -3,10 +3,12 @@
 define("BASE_DIR", dirname(__DIR__));
 require_once(BASE_DIR . "/include/account.inc.php");
 
+$url = 'http://localhost:8888/logistic/app/';
+
 $provider = new League\OAuth2\Client\Provider\Google([
     'clientId'     => '92725008221-5ncgqq705b75p48irtva5p4k3hge1ikd.apps.googleusercontent.com',
     'clientSecret' => 'vSVoEoWIXvN4y4R2WbSQGA1J',
-    'redirectUri'  => 'http://localhost:8888/logistic/app/',
+    'redirectUri'  => 'http://localhost:8888/logistic/app/ws/oauth2/google.php',
     'hostedDomain' => 'http://localhost:8888',
 ]);
 
@@ -41,9 +43,11 @@ if (!empty($_GET['error'])) {
 
         // We got an access token, let's now get the owner details
         $ownerDetails = $provider->getResourceOwner($token);
+        debug('ownerDetails', $ownerDetails);
+        Account::syncFromGoogle($ownerDetails);
 
-        // Use these details to create a new profile
-        printf('Hello %s!', $ownerDetails->getFirstName());
+        header('Location: ' . $url);
+        exit;
 
     } catch (Exception $e) {
 
@@ -51,13 +55,4 @@ if (!empty($_GET['error'])) {
         exit('Something went wrong: ' . $e->getMessage());
 
     }
-
-    // Use this to interact with an API on the users behalf
-    echo $token->getToken();
-
-    // Use this to get a new access token if the old one expires
-    echo $token->getRefreshToken();
-
-    // Number of seconds until the access token will expire, and need refreshing
-    echo $token->getExpires();
 }

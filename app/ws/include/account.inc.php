@@ -176,6 +176,29 @@ EOF;
 
 			return $st->rowCount() == 1;
 		}
+		
+		public function retrieveFromEmail($email) {
+			global $db;
+
+			$sql = <<<EOF
+SELECT id FROM account WHERE email=:email;
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':email' => $email
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			if ($st->rowCount() == 0) {
+				throw new Exception('Account not found for email = ' . $email);
+			}
+
+			$_SESSION['id'] = $st->fetch()['id'];
+			return new Account();
+		}
 
 		public static function signin($email, $password) {
 			global $db;
@@ -202,6 +225,24 @@ EOF;
 			$_SESSION['id'] = $st->fetch()['id'];
 
 			return new Account();
+		}
+
+		public static function syncFromGoogle($ownerDetails) {
+			$email = $ownerDetails->getEmail();
+			$account = NULL;
+			try {
+				$account = Account::retrieveFromEmail($email);
+			} catch (Exception $e) {
+				// Create the account
+				$request = new stdClass();
+				$request->email = $email;
+				$request->password = 'google';
+				$content = new stdClass();
+				$request->content = $content;
+				$content->lastname = $ownerDetails->getLastName();
+				$content->firstname = $ownerDetails->getFirstName();
+				Account::create($request);
+			}
 		}
 	}
 
