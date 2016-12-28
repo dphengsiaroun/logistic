@@ -236,11 +236,12 @@ EOF;
 				// Create the account
 				$request = new stdClass();
 				$request->email = $email;
-				$request->password = 'google';
+				$request->password = '';
 				$content = new stdClass();
 				$request->content = $content;
 				$content->lastname = $ownerDetails->getLastName();
 				$content->firstname = $ownerDetails->getFirstName();
+				$content->sync = 'google';
 				Account::create($request);
 			}
 		}
