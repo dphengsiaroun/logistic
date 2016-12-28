@@ -70,10 +70,6 @@ dimension > div > img {
     text-align: center;
 }
 
-
-
-
-
 .photo > input {
     font-size: 11px;
     width: 100%;
@@ -85,6 +81,7 @@ dimension > div > img {
 
 .photo > label {
     font-size: 17px;
+    margin: 20px 0 5px;
 }
 
 .qty {
