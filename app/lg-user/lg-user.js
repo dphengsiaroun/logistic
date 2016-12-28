@@ -217,8 +217,14 @@
 	}]);
 
 	app.controller('UserUpdateCtrl', ['$scope', '$injector', function UserUpdateCtrl($scope, $injector) {
+		var self = this;
 		this.user = $injector.get('user');
-		this.updateData = angular.copy(this.user.account);
+		console.log('this.user', this.user);
+		$scope.$watch('$ctrl.user.account', function() {
+			self.updateData = angular.copy(self.user.account);
+		});
+
+		console.log('this.updateData', this.updateData);
 		this.user.error = undefined;
 	}]);
 
