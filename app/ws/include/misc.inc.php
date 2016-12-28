@@ -17,8 +17,8 @@
 		global $log;
 		$e = new Exception("");
 		$traces = $e->getTrace();
-		$line = $traces[0][line];
-		$filename = $traces[0][file];
+		$line = $traces[0]['line'];
+		$filename = $traces[0]['file'];
 		$message = $filename . ':' . $line . ":\n" . $msg;
 		if ($object == NULL) {
 			$log->addDebug($message);
@@ -69,7 +69,7 @@
 		// Permet de récuperer les données au format Json
 		$postdata = file_get_contents("php://input");
 		// on décode le json dans une variable PHP
-		$result = json_decode($postdata); 
+		$result = json_decode($postdata);
 		debug('request', $result);
 		return $result;
 	}
