@@ -1,5 +1,5 @@
 <?php
-	require_once(BASE_DIR . "/include/constant.inc.php");
+	require_once(BASE_DIR . '/include/constant.inc.php');
 	require_once(CONFIG_INI);
 
 	try {
@@ -7,7 +7,7 @@
 			$user,
 			$mdp,
 			array(
-				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+				PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
 			)
 		);
 	} catch (Exception $e) {
