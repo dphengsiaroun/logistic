@@ -11,19 +11,23 @@
 		</div>
 	</div>
 	<lg-hr>ou</lg-hr>
-	
+
 	<form name="signinCtrl" ng-submit="$ctrl.user.signin();">
 		<input type="text" placeholder="email, n°tel, pseudo" ng-model="$ctrl.user.signinData.email" />
 		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signinData.password" />
 		<lg-error error="$ctrl.user.error"></lg-error>
-		
+
 		<div class="bouton">
 			<button>Se connecter</button>
 		</div>
 	</form>
-	
+
 	<lg-hr>ou</lg-hr>
 	<create-account>
 		<a ui-sref="user:signup">Créer un nouveau compte</a>
+	</create-account>
+	<lg-hr>ou</lg-hr>
+	<create-account>
+		<a ui-sref="user:forgottenPassword">Mot de passe oublié ?</a>
 	</create-account>
 </sign-form>
