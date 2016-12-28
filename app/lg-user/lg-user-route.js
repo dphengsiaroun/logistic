@@ -101,7 +101,15 @@
 			name: 'user:updatePassword',
 			url: '/update-password',
 			component: 'lgUserUpdatePasswordRoute',
-			back: false
+			back: false,
+			needsUser: true
+		});
+		$stateProvider.state({
+			name: 'user:initiatePassword',
+			url: '/initiate-password',
+			component: 'lgUserInitiatePasswordRoute',
+			back: false,
+			needsUser: true
 		});
 		$stateProvider.state({
 			name: 'user:updatedPassword',
@@ -142,6 +150,11 @@
 
 	app.component('lgUserUpdatePasswordRoute', {
 		templateUrl: 'lg-user/tmpl/update-password.html',
+		controller: 'UserUpdateCtrl'
+	});
+
+	app.component('lgUserInitiatePasswordRoute', {
+		templateUrl: 'lg-user/tmpl/initiate-password.html',
 		controller: 'UserUpdateCtrl'
 	});
 

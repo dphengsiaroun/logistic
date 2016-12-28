@@ -58,8 +58,9 @@
 				<button ng-click="$ctrl.user.update($ctrl.updateData);">Modifier</button>
 			</div>
 			<lg-hr>ou</lg-hr>
-			<a ui-sref="user:updatePassword">Modifier mot de passe</p>
+			<a ng-show="$ctrl.user.account.password !== ''" ui-sref="user:updatePassword">Modifier mot de passe</a>
+			<a ng-hide="$ctrl.user.account.password !== ''" ui-sref="user:initiatePassword">Initialiser mot de passe</a>
 			<lg-hr>ou</lg-hr>
-			<a ui-sref="user:confirmDelete" class="critical">Supprimer mon compte</p>
+			<a ui-sref="user:confirmDelete" class="critical">Supprimer mon compte</a>
 		</form>
 </section>
