@@ -3,8 +3,6 @@
 define("BASE_DIR", dirname(__DIR__));
 require_once(BASE_DIR . "/include/account.inc.php");
 
-debug('google');
-
 $provider = new League\OAuth2\Client\Provider\Google([
     'clientId'     => '92725008221-5ncgqq705b75p48irtva5p4k3hge1ikd.apps.googleusercontent.com',
     'clientSecret' => 'vSVoEoWIXvN4y4R2WbSQGA1J',
@@ -12,15 +10,11 @@ $provider = new League\OAuth2\Client\Provider\Google([
     'hostedDomain' => 'http://localhost:8888',
 ]);
 
-debug('hello', $provider);
-
 if (!empty($_GET['error'])) {
-    debug('error');
     // Got an error, probably user denied access
     exit('Got error: ' . htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'));
 
 } elseif (empty($_GET['code'])) {
-    debug('code');
     // If we don't have an authorization code then get one
     $authUrl = $provider->getAuthorizationUrl();
     debug('url', $authUrl);

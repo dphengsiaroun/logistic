@@ -15,11 +15,16 @@
 	// fonction qui permet de créer le fichier trace.log afin de verifier les données récuperer
 	function debug($msg, $object = NULL) {
 		global $log;
+		$e = new Exception("");
+		$traces = $e->getTrace();
+		$line = $traces[0][line];
+		$filename = $traces[0][file];
+		$message = $filename . ':' . $line . ":\n" . $msg;
 		if ($object == NULL) {
-			$log->addDebug($msg);
+			$log->addDebug($message);
 			return;
 		}
-		$log->addDebug($msg . " " . sprint_r($object));
+		$log->addDebug($message . " " . sprint_r($object));
 	}
 
 	function sprint_r($var) {
