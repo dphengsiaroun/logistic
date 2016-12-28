@@ -1,5 +1,6 @@
 <?php
 	require_once(BASE_DIR . "/include/constant.inc.php");
+	require_once(CONFIG_INI);
 
 	try {
 		$db = new PDO("mysql:host=$host;dbname=$bdd", 

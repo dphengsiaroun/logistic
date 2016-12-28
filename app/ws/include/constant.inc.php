@@ -1,8 +1,7 @@
 <?php
 
-	require_once(BASE_DIR . "/include/init.inc.php");
+	require_once(BASE_DIR . '/include/init.inc.php');
 	define('CONFIG_INI', BASE_DIR . '/include/config.ini');
-	require_once(CONFIG_INI);
 
 	define('TRACE_LOG', BASE_DIR . '/_trace.log');
 	define('TRACE_LEVEL', Monolog\Logger::DEBUG);
