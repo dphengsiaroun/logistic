@@ -132,6 +132,21 @@
 			url: '/forgotten-password',
 			component: 'lgUserForgottenPasswordRoute'
 		});
+		$stateProvider.state({
+			name: 'user:forgottenPassword:mailsent',
+			url: '/forgotten-password',
+			component: 'lgMessage',
+			resolve: {
+				service: function(user) {
+					return {
+						state: 'home',
+						label: 'Accueil',
+						message: 'Un lien de réactivation a été envoyé sur le mail ' + user.forgottenPasswordData.email
+					}
+				}
+			},
+			back: false,
+		});
 
 	}]);
 
