@@ -208,6 +208,34 @@
 			});
 		};
 
+		this.forgottenPasswordData = {
+			email: 'toto@titi.fr'
+		};
+
+		this.forgottenPassword = function(data) {
+			console.log('user->forgottenPasswordData');
+
+			// TODO: include recaptcha data
+			$http({
+				url: makeUrl('forgottenPassword'),
+				method: 'POST',
+				data: data,
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === "ko") {
+					service.error = response;
+					return;
+				}
+				service.error = undefined;
+				service.account = response.data.account;
+				$state.go('user:forgottenPassword:mailsent');
+			}).catch(function(error) {
+				console.error('error', error);
+				service.error = error;
+			});
+		};
+
 	}]);
 
 	app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
