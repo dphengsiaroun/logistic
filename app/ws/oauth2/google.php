@@ -12,6 +12,9 @@ $provider = new League\OAuth2\Client\Provider\Google([
     'hostedDomain' => getDomainUrl(),
 ]);
 
+$guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
+$provider->setHttpClient($guzzleClient);
+
 if (!empty($_GET['error'])) {
     // Got an error, probably user denied access
     exit('Got error: ' . htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'));
