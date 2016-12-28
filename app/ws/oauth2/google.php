@@ -3,13 +3,13 @@
 define("BASE_DIR", dirname(__DIR__));
 require_once(BASE_DIR . "/include/account.inc.php");
 
-$url = 'http://localhost:8888/logistic/app/';
+$url = getUrlFromPath(dirname(BASE_DIR));
 
 $provider = new League\OAuth2\Client\Provider\Google([
-    'clientId'     => '92725008221-5ncgqq705b75p48irtva5p4k3hge1ikd.apps.googleusercontent.com',
-    'clientSecret' => 'vSVoEoWIXvN4y4R2WbSQGA1J',
-    'redirectUri'  => 'http://localhost:8888/logistic/app/ws/oauth2/google.php',
-    'hostedDomain' => 'http://localhost:8888',
+    'clientId'     => $oauth2GoogleClientId,
+    'clientSecret' => $oauth2GoogleClientSecret,
+    'redirectUri'  => $url . '/ws/oauth2/google.php',
+    'hostedDomain' => getDomainUrl(),
 ]);
 
 if (!empty($_GET['error'])) {
