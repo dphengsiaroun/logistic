@@ -1,5 +1,8 @@
 <?php
 	require_once(BASE_DIR . '/vendor/autoload.php');
+
+	// PHP Strict Mode !
+	error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 	
 	function isHttps() {
 		$result = !empty($_SERVER['HTTPS']) && strcasecmp($_SERVER['HTTPS'], 'on') === 0 ||
