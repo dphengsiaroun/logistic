@@ -3,6 +3,7 @@
 
 	var app = angular.module('mainApp', [
 		'ngSanitize',
+		'vcRecaptcha',
 		'lg-route',
 		'lg-upload',
 		'lg-menu',

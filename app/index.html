@@ -26,9 +26,6 @@
 		<link rel="stylesheet" href="lg-route/css/lg-home-route.css" />
 
 		<link rel="stylesheet" href="css/style.css" />
-
-
-
 	</head>
 	<body ng-controller="UserCtrl as userCtrl">
 		<lg-show-picture></lg-show-picture>
@@ -44,6 +41,7 @@
 		<script src="../bower_components/angular-i18n/angular-locale_fr-dz.js"></script>
 		<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
 		<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="../bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
 		<script src="../bower_components/moment/moment.js"></script> <!-- moment.js -->
 
 		<script src="../bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
@@ -81,6 +79,6 @@
 		<script src="lg-http/lg-http.js"></script>
 		<script src="lg-error/lg-error.js"></script>
 
-
+		<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
 	</body>
 </html>

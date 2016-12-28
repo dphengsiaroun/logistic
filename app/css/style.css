@@ -384,6 +384,10 @@ button {
 	margin: 10px 0px;
 }
 
+button[disabled] {
+	 background: hsla(171, 10%, 38%, 1);
+}
+
 button i {
     color: white;
 }
