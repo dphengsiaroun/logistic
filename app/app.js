@@ -33,6 +33,11 @@
 			$window.history.back();
 		};
 
+		$rootScope.goto = function(url) {
+			console.log('goto', arguments);
+			$window.location.href = url;
+		};
+
 	}]);
 
 })();

@@ -2,6 +2,8 @@
 
 	session_start();
 
+	require_once(BASE_DIR . "/include/constant.inc.php");
+
 
 	$log = new Monolog\Logger('log');
 	$stream = new Monolog\Handler\StreamHandler(TRACE_LOG, TRACE_LEVEL);
