@@ -25,7 +25,7 @@ require(BASE_DIR . '/include/lib/UploadHandler.php');
 
 
 try {
-	$account = new Account();
+	$account = Account::getConnected();
 
 
 	class MyUploadHandler extends UploadHandler

@@ -88,14 +88,14 @@
 			});
 		};
 
-		this.signinWithCode = function() {
+		this.retrieveFromCode = function() {
 			console.log('sign in with code');
 			var code = $location.search().code;
 			var id = $location.search().id;
 			console.log('code', code);
 			console.log('id', id);
 			$http({
-				url: makeUrl('signinWithCode'),
+				url: makeUrl('retrieveFromCode'),
 				method: 'POST',
 				data: {
 					code: code,
@@ -290,7 +290,7 @@
 		var self = this;
 		this.user = $injector.get('user');
 		console.log('this.user', this.user);
-		this.user.signinWithCode();
+		this.user.retrieveFromCode();
 		this.user.error = undefined;
 	}]);
 

@@ -6,21 +6,13 @@
 
 	class Account {
 
-
-		public function __construct($request = NULL) {
-			if ($request != NULL) {
-				$this->create($request);
-			} else {
-				if (!isset($_SESSION['id'])) {
-					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
-				}
-			}
-			$this->id = $_SESSION['id'];
+		public function __construct($id) {
+			$this->id = $id;
 			$this->retrieve();
 			debug('account', $this);
 		}
 
-		protected function create($request) {
+		public static function create($request) {
 			global $db;
 
 			$sql = <<<EOF
@@ -37,7 +29,16 @@ EOF;
 			)) === FALSE) {
 				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 			}
-			$_SESSION['id'] = $db->lastInsertId();
+			$id = $db->lastInsertId();
+			return new Account($id);
+		}
+
+		public static function getConnected() {
+			if (!isset($_SESSION['id'])) {
+				throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
+			}
+			$account = new Account($_SESSION['id']);
+			return $account;
 		}
 
 		protected function retrieve() {
@@ -106,7 +107,7 @@ EOF;
 			return $result;
 		}
 
-		public static function getPictureDir() {
+		public function getPictureDir() {
 			$suffix = '';
 			if (isset($_POST['suffix'])) {
 				debug('extract suffix from POST');
@@ -115,7 +116,7 @@ EOF;
 				debug('extract suffix from GET');
 				$suffix = $_GET['suffix'];
 			}
-			return 'acct_'.$_SESSION['id'].$suffix;
+			return 'acct_' . $this->id . $suffix;
 		}
 
 		public function save() {
@@ -154,9 +155,8 @@ EOF;
 			)) === FALSE) {
 				throw new Exception('Cannot delete account : '.sprint_r($db->errorInfo()));
 			}
-			unset($_SESSION['id']);
+			self::signout();
 			debug("delete account ok");
-
 		}
 
 		public static function exists($email) {
@@ -176,7 +176,7 @@ EOF;
 
 			return $st->rowCount() == 1;
 		}
-		
+
 		public static function retrieveFromEmail($email) {
 			global $db;
 
@@ -195,8 +195,8 @@ EOF;
 			if ($st->rowCount() == 0) {
 				throw new Exception('Account not found for email = ' . $email);
 			}
-			$_SESSION['id'] = $st->fetch()['id'];
-			return new Account();
+			$id = $st->fetch()['id'];
+			return new Account($id);
 		}
 
 		public static function signin($email, $password) {
@@ -222,14 +222,14 @@ EOF;
 			if ($st->rowCount() == 0) {
 				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
 			}
-			$_SESSION['id'] = $st->fetch()['id'];
-
-			return new Account();
+			$id = $st->fetch()['id'];
+			$_SESSION['id'] = $id;
+			return new Account($id);
 		}
 
-		public static function signinWithCode($id, $code) {
+		public static function retrieveFromCode($id, $code) {
 			global $db;
-			Account::signout();
+			self::signout();
 
 
 			$sql = <<<EOF
@@ -249,8 +249,8 @@ EOF;
 			if ($st->rowCount() == 0) {
 				throw new Exception(ERROR_BAD_REACTIVATION_CODE_MSG, ERROR_BAD_REACTIVATION_CODE_CODE);
 			}
-			$_SESSION['id'] = $st->fetch()['id'];
-
+			$id = $st->fetch()['id'];
+			// we do not open a session for this one
 			return new Account();
 		}
 
@@ -258,7 +258,7 @@ EOF;
 			$email = $ownerDetails->getEmail();
 			$account = NULL;
 			try {
-				$account = Account::retrieveFromEmail($email);
+				$account = self::retrieveFromEmail($email);
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -269,7 +269,7 @@ EOF;
 				$content->lastname = $ownerDetails->getLastName();
 				$content->firstname = $ownerDetails->getFirstName();
 				$content->sync = 'google';
-				Account::create($request);
+				self::create($request);
 			}
 		}
 
@@ -277,7 +277,7 @@ EOF;
 			$email = $ownerDetails->getEmail();
 			$account = NULL;
 			try {
-				$account = Account::retrieveFromEmail($email);
+				$account = self::retrieveFromEmail($email);
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -288,7 +288,7 @@ EOF;
 				$content->lastname = $ownerDetails->getLastName();
 				$content->firstname = $ownerDetails->getFirstName();
 				$content->sync = 'facebook';
-				Account::create($request);
+				self::create($request);
 			}
 		}
 
@@ -308,6 +308,6 @@ EOF;
 			}
 		}
 
-		
+
 	}
 
