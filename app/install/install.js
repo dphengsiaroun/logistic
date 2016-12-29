@@ -33,22 +33,24 @@
 		var $http = $injector.get('$http');
 		var $location = $injector.get('$location');
 
-        $rootScope.obj = {
-            hostname: 'localhost',
-            username: 'root',
-            password: '',
-            databaseName: 'logistic',
-			oauth2: {
-				google: {
-					clientID: 'TBD1',
-					clientSecret: 'TBD2'
-				},
-				facebook: {
-					clientID: 'TBD3',
-					clientSecret: 'TBD4'
-				},
-			}
+        $rootScope.obj = {};
+
+		$rootScope.initObj = function() {
+            console.log('initObj', arguments);
+            $http({
+				url: '../ws/install/init-obj.php',
+				method: 'GET'
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === 'ok') {
+					$rootScope.obj = response.data.obj;
+				}
+			}).catch(function(error) {
+				console.error('error', error);
+			});
         };
+
+		$rootScope.initObj();
 
         $rootScope.install = function() {
             console.log('install', arguments);

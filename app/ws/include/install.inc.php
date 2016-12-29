@@ -1,5 +1,34 @@
 <?php
 
+	function getObj() {
+		$configLog = str_replace(".ini", ".log", CONFIG_INI);
+		debug('$configLog', $configLog);
+		$result = array(
+			'hostname' => 'localhost',
+			'username' => 'root',
+			'password' => '',
+			'databaseName' => 'logistic',
+			'oauth2' => array(
+				'google' => array(
+					'clientID' => 'TBD1',
+					'clientSecret' => 'TBD2',
+				),
+				'facebook' => array(
+					'clientID' => 'TBD3',
+					'clientSecret' => 'TBD4',
+				),	
+			),
+		);
+		if (file_exists($configLog)) {
+			require_once($configLog);
+			$result['oauth2']['google']['clientID'] = $oauth2GoogleClientId;
+			$result['oauth2']['google']['clientSecret'] = $oauth2GoogleClientSecret;
+			$result['oauth2']['facebook']['clientID'] = $oauth2FacebookClientId;
+			$result['oauth2']['facebook']['clientSecret'] = $oauth2FacebookClientSecret;
+		}
+		return $result;
+	}
+
 	function isConfigIniFileExisting() {
 		global $host, $user, $mdp, $bdd;
 		return isset($host)
