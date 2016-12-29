@@ -13,7 +13,7 @@
 				'3': 'Aie... Erreur technique... désolé.',
 				'4': 'Email déjà pris.',
 				'7': 'Ancien mot de passe incorrect.',
-
+				'8': 'Code de réactivation non valide.',
 			};
 			if (error === undefined) {
 				return '';
@@ -28,7 +28,7 @@
 				return 'Technical Error: HTTP status = ' + error.status;
 			}
 			console.error('TODO: implement message for error ' + error.data);
-			return 'Unknown error. Check the console.';
+			return 'Unknown error.';
 		};
 	});
 

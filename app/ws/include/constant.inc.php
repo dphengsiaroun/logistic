@@ -37,3 +37,6 @@
 
 	define('ERROR_INCORRECT_OLD_PASSWORD_CODE', 7);
 	define('ERROR_INCORRECT_OLD_PASSWORD_MSG', 'Incorrect old password.');
+
+	define('ERROR_BAD_REACTIVATION_CODE_CODE', 8);
+	define('ERROR_BAD_REACTIVATION_CODE_MSG', 'Bad reactivation code.');

@@ -12,6 +12,7 @@
 		var $http = $injector.get('$http');
 		var $state = $injector.get('$state');
 		var $window = $injector.get('$window');
+		var $location = $injector.get('$location');
 
 		var service = this;
 
@@ -82,6 +83,34 @@
 				service.error = undefined;
 				service.account = response.data.account;
 				$state.go('home');
+			}).catch(function(error) {
+				service.error = error;
+			});
+		};
+
+		this.signinWithCode = function() {
+			console.log('sign in with code');
+			var code = $location.search().code;
+			var id = $location.search().id;
+			console.log('code', code);
+			console.log('id', id);
+			$http({
+				url: makeUrl('signinWithCode'),
+				method: 'POST',
+				data: {
+					code: code,
+					id: id
+				},
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === "ko") {
+					service.error = response;
+					$state.go('error');
+					return;
+				}
+				service.error = undefined;
+				service.account = response.data.account;
 			}).catch(function(error) {
 				service.error = error;
 			});
@@ -254,6 +283,14 @@
 		});
 
 		console.log('this.updateData', this.updateData);
+		this.user.error = undefined;
+	}]);
+
+	app.controller('UserChooseNewPasswordCtrl', ['$scope', '$injector', function UserChooseNewPasswordCtrl($scope, $injector) {
+		var self = this;
+		this.user = $injector.get('user');
+		console.log('this.user', this.user);
+		this.user.signinWithCode();
 		this.user.error = undefined;
 	}]);
 

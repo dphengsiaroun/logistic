@@ -147,6 +147,12 @@
 			},
 			back: false,
 		});
+		$stateProvider.state({
+			name: 'user:chooseNewPassword',
+			url: '/choose-new-password',
+			component: 'lgUserChooseNewPasswordRoute',
+			back: false,
+		});
 
 	}]);
 
@@ -182,6 +188,11 @@
 	app.component('lgUserForgottenPasswordRoute', {
 		templateUrl: 'lg-user/tmpl/forgotten-password.html',
 		controller: 'UserCtrl'
+	});
+
+	app.component('lgUserChooseNewPasswordRoute', {
+		templateUrl: 'lg-user/tmpl/choose-new-password.html',
+		controller: 'UserChooseNewPasswordCtrl'
 	});
 
 })();

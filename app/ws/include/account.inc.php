@@ -195,13 +195,13 @@ EOF;
 			if ($st->rowCount() == 0) {
 				throw new Exception('Account not found for email = ' . $email);
 			}
-
 			$_SESSION['id'] = $st->fetch()['id'];
 			return new Account();
 		}
 
 		public static function signin($email, $password) {
 			global $db;
+			$this::signout();
 
 			$sql = <<<EOF
 SELECT id FROM account WHERE
@@ -221,6 +221,33 @@ EOF;
 
 			if ($st->rowCount() == 0) {
 				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
+			}
+			$_SESSION['id'] = $st->fetch()['id'];
+
+			return new Account();
+		}
+
+		public static function signinWithCode($id, $code) {
+			global $db;
+			Account::signout();
+
+
+			$sql = <<<EOF
+SELECT id FROM account WHERE
+	id = 41;
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+
+			if ($st->rowCount() == 0) {
+				throw new Exception(ERROR_BAD_REACTIVATION_CODE_MSG, ERROR_BAD_REACTIVATION_CODE_CODE);
 			}
 			$_SESSION['id'] = $st->fetch()['id'];
 
@@ -272,7 +299,15 @@ EOF;
 		}
 
 		public function getReactivationUrl() {
-			return getAppUrl() . '?id=' . $this->id . '&code=' . $this->content->forgottenPasswordCode . '#/choose-new-password';
+			return getAppUrl() . '#/choose-new-password?id=' . $this->id . '&code=' . $this->content->forgottenPasswordCode;
 		}
+
+		public static function signout() {
+			if (isset($_SESSION['id'])) {
+				unset($_SESSION['id']);
+			}
+		}
+
+		
 	}
 
