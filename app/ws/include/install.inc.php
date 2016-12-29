@@ -22,33 +22,33 @@
 		if (file_exists($configLog)) {
 			require_once($configLog);
 
-			$result['password'] = $mdp;
+			$result['appName'] = $cfg->appName;
 
-			$result['oauth2']['google']['clientID'] = $oauth2GoogleClientId;
-			$result['oauth2']['google']['clientSecret'] = $oauth2GoogleClientSecret;
-			$result['oauth2']['facebook']['clientID'] = $oauth2FacebookClientId;
-			$result['oauth2']['facebook']['clientSecret'] = $oauth2FacebookClientSecret;
+			$result['password'] = $cfg->mdp;
 
-			$result['smtp']['host'] = $smtpServerHost;
-			$result['smtp']['port'] = $smtpServerPort;
-			$result['smtp']['username'] = $smtpServerUsername;
-			$result['smtp']['password'] = $smtpServerPassword;
-			$result['smtp']['from'] = $smtpServerFrom;
+			$result['oauth2']['google']['clientID'] = $cfg->oauth2GoogleClientId;
+			$result['oauth2']['google']['clientSecret'] = $cfg->oauth2GoogleClientSecret;
+			$result['oauth2']['facebook']['clientID'] = $cfg->oauth2FacebookClientId;
+			$result['oauth2']['facebook']['clientSecret'] = $cfg->oauth2FacebookClientSecret;
+
+			$result['smtp']['host'] = $cfg->smtpServerHost;
+			$result['smtp']['port'] = $cfg->smtpServerPort;
+			$result['smtp']['username'] = $cfg->smtpServerUsername;
+			$result['smtp']['password'] = $cfg->smtpServerPassword;
+			$result['smtp']['from'] = $cfg->smtpServerFrom;
 			
 		}
 		return $result;
 	}
 
 	function isConfigIniFileExisting() {
-		global $host, $user, $mdp, $bdd;
-		return isset($host)
-		&& isset($user)
-		&& isset($mdp)
-		&& isset($bdd);
+		global $cfg;
+		return isset($cfg);
 	}
 
 	function isDatabaseExisting() {
-		global $host, $user, $mdp, $bdd, $db;
+		global $cfg, $db;
+		$bdd = $cfg->bdd;
 		$sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$bdd'";
 		$sqlResult = $db->query($sql);
 
@@ -63,23 +63,26 @@
 		debug('done');
 		$content = <<<EOF
 <?php
+
+	\$cfg = new stdClass();
+	\$cfg->appName = '$request->appName';
 	
-	\$host = '$request->hostname';
-	\$user = '$request->username';
-	\$mdp = '$request->password';
-	\$bdd = '$request->databaseName';
+	\$cfg->host = '$request->hostname';
+	\$cfg->user = '$request->username';
+	\$cfg->mdp = '$request->password';
+	\$cfg->bdd = '$request->databaseName';
 
-	\$oauth2GoogleClientId = '{$request->oauth2->google->clientID}';
-	\$oauth2GoogleClientSecret = '{$request->oauth2->google->clientSecret}';
+	\$cfg->oauth2GoogleClientId = '{$request->oauth2->google->clientID}';
+	\$cfg->oauth2GoogleClientSecret = '{$request->oauth2->google->clientSecret}';
 
-	\$oauth2FacebookClientId = '{$request->oauth2->facebook->clientID}';
-	\$oauth2FacebookClientSecret = '{$request->oauth2->facebook->clientSecret}';
+	\$cfg->oauth2FacebookClientId = '{$request->oauth2->facebook->clientID}';
+	\$cfg->oauth2FacebookClientSecret = '{$request->oauth2->facebook->clientSecret}';
 
-	\$smtpServerHost = '{$request->smtp->host}';
-	\$smtpServerPort = '{$request->smtp->port}';
-	\$smtpServerUsername = '{$request->smtp->username}';
-	\$smtpServerPassword = '{$request->smtp->password}';
-	\$smtpServerFrom = '{$request->smtp->from}';
+	\$cfg->smtpServerHost = '{$request->smtp->host}';
+	\$cfg->smtpServerPort = '{$request->smtp->port}';
+	\$cfg->smtpServerUsername = '{$request->smtp->username}';
+	\$cfg->smtpServerPassword = '{$request->smtp->password}';
+	\$cfg->smtpServerFrom = '{$request->smtp->from}';
 
 
 EOF;
@@ -118,9 +121,10 @@ EOF;
 	}
 
 	function removeDatabase() {
-		global $host, $user, $mdp, $bdd, $db;
+		global $cfg, $db;
+		
 		$sql = <<<EOF
-DROP DATABASE IF EXISTS $bdd;
+DROP DATABASE IF EXISTS {$cfg->bdd};
 EOF;
 		$st = $db->prepare($sql,
 			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));

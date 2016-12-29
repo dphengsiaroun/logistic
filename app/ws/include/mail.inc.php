@@ -3,7 +3,7 @@
 require BASE_DIR . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
 function sendmail($account) {
-	global $smtpServerHost, $smtpServerPort, $smtpServerUsername, $smtpServerPassword, $smtpServerFrom;
+	global $cfg;
 	debug('sending mail', $account);
 
 	$mail = new PHPMailer;
@@ -12,28 +12,28 @@ function sendmail($account) {
 
 	$mail->isSMTP(); // Set mailer to use SMTP
 	debug('ok1');
-	$mail->Host = $smtpServerHost;  // Specify main and backup SMTP servers
+	$mail->Host = $cfg->smtpServerHost;  // Specify main and backup SMTP servers
 	debug('ok2');
-	$mail->Port = intval($smtpServerPort); // TCP port to connect to 
+	$mail->Port = intval($cfg->smtpServerPort); // TCP port to connect to 
 	debug('ok3'); 
 	$mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
 	debug('ok4');
 	$mail->SMTPAuth = true; // Enable SMTP authentication
 	debug('ok5');
-	$mail->Username = $smtpServerUsername; // SMTP username
+	$mail->Username = $cfg->smtpServerUsername; // SMTP username
 	debug('ok6');
-	$mail->Password = $smtpServerPassword; // SMTP password
+	$mail->Password = $cfg->smtpServerPassword; // SMTP password
 	debug('ok7');
 	
 	                                 
 
-	$mail->setFrom($smtpServerFrom, 'Mailer');
+	$mail->setFrom($cfg->smtpServerFrom, $cfg->appName);
 	debug('ok8');
 	debug('mail', $mail);
 
 	$mail->addAddress($account->email, ucfirst($account->content->firstname) . ' ' . strtoupper($account->content->lastname));     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
-	$mail->addReplyTo($smtpServerFrom, 'Information Logistic');
+	$mail->addReplyTo($cfg->smtpServerFrom, 'Information Logistic');
 	//$mail->addCC('cc@example.com');
 	//$mail->addBCC('bcc@example.com');
 

@@ -1,6 +1,11 @@
 <h1>Installation</h1>
 
 <form name="installForm" ng-submit="install()">
+
+    <h2>Application</h2>
+    <label for="appName">Name</label><br/>
+    <input type="text" id="appName" ng-model="obj.appName" />
+
     <h2>Database</h2>
     <label for="hostname">Hostname</label><br/>
     <input type="text" id="hostname" ng-model="obj.hostname" />

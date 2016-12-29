@@ -8,10 +8,10 @@
 
 	
 	debug("start");
-	debug("start", $host);
-	debug("start", $user);
-	debug("start", $mdp);
-	debug("start", $bdd);
+	debug("start", $cfg->host);
+	debug("start", $cfg->user);
+	debug("start", $cfg->mdp);
+	debug("start", $cfg->bdd);
 	$result = array(
 		"status" => "ok"
 	);

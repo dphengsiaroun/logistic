@@ -17,6 +17,11 @@
 		// Try to remove the ini file
 		removeConfigIniFile();
 
+		if (isset($_SESSION['id'])) {
+			unset($_SESSION['id']);
+		}
+		
+
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = $e->getMessage();
