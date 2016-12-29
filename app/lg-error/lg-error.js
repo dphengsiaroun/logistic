@@ -18,13 +18,17 @@
 			if (error === undefined) {
 				return '';
 			}
-			if (error.data && error.data.errorCode && cfg[error.data.errorCode]) {
-				return cfg[error.data.errorCode];
+			if (error.data && error.data.errorCode) {
+				if (cfg[error.data.errorCode]) {
+					return cfg[error.data.errorCode];
+				}
+				return 'TODO: implement message for code ' + error.data.errorCode;
 			}
 			if (error.status && error.status >= 400) {
 				return 'Technical Error: HTTP status = ' + error.status;
 			}
-			return 'TODO: implement message for code ' + code;
+			console.error('TODO: implement message for error ' + error.data);
+			return 'Unknown error. Check the console.';
 		};
 	});
 
