@@ -245,5 +245,24 @@ EOF;
 				Account::create($request);
 			}
 		}
+
+		public static function syncFromFacebook($ownerDetails) {
+			$email = $ownerDetails->getEmail();
+			$account = NULL;
+			try {
+				$account = Account::retrieveFromEmail($email);
+			} catch (Exception $e) {
+				// Create the account
+				$request = new stdClass();
+				$request->email = $email;
+				$request->password = '';
+				$content = new stdClass();
+				$request->content = $content;
+				$content->lastname = $ownerDetails->getLastName();
+				$content->firstname = $ownerDetails->getFirstName();
+				$content->sync = 'facebook';
+				Account::create($request);
+			}
+		}
 	}
 
