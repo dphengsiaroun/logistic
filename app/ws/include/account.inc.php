@@ -257,9 +257,9 @@ EOF;
 
 		public static function syncFromGoogle($ownerDetails) {
 			$email = $ownerDetails->getEmail();
-			$account = NULL;
 			try {
 				$account = self::retrieveFromEmail($email);
+				$_SESSION['id'] = $account->id;
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -276,9 +276,9 @@ EOF;
 
 		public static function syncFromFacebook($ownerDetails) {
 			$email = $ownerDetails->getEmail();
-			$account = NULL;
 			try {
 				$account = self::retrieveFromEmail($email);
+				$_SESSION['id'] = $account->id;
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();

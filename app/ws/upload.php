@@ -31,7 +31,8 @@ try {
 	class MyUploadHandler extends UploadHandler
 	{
 		protected function get_user_id() {
-			return Account::getPictureDir();
+			$account = Account::getConnected();
+			return $account->getPictureDir();
 		}
 	}
 
