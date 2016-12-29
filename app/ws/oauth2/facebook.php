@@ -12,6 +12,9 @@ $provider = new \League\OAuth2\Client\Provider\Facebook([
     'graphApiVersion'   => 'v2.8',
 ]);
 
+$guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
+$provider->setHttpClient($guzzleClient);
+
 if (!isset($_GET['code'])) {
 
     // If we don't have an authorization code then get one
