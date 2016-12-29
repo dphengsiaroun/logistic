@@ -1,14 +1,14 @@
 <?php
-	
+
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/account.inc.php");
-	
-	
+
+
 	$request = getRequest();
 
 	$result = [];
 	try {
-		$account = new Account();
+		$account = Account::getConnected();
 		if ($account->password != '' && $request->oldPassword != $account->password) {
 			throw new Exception(ERROR_INCORRECT_OLD_PASSWORD_MSG, ERROR_INCORRECT_OLD_PASSWORD_CODE);
 		}

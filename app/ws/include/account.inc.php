@@ -30,6 +30,7 @@ EOF;
 				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 			}
 			$id = $db->lastInsertId();
+			$_SESSION['id'] = $id;
 			return new Account($id);
 		}
 
@@ -201,7 +202,7 @@ EOF;
 
 		public static function signin($email, $password) {
 			global $db;
-			$this::signout();
+			self::signout();
 
 			$sql = <<<EOF
 SELECT id FROM account WHERE
@@ -251,7 +252,7 @@ EOF;
 			}
 			$id = $st->fetch()['id'];
 			// we do not open a session for this one
-			return new Account();
+			return new Account($id);
 		}
 
 		public static function syncFromGoogle($ownerDetails) {

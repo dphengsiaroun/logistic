@@ -1,12 +1,12 @@
 <?php
-	
+
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/account.inc.php");
-	
+
     $request = getRequest();
 	$result = [];
 	try {
-		$account = new Account();
+		$account = Account::getConnected();
 		$account->email = $request->email;
 		$account->content = $request->content;
 		$account->save();

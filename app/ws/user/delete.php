@@ -1,15 +1,15 @@
 <?php
-	
+
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/account.inc.php");
-	
+
     $request = getRequest();
 	debug("delete account", $request);
 
 	$result = [];
 	try {
 
-		$account = new Account();
+		$account = Account::getConnected();
 		$account->delete();
 		$result['status'] = 'ok';
 
