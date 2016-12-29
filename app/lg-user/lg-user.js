@@ -218,7 +218,7 @@
 
 			// TODO: include recaptcha data
 			$http({
-				url: makeUrl('sendEmail'),
+				url: makeUrl('sendmail'),
 				method: 'POST',
 				data: data,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

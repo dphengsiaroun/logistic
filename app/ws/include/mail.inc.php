@@ -2,9 +2,9 @@
 
 require BASE_DIR . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
-function sendMail($request) {
+function sendmail($account) {
 	global $smtpServerHost, $smtpServerPort, $smtpServerUsername, $smtpServerPassword, $smtpServerFrom;
-	debug('sending mail', $request);
+	debug('sending mail', $account);
 
 	$mail = new PHPMailer;
 
@@ -31,9 +31,9 @@ function sendMail($request) {
 	debug('ok8');
 	debug('mail', $mail);
 
-	$mail->addAddress('jlguenego.logistic@gmail.com', 'Joe User');     // Add a recipient
+	$mail->addAddress($account->email, ucfirst($account->content->firstname) . ' ' . strtoupper($account->content->lastname));     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
-	$mail->addReplyTo('jlguenego.logistic@gmail.com', 'Information Logistic');
+	$mail->addReplyTo($smtpServerFrom, 'Information Logistic');
 	//$mail->addCC('cc@example.com');
 	//$mail->addBCC('bcc@example.com');
 

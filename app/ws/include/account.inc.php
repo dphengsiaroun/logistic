@@ -177,7 +177,7 @@ EOF;
 			return $st->rowCount() == 1;
 		}
 		
-		public function retrieveFromEmail($email) {
+		public static function retrieveFromEmail($email) {
 			global $db;
 
 			$sql = <<<EOF
