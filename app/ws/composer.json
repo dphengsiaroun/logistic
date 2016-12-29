@@ -3,6 +3,7 @@
 		"monolog/monolog": "1.22.0",
 		"league/oauth2-client" : "1.4.2",
 		"league/oauth2-facebook": "1.4",
-		"league/oauth2-google": "1.0"
+		"league/oauth2-google": "1.0",
+		"phpmailer/phpmailer": "v5.2.21"
 	}
 }
