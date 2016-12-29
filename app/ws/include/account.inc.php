@@ -265,10 +265,14 @@ EOF;
 			}
 		}
 
-		public function createForgottenPasswordUrl() {
-			debug('createForgottenPasswordUrl');
-			$this->content->forgottenPasswordUrl = 'kiki';
+		public function createForgottenPasswordCode() {
+			debug('createForgottenPasswordCode');
+			$this->content->forgottenPasswordCode = hash('sha256', 'kiki');
 			$this->save();
+		}
+
+		public function getReactivationUrl() {
+			return getAppUrl() . '?id=' . $this->id . '&code=' . $this->content->forgottenPasswordCode . '#/choose-new-password';
 		}
 	}
 

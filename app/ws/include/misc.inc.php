@@ -74,8 +74,11 @@
 		return $result;
 	}
 
-	function getTemplate() {
-		$result = 'titi';
+	function getTemplate($file, $account, $context = NULL) {
+		ob_start();
+		require($file);
+		$result = ob_get_contents();
+		ob_end_clean();
 		return $result;
 	}
 

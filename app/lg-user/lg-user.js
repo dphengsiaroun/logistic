@@ -209,7 +209,7 @@
 		};
 
 		this.forgottenPasswordData = {
-			email: 'toto@titi.fr',
+			email: 'dphengsiaroun@gmail.com',
 			type: 'forgotten-password'
 		};
 

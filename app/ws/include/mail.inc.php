@@ -30,8 +30,8 @@ function sendmail($account, $type) {
 	$mail->isHTML(true); // Set email format to HTML
 	if ($type == 'forgotten-password') {
 		$mail->Subject = 'Logistic - Mot de passe oublié';
-		$account->createForgottenPasswordUrl();
-		$mail->Body    = getTemplate(BASE_DIR . '/mail/forgotten-password.html', array('account' => $account));
+		$account->createForgottenPasswordCode();
+		$mail->Body    = getTemplate(BASE_DIR . '/mail/forgotten-password.html', $account);
 		$mail->AltBody = html2txt($mail->Body);
 	} else {
 		$mail->Subject = 'Here is the subject';

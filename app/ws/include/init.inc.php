@@ -25,3 +25,7 @@
 		$path = str_replace('\\', '/', $path);
 		return getDomainUrl() . substr($path, strlen($_SERVER['DOCUMENT_ROOT']));
 	}
+
+	function getAppUrl() {
+        return 'http://localhost:8888/logistic/app/';
+    }
