@@ -21,10 +21,20 @@
 		);
 		if (file_exists($configLog)) {
 			require_once($configLog);
+
+			$result['password'] = $mdp;
+
 			$result['oauth2']['google']['clientID'] = $oauth2GoogleClientId;
 			$result['oauth2']['google']['clientSecret'] = $oauth2GoogleClientSecret;
 			$result['oauth2']['facebook']['clientID'] = $oauth2FacebookClientId;
 			$result['oauth2']['facebook']['clientSecret'] = $oauth2FacebookClientSecret;
+
+			$result['smtp']['host'] = $smtpServerHost;
+			$result['smtp']['port'] = $smtpServerPort;
+			$result['smtp']['username'] = $smtpServerUsername;
+			$result['smtp']['password'] = $smtpServerPassword;
+			$result['smtp']['from'] = $smtpServerFrom;
+			
 		}
 		return $result;
 	}
@@ -64,6 +74,12 @@
 
 	\$oauth2FacebookClientId = '{$request->oauth2->facebook->clientID}';
 	\$oauth2FacebookClientSecret = '{$request->oauth2->facebook->clientSecret}';
+
+	\$smtpServerHost = '{$request->smtp->host}';
+	\$smtpServerPort = '{$request->smtp->port}';
+	\$smtpServerUsername = '{$request->smtp->username}';
+	\$smtpServerPassword = '{$request->smtp->password}';
+	\$smtpServerFrom = '{$request->smtp->from}';
 
 
 EOF;

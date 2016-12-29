@@ -73,7 +73,3 @@
 		debug('request', $result);
 		return $result;
 	}
-
-	function sendMail($request) {
-		debug('sending mail', $request);
-	}

@@ -2,6 +2,7 @@
 
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/account.inc.php");
+	require_once(BASE_DIR . "/include/mail.inc.php");
 
 
 	$request = getRequest();
