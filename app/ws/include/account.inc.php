@@ -264,5 +264,11 @@ EOF;
 				Account::create($request);
 			}
 		}
+
+		public function createForgottenPasswordUrl() {
+			debug('createForgottenPasswordUrl');
+			$this->content->forgottenPasswordUrl = 'kiki';
+			$this->save();
+		}
 	}
 

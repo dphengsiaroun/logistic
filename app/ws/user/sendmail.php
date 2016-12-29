@@ -11,7 +11,7 @@
 	try {
 		if (Account::exists($request->email)) {
 			$account = Account::retrieveFromEmail($request->email);
-			sendmail($account);
+			sendmail($account, $request->type);
 		}
 
 		$result['status'] = 'ok';

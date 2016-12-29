@@ -73,3 +73,13 @@
 		debug('request', $result);
 		return $result;
 	}
+
+	function getTemplate() {
+		$result = 'titi';
+		return $result;
+	}
+
+	function html2txt($html) {
+		$result = $html;
+		return $result;
+	}
