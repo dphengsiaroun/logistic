@@ -27,5 +27,5 @@
 	}
 
 	function getAppUrl() {
-        return 'http://localhost:8888/logistic/app/';
+        return $_SERVER['HTTP_REFERER'];
     }
