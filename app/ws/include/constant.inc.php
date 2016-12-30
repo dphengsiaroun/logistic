@@ -17,6 +17,9 @@
 	// 20 Mega par personne d'image max.
 	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 20000000);
 
+	define('FORGOTTEN_PASSWORD_EXPIRED_DELAY', (24 * 3600));
+	
+
 	define('ERROR_TECHNICAL_CODE', 0);
 
 	define('ERROR_BAD_LOGIN_CODE', 1);

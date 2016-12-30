@@ -316,7 +316,7 @@ EOF;
 			$now = time();
 			debug('now', $now);
 			//$expireTime = $now + 5;
-			$expireTime = $now + (24 * 3600);
+			$expireTime = $now + FORGOTTEN_PASSWORD_EXPIRED_DELAY;
 			debug('expireTime', $expireTime);
 			$this->content->forgottenPasswordCode = hash('sha256', $this->id + SECRET + time()) . '_' . $expireTime;
 			debug('forgottenPasswordCode', $this->content->forgottenPasswordCode);
