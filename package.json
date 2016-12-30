@@ -6,7 +6,12 @@
   "repository": "https://github.com/dphengsiaroun/logistic",
   "license": "ISC",
   "devDependencies": {
-    "bower": "1.7.9"
+    "bower": "1.7.9",
+    "express": "4.14.0",
+    "express-http-proxy": "0.10.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "serve-index": "1.8.0",
+    "webpack": "1.14.0"
   },
   "scripts": {
     "postinstall": "bower install"
