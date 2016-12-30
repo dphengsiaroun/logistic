@@ -3,6 +3,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
+	require_once(BASE_DIR . "/include/rememberMe.inc.php");
 
 	debug('cookie', $_COOKIE);
 
@@ -38,9 +39,9 @@ EOF;
 		}
 
 		public static function getConnected() {
-			if (isset($_COOKIE['accountId']) &&  isset($_COOKIE['rememberMe'])) {
+			if (isset($_COOKIE['accountId'])) {
 				$account = new Account($_COOKIE['accountId']);
-				if (!$account->checkRememberMeToken()) {
+				if (!$account->getRememberMe()->checkToken()) {
 					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}
 				return $account;
@@ -242,39 +243,12 @@ EOF;
 
 		public function connect() {
 			debug('connect');
-			$obj = $this->addRememberMeTokenObj();
+			$this->getRememberMe()->connect();
 			
-			setcookie('rememberMe', $obj->token,  $obj->expirationTime, '/');
-			setcookie('accountId', $this->id,  $obj->expirationTime, '/');
 		}
 
-		public function addRememberMeTokenObj() {
-			$now = time();
-			$token = hash('sha256', $this->id . SECRET . $this->password . $now);
-			$expirationTime =  $now + (7 * 24 * 3600);
-			
-			if (!property_exists($this->content, 'tokens')) {
-				$this->content->tokens = array();
-			} 	
-			$obj = new stdClass();
-			$obj->token = $token;
-			$obj->expirationTime = $expirationTime;
-			$this->content->tokens[] = $obj;
-			$this->save();
-			return $obj;
-		}
-
-		public function checkRememberMeToken() {
-			
-			if (!property_exists($this->content, 'tokens')) {
-				return false;
-			}
-			foreach ($this->content->tokens as $obj) {
-				if ($obj->token == $_COOKIE['rememberMe'] && $obj->expirationTime > time()) {
-					return true;
-				}
-			}
-			return false;
+		public function getRememberMe() {
+			return new RememberMe($this);
 		}
 
 		public static function retrieveFromCode($id, $code) {
@@ -376,9 +350,10 @@ EOF;
 		}
 
 		public static function signout() {
-			setcookie('accountId', '', 0, '/');
-			setcookie('rememberMe', '', 0, '/');
-			debug('COOKIE', $_COOKIE);
+			try {
+				$account = self::getConnected();
+				$account->getRememberMe()->disconnect();
+			} catch (Exception $e) {}
 		}
 
 
