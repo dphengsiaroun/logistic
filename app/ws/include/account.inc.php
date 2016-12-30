@@ -4,6 +4,8 @@
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
 
+	debug('cookie', $_COOKIE);
+
 	class Account {
 
 		public function __construct($id) {
@@ -30,12 +32,20 @@ EOF;
 				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 			}
 			$id = $db->lastInsertId();
-			$_SESSION['id'] = $id;
-			return new Account($id);
+			$account = new Account($id);
+			$account->connect();
+			return $account;
 		}
 
 		public static function getConnected() {
 			if (!isset($_SESSION['id'])) {
+				if (isset($_COOKIE['accountId']) &&  isset($_COOKIE['rememberMe'])) {
+					$account = new Account($_SESSION['id']);
+					if (!$account->checkRememberMeToken()) {
+						throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
+					}
+					return $account;
+				}
 				throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 			}
 			$account = new Account($_SESSION['id']);
@@ -224,8 +234,48 @@ EOF;
 				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
 			}
 			$id = $st->fetch()['id'];
-			$_SESSION['id'] = $id;
-			return new Account($id);
+			$account = new Account($id);
+			$account->connect();
+			
+			return $account;
+		}
+
+		public function connect() {
+			debug('connect');
+			$obj = $this->addRememberMeTokenObj();
+			$_SESSION['id'] = $this->id;
+			
+			setcookie('rememberMe', $obj->token,  $obj->expirationTime, '/');
+			setcookie('accountId', $this->id,  $obj->expirationTime, '/');
+		}
+
+		public function addRememberMeTokenObj() {
+			$now = time();
+			$token = hash('sha256', $this->id . SECRET . $this->password . $now);
+			$expirationTime =  $now + (7 * 24 * 3600);
+			
+			if (!property_exists($this->content, 'tokens')) {
+				$this->content->tokens = array();
+			} 	
+			$obj = new stdClass();
+			$obj->token = $token;
+			$obj->expirationTime = $expirationTime;
+			$this->content->tokens[] = $obj;
+			$this->save();
+			return $obj;
+		}
+
+		public function checkRememberMeToken() {
+			
+			if (!property_exists($this->content, 'tokens')) {
+				return false;
+			}
+			foreach ($this->content->tokens as $obj) {
+				if ($obj->token == $_COOKIE['rememberMe'] && $obj->expirationTime > time()) {
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public static function retrieveFromCode($id, $code) {
