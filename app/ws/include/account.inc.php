@@ -38,18 +38,14 @@ EOF;
 		}
 
 		public static function getConnected() {
-			if (!isset($_SESSION['id'])) {
-				if (isset($_COOKIE['accountId']) &&  isset($_COOKIE['rememberMe'])) {
-					$account = new Account($_SESSION['id']);
-					if (!$account->checkRememberMeToken()) {
-						throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
-					}
-					return $account;
+			if (isset($_COOKIE['accountId']) &&  isset($_COOKIE['rememberMe'])) {
+				$account = new Account($_COOKIE['accountId']);
+				if (!$account->checkRememberMeToken()) {
+					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}
-				throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
+				return $account;
 			}
-			$account = new Account($_SESSION['id']);
-			return $account;
+			throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 		}
 
 		protected function retrieve() {
@@ -65,6 +61,10 @@ EOF;
 				':id' => $this->id
 			)) === FALSE) {
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			if ($st->rowCount() == 0) {
+				throw new Exception('Account not found for id = ' . $this->id);
 			}
 
 			$array = $st->fetch();
@@ -243,7 +243,6 @@ EOF;
 		public function connect() {
 			debug('connect');
 			$obj = $this->addRememberMeTokenObj();
-			$_SESSION['id'] = $this->id;
 			
 			setcookie('rememberMe', $obj->token,  $obj->expirationTime, '/');
 			setcookie('accountId', $this->id,  $obj->expirationTime, '/');
@@ -303,7 +302,6 @@ EOF;
 			}
 			self::checkForgottenPasswordCode($code);
 			$id = $st->fetch()['id'];
-			// we do not open a session for this one
 			return new Account($id);
 		}
 
@@ -326,7 +324,7 @@ EOF;
 			$email = $ownerDetails->getEmail();
 			try {
 				$account = self::retrieveFromEmail($email);
-				$_SESSION['id'] = $account->id;
+				$this->connect();
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -345,7 +343,7 @@ EOF;
 			$email = $ownerDetails->getEmail();
 			try {
 				$account = self::retrieveFromEmail($email);
-				$_SESSION['id'] = $account->id;
+				$this->connect();
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -378,9 +376,9 @@ EOF;
 		}
 
 		public static function signout() {
-			if (isset($_SESSION['id'])) {
-				unset($_SESSION['id']);
-			}
+			setcookie('accountId', '', 0, '/');
+			setcookie('rememberMe', '', 0, '/');
+			debug('COOKIE', $_COOKIE);
 		}
 
 
