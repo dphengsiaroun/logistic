@@ -12,7 +12,7 @@
 		var $http = $injector.get('$http');
 		var $state = $injector.get('$state');
 		var $window = $injector.get('$window');
-		var $location = $injector.get('$location');
+		
 
 		var service = this;
 
@@ -88,10 +88,8 @@
 			});
 		};
 
-		this.retrieveFromCode = function() {
+		this.retrieveFromCode = function(id, code) {
 			console.log('sign in with code');
-			var code = $location.search().code;
-			var id = $location.search().id;
 			console.log('code', code);
 			console.log('id', id);
 			$http({
@@ -208,19 +206,24 @@
 			newPassword: 'test'
 		};
 
+		this.forgottenPasswordData = {
+			newPassword: 'test'
+		};
+
 		this.updatePassword = function(data) {
-			console.log('user->updatePassword');
+			console.log('user->updatePassword', arguments);
 			var SHA256 = new Hashes.SHA256;
-			var data = {
-				oldPassword: SHA256.hex(this.updatePasswordData.oldPassword),
-				newPassword: SHA256.hex(this.updatePasswordData.newPassword)
-			};
-
-
+			var hashedData = angular.copy(data);
+			if (hashedData.oldPassword) {
+				hashedData.oldPassword = SHA256.hex(hashedData.oldPassword)
+			}
+			if (hashedData.newPassword) {
+				hashedData.newPassword = SHA256.hex(hashedData.newPassword)
+			}
 			$http({
 				url: makeUrl('updatePassword'),
 				method: 'POST',
-				data: data,
+				data: hashedData,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).then(function(response) {
 				console.log('response', response);
@@ -287,11 +290,16 @@
 	}]);
 
 	app.controller('UserChooseNewPasswordCtrl', ['$scope', '$injector', function UserChooseNewPasswordCtrl($scope, $injector) {
+		var $location = $injector.get('$location');
 		var self = this;
 		this.user = $injector.get('user');
 		console.log('this.user', this.user);
-		this.user.retrieveFromCode();
+		var code = $location.search().code;
+		var id = $location.search().id;
+		this.user.retrieveFromCode(id, code);
 		this.user.error = undefined;
+		this.user.forgottenPasswordData.id = id;
+		this.user.forgottenPasswordData.code = code;
 	}]);
 
 })();

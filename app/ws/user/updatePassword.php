@@ -8,10 +8,16 @@
 
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		if ($account->password != '' && $request->oldPassword != $account->password) {
-			throw new Exception(ERROR_INCORRECT_OLD_PASSWORD_MSG, ERROR_INCORRECT_OLD_PASSWORD_CODE);
+		$account = NULL;
+		if (property_exists($request, 'id') && property_exists($request, 'code')) {
+			$account = Account::retrieveFromCode($request->id, $request->code);
+		} else {
+			$account = Account::getConnected();
+			if ($account->password != '' && $request->oldPassword != $account->password) {
+				throw new Exception(ERROR_INCORRECT_OLD_PASSWORD_MSG, ERROR_INCORRECT_OLD_PASSWORD_CODE);
+			}
 		}
+		
 		$account->password = $request->newPassword;
 		$account->save();
 
