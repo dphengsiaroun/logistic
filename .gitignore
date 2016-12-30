@@ -7,4 +7,6 @@
 app/files/
 app/ws/vendor/
 composer.lock
+wpk/
+dist/
 
