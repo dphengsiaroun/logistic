@@ -235,13 +235,14 @@ EOF;
 
 			$sql = <<<EOF
 SELECT id FROM account WHERE
-	id = 41;
+	id = :id AND INSTR(content, :code) != 0;
 EOF;
 
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
-				':id' => $id
+				':id' => $id,
+				':code' => $code
 			)) === FALSE) {
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
@@ -295,7 +296,7 @@ EOF;
 
 		public function createForgottenPasswordCode() {
 			debug('createForgottenPasswordCode');
-			$this->content->forgottenPasswordCode = hash('sha256', 'kiki');
+			$this->content->forgottenPasswordCode = hash('sha256', $this->id + SECRET + time());
 			$this->save();
 		}
 

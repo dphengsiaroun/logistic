@@ -6,6 +6,8 @@
 	define('TRACE_LOG', BASE_DIR . '/_trace.log');
 	define('TRACE_LEVEL', Monolog\Logger::DEBUG);
 
+	define('SECRET', 'This is a secret...#&@!');
+
 
 	define('DOMAIN_URL', getDomainUrl());
 
