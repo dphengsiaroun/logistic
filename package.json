@@ -10,8 +10,10 @@
     "express": "4.14.0",
     "express-http-proxy": "0.10.1",
     "extract-text-webpack-plugin": "1.0.1",
+    "ng-annotate-loader": "0.2.0",
     "serve-index": "1.8.0",
-    "webpack": "1.14.0"
+    "webpack": "1.14.0",
+    "webpack-dev-middleware": "1.9.0"
   },
   "scripts": {
     "postinstall": "bower install"

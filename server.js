@@ -1,10 +1,19 @@
 var express = require('express');
 var serveIndex = require('serve-index');
 var proxy = require('express-http-proxy');
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config.js');
+var webpackDevMiddleware = require('webpack-dev-middleware');
 
 var app = express();
 
 var port = 8000;
+
+	
+	
+webpackConfig.output.path = '/';
+var compiler = webpack(webpackConfig);
+app.use('/wpk/', webpackDevMiddleware(compiler, {}));
 
 app.use('/app/ws', proxy('http://localhost:8888', {
     forwardPath: function(req, res) {

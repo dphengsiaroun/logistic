@@ -25,9 +25,7 @@
 		]);
 
 // permet de récuperer les valeurs en post sous format json
-	app.run(function($injector) {
-		var $rootScope = $injector.get('$rootScope');
-		var $window = $injector.get('$window');
+	app.run(function($rootScope, $window) {
 
 		$rootScope.back = function() {
 			console.log('back', arguments);
