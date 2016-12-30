@@ -251,9 +251,25 @@ EOF;
 			if ($st->rowCount() == 0) {
 				throw new Exception(ERROR_BAD_REACTIVATION_CODE_MSG, ERROR_BAD_REACTIVATION_CODE_CODE);
 			}
+			self::checkForgottenPasswordCode($code);
 			$id = $st->fetch()['id'];
 			// we do not open a session for this one
 			return new Account($id);
+		}
+
+		public static function checkForgottenPasswordCode($code) {
+			debug('checkForgottenPasswordCode', $code);
+			$array = explode('_', $code);
+			debug('array', $array);
+			if (count($array) == 2) {
+				$time = $array[1];
+				debug('time', $time);
+				if ($time > time()) {
+					return;
+				}
+				throw new Exception(ERROR_EXPIRED_REACTIVATION_CODE_MSG, ERROR_EXPIRED_REACTIVATION_CODE_CODE);
+			}
+			throw new Exception(ERROR_BAD_REACTIVATION_CODE_MSG, ERROR_BAD_REACTIVATION_CODE_CODE);
 		}
 
 		public static function syncFromGoogle($ownerDetails) {
@@ -296,7 +312,14 @@ EOF;
 
 		public function createForgottenPasswordCode() {
 			debug('createForgottenPasswordCode');
-			$this->content->forgottenPasswordCode = hash('sha256', $this->id + SECRET + time());
+			
+			$now = time();
+			debug('now', $now);
+			//$expireTime = $now + 5;
+			$expireTime = $now + (24 * 3600);
+			debug('expireTime', $expireTime);
+			$this->content->forgottenPasswordCode = hash('sha256', $this->id + SECRET + time()) . '_' . $expireTime;
+			debug('forgottenPasswordCode', $this->content->forgottenPasswordCode);
 			$this->save();
 		}
 

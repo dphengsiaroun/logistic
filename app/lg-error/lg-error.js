@@ -14,6 +14,7 @@
 				'4': 'Email déjà pris.',
 				'7': 'Ancien mot de passe incorrect.',
 				'8': 'Code de réactivation non valide.',
+				'9': 'Code de réactivation expiré.',
 			};
 			if (error === undefined) {
 				return '';

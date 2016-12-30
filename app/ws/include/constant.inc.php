@@ -42,3 +42,6 @@
 
 	define('ERROR_BAD_REACTIVATION_CODE_CODE', 8);
 	define('ERROR_BAD_REACTIVATION_CODE_MSG', 'Bad reactivation code.');
+
+	define('ERROR_EXPIRED_REACTIVATION_CODE_CODE', 9);
+	define('ERROR_EXPIRED_REACTIVATION_CODE_MSG', 'Expired reactivation code.');
