@@ -7,12 +7,8 @@
   "private": true,
   "dependencies": {
     "angular": "1.6.0",
-    "jquery": "2.x",
-    "bootstrap": "3.3.7",
     "font-awesome": "4.7.0",
-    "bootstrap-datepicker": "1.6.4",
     "moment": "2.15.1",
-    "flexslider": "2.6.3",
     "angular-route": "1.6.0",
     "jshashes": "1.0.5",
     "angular-sanitize": "1.6.0",
