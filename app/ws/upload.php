@@ -39,6 +39,7 @@ try {
 	$options = array(
 		'upload_dir' => UPLOAD_DIR,
 		'upload_url' => UPLOAD_URL,
+		'script_url' => 'ws/upload.php',
 		'user_dirs' => true,
 		'mkdir_mode' => 0700,
 		'max_file_size' => $account->getRemainingMaxFileSize()
