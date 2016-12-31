@@ -8,6 +8,7 @@ require('./lg-choice/lg-choice.css');
 require('./lg-calendar/lg-calendar.css');
 require('./lg-calendar/lg-hour.css');
 require('./lg-calendar/lg-hour2.css');
+require('./lg-num/lg-num.css');
 require('./lg-num/lg-num-vertical.css');
 require('./lg-upload/lg-upload.css');
 require('./lg-eyepassword/lg-eyepassword.css');
