@@ -6,8 +6,7 @@ var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 //webpackConfig.setupProd();
 var eslint = require('gulp-eslint');
-var through = require('through2');
-var open = require('open');
+
 
 gulp.task('default', ['rebuild']);
 

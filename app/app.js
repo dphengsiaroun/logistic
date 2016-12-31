@@ -1,6 +1,6 @@
 'use strict';
 
-require('../bower_components/font-awesome/css/font-awesome.css');
+require('font-awesome/css/font-awesome.css');
 require('./css/segmented-controls.css');
 
 require('./lg-menu/lg-menu.css');
@@ -20,30 +20,31 @@ require('./lg-route/css/lg-home-route.css');
 
 require('./css/style.css');
 
-require('../bower_components/jshashes/hashes.js');
-var $ = require('../bower_components/jquery/dist/jquery.js');
+window.Hashes = require('jshashes');
+var $ = require('jquery');
 window.jQuery = $;
 window.$ = $;
-require('../bower_components/angular/angular.js');
-require('../bower_components/angular-touch/angular-touch.js');
-require('../bower_components/angular-i18n/angular-locale_fr-dz.js');
-require('../bower_components/angular-sanitize/angular-sanitize.js');
-require('../bower_components/angular-ui-router/release/angular-ui-router.js');
-require('../bower_components/angular-recaptcha/release/angular-recaptcha.js');
-require('../bower_components/moment/moment.js');
+
+require('angular');
+require('angular-touch');
+require('angular-i18n/angular-locale_fr-dz.js');
+require('angular-sanitize');
+require('angular-ui-router');
+require('angular-recaptcha');
 
 /* The jQuery UI widget factory, can be omitted if jQuery UI is already included */
-require('imports?define=>false&exports=>false!blueimp-file-upload/js/vendor/jquery.ui.widget.js');
+require('blueimp-file-upload/js/vendor/jquery.ui.widget.js');
 /* The Iframe Transport is required for browsers without support for XHR file uploads */
-require('imports?define=>false&exports=>false!blueimp-file-upload/js/jquery.iframe-transport.js');
+require('blueimp-file-upload/js/jquery.iframe-transport.js');
 /* The basic File Upload plugin */
-require('imports?define=>false&exports=>false!blueimp-file-upload/js/jquery.fileupload.js');
+require('blueimp-file-upload/js/jquery.fileupload.js');
 /* The File Upload processing plugin */
-require('imports?define=>false&exports=>false!blueimp-file-upload/js/jquery.fileupload-process.js');
+require('blueimp-file-upload/js/jquery.fileupload-process.js');
 /* The File Upload validation plugin */
-require('imports?define=>false&exports=>false!blueimp-file-upload/js/jquery.fileupload-validate.js');
+require('blueimp-file-upload/js/jquery.fileupload-validate.js');
 /* The File Upload Angular JS module */
-require('imports?define=>false&exports=>false!blueimp-file-upload/js/jquery.fileupload-angular.js');
+require('blueimp-file-upload/js/jquery.fileupload-angular.js');
+
 
 require('./lg-misc/lg-misc.js');
 require('./lg-route/lg-route.js');
@@ -68,7 +69,7 @@ require('./lg-upload/lg-upload.js');
 require('./lg-debug/lg-debug.js');
 require('./lg-http/lg-http.js');
 require('./lg-error/lg-error.js');
-	
+
 
 var app = angular.module('mainApp', [
 	'ngSanitize',

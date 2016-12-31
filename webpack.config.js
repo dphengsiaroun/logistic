@@ -4,7 +4,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: {
-        'app.prod': './app/app.js'
+        'app.prod': './app/app.js',
+		'install.prod': './app/install/install.js'
     },
 	output: {
 		path: './wpk',
@@ -38,5 +39,15 @@ module.exports = {
                 comments: false,
             }
         }));
+	},
+	resolve: {
+		extensions: ['', '.js'],
+		alias: {
+			'load-image': 'blueimp-load-image/js/load-image.js',
+			'load-image-meta': 'blueimp-load-image/js/load-image-meta.js',
+			'load-image-exif': 'blueimp-load-image/js/load-image-exif.js',
+			'canvas-to-blob': 'blueimp-canvas-to-blob/js/canvas-to-blob.js',
+			'jquery-ui/ui/widget': 'blueimp-file-upload/js/vendor/jquery.ui.widget.js'
+		}
 	}
 };

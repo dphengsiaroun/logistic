@@ -4,18 +4,26 @@ var proxy = require('express-http-proxy');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 var webpackDevMiddleware = require('webpack-dev-middleware');
-
+var port = 8000;
+var proxyUrl = 'http://localhost:8888';
+try {
+	var config = require('./config.json.log');
+	proxyUrl = config.proxyUrl;
+} catch(e) {
+	console.log('no config.json.log', e);
+}
+console.log('proxyUrl', proxyUrl);
 var app = express();
 
-var port = 8000;
 
-	
-	
+
+
+
 webpackConfig.output.path = '/';
 var compiler = webpack(webpackConfig);
 app.use('/wpk/', webpackDevMiddleware(compiler, {}));
 
-app.use('/app/ws', proxy('http://localhost:8888', {
+app.use('/app/ws', proxy(proxyUrl, {
     forwardPath: function(req, res) {
         var path = require('url').parse(req.url).path;
         path = '/logistic/app/ws' + path;
