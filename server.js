@@ -1,6 +1,6 @@
 var express = require('express');
 var serveIndex = require('serve-index');
-var proxy = require('express-http-proxy');
+var httpProxy = require('http-proxy');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 var webpackDevMiddleware = require('webpack-dev-middleware');
@@ -16,6 +16,11 @@ console.log('proxyUrl', proxyUrl);
 var app = express();
 
 
+// http proxy
+var apiProxy = httpProxy.createProxyServer();
+var jlgProxy = function(req, res, next) {
+	apiProxy.web(req, res, {target: proxyUrl});
+}
 
 
 
@@ -23,14 +28,7 @@ webpackConfig.output.path = '/';
 var compiler = webpack(webpackConfig);
 app.use('/wpk/', webpackDevMiddleware(compiler, {}));
 
-app.use('/app/ws', proxy(proxyUrl, {
-    forwardPath: function(req, res) {
-        var path = require('url').parse(req.url).path;
-        path = '/logistic/app/ws' + path;
-        console.log('path', path);
-        return path;
-    }
-}));
+app.use('/app/ws', jlgProxy);
 
 app.use(express.static('.'));
 app.use(serveIndex('.', {icons: true}));
