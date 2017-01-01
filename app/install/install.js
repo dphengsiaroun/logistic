@@ -3,6 +3,11 @@
 require('angular');
 require('angular-route');
 
+var homeUrl = require('./tmpl/home.html');
+console.log('homeUrl', homeUrl);
+
+var alreadyInstalledUrl = require('./tmpl/already-installed.html');
+console.log('alreadyInstalledUrl', alreadyInstalledUrl);
 
 
 var app = angular.module('mainApp', ['ngRoute']);
@@ -11,14 +16,14 @@ app.config(['$routeProvider', function($routeProvider) {
 
 	$routeProvider
 		.when('/', {
-			templateUrl: 'tmpl/home.html',
+			templateUrl: homeUrl,
 			controller: 'HomeCtrl'
 		})
 		.when('/install', {
 			templateUrl: 'tmpl/install.html'
 		})
 		.when('/already-installed', {
-			templateUrl: 'tmpl/already-installed.html'
+			templateUrl: alreadyInstalledUrl
 		})
 		.when('/successfully-installed', {
 			templateUrl: 'tmpl/successfully-installed.html'
