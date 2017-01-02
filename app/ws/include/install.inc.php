@@ -8,6 +8,7 @@
 			'username' => 'root',
 			'password' => '',
 			'databaseName' => 'logistic',
+			'prefix' => 'lg_',
 			'oauth2' => array(
 				'google' => array(
 					'clientID' => 'TBD1',
@@ -25,6 +26,7 @@
 			$result['appName'] = $cfg->appName;
 
 			$result['password'] = $cfg->mdp;
+			$result['prefix'] = $cfg->prefix;
 
 			$result['oauth2']['google']['clientID'] = $cfg->oauth2GoogleClientId;
 			$result['oauth2']['google']['clientSecret'] = $cfg->oauth2GoogleClientSecret;
@@ -72,6 +74,7 @@
 	\$cfg->user = '$request->username';
 	\$cfg->mdp = '$request->password';
 	\$cfg->bdd = '$request->databaseName';
+	\$cfg->prefix = '$request->prefix';
 
 	\$cfg->oauth2GoogleClientId = '{$request->oauth2->google->clientID}';
 	\$cfg->oauth2GoogleClientSecret = '{$request->oauth2->google->clientSecret}';
@@ -110,7 +113,8 @@ EOF;
 			$db = new PDO("mysql:host={$request->hostname};dbname={$request->databaseName}", $request->username, $request->password);
 			
 			if ($request->dbCreation == 1) {
-				$sql = file_get_contents(BASE_DIR . "/include/install.sql");
+				$sql = getTemplate(BASE_DIR . "/include/install.sql", NULL, $request);
+				debug('sql', $sql);
 				//$requests = str_replace("ENGINE=InnoDB", "", $requests);
 				$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
