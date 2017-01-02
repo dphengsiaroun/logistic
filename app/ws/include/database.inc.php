@@ -1,9 +1,9 @@
 <?php
 	require_once(BASE_DIR . '/include/constant.inc.php');
-	require_once(CONFIG_INI);
+	include_once(CONFIG_INI);
 
 	try {
-		$db = new PDO("mysql:host={$cfg->host};dbname={$cfg->bdd}", 
+		$db = new PDO("mysql:host={$cfg->host};dbname={$cfg->bdd}",
 			$cfg->user,
 			$cfg->mdp,
 			array(
@@ -21,6 +21,6 @@
 			echo json_encode($result);
 			exit;
 		}
-		
+
 	}
 
