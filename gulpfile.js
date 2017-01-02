@@ -14,8 +14,7 @@ var path = {
 	base: 'app',
 	dist: 'dist',
 	html: ['app/index.html', 'app/install/index.html'],
-	webpack: ['app/app.js'],
-	resources: ['app/img/**/*', 'app/wpk/**/*']
+	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini']
 };
 
 
