@@ -24,47 +24,42 @@ require('angular-recaptcha');
 var lgMisc = require('./lg-misc/lg-misc.js');
 var lgRoute = require('./lg-route/lg-route.js');
 var lgMenu = require('./lg-menu/lg-menu.js');
-require('./lg-svg/lg-svg.js');
-require('./lg-carrier/lg-carrier.js');
-require('./lg-truck/lg-truck.js');
-require('./lg-loader/lg-loader.js');
+var lgSvg = require('./lg-svg/lg-svg.js');
+var lgCarrier = require('./lg-carrier/lg-carrier.js');
+var lgTruck = require('./lg-truck/lg-truck.js');
+var lgLoader = require('./lg-loader/lg-loader.js');
 var lgUser = require('./lg-user/lg-user.js');
-require('./lg-user/lg-user-route.js');
 var lgChoice = require('./lg-choice/lg-choice.js');
 var lgCalendar = require('./lg-calendar/lg-calendar.js');
-require('./lg-calendar/lg-month.js');
-require('./lg-calendar/lg-hour.js');
-require('./lg-calendar/lg-hour2.js');
 var lgNum = require('./lg-num/lg-num.js');
-require('./lg-eyepassword/lg-eyepassword.js');
-require('./lg-config/lg-config.js');
+var lgEyePassword = require('./lg-eyepassword/lg-eyepassword.js');
+var lgConfig = require('./lg-config/lg-config.js');
 var lgWidget = require('./lg-widget/lg-widget.js');
-require('./lg-widget/lg-hr.js');
-require('./lg-upload/lg-upload.js');
-require('./lg-debug/lg-debug.js');
-require('./lg-http/lg-http.js');
-require('./lg-error/lg-error.js');
+var lgUpload = require('./lg-upload/lg-upload.js');
+var lgDebug = require('./lg-debug/lg-debug.js');
+var lgHttp = require('./lg-http/lg-http.js');
+var lgError = require('./lg-error/lg-error.js');
 
 
 var app = angular.module('mainApp', [
 	'ngSanitize',
 	'vcRecaptcha',
 	lgRoute,
-	'lg-upload',
+	lgUpload,
 	lgMenu,
-	'lg-svg',
+	lgSvg,
 	lgUser,
-	'lg-carrier',
-	'lg-loader',
-	'lg-truck',
+	lgCarrier,
+	lgLoader,
+	lgTruck,
 	lgChoice,
 	lgCalendar,
-	'lg-eyepassword',
-	'lg-config',
+	lgEyePassword,
+	lgConfig,
 	lgWidget,
-	'lg-debug',
-	'lg-http',
-	'lg-error',
+	lgDebug,
+	lgHttp,
+	lgError,
 	lgMisc,
 	lgNum
 	]);

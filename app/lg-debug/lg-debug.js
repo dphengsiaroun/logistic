@@ -1,22 +1,19 @@
-(function() {
-	'use strict';
+'use strict';
 
-	var app = angular.module('lg-debug', []);
+module.exports = 'lg-debug';
 
-	app.config(['$provide', function ($provide) {
-		console.log('lg-debug config', arguments);
-		$provide.decorator('$rootScope', ['$delegate', function ($delegate) {
-			var emit = $delegate.$emit;
+var app = angular.module(module.exports, []);
 
-			$delegate.$emit = function () {
-				console.log.apply(console, arguments);
-				emit.apply(this, arguments);
-			};
+app.config(['$provide', function($provide) {
+	console.log('lg-debug config', arguments);
+	$provide.decorator('$rootScope', ['$delegate', function($delegate) {
+		var emit = $delegate.$emit;
 
-			return $delegate;
-		}]);
+		$delegate.$emit = function() {
+			console.log.apply(console, arguments);
+			emit.apply(this, arguments);
+		};
+
+		return $delegate;
 	}]);
-
-	
-
-})();
+}]);

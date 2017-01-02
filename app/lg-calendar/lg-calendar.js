@@ -1,9 +1,14 @@
 'use strict';
 
-require('./lg-calendar.css');
+
 module.exports = 'lg-calendar';
 
 var app = angular.module(module.exports, ['lg-misc']);
+
+require('./lg-calendar.css');
+require('./lg-month.js');
+require('./lg-hour.js');
+require('./lg-hour2.js');
 
 app.directive('input', ['$injector', function($injector) {
 	var $compile = $injector.get('$compile');
@@ -38,9 +43,8 @@ app.component('lgCalendarWrapper', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgCalendarWrapperUrl,
-	controller: ['$scope', '$element', '$injector', function lgCalendarWrapperCtrl($scope, $element, $injector) {
+	controller: function lgCalendarWrapperCtrl($scope, $element, $injector) {
 		var lgScroll = $injector.get('lgScroll');
-		var $locale = $injector.get('$locale');
 		var $filter = $injector.get('$filter');
 		var self = this;
 		var ngModelCtrl;
@@ -177,7 +181,7 @@ app.component('lgCalendarWrapper', {
 			};
 		};
 
-	}],
+	},
 	bindings: {
 		title: '<',
 		choices: '<',

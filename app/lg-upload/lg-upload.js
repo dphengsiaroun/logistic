@@ -1,33 +1,26 @@
 'use strict';
 
 require('./lg-upload.css');
-module.exports = 'lg-upload';
-
-/* The jQuery UI widget factory, can be omitted if jQuery UI is already included */
 require('blueimp-file-upload/js/vendor/jquery.ui.widget.js');
-/* The Iframe Transport is required for browsers without support for XHR file uploads */
 require('blueimp-file-upload/js/jquery.iframe-transport.js');
-/* The basic File Upload plugin */
 require('blueimp-file-upload/js/jquery.fileupload.js');
-/* The File Upload processing plugin */
 require('blueimp-file-upload/js/jquery.fileupload-process.js');
-/* The File Upload validation plugin */
 require('blueimp-file-upload/js/jquery.fileupload-validate.js');
-/* The File Upload Angular JS module */
 require('blueimp-file-upload/js/jquery.fileupload-angular.js');
+module.exports = 'lg-upload';
 
 var url = './ws/upload.php';
 
 var app = angular.module(module.exports, ['blueimp.fileupload']);
 
-app.config(['$httpProvider', 'fileUploadProvider', function ($httpProvider, fileUploadProvider) {
-	//delete $httpProvider.defaults.headers.common['X-Requested-With'];
-	//fileUploadProvider.defaults.redirect = window.location.href.replace(/\/[^\/]*$/, '/cors/result.html?%s');
+app.config(['$httpProvider', 'fileUploadProvider', function($httpProvider, fileUploadProvider) {
+	// delete $httpProvider.defaults.headers.common['X-Requested-With'];
+	// fileUploadProvider.defaults.redirect = window.location.href.replace(/\/[^\/]*$/, '/cors/result.html?%s');
 	console.log('fileUploadProvider.defaults', fileUploadProvider.defaults);
 	fileUploadProvider.defaults.autoUpload = true;
 }]);
 
-app.controller('FileDestroyController', ['$scope', '$http', function ($scope, $http) {
+app.controller('FileDestroyController', ['$scope', '$http', function($scope, $http) {
 	var file = $scope.file;
 	var state;
 	if (file.url) {
@@ -36,18 +29,20 @@ app.controller('FileDestroyController', ['$scope', '$http', function ($scope, $h
 		};
 
 	} else if (!file.$cancel && !file._index) {
-		file.$cancel = function () {
+		file.$cancel = function() {
 			$scope.clear(file);
 		};
 	}
 }]);
 
+var lgUploadUrl = require('./tmpl/lg-upload.html');
+
 app.component('lgUpload', {
-	templateUrl: './lg-upload/tmpl/lg-upload.html',
+	templateUrl: lgUploadUrl,
 	bindings: {
 		formData: '='
 	},
-	controller: ['$scope', '$http', function ($scope, $http) {
+	controller: function($scope, $http) {
 		console.log('DemoFileUploadController', arguments);
 
 		this.$onInit = function() {
@@ -63,7 +58,6 @@ app.component('lgUpload', {
 		};
 
 
-
 		$scope.$on('fileuploaddone', function(data) {
 			console.log('on fileuploaddone', arguments);
 			var scope = data.targetScope;
@@ -73,20 +67,20 @@ app.component('lgUpload', {
 
 		$scope.loadingFiles = true;
 
-	}]
+	}
 });
 
-app.controller('LgUploadInitCtrl', ['$scope', '$injector', function ($scope, $injector) {
+app.controller('LgUploadInitCtrl', ['$scope', '$injector', function($scope, $injector) {
 	var $http = $injector.get('$http');
 	var lgPicture = $injector.get('lgPicture');
 	var formData = $scope.$parent.$ctrl.formData;
 	console.log('formData XXX', formData);
-	$http.get(url + '?suffix=' + formData.suffix).then(function (response) {
+	$http.get(url + '?suffix=' + formData.suffix).then(function(response) {
 		console.log('$http get return', response);
 		$scope.loadingFiles = false;
 		$scope.queue = response.data.files || [];
 		$scope.refresh();
-	}).catch(function (error) {
+	}).catch(function(error) {
 		console.log('$http get error', error);
 		$scope.loadingFiles = false;
 	});
@@ -102,7 +96,7 @@ app.controller('LgUploadInitCtrl', ['$scope', '$injector', function ($scope, $in
 			$scope.file.reset = function() {
 				$scope.queue.pop();
 				$scope.refresh();
-			}
+			};
 		}
 
 		$scope.file.$destroy = function() {

@@ -11,5 +11,6 @@ module.exports = {
 		"comma-dangle": 0,
 		"require-jsdoc": 0,
 		"padded-blocks": 0,
+        "prefer-spread": 0,
     }
 };

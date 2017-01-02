@@ -4,16 +4,16 @@ require('./lg-user.css');
 module.exports = 'lg-user';
 
 var app = angular.module(module.exports, []);
+require('./lg-user-route.js');
 
 
 var makeUrl = function(str) {
 	return 'ws/user/' + str + '.php';
 };
 
-app.service('user', ['$injector', function User($injector) {
+app.service('user', function User($injector) {
 	var $http = $injector.get('$http');
 	var $state = $injector.get('$state');
-	var $window = $injector.get('$window');
 
 	var service = this;
 
@@ -270,7 +270,7 @@ app.service('user', ['$injector', function User($injector) {
 		});
 	};
 
-}]);
+});
 
 app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
 	this.user = $injector.get('user');
@@ -290,9 +290,8 @@ app.controller('UserUpdateCtrl', ['$scope', '$injector', function UserUpdateCtrl
 	this.user.error = undefined;
 }]);
 
-app.controller('UserChooseNewPasswordCtrl', ['$scope', '$injector', function UserChooseNewPasswordCtrl($scope, $injector) {
+app.controller('UserChooseNewPasswordCtrl', function UserChooseNewPasswordCtrl($scope, $injector) {
 	var $location = $injector.get('$location');
-	var self = this;
 	this.user = $injector.get('user');
 	console.log('this.user', this.user);
 	var code = $location.search().code;
@@ -301,4 +300,4 @@ app.controller('UserChooseNewPasswordCtrl', ['$scope', '$injector', function Use
 	this.user.error = undefined;
 	this.user.forgottenPasswordData.id = id;
 	this.user.forgottenPasswordData.code = code;
-}]);
+});

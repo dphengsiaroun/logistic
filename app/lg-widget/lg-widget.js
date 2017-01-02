@@ -1,9 +1,12 @@
 'use strict';
 
-require('./lg-widget.css');
+
 module.exports = 'lg-widget';
 
 var app = angular.module(module.exports, []);
+
+require('./lg-widget.css');
+require('./lg-hr.js');
 
 var lgPromptUrl = require('./tmpl/lg-prompt.html');
 var lgConfirmUrl = require('./tmpl/lg-confirm.html');
