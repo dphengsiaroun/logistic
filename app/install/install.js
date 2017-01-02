@@ -2,6 +2,7 @@
 
 require('angular');
 require('angular-route');
+require('./style.css');
 
 var homeUrl = require('./tmpl/home.html');
 var installUrl = require('./tmpl/install.html');
@@ -41,6 +42,7 @@ app.run(['$injector', function($injector) {
 	var $rootScope = $injector.get('$rootScope');
 	var $http = $injector.get('$http');
 	var $location = $injector.get('$location');
+	var $window = $injector.get('$window');
 
 	$rootScope.obj = {};
 
@@ -54,6 +56,7 @@ app.run(['$injector', function($injector) {
 			if (response.data.status === 'ok') {
 				$rootScope.obj = response.data.obj;
 			}
+			$rootScope.obj.appUrl = $window.location.href.substring(0, $window.location.href.indexOf('#'));
 		}).catch(function(error) {
 			console.error('error', error);
 		});

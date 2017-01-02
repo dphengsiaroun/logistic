@@ -3,12 +3,12 @@
 define("BASE_DIR", dirname(__DIR__));
 require_once(BASE_DIR . "/include/account.inc.php");
 
-$url = getUrlFromPath(dirname(BASE_DIR));
+$url = getAppUrl();
 
 $provider = new \League\OAuth2\Client\Provider\Facebook([
     'clientId'          => $cfg->oauth2FacebookClientId,
     'clientSecret'      => $cfg->oauth2FacebookClientSecret,
-    'redirectUri'       => $url . '/ws/oauth2/facebook.php',
+    'redirectUri'       => $url . 'ws/oauth2/facebook.php',
     'graphApiVersion'   => 'v2.8',
 ]);
 

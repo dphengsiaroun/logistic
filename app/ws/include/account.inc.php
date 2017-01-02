@@ -298,7 +298,7 @@ EOF;
 			$email = $ownerDetails->getEmail();
 			try {
 				$account = self::retrieveFromEmail($email);
-				$this->connect();
+				$account->connect();
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -317,7 +317,7 @@ EOF;
 			$email = $ownerDetails->getEmail();
 			try {
 				$account = self::retrieveFromEmail($email);
-				$this->connect();
+				$account->connect();
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();

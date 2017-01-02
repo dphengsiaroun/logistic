@@ -3,12 +3,12 @@
 define("BASE_DIR", dirname(__DIR__));
 require_once(BASE_DIR . "/include/account.inc.php");
 
-$url = getUrlFromPath(dirname(BASE_DIR));
+$url = getAppUrl();
 
 $provider = new League\OAuth2\Client\Provider\Google([
     'clientId'     => $cfg->oauth2GoogleClientId,
     'clientSecret' => $cfg->oauth2GoogleClientSecret,
-    'redirectUri'  => $url . '/ws/oauth2/google.php',
+    'redirectUri'  => $url . 'ws/oauth2/google.php',
     'hostedDomain' => getDomainUrl(),
 ]);
 

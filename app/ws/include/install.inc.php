@@ -61,6 +61,7 @@
 		debug('request', $request);
 		debug('request', $request->oauth2->google->clientID);
 		debug('done');
+		$appUrl = dirname($request->appUrl);
 		$content = <<<EOF
 <?php
 
@@ -83,6 +84,8 @@
 	\$cfg->smtpServerUsername = '{$request->smtp->username}';
 	\$cfg->smtpServerPassword = '{$request->smtp->password}';
 	\$cfg->smtpServerFrom = '{$request->smtp->from}';
+
+	\$cfg->appUrl = '$appUrl/';
 
 
 EOF;

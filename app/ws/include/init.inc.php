@@ -26,6 +26,3 @@
 		return getDomainUrl() . substr($path, strlen($_SERVER['DOCUMENT_ROOT']));
 	}
 
-	function getAppUrl() {
-        return $_SERVER['HTTP_REFERER'];
-    }
