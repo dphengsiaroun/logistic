@@ -13,9 +13,9 @@ gulp.task('default', ['rebuild']);
 var path = {
 	base: 'app',
 	dist: 'dist',
-	html: ['app/index.html'],
+	html: ['app/index.html', 'app/install/index.html'],
 	webpack: ['app/app.js'],
-	resources: ['app/resources/**/*', 'app/wpk/**/*']
+	resources: ['app/img/**/*', 'app/wpk/**/*']
 };
 
 
@@ -30,7 +30,7 @@ gulp.task('resources', function() {
 });
 
 gulp.task('html', function() {
-	return gulp.src(path.html)
+	return gulp.src(path.html, {base: path.base})
 		.pipe(gulp.dest(path.dist));
 });
 

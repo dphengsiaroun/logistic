@@ -1,12 +1,10 @@
-*bower_components*
 *node_modules*
 *.log
-*.bak
 *.DS_Store
 *config.ini*
 app/files/
 app/ws/vendor/
 composer.lock
-wpk/
+app/wpk/
 dist/
 

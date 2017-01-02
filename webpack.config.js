@@ -8,7 +8,7 @@ module.exports = {
 		'install.prod': './app/install/install.js'
     },
 	output: {
-		path: './wpk',
+		path: './app/wpk',
 		filename: '[name].js'
 	},
 	plugins: [

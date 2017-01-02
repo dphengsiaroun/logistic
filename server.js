@@ -26,11 +26,12 @@ var jlgProxy = function(req, res, next) {
 
 webpackConfig.output.path = '/';
 var compiler = webpack(webpackConfig);
-app.use('/wpk/', webpackDevMiddleware(compiler, {}));
+app.use('/app/wpk/', webpackDevMiddleware(compiler, {}));
 
-app.use('/app/ws', jlgProxy);
+app.use(['/app/ws', '/dist/ws'], jlgProxy);
 
 app.use(express.static('.'));
+app.use('/dist/files', express.static('./app/files'));
 app.use(serveIndex('.', {icons: true}));
 
 
