@@ -17,7 +17,7 @@
 				'facebook' => array(
 					'clientID' => 'TBD3',
 					'clientSecret' => 'TBD4',
-				),	
+				),
 			),
 		);
 		if (file_exists($configLog)) {
@@ -38,7 +38,7 @@
 			$result['smtp']['username'] = $cfg->smtpServerUsername;
 			$result['smtp']['password'] = $cfg->smtpServerPassword;
 			$result['smtp']['from'] = $cfg->smtpServerFrom;
-			
+
 		}
 		return $result;
 	}
@@ -54,7 +54,7 @@
 		$sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$bdd'";
 		$sqlResult = $db->query($sql);
 
-		// Si le résultat est différent de 0 alors on récupère les données 
+		// Si le résultat est différent de 0 alors on récupère les données
 		return ($sqlResult->rowCount() != 0);
 	}
 
@@ -69,7 +69,7 @@
 
 	\$cfg = new stdClass();
 	\$cfg->appName = '$request->appName';
-	
+
 	\$cfg->host = '$request->hostname';
 	\$cfg->user = '$request->username';
 	\$cfg->mdp = '$request->password';
@@ -104,14 +104,14 @@ EOF;
 CREATE DATABASE IF NOT EXISTS {$request->databaseName} DEFAULT CHARACTER SET = 'utf8';
 USE {$request->databaseName};
 EOF;
-			
+
 			debug($sql);
 			if ($db->exec($sql) === FALSE) {
 				throw new Exception("DB creation: " . sprint_r($db->errorInfo()));
 			};
 			debug("sql done");
 			$db = new PDO("mysql:host={$request->hostname};dbname={$request->databaseName}", $request->username, $request->password);
-			
+
 			if ($request->dbCreation == 1) {
 				$sql = getTemplate(BASE_DIR . "/include/install.sql", NULL, $request);
 				debug('sql', $sql);
@@ -119,7 +119,7 @@ EOF;
 				$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 				if ($st->execute() === FALSE) {
-					throw new Exception("Table creation: ".sprint_r($db->errorInfo())." InnoDB?");
+					throw new Exception('Error: ' . sprint_r($db->errorInfo()));
 				}
 			}
 		} catch (Exception $e) {
@@ -129,14 +129,24 @@ EOF;
 
 	function removeDatabase() {
 		global $cfg, $db;
-		
+
 		$sql = <<<EOF
-DROP DATABASE IF EXISTS {$cfg->bdd};
+SELECT CONCAT( 'DROP TABLE ', GROUP_CONCAT(table_name) , ';' )
+    AS statement FROM information_schema.tables
+    WHERE table_schema = 'logistic' AND table_name LIKE 'lg_%';
 EOF;
 		$st = $db->prepare($sql,
 			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute() === FALSE) {
-			throw new Exception("Table creation: ".sprint_r($db->errorInfo())." InnoDB?");
+			throw new Exception('Error: ' . sprint_r($db->errorInfo()));
+		}
+		$array = $st->fetch();
+		$statement = $array['statement'];
+		debug('$statement', $statement);
+		$st = $db->prepare($statement,
+			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute() === FALSE) {
+			throw new Exception('Error: ' . sprint_r($db->errorInfo()));
 		}
 	}
 
