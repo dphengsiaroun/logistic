@@ -16,10 +16,10 @@
 		}
 
 		public static function create($request) {
-			global $db;
+			global $db, $cfg;
 
 			$sql = <<<EOF
-INSERT INTO account (email, password, content) VALUES
+INSERT INTO {$cfg->prefix}account (email, password, content) VALUES
 	(:email, :password, :content);
 EOF;
 
@@ -50,10 +50,10 @@ EOF;
 		}
 
 		protected function retrieve() {
-			global $db;
+			global $db, $cfg;
 			// On lance notre requête de vérification
 			$sql = <<<EOF
-SELECT * FROM account WHERE id=:id
+SELECT * FROM {$cfg->prefix}account WHERE id=:id
 EOF;
 
 			$st = $db->prepare($sql,
@@ -132,10 +132,10 @@ EOF;
 		}
 
 		public function save() {
-			global $db;
+			global $db, $cfg;
 
 			$sql = <<<EOF
-UPDATE account
+UPDATE {$cfg->prefix}account
 SET email = :email, password = :password, content = :content
 WHERE id = :id
 EOF;
@@ -153,10 +153,10 @@ EOF;
 		}
 
 		public function delete() {
-			global $db;
+			global $db, $cfg;
 
 			$sql = <<<EOF
-DELETE FROM account
+DELETE FROM {$cfg->prefix}account
 WHERE id = :id;
 EOF;
 
@@ -175,7 +175,7 @@ EOF;
 			global $db;
 
 			$sql = <<<EOF
-SELECT * FROM account WHERE email=:email;
+SELECT * FROM {$cfg->prefix}account WHERE email=:email;
 EOF;
 
 			$st = $db->prepare($sql,
@@ -190,10 +190,10 @@ EOF;
 		}
 
 		public static function retrieveFromEmail($email) {
-			global $db;
+			global $db, $cfg;
 
 			$sql = <<<EOF
-SELECT id FROM account WHERE email=:email;
+SELECT id FROM {$cfg->prefix}account WHERE email=:email;
 EOF;
 
 			$st = $db->prepare($sql,
@@ -212,11 +212,11 @@ EOF;
 		}
 
 		public static function signin($email, $password) {
-			global $db;
+			global $db, $cfg;
 			self::signout();
 
 			$sql = <<<EOF
-SELECT id FROM account WHERE
+SELECT id FROM {$cfg->prefix}account WHERE
 	email = :email AND
 	password = :password;
 EOF;
@@ -252,12 +252,12 @@ EOF;
 		}
 
 		public static function retrieveFromCode($id, $code) {
-			global $db;
+			global $db, $cfg;
 			self::signout();
 
 
 			$sql = <<<EOF
-SELECT id FROM account WHERE
+SELECT id FROM {$cfg->prefix}account WHERE
 	id = :id AND INSTR(content, :code) != 0;
 EOF;
 
