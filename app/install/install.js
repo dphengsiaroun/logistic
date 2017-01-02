@@ -4,10 +4,10 @@ require('angular');
 require('angular-route');
 
 var homeUrl = require('./tmpl/home.html');
-console.log('homeUrl', homeUrl);
-
+var installUrl = require('./tmpl/install.html');
+var successfullyInstalledUrl = require('./tmpl/successfully-installed.html');
 var alreadyInstalledUrl = require('./tmpl/already-installed.html');
-console.log('alreadyInstalledUrl', alreadyInstalledUrl);
+var installFailedUrl = require('./tmpl/install-failed.html');
 
 
 var app = angular.module('mainApp', ['ngRoute']);
@@ -20,16 +20,16 @@ app.config(['$routeProvider', function($routeProvider) {
 			controller: 'HomeCtrl'
 		})
 		.when('/install', {
-			templateUrl: 'tmpl/install.html'
+			templateUrl: installUrl
 		})
 		.when('/already-installed', {
 			templateUrl: alreadyInstalledUrl
 		})
 		.when('/successfully-installed', {
-			templateUrl: 'tmpl/successfully-installed.html'
+			templateUrl: successfullyInstalledUrl
 		})
 		.when('/install-failed', {
-			templateUrl: 'tmpl/install-failed.html'
+			templateUrl: installFailedUrl
 		})
 		.otherwise({
 			redirectTo: '/'

@@ -5,12 +5,12 @@ var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var port = 8000;
-var proxyUrl = 'http://localhost:8888';
+var proxyUrl = 'http://localhost:8888/logistic/app/ws/';
 try {
 	var config = require('./config.json.log');
 	proxyUrl = config.proxyUrl;
 } catch(e) {
-	console.log('no config.json.log', e);
+	console.log('no config.json.log');
 }
 console.log('proxyUrl', proxyUrl);
 var app = express();

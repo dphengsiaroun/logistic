@@ -3,7 +3,6 @@
 require('font-awesome/css/font-awesome.css');
 require('./css/segmented-controls.css');
 
-require('./lg-menu/lg-menu.css');
 require('./lg-choice/lg-choice.css');
 require('./lg-calendar/lg-calendar.css');
 require('./lg-calendar/lg-hour.css');
@@ -32,19 +31,6 @@ require('angular-i18n/angular-locale_fr-dz.js');
 require('angular-sanitize');
 require('angular-ui-router');
 require('angular-recaptcha');
-
-/* The jQuery UI widget factory, can be omitted if jQuery UI is already included */
-require('blueimp-file-upload/js/vendor/jquery.ui.widget.js');
-/* The Iframe Transport is required for browsers without support for XHR file uploads */
-require('blueimp-file-upload/js/jquery.iframe-transport.js');
-/* The basic File Upload plugin */
-require('blueimp-file-upload/js/jquery.fileupload.js');
-/* The File Upload processing plugin */
-require('blueimp-file-upload/js/jquery.fileupload-process.js');
-/* The File Upload validation plugin */
-require('blueimp-file-upload/js/jquery.fileupload-validate.js');
-/* The File Upload Angular JS module */
-require('blueimp-file-upload/js/jquery.fileupload-angular.js');
 
 
 require('./lg-misc/lg-misc.js');
