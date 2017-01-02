@@ -1,6 +1,7 @@
 'use strict';
 
 require('./lg-menu.css');
+module.exports = 'lg-menu';
 
 window.mobilecheck = function() {
 	var check = false;
@@ -10,12 +11,13 @@ window.mobilecheck = function() {
 	return check;
 };
 
+var app = angular.module(module.exports, []);
 
-var app = angular.module('lg-menu', []);
+var lgMenuUrl = require('./tmpl/lg-menu.html');
 
 // permet de récuperer les valeurs en post sous format json
 app.component('lgMenu', {
-	templateUrl: 'lg-menu/tmpl/lg-menu.html',
+	templateUrl: lgMenuUrl,
 	controller: ['$element', '$scope', '$injector', function LgMenuCtrl($element, $scope, $injector) {
 		var $state = $injector.get('$state');
 		var $rootScope = $injector.get('$rootScope');

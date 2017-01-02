@@ -3,7 +3,6 @@
 require('font-awesome/css/font-awesome.css');
 require('./css/segmented-controls.css');
 
-require('./lg-choice/lg-choice.css');
 require('./lg-calendar/lg-calendar.css');
 require('./lg-calendar/lg-hour.css');
 require('./lg-calendar/lg-hour2.css');
@@ -14,7 +13,7 @@ require('./lg-eyepassword/lg-eyepassword.css');
 require('./lg-widget/lg-hr.css');
 require('./lg-widget/lg-widget.css');
 
-require('./lg-user/lg-user.css');
+
 require('./css/create-add.css');
 require('./lg-route/css/lg-home-route.css');
 
@@ -35,12 +34,12 @@ require('angular-recaptcha');
 
 var lgMisc = require('./lg-misc/lg-misc.js');
 require('./lg-route/lg-route.js');
-require('./lg-menu/lg-menu.js');
+var lgMenu = require('./lg-menu/lg-menu.js');
 require('./lg-svg/lg-svg.js');
 require('./lg-carrier/lg-carrier.js');
 require('./lg-truck/lg-truck.js');
 require('./lg-loader/lg-loader.js');
-require('./lg-user/lg-user.js');
+var lgUser = require('./lg-user/lg-user.js');
 require('./lg-user/lg-user-route.js');
 require('./lg-choice/lg-choice.js');
 require('./lg-calendar/lg-calendar.js');
@@ -63,9 +62,9 @@ var app = angular.module('mainApp', [
 	'vcRecaptcha',
 	'lg-route',
 	'lg-upload',
-	'lg-menu',
+	lgMenu,
 	'lg-svg',
-	'lg-user',
+	lgUser,
 	'lg-carrier',
 	'lg-loader',
 	'lg-truck',
