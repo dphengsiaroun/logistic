@@ -64,6 +64,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 var homeUrl = require('./tmpl/home.html');
 var testNumUrl = require('./tmpl/test-num.html');
+var test2Url = require('./tmpl/test2.html');
+var testCalendarUrl = require('./tmpl/test-calendar.html');
 
 app.component('lgHomeRoute', {
 	templateUrl: homeUrl
@@ -74,10 +76,10 @@ app.component('lgTestNumRoute', {
 });
 
 app.component('lgTest2Route', {
-	templateUrl: 'lg-route/tmpl/test2.html'
+	templateUrl: test2Url
 });
 
 app.component('lgTestCalendarRoute', {
-	templateUrl: 'lg-route/tmpl/test-calendar.html'
+	templateUrl: testCalendarUrl
 });
 
