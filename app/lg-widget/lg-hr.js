@@ -1,11 +1,14 @@
-(function() {
-	'use strict';
+'use strict';
 
-	var app = angular.module('lg-widget');
+require('./lg-hr.css');
 
-	app.component('lgHr', {
-		transclude: true,
-		templateUrl: 'lg-widget/tmpl/lg-hr.html',
-	});
+module.exports = 'lg-widget';
 
-})();
+var app = angular.module(module.exports);
+
+var lgHrUrl = 'lg-widget/tmpl/lg-hr.html';
+
+app.component('lgHr', {
+	transclude: true,
+	templateUrl: lgHrUrl,
+});

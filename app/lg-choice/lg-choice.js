@@ -1,12 +1,13 @@
 'use strict';
 
 require('./lg-choice.css');
+module.exports = 'lg-choice';
 
 var removeDiacritic = function(str) {
 	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
-var app = angular.module('lg-choice', ['lg-misc']);
+var app = angular.module(module.exports, ['lg-misc']);
 
 app.directive('input', ['$injector', function($injector) {
 	var $compile = $injector.get('$compile');
@@ -38,11 +39,13 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
+var lgChoiceWrapperUrl = require('./tmpl/lg-choice-wrapper.html');
+
 app.component('lgChoiceWrapper', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: 'lg-choice/tmpl/lg-choice-wrapper.html',
+	templateUrl: lgChoiceWrapperUrl,
 	controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
 		var lgSequence = $injector.get('lgSequence');
 		var lgScroll = $injector.get('lgScroll');

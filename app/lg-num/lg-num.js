@@ -1,7 +1,9 @@
-(function() {
 	'use strict';
 
-	var app = angular.module('lg-num', []);
+require('./lg-num.css');
+module.exports = 'lg-num';
+
+	var app = angular.module(module.exports, []);
 
 	app.directive('input', ['$injector', function($injector) {
 		var $compile = $injector.get('$compile');
@@ -165,7 +167,3 @@
 			options: '<',
 		}
 	});
-
-	
-
-})();
