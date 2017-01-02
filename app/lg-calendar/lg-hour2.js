@@ -1,81 +1,81 @@
-(function() {
-	'use strict';
+'use strict';
 
-	var app = angular.module('lg-calendar');
-	var id = 0;
+require('./lg-hour2.css');
 
-	app.component('lgHour2', {
-		require: {
-			lgCalendarWrapper: '^^lgCalendarWrapper'
-		},
-		templateUrl: 'lg-calendar/tmpl/lg-hour2.html',
-		controller: function LgMonth2Ctrl($scope, $element, $locale, $compile) {
-			var self = this;
-			id++;
-			this.id = id;
+var app = angular.module('lg-calendar');
+var id = 0;
 
-			this.getRange = function(start, stop) {
-				var result = [];
-				for (var i = start; i <= stop; i++) {
-					result.push(i);
-				}
-				return result;
-			};
+var lgHour2Url = require('./tmpl/lg-hour2.html');
 
-			this.x = 108;
-			this.y = 109;
-			this.radius = 147;
+app.component('lgHour2', {
+	require: {
+		lgCalendarWrapper: '^^lgCalendarWrapper'
+	},
+	templateUrl: lgHour2Url,
+	controller: function LgMonth2Ctrl($scope, $element, $locale, $compile) {
+		var self = this;
+		id++;
+		this.id = id;
 
-			this.$onInit = function() {
-				console.log('lgHour2 ctrl $onInit', this);
-				this.refreshStyle();
-			};
+		this.getRange = function(start, stop) {
+			var result = [];
+			for (var i = start; i <= stop; i++) {
+				result.push(i);
+			}
+			return result;
+		};
 
-			this.refreshStyle = function() {
-				this.style = '';
+		this.x = 108;
+		this.y = 109;
+		this.radius = 147;
 
-				for (var i = 0; i < 24; i++) {
-					var top = this.y + this.radius*Math.cos(i*6.28/24);
-					var left = this.x - this.radius*Math.sin(i*6.28/24);
-					this.style += '.i-' + this.id + '.h-' + i + ' { top: ' + top + 'px; left: ' + left + 'px;}\n';
-				}
-			};
+		this.$onInit = function() {
+			console.log('lgHour2 ctrl $onInit', this);
+			this.refreshStyle();
+		};
 
-			this.$onChanges = function(map) {
-				if (map.selectedHours !== undefined) {
-					this.refresh();
-				}
-			};
+		this.refreshStyle = function() {
+			this.style = '';
 
-			this.update = function(hour) {
-				console.log('lgHour2 ctrl update', this);
-				this.selectedHours = hour;
-				this.action.apply(null, arguments);
+			for (var i = 0; i < 24; i++) {
+				var top = this.y + this.radius*Math.cos(i*6.28/24);
+				var left = this.x - this.radius*Math.sin(i*6.28/24);
+				this.style += '.i-' + this.id + '.h-' + i + ' { top: ' + top + 'px; left: ' + left + 'px;}\n';
+			}
+		};
+
+		this.$onChanges = function(map) {
+			if (map.selectedHours !== undefined) {
 				this.refresh();
-			};
+			}
+		};
 
-			this.refresh = function() {
-				var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
-				selectedElt.removeClass('selected');
-				selectedElt.off('click');
-				if (this.selectedHours === undefined) {
-					return;
-				}
-				var myClass = 'h-' + this.selectedHours;
-				var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
-				newSelectedElt.addClass('selected');
-				newSelectedElt.on('click', function() {
-					self.lgCalendarWrapper.next();
-					$scope.$apply();
-				});
-			};
+		this.update = function(hour) {
+			console.log('lgHour2 ctrl update', this);
+			this.selectedHours = hour;
+			this.action.apply(null, arguments);
+			this.refresh();
+		};
 
-		},
-		bindings: {
-			action: '<',
-			selectedHours: '<',
-		}
-	});
+		this.refresh = function() {
+			var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
+			selectedElt.removeClass('selected');
+			selectedElt.off('click');
+			if (this.selectedHours === undefined) {
+				return;
+			}
+			var myClass = 'h-' + this.selectedHours;
+			var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
+			newSelectedElt.addClass('selected');
+			newSelectedElt.on('click', function() {
+				self.lgCalendarWrapper.next();
+				$scope.$apply();
+			});
+		};
 
-
-})();
+	},
+	bindings: {
+		action: '<',
+		selectedHours: '<',
+	}
+});

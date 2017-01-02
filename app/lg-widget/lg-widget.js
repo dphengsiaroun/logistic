@@ -1,55 +1,62 @@
-(function() {
-	'use strict';
+'use strict';
 
-	var app = angular.module('lg-widget', []);
+require('./lg-widget.css');
+module.exports = 'lg-widget';
 
-	app.component('lgPrompt', {
-		templateUrl: 'lg-widget/tmpl/lg-prompt.html',
-		bindings: {
-			service: '<'
-		}
-	});
+var app = angular.module(module.exports, []);
 
-	app.component('lgConfirm', {
-		templateUrl: 'lg-widget/tmpl/lg-confirm.html',
-		bindings: {
-			service: '<'
-		}
-	});
+var lgPromptUrl = require('./tmpl/lg-prompt.html');
+var lgConfirmUrl = require('./tmpl/lg-confirm.html');
+var lgMessageUrl = require('./tmpl/lg-message.html');
+var lgFooterUrl = require('./tmpl/lg-footer.html');
 
-	app.component('lgMessage', {
-		templateUrl: 'lg-widget/tmpl/lg-message.html',
-		bindings: {
-			service: '<'
-		}
-	});
+app.component('lgPrompt', {
+	templateUrl: lgPromptUrl,
+	bindings: {
+		service: '<'
+	}
+});
 
-	app.component('lgFooter', {
-		templateUrl: 'lg-widget/tmpl/lg-footer.html'
-	});
+app.component('lgConfirm', {
+	templateUrl: lgConfirmUrl,
+	bindings: {
+		service: '<'
+	}
+});
 
-	app.service('lgPicture', function LgPicture() {
-		this.ctrl = undefined;
-		this.show = function(url) {
-			console.log('lgPicture.show', arguments);
-			this.ctrl.open(url);
+app.component('lgMessage', {
+	templateUrl: lgMessageUrl,
+	bindings: {
+		service: '<'
+	}
+});
+
+app.component('lgFooter', {
+	templateUrl: lgFooterUrl
+});
+
+app.service('lgPicture', function LgPicture() {
+	this.ctrl = undefined;
+	this.show = function(url) {
+		console.log('lgPicture.show', arguments);
+		this.ctrl.open(url);
+	};
+});
+
+var lgShowPictureUrl = require('./tmpl/lg-show-picture.html');
+
+app.component('lgShowPicture', {
+	templateUrl: lgShowPictureUrl,
+	controller: function LgShowPictureCtrl($element, lgPicture) {
+		lgPicture.ctrl = this;
+
+		this.open = function(url) {
+			this.url = url;
+			$element.css('display', 'block');
 		};
-	});
-
-	app.component('lgShowPicture', {
-		templateUrl: 'lg-widget/tmpl/lg-show-picture.html',
-		controller: function LgShowPictureCtrl($element, lgPicture) {
-			lgPicture.ctrl = this;
-
-			this.open = function(url) {
-				this.url = url;
-				$element.css('display', 'block');
-			};
-			this.close = function() {
-				console.log('LgShowPictureCtrl.close', arguments);
-				$element.css('display', 'none');
-			};
-		}
-	});
-
-})();
+		this.close = function() {
+			console.log('LgShowPictureCtrl.close', arguments);
+			$element.css('display', 'none');
+		};
+	}
+});

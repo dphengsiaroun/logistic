@@ -1,5 +1,6 @@
 'use strict';
 
+require('./css/lg-home-route.css');
 module.exports = 'lg-route';
 
 var app = angular.module(module.exports, ['ui.router']);

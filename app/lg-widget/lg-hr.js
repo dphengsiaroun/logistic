@@ -1,7 +1,6 @@
 'use strict';
 
 require('./lg-hr.css');
-
 module.exports = 'lg-widget';
 
 var app = angular.module(module.exports);

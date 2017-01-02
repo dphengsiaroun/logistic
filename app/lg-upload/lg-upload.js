@@ -1,5 +1,8 @@
 'use strict';
 
+require('./lg-upload.css');
+module.exports = 'lg-upload';
+
 /* The jQuery UI widget factory, can be omitted if jQuery UI is already included */
 require('blueimp-file-upload/js/vendor/jquery.ui.widget.js');
 /* The Iframe Transport is required for browsers without support for XHR file uploads */
@@ -15,7 +18,7 @@ require('blueimp-file-upload/js/jquery.fileupload-angular.js');
 
 var url = './ws/upload.php';
 
-var app = angular.module('lg-upload', ['blueimp.fileupload']);
+var app = angular.module(module.exports, ['blueimp.fileupload']);
 
 app.config(['$httpProvider', 'fileUploadProvider', function ($httpProvider, fileUploadProvider) {
 	//delete $httpProvider.defaults.headers.common['X-Requested-With'];

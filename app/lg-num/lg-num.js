@@ -1,6 +1,7 @@
 	'use strict';
 
 require('./lg-num.css');
+require('./lg-num-vertical.css');
 module.exports = 'lg-num';
 
 	var app = angular.module(module.exports, []);
@@ -22,12 +23,14 @@ module.exports = 'lg-num';
 					'" placeholder="\'' + attrs.placeholder + '\'"></lg-num>');
 				element.after(elt);
 				element.attr('style', 'display: none !important');
-				$compile(elt)(scope);
-				
+				$compile(elt)(scope);			
 			}
 		};
 
 	}]);
+
+	var lgNumVerticalUrl = require('./tmpl/lg-num-vertical.html');
+	var lgNumUrl = require('./tmpl/lg-num.html');
 
 	app.component('lgNum', { 
 		require: {
@@ -37,9 +40,9 @@ module.exports = 'lg-num';
 			console.log('lgNum templateUrl', arguments, this);
 			if ($attrs.class === 'vertical') {
 				console.log('lgNum vertical');
-				return 'lg-num/tmpl/lg-num-vertical.html';
+				return lgNumVerticalUrl;
 			}
-			return 'lg-num/tmpl/lg-num.html';
+			return lgNumUrl;
 		},
 		controller: function($element, $filter, $interval, $timeout) {
 			'ngInject';
@@ -50,7 +53,6 @@ module.exports = 'lg-num';
 			var elt = $element.find('my-input');
 			var plusElt = $element.find('plus');
 			var minusElt = $element.find('minus');
-			
 			this.myOptions = {
 				format: 3,
 				step: 1
@@ -81,8 +83,6 @@ module.exports = 'lg-num';
 						}, 2000);
 					}, 800);
 				};
-				
-				
 			};
 
 			var touchend = function() {
@@ -92,7 +92,6 @@ module.exports = 'lg-num';
 					$timeout.cancel(timeout);
 					timeout = undefined;
 				}
-				
 				if (interval !== undefined) {
 					$interval.cancel(interval);
 					interval = undefined;
@@ -102,12 +101,10 @@ module.exports = 'lg-num';
 					$interval.cancel(interval2);
 					interval2 = undefined;
 				}
-				
 			};
 
 			this.build = function() {
 				console.log('build', arguments);
-				
 				plusElt.on('touchstart', touchstart(ctrl.plus));	
 				plusElt.on('touchend', touchend);
 				plusElt.on('mouseup', touchend);
@@ -134,13 +131,10 @@ module.exports = 'lg-num';
 					} else {
 						elt.removeClass('filled');
 					}
-				
 					elt.html(valueStr);
 				};
 
-				this.build();
-
-				
+				this.build();	
 			};
 			this.plus = function() {
 				console.log('lgNum plus', arguments, this);
