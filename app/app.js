@@ -33,7 +33,7 @@ require('angular-ui-router');
 require('angular-recaptcha');
 
 
-require('./lg-misc/lg-misc.js');
+var lgMisc = require('./lg-misc/lg-misc.js');
 require('./lg-route/lg-route.js');
 require('./lg-menu/lg-menu.js');
 require('./lg-svg/lg-svg.js');
@@ -77,7 +77,7 @@ var app = angular.module('mainApp', [
 	'lg-debug',
 	'lg-http',
 	'lg-error',
-	'lg-misc',
+	lgMisc,
 	'lg-num'
 	]);
 
