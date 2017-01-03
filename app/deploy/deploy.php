@@ -43,7 +43,7 @@ function unzip($src_file, $dest_dir=false, $create_zip_name_dir=true, $overwrite
 
                         file_put_contents($file_name, $fstream );
                         // Set the rights
-                        chmod($file_name, 0777);
+                        chmod($file_name, 0705);
                         echo "save: ".$file_name."<br />";
                     }
 
@@ -72,7 +72,7 @@ function create_dirs($path) {
             if (!is_dir($directory_path)) {
                 echo 'dir: ' . $directory_path;
                 mkdir($directory_path);
-                chmod($directory_path, 0777);
+                chmod($directory_path, 0705);
             }
         }
     }
