@@ -17,9 +17,9 @@ app.component('lgMonth', {
 	templateUrl: lgMonthUrl,
 	controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
 		var self = this;
-		//console.log('lgMonth ctrl', this, arguments);
+		// console.log('lgMonth ctrl', this, arguments);
 		this.$onInit = function() {
-			//console.log('lgMonth ctrl $onInit', this);
+			// console.log('lgMonth ctrl $onInit', this);
 			this.printDays($element);
 
 			this.build();
@@ -51,10 +51,10 @@ app.component('lgMonth', {
 
 			this.isSelected = function(dayDate) {
 				if (this.selectedDate === undefined) {
-					//console.log('no selected date');
+					// console.log('no selected date');
 					return false;
 				}
-				//console.log('selected date', this.selectedDate);
+				// console.log('selected date', this.selectedDate);
 				var result = dayDate.getFullYear() === this.selectedDate.getFullYear() &&
 					dayDate.getMonth() === this.selectedDate.getMonth() &&
 					dayDate.getDate() === this.selectedDate.getDate();
@@ -65,7 +65,6 @@ app.component('lgMonth', {
 			var html = '';
 			for (var j = 0; j < 5; j++) {
 				html += '<tr>';
-				var days = [];
 				for (var k = 0; k < 7; k++) {
 					var myClass = (dayDate.getMonth() < this.month) ? 'prev-month' : '';
 					myClass += (dayDate.getMonth() > this.month) ? ' next-month' : '';
@@ -74,11 +73,12 @@ app.component('lgMonth', {
 					var dayOfMonth = dayDate.getDate();
 					var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
 					myClass += ' ' + dayDate.getFullYear() + '-' + dayDate.getMonth() + '-' + dayOfMonth;
-					html += '<td ng-click="$ctrl.update(' + actionArgs + ')" class="' + myClass + '">' + dayOfMonth + '</td>';
+					html += '<td ng-click="$ctrl.update(' + actionArgs +
+						')" class="' + myClass + '">' + dayOfMonth + '</td>';
 					dayDate = addDays(dayDate, 1);
 				}
 				if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {
-					//console.log('j===4 && ', dayDate.getMonth(), firstDayDate.getMonth());
+					// console.log('j===4 && ', dayDate.getMonth(), firstDayDate.getMonth());
 					j--;
 				}
 				html += '</tr>';
@@ -98,7 +98,8 @@ app.component('lgMonth', {
 			if (this.selectedDate === undefined) {
 				return;
 			}
-			var myClass = this.selectedDate.getFullYear() + '-' + this.selectedDate.getMonth() + '-' + this.selectedDate.getDate();
+			var myClass = this.selectedDate.getFullYear() + '-' + this.selectedDate.getMonth() +
+				'-' + this.selectedDate.getDate();
 			var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
 			newSelectedElt.on('click', function() {
@@ -106,8 +107,6 @@ app.component('lgMonth', {
 				$scope.$apply();
 			});
 		};
-
-
 
 
 		this.printDays = function($element) {

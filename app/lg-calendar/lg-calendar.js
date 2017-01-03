@@ -120,7 +120,7 @@ app.component('lgCalendarWrapper', {
 				var date = new Date(this.myOptions.start);
 				date.setMonth(date.getMonth() + i);
 				this.months.push(date);
-				//console.log('this.months', this.months);
+				// console.log('this.months', this.months);
 			}
 
 		};
@@ -143,8 +143,6 @@ app.component('lgCalendarWrapper', {
 			ngModelCtrl.$render();
 			ngModelCtrl.$setTouched();
 		};
-
-
 
 		this.$onInit = function() {
 			console.log('lgCalendarWrapper ctrl $onInit', this);

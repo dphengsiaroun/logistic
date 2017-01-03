@@ -20,9 +20,7 @@ var app = express();
 var apiProxy = httpProxy.createProxyServer();
 var jlgProxy = function(req, res, next) {
 	apiProxy.web(req, res, {target: proxyUrl});
-}
-
-
+};
 
 webpackConfig.output.path = '/';
 var compiler = webpack(webpackConfig);

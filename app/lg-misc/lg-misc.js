@@ -4,8 +4,6 @@ module.exports = 'lg-misc';
 
 var app = angular.module(module.exports, []);
 
-
-
 app.service('lgMisc', ['$injector', function LgMisc($injector) {
 	this.isWebService = function(url) {
 		return url.match(/ws\/.*\.php/);

@@ -31,7 +31,7 @@ app.directive('input', ['$injector', function($injector) {
 				'ng-model="' + attr.ngModel + '" ' +
 				requiredAttr +
 				'></lg-choice-wrapper>');
-			element.after(elt);	
+			element.after(elt);
 			element.attr('style', 'display: none !important');
 			$compile(elt)(scope);
 		}
@@ -110,7 +110,7 @@ app.component('lgChoiceWrapper', {
 				}
 				return false;
 			};
-		};	
+		};
 	}],
 	bindings: {
 		title: '<',

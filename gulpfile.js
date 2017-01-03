@@ -1,10 +1,9 @@
 var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var del = require('del');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
-//webpackConfig.setupProd();
+webpackConfig.setupProd();
 var eslint = require('gulp-eslint');
 
 

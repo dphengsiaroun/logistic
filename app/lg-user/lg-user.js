@@ -43,10 +43,10 @@ app.service('user', function User($injector) {
 			url: makeUrl('signup'),
 			method: 'POST',
 			data: data,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
@@ -74,10 +74,10 @@ app.service('user', function User($injector) {
 				// permet de crypter le password
 				password: SHA256.hex(service.signinData.password)
 			},
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
@@ -100,10 +100,10 @@ app.service('user', function User($injector) {
 				code: code,
 				id: id
 			},
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				$state.go('error');
 				return;
@@ -122,7 +122,7 @@ app.service('user', function User($injector) {
 			method: 'GET'
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
@@ -141,7 +141,7 @@ app.service('user', function User($injector) {
 			method: 'GET'
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.account = undefined;
 				if ($state.$current.needsUser) {
 					$state.go('home');
@@ -163,10 +163,10 @@ app.service('user', function User($injector) {
 			url: makeUrl('update'),
 			method: 'POST',
 			data: data,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
@@ -182,15 +182,15 @@ app.service('user', function User($injector) {
 		console.log('user->delete', service.account);
 
 		$http({
-			url:  makeUrl('delete'),
+			url: makeUrl('delete'),
 			method: 'POST',
 			data: {
 				id: service.account.id
 			},
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
@@ -216,19 +216,19 @@ app.service('user', function User($injector) {
 		var SHA256 = new Hashes.SHA256;
 		var hashedData = angular.copy(data);
 		if (hashedData.oldPassword) {
-			hashedData.oldPassword = SHA256.hex(hashedData.oldPassword)
+			hashedData.oldPassword = SHA256.hex(hashedData.oldPassword);
 		}
 		if (hashedData.newPassword) {
-			hashedData.newPassword = SHA256.hex(hashedData.newPassword)
+			hashedData.newPassword = SHA256.hex(hashedData.newPassword);
 		}
 		$http({
 			url: makeUrl('updatePassword'),
 			method: 'POST',
 			data: hashedData,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
@@ -254,10 +254,10 @@ app.service('user', function User($injector) {
 			url: makeUrl('sendmail'),
 			method: 'POST',
 			data: data,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
-			if (response.data.status === "ko") {
+			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}

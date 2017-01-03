@@ -70,7 +70,7 @@ app.run(['$injector', function($injector) {
 			url: '../ws/install/install.php',
 			method: 'POST',
 			data: $rootScope.obj,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ok') {
@@ -106,7 +106,7 @@ app.run(['$injector', function($injector) {
 
 	$rootScope.uninstall = function() {
 		console.log('uninstall', arguments);
-		 $http({
+		$http({
 			url: '../ws/install/uninstall.php',
 			method: 'GET'
 		}).then(function(response) {
@@ -124,7 +124,5 @@ app.controller('HomeCtrl', ['$injector', function($injector) {
 	var $rootScope = $injector.get('$rootScope');
 	$rootScope.isInstalled();
 }]);
-
-
 
 

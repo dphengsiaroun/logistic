@@ -18,12 +18,12 @@ app.directive('input', ['$injector', function($injector) {
 			console.log('input type="num"', arguments);
 			var myClass = ('vertical' in attrs) ? 'class="vertical"' : '';
 			var elt = angular.element('<!-- input type="num" ng-model="' + attrs.ngModel + '" -->' +
-				'<lg-num ' + myClass + ' ng-model="' + attrs.ngModel + 
-				'" options="' + attrs.options + 
+				'<lg-num ' + myClass + ' ng-model="' + attrs.ngModel +
+				'" options="' + attrs.options +
 				'" placeholder="\'' + attrs.placeholder + '\'"></lg-num>');
 			element.after(elt);
 			element.attr('style', 'display: none !important');
-			$compile(elt)(scope);			
+			$compile(elt)(scope);
 		}
 	};
 
@@ -32,7 +32,7 @@ app.directive('input', ['$injector', function($injector) {
 var lgNumVerticalUrl = require('./tmpl/lg-num-vertical.html');
 var lgNumUrl = require('./tmpl/lg-num.html');
 
-app.component('lgNum', { 
+app.component('lgNum', {
 	require: {
 		ngModel: 'ngModel'
 	},
@@ -105,11 +105,11 @@ app.component('lgNum', {
 
 		this.build = function() {
 			console.log('build', arguments);
-			plusElt.on('touchstart', touchstart(ctrl.plus));	
+			plusElt.on('touchstart', touchstart(ctrl.plus));
 			plusElt.on('touchend', touchend);
 			plusElt.on('mouseup', touchend);
 
-			minusElt.on('touchstart', touchstart(ctrl.minus));	
+			minusElt.on('touchstart', touchstart(ctrl.minus));
 			minusElt.on('touchend', touchend);
 			minusElt.on('mouseup', touchend);
 		};
@@ -134,7 +134,7 @@ app.component('lgNum', {
 				elt.html(valueStr);
 			};
 
-			this.build();	
+			this.build();
 		};
 		this.plus = function() {
 			console.log('lgNum plus', arguments, this);

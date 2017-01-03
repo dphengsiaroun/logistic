@@ -53,7 +53,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					state: 'home',
 					label: 'Accueil',
 					message: 'Votre compte a bien été mis à jour.'
-				}
+				};
 			}
 		},
 		needsUser: true
@@ -91,7 +91,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					state: 'home',
 					label: 'Accueil',
 					message: 'Votre compte a bien été supprimé.'
-				}
+				};
 			}
 		},
 		back: false
@@ -120,7 +120,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					state: 'home',
 					label: 'Accueil',
 					message: 'Votre mot de passe a bien été mis à jour.'
-				}
+				};
 			}
 		},
 		back: false,
@@ -141,7 +141,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					state: 'home',
 					label: 'Accueil',
 					message: 'Un lien de réactivation a été envoyé sur le mail ' + user.forgottenPasswordData.email
-				}
+				};
 			}
 		},
 		back: false,

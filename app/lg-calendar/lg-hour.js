@@ -13,7 +13,7 @@ app.component('lgHour', {
 	templateUrl: lgHourUrl,
 	controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
 		var self = this;
-		//console.log('lgMonth ctrl', this, arguments);
+		// console.log('lgMonth ctrl', this, arguments);
 		this.$onInit = function() {
 			console.log('lgHour ctrl $onInit', this);
 		};
