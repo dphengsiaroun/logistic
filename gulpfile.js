@@ -10,11 +10,11 @@ var fs = require('fs');
 var archiver = require('archiver');
 var Ftp = require('ftp');
 var ftpObj = {};
-var remoteZip = '';
+var remoteDir = '';
 try {
 	var config = require('./config.js');
 	ftpObj = config.ftp;
-	remoteZip = config.remoteZip;
+	remoteDir = ftpObj.remoteDir;
 } catch(e) {
 	console.log('no config.js');
 }
@@ -26,6 +26,7 @@ var path = {
 	base: 'app',
 	dist: 'dist',
 	zip: 'dist.zip',
+	deploy: 'app/deploy/deploy.php',
 	html: ['app/index.html', 'app/install/index.html'],
 	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini']
 };
@@ -106,21 +107,26 @@ function doZip(callback) {
 	});
 
 	archive.pipe(output);
-	archive.glob('**/*', {ignore: '**/*.map', cwd: './dist'});
-	// archive.directory('dist/');
+	archive.glob('**/*', {ignore: '**/*.map', cwd: 'dist'});
 	archive.finalize();
 }
 
 function doFtp() {
 	var ftp = new Ftp();
 	ftp.on('ready', function() {
-		console.log('remoteZip', remoteZip);
-		ftp.put(path.zip, remoteZip, function(err) {
+		console.log('remoteDir', remoteDir);
+		ftp.put(path.zip, remoteDir + '/dist.zip', function(err) {
 			if (err) {
 				throw err;
 			}
-			ftp.end();
+			ftp.put(path.deploy, remoteDir + '/deploy.php', function(err) {
+				if (err) {
+					throw err;
+				}
+				ftp.end();
+			});
 		});
+
 	});
 	console.log('ftpObj', ftpObj);
 	ftp.connect(ftpObj);

@@ -7,7 +7,7 @@
 * @param   string      The path where the zipfile should be unpacked, if false the directory of the zip-file is used
 * @param   boolean     Indicates if the files will be unpacked in a directory with the name of the zip-file (true) or not (false) (only if the destination directory is set to false!)
 * @param   boolean     Overwrite existing files (true) or not (false)
-*  
+*
 * @return  boolean     Succesful or not
 */
 function unzip($src_file, $dest_dir=false, $create_zip_name_dir=true, $overwrite=true) {
@@ -49,7 +49,7 @@ function unzip($src_file, $dest_dir=false, $create_zip_name_dir=true, $overwrite
 
                     // Close the entry
                     zip_entry_close($zip_entry);
-                }       
+                }
             }
             // Close the zip-file
             zip_close($zip);
@@ -81,7 +81,7 @@ function create_dirs($path) {
 if (file_exists('dist.zip')) {
     echo 'File exists.';
     // Extract C:/zipfiletest/zip-file.zip to C:/zipfiletest/zip-file/ and overwrites existing files
-    unzip('dist.zip', '.', false, true);
+    unzip('dist.zip', './', false, true);
     echo 'Successfully deployed.';
 
 } else {
