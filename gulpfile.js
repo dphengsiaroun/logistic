@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gulpIf = require('gulp-if');
 var runSequence = require('run-sequence');
 var del = require('del');
 var webpack = require('webpack');
@@ -55,4 +56,18 @@ gulp.task('lint', function() {
 	.pipe(eslint())
 	.pipe(eslint.formatEach())
 	.pipe(eslint.failAfterError());
+});
+
+function isFixed(file) {
+	return file.eslint != null && file.eslint.fixed;
+}
+
+
+gulp.task('lint-fix', function() {
+	return gulp.src(['**/*.js'])
+	.pipe(eslint({
+		fix: true
+	}))
+	.pipe(eslint.formatEach())
+	.pipe(gulpIf(isFixed, gulp.dest('.')));
 });
