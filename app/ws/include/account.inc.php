@@ -172,7 +172,7 @@ EOF;
 		}
 
 		public static function exists($email) {
-			global $db;
+			global $db, $cfg;
 
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}account WHERE email=:email;
