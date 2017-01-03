@@ -1,4 +1,4 @@
-<style>{{$ctrl.style}}</style>
+<style ng-bind="$ctrl.style"></style>
 <earth>
 	<hour ng-repeat="hour in $ctrl.getRange(0, 23)"
 		class="i-{{$ctrl.id}} h-{{hour}}"

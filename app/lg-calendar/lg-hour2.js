@@ -13,6 +13,7 @@ app.component('lgHour2', {
 	},
 	templateUrl: lgHour2Url,
 	controller: function LgMonth2Ctrl($scope, $element, $locale, $compile) {
+		'ngInject';
 		var self = this;
 		id++;
 		this.id = id;
