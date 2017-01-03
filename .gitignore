@@ -7,4 +7,6 @@ app/ws/vendor/
 composer.lock
 app/wpk/
 dist/
+config.js
+dist.zip
 
