@@ -6,8 +6,7 @@ module.exports = 'lg-num';
 
 var app = angular.module(module.exports, []);
 
-app.directive('input', ['$injector', function($injector) {
-	var $compile = $injector.get('$compile');
+app.directive('input', function($compile) {
 	return {
 		restrict: 'E',
 		require: '?ngModel',
@@ -27,7 +26,7 @@ app.directive('input', ['$injector', function($injector) {
 		}
 	};
 
-}]);
+});
 
 var lgNumVerticalUrl = require('./tmpl/lg-num-vertical.html');
 var lgNumUrl = require('./tmpl/lg-num.html');
@@ -37,6 +36,7 @@ app.component('lgNum', {
 		ngModel: 'ngModel'
 	},
 	templateUrl: function($attrs) {
+		'ngInject';
 		console.log('lgNum templateUrl', arguments, this);
 		if ($attrs.class === 'vertical') {
 			console.log('lgNum vertical');
