@@ -25,7 +25,10 @@
 
 			$result['appName'] = $cfg->appName;
 
+			$result['hostname'] = $cfg->host;
+			$result['username'] = $cfg->user;
 			$result['password'] = $cfg->mdp;
+			$result['databaseName'] = $cfg->bdd;
 			$result['prefix'] = $cfg->prefix;
 
 			$result['oauth2']['google']['clientID'] = $cfg->oauth2GoogleClientId;
