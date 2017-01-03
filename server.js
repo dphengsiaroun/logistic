@@ -7,10 +7,10 @@ var webpackDevMiddleware = require('webpack-dev-middleware');
 var port = 8000;
 var proxyUrl = 'http://localhost:8888/logistic/app/ws/';
 try {
-	var config = require('./config.js');
+	var config = require('./config.deploy.js.tmpl');
 	proxyUrl = config.proxyUrl;
 } catch(e) {
-	console.log('no config.js');
+	console.log('no config.deploy.js.tmpl');
 }
 console.log('proxyUrl', proxyUrl);
 var app = express();

@@ -9,14 +9,15 @@ var eslint = require('gulp-eslint');
 var fs = require('fs');
 var archiver = require('archiver');
 var Ftp = require('ftp');
-var ftpObj = {};
-var remoteDir = '';
+var yargs = require('yargs');
+var rp = require('request-promise');
+
+var config;
 try {
-	var config = require('./config.js');
-	ftpObj = config.ftp;
-	remoteDir = ftpObj.remoteDir;
+	config = require('./config.deploy.js.tmpl');
+
 } catch(e) {
-	console.log('no config.js');
+	console.log('no config.deploy.js.tmpl');
 }
 
 
@@ -28,7 +29,7 @@ var path = {
 	zip: 'dist.zip',
 	deploy: 'app/deploy/deploy.php',
 	html: ['app/index.html', 'app/install/index.html'],
-	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini']
+	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl']
 };
 
 
@@ -91,7 +92,7 @@ gulp.task('lint-fix', function() {
 	.pipe(gulpIf(isFixed, gulp.dest('.')));
 });
 
-function doZip(callback) {
+function doZip(name, callback) {
 
 	var output = fs.createWriteStream(__dirname + '/dist.zip');
 	var archive = archiver('zip');
@@ -108,12 +109,14 @@ function doZip(callback) {
 
 	archive.pipe(output);
 	archive.glob('**/*', {ignore: '**/*.map', cwd: 'dist'});
+	archive.append(fs.createReadStream('config.ws.' + name + '.ini.tmpl'), { name: 'ws/include/config.ini.tmpl' });
 	archive.finalize();
 }
 
-function doFtp() {
+function doFtp(options, callback) {
 	var ftp = new Ftp();
 	ftp.on('ready', function() {
+		remoteDir = options.remoteDir;
 		console.log('remoteDir', remoteDir);
 		ftp.put(path.zip, remoteDir + '/dist.zip', function(err) {
 			if (err) {
@@ -124,18 +127,45 @@ function doFtp() {
 					throw err;
 				}
 				ftp.end();
+				callback();
 			});
 		});
 
 	});
-	console.log('ftpObj', ftpObj);
-	ftp.connect(ftpObj);
+	console.log('options', options);
+	ftp.connect(options);
+}
+
+function doUnzip(options) {
+	rp(options.url + 'deploy.php')
+		.then(function(htmlString) {
+			console.log('htmlString', htmlString);
+		})
+		.catch(function(err) {
+			console.log('error', err);
+			throw err;
+		});
 }
 
 gulp.task('deploy', ['clean:zip'], function(callback) {
+	var argv = yargs.argv;
+	console.log('argv', argv);
+	var name = 'kiki';
+	var options;
+	if ('target' in argv) {
+		name = argv.target;
+	} else {
+		throw new Error('No target specified. Command example: gulp deploy --target=my_target');
+	}
+	if (config && config[name]) {
+		options = config[name];
+	}
+
 	// Zip the dist directory
-	doZip(function() {
-		doFtp();
+	doZip(name, function() {
+		doFtp(options, function() {
+			doUnzip(options);
+		});
 	});
 	// FTP the zip on the target
 

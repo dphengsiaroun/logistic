@@ -1,8 +1,8 @@
 <?php
 
 	function getObj() {
-		$configLog = str_replace(".ini", ".log", CONFIG_INI);
-		debug('$configLog', $configLog);
+		$configTmpl = str_replace(".ini", ".ini.tmpl", CONFIG_INI);
+		debug('$configLog', $configTmpl);
 		$result = array(
 			'hostname' => 'localhost',
 			'username' => 'root',
@@ -20,8 +20,8 @@
 				),
 			),
 		);
-		if (file_exists($configLog)) {
-			require_once($configLog);
+		if (file_exists($configTmpl)) {
+			require_once($configTmpl);
 
 			$result['appName'] = $cfg->appName;
 
