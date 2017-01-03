@@ -13,7 +13,7 @@ function sendmail($account, $type) {
 	$mail->isSMTP(); // Set mailer to use SMTP
 	$mail->Host = $cfg->smtpServerHost;  // Specify main and backup SMTP servers
 	$mail->Port = intval($cfg->smtpServerPort); // TCP port to connect to 
-	$mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
+	$mail->SMTPSecure = $cfg->smtpSecure; // Enable TLS encryption, `ssl` also accepted
 	$mail->SMTPAuth = true; // Enable SMTP authentication
 	$mail->Username = $cfg->smtpServerUsername; // SMTP username
 	$mail->Password = $cfg->smtpServerPassword; // SMTP password

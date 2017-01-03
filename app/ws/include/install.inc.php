@@ -38,6 +38,7 @@
 
 			$result['smtp']['host'] = $cfg->smtpServerHost;
 			$result['smtp']['port'] = $cfg->smtpServerPort;
+			$result['smtp']['secure'] = $cfg->smtpSecure;
 			$result['smtp']['username'] = $cfg->smtpServerUsername;
 			$result['smtp']['password'] = $cfg->smtpServerPassword;
 			$result['smtp']['from'] = $cfg->smtpServerFrom;
@@ -87,6 +88,7 @@
 
 	\$cfg->smtpServerHost = '{$request->smtp->host}';
 	\$cfg->smtpServerPort = '{$request->smtp->port}';
+	\$cfg->smtpSecure = '{$request->smtp->secure}';
 	\$cfg->smtpServerUsername = '{$request->smtp->username}';
 	\$cfg->smtpServerPassword = '{$request->smtp->password}';
 	\$cfg->smtpServerFrom = '{$request->smtp->from}';
