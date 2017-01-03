@@ -106,7 +106,7 @@ function doZip(callback) {
 	});
 
 	archive.pipe(output);
-	archive.glob('dist/**/*', {ignore: 'dist/**/*.map'});
+	archive.glob('**/*', {ignore: '**/*.map', cwd: './dist'});
 	// archive.directory('dist/');
 	archive.finalize();
 }
