@@ -136,7 +136,7 @@ EOF;
 		$sql = <<<EOF
 SELECT CONCAT( 'DROP TABLE ', GROUP_CONCAT(table_name) , ';' )
     AS statement FROM information_schema.tables
-    WHERE table_schema = 'logistic' AND table_name LIKE 'lg_%';
+    WHERE table_schema = '{$cfg->bdd}' AND table_name LIKE '{$cfg->prefix}%';
 EOF;
 		$st = $db->prepare($sql,
 			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
