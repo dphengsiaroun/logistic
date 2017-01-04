@@ -7,8 +7,7 @@ app/ws/vendor/
 composer.lock
 app/wpk/
 dist/
-config.js
+environments.js
 dist.zip
-*.tmpl
-
+suggested.config.php
 

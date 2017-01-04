@@ -1,0 +1,90 @@
+module.exports = {
+	// all deployment stuff (gulp deploy)
+	deploy: {
+		default: 'yoursite',
+		yoursite: {
+			ftp: {
+				host: 'ftp.yoursite.com',
+				user: 'alice',
+				password: 'this_is_a_secret',
+				remoteDir: 'www/dir/subdir',
+				url: 'http://www.yoursite.com/dir/subdir/'
+			},
+			ws: {
+				appName: 'Logistic',
+				host: 'yoursite.mysql.db',
+				user: 'alice1',
+				mdp: 'this_is_also_a_secret',
+				bdd: 'alice1',
+				prefix: 'lg_',
+
+				oauth2GoogleClientId: 'this_is_your_google_client_id.apps.googleusercontent.com',
+				oauth2GoogleClientSecret: 'and_this_is_your_google_client_secret',
+
+				oauth2FacebookClientId: 'this_is_your_facebook_client_id',
+				oauth2FacebookClientSecret: 'and_this_is_your_facebook_client_secret',
+
+				smtpServerHost: 'smtp.gmail.com',
+				smtpServerPort: '587',
+				smtpSecure: 'tls',
+				smtpServerUsername: 'username',
+				smtpServerPassword: 'Logistic',
+				smtpServerFrom: 'yourmail@gmail.com',
+			}
+
+		},
+		dev: {
+			default: 'jlgdev',
+			// dev platform with express
+			jlgdev: {
+				proxyUrl: 'http://localhost/logistic/app/ws',
+				ws: {
+					appName: 'Logistic',
+					host: 'yoursite.mysql.db',
+					user: 'alice1',
+					mdp: 'this_is_also_a_secret',
+					bdd: 'alice1',
+					prefix: 'lg_',
+
+					oauth2GoogleClientId: 'this_is_your_google_client_id.apps.googleusercontent.com',
+					oauth2GoogleClientSecret: 'and_this_is_your_google_client_secret',
+
+					oauth2FacebookClientId: 'this_is_your_facebook_client_id',
+					oauth2FacebookClientSecret: 'and_this_is_your_facebook_client_secret',
+
+					smtpServerHost: 'smtp.gmail.com',
+					smtpServerPort: '587',
+					smtpSecure: 'tls',
+					smtpServerUsername: 'username',
+					smtpServerPassword: 'Logistic',
+					smtpServerFrom: 'yourmail@gmail.com',
+				}
+			},
+			dany: {
+				proxyUrl: 'http://localhost:8888/logistic/app/ws',
+				ws: {
+					appName: 'Logistic',
+					host: 'yoursite.mysql.db',
+					user: 'alice1',
+					mdp: 'this_is_also_a_secret',
+					bdd: 'alice1',
+					prefix: 'lg_',
+
+					oauth2GoogleClientId: 'this_is_your_google_client_id.apps.googleusercontent.com',
+					oauth2GoogleClientSecret: 'and_this_is_your_google_client_secret',
+
+					oauth2FacebookClientId: 'this_is_your_facebook_client_id',
+					oauth2FacebookClientSecret: 'and_this_is_your_facebook_client_secret',
+
+					smtpServerHost: 'smtp.gmail.com',
+					smtpServerPort: '587',
+					smtpSecure: 'tls',
+					smtpServerUsername: 'username',
+					smtpServerPassword: 'Logistic',
+					smtpServerFrom: 'yourmail@gmail.com',
+				}
+			}
+		},
+
+	},
+};
