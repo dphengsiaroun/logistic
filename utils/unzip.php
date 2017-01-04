@@ -44,7 +44,6 @@ function unzip($src_file, $dest_dir=false, $create_zip_name_dir=true, $overwrite
                         file_put_contents($file_name, $fstream );
                         // Set the rights
                         chmod($file_name, 0705);
-                        echo "save: ".$file_name."<br />";
                     }
 
                     // Close the entry
@@ -70,7 +69,6 @@ function create_dirs($path) {
         foreach($directories as $directory) {
             $directory_path .= $directory."/";
             if (!is_dir($directory_path)) {
-                echo 'dir: ' . $directory_path;
                 mkdir($directory_path);
                 chmod($directory_path, 0705);
             }
@@ -79,10 +77,8 @@ function create_dirs($path) {
 }
 
 if (file_exists('dist.zip')) {
-    echo 'File exists.';
-    // Extract C:/zipfiletest/zip-file.zip to C:/zipfiletest/zip-file/ and overwrites existing files
     unzip('dist.zip', './', false, true);
-    echo 'Successfully deployed.';
+    echo 'Successfully unzipped.';
 
 } else {
     echo 'File does not exist.';

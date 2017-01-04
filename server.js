@@ -4,15 +4,14 @@ var httpProxy = require('http-proxy');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 var webpackDevMiddleware = require('webpack-dev-middleware');
+var environments = require('./cfg/environments.js');
+var cfgUtils = require('./cfg/utils.js');
+var env = cfgUtils.getEnv('dev');
 var port = 8000;
-var proxyUrl = 'http://localhost:8888/logistic/app/ws/';
-try {
-	var config = require('./config.deploy.js.tmpl');
-	proxyUrl = config.proxyUrl;
-} catch(e) {
-	console.log('no config.deploy.js.tmpl');
-}
-console.log('proxyUrl', proxyUrl);
+
+
+var proxyUrl = env.proxyUrl;
+
 var app = express();
 
 

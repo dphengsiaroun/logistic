@@ -8,17 +8,21 @@ webpackConfig.setupProd();
 var eslint = require('gulp-eslint');
 var fs = require('fs');
 var archiver = require('archiver');
-var Ftp = require('ftp');
-var yargs = require('yargs');
 var rp = require('request-promise');
+var consolidate = require('consolidate');
+var ejs = require('ejs');
+consolidate.requires.ejs = ejs;
+var gutil = require('gulp-util');
+var ftp = require('gulp-ftp');
+var zip = require('gulp-zip');
 
-var config;
-try {
-	config = require('./config.deploy.js.tmpl');
+var Promise = require('bluebird');
+Promise.promisifyAll(fs);
 
-} catch(e) {
-	console.log('no config.deploy.js.tmpl');
-}
+var cfgUtils = require('./cfg/utils.js');
+var devEnv = cfgUtils.getEnv('dev');
+var deployEnv = cfgUtils.getEnv('deploy');
+
 
 
 gulp.task('default', ['rebuild']);
@@ -26,10 +30,11 @@ gulp.task('default', ['rebuild']);
 var path = {
 	base: 'app',
 	dist: 'dist',
+	zipSrc: ['dist/**/*', '!dist/**/*.map'],
 	zip: 'dist.zip',
-	deploy: 'app/deploy/deploy.php',
 	html: ['app/index.html', 'app/install/index.html'],
-	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl']
+	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
+	ftp: ['dist.zip', 'utils/unzip.php'],
 };
 
 
@@ -92,83 +97,56 @@ gulp.task('lint-fix', function() {
 	.pipe(gulpIf(isFixed, gulp.dest('.')));
 });
 
-function doZip(name, callback) {
-
-	var output = fs.createWriteStream(__dirname + '/dist.zip');
-	var archive = archiver('zip');
-
-	output.on('close', function() {
-		console.log(archive.pointer() + ' total bytes');
-		console.log('archiver has been finalized and the output file descriptor has closed.');
+gulp.task('deploy:config', function(callback) {
+	consolidate.ejs('./cfg/config.ws.tmpl', deployEnv.ws).then(function(str) {
+		return fs.writeFileAsync('./dist/ws/include/suggested.config.php', str);
+	}).then(function(str) {
+		console.log('./dist/ws/include/suggested.config.php saved.');
 		callback();
+	}).catch(function(error) {
+		console.error('error', error);
 	});
+});
 
-	archive.on('error', function(err) {
-		throw err;
-	});
-
-	archive.pipe(output);
-	archive.glob('**/*', {ignore: '**/*.map', cwd: 'dist'});
-	archive.append(fs.createReadStream('config.ws.' + name + '.ini.tmpl'), { name: 'ws/include/config.ini.tmpl' });
-	archive.finalize();
-}
-
-function doFtp(options, callback) {
-	var ftp = new Ftp();
-	ftp.on('ready', function() {
-		remoteDir = options.remoteDir;
-		console.log('remoteDir', remoteDir);
-		ftp.put(path.zip, remoteDir + '/dist.zip', function(err) {
-			if (err) {
-				throw err;
-			}
-			ftp.put(path.deploy, remoteDir + '/deploy.php', function(err) {
-				if (err) {
-					throw err;
-				}
-				ftp.end();
-				callback();
-			});
-		});
-
-	});
-	console.log('options', options);
-	ftp.connect(options);
-}
-
-function doUnzip(options) {
-	rp(options.url + 'deploy.php')
+gulp.task('deploy:unzip', function(callback) {
+	rp(deployEnv.unzip.url + 'unzip.php')
 		.then(function(htmlString) {
 			console.log('htmlString', htmlString);
+			callback();
 		})
 		.catch(function(err) {
 			console.log('error', err);
 			throw err;
 		});
-}
-
-gulp.task('deploy', ['clean:zip'], function(callback) {
-	var argv = yargs.argv;
-	console.log('argv', argv);
-	var name = 'kiki';
-	var options;
-	if ('target' in argv) {
-		name = argv.target;
-	} else {
-		throw new Error('No target specified. Command example: gulp deploy --target=my_target');
-	}
-	if (config && config[name]) {
-		options = config[name];
-	}
-
-	// Zip the dist directory
-	doZip(name, function() {
-		doFtp(options, function() {
-			doUnzip(options);
-		});
-	});
-	// FTP the zip on the target
-
-	// FTP the PHP unzipper script
-	callback();
 });
+
+gulp.task('deploy:zip', function(callback) {
+	return gulp.src(path.zipSrc, {base: 'dist'})
+        .pipe(zip(path.zip))
+        .pipe(gulp.dest('.'));
+});
+
+gulp.task('deploy:ftp', function() {
+	console.log('env', deployEnv);
+	console.log('env.ftp', deployEnv.ftp);
+	return gulp.src(path.ftp)
+		.pipe(ftp(deployEnv.ftp))
+		.pipe(gutil.noop());
+});
+
+gulp.task('deploy', ['clean:zip'], function() {
+	runSequence('deploy:config', 'deploy:zip', 'deploy:ftp', 'deploy:unzip');
+});
+
+gulp.task('config', function(callback) {
+	consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws).then(function(str) {
+		return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
+	}).then(function(str) {
+		console.log('./app/ws/include/suggested.config.php saved.');
+		callback();
+	}).catch(function(error) {
+		console.error('error', error);
+	});
+});
+
+
