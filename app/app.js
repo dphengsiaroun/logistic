@@ -40,6 +40,11 @@ var lgDebug = require('./lg-debug/lg-debug.js');
 var lgHttp = require('./lg-http/lg-http.js');
 var lgError = require('./lg-error/lg-error.js');
 
+window.values = function(obj) {
+	return Object.keys(obj).map(function(key) {
+		return obj[key];
+	});
+};
 
 var app = angular.module('mainApp', [
 	'ngSanitize',

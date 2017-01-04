@@ -7,7 +7,7 @@
 		private $account;
 
 		public function __construct($account) {
-			if (!property_exists($account->content, 'truck')) {
+			if (!property_exists($account->content, 'trucks')) {
 				$account->content->trucks = new stdClass();
 				$account->save();
 			}
@@ -26,6 +26,10 @@
 			return $truck;
 		}
 
+		public static function listAll($account) {
+			return $account->content->trucks;
+		}
+
 		public static function save($account, $request) {
 			$truck = new Truck($account);
 			foreach ($request as $key => $value) {
@@ -35,6 +39,8 @@
 			$account->save();
 			return $truck;
 		}
+
+		
 
 		
 

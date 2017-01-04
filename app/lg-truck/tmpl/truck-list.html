@@ -2,30 +2,11 @@
         <button ui-sref="truck:create">Ajouter un véhicule</button>
 </section>
 <section class="liste-annonce">
-    <div class="block-annonce">
+    <div class="block-annonce" ng-repeat="truck in $ctrl.truck.trucks">
         <a ui-sref="truck:detail">
-            <span class="identity">JLG</span>
+            <span class="identity"></span>
             <div class="details">
-                <p>Camion 12T bâche</p>
-                <div>
-                    <div class="details-time">
-                        <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>
-                        <div class="clear"></div>
-                    </div>
-                    <div>
-                        <span class="year">Année : 2009</span><span class="tarif">0.4DZD/km</span>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </a>
-    </div>
-    <div class="block-annonce">
-        <a ui-sref="truck:detail">
-            <span class="identity">JLG</span>
-            <div class="details">
-                <p>Camion 12T bâche</p>
+                <p>{{truck.label}}</p>
                 <div>
                     <div class="details-time">
                         <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>

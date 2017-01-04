@@ -123,6 +123,27 @@ app.service('truck', ['$injector', function Truck($injector) {
 		});
 	};
 
+	this.list = function() {
+		console.log('truck->list');
+		$http({
+			url: 'ws/truck/list.php',
+			method: 'GET'
+		}).then(function(response) {
+			console.log('response', response);
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return;
+			}
+			service.error = undefined;
+			service.truckMap = response.data.trucks;
+			console.log('service.truckMap', service.truckMap);
+			service.trucks = values(service.truckMap);
+			console.log('service.trucks', service.trucks);
+		}).catch(function(error) {
+			service.error = error;
+		});
+	};
+
 	this.updateTruck = function(data) {
 		console.log('updateTruck->update');
 		$http({
@@ -167,6 +188,13 @@ app.service('truck', ['$injector', function Truck($injector) {
 
 }]);
 
+app.controller('TrucksCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
+	this.truck = $injector.get('truck');
+	this.$onInit = function() {
+		this.truck.list();
+	};
+}]);
+
 app.controller('TruckCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
 	this.truck = $injector.get('truck');
 }]);
@@ -195,7 +223,7 @@ app.component('lgTruckCreateRoute', {
 
 app.component('lgTruckListRoute', {
 	templateUrl: truckListUrl,
-	controller: 'TruckCtrl',
+	controller: 'TrucksCtrl',
 });
 
 app.component('lgTruckDetailRoute', {
