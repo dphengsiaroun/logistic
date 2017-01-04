@@ -9,33 +9,39 @@
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
 	// on décode le json en variable PHP
-    $request = json_decode($postdata); 
-	$carrier = clone $request;
-	$carrier->content = json_encode($carrier->content);
-	debug("Carrier start");
-	debug("carrier", $carrier);
+    $request = json_decode($postdata);
+	$truck = clone $request;
+	
+	$truck->content = json_encode($truck->content);
+	debug("Truck start");
+	debug("truck", $truck);
+	debug('$request->id', $request->id);
 
 	$result = [];
 	try {
+
+		// On lance notre requête de vérification
+		$sql = "SELECT * FROM lg_truck WHERE account_id='$request->id'";
+		$sqlResult = $db->query($sql);
+		debug("sqlResult", $sqlResult);
 		
 		$sql = <<<EOF
-INSERT INTO lg_carrier (content, account_id) VALUES 
-	(:content, :account_id); 
+UPDATE lg_truck
+SET :content
+WHERE account_id = :account_id;
 EOF;
 
 		$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
-			':content' => $carrier->content,
-			':account_id' => $_SESSION['id']
+			':content' => $truck->content,
+			':account_id' => $_COOKIE['accountId']
 		)) === FALSE) {
 			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 		}
-		$lastId = $db->lastInsertId();
 
 		$result['status'] = 'ok';
-		$request->id = $lastId;
-		$result['carrier'] = $request;
+		$result['truck'] = $request;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

@@ -1,14 +1,14 @@
 <section class="banner">
     <h1>Transporteur</h1>
     <img class="lg-svg" src="img/frontal-truck.svg"/>
-    <h2>Modifier un véhicule</h2>
+    <h2>Ajouter un véhicule</h2>
 </section>
 <section class="form">
-    <form name="updateCtrl"  ng-click="$ctrl.truck.updateTruck();">
+    <form name="truckCtrl" ng-submit="$ctrl.truck.createTruck();">
         <label>Description du type de véhicule</label>
         <input type="choice" choices="$root.config.vehicleTypes"
             title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc."
-            ng-model="$ctrl.truck.updateData.content.type" required/>
+            ng-model="$ctrl.truck.createData.content.type" required/>
         <br/>
         <label>Dimension de la capacité de la remorque</label>
         <br/>
@@ -18,17 +18,17 @@
                 <div>
                     <img src="img/hauteur.png"/>
                     <p>Hauteur</p>
-                    <input type="num" placeholder="H." vertical ng-model="$ctrl.updateData.content.height" options="{format: 2, step: 0.1}"/>
+                    <input type="num" placeholder="H." vertical ng-model="$ctrl.truck.createData.content.height" options="{format: 2, step: 0.1}"/>
                 </div>
                 <div>
                     <img src="img/profondeur.png"/>
                     <p>Profondeur</p>
-                    <input type="num" placeholder="P." vertical ng-model="$ctrl.truck.updateData.content.deep" options="{format: 2, step: 0.1}"/>
+                    <input type="num" placeholder="P." vertical ng-model="$ctrl.truck.createData.content.deep" options="{format: 2, step: 0.1}"/>
                 </div>
                 <div>
                     <img src="img/largeur.png"/>
                     <p>Largeur</p>
-                    <input type="num" placeholder="L." vertical ng-model="$ctrl.truck.updateData.content.width" options="{format: 2, step: 0.1}"/>
+                    <input type="num" placeholder="L." vertical ng-model="$ctrl.truck.createData.content.width" options="{format: 2, step: 0.1}"/>
                 </div>
             </dimension>
         </truck-dim>
@@ -40,29 +40,29 @@
         <label>Pays d'origine du véhicule</label>
         <input type="choice" choices="$root.config.countries"
             title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc."
-            ng-model="$ctrl.truck.updateData.content.country" />
+            ng-model="$ctrl.truck.createData.content.country" />
         <br/>
         <label>Ville</label>
         <input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc."
-            ng-model="$ctrl.truck.updateData.content.city" />
+            ng-model="$ctrl.truck.createData.content.city" />
         <br/>
         <label>Type de conditionnement</label>
         <input type="choice" choices="$root.config.conditionings" title="Type de conditionnement"
             placeholder="Ex : Colis, Palettes, Vrac"
-            ng-model="$ctrl.truck.updateData.content.conditioning" />
+            ng-model="$ctrl.truck.createData.content.conditioning" />
         <br/>
         <div class="complement">
             <label>Volume maximum de chargement (en m3)</label>
-            <input type="num" placeholder="Volume max." ng-model="$ctrl.truck.updateData.content.maxVolume" />
+            <input type="num" placeholder="Volume max." ng-model="$ctrl.truck.createData.content.maxVolume" />
         </div>
         <div class="complement">
             <label>Poids maximum de chargement du véhicule (en tonne)</label>
-           <input type="num" placeholder="Poids max." ng-model="$ctrl.truck.updateData.content.maxWeight" />
+           <input type="num" placeholder="Poids max." ng-model="$ctrl.truck.createData.content.maxWeight" />
         </div>
         <label>Année du camion</label>
         <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007"
-            ng-model="$ctrl.truck.updateData.content.birthyear" />
+            ng-model="$ctrl.truck.createData.content.birthyear" />
         <br/>
-        <button>Enregistrer les modifications ></button>
+        <button>Ajouter ce véhicule à ma flotte ></button>
     </form>
 </section>

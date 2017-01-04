@@ -58,7 +58,7 @@ app.service('user', function User($injector) {
 		});
 	};
 
-			this.signinData = {
+	this.signinData = {
 		email: 'email@email.com',
 		password: 'test'
 	};

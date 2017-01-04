@@ -8,34 +8,29 @@
 	
 	// Permet de récuperer les données au format Json
 	$postdata = file_get_contents("php://input");
-	// on décode le json en variable PHP
+
+	// on décode le json dans une variable PHP
     $request = json_decode($postdata); 
-	$carrier = clone $request;
-	$carrier->content = json_encode($carrier->content);
-	debug("Carrier start");
-	debug("carrier", $carrier);
+	$truck = clone $request;
+	debug("delete truck ad", $truck);
 
 	$result = [];
 	try {
-		
+
 		$sql = <<<EOF
-INSERT INTO lg_carrier (content, account_id) VALUES 
-	(:content, :account_id); 
+DELETE FROM lg_truck
+WHERE account_id = :account_id;
 EOF;
 
 		$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+				array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
-			':content' => $carrier->content,
-			':account_id' => $_SESSION['id']
+			':account_id' => $_COOKIE['accountId']
 		)) === FALSE) {
-			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
+			throw new Exception('Cannot delete truck ad : '.sprint_r($db->errorInfo()));
 		}
-		$lastId = $db->lastInsertId();
-
+		debug("delete truck ad ok");
 		$result['status'] = 'ok';
-		$request->id = $lastId;
-		$result['carrier'] = $request;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

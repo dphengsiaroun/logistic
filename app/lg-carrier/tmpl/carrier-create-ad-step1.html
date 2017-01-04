@@ -10,10 +10,8 @@
             title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc."
             ng-model="$ctrl.carrier.createData.content.type" required/>
         <br/>
-        <hr/>
-        <br/>
-        
         <label>Dimension de la capacité de la remorque</label>
+        <br/>
         <comment>Mesures en mètre</comment>
         <truck-dim>
             <dimension>
@@ -38,7 +36,7 @@
             <label>Inserer une photo</label>
             <lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
         </div>
-
+        <br/>
         <label>Pays d'origine du véhicule</label>
         <input type="choice" choices="$root.config.countries"
             title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc."
@@ -54,11 +52,11 @@
             ng-model="$ctrl.carrier.createData.content.conditioning" />
         <br/>
         <div class="complement">
-            <label>Volume maximum de chargement (en m3)</label><br/>
+            <label>Volume maximum de chargement (en m3)</label>
             <input type="num" placeholder="Volume max." ng-model="addCtrl.vehicle.maxVolume" />
         </div>
         <div class="complement">
-            <label>Poids maximum de chargement du véhicule (en tonne)</label><br/>
+            <label>Poids maximum de chargement du véhicule (en tonne)</label>
            <input type="num" placeholder="Poids max." ng-model="addCtrl.vehicle.maxWeight" />
         </div>
         <label>Année du camion</label>

@@ -11,7 +11,7 @@
 	// on décode le json en variable PHP
     
 	$request = json_decode($postdata);
-	‡
+	
 	$carrier = clone $request;
 	$carrier->content = json_encode($carrier->content);
 

@@ -262,18 +262,6 @@ title-icon {
     text-align: center;
 }
 
-.recap a {
-    padding: 20px 0px;
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-}
-
 .recap p {
     font-size: 16px;
 }

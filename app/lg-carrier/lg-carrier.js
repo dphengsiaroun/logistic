@@ -7,6 +7,11 @@ var app = angular.module(module.exports, ['ui.router']);
 app.config(['$stateProvider', function($stateProvider) {
 
 	$stateProvider.state({
+		name: 'carrier:choice',
+		url: '/carrier-choice',
+		component: 'lgCarrierChoiceRoute'
+	});
+	$stateProvider.state({
 		name: 'carrier:createAdStep1',
 		url: '/carrier-create-ad',
 		component: 'lgCarrierCreateAdStep1Route'
@@ -106,7 +111,6 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 			$state.go('user:signin');
 			return;
 		}
-
 		$http({
 			url: 'ws/carrier/create.php',
 			method: 'POST',
@@ -121,32 +125,6 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 			service.isAdcarrierError = false;
 			service.ads = response.data.ads;
 			$state.go('carrier:createAdStep2');
-		}).catch(function(error) {
-			console.error('error', error);
-		});
-	};
-
-	this.createTruck = function() {
-		console.log('carrier->createTruck');
-		if (this.user.account === undefined) {
-			$state.go('user:signin');
-			return;
-		}
-
-		$http({
-			url: 'ws/truck/create.php',
-			method: 'POST',
-			data: service.createData,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.isTruckcarrierError = true;
-				return;
-			}
-			service.isTruckcarrierError = false;
-			service.ads = response.data.ads;
-			$state.go('carrier:truckAdd');
 		}).catch(function(error) {
 			console.error('error', error);
 		});
@@ -217,6 +195,11 @@ app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scop
 	this.user = $injector.get('user');
 	this.carrier = $injector.get('carrier');
 }]);
+
+app.component('lgCarrierChoiceRoute', {
+	templateUrl: 'lg-carrier/tmpl/carrier-choice.html',
+	controller: 'CarrierCtrl',
+});
 
 app.component('lgCarrierCreateAdStep1Route', {
 	templateUrl: 'lg-carrier/tmpl/carrier-create-ad-step1.html',
