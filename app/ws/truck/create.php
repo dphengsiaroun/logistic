@@ -9,7 +9,7 @@
 	$result = [];
 	try {
 		$account = Account::getConnected();
-		$truck = Truck::save($account, $request);
+		$truck = Truck::create($account, $request);
 
 		$result['status'] = 'ok';
 		$result['truck'] = $truck;

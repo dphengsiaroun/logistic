@@ -99,3 +99,9 @@
         return $result;
     }
 
+	function str2spinal($str) {
+		$result = preg_replace('/\s+/', '-', strtolower($str));
+		$result = preg_replace('/[^a-z\-0-9]/', '', $result);
+		return $result;
+	}
+
