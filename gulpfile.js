@@ -20,8 +20,8 @@ var Promise = require('bluebird');
 Promise.promisifyAll(fs);
 
 var cfgUtils = require('./cfg/utils.js');
-var devEnv = cfgUtils.getEnv('dev');
-var deployEnv = cfgUtils.getEnv('deploy');
+
+
 
 
 
@@ -98,6 +98,7 @@ gulp.task('lint-fix', function() {
 });
 
 gulp.task('deploy:config', function(callback) {
+	var deployEnv = cfgUtils.getEnv('deploy');
 	consolidate.ejs('./cfg/config.ws.tmpl', deployEnv.ws).then(function(str) {
 		return fs.writeFileAsync('./dist/ws/include/suggested.config.php', str);
 	}).then(function(str) {
@@ -109,6 +110,7 @@ gulp.task('deploy:config', function(callback) {
 });
 
 gulp.task('deploy:unzip', function(callback) {
+	var deployEnv = cfgUtils.getEnv('deploy');
 	rp(deployEnv.unzip.url + 'unzip.php')
 		.then(function(htmlString) {
 			console.log('htmlString', htmlString);
@@ -127,6 +129,7 @@ gulp.task('deploy:zip', function(callback) {
 });
 
 gulp.task('deploy:ftp', function() {
+	var deployEnv = cfgUtils.getEnv('deploy');
 	console.log('env', deployEnv);
 	console.log('env.ftp', deployEnv.ftp);
 	return gulp.src(path.ftp)
@@ -139,6 +142,7 @@ gulp.task('deploy', ['clean:zip'], function() {
 });
 
 gulp.task('config', function(callback) {
+	var devEnv = cfgUtils.getEnv('dev');
 	consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws).then(function(str) {
 		return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
 	}).then(function(str) {
