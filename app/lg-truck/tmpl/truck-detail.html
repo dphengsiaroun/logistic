@@ -30,6 +30,6 @@
     <div>
         <button ui-sref="truck:update">Modifier</button>
         <lg-hr>ou</lg-hr>
-        <a class="critical" ui-sref="truck:delete" class="critical">Supprimer ce véhicule</a>
+        <a class="critical" ui-sref="truck:delete({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.name})" class="critical">Supprimer ce véhicule</a>
     </div>
 </section>

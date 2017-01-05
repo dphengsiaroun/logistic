@@ -65,26 +65,24 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'truck:delete',
-		url: '/truck/:id/delete',
+		url: '/{login}/truck/{id}/delete',
 		component: 'lgConfirm',
 		resolve: {
-			service: ['$injector', function($injector) {
-				var user = $injector.get('user');
-				var $state = $injector.get('$state');
+			service: function($rootScope, truck) {
+				'ngInject';
 				var result = {};
 				result.doCancel = function() {
-					$state.go('truck:list');
+					$rootScope.back();
 				};
 				result.doConfirm = function() {
-					user.delete();
+					truck.delete();
 				};
 				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce véhicule&nbsp;?';
 				result.cancelMsg = 'Non, annuler';
 				result.confirmMsg = 'Oui, supprimer';
 				return result;
-			}]
-		},
-		back: false
+			}
+		}
 	});
 	$stateProvider.state({
 		name: 'truck:deleted',
@@ -114,6 +112,7 @@ app.controller('TruckListCtrl', ['$scope', '$injector', function TruckCtrl($scop
 
 app.controller('TruckCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
 	this.truck = $injector.get('truck');
+	this.user = $injector.get('user');
 	var $stateParams = $injector.get('$stateParams');
 	console.log('this.truck', this.truck);
 	console.log('$stateParams', $stateParams);
