@@ -10,7 +10,7 @@ app.filter('message', function() {
 			'-1': 'Oups ! Erreur technique PHP.',
 			'0': 'Oups ! Erreur technique.',
 			'1': 'Login/Mot de passe incorrect.',
-			'2': 'Ce pseudo est déjà pris.',
+			'2': 'Ce login est déjà pris.',
 			'3': 'Aie... Erreur technique... désolé.',
 			'4': 'Email déjà pris.',
 			'7': 'Ancien mot de passe incorrect.',

@@ -23,7 +23,7 @@ app.service('user', function User($injector) {
 		content: {
 			lastname: 'Debbah',
 			firstname: 'Mérouane',
-			pseudo: 'Meme',
+			login: 'Meme',
 			address: {
 				street: '99 rue de Paris',
 				city: 'Torcy',
@@ -286,15 +286,15 @@ app.service('user', function User($injector) {
 var initCtrl = function(ctrl, $scope, $injector) {
 	ctrl.user = $injector.get('user');
 	ctrl.user.error = undefined;
-	$scope.$watch('$ctrl.user.signupData.content.pseudo', function() {
+	$scope.$watch('$ctrl.user.signupData.content.login', function() {
 		console.log('ctrl.user', ctrl.user);
-		console.log('ctrl.user.signupData.content.pseudo', ctrl.user.signupData.content.pseudo);
-		ctrl.user.signupData.content.pseudo = angular.lowercase(ctrl.user.signupData.content.pseudo);
+		console.log('ctrl.user.signupData.content.login', ctrl.user.signupData.content.login);
+		ctrl.user.signupData.content.login = angular.lowercase(ctrl.user.signupData.content.login);
 	});
-	$scope.$watch('$ctrl.user.updateData.content.pseudo', function() {
+	$scope.$watch('$ctrl.user.updateData.content.login', function() {
 		console.log('ctrl.user', ctrl.user);
-		console.log('ctrl.user.updateData.content.pseudo', ctrl.user.updateData.content.pseudo);
-		ctrl.user.updateData.content.pseudo = angular.lowercase(ctrl.user.updateData.content.pseudo);
+		console.log('ctrl.user.updateData.content.login', ctrl.user.updateData.content.login);
+		ctrl.user.updateData.content.login = angular.lowercase(ctrl.user.updateData.content.login);
 	});
 	$scope.$watch('$ctrl.user.account', function() {
 		if (ctrl.user.account) {

@@ -27,8 +27,8 @@
 	define('ERROR_BAD_LOGIN_CODE', 1);
 	define('ERROR_BAD_LOGIN_MSG', 'login/password not found.');
 
-	define('ERROR_BAD_PSEUDO_CODE', 2);
-	define('ERROR_BAD_PSEUDO_MSG', 'pseudo already exists');
+	define('ERROR_BAD_LOGIN_ALREADY_EXISTS_CODE', 2);
+	define('ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG', 'login already exists');
 
 	define('ERROR_MYSQL_CONNECT_CODE', 3);
 	define('ERROR_MYSQL_CONNECT_MSG', 'cannot connect to mysql (bad login password or database down)');
