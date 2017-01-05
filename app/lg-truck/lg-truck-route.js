@@ -75,7 +75,9 @@ app.config(['$stateProvider', function($stateProvider) {
 					$rootScope.back();
 				};
 				result.doConfirm = function() {
-					truck.delete($stateParams.id);
+					truck.delete($stateParams.id).catch(function(error) {
+						result.error = error;
+					});
 				};
 				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce véhicule&nbsp;?';
 				result.cancelMsg = 'Non, annuler';

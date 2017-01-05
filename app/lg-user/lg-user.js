@@ -192,7 +192,7 @@ app.service('user', function User($injector) {
 	this.delete = function() {
 		console.log('user->delete', service.account);
 
-		$http({
+		return $http({
 			url: makeUrl('delete'),
 			method: 'POST',
 			data: {
@@ -202,14 +202,10 @@ app.service('user', function User($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
+				return $q.reject(response);
 			}
-			service.error = undefined;
 			service.account = undefined;
 			$state.go('user:deleted');
-		}).catch(function(error) {
-			service.error = error;
 		});
 	};
 

@@ -100,7 +100,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 
 	this.delete = function(id) {
 		console.log('truck->delete');
-		$http({
+		return $http({
 			url: 'ws/truck/delete.php',
 			method: 'POST',
 			data: {
@@ -110,15 +110,12 @@ app.service('truck', ['$injector', function Truck($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
+				return $q.reject(response);
 			}
 			service.error = undefined;
 			service.trucks = undefined;
 			service.current = undefined;
 			$state.go('truck:deleted');
-		}).catch(function(error) {
-			console.error('error', error);
 		});
 	};
 

@@ -71,7 +71,9 @@ app.config(['$stateProvider', function($stateProvider) {
 					$state.go('user:retrieve');
 				};
 				result.doConfirm = function() {
-					user.delete();
+					user.delete().catch(function(error) {
+						result.error = error;
+					});
 				};
 				result.confirmationMsg = 'Voulez-vous vraiment supprimer votre compte&nbsp;?';
 				result.cancelMsg = 'Non, annuler';
