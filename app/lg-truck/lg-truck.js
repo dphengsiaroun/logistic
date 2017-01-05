@@ -12,18 +12,16 @@ app.service('truck', ['$injector', function Truck($injector) {
 
 	var service = this;
 	this.createData = {
-		content: {
-			type: 'benne',
-			height: '2',
-			width: '10',
-			deep: '8',
-			country: 'Algerie',
-			city: 'Alger',
-			conditioning: 'Palette',
-			maxVolume: '3',
-			maxWeight: '12',
-			birthyear: '2008'
-		}
+		type: 'benne',
+		height: '2',
+		width: '10',
+		deep: '8',
+		country: 'Algerie',
+		city: 'Alger',
+		conditioning: 'Palette',
+		maxVolume: '3',
+		maxWeight: '12',
+		birthyear: '2008'
 	};
 
 	this.createTruck = function() {
@@ -77,12 +75,14 @@ app.service('truck', ['$injector', function Truck($injector) {
 		}
 	};
 
-	this.updateTruck = function(data) {
+	this.updateData = {};
+
+	this.update = function() {
 		console.log('updateTruck->update');
 		$http({
 			url: 'ws/truck/update.php',
 			method: 'POST',
-			data: data,
+			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
@@ -94,6 +94,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 			service.trucks = response.data.trucks;
 			$state.go('truck:update');
 		}).catch(function(error) {
+			service.error = error;
 			console.error('error', error);
 		});
 	};

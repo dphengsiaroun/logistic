@@ -16,10 +16,9 @@
 
 		public static function create($account, $request) {
 			$truck = new Truck($account);
-			foreach ($request->content as $key => $value) {
+			foreach ($request as $key => $value) {
 				$truck->{$key} = $value;
  			}
-			$truck->name = $request->name;
 			$name = str2spinal($request->name);
 			$truck->id = $name;
 			$account->content->trucks->{$name} = $truck;
@@ -35,14 +34,10 @@
 			return $account->content->trucks;
 		}
 
-		public static function save($account, $request) {
-			$truck = new Truck($account);
-			foreach ($request as $key => $value) {
-				$truck->{$key} = $value;
- 			}
-			$account->content->trucks[] = $truck;
-			$account->save();
-			return $truck;
+		public static function update($account, $request) {
+			self::delete($account, $request->oldId);
+			unset($request->oldId);
+			self::create($account, $request);
 		}
 
 		public static function delete($account, $id) {

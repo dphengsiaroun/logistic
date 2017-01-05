@@ -7,10 +7,8 @@
 	$result = [];
 	try {
 		$account = Account::getConnected();
-		$truck = Truck::save($account, $request);
-		$truck->content = $request->content;
+		Truck::update($account, $request);
 		$result['status'] = 'ok';
-		$result['truck'] = $truck;
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = $e->getMessage();

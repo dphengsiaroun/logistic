@@ -131,7 +131,11 @@ app.controller('TruckUpdateCtrl', ['$scope', '$injector', function TruckUpdateCt
 	this.$onInit = function() {
 		this.truck.get($stateParams.id);
 		$scope.$watch('$ctrl.truck.current', function() {
+			if (self.truck.current === undefined) {
+				return;
+			}
 			self.truck.updateData = angular.copy(self.truck.current);
+			self.truck.updateData.oldId = $stateParams.id;
 			console.log('self.truck.updateData', self.truck.updateData);
 		});
 	};
