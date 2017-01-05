@@ -97,12 +97,19 @@ app.config(['$stateProvider', function($stateProvider) {
 		url: '/deleted-truck',
 		component: 'lgMessage',
 		resolve: {
-			service: function() {
-				return {
-					state: 'home',
-					label: 'Revenir à la liste des véhicules',
-					message: 'Votre véhicule a bien été supprimé.'
-				};
+			service: function(user, truck) {
+				'ngInject';
+				return user.waitForCheckConnection().then(function() {
+					var login = user.account.content.login;
+					console.log('login', login);
+					var state = 'truck:list({login: \'' + login + '\'})';
+					console.log('state', state);
+					return {
+						state: state,
+						label: 'Revenir à la liste des véhicules',
+						message: 'Votre véhicule a bien été supprimé.'
+					};
+				});
 			}
 		},
 		back: false
