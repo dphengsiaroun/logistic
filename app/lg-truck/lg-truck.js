@@ -36,7 +36,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isTruckError = true;
+				service.error = response;
 				return;
 			}
 			service.isTruckError = false;
@@ -87,10 +87,10 @@ app.service('truck', ['$injector', function Truck($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isTruckError = true;
+				service.error = response;
 				return;
 			}
-			service.isTruckError = false;
+			service.error = undefined;
 			service.trucks = response.data.trucks;
 			$state.go('truck:update');
 		}).catch(function(error) {
@@ -98,24 +98,27 @@ app.service('truck', ['$injector', function Truck($injector) {
 		});
 	};
 
-	this.delete = function() {
+	this.delete = function(id) {
 		console.log('truck->delete');
 		$http({
 			url: 'ws/truck/delete.php',
 			method: 'POST',
 			data: {
-				id: service.ads.id
+				id: id
 			},
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isDeleteError = true;
+				service.error = response;
 				return;
 			}
-			service.isDeleteError = false;
+			service.error = undefined;
 			service.trucks = undefined;
+			service.current = undefined;
 			$state.go('truck:deleted');
+		}).catch(function(error) {
+			console.error('error', error);
 		});
 	};
 

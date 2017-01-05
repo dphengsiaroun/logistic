@@ -68,14 +68,14 @@ app.config(['$stateProvider', function($stateProvider) {
 		url: '/{login}/truck/{id}/delete',
 		component: 'lgConfirm',
 		resolve: {
-			service: function($rootScope, truck) {
+			service: function($rootScope, truck, $stateParams) {
 				'ngInject';
 				var result = {};
 				result.doCancel = function() {
 					$rootScope.back();
 				};
 				result.doConfirm = function() {
-					truck.delete();
+					truck.delete($stateParams.id);
 				};
 				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce véhicule&nbsp;?';
 				result.cancelMsg = 'Non, annuler';
