@@ -89,38 +89,38 @@
 }
 
 /* Détails annonce */
-lg-truck-detail-route .details-annonce {
+lg-truck-retrieve-route .details-annonce {
     width: 100%;
     padding: 0px;
 }
 
-lg-truck-detail-route .recap {
+lg-truck-retrieve-route .recap {
     width: 100%;
     padding: 20px 10px;
     background-color: hsla(0, 0%, 96%, 1);
 }
 
-lg-truck-detail-route .recap h3 {
+lg-truck-retrieve-route .recap h3 {
     text-align: left;
     margin: 25px 0;
     font-size: 19px;
 }
 
-lg-truck-detail-route .publie, lg-truck-detail-route .expire {
+lg-truck-retrieve-route .publie, lg-truck-retrieve-route .expire {
     color: hsla(0, 0%, 65%, 1);
     font-size: 20px;
 }
 
-lg-truck-detail-route .recap h2 {
+lg-truck-retrieve-route .recap h2 {
     margin: 40px 0px;
     font-size: 21px;
     text-align: center;
 }
 
-lg-truck-detail-route .recap > div {
+lg-truck-retrieve-route .recap > div {
     text-align: center;
 }
 
-lg-truck-detail-route .recap p {
+lg-truck-retrieve-route .recap p {
     font-size: 16px;
 }
