@@ -91,8 +91,9 @@ app.service('truck', ['$injector', function Truck($injector) {
 				return;
 			}
 			service.error = undefined;
-			service.trucks = response.data.trucks;
-			$state.go('truck:update');
+			service.current = response.data.truck;
+			console.log('about to go to', response);
+			$state.go('truck:updated');
 		}).catch(function(error) {
 			service.error = error;
 			console.error('error', error);

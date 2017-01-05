@@ -50,18 +50,24 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'truck:updated',
-		url: '/truck/:id/update',
+		url: '/updated-truck',
 		component: 'lgMessage',
 		resolve: {
-			service: function() {
+			service: function(user, truck) {
+				'ngInject';
+				var login = user.account.content.login;
+				console.log('login', login);
+				var id = truck.current.id;
+				console.log('id', id);
+				var state = 'truck:list({login: \'' + login + '\', id: \'' + id + '\'})';
+				console.log('state', state);
 				return {
-					state: 'truck:list',
+					state: state,
 					label: 'Revenir à la liste des véhicules',
 					message: 'Votre véhicule a bien été modifié.'
 				};
 			}
-		},
-		back: false
+		}
 	});
 	$stateProvider.state({
 		name: 'truck:delete',

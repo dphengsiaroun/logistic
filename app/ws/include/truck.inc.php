@@ -34,10 +34,14 @@
 			return $account->content->trucks;
 		}
 
+		public static function retrieve($account, $id) {
+			return self::listAll($account)->{$id};
+		}
+
 		public static function update($account, $request) {
 			self::delete($account, $request->oldId);
 			unset($request->oldId);
-			self::create($account, $request);
+			return self::create($account, $request);
 		}
 
 		public static function delete($account, $id) {
