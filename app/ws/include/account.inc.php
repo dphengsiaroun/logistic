@@ -308,6 +308,7 @@ EOF;
 				$request->content = $content;
 				$content->lastname = $ownerDetails->getLastName();
 				$content->firstname = $ownerDetails->getFirstName();
+				$content->login = preg_replace('/@.*$/', '', $request->email);
 				$content->sync = 'google';
 				self::create($request);
 			}
