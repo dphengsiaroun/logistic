@@ -55,17 +55,17 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function(user, truck) {
 				'ngInject';
-				var login = user.account.content.login;
-				console.log('login', login);
-				var id = truck.current.id;
-				console.log('id', id);
-				var state = 'truck:list({login: \'' + login + '\', id: \'' + id + '\'})';
-				console.log('state', state);
-				return {
-					state: state,
-					label: 'Revenir à la liste des véhicules',
-					message: 'Votre véhicule a bien été modifié.'
-				};
+				return user.waitForCheckConnection().then(function() {
+					var login = user.account.content.login;
+					console.log('login', login);
+					var state = 'truck:list({login: \'' + login + '\'})';
+					console.log('state', state);
+					return {
+						state: state,
+						label: 'Revenir à la liste des véhicules',
+						message: 'Votre véhicule a bien été modifié.'
+					};
+				});
 			}
 		}
 	});

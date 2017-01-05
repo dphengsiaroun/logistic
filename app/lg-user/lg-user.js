@@ -14,6 +14,8 @@ var makeUrl = function(str) {
 app.service('user', function User($injector) {
 	var $http = $injector.get('$http');
 	var $state = $injector.get('$state');
+	var $rootScope = $injector.get('$rootScope');
+	var $q = $injector.get('$q');
 
 	var service = this;
 
@@ -134,7 +136,7 @@ app.service('user', function User($injector) {
 		});
 	};
 
-	this.isConnectedStatusKnown = false;
+	$rootScope.isConnected = undefined;
 	this.isConnected = function() {
 		console.log('is connected?', arguments);
 		if (service.isConnectedStatusKnown) {
@@ -147,11 +149,13 @@ app.service('user', function User($injector) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
 				service.account = undefined;
+				$rootScope.isConnected = false;
 				if ($state.$current.needsUser) {
 					$state.go('home');
 				}
 				return;
 			}
+			$rootScope.isConnected = true;
 			service.account = response.data.account;
 		}).finally(function() {
 			service.isConnectedStatusKnown = true;
@@ -161,6 +165,18 @@ app.service('user', function User($injector) {
 	};
 
 	this.isConnected();
+
+	this.waitForCheckConnection = function() {
+		return $q(function(resolve, reject) {
+			$rootScope.$watch('isConnected', function() {
+				if ($rootScope.isConnected === true) {
+					resolve();
+				} else if ($rootScope.isConnected === false) {
+					reject();
+				}
+			});
+		});
+	};
 
 	this.updateData = {
 		content: {}
