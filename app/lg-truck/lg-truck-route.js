@@ -27,10 +27,15 @@ app.config(['$stateProvider', function($stateProvider) {
 		url: '/create-truck',
 		component: 'lgMessage',
 		resolve: {
-			service: function() {
+			service: function(user) {
+				'ngInject';
+				var login = user.account.content.login;
+				console.log('login', login);
+				var state = 'truck:list({login: \'' + login + '\'})';
+				console.log('state', state);
 				return {
-					state: 'home',
-					label: 'Accueil',
+					state: state,
+					label: 'Revenir à la liste des véhicules',
 					message: 'Votre véhicule a bien été ajouté.'
 				};
 			}
@@ -50,9 +55,9 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function() {
 				return {
-					state: 'home',
-					label: 'Accueil',
-					message: 'Votre camion a bien été ajouté à votre liste.'
+					state: 'truck:list',
+					label: 'Revenir à la liste des véhicules',
+					message: 'Votre véhicule a bien été modifié.'
 				};
 			}
 		},
@@ -61,15 +66,23 @@ app.config(['$stateProvider', function($stateProvider) {
 	$stateProvider.state({
 		name: 'truck:delete',
 		url: '/truck/:id/delete',
-		component: 'lgPrompt',
+		component: 'lgConfirm',
 		resolve: {
-			service: function() {
-				return {
-					state: 'home',
-					label: 'Accueil',
-					message: 'Votre camion a bien été ajouté à votre liste.'
+			service: ['$injector', function($injector) {
+				var user = $injector.get('user');
+				var $state = $injector.get('$state');
+				var result = {};
+				result.doCancel = function() {
+					$state.go('truck:list');
 				};
-			}
+				result.doConfirm = function() {
+					user.delete();
+				};
+				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce véhicule&nbsp;?';
+				result.cancelMsg = 'Non, annuler';
+				result.confirmMsg = 'Oui, supprimer';
+				return result;
+			}]
 		},
 		back: false
 	});
@@ -81,8 +94,8 @@ app.config(['$stateProvider', function($stateProvider) {
 			service: function() {
 				return {
 					state: 'home',
-					label: 'Accueil',
-					message: 'Votre camion a bien été supprimé.'
+					label: 'Revenir à la liste des véhicules',
+					message: 'Votre véhicule a bien été supprimé.'
 				};
 			}
 		},

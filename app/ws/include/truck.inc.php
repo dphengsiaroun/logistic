@@ -41,6 +41,10 @@
 			return $truck;
 		}
 
+		public function delete() {
+			$account->content;
+		}
+
 		
 
 		
