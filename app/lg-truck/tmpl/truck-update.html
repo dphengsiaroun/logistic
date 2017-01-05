@@ -4,7 +4,11 @@
     <h2>Modifier un véhicule</h2>
 </section>
 <section class="form">
-    <form name="updateCtrl"  ng-click="$ctrl.truck.updateTruck();">
+    <form name="updateCtrl">
+        <label>Libellé unique du camion</label>
+        <input type="text" placeholder="Ex : Camion 1"
+            ng-model="$ctrl.truck.updateData.name" required/>
+        <br/>
         <label>Description du type de véhicule</label>
         <input type="choice" choices="$root.config.vehicleTypes"
             title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc."

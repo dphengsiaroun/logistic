@@ -45,7 +45,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'truck:update',
-		url: '/truck/:id/update',
+		url: '/{login}/truck/{id}/update',
 		component: 'lgTruckUpdateRoute'
 	});
 	$stateProvider.state({
@@ -126,13 +126,15 @@ app.controller('TruckCtrl', ['$scope', '$injector', function TruckCtrl($scope, $
 app.controller('TruckUpdateCtrl', ['$scope', '$injector', function TruckUpdateCtrl($scope, $injector) {
 	var self = this;
 	this.truck = $injector.get('truck');
-	console.log('this.truck', this.truck);
-	$scope.$watch('$ctrl.truck', function() {
-		self.updateData = angular.copy(self.truck);
-	});
-
-	console.log('this.updateData', this.updateData);
-	this.truck.error = undefined;
+	this.user = $injector.get('user');
+	var $stateParams = $injector.get('$stateParams');
+	this.$onInit = function() {
+		this.truck.get($stateParams.id);
+		$scope.$watch('$ctrl.truck.current', function() {
+			self.truck.updateData = angular.copy(self.truck.current);
+			console.log('self.truck.updateData', self.truck.updateData);
+		});
+	};
 }]);
 
 var truckCreateUrl = require('./tmpl/truck-create.html');
@@ -157,6 +159,6 @@ app.component('lgTruckRetrieveRoute', {
 
 app.component('lgTruckUpdateRoute', {
 	templateUrl: truckUpdateUrl,
-	controller: 'TruckCtrl',
+	controller: 'TruckUpdateCtrl',
 });
 
