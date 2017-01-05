@@ -18,6 +18,7 @@ require('angular-touch');
 require('angular-i18n/angular-locale_fr-dz.js');
 require('angular-sanitize');
 require('angular-ui-router');
+require('angular-ui-mask');
 require('angular-recaptcha');
 
 
@@ -49,6 +50,7 @@ window.values = function(obj) {
 var app = angular.module('mainApp', [
 	'ngSanitize',
 	'vcRecaptcha',
+	'ui.mask',
 	lgRoute,
 	lgUpload,
 	lgMenu,

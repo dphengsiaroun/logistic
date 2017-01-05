@@ -32,6 +32,7 @@ var path = {
 	dist: 'dist',
 	zipSrc: ['dist/**/*', '!dist/**/*.map'],
 	zip: 'dist.zip',
+	wpk: 'app/wpk',
 	html: ['app/index.html', 'app/install/index.html'],
 	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
@@ -47,7 +48,11 @@ gulp.task('clean:zip', function() {
 	return del([path.zip]);
 });
 
-gulp.task('clean', ['clean:dist', 'clean:zip']);
+gulp.task('clean:wpk', function() {
+	return del([path.wpk]);
+});
+
+gulp.task('clean', ['clean:dist', 'clean:zip', 'clean:wpk']);
 
 gulp.task('resources', function() {
 	return gulp.src(path.resources, {base: path.base})

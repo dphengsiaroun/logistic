@@ -156,13 +156,18 @@ app.service('user', function User($injector) {
 
 	this.isConnected();
 
-	this.update = function(data) {
+	this.updateData = {
+		content: {}
+	};
+	console.log('this.updateData', this.updateData);
+
+	this.update = function() {
 		console.log('user->update');
 
 		$http({
 			url: makeUrl('update'),
 			method: 'POST',
-			data: data,
+			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
@@ -272,32 +277,40 @@ app.service('user', function User($injector) {
 
 });
 
-app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
-	this.user = $injector.get('user');
-	this.user.error = undefined;
+var initCtrl = function(ctrl, $scope, $injector) {
+	ctrl.user = $injector.get('user');
+	ctrl.user.error = undefined;
+	$scope.$watch('$ctrl.user.signupData.content.pseudo', function() {
+		console.log('ctrl.user', ctrl.user);
+		console.log('ctrl.user.signupData.content.pseudo', ctrl.user.signupData.content.pseudo);
+		ctrl.user.signupData.content.pseudo = angular.lowercase(ctrl.user.signupData.content.pseudo);
+	});
+	$scope.$watch('$ctrl.user.updateData.content.pseudo', function() {
+		console.log('ctrl.user', ctrl.user);
+		console.log('ctrl.user.updateData.content.pseudo', ctrl.user.updateData.content.pseudo);
+		ctrl.user.updateData.content.pseudo = angular.lowercase(ctrl.user.updateData.content.pseudo);
+	});
+	$scope.$watch('$ctrl.user.account', function() {
+		if (ctrl.user.account) {
+			ctrl.user.updateData = angular.copy(ctrl.user.account);
+		}
+	});
+};
 
+app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
+	initCtrl(this, $scope, $injector);
 }]);
 
 app.controller('UserUpdateCtrl', ['$scope', '$injector', function UserUpdateCtrl($scope, $injector) {
-	var self = this;
-	this.user = $injector.get('user');
-	console.log('this.user', this.user);
-	$scope.$watch('$ctrl.user.account', function() {
-		self.updateData = angular.copy(self.user.account);
-	});
-
-	console.log('this.updateData', this.updateData);
-	this.user.error = undefined;
+	initCtrl(this, $scope, $injector);
 }]);
 
 app.controller('UserChooseNewPasswordCtrl', function UserChooseNewPasswordCtrl($scope, $injector) {
+	initCtrl(this, $scope, $injector);
 	var $location = $injector.get('$location');
-	this.user = $injector.get('user');
-	console.log('this.user', this.user);
 	var code = $location.search().code;
 	var id = $location.search().id;
 	this.user.retrieveFromCode(id, code);
-	this.user.error = undefined;
 	this.user.forgottenPasswordData.id = id;
 	this.user.forgottenPasswordData.code = code;
 });
