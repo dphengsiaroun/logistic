@@ -28,6 +28,10 @@
 		}
 
 		public static function listAll($account) {
+			if (!property_exists($account->content, 'trucks')) {
+				$account->content->trucks = new stdClass();
+				$account->save();
+			}
 			return $account->content->trucks;
 		}
 
@@ -41,10 +45,11 @@
 			return $truck;
 		}
 
-		public function delete() {
-			$account->content;
+		public static function delete($account, $id) {
+			unset($account->content->trucks->{$id});
+			$account->save();
+			return $account->content->trucks;
 		}
-
 		
 
 		
