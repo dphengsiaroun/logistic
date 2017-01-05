@@ -38,10 +38,14 @@ app.component('lgMenu', {
 		};
 		var refreshState = function() {
 			refreshBack();
-			if ($state.$current.needsUser && ctrl.user.account === undefined) {
-				console.log('go home because need user');
-				$state.go('home');
-			}
+			$scope.$watch('$ctrl.user.isConnectedStatusKnown', function() {
+				if (ctrl.user.isConnectedStatusKnown) {
+					if ($state.$current.needsUser && ctrl.user.account === undefined) {
+						console.log('go home because need user');
+						$state.go('home');
+					}
+				}
+			});
 		};
 		refreshBack();
 		// UI router throw this event when route changes.

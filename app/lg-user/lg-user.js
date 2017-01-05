@@ -134,8 +134,12 @@ app.service('user', function User($injector) {
 		});
 	};
 
+	this.isConnectedStatusKnown = false;
 	this.isConnected = function() {
 		console.log('is connected?', arguments);
+		if (service.isConnectedStatusKnown) {
+			return;
+		}
 		$http({
 			url: makeUrl('isConnected'),
 			method: 'GET'
@@ -149,6 +153,8 @@ app.service('user', function User($injector) {
 				return;
 			}
 			service.account = response.data.account;
+		}).finally(function() {
+			service.isConnectedStatusKnown = true;
 		}).catch(function(error) {
 			service.error = error;
 		});
