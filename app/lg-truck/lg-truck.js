@@ -48,7 +48,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 
 	this.list = function() {
 		console.log('truck->list');
-		$http({
+		return $http({
 			url: 'ws/truck/list.php',
 			method: 'GET'
 		}).then(function(response) {
@@ -65,6 +65,16 @@ app.service('truck', ['$injector', function Truck($injector) {
 		}).catch(function(error) {
 			service.error = error;
 		});
+	};
+
+	this.get = function(id) {
+		if (service.truckMap === undefined) {
+			this.list().then(function() {
+				service.current = service.truckMap[id];
+			});
+		} else {
+			service.current = service.truckMap[id];
+		}
 	};
 
 	this.updateTruck = function(data) {

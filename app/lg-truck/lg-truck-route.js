@@ -6,13 +6,13 @@ app.config(['$stateProvider', function($stateProvider) {
 
 	$stateProvider.state({
 		name: 'truck:list',
-		url: '/{accountId}/truck',
+		url: '/{login}/truck',
 		component: 'lgTruckListRoute',
 		needsUser: true
 	});
 	$stateProvider.state({
 		name: 'truck:retrieve',
-		url: '/truck/:id',
+		url: '/{login}/truck/{id}',
 		component: 'lgTruckRetrieveRoute',
 		needsUser: true
 	});
@@ -91,8 +91,9 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('TrucksCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
+app.controller('TruckListCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
 	this.truck = $injector.get('truck');
+	this.user = $injector.get('user');
 	this.$onInit = function() {
 		this.truck.list();
 	};
@@ -100,6 +101,12 @@ app.controller('TrucksCtrl', ['$scope', '$injector', function TruckCtrl($scope, 
 
 app.controller('TruckCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
 	this.truck = $injector.get('truck');
+	var $stateParams = $injector.get('$stateParams');
+	console.log('this.truck', this.truck);
+	console.log('$stateParams', $stateParams);
+	this.$onInit = function() {
+		this.truck.get($stateParams.id);
+	};
 }]);
 
 app.controller('TruckUpdateCtrl', ['$scope', '$injector', function TruckUpdateCtrl($scope, $injector) {
@@ -126,7 +133,7 @@ app.component('lgTruckCreateRoute', {
 
 app.component('lgTruckListRoute', {
 	templateUrl: truckListUrl,
-	controller: 'TrucksCtrl',
+	controller: 'TruckListCtrl',
 });
 
 app.component('lgTruckRetrieveRoute', {

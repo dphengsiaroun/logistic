@@ -21,6 +21,7 @@
  			}
 			$truck->name = $request->name;
 			$name = str2spinal($request->name);
+			$truck->id = $name;
 			$account->content->trucks->{$name} = $truck;
 			$account->save();
 			return $truck;

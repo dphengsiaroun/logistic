@@ -3,8 +3,8 @@
 </section>
 <section class="liste-annonce">
     <div class="block-annonce" ng-repeat="truck in $ctrl.truck.trucks">
-        <a ui-sref="truck({ id: truck.id })">
-            <span class="identity"></span>
+        <a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.user.account.content.login })">
+            <span class="identity">JLG</span>
             <div class="details">
                 <p>{{truck.name}}</p>
                 <div>
