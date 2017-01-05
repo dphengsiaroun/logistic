@@ -3,10 +3,10 @@
 </section>
 <section class="liste-annonce">
     <div class="block-annonce" ng-repeat="truck in $ctrl.truck.trucks">
-        <a ui-sref="truck:detail">
+        <a ui-sref="truck({ id: truck.id })">
             <span class="identity"></span>
             <div class="details">
-                <p>{{truck.label}}</p>
+                <p>{{truck.name}}</p>
                 <div>
                     <div class="details-time">
                         <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>
