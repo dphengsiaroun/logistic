@@ -12,7 +12,8 @@ function recursiveRemoveDirectory($directory) {
 }
 
 function removeAll() {
-	foreach(glob("./*") as $file) {
+	foreach(glob('./' . '{,.}[!.,!..]*',GLOB_MARK|GLOB_BRACE) as $file) {
+		 echo "file = $file\n";
 		if (is_dir($file)) {
 			recursiveRemoveDirectory($file);
 		} else {
