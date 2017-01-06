@@ -1,90 +1,123 @@
 module.exports = {
 	// all deployment stuff (gulp deploy)
 	deploy: {
-		default: 'yoursite',
-		yoursite: {
+		default: 'jlgc',
+		jlgc: {
 			ftp: {
-				host: 'ftp.yoursite.com',
-				user: 'alice',
-				password: 'this_is_a_secret',
-				remoteDir: 'www/dir/subdir',
-				url: 'http://www.yoursite.com/dir/subdir/'
+				host: 'xxxxx',
+				user: 'xxxxx',
+				pass: 'xxxxx',
+				remotePath: 'xxxxx',
 			},
 			ws: {
-				appName: 'Logistic',
-				host: 'yoursite.mysql.db',
-				user: 'alice1',
-				mdp: 'this_is_also_a_secret',
-				bdd: 'alice1',
-				prefix: 'lg_',
+				appName: 'xxxxx',
+				host: 'xxxxx',
+				user: 'xxxxx',
+				mdp: 'xxxxx',
+				bdd: 'xxxxx',
+				prefix: 'xxxxx',
 
-				oauth2GoogleClientId: 'this_is_your_google_client_id.apps.googleusercontent.com',
-				oauth2GoogleClientSecret: 'and_this_is_your_google_client_secret',
+				oauth2GoogleClientId: 'xxxxx',
+				oauth2GoogleClientSecret: 'xxxxx',
 
-				oauth2FacebookClientId: 'this_is_your_facebook_client_id',
-				oauth2FacebookClientSecret: 'and_this_is_your_facebook_client_secret',
+				oauth2FacebookClientId: 'xxxxx',
+				oauth2FacebookClientSecret: 'xxxxx',
 
-				smtpServerHost: 'smtp.gmail.com',
-				smtpServerPort: '587',
-				smtpSecure: 'tls',
-				smtpServerUsername: 'username',
-				smtpServerPassword: 'Logistic',
-				smtpServerFrom: 'yourmail@gmail.com',
-			}
-
-		},
-		dev: {
-			default: 'jlgdev',
-			// dev platform with express
-			jlgdev: {
-				proxyUrl: 'http://localhost/logistic/app/ws',
-				ws: {
-					appName: 'Logistic',
-					host: 'yoursite.mysql.db',
-					user: 'alice1',
-					mdp: 'this_is_also_a_secret',
-					bdd: 'alice1',
-					prefix: 'lg_',
-
-					oauth2GoogleClientId: 'this_is_your_google_client_id.apps.googleusercontent.com',
-					oauth2GoogleClientSecret: 'and_this_is_your_google_client_secret',
-
-					oauth2FacebookClientId: 'this_is_your_facebook_client_id',
-					oauth2FacebookClientSecret: 'and_this_is_your_facebook_client_secret',
-
-					smtpServerHost: 'smtp.gmail.com',
-					smtpServerPort: '587',
-					smtpSecure: 'tls',
-					smtpServerUsername: 'username',
-					smtpServerPassword: 'Logistic',
-					smtpServerFrom: 'yourmail@gmail.com',
-				}
+				smtpServerHost: 'xxxxx',
+				smtpServerPort: 'xxxxx',
+				smtpSecure: 'xxxxx',
+				smtpServerUsername: 'xxxxx',
+				smtpServerPassword: 'xxxxx',
+				smtpServerFrom: 'xxxxx',
 			},
-			dany: {
-				proxyUrl: 'http://localhost:8888/logistic/app/ws',
-				ws: {
-					appName: 'Logistic',
-					host: 'yoursite.mysql.db',
-					user: 'alice1',
-					mdp: 'this_is_also_a_secret',
-					bdd: 'alice1',
-					prefix: 'lg_',
+			url: 'xxxxx'
 
-					oauth2GoogleClientId: 'this_is_your_google_client_id.apps.googleusercontent.com',
-					oauth2GoogleClientSecret: 'and_this_is_your_google_client_secret',
+		},
+		jlgc2: {
+			ftp: {
+				host: 'xxxxx',
+				user: 'xxxxx',
+				pass: 'xxxxx',
+				remotePath: 'xxxxx',
+			},
+			ws: {
+				appName: 'xxxxx',
+				host: 'xxxxx',
+				user: 'xxxxx',
+				mdp: 'xxxxx',
+				bdd: 'xxxxx',
+				prefix: 'xxxxx',
 
-					oauth2FacebookClientId: 'this_is_your_facebook_client_id',
-					oauth2FacebookClientSecret: 'and_this_is_your_facebook_client_secret',
+				oauth2GoogleClientId: 'xxxxx',
+				oauth2GoogleClientSecret: 'xxxxx',
 
-					smtpServerHost: 'smtp.gmail.com',
-					smtpServerPort: '587',
-					smtpSecure: 'tls',
-					smtpServerUsername: 'username',
-					smtpServerPassword: 'Logistic',
-					smtpServerFrom: 'yourmail@gmail.com',
-				}
+				oauth2FacebookClientId: 'xxxxx',
+				oauth2FacebookClientSecret: 'xxxxx',
+
+				smtpServerHost: 'xxxxx',
+				smtpServerPort: 'xxxxx',
+				smtpSecure: 'xxxxx',
+				smtpServerUsername: 'xxxxx',
+				smtpServerPassword: 'xxxxx',
+				smtpServerFrom: 'xxxxx',
+			},
+			url: 'xxxxx'
+
+		},
+	},
+	dev: {
+		default: 'jlgdev',
+		// dev platform with express
+		jlgdev: {
+			proxyUrl: 'xxxxx',
+			ws: {
+				appName: 'xxxxx',
+				host: 'xxxxx',
+				user: 'xxxxx',
+				mdp: 'xxxxx',
+				bdd: 'xxxxx',
+				prefix: 'xxxxx',
+
+				oauth2GoogleClientId: 'xxxxx',
+				oauth2GoogleClientSecret: 'xxxxx',
+
+				oauth2FacebookClientId: 'xxxxx',
+				oauth2FacebookClientSecret: 'xxxxx',
+
+				smtpServerHost: 'xxxxx',
+				smtpServerPort: 'xxxxx',
+				smtpSecure: 'xxxxx',
+				smtpServerUsername: 'xxxxx',
+				smtpServerPassword: 'xxxxx',
+				smtpServerFrom: 'xxxxx',
 			}
 		},
+		jlgdev2: {
+			proxyUrl: 'xxxxx',
+			ws: {
+				appName: 'xxxxx',
+				host: 'xxxxx',
+				user: 'xxxxx',
+				mdp: 'xxxxx',
+				bdd: 'xxxxx',
+				prefix: 'xxxxx',
 
+				oauth2GoogleClientId: 'xxxxx',
+				oauth2GoogleClientSecret: 'xxxxx',
+
+				oauth2FacebookClientId: 'xxxxx',
+				oauth2FacebookClientSecret: 'xxxxx',
+
+				smtpServerHost: 'xxxxx',
+				smtpServerPort: 'xxxxx',
+				smtpSecure: 'xxxxx',
+				smtpServerUsername: 'xxxxx',
+				smtpServerPassword: 'xxxxx',
+				smtpServerFrom: 'xxxxx',
+			}
+		},
 	},
+
+
 };
+
