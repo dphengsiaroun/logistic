@@ -78,8 +78,9 @@ function create_dirs($path) {
 
 if (file_exists('dist.zip')) {
     unzip('dist.zip', './', false, true);
+	unlink('./dist.zip');
+	unlink('./unzip.php');
     echo 'Successfully unzipped.';
-
 } else {
     echo 'File does not exist.';
 }

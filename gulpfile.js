@@ -30,12 +30,14 @@ gulp.task('default', ['rebuild']);
 var path = {
 	base: 'app',
 	dist: 'dist',
-	zipSrc: ['dist/**/*', '!dist/**/*.map'],
+	zipSrc: ['dist/**/*', 'dist/.htaccess', '!dist/**/*.map'],
 	zip: 'dist.zip',
 	wpk: 'app/wpk',
 	html: ['app/index.html', 'app/install/index.html'],
-	resources: ['app/img/**/*', 'app/wpk/**/*', 'app/ws/**/*', '!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
+	resources: ['app/img/**/*',	'app/wpk/**/*', 'app/ws/**/*', 'app/.htaccess',
+		'!app/ws/**/*.log',	'!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
+	undeploy: 'utils/remove.php',
 };
 
 
@@ -116,7 +118,7 @@ gulp.task('deploy:config', function(callback) {
 
 gulp.task('deploy:unzip', function(callback) {
 	var deployEnv = cfgUtils.getEnv('deploy');
-	rp(deployEnv.unzip.url + 'unzip.php')
+	rp(deployEnv.url + 'unzip.php')
 		.then(function(htmlString) {
 			console.log('htmlString', htmlString);
 			callback();
@@ -144,6 +146,31 @@ gulp.task('deploy:ftp', function() {
 
 gulp.task('deploy', ['clean:zip'], function() {
 	runSequence('deploy:config', 'deploy:zip', 'deploy:ftp', 'deploy:unzip');
+});
+
+gulp.task('undeploy:ftp', function() {
+	var deployEnv = cfgUtils.getEnv('deploy');
+	console.log('env.ftp', deployEnv.ftp);
+	return gulp.src(path.undeploy)
+		.pipe(ftp(deployEnv.ftp))
+		.pipe(gutil.noop());
+});
+
+gulp.task('undeploy:remove', function(callback) {
+	var deployEnv = cfgUtils.getEnv('deploy');
+	rp(deployEnv.url + 'remove.php')
+		.then(function(htmlString) {
+			console.log('htmlString', htmlString);
+			callback();
+		})
+		.catch(function(err) {
+			console.log('error', err);
+			throw err;
+		});
+});
+
+gulp.task('undeploy', function() {
+	runSequence('undeploy:ftp', 'undeploy:remove');
 });
 
 gulp.task('config', function(callback) {

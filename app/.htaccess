@@ -1,8 +1,12 @@
 # Set the default handler.
-DirectoryIndex index.php index.html index.htm
+DirectoryIndex index.html
 
 # Set PHP5 as default
-SetEnv PHP_VER 5
+SetEnv PHP_VER 7
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 
 #Security Access
