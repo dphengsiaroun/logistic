@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var gulpIf = require('gulp-if');
+var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var del = require('del');
 var webpack = require('webpack');
@@ -34,7 +35,8 @@ var path = {
 	zip: 'dist.zip',
 	wpk: 'app/wpk',
 	html: ['app/index.html', 'app/install/index.html'],
-	resources: ['app/img/**/*',	'app/wpk/**/*', 'app/ws/**/*', 'app/.htaccess',
+	htaccess: ['app/.htaccess.tmpl'],
+	resources: ['app/img/**/*',	'app/wpk/**/*', 'app/ws/**/*',
 		'!app/ws/**/*.log',	'!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
 	undeploy: 'utils/remove.php',
@@ -61,6 +63,12 @@ gulp.task('resources', function() {
 		.pipe(gulp.dest(path.dist));
 });
 
+gulp.task('htaccess', function() {
+	return gulp.src(path.htaccess, {base: path.base})
+		.pipe(rename('.htaccess'))
+		.pipe(gulp.dest(path.dist));
+});
+
 gulp.task('html', function() {
 	return gulp.src(path.html, {base: path.base})
 		.pipe(gulp.dest(path.dist));
@@ -77,7 +85,7 @@ gulp.task('webpack', function(callback) {
 
 gulp.task('build', function() {
 	console.log('gulp build');
-	runSequence('webpack', ['resources', 'html']);
+	runSequence('webpack', ['resources', 'html', 'htaccess']);
 });
 
 gulp.task('rebuild', function() {

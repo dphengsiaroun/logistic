@@ -5,7 +5,7 @@ module.exports = 'lg-calendar';
 
 var app = angular.module(module.exports, ['lg-misc']);
 
-require('./lg-calendar.css');
+require('./lg-calendar.scss');
 require('./lg-month.js');
 require('./lg-hour.js');
 require('./lg-hour2.js');

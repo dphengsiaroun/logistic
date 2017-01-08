@@ -1,3 +1,5 @@
+$icon-color: hsla(0, 0%, 66%, 1);
+
 lg-calendar-wrapper {
     position: relative;
     display: block;
@@ -16,13 +18,13 @@ lg-calendar-wrapper .icon {
     top: 10px;
     left: 87%;
     font-size: 25px;
-    color: hsla(0, 0%, 66%, 1);
+    color: $icon-color;
 }
 
 lg-calendar-wrapper .icon i.fa {
 	font-size: 25px;
 	line-height: 18px;
-    color: hsla(0, 0%, 66%, 1);
+    color: $icon-color;
 }
 
 lg-calendar {
