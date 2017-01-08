@@ -1,4 +1,4 @@
-$icon-color: hsla(0, 0%, 66%, 1);
+$light-gray: hsla(0, 0%, 66%, 1);
 
 lg-calendar-wrapper {
     position: relative;
@@ -18,13 +18,12 @@ lg-calendar-wrapper .icon {
     top: 10px;
     left: 87%;
     font-size: 25px;
-    color: $icon-color;
 }
 
 lg-calendar-wrapper .icon i.fa {
 	font-size: 25px;
 	line-height: 18px;
-    color: $icon-color;
+    color: $light-gray;
 }
 
 lg-calendar {
@@ -54,7 +53,7 @@ lg-calendar retroaction-msg {
 	display: block;
 	width: 100%;
 	text-align: center;
-	background-color: hsla(0, 0%, 92%, 1);
+	background-color: $light-gray;
 	padding: 5px;
 }
 
@@ -71,7 +70,7 @@ lg-month {
 	text-align: center;
     padding: 0px 0px 10px;
     background: white;
-    border-bottom: 1px solid hsla(0, 0%, 92%, 1);
+    border-bottom: 1px solid $light-gray;
 
 }
 
