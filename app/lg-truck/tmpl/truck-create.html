@@ -4,7 +4,7 @@
     <h2>Ajouter un véhicule</h2>
 </section>
 <section class="form">
-    <form name="truckCtrl" ng-submit="$ctrl.truck.createTruck();">
+    <form name="truckCtrl" ng-submit="$ctrl.truck.create();">
         <label>Libellé unique du camion</label>
         <input type="text" placeholder="Ex : Camion 1"
             ng-model="$ctrl.truck.createData.name" required/>

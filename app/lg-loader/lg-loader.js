@@ -1,105 +1,38 @@
 'use strict';
 
+require('./lg-loader.css');
 module.exports = 'lg-loader';
 
 var app = angular.module(module.exports, ['ui.router']);
-
-app.config(['$stateProvider', function($stateProvider) {
-
-	$stateProvider.state({
-		name: 'loader:createAdStep1',
-		url: '/loader-create-ad',
-		component: 'lgLoaderCreateAdStep1Route'
-	});
-	$stateProvider.state({
-		name: 'loader:createAdStep2',
-		url: '/loader-create-ad',
-		component: 'lgLoaderCreateAdStep2Route'
-	});
-	$stateProvider.state({
-		name: 'loader:listAd',
-		url: '/loader-list',
-		component: 'lgLoaderListAdRoute'
-	});
-	$stateProvider.state({
-		name: 'loader:detailAd',
-		url: '/loader-detail-ad',
-		component: 'lgLoaderDetailAdRoute'
-	});
-	$stateProvider.state({
-		name: 'loader:listMyAd',
-		url: '/loader-list-my-ad',
-		component: 'lgLoaderListMyAdRoute'
-	});
-	$stateProvider.state({
-		name: 'loader:detailMyAd',
-		url: '/loader-detail-my-ad',
-		component: 'lgLoaderDetailMyAdRoute'
-	});
-	$stateProvider.state({
-		name: 'loader:updateMyAd',
-		url: '/loader-update-my-ad',
-		component: 'lgLoaderUpdateMyAdRoute'
-	});
-	$stateProvider.state({
-		name: 'loader:createProposal',
-		url: '/loader-create-proposal',
-		component: 'lgLoaderCreateProposalRoute'
-	});
-	$stateProvider.state({
-		name: 'loader:createProposalSent',
-		url: '/loader-create-proposal',
-		component: 'lgLoaderCreateProposalSentRoute'
-	});
-	$stateProvider.state({
-		name: 'loader:adDeleted',
-		url: '/loader_ad_delete',
-		component: 'lgMessage',
-		resolve: {
-			service: function() {
-				return {
-					state: 'home',
-					label: 'Accueil',
-					message: 'Votre annonce a bien été supprimé.'
-				};
-			}
-		},
-		back: false
-	});
-
-}]);
+require('./lg-loader-route.js');
 
 app.service('loader', ['$injector', function Loader($injector) {
 	var $http = $injector.get('$http');
 	var $state = $injector.get('$state');
-	this.user = $injector.get('user');
 
 	var service = this;
 	this.createData = {
-		content: {
-			countryDepart: 'Maroc',
-			cityDepart: 'Oran',
-			countryArrived: 'Algérie',
-			cityArrived: 'Alger',
-			loaderType: 'Classique',
-			conditionment: 'Palettes',
-			transportType: 'Camion',
-			truckType: 'Frigo',
-			loaderWeight: 'entre 100 et 200 kilos',
-			preciseWeight: 'entre 100 et 200 kilos',
-			volume: '200',
-			priceWanted: '2300',
-			adTimes: '15 jours',
-		}
+		countryDepart: 'Algerie',
+		cityDepart: 'Oran',
+		countryArrived: 'Algerie',
+		cityArrived: 'Alger',
+		loaderType: 'Classique',
+		conditioning: 'Colis',
+		transportType: 'Camion',
+		truckType: 'Bache',
+		loaderWeight: '90',
+		preciseWeight: '9',
+		height: '2',
+		deep: '5',
+		width: '10',
+		volume: '200',
+		priceWanted: '300',
+		adTimes: '1 semaine',
+
 	};
 
 	this.create = function() {
-		console.log('loader->create');
-		if (this.user.account === undefined) {
-			$state.go('user:signin');
-			return;
-		}
-
+		console.log('loader->createLoader');
 		$http({
 			url: 'ws/loader/create.php',
 			method: 'POST',
@@ -108,24 +41,51 @@ app.service('loader', ['$injector', function Loader($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isAdloaderError = true;
+				service.error = response;
 				return;
 			}
-			service.isAdloaderError = false;
-			service.ads = response.data.ads;
-			$state.go('loader:createAdStep2');
+			service.isLoaderError = false;
+			$state.go('loader:created');
 		}).catch(function(error) {
 			console.error('error', error);
 		});
 	};
 
-	this.update = function() {
-		console.log('loader->update');
-		if (this.user.account === undefined) {
-			$state.go('user:signin');
-			return;
-		}
+	this.list = function() {
+		console.log('loader->list');
+		return $http({
+			url: 'ws/loader/list.php',
+			method: 'GET'
+		}).then(function(response) {
+			console.log('response', response);
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return;
+			}
+			service.error = undefined;
+			service.loaderMap = response.data.loaders;
+			console.log('service.loaderMap', service.loaderMap);
+			service.loaders = values(service.loaderMap);
+			console.log('service.loaders', service.loaders);
+		}).catch(function(error) {
+			service.error = error;
+		});
+	};
 
+	this.get = function(id) {
+		if (service.loaderMap === undefined) {
+			this.list().then(function() {
+				service.current = service.loaderMap[id];
+			});
+		} else {
+			service.current = service.loaderMap[id];
+		}
+	};
+
+	this.updateData = {};
+
+	this.update = function() {
+		console.log('updateLoader->update');
 		$http({
 			url: 'ws/loader/update.php',
 			method: 'POST',
@@ -134,84 +94,39 @@ app.service('loader', ['$injector', function Loader($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isAdloaderError = true;
+				service.error = response;
 				return;
 			}
-			service.isAdloaderError = false;
-			service.ads = response.data.ads;
-			$state.go('loader:createAdStep2');
+			service.error = undefined;
+			service.current = response.data.loader;
+			console.log('about to go to', response);
+			$state.go('loader:updated');
 		}).catch(function(error) {
+			service.error = error;
 			console.error('error', error);
 		});
 	};
 
-	this.delete = function() {
-		console.log('user->delete');
-
-		$http({
+	this.delete = function(id) {
+		console.log('loader->delete');
+		return $http({
 			url: 'ws/loader/delete.php',
 			method: 'POST',
 			data: {
-				id: service.ads.id
+				id: id
 			},
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isDeleteError = true;
-				return;
+				return $q.reject(response);
 			}
-			service.isDeleteError = false;
-			service.ads = undefined;
-			$state.go('loader:adDeleted');
+			service.error = undefined;
+			service.loaders = undefined;
+			service.current = undefined;
+			$state.go('loader:deleted');
 		});
 	};
 
 }]);
-
-app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope, $injector) {
-	this.user = $injector.get('user');
-	this.loader = $injector.get('loader');
-}]);
-
-
-app.component('lgLoaderCreateAdStep1Route', {
-	templateUrl: 'lg-loader/tmpl/loader-create-ad-step1.html',
-	controller: 'LoaderCtrl',
-});
-
-app.component('lgLoaderCreateAdStep2Route', {
-	templateUrl: 'lg-loader/tmpl/loader-create-ad-step2.html',
-	controller: 'LoaderCtrl',
-});
-
-app.component('lgLoaderListAdRoute', {
-	templateUrl: 'lg-loader/tmpl/loader-list-ad.html',
-	controller: 'LoaderCtrl',
-});
-
-app.component('lgLoaderDetailAdRoute', {
-	templateUrl: 'lg-loader/tmpl/loader-detail-ad.html',
-	controller: 'LoaderCtrl',
-});
-
-app.component('lgLoaderListMyAdRoute', {
-	templateUrl: 'lg-loader/tmpl/loader-list-my-ad.html',
-	controller: 'LoaderCtrl',
-});
-
-app.component('lgLoaderDetailMyAdRoute', {
-	templateUrl: 'lg-loader/tmpl/loader-detail-my-ad.html',
-	controller: 'LoaderCtrl',
-});
-
-app.component('lgLoaderUpdateMyAdRoute', {
-	templateUrl: 'lg-loader/tmpl/loader-update-my-ad.html',
-	controller: 'LoaderCtrl',
-});
-
-app.component('lgLoaderCreateProposalRoute', {
-	templateUrl: 'lg-loader/tmpl/loader-create-proposal.html',
-	controller: 'LoaderCtrl',
-});
 

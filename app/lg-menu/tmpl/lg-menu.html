@@ -25,6 +25,7 @@
 		<a ng-click="$ctrl.toggle();" ui-sref="carrier:listMyAd"><i class="fa fa-bullhorn" aria-hidden="true"></i><span class="notification">10</span><span>Mes annonces</span></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user" aria-hidden="true"></i> <span>Mon profil</span></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.account.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <span>Mes véhicules</span></a>
+		<a ng-click="$ctrl.toggle();" ui-sref="loader:list({login: $ctrl.user.account.content.login})"><i class="fa fa-cubes" aria-hidden="true"></i> <span>Mes chargements</span></a>
 		<br/><br/>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:signout" class="btn-logout" ><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Se déconnecter</span></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="test:calendar"><i class="fa fa-calendar " aria-hidden="true"></i> <span>Test calendar</span></a>

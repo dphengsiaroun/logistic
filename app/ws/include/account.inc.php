@@ -12,7 +12,7 @@
 		public function __construct($id) {
 			$this->id = $id;
 			$this->retrieve();
-			debug('account', $this);
+			debug('my account', $this);
 		}
 
 		public static function create($request) {
