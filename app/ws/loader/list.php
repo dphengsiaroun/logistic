@@ -1,18 +1,17 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/include/loader.inc.php");
+	require_once(BASE_DIR . "/include/truck.inc.php");
 
-	$request = getRequest();
-	debug("create loader start");
-	debug('request', $request);
+	debug("list truck start");
 
 	$result = [];
 	try {
-		$loader = Loader::create($request);
+		$account = Account::getConnected();
+		$trucks = Truck::listAll($account);
 
 		$result['status'] = 'ok';
-		$result['loader'] = $loader;
+		$result['trucks'] = $trucks;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
