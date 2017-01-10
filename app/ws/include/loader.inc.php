@@ -10,10 +10,28 @@
 
 	class Loader {
 
-		private $account;
+		private $loader;
+
+		public function __construct($loader) {
+			if (!property_exists($loader)) {
+				//$loader = new stdClass();
+				//$loader->save();
+			}
+			//$this->loader = $loader;
+			debug('contenu loader', $loader);
+		}
 
 		public function create($request) {
 			global $db, $cfg;
+
+			$loader = new stdClass();
+			foreach ($request as $key => $value) {
+				$loader->{$key} = $value;
+ 			}
+
+			$name = str2spinal($request->name);
+			$loader->id = $name;
+			debug('contenu du loader apres foreach', $loader);
 
 			$sql = <<<EOF
 INSERT INTO {$cfg->prefix}loader (content, account_id) VALUES
@@ -23,11 +41,12 @@ EOF;
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
-				':content' => json_encode($request->content),
+				':content' => json_encode($loader),
 				':account_id' => $_COOKIE['accountId']
 			)) === FALSE) {
 				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 			}
+			return $loader;
 		}
 
 		public static function listAll($account) {

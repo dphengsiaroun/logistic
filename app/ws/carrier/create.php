@@ -1,41 +1,18 @@
 <?php
-	
-	define("BASE_DIR", dirname(dirname($_SERVER["SCRIPT_FILENAME"])));
-	require_once(BASE_DIR . "/include/constant.inc.php");
-	require_once(BASE_DIR . "/include/misc.inc.php");
-	require_once(BASE_DIR . "/include/database.inc.php");
-	
-	
-	// Permet de récuperer les données au format Json
-	$postdata = file_get_contents("php://input");
-	// on décode le json en variable PHP
-    $request = json_decode($postdata); 
-	$carrier = clone $request;
-	$carrier->content = json_encode($carrier->content);
-	debug("Carrier start");
-	debug("carrier", $carrier);
+
+	define("BASE_DIR", dirname(__DIR__));
+	require_once(BASE_DIR . "/include/truck.inc.php");
+
+	$request = getRequest();
+	debug("create truck start");
 
 	$result = [];
 	try {
-		
-		$sql = <<<EOF
-INSERT INTO lg_carrier (content, account_id) VALUES 
-	(:content, :account_id); 
-EOF;
-
-		$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-		if ($st->execute(array(
-			':content' => $carrier->content,
-			':account_id' => $_SESSION['id']
-		)) === FALSE) {
-			throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
-		}
-		$lastId = $db->lastInsertId();
+		$account = Account::getConnected();
+		$truck = Truck::create($account, $request);
 
 		$result['status'] = 'ok';
-		$request->id = $lastId;
-		$result['carrier'] = $request;
+		$result['truck'] = $truck;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

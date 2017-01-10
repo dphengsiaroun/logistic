@@ -13,6 +13,7 @@
 
 		$result['status'] = 'ok';
 		$result['loader'] = $loader;
+		debug('result', $result['loader']);
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

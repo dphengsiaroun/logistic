@@ -12,6 +12,7 @@
 				$account->save();
 			}
 			$this->account = $account;
+			debug('$this->account', $this->account);
 		}
 
 		public static function create($account, $request) {
