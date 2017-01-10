@@ -24,7 +24,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 		birthyear: '2008'
 	};
 
-	this.create = function() {
+	this.createTruck = function() {
 		console.log('truck->createTruck');
 		$http({
 			url: 'ws/truck/create.php',
