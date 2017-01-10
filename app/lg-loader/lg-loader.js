@@ -44,7 +44,7 @@ app.service('loader', ['$injector', function Loader($injector) {
 				service.error = response;
 				return;
 			}
-			service.isLoaderError = false;
+			service.error = undefined;
 			$state.go('loader:created');
 		}).catch(function(error) {
 			console.error('error', error);

@@ -35,8 +35,8 @@ app.config(['$stateProvider', function($stateProvider) {
 				console.log('state', state);
 				return {
 					state: state,
-					label: 'Revenir à la liste des véhicules',
-					message: 'Votre véhicule a bien été ajouté.'
+					label: 'Revenir à la liste des chargements',
+					message: 'Votre chargement a bien été ajouté.'
 				};
 			}
 		},
@@ -62,8 +62,8 @@ app.config(['$stateProvider', function($stateProvider) {
 					console.log('state', state);
 					return {
 						state: state,
-						label: 'Revenir à la liste des véhicules',
-						message: 'Votre véhicule a bien été modifié.'
+						label: 'Revenir à la liste des chargements',
+						message: 'Votre chargement a bien été modifié.'
 					};
 				});
 			}
@@ -85,7 +85,7 @@ app.config(['$stateProvider', function($stateProvider) {
 						result.error = error;
 					});
 				};
-				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce véhicule&nbsp;?';
+				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce chargement&nbsp;?';
 				result.cancelMsg = 'Non, annuler';
 				result.confirmMsg = 'Oui, supprimer';
 				return result;
@@ -106,8 +106,8 @@ app.config(['$stateProvider', function($stateProvider) {
 					console.log('state', state);
 					return {
 						state: state,
-						label: 'Revenir à la liste des véhicules',
-						message: 'Votre véhicule a bien été supprimé.'
+						label: 'Revenir à la liste des chargements',
+						message: 'Votre chargement a bien été supprimé.'
 					};
 				});
 			}

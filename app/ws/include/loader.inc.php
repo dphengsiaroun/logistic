@@ -10,19 +10,10 @@
 
 	class Loader {
 
-		private $request;
+		private $account;
 
-		public function __construct($request) {
-			$this->request = $request;
-		}
-
-		public static function create($request) {
+		public function create($request) {
 			global $db, $cfg;
-
-			$loader = new Loader();
-			foreach ($request as $key => $value) {
-				$truck->{$key} = $value;
- 			}
 
 			$sql = <<<EOF
 INSERT INTO {$cfg->prefix}loader (content, account_id) VALUES
@@ -33,19 +24,53 @@ EOF;
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
 				':content' => json_encode($request->content),
-				':account_id' => $request->account->id
+				':account_id' => $_COOKIE['accountId']
 			)) === FALSE) {
 				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 			}
-			return $loader;
 		}
 
 		public static function listAll($account) {
-			/*if (!property_exists($account->content, 'loaders')) {
-				$account->content->loaders = new stdClass();
-				$account->save();
+
+		}
+
+		public function save() {
+			global $db, $cfg;
+
+			$sql = <<<EOF
+UPDATE {$cfg->prefix}loader
+SET content = :content, account_id = :account_id
+WHERE id = :id
+EOF;
+
+			$st = $db->prepare($sql,
+				array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':content' => json_encode($this->content),
+				':account_id' => $this->account->id,
+				':id' => $this->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
-			return $account->content->loaders;*/
+		}
+
+		public function delete() {
+			global $db, $cfg;
+
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}loader
+WHERE id = :id;
+EOF;
+
+			$st = $db->prepare($sql,
+					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $this->id,
+			)) === FALSE) {
+				throw new Exception('Cannot delete ad : '.sprint_r($db->errorInfo()));
+			}
+			self::signout();
+			debug("delete ad ok");
 		}
 
 	

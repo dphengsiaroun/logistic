@@ -1,0 +1,72 @@
+<section class="banner">
+    <h1>Transporteur</h1>
+    <img class="lg-svg" src="img/frontal-carrier.svg"/>
+    <h2>Ajouter un véhicule</h2>
+</section>
+<section class="form">
+    <form name="carrierCtrl" ng-submit="$ctrl.carrier.create();">
+        <label>Libellé unique du camion</label>
+        <input type="text" placeholder="Ex : Camion 1"
+            ng-model="$ctrl.carrier.createData.name" required/>
+        <br/>
+        <label>Description du type de véhicule</label>
+        <input type="choice" choices="$root.config.vehicleTypes"
+            title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc."
+            ng-model="$ctrl.carrier.createData.type" required/>
+        <br/>
+        <label>Dimension de la capacité de la remorque</label>
+        <br/>
+        <comment>Mesures en mètre</comment>
+        <carrier-dim>
+            <dimension>
+                <div>
+                    <img src="img/hauteur.png"/>
+                    <p>Hauteur</p>
+                    <input type="num" placeholder="H." vertical ng-model="$ctrl.carrier.createData.height" options="{format: 2, step: 0.1}"/>
+                </div>
+                <div>
+                    <img src="img/profondeur.png"/>
+                    <p>Profondeur</p>
+                    <input type="num" placeholder="P." vertical ng-model="$ctrl.carrier.createData.deep" options="{format: 2, step: 0.1}"/>
+                </div>
+                <div>
+                    <img src="img/largeur.png"/>
+                    <p>Largeur</p>
+                    <input type="num" placeholder="L." vertical ng-model="$ctrl.carrier.createData.width" options="{format: 2, step: 0.1}"/>
+                </div>
+            </dimension>
+        </carrier-dim>
+        <div class="photo">
+            <label>Inserer une photo</label>
+            <lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+        </div>
+        <br/>
+        <label>Pays d'origine du véhicule</label>
+        <input type="choice" choices="$root.config.countries"
+            title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc."
+            ng-model="$ctrl.carrier.createData.country" />
+        <br/>
+        <label>Ville</label>
+        <input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc."
+            ng-model="$ctrl.carrier.createData.city" />
+        <br/>
+        <label>Type de conditionnement</label>
+        <input type="choice" choices="$root.config.conditionings" title="Type de conditionnement"
+            placeholder="Ex : Colis, Palettes, Vrac"
+            ng-model="$ctrl.carrier.createData.conditioning" />
+        <br/>
+        <div class="complement">
+            <label>Volume maximum de chargement (en m3)</label>
+            <input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.createData.maxVolume" />
+        </div>
+        <div class="complement">
+            <label>Poids maximum de chargement du véhicule (en tonne)</label>
+           <input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.createData.maxWeight" />
+        </div>
+        <label>Année du camion</label>
+        <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007"
+            ng-model="$ctrl.carrier.createData.birthyear" />
+        <br/>
+        <button>Ajouter ce véhicule à ma flotte ></button>
+    </form>
+</section>

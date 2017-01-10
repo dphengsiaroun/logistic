@@ -37,7 +37,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 				service.error = response;
 				return;
 			}
-			service.isTruckError = false;
+			service.error = undefined;
 			$state.go('truck:created');
 		}).catch(function(error) {
 			console.error('error', error);

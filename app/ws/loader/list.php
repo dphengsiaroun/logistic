@@ -7,11 +7,10 @@
 
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		$trucks = Truck::listAll($account);
+		$trucks = Loader::listAll($loader);
 
 		$result['status'] = 'ok';
-		$result['trucks'] = $trucks;
+		$result['loaders'] = $loaders;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

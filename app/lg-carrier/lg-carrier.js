@@ -1,116 +1,31 @@
 'use strict';
 
+require('./lg-carrier.css');
 module.exports = 'lg-carrier';
 
 var app = angular.module(module.exports, ['ui.router']);
-
-app.config(['$stateProvider', function($stateProvider) {
-
-	$stateProvider.state({
-		name: 'carrier:choice',
-		url: '/carrier-choice',
-		component: 'lgCarrierChoiceRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:createAdStep1',
-		url: '/carrier-create-ad',
-		component: 'lgCarrierCreateAdStep1Route'
-	});
-	$stateProvider.state({
-		name: 'carrier:createAdStep2',
-		url: '/carrier-create-ad',
-		component: 'lgCarrierCreateAdStep2Route'
-	});
-	$stateProvider.state({
-		name: 'carrier:listAd',
-		url: '/carrier-list-ad',
-		component: 'lgCarrierListAdRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:detailAd',
-		url: '/carrier-detail-ad',
-		component: 'lgCarrierDetailAdRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:listMyAd',
-		url: '/carrier-list-my-ad',
-		component: 'lgCarrierListMyAdRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:detailMyAd',
-		url: '/carrier-detail-my-ad',
-		component: 'lgCarrierDetailMyAdRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:updateMyAd',
-		url: '/carrier-update-my-ad',
-		component: 'lgCarrierUpdateMyAdRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:createProposal',
-		url: '/carrier-create-proposal',
-		component: 'lgCarrierCreateProposalRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:createProposalSent',
-		url: '/carrier-create-proposal',
-		component: 'lgCarrierCreateProposalSentRoute'
-	});
-	$stateProvider.state({
-		name: 'carrier:adDeleted',
-		url: '/carrier_ad_delete',
-		component: 'lgMessage',
-		resolve: {
-			service: function() {
-				return {
-					state: 'home',
-					label: 'Accueil',
-					message: 'Votre annonce a bien été supprimé.'
-				};
-			}
-		},
-		back: false
-	});
-	$stateProvider.state({
-		name: 'carrier:truckAdd',
-		url: '/carrier_truck_add',
-		component: 'lgMessage',
-		resolve: {
-			service: function() {
-				return {
-					state: 'home',
-					label: 'Accueil',
-					message: 'Votre camion a bien été ajouté.'
-				};
-			}
-		},
-		back: false
-	});
-
-}]);
+require('./lg-carrier-route.js');
 
 app.service('carrier', ['$injector', function Carrier($injector) {
 	var $http = $injector.get('$http');
 	var $state = $injector.get('$state');
-	this.user = $injector.get('user');
 
 	var service = this;
 	this.createData = {
-		content: {
-			type: 'Bâche',
-			country: 'Algerie',
-			city: 'Alger',
-			conditioning: 'Palette',
-			birthyear: '2008',
-		}
+		type: 'benne',
+		height: '2',
+		width: '10',
+		deep: '8',
+		country: 'Algerie',
+		city: 'Alger',
+		conditioning: 'Palette',
+		maxVolume: '3',
+		maxWeight: '12',
+		birthyear: '2008'
 	};
 
 	this.create = function() {
-		console.log('carrier->create');
-		if (this.user.account === undefined) {
-			$state.go('user:signin');
-			return;
-		}
+		console.log('carrier->createCarrrier');
 		$http({
 			url: 'ws/carrier/create.php',
 			method: 'POST',
@@ -119,35 +34,51 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isAdcarrierError = true;
+				service.error = response;
 				return;
 			}
-			service.isAdcarrierError = false;
-			service.ads = response.data.ads;
-			$state.go('carrier:createAdStep2');
+			service.error = undefined;
+			$state.go('carrier:created');
 		}).catch(function(error) {
 			console.error('error', error);
 		});
 	};
 
-	var service = this;
-	this.updateData = {
-		content: {
-			type: 'benne',
-			country: 'Algerie',
-			city: 'Alger',
-			conditioning: 'Palette',
-			birthyear: '2008',
+	this.list = function() {
+		console.log('carrier->list');
+		return $http({
+			url: 'ws/carrier/list.php',
+			method: 'GET'
+		}).then(function(response) {
+			console.log('response', response);
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return;
+			}
+			service.error = undefined;
+			service.carrierMap = response.data.carriers;
+			console.log('service.carrierMap', service.carrierMap);
+			service.carriers = values(service.carrierMap);
+			console.log('service.carriers', service.carriers);
+		}).catch(function(error) {
+			service.error = error;
+		});
+	};
+
+	this.get = function(id) {
+		if (service.carrierMap === undefined) {
+			this.list().then(function() {
+				service.current = service.carrierMap[id];
+			});
+		} else {
+			service.current = service.carrierMap[id];
 		}
 	};
 
-	this.update = function() {
-		console.log('carrier->update');
-		if (this.user.account === undefined) {
-			$state.go('user:signin');
-			return;
-		}
+	this.updateData = {};
 
+	this.update = function() {
+		console.log('updateCarrier->update');
 		$http({
 			url: 'ws/carrier/update.php',
 			method: 'POST',
@@ -156,88 +87,39 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isAdcarrierError = true;
+				service.error = response;
 				return;
 			}
-			service.isAdcarrierError = false;
-			service.ads = response.data.ads;
-			$state.go('carrier:createAdStep2');
+			service.error = undefined;
+			service.current = response.data.carrier;
+			console.log('about to go to', response);
+			$state.go('carrier:updated');
 		}).catch(function(error) {
+			service.error = error;
 			console.error('error', error);
 		});
 	};
 
-	this.delete = function() {
-		console.log('user->delete');
-
-		$http({
+	this.delete = function(id) {
+		console.log('carrier->delete');
+		return $http({
 			url: 'ws/carrier/delete.php',
 			method: 'POST',
 			data: {
-				id: service.ads.id
+				id: id
 			},
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.isDeleteError = true;
-				return;
+				return $q.reject(response);
 			}
-			service.isDeleteError = false;
-			service.ads = undefined;
-			$state.go('carrier:adDeleted');
+			service.error = undefined;
+			service.carriers = undefined;
+			service.current = undefined;
+			$state.go('carrier:deleted');
 		});
 	};
 
 }]);
-
-app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
-	this.user = $injector.get('user');
-	this.carrier = $injector.get('carrier');
-}]);
-
-app.component('lgCarrierChoiceRoute', {
-	templateUrl: 'lg-carrier/tmpl/carrier-choice.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierCreateAdStep1Route', {
-	templateUrl: 'lg-carrier/tmpl/carrier-create-ad-step1.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierCreateAdStep2Route', {
-	templateUrl: 'lg-carrier/tmpl/carrier-create-ad-step2.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierListAdRoute', {
-	templateUrl: 'lg-carrier/tmpl/carrier-list-ad.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierDetailAdRoute', {
-	templateUrl: 'lg-carrier/tmpl/carrier-detail-ad.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierListMyAdRoute', {
-	templateUrl: 'lg-carrier/tmpl/carrier-list-my-ad.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierDetailMyAdRoute', {
-	templateUrl: 'lg-carrier/tmpl/carrier-detail-my-ad.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierUpdateMyAdRoute', {
-	templateUrl: 'lg-carrier/tmpl/carrier-update-my-ad.html',
-	controller: 'CarrierCtrl',
-});
-
-app.component('lgCarrierCreateProposalRoute', {
-	templateUrl: 'lg-carrier/tmpl/carrier-create-proposal.html',
-	controller: 'CarrierCtrl',
-});
 
