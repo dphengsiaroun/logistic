@@ -69,5 +69,13 @@ EOF;
 			$e = Event::insert('/loader/delete', $request);
 			Event::synchronize();
 		}
+
+		public static function update($account, $request) {
+			$request->accountId = $account->id;
+			$e = Event::insert('/loader/update', $request);
+			Event::synchronize();
+			$loader = self::retrieve($request->id);
+			return $loader;
+		}
 	}
 

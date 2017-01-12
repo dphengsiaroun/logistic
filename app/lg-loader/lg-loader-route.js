@@ -44,7 +44,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'loader:update',
-		url: '/{login}/loader/{id}/update',
+		url: '/loader/{id}/update',
 		component: 'lgLoaderUpdateRoute'
 	});
 	$stateProvider.state({
@@ -62,7 +62,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					return {
 						state: state,
 						label: 'Revenir à la liste des chargements',
-						message: 'Votre annonce de chargement a bien été modifié.'
+						message: 'Votre annonce de chargement a bien été modifiée.'
 					};
 				});
 			}
@@ -148,23 +148,21 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $injector) 
 	this.user = $injector.get('user');
 });
 
-app.controller('LoaderUpdateCtrl', ['$scope', '$injector', function LoaderUpdateCtrl($scope, $injector) {
-	var self = this;
-	this.loader = $injector.get('loader');
-	this.user = $injector.get('user');
-	var $stateParams = $injector.get('$stateParams');
+app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams) {
+	'ngInject';
+	var ctrl = this;
+	ctrl.loader = loader;
+	ctrl.user = user;
 	this.$onInit = function() {
-		this.loader.get($stateParams.id);
-		$scope.$watch('$ctrl.loader.current', function() {
-			if (self.loader.current === undefined) {
-				return;
-			}
-			self.loader.updateData = angular.copy(self.loader.current);
-			self.loader.updateData.oldId = $stateParams.id;
-			console.log('self.loader.updateData', self.loader.updateData);
+		this.loader.get($stateParams.id).then(function() {
+			return ctrl.user.waitForCheckConnection();
+		}).then(function() {
+			ctrl.loader.updateData = angular.copy(ctrl.loader.current.content);
+			ctrl.loader.updateData.id = $stateParams.id;
+			console.log('ctrl.loader.updateData', ctrl.loader.updateData);
 		});
 	};
-}]);
+});
 
 var loaderCreateUrl = require('./tmpl/loader-create.html');
 var loaderListUrl = require('./tmpl/loader-list.html');

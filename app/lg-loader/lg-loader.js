@@ -89,7 +89,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	this.updateData = {};
 
 	this.update = function() {
-		console.log('updateLoader->update');
+		console.log('updateLoader->update', service.updateData);
 		$http({
 			url: 'ws/loader/update.php',
 			method: 'POST',
