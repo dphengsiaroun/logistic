@@ -1,0 +1,137 @@
+/* Header */
+
+$dark-color: hsla(214, 46%, 25%, 1);
+$notification-color: hsla(52, 100%, 73%, 1);
+
+lg-menu {
+    position: fixed;
+    top: 0px;
+    padding:0px;
+    width: 100%;
+    display: block;
+    z-index: 50;
+}
+
+my-head {
+    display: table;
+    width: 100%;
+    background-color: $dark-color;
+	height: 59px;
+
+    head-left {
+        display: table-cell;
+        width: 50px;
+        margin: 0px;
+        vertical-align: top;
+        padding: 17px 10px 0;
+
+        i.fa {
+            color: white;
+            font-size: 26px;
+        }
+
+    }
+
+    head-center {
+        display: table-cell;
+        text-align: center;
+        color: white;
+        font-size: 13px;
+        line-height: 0px;
+
+        a {
+            color: white;
+            font-size: 13px;
+        }
+
+        img {
+            width: 60px;
+            padding-top: 10px;
+        }
+
+        svg {
+            width: 50px;
+            height: 50px;
+            margin-top: -2px;
+        }
+
+        p {
+            color: white;
+            padding: 29px 0 0;
+            font-size: 17px;
+        }
+    }
+
+    head-right {
+        display: table-cell;
+        margin: 0px;
+        width: 50px;
+        vertical-align: top;
+        padding: 14px 10px;
+
+        i.fa {
+            color: white;
+            font-size: 30px;
+        }
+    }
+
+}
+
+.lg-menu-content {
+    display: none;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    top: 58px;
+    bottom: 0;
+    left: 0;
+    z-index: 75;
+    background-color: hsla(0, 0%, 92%, 1);
+	text-align: left;
+
+    a {
+        display: block;
+        background: white;
+        border-bottom: 1px solid hsla(0, 0%, 92%, 1);
+        padding: 10px;
+        width: 100%;
+        font-size: 23px;
+        position: relative;
+
+        .fa {
+            display: inline-block;
+            width: 16%;
+            font-size: 36px;
+            color: $dark-color;
+            height: 100%;
+        }
+
+        .notification {
+            display: inline-block;
+            vertical-align: top;
+            padding: 1px 6px;
+            position: absolute;
+            left: 28px;
+            border-radius: 30px;
+            font-size: 13px;
+            background-color: $notification-color;
+        }
+
+        p {
+            display: inline-block;
+            vertical-align: top;
+            padding: 6px 11px;
+            font-size: 20px;
+        }
+
+        
+    }
+
+}
+
+.btn-logout {
+    border-top: 1px solid hsla(0, 0%, 91%, 1);
+}
+
+

@@ -18,13 +18,12 @@ module.exports = {
 		loaders: [
 			{test: /\.js$/, loaders: ['ng-annotate']},
 			{test: /\.css$/, loader: ExtractTextPlugin.extract(['css?sourceMap'])},
+			{test: /\.scss$/, loader: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap'])},
 			// css-loader use file-loader and url-loader to require the fonts.
 			{test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
 			{test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
 			{test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
 			{test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
-			// Sass (scss) support
-			{test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader']},
 			// managing angular templates into javascript file.
 			{test: /\.html$/, loader: 'ngtemplate?relativeTo=app!html?attrs=false'}
 

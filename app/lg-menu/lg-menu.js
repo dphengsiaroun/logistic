@@ -1,6 +1,6 @@
 'use strict';
 
-require('./lg-menu.css');
+require('./lg-menu.scss');
 module.exports = 'lg-menu';
 
 window.mobilecheck = function() {
