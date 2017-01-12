@@ -1,3 +1,5 @@
+@import './color';
+
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
@@ -10,18 +12,18 @@
     padding: 0px;
     margin: 0px;
     font-size: 20px;
-    color: hsla(214, 46%, 25%, 1);
+    color: $fontColor;
 }
 
 svg {
-    fill: hsla(214, 46%, 25%, 1);
+    fill: $darkColor;
 }
 
 body {
     padding: 0px;
     margin: 0px;
     font-family: 'Source Sans Pro', sans-serif;
-    background: hsla(0, 0%, 96%, 1);
+    background: $backgroundColor;
 }
 
 ui-view {
@@ -32,7 +34,7 @@ ui-view {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     text-align: center;
-    color: hsla(214, 46%, 25%, 1);
+    color: $darkColor;
 }
 
 h1 {
@@ -54,7 +56,7 @@ input, my-input {
     box-shadow: none;
     padding: 17px 10px;
     border-radius: 5px;
-    border: 1px solid hsla(0, 0%, 92%, 1);
+    border: 1px solid $borderColor;
 }
 
 /* placeholder */
@@ -95,7 +97,7 @@ comment {
 
 a {
     text-decoration: none;
-    color: hsla(214, 46%, 25%, 1);
+    color: $darkColor;
 }
 
 .clear {
