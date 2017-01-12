@@ -88,6 +88,9 @@ EOF;
 				case '/loader/create':
 					EventLoader::create($this);
 					break;
+				case '/loader/delete':
+					EventLoader::delete($this);
+					break;
 			}
 
 			debug('Event propagated.');
