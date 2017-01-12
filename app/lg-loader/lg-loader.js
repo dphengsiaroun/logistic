@@ -6,9 +6,8 @@ module.exports = 'lg-loader';
 var app = angular.module(module.exports, ['ui.router']);
 require('./lg-loader-route.js');
 
-app.service('loader', ['$injector', function Loader($injector) {
-	var $http = $injector.get('$http');
-	var $state = $injector.get('$state');
+app.service('loader', function Loader(user, $http, $state, $q) {
+	'ngInject';
 
 	var service = this;
 	this.createData = {
@@ -79,12 +78,12 @@ app.service('loader', ['$injector', function Loader($injector) {
 
 	this.get = function(id) {
 		if (service.loaderMap === undefined) {
-			this.list().then(function() {
+			return this.list().then(function() {
 				service.current = service.loaderMap[id];
 			});
-		} else {
-			service.current = service.loaderMap[id];
 		}
+		service.current = service.loaderMap[id];
+		return $q.resolve();
 	};
 
 	this.updateData = {};
@@ -133,5 +132,5 @@ app.service('loader', ['$injector', function Loader($injector) {
 		});
 	};
 
-}]);
+});
 

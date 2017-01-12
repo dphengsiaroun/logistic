@@ -125,13 +125,20 @@ app.controller('LoaderListCtrl', ['$scope', '$injector', function LoaderCtrl($sc
 }]);
 
 app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope, $injector) {
-	this.loader = $injector.get('loader');
-	this.user = $injector.get('user');
+	var ctrl = this;
+	ctrl.loader = $injector.get('loader');
+	ctrl.user = $injector.get('user');
+	ctrl.isEditable = false;
 	var $stateParams = $injector.get('$stateParams');
-	console.log('this.loader', this.loader);
+	console.log('ctrl.loader', ctrl.loader);
 	console.log('$stateParams', $stateParams);
-	this.$onInit = function() {
-		this.loader.get($stateParams.id);
+	ctrl.$onInit = function() {
+		ctrl.loader.get($stateParams.id).then(function() {
+			return ctrl.user.waitForCheckConnection();
+		}).then(function() {
+			ctrl.isEditable = (ctrl.loader.current.content.accountId === ctrl.user.account.id);
+			console.log('ctrl.isEditable', ctrl.isEditable);
+		});
 	};
 }]);
 
