@@ -9,7 +9,8 @@
 
 	$result = [];
 	try {
-		$loader = Loader::create($request);
+		$account = Account::getConnected();
+		$loader = Loader::create($account, $request);
 
 		$result['status'] = 'ok';
 		$result['loader'] = $loader;
@@ -21,4 +22,3 @@
 		$result['errorCode'] = $e->getCode();
 	}
 	echo json_encode($result);
-?>
