@@ -1,11 +1,12 @@
 <?php
 
 	require_once(BASE_DIR . "/include/account.inc.php");
+	require_once(BASE_DIR . "/include/event.inc.php");
 
 	class Loader {
 
 		public static function create($request) {
-			$e = new Event('/loader/create', $request);
+			$e = Event::insert('/loader/create', $request);
 			Event::synchronize();
 			$loader = self::retrieve($e->id);
 			return $loader;
@@ -27,7 +28,7 @@ EOF;
 			}
 
 			if ($st->rowCount() == 0) {
-				throw new Exception('Loader not found for id = ' . $this->id);
+				throw new Exception('Loader not found for id = ' . $id);
 			}
 
 			$array = $st->fetch();
@@ -37,6 +38,10 @@ EOF;
 			$loader->content = json_decode($array['content']);
 			debug('Loader retrieved.');
 			return $loader;
+		}
+
+		public static function listAll() {
+
 		}
 
 	

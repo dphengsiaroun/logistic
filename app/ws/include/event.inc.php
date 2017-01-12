@@ -4,13 +4,13 @@
 
 	class Event {
 
-		public function __construct($type, $content) {
-			$this->type = $type;
-			$this->content = $content;
-			$this->insert();
+		public function __construct($array) {
+			@$this->id = $array['id'];
+			@$this->type = $array['type'];
+			@$this->content = $array['content'];
 		}
 
-		public function insert() {
+		public static function insert($type, $content) {
 			global $db, $cfg;
 
 			$sql = <<<EOF
@@ -21,19 +21,24 @@ EOF;
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
-				':type' => $this->type,
-				':content' => json_encode($this->content)
+				':type' => $type,
+				':content' => json_encode($content)
 			)) === FALSE) {
 				throw new Exception('Cannot insert event: '.sprint_r($db->errorInfo()));
 			}
-			$this->id = $db->lastInsertId();
+			$id = $db->lastInsertId();
+			return new Event(array(
+				'id' => $id,
+				'type' => $type,
+				'content' => $content
+			));
 		}
 
 		public static function synchronize() {
 			global $db, $cfg;
 			// On lance notre requête de vérification
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}event_id e_id, {$cfg->prefix}event e WHERE e.id > e_id.id;
+SELECT e.id AS id FROM {$cfg->prefix}event_id e_id, {$cfg->prefix}event e WHERE e.id > e_id.id;
 EOF;
 
 			$st = $db->prepare($sql,
@@ -44,9 +49,42 @@ EOF;
 
 			while ($array = $st->fetch()) {
 				$e = new Event($array);
+				$e->retrieve();
 				$e->propagate();
+
 			}
-			return $loader;
+		}
+
+		public function retrieve() {
+			global $db, $cfg;
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+SELECT * FROM {$cfg->prefix}event WHERE id = :id;
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $this->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			if ($st->rowCount() == 0) {
+				throw new Exception('Event not found for id = ' . $this->id);
+			}
+
+			$array = $st->fetch();
+			$this->id = $array['id'];
+			$this->type = $array['type'];
+			$this->content = json_decode($array['content']);
+			debug('Event retrieved.');
+		}
+
+		public function propagate() {
+			global $db, $cfg;
+
+			debug('Event propagated.');
 		}
 
 	}
