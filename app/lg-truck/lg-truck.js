@@ -66,6 +66,10 @@ app.service('truck', ['$injector', function Truck($injector) {
 	};
 
 	this.get = function(id) {
+		console.log('get', arguments);
+		if (id === undefined) {
+			throw new Error('id is undefined');
+		}
 		if (service.truckMap === undefined) {
 			this.list().then(function() {
 				service.current = service.truckMap[id];

@@ -136,6 +136,12 @@ app.controller('TruckCtrl', ['$scope', '$injector', function TruckCtrl($scope, $
 	};
 }]);
 
+app.controller('TruckCreateCtrl', function TruckCtrl($scope, $injector) {
+	'ngInject';
+	this.truck = $injector.get('truck');
+	this.user = $injector.get('user');
+});
+
 app.controller('TruckUpdateCtrl', ['$scope', '$injector', function TruckUpdateCtrl($scope, $injector) {
 	var self = this;
 	this.truck = $injector.get('truck');
@@ -161,7 +167,7 @@ var truckUpdateUrl = require('./tmpl/truck-update.html');
 
 app.component('lgTruckCreateRoute', {
 	templateUrl: truckCreateUrl,
-	controller: 'TruckCtrl',
+	controller: 'TruckCreateCtrl',
 });
 
 app.component('lgTruckListRoute', {

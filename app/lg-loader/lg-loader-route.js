@@ -36,7 +36,7 @@ app.config(['$stateProvider', function($stateProvider) {
 				return {
 					state: state,
 					label: 'Revenir à la liste des chargements',
-					message: 'Votre chargement a bien été ajouté.'
+					message: 'Votre annonce de chargement a bien été ajoutée.'
 				};
 			}
 		},
@@ -63,7 +63,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					return {
 						state: state,
 						label: 'Revenir à la liste des chargements',
-						message: 'Votre chargement a bien été modifié.'
+						message: 'Votre annonce de chargement a bien été modifié.'
 					};
 				});
 			}
@@ -107,7 +107,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					return {
 						state: state,
 						label: 'Revenir à la liste des chargements',
-						message: 'Votre chargement a bien été supprimé.'
+						message: 'Votre annonce de chargement a bien été supprimé.'
 					};
 				});
 			}
@@ -136,6 +136,12 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 	};
 }]);
 
+app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $injector) {
+	'ngInject';
+	this.loader = $injector.get('loader');
+	this.user = $injector.get('user');
+});
+
 app.controller('LoaderUpdateCtrl', ['$scope', '$injector', function LoaderUpdateCtrl($scope, $injector) {
 	var self = this;
 	this.loader = $injector.get('loader');
@@ -161,7 +167,7 @@ var loaderUpdateUrl = require('./tmpl/loader-update.html');
 
 app.component('lgLoaderCreateRoute', {
 	templateUrl: loaderCreateUrl,
-	controller: 'LoaderCtrl',
+	controller: 'LoaderCreateCtrl',
 });
 
 app.component('lgLoaderListRoute', {
