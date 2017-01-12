@@ -5,7 +5,8 @@
 
 	class Loader {
 
-		public static function create($request) {
+		public static function create($account, $request) {
+			$request->accountId = $account->id;
 			$e = Event::insert('/loader/create', $request);
 			Event::synchronize();
 			$loader = self::retrieve($e->id);

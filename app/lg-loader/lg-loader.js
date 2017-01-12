@@ -31,7 +31,7 @@ app.service('loader', ['$injector', function Loader($injector) {
 
 	};
 
-	this.createLoader = function() {
+	this.create = function() {
 		console.log('loader->createLoader');
 		$http({
 			url: 'ws/loader/create.php',

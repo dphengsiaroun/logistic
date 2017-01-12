@@ -29,7 +29,7 @@ CREATE TABLE `<?php echo $context->prefix; ?>carrier` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `<?php echo $context->prefix; ?>loader` (
-  `id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` INT(5) UNSIGNED NOT NULL,
   `content` longtext NOT NULL,
   `account_id` int(5) NOT NULL,
   PRIMARY KEY (`id`)

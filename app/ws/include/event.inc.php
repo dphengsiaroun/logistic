@@ -1,6 +1,6 @@
 <?php
 
-	require_once(BASE_DIR . "/include/account.inc.php");
+	require_once(BASE_DIR . '/include/event/EventLoader.php');
 
 	class Event {
 
@@ -51,7 +51,7 @@ EOF;
 				$e = new Event($array);
 				$e->retrieve();
 				$e->propagate();
-
+				$e->commit();
 			}
 		}
 
@@ -84,7 +84,31 @@ EOF;
 		public function propagate() {
 			global $db, $cfg;
 
+			switch ($this->type) {
+				case '/loader/create':
+					EventLoader::create($this);
+					break;
+			}
+
 			debug('Event propagated.');
+		}
+
+		public function commit() {
+			global $db, $cfg;
+
+			$sql = <<<EOF
+UPDATE {$cfg->prefix}event_id SET id = :id;
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $this->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			debug('Event committed.');
 		}
 
 	}
