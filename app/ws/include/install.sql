@@ -1,6 +1,6 @@
 CREATE TABLE `<?php echo $context->prefix; ?>event` (
   `id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `type` VARCHAR(255) NOT NULL,
   `content` longtext NOT NULL,
   PRIMARY KEY (`id`)
@@ -12,7 +12,7 @@ CREATE TABLE `<?php echo $context->prefix; ?>event_id` (
 
 INSERT INTO `<?php echo $context->prefix; ?>event_id` (id) VALUES (0);
 
-CREATE TABLE `<?php echo $context->prefix; ?>account` ( 
+CREATE TABLE `<?php echo $context->prefix; ?>account` (
 	`id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`email` VARCHAR(255) NOT NULL ,
 	`password` VARCHAR(255) NOT NULL ,
