@@ -54,6 +54,7 @@ app.service('user', function User($injector) {
 			}
 			service.error = undefined;
 			service.account = response.data.account;
+			$rootScope.isConnected = true;
 			$state.go('user:signupSuccess');
 		}).catch(function(error) {
 			service.error = error;
@@ -85,6 +86,7 @@ app.service('user', function User($injector) {
 			}
 			service.error = undefined;
 			service.account = response.data.account;
+			$rootScope.isConnected = true;
 			$state.go('home');
 		}).catch(function(error) {
 			service.error = error;
@@ -128,8 +130,9 @@ app.service('user', function User($injector) {
 				service.error = response;
 				return;
 			}
-			service.isSignoutError = false;
+			service.error = undefined;
 			service.account = undefined;
+			$rootScope.isConnected = false;
 			$state.go('home');
 		}).catch(function(error) {
 			service.error = error;
@@ -168,6 +171,15 @@ app.service('user', function User($injector) {
 
 	this.waitForCheckConnection = function() {
 		return $q(function(resolve, reject) {
+			console.log('$rootScope.isConnected', $rootScope.isConnected);
+			if ($rootScope.isConnected === true) {
+				resolve();
+				return;
+			}
+			if ($rootScope.isConnected === false) {
+				reject();
+				return;
+			}
 			$rootScope.$watch('isConnected', function() {
 				if ($rootScope.isConnected === true) {
 					resolve();
@@ -221,6 +233,7 @@ app.service('user', function User($injector) {
 				return $q.reject(response);
 			}
 			service.account = undefined;
+			$rootScope.isConnected = false;
 			$state.go('user:deleted');
 		});
 	};
