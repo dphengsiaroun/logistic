@@ -64,6 +64,30 @@ EOF;
 			return $result;
 		}
 
+		public static function delete($account, $request) {
+			global $db, $cfg;
+
+			$loader = self::retrieve($request->id);
+
+			if ($account->id != $loader->accountId) {
+				throw new Exceptions('Forbidden operation. Account must match.');
+			}
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}loader WHERE id=:id
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $request->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+		}
+
+		
+
 	
 	
 

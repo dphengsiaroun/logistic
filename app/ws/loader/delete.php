@@ -1,35 +1,17 @@
 <?php
-	
-	define("BASE_DIR", dirname(dirname($_SERVER["SCRIPT_FILENAME"])));
-	require_once(BASE_DIR . "/include/constant.inc.php");
-	require_once(BASE_DIR . "/include/misc.inc.php");
-	require_once(BASE_DIR . "/include/database.inc.php");
-	
-	
-	// Permet de récuperer les données au format Json
-	$postdata = file_get_contents("php://input");
 
-	// on décode le json dans une variable PHP
-    $request = json_decode($postdata); 
-	$loader = clone $request;
-	debug("delete loader ad", $loader);
+	define("BASE_DIR", dirname(__DIR__));
+	require_once(BASE_DIR . "/include/loader.inc.php");
+
+	$request = getRequest();
+	debug("delete loader start");
+	debug('request', $request);
 
 	$result = [];
 	try {
+		$account = Account::getConnected();
+		Loader::delete($account, $request);
 
-		$sql = <<<EOF
-DELETE FROM loader
-WHERE account_id = :account_id;
-EOF;
-
-		$st = $db->prepare($sql,
-				array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-		if ($st->execute(array(
-			':account_id' => $_SESSION['id']
-		)) === FALSE) {
-			throw new Exception('Cannot delete loader ad : '.sprint_r($db->errorInfo()));
-		}
-		debug("delete loader ad ok");
 		$result['status'] = 'ok';
 
 	} catch (Exception $e) {
@@ -38,4 +20,3 @@ EOF;
 		$result['errorCode'] = $e->getCode();
 	}
 	echo json_encode($result);
-?>

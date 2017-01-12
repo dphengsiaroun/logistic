@@ -70,7 +70,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'loader:delete',
-		url: '/{login}/loader/{id}/delete',
+		url: '/loader/{id}/delete',
 		component: 'lgConfirm',
 		resolve: {
 			service: function($rootScope, loader, $stateParams) {
@@ -84,7 +84,7 @@ app.config(['$stateProvider', function($stateProvider) {
 						result.error = error;
 					});
 				};
-				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce chargement&nbsp;?';
+				result.confirmationMsg = 'Voulez-vous vraiment supprimer cette annonce de chargement&nbsp;?';
 				result.cancelMsg = 'Non, annuler';
 				result.confirmMsg = 'Oui, supprimer';
 				return result;
@@ -106,7 +106,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					return {
 						state: state,
 						label: 'Revenir à la liste des chargements',
-						message: 'Votre annonce de chargement a bien été supprimé.'
+						message: 'Votre annonce de chargement a bien été supprimée.'
 					};
 				});
 			}
