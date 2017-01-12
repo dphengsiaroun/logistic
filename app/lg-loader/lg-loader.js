@@ -32,7 +32,7 @@ app.service('loader', ['$injector', function Loader($injector) {
 	};
 
 	this.create = function() {
-		console.log('loader->createLoader');
+		console.log('loader->createLoader', service.createData);
 		$http({
 			url: 'ws/loader/create.php',
 			method: 'POST',
@@ -51,11 +51,16 @@ app.service('loader', ['$injector', function Loader($injector) {
 		});
 	};
 
+	this.listData = {
+	};
+
 	this.list = function() {
 		console.log('loader->list');
 		return $http({
 			url: 'ws/loader/list.php',
-			method: 'GET'
+			method: 'POST',
+			data: service.listData,
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {

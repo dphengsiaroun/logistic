@@ -6,13 +6,12 @@ app.config(['$stateProvider', function($stateProvider) {
 
 	$stateProvider.state({
 		name: 'loader:list',
-		url: '/{login}/loader',
-		component: 'lgLoaderListRoute',
-		needsUser: true
+		url: '/ads/loaders',
+		component: 'lgLoaderListRoute'
 	});
 	$stateProvider.state({
 		name: 'loader:retrieve',
-		url: '/{login}/loader/{id}',
+		url: '/loader/{id}',
 		component: 'lgLoaderRetrieveRoute',
 		needsUser: true
 	});

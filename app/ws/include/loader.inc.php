@@ -42,7 +42,26 @@ EOF;
 		}
 
 		public static function listAll() {
+			global $db, $cfg;
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+SELECT * FROM {$cfg->prefix}loader
+EOF;
 
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			$result = array();
+
+			while ($array = $st->fetch()) {
+				$array['content'] = json_decode($array['content']);
+				$result[] = $array;
+			}
+			return $result;
 		}
 
 	

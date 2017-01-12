@@ -1,14 +1,15 @@
 <?php
 
-	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/include/loader.inc.php");
+	define('BASE_DIR', dirname(__DIR__));
+	require_once(BASE_DIR . '/include/loader.inc.php');
 
-	debug("list truck start");
+	$request = getRequest();
+
+	debug('list truck start', $request);
 
 	$result = [];
 	try {
-		$loader = new stdClass();
-		$loaders = Loader::listAll($loader);
+		$loaders = Loader::listAll($request);
 
 		$result['status'] = 'ok';
 		$result['loaders'] = $loaders;
