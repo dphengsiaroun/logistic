@@ -1,7 +1,5 @@
-/* Header */
 
-$dark-color: hsla(214, 46%, 25%, 1);
-$notification-color: hsla(52, 100%, 73%, 1);
+@import '../css/color';
 
 lg-menu {
     position: fixed;
