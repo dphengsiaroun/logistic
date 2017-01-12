@@ -1,14 +1,16 @@
+@import '../../css/color';
+
 lg-home-route {
     display: block;
     margin: 0px;
     padding: 20px 0px 30px;
-}
 
-lg-home-route .tagline {
-    text-align: center;
-    font-size: 17px;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    .tagline {
+        text-align: center;
+        font-size: 17px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
 }
 
 lg-home-route .square-parent {
@@ -39,11 +41,10 @@ lg-home-route .square a {
     display: block;
     width: 100%;
     height: 100%;
-    background: hsla(52, 100%, 73%, 1);
+    background: $square-color;
     border-radius: 10px;
     margin: 0px;
     padding: 20px 0px 15px;
-    color: black;
 }
 
 lg-home-route .square a img, .square a svg {
