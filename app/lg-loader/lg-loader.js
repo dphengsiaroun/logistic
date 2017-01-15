@@ -1,6 +1,6 @@
 'use strict';
 
-require('./lg-loader.css');
+require('./lg-loader.scss');
 module.exports = 'lg-loader';
 
 var app = angular.module(module.exports, ['ui.router']);
