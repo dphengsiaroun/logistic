@@ -3,7 +3,7 @@
 .ad-title {
 	text-align: center;
 	font-size: 0px;
-	padding: 0px 0px 20px;
+	padding: 0px;
 	title {
 		font-weight: bold;
 		font-size: 25px;
@@ -29,9 +29,28 @@
 		border-top: none;
 	}
 
+
+}
+
+.ad {
+	padding: 0px;
+	margin: 0px;
+
 	section {
-		font-size: 30px;
+		padding: 10px 10px;
+		margin: 0px;
+		border-bottom: 1px solid $borderColor;
+
+		big-label {
+			display: block;
+			font-weight: bold;
+			font-size: 25px;
+			text-align: center;
+			width: 100%;
+		}
 	}
+
+
 }
 
 /* Liste annonce */

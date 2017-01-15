@@ -8,6 +8,7 @@ app.run(['$injector', function($injector) {
 	console.log('lg-config run', arguments);
 	var $rootScope = $injector.get('$rootScope');
 	$rootScope.config = {};
+	$rootScope.config.typeOfGoods = ['Classique', 'Dangereux', 'Animaux', 'Massif', 'Frigo'];
 	$rootScope.config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
 	$rootScope.config.countries = ['Algérie', 'France', 'Maroc'];
 	$rootScope.config.cities = ['Alger', 'Abbana', 'Bejaia', 'Biskra', 'Constantine', 'Oran'];
