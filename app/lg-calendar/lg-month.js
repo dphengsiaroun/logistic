@@ -16,32 +16,32 @@ app.component('lgMonth', {
 	},
 	templateUrl: lgMonthUrl,
 	controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
-		var self = this;
-		// console.log('lgMonth ctrl', this, arguments);
-		this.$onInit = function() {
-			// console.log('lgMonth ctrl $onInit', this);
-			this.printDays($element);
+		var ctrl = this;
+		// console.log('lgMonth ctrl', ctrl, arguments);
+		ctrl.$onInit = function() {
+			// console.log('lgMonth ctrl $onInit', ctrl);
+			ctrl.printDays($element);
 
-			this.build();
+			ctrl.build();
 		};
 
-		this.$onChanges = function(map) {
+		ctrl.$onChanges = function(map) {
 			if (map.selectedDate !== undefined) {
-				this.refresh();
+				ctrl.refresh();
 			}
 		};
 
-		this.update = function() {
-			this.action.apply(null, arguments);
+		ctrl.update = function() {
+			ctrl.action.apply(null, arguments);
 		};
 
-		this.build = function() {
+		ctrl.build = function() {
 			console.log('lg-month refresh', arguments);
-			var date = new Date(this.monthDate);
-			this.year = date.getFullYear();
-			this.month = date.getMonth();
-			this.monthName = $locale.DATETIME_FORMATS.MONTH[this.month];
-			var firstDayDate = new Date(this.year, this.month, 1);
+			var date = new Date(ctrl.monthDate);
+			ctrl.year = date.getFullYear();
+			ctrl.month = date.getMonth();
+			ctrl.monthName = $locale.DATETIME_FORMATS.MONTH[ctrl.month];
+			var firstDayDate = new Date(ctrl.year, ctrl.month, 1);
 			var day = firstDayDate.getDay();
 			if (day === 0) {
 				day += 7;
@@ -49,15 +49,15 @@ app.component('lgMonth', {
 			var lastMonday = addDays(firstDayDate, -day + 1);
 			var dayDate = lastMonday;
 
-			this.isSelected = function(dayDate) {
-				if (this.selectedDate === undefined) {
+			ctrl.isSelected = function(dayDate) {
+				if (ctrl.selectedDate === undefined) {
 					// console.log('no selected date');
 					return false;
 				}
-				// console.log('selected date', this.selectedDate);
-				var result = dayDate.getFullYear() === this.selectedDate.getFullYear() &&
-					dayDate.getMonth() === this.selectedDate.getMonth() &&
-					dayDate.getDate() === this.selectedDate.getDate();
+				// console.log('selected date', ctrl.selectedDate);
+				var result = dayDate.getFullYear() === ctrl.selectedDate.getFullYear() &&
+					dayDate.getMonth() === ctrl.selectedDate.getMonth() &&
+					dayDate.getDate() === ctrl.selectedDate.getDate();
 				return result;
 			};
 
@@ -66,10 +66,10 @@ app.component('lgMonth', {
 			for (var j = 0; j < 5; j++) {
 				html += '<tr>';
 				for (var k = 0; k < 7; k++) {
-					var myClass = (dayDate.getMonth() < this.month) ? 'prev-month' : '';
-					myClass += (dayDate.getMonth() > this.month) ? ' next-month' : '';
+					var myClass = (dayDate.getMonth() < ctrl.month) ? 'prev-month' : '';
+					myClass += (dayDate.getMonth() > ctrl.month) ? ' next-month' : '';
 					myClass += (k >= 5) ? ' week-end' : '';
-					myClass += (this.isSelected(dayDate)) ? ' selected' : '';
+					myClass += (ctrl.isSelected(dayDate)) ? ' selected' : '';
 					var dayOfMonth = dayDate.getDate();
 					var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
 					myClass += ' ' + dayDate.getFullYear() + '-' + dayDate.getMonth() + '-' + dayOfMonth;
@@ -87,29 +87,29 @@ app.component('lgMonth', {
 			$compile(elt.contents())($scope);
 		};
 
-		this.refresh = function() {
-			// this part needs a real jquery
+		ctrl.refresh = function() {
+			// ctrl part needs a real jquery
 			var elt = $element.find('tbody');
 			var selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
 			selectedElt.off('click');
 			selectedElt.removeClass('selected');
 			$compile(selectedElt)($scope);
 
-			if (this.selectedDate === undefined) {
+			if (ctrl.selectedDate === undefined) {
 				return;
 			}
-			var myClass = this.selectedDate.getFullYear() + '-' + this.selectedDate.getMonth() +
-				'-' + this.selectedDate.getDate();
+			var myClass = ctrl.selectedDate.getFullYear() + '-' + ctrl.selectedDate.getMonth() +
+				'-' + ctrl.selectedDate.getDate();
 			var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
 			newSelectedElt.on('click', function() {
-				self.lgCalendarWrapper.next();
+				ctrl.lgCalendarWrapper.next();
 				$scope.$apply();
 			});
 		};
 
 
-		this.printDays = function($element) {
+		ctrl.printDays = function($element) {
 			var elt = $element.find('tr');
 			var html = '';
 			for (var k = 0; k < 7; k++) {
