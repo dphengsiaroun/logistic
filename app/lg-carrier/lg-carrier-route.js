@@ -4,15 +4,14 @@ var app = angular.module('lg-carrier');
 
 app.config(['$stateProvider', function($stateProvider) {
 
-	$stateProvider.state({
+		$stateProvider.state({
 		name: 'carrier:list',
-		url: '/{login}/carrier',
-		component: 'lgCarrierListRoute',
-		needsUser: true
+		url: '/ads/carriers',
+		component: 'lgCarrierListRoute'
 	});
 	$stateProvider.state({
 		name: 'carrier:retrieve',
-		url: '/{login}/carrier/{id}',
+		url: '/carrier/{id}',
 		component: 'lgCarrierRetrieveRoute',
 		needsUser: true
 	});
@@ -35,8 +34,8 @@ app.config(['$stateProvider', function($stateProvider) {
 				console.log('state', state);
 				return {
 					state: state,
-					label: 'Revenir à la liste des transports',
-					message: 'Votre transport a bien été ajouté.'
+					label: 'Revenir à la liste des chargements',
+					message: 'Votre annonce de transport a bien été ajoutée.'
 				};
 			}
 		},
@@ -45,7 +44,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'carrier:update',
-		url: '/{login}/carrier/{id}/update',
+		url: '/carrier/{id}/update',
 		component: 'lgCarrierUpdateRoute'
 	});
 	$stateProvider.state({
@@ -62,8 +61,8 @@ app.config(['$stateProvider', function($stateProvider) {
 					console.log('state', state);
 					return {
 						state: state,
-						label: 'Revenir à la liste des transports',
-						message: 'Votre transport a bien été ajouté.'
+						label: 'Revenir à la liste des chargements',
+						message: 'Votre annonce de transport a bien été modifiée.'
 					};
 				});
 			}
@@ -71,7 +70,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'carrier:delete',
-		url: '/{login}/carrier/{id}/delete',
+		url: '/carrier/{id}/delete',
 		component: 'lgConfirm',
 		resolve: {
 			service: function($rootScope, carrier, $stateParams) {
@@ -85,7 +84,7 @@ app.config(['$stateProvider', function($stateProvider) {
 						result.error = error;
 					});
 				};
-				result.confirmationMsg = 'Voulez-vous vraiment supprimer ce transport&nbsp;?';
+				result.confirmationMsg = 'Voulez-vous vraiment supprimer cette annonce de transport&nbsp;?';
 				result.cancelMsg = 'Non, annuler';
 				result.confirmMsg = 'Oui, supprimer';
 				return result;
@@ -106,14 +105,15 @@ app.config(['$stateProvider', function($stateProvider) {
 					console.log('state', state);
 					return {
 						state: state,
-						label: 'Revenir à la liste des transports',
-						message: 'Votre transports a bien été supprimé.'
+						label: 'Revenir à la liste des chargements',
+						message: 'Votre annonce de transport a bien été supprimée.'
 					};
 				});
 			}
 		},
 		back: false
 	});
+
 
 }]);
 
@@ -126,33 +126,44 @@ app.controller('CarrierListCtrl', ['$scope', '$injector', function CarrierCtrl($
 }]);
 
 app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
-	this.carrier = $injector.get('carrier');
-	this.user = $injector.get('user');
+	var ctrl = this;
+	ctrl.carrier = $injector.get('carrier');
+	ctrl.user = $injector.get('user');
+	ctrl.isEditable = false;
 	var $stateParams = $injector.get('$stateParams');
-	console.log('this.carrier', this.carrier);
+	console.log('ctrl.carrier', ctrl.carrier);
 	console.log('$stateParams', $stateParams);
-	this.$onInit = function() {
-		this.carrier.get($stateParams.id);
-	};
-}]);
-
-app.controller('CarrierUpdateCtrl', ['$scope', '$injector', function CarrierUpdateCtrl($scope, $injector) {
-	var self = this;
-	this.carrier = $injector.get('carrier');
-	this.user = $injector.get('user');
-	var $stateParams = $injector.get('$stateParams');
-	this.$onInit = function() {
-		this.carrier.get($stateParams.id);
-		$scope.$watch('$ctrl.carrier.current', function() {
-			if (self.carrier.current === undefined) {
-				return;
-			}
-			self.carrier.updateData = angular.copy(self.carrier.current);
-			self.carrier.updateData.oldId = $stateParams.id;
-			console.log('self.carrier.updateData', self.carrier.updateData);
+	ctrl.$onInit = function() {
+		ctrl.carrier.get($stateParams.id).then(function() {
+			return ctrl.user.waitForCheckConnection();
+		}).then(function() {
+			ctrl.isEditable = (ctrl.carrier.current.content.accountId === ctrl.user.account.id);
+			console.log('ctrl.isEditable', ctrl.isEditable);
 		});
 	};
 }]);
+
+app.controller('CarrierCreateCtrl', function CarrierCreateCtrl($scope, $injector) {
+	'ngInject';
+	this.carrier = $injector.get('carrier');
+	this.user = $injector.get('user');
+});
+
+app.controller('CarrierUpdateCtrl', function CarrierUpdateCtrl($scope, carrier, user, $stateParams) {
+	'ngInject';
+	var ctrl = this;
+	ctrl.carrier = carrier;
+	ctrl.user = user;
+	this.$onInit = function() {
+		this.carrier.get($stateParams.id).then(function() {
+			return ctrl.user.waitForCheckConnection();
+		}).then(function() {
+			ctrl.carrier.updateData = angular.copy(ctrl.carrier.current.content);
+			ctrl.carrier.updateData.id = $stateParams.id;
+			console.log('ctrl.carrier.updateData', ctrl.carrier.updateData);
+		});
+	};
+});
 
 var carrierCreateUrl = require('./tmpl/carrier-create.html');
 var carrierListUrl = require('./tmpl/carrier-list.html');
@@ -161,7 +172,7 @@ var carrierUpdateUrl = require('./tmpl/carrier-update.html');
 
 app.component('lgCarrierCreateRoute', {
 	templateUrl: carrierCreateUrl,
-	controller: 'CarrierCtrl',
+	controller: 'CarrierCreateCtrl',
 });
 
 app.component('lgCarrierListRoute', {

@@ -1,61 +1,5 @@
 @import '../css/color';
 
-.ad-title {
-	text-align: center;
-	font-size: 0px;
-	padding: 10px 0px;
-	title {
-		font-weight: bold;
-		font-size: 25px;
-		padding: 0px 0px 5px;
-	}
-
-	svg {
-		width: 80px;
-		height: 80px;
-		display: inline-block;
-		padding: 0px;
-		margin: 0px;
-	}
-	subtitle {
-		font-weight: bold;
-		font-size: 25px;
-		padding: 0px 0px 5px;
-	}
-
-	hr {
-		border-color: $borderColor;
-		border-style: solid;
-		border-top: none;
-	}
-
-
-}
-
-.ad {
-	padding: 0px;
-	margin: 0px;
-
-	section {
-		padding: 10px 10px;
-		margin: 0px;
-		border-top: 1px solid white;
-
-		big-label {
-			display: block;
-			font-weight: bold;
-			font-size: 25px;
-			text-align: center;
-			width: 100%;
-		}
-	}
-
-}
-
-.bouton {
-    padding: 0 10px;
-}
-
 /* Liste annonce */
  .banner-annonce {
     width: 100%;
@@ -144,41 +88,4 @@
 .tarif{
     color: hsla(171, 99%, 38%, 1);
     float: right;
-}
-
-/* Détails annonce */
-lg-loader-retrieve-route .details-annonce {
-    width: 100%;
-    padding: 0px;
-}
-
-lg-loader-retrieve-route .recap {
-    width: 100%;
-    padding: 20px 10px;
-    background-color: hsla(0, 0%, 96%, 1);
-}
-
-lg-loader-retrieve-route .recap h3 {
-    text-align: left;
-    margin: 25px 0;
-    font-size: 19px;
-}
-
-lg-loader-retrieve-route .publie, lg-loader-retrieve-route .expire {
-    color: hsla(0, 0%, 65%, 1);
-    font-size: 20px;
-}
-
-lg-loader-retrieve-route .recap h2 {
-    margin: 40px 0px;
-    font-size: 21px;
-    text-align: center;
-}
-
-lg-loader-retrieve-route .recap > div {
-    text-align: center;
-}
-
-lg-loader-retrieve-route .recap p {
-    font-size: 16px;
 }

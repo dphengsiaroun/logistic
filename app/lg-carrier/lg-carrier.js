@@ -1,14 +1,13 @@
 'use strict';
 
-require('./lg-carrier.css');
+require('../css/lg-ad.scss');
 module.exports = 'lg-carrier';
 
 var app = angular.module(module.exports, ['ui.router']);
 require('./lg-carrier-route.js');
 
-app.service('carrier', ['$injector', function Carrier($injector) {
-	var $http = $injector.get('$http');
-	var $state = $injector.get('$state');
+app.service('carrier', function Carrier(user, $http, $state, $q) {
+	'ngInject';
 
 	var service = this;
 	this.createData = {
@@ -25,7 +24,7 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 	};
 
 	this.create = function() {
-		console.log('carrier->createCarrrier');
+		console.log('carrier->createCarrier', service.createData);
 		$http({
 			url: 'ws/carrier/create.php',
 			method: 'POST',
@@ -44,11 +43,16 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 		});
 	};
 
+	this.listData = {
+	};
+
 	this.list = function() {
 		console.log('carrier->list');
 		return $http({
 			url: 'ws/carrier/list.php',
-			method: 'GET'
+			method: 'POST',
+			data: service.listData,
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
@@ -67,18 +71,18 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 
 	this.get = function(id) {
 		if (service.carrierMap === undefined) {
-			this.list().then(function() {
+			return this.list().then(function() {
 				service.current = service.carrierMap[id];
 			});
-		} else {
-			service.current = service.carrierMap[id];
 		}
+		service.current = service.carrierMap[id];
+		return $q.resolve();
 	};
 
 	this.updateData = {};
 
 	this.update = function() {
-		console.log('updateCarrier->update');
+		console.log('updateCarrier->update', service.updateData);
 		$http({
 			url: 'ws/carrier/update.php',
 			method: 'POST',
@@ -121,5 +125,5 @@ app.service('carrier', ['$injector', function Carrier($injector) {
 		});
 	};
 
-}]);
+});
 

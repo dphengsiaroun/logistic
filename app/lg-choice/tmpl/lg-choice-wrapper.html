@@ -14,13 +14,13 @@
 		<head-right ng-show="$ctrl.isMandatory" class="menu">
 		</head-right>
 	</my-head>
-	<section class="input-auto">
+	<div class="input-auto">
 		<input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" />
-	</section>
-	<section class="list" >
+	</div>
+	<div class="list" >
 		<p ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== undefined">
 			<i class="fa fa-check" aria-hidden="true"></i>{{$ctrl.ngModel.$modelValue}}
 		</p>
 		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.choices | filter: $ctrl.myFilter">{{choice}}</p>
-	</section>
+	</div>
 </lg-choice>

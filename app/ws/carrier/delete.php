@@ -1,16 +1,17 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/include/truck.inc.php");
+	require_once(BASE_DIR . "/include/carrier.inc.php");
 
-    $request = getRequest();
-	debug("delete truck", $request);
+	$request = getRequest();
+	debug("delete carrier start");
+	debug('request', $request);
 
 	$result = [];
 	try {
-
 		$account = Account::getConnected();
-		Truck::delete($account, $request->id);
+		Carrier::delete($account, $request);
+
 		$result['status'] = 'ok';
 
 	} catch (Exception $e) {
@@ -19,4 +20,3 @@
 		$result['errorCode'] = $e->getCode();
 	}
 	echo json_encode($result);
-?>

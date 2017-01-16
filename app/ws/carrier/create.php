@@ -1,18 +1,20 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/include/truck.inc.php");
+	require_once(BASE_DIR . "/include/carrier.inc.php");
 
 	$request = getRequest();
-	debug("create truck start");
+	debug("create carrier start");
+	debug('request', $request);
 
 	$result = [];
 	try {
 		$account = Account::getConnected();
-		$truck = Truck::create($account, $request);
+		$carrier = Carrier::create($account, $request);
 
 		$result['status'] = 'ok';
-		$result['truck'] = $truck;
+		$result['carrier'] = $carrier;
+		debug('result', $result['carrier']);
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
@@ -20,4 +22,3 @@
 		$result['errorCode'] = $e->getCode();
 	}
 	echo json_encode($result);
-?>

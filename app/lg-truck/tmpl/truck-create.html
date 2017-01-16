@@ -1,72 +1,72 @@
-<section class="banner">
-    <h1>Transporteur</h1>
-    <img class="lg-svg" src="img/frontal-truck.svg"/>
-    <h2>Ajouter un véhicule</h2>
-</section>
-<section class="form">
-    <form name="truckCtrl" ng-submit="$ctrl.truck.createTruck();">
-        <label>Libellé unique du camion</label>
-        <input type="text" placeholder="Ex : Camion 1"
-            ng-model="$ctrl.truck.createData.name" required/>
-        <br/>
-        <label>Description du type de véhicule</label>
-        <input type="choice" choices="$root.config.vehicleTypes"
-            title="Type de véhicule"  placeholder="Ex : Benne, Bâché, etc."
-            ng-model="$ctrl.truck.createData.type" required/>
-        <br/>
-        <label>Dimension de la capacité de la remorque</label>
-        <br/>
-        <comment>Mesures en mètre</comment>
-        <truck-dim>
-            <dimension>
-                <div>
-                    <img src="img/hauteur.png"/>
-                    <p>Hauteur</p>
-                    <input type="num" placeholder="H." vertical ng-model="$ctrl.truck.createData.height" options="{format: 2, step: 0.1}"/>
-                </div>
-                <div>
-                    <img src="img/profondeur.png"/>
-                    <p>Profondeur</p>
-                    <input type="num" placeholder="P." vertical ng-model="$ctrl.truck.createData.deep" options="{format: 2, step: 0.1}"/>
-                </div>
-                <div>
-                    <img src="img/largeur.png"/>
-                    <p>Largeur</p>
-                    <input type="num" placeholder="L." vertical ng-model="$ctrl.truck.createData.width" options="{format: 2, step: 0.1}"/>
-                </div>
-            </dimension>
-        </truck-dim>
-        <div class="photo">
-            <label>Inserer une photo</label>
-            <lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
-        </div>
-        <br/>
-        <label>Pays d'origine du véhicule</label>
-        <input type="choice" choices="$root.config.countries"
-            title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc."
-            ng-model="$ctrl.truck.createData.country" />
-        <br/>
-        <label>Ville</label>
-        <input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc."
-            ng-model="$ctrl.truck.createData.city" />
-        <br/>
-        <label>Type de conditionnement</label>
-        <input type="choice" choices="$root.config.conditionings" title="Type de conditionnement"
-            placeholder="Ex : Colis, Palettes, Vrac"
-            ng-model="$ctrl.truck.createData.conditioning" />
-        <br/>
-        <div class="complement">
-            <label>Volume maximum de chargement (en m3)</label>
-            <input type="num" placeholder="Volume max." ng-model="$ctrl.truck.createData.maxVolume" />
-        </div>
-        <div class="complement">
-            <label>Poids maximum de chargement du véhicule (en tonne)</label>
-           <input type="num" placeholder="Poids max." ng-model="$ctrl.truck.createData.maxWeight" />
-        </div>
-        <label>Année du camion</label>
-        <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007"
-            ng-model="$ctrl.truck.createData.birthyear" />
-        <br/>
-        <button>Ajouter ce véhicule à ma flotte ></button>
-    </form>
-</section>
+<div class="ad-title">
+	<title>Transporteur</title>
+	<img class="title lg-svg" src="img/frontal-truck.svg" />
+	<subtitle>Ajouter un véhicule</subtitle>
+</div>
+
+<form class="ad" name="truckCtrl">
+	<section>
+		<label>Libellé unique du camion</label>
+		<input type="text" placeholder="Ex : Camion 1" ng-model="$ctrl.truck.createData.name" required/>
+	</section>
+	<section>
+		<label>Type</label>
+		<input type="choice" choices="$root.config.vehicleTypes" title="Type de véhicule" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.type"
+			required/>
+		<label>Remorque</label>
+		<comment>Mesures en mètre</comment>
+		<truck-dim>
+			<dimension>
+				<div>
+					<img src="img/hauteur.png" />
+					<p>Hauteur</p>
+					<input type="num" placeholder="H." vertical ng-model="$ctrl.truck.createData.height" options="{format: 2, step: 0.1}" />
+				</div>
+				<div>
+					<img src="img/profondeur.png" />
+					<p>Profondeur</p>
+					<input type="num" placeholder="P." vertical ng-model="$ctrl.truck.createData.deep" options="{format: 2, step: 0.1}" />
+				</div>
+				<div>
+					<img src="img/largeur.png" />
+					<p>Largeur</p>
+					<input type="num" placeholder="L." vertical ng-model="$ctrl.truck.createData.width" options="{format: 2, step: 0.1}" />
+				</div>
+			</dimension>
+		</truck-dim>
+		<label>Année du camion</label>
+		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.truck.createData.birthyear"
+		/>
+		<div class="photo">
+			<label>Inserer une photo</label>
+			<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+		</div>
+	</section>
+	<section>
+		<big-label>Origine</big-label>
+		<label>Pays</label>
+		<input type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc." ng-model="$ctrl.truck.createData.country"
+		/>
+		<label>Ville</label>
+		<input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city"
+		/>
+	</section>
+	<section>
+		<big-label>Chargement</big-label>
+		<label>Type</label>
+		<input type="choice" choices="$root.config.conditionings" title="Type de conditionnement" placeholder="Ex : Colis, Palettes, Vrac"
+			ng-model="$ctrl.truck.createData.conditioning" />
+		<div class="complement">
+			<label>Volume max. (en m3)</label>
+			<input type="num" placeholder="Volume max." ng-model="$ctrl.truck.createData.maxVolume" />
+		</div>
+		<div class="complement">
+			<label>Poids max. (en tonne)</label>
+			<input type="num" placeholder="Poids max." ng-model="$ctrl.truck.createData.maxWeight" />
+		</div>
+	</section>
+	<section>
+		<lg-error error="$ctrl.truck.error"></lg-error>
+		<button ng-click="$ctrl.truck.create();">Ajouter ce véhicule à ma flotte ></button>
+	</section>
+</form>

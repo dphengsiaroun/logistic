@@ -1,24 +1,25 @@
 /* Liste annonce */
- .banner-annonce {
+.banner-annonce {
     width: 100%;
     padding: 0 10px;
     background: hsla(0, 0%, 96%, 1);
-	text-align: center
-}
+	text-align: center;
 
-.banner-annonce button {
-	height: 45px;
-}
+    button {
+        height: 45px;
+    }
 
-.banner-annonce img {
-    width: 25px;
-    display: inline-block;
-}
+    img {
+        width: 25px;
+        display: inline-block;
+    }
 
-.banner-annonce h1 {
-    font-size: 20px;
-    margin: 3px 0;
-    display: inline-block;
+    h1 {
+        font-size: 20px;
+        margin: 3px 0;
+        display: inline-block;
+    }
+
 }
 
 .liste-annonce {
@@ -36,7 +37,6 @@
 
 .identity {
     display: inline-block;
-    float: left;
     width: 25%;
     margin: 0px;
     padding: 27px 0px;
@@ -86,41 +86,4 @@
 .tarif{
     color: hsla(171, 99%, 38%, 1);
     float: right;
-}
-
-/* Détails annonce */
-lg-truck-retrieve-route .details-annonce {
-    width: 100%;
-    padding: 0px;
-}
-
-lg-truck-retrieve-route .recap {
-    width: 100%;
-    padding: 20px 10px;
-    background-color: hsla(0, 0%, 96%, 1);
-}
-
-lg-truck-retrieve-route .recap h3 {
-    text-align: left;
-    margin: 25px 0;
-    font-size: 19px;
-}
-
-lg-truck-retrieve-route .publie, lg-truck-retrieve-route .expire {
-    color: hsla(0, 0%, 65%, 1);
-    font-size: 20px;
-}
-
-lg-truck-retrieve-route .recap h2 {
-    margin: 40px 0px;
-    font-size: 21px;
-    text-align: center;
-}
-
-lg-truck-retrieve-route .recap > div {
-    text-align: center;
-}
-
-lg-truck-retrieve-route .recap p {
-    font-size: 16px;
 }

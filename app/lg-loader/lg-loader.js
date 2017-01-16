@@ -1,5 +1,6 @@
 'use strict';
 
+require('../css/lg-ad.scss');
 require('./lg-loader.scss');
 module.exports = 'lg-loader';
 

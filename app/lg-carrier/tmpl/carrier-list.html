@@ -1,12 +1,12 @@
 <section class="banner-annonce">
-        <button ui-sref="truck:create">Ajouter un véhicule</button>
+        <button ui-sref="carrier:create">Ajouter une annonce</button>
 </section>
 <section class="liste-annonce">
-    <div class="block-annonce" ng-repeat="truck in $ctrl.truck.trucks">
-        <a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.user.account.content.login })">
+    <div class="block-annonce" ng-repeat="carrier in $ctrl.carrier.carriers">
+        <a ui-sref="carrier:retrieve({ id: carrier.id, login: $ctrl.user.account.content.login })">
             <span class="identity">JLG</span>
             <div class="details">
-                <p>{{truck.name}}</p>
+                <p>{{carrier.name}}</p>
                 <div>
                     <div class="details-time">
                         <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>

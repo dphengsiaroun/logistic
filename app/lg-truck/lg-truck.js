@@ -1,6 +1,7 @@
 'use strict';
 
-require('./lg-truck.css');
+require('../css/lg-ad.scss');
+require('./lg-truck.scss');
 module.exports = 'lg-truck';
 
 var app = angular.module(module.exports, ['ui.router']);
@@ -24,7 +25,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 		birthyear: '2008'
 	};
 
-	this.createTruck = function() {
+	this.create = function() {
 		console.log('truck->createTruck');
 		$http({
 			url: 'ws/truck/create.php',
