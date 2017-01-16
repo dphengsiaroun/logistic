@@ -23,7 +23,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'carrier:created',
-		url: '/create-carrier',
+		url: '/create-carriers',
 		component: 'lgMessage',
 		resolve: {
 			service: function(user) {

@@ -1,112 +1,86 @@
-<section class="banner">
-        <h1>Chargeur</h1>
-        <img class="lg-svg" src="img/delivery-trolley.svg"/>
-        <h1>Déposer une annonce</h1>
-</section>
-<section class="form">
-        <form name="loaderCtrl">
-            <label>Libellé de l'annonce</label>
-            <input type="text" placeholder="Ex : Chargement de 12 veaux" 
-                ng-model="$ctrl.loader.updateData.name" />
-            <br/>
-            <span>Départ / Arrivée</span>
-            <lg-hr></lg-hr>
-            <label>Pays de départ</label>
-            <input type="choice" choices="$root.config.countries" title="Pays" placeholder="Ex : Algérie, Maroc, etc." 
-                ng-model="$ctrl.loader.updateData.countryDepart" />
-            <br/>
-            <label>Ville de départ</label>
-            <input type="choice" choices="$root.config.cities" title="Ville de départ" placeholder="Ex : Oran, Alger, etc." 
-                ng-model="$ctrl.loader.updateData.cityDepart" />
-            <br/>
-            <!--<label>Date de chargement</label>
-            <div class="input-date">
-                <a href="#/calendar">Ex: 12/11/2017</a>
-            </div>
-            <br/>-->
-            <label>Pays d'arrivée</label>
-            <input type="choice" choices="$root.config.countries" title="Pays" placeholder="Ex : Algérie, Maroc, etc." 
-                ng-model="$ctrl.loader.updateData.countryArrived" />
-            <br/>
-            <label>Ville d'arrivée</label>
-            <input type="choice" choices="$root.config.cities" title="Ville d\'arrivée" placeholder="Ex : Oran, Alger, etc." 
-                ng-model="$ctrl.loader.updateData.cityArrived" />
-            <br/>
-            <!--<label>Date de déchargement</label>
-            <div class="input-date">
-                <a href="#/calendar">Ex: 23/11/2017</a>
-            </div>
-            <br/><br/>-->
-            <span>Chargement</span>
-            <lg-hr></lg-hr>
-            <label>Type de chargement</label>
-            <input type="choice" choices="$root.config.loaderTypes" title="Type de chargement" placeholder="Ex: Classique, Dangereux" 
-                ng-model="$ctrl.loader.updateData.loaderType" />
-            <br/>
-
-            <label>Conditionnement</label>
-            <input type="choice" choices="$root.config.conditionings" title="Conditionnement" placeholder="Ex : Colis, Palettes, Vrac" 
-                ng-model="$ctrl.loader.updateData.conditioning" />
-            <br/>
-
-            <label>Type de transport</label>
-            <input type="choice" choices="$root.config.transportTypes" title="Type de transport" placeholder="Ex: Camion, Bateau, Avion" 
-                ng-model="$ctrl.loader.updateData.transportType" />
-            <br/>
-
-            <label>Type de camion</label>
-            <input type="choice" choices="$root.config.vehicleTypes" title="Type de camion" placeholder="Ex: Benne, Bâché, Frigo" 
-                ng-model="$ctrl.loader.updateData.truckType" />
-            <br/>
-
-            <label>Poids du chargement</label>
-            <input type="choice" choices="$root.config.weight" title="Poids du chargement" placeholder="Ex: entre 100 et 200 kilos" 
-                ng-model="$ctrl.loader.updateData.loaderWeight" />
-            <br/>
-
-            <label>Poids précis si connu (optionnel)</label>
-            <input type="choice" choices="$root.config.weight" title="Poids précis" placeholder="Ex: entre 100 et 200 kilos" 
-                ng-model="$ctrl.loader.updateData.preciseWeight" />
-            <br/>
-            <truck-dim>
-                <dimension>
-                    <div>
-                        <img src="img/box-hauteur.png"/>
-                        <p>Hauteur</p>
-                        <input type="num" placeholder="H." vertical ng-model="$ctrl.loader.updateData.height" options="{format: 2, step: 0.1}"/>
-                    </div>
-                    <div>
-                        <img src="img/box-profondeur.png"/>
-                        <p>Profondeur</p>
-                        <input type="num" placeholder="P." vertical ng-model="$ctrl.loader.updateData.deep" options="{format: 2, step: 0.1}"/>
-                    </div>
-                    <div>
-                        <img src="img/box-largeur.png"/>
-                        <p>Largeur</p>
-                        <input type="num" placeholder="L." vertical ng-model="$ctrl.loader.updateData.width" options="{format: 2, step: 0.1}"/>
-                    </div>
-                </dimension>
-            </truck-dim>
-            <br/>
-            <label>Volume résultant</label>
-            <input type="choice" choices="$root.config.volumes" title="Volume résultant" placeholder="Ex: 200, 455, 2300" 
-                ng-model="$ctrl.loader.updateData.volume" />
-            <br/>
-
-            <label>Prix souhaité (facultatif)</label>
-            <input type="choice" choices="$root.config.prices" title="Prix souhaité" placeholder="Ex: 200, 455, 2300" 
-                ng-model="$ctrl.loader.updateData.priceWanted" />
-            <br/>
-            <div class="photo">
-                <label>Inserer une photo</label>
-                <lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
-            </div>
-            <br/>
-            <label>Durée d'affichage max de l'annonce</label>
-            <input type="choice" choices="$root.config.times" title="Durée d\'affichage" placeholder="Ex: 1 semaine, 15 jours" 
-                ng-model="$ctrl.loader.updateData.adTimes" />
-            <br/>     
-            <lg-error error="$ctrl.loader.error"></lg-error>
-            <button ng-click="$ctrl.loader.update()">Enregistrer</button>
-        </form>
-</section>
+<div class="ad-title">
+	<h1>Chargeur</h1>
+	<img class="lg-svg" src="img/delivery-trolley.svg" />
+	<subtitle>Déposer une annonce</subtitle>
+</div>
+<form class="ad" name="loaderCtrl">
+	<section>
+		<label>Libellé de l'annonce</label>
+		<input type="text" placeholder="Ex : Chargement de 12 veaux" ng-model="$ctrl.loader.updateData.name" />
+	</section>
+	<section>
+		<big-label>Origine</big-label>
+		<label>Ville</label>
+		<input type="choice" choices="$root.config.cities" title="Ville de départ" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.cityDepart"
+		/>
+		<label>Date et heure</label>
+		<input type="lgDate" title="Date et heure de départ" placeholder="Date de départ" ng-model="$ctrl.loader.updateData.departureDatetime"
+			options="{position: 'next-days', constraint: 'only-future'}" />
+	</section>
+	<section>
+		<big-label>Destination</big-label>
+		<label>Ville</label>
+		<input type="choice" choices="$root.config.cities" title="Ville d\'arrivée" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.cityArrived"
+		/>
+		<label>Date et heure</label>
+		<input type="lgDate" title="Date et heure de départ" placeholder="Date de départ" ng-model="$ctrl.loader.updateData.arrivalDatetime"
+			options="{position: 'next-days', constraint: 'only-future'}" />
+	</section>
+	<section>
+		<big-label>Chargement</big-label>
+		<label>Type de chargement</label>
+		<input type="choice" choices="$root.config.loaderTypes" title="Type de chargement" placeholder="Ex: Classique, Dangereux"
+			ng-model="$ctrl.loader.updateData.loaderType" />
+		<label>Conditionnement</label>
+		<input type="choice" choices="$root.config.conditionings" title="Conditionnement" placeholder="Ex : Colis, Palettes, Vrac"
+			ng-model="$ctrl.loader.updateData.conditioning" />
+		<label>Type de transport</label>
+		<input type="choice" choices="$root.config.transportTypes" title="Type de transport" placeholder="Ex: Camion, Bateau, Avion"
+			ng-model="$ctrl.loader.updateData.transportType" />
+		<label>Type de camion</label>
+		<input type="choice" choices="$root.config.vehicleTypes" title="Type de camion" placeholder="Ex: Benne, Bâché, Frigo" ng-model="$ctrl.loader.updateData.truckType"
+		/>
+		<label>Poids du chargement</label>
+		<input type="choice" choices="$root.config.weight" title="Poids du chargement" placeholder="Ex: entre 100 et 200 kilos" ng-model="$ctrl.loader.updateData.loaderWeight"
+		/>
+		<label>Poids précis si connu (optionnel)</label>
+		<input type="choice" choices="$root.config.weight" title="Poids précis" placeholder="Ex: entre 100 et 200 kilos" ng-model="$ctrl.loader.updateData.preciseWeight"
+		/>
+		<truck-dim>
+			<dimension>
+				<div>
+					<img src="img/box-hauteur.png" />
+					<p>Hauteur</p>
+					<input type="num" placeholder="H." vertical ng-model="$ctrl.loader.updateData.height" options="{format: 2, step: 0.1}" />
+				</div>
+				<div>
+					<img src="img/box-profondeur.png" />
+					<p>Profondeur</p>
+					<input type="num" placeholder="P." vertical ng-model="$ctrl.loader.updateData.deep" options="{format: 2, step: 0.1}" />
+				</div>
+				<div>
+					<img src="img/box-largeur.png" />
+					<p>Largeur</p>
+					<input type="num" placeholder="L." vertical ng-model="$ctrl.loader.updateData.width" options="{format: 2, step: 0.1}" />
+				</div>
+			</dimension>
+		</truck-dim>
+		<label>Volume résultant</label>
+		<input type="choice" choices="$root.config.volumes" title="Volume résultant" placeholder="Ex: 200, 455, 2300" ng-model="$ctrl.loader.updateData.volume"
+		/>
+		<label>Prix souhaité (facultatif)</label>
+		<input type="choice" choices="$root.config.prices" title="Prix souhaité" placeholder="Ex: 200, 455, 2300" ng-model="$ctrl.loader.updateData.priceWanted"
+		/>
+		<div class="photo">
+			<label>Inserer une photo</label>
+			<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+		</div>
+		<label>Durée d'affichage max de l'annonce</label>
+		<input type="choice" choices="$root.config.times" title="Durée d\'affichage" placeholder="Ex: 1 semaine, 15 jours" ng-model="$ctrl.loader.updateData.adTimes"
+		/>
+	</section>
+	<section>
+		<lg-error error="$ctrl.loader.error"></lg-error>
+		<button ng-click="$ctrl.loader.update()">Enregistrer</button>
+	</section>
+</form>

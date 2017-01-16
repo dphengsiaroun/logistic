@@ -1,5 +1,5 @@
 <div class="ad-title">
-	<title>Chargeur</title>
+	<title>Chargeurs</title>
 	<img class="title lg-svg" src="img/delivery-trolley.svg" />
 	<subtitle>Déposer une annonce</subtitle>
 </div>
@@ -11,7 +11,7 @@
 			ng-model="$ctrl.loader.createData.typeOfGoods" />
 	</section>
 	<section>
-		<big-label>Origine</big-label><br/>
+		<big-label>Origine</big-label>
 		<label>Ville</label>
 		<input type="choice" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.DepartureCity"
 		/>
@@ -20,7 +20,7 @@
 			options="{position: 'next-days', constraint: 'only-future'}" />
 	</section>
 	<section>
-		<big-label>Destination</big-label><br/>
+		<big-label>Destination</big-label>
 		<label>Ville</label>
 		<input type="choice" choices="$root.config.cities" title="Ville de départ" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"
 		/>
@@ -29,7 +29,7 @@
 			options="{position: 'next-days', constraint: 'only-future'}" />
 	</section>
 	<section>
-		<big-label>Détail du chargement</big-label><br/>
+		<big-label>Chargement</big-label>
 		<label>Type de chargement</label>
 		<input type="choice" choices="$root.config.loaderTypes" title="Type de chargement" placeholder="Ex: Classique, Dangereux"
 			ng-model="$ctrl.loader.createData.loaderType" />
@@ -77,7 +77,7 @@
 			<label>Inserer une photo</label>
 			<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
 		</div>
-		<label>Durée d'affichage max de l'annonce</label>
+		<label>Durée d'affichage max. de l'annonce</label>
 		<input type="choice" choices="$root.config.times" title="Durée d\'affichage" placeholder="Ex: 1 semaine, 15 jours" ng-model="$ctrl.loader.createData.adTimes"
 		/>
 	</section>
