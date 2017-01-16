@@ -28,9 +28,7 @@ app.component('lgHour', {
 
 			this.action.apply(null, arguments);
 			this.refresh();
-			console.log('this.hour', this.hour);
-			console.log('hour', hour);
-			if (this.hour === hour) {
+			if (this.selectedHours === hour) {
 				self.lgCalendarWrapper.next();
 			}
 		};
@@ -41,7 +39,6 @@ app.component('lgHour', {
 			if (this.selectedHours === undefined) {
 				return;
 			}
-			this.hour = this.selectedHours;
 			var hour = this.selectedHours % 12;
 			if (hour === 0) {
 				hour = 12;
