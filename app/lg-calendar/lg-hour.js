@@ -28,15 +28,20 @@ app.component('lgHour', {
 
 			this.action.apply(null, arguments);
 			this.refresh();
+			console.log('this.hour', this.hour);
+			console.log('hour', hour);
+			if (this.hour === hour) {
+				self.lgCalendarWrapper.next();
+			}
 		};
 
 		this.refresh = function() {
 			var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
 			selectedElt.removeClass('selected');
-			selectedElt.off('click');
 			if (this.selectedHours === undefined) {
 				return;
 			}
+			this.hour = this.selectedHours;
 			var hour = this.selectedHours % 12;
 			if (hour === 0) {
 				hour = 12;
@@ -45,10 +50,6 @@ app.component('lgHour', {
 			var myClass = 'h' + hour + ' ' + ampm;
 			var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
-			newSelectedElt.on('click', function() {
-				self.lgCalendarWrapper.next();
-				$scope.$apply();
-			});
 		};
 
 	},
