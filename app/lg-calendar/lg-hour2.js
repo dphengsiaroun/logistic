@@ -52,26 +52,22 @@ app.component('lgHour2', {
 		};
 
 		this.update = function(hour) {
-			console.log('lgHour2 ctrl update', this);
-			this.selectedHours = hour;
 			this.action.apply(null, arguments);
 			this.refresh();
+			if (this.selectedHours === hour) {
+				self.lgCalendarWrapper.next();
+			}
 		};
 
 		this.refresh = function() {
 			var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
 			selectedElt.removeClass('selected');
-			selectedElt.off('click');
 			if (this.selectedHours === undefined) {
 				return;
 			}
 			var myClass = 'h-' + this.selectedHours;
 			var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
-			newSelectedElt.on('click', function() {
-				self.lgCalendarWrapper.next();
-				$scope.$apply();
-			});
 		};
 
 	},
