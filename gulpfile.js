@@ -8,7 +8,6 @@ var webpackConfig = require('./webpack.config.js');
 webpackConfig.setupProd();
 var eslint = require('gulp-eslint');
 var fs = require('fs');
-var archiver = require('archiver');
 var rp = require('request-promise');
 var consolidate = require('consolidate');
 var ejs = require('ejs');
@@ -36,7 +35,7 @@ var path = {
 	wpk: 'app/wpk',
 	html: ['app/index.html', 'app/install/index.html'],
 	htaccess: ['app/.htaccess.tmpl'],
-	favicon: ['favicon.ico'],
+	favicon: ['app/favicon.ico'],
 	resources: ['app/img/**/*',	'app/wpk/**/*', 'app/ws/**/*',
 		'!app/ws/**/*.log',	'!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
@@ -71,7 +70,7 @@ gulp.task('htaccess', function() {
 });
 
 gulp.task('favicon', function() {
-	return gulp.src(path.favicon)
+	return gulp.src(path.favicon, {base: path.base})
 		.pipe(gulp.dest(path.dist));
 });
 

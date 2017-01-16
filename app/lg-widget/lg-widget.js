@@ -63,3 +63,9 @@ app.component('lgShowPicture', {
 		};
 	}
 });
+
+var lgFaviconUrl = require('./tmpl/lg-favicon.html');
+
+app.component('lgFavicon', {
+	templateUrl: lgFaviconUrl
+});
