@@ -49,16 +49,25 @@ app.component('lgMonth', {
 			var lastMonday = addDays(firstDayDate, -day + 1);
 			var dayDate = lastMonday;
 
-			ctrl.isSelected = function(dayDate) {
+			ctrl.isSelected = function(d) {
 				if (ctrl.selectedDate === undefined) {
 					// console.log('no selected date');
 					return false;
 				}
 				// console.log('selected date', ctrl.selectedDate);
-				var result = dayDate.getFullYear() === ctrl.selectedDate.getFullYear() &&
-					dayDate.getMonth() === ctrl.selectedDate.getMonth() &&
-					dayDate.getDate() === ctrl.selectedDate.getDate();
+				var result = d.getFullYear() === ctrl.selectedDate.getFullYear() &&
+					d.getMonth() === ctrl.selectedDate.getMonth() &&
+					d.getDate() === ctrl.selectedDate.getDate();
 				return result;
+			};
+
+			ctrl.isForbidden = function(d) {
+				var now = new Date();
+				var nowAtMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+				if (d <= nowAtMidnight) {
+					return true;
+				}
+				return false;
 			};
 
 			var elt = $element.find('tbody');
@@ -66,15 +75,21 @@ app.component('lgMonth', {
 			for (var j = 0; j < 5; j++) {
 				html += '<tr>';
 				for (var k = 0; k < 7; k++) {
+					var dayOfMonth = dayDate.getDate();
+					var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
 					var myClass = (dayDate.getMonth() < ctrl.month) ? 'prev-month' : '';
 					myClass += (dayDate.getMonth() > ctrl.month) ? ' next-month' : '';
 					myClass += (k >= 5) ? ' week-end' : '';
 					myClass += (ctrl.isSelected(dayDate)) ? ' selected' : '';
-					var dayOfMonth = dayDate.getDate();
-					var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
+					var ngClick;
+					if (ctrl.isForbidden(dayDate)) {
+						myClass += ' disabled';
+						ngClick = '';
+					} else {
+						ngClick = 'ng-click="$ctrl.update(' + actionArgs + ')" ';
+					}
 					myClass += ' ' + dayDate.getFullYear() + '-' + dayDate.getMonth() + '-' + dayOfMonth;
-					html += '<td ng-click="$ctrl.update(' + actionArgs +
-						')" class="' + myClass + '">' + dayOfMonth + '</td>';
+					html += '<td ' + ngClick + 'class="' + myClass + '">' + dayOfMonth + '</td>';
 					dayDate = addDays(dayDate, 1);
 				}
 				if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {

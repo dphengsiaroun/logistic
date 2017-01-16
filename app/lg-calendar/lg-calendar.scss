@@ -1,12 +1,18 @@
+@import '../css/color';
+
+
 $light-gray: hsla(0, 0%, 66%, 1);
 lg-calendar-wrapper {
     position: relative;
     display: block;
 }
 
-$selectedColor: hsla(171, 99%, 38%, 1);
+$selectedColor: $lightGreen;
+$disabledColor: hsla(0, 0%, 93%, 1);
+
 lg-calendar {
     display: block;
+	font-family: 'Lato', sans-serif;
 }
 
 lg-calendar-wrapper my-input.filled {
@@ -75,7 +81,6 @@ lg-month {
     }
     h2 {
         text-transform: uppercase;
-        font-family: 'Lato', sans-serif;
         font-size: 23px;
         margin: 20px 0;
         color: hsla(189, 7%, 81%, 1);
@@ -92,7 +97,6 @@ lg-month {
             line-height: 38px;
             text-align: center;
             width: 14%;
-            font-family: 'Lato', sans-serif;
         }
         thead {
             font-weight: 600;
@@ -105,7 +109,6 @@ lg-month {
         tbody {
             tr {
                 border-bottom: 1px solid hsla(0, 0%, 92%, 1);
-                font-family: 'Lato', sans-serif;
                 font-size: 16px;
             }
             td {
@@ -127,6 +130,9 @@ lg-month {
                 background-color: transparent;
                 border: 1px solid $selectedColor;
                 color: hsla(189, 7%, 81%, 1);
+            }
+			td.disabled {
+                color: $disabledColor;
             }
             td.current-day {
                 background: $selectedColor;
