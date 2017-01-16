@@ -157,7 +157,7 @@ app.component('lgCalendarWrapper', {
 
 				var datetime = undefined;
 				if (ngModelCtrl.$viewValue !== undefined) {
-					datetime = $filter('date')(ngModelCtrl.$viewValue, self.format);
+					datetime = $filter('date')(ngModelCtrl.$viewValue, 'EEEE dd LLLL - HH:mm');
 				}
 				var html = datetime || self.placeholder;
 				var elt = $element.find('my-input');
