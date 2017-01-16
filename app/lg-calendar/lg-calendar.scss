@@ -4,6 +4,7 @@ lg-calendar-wrapper {
     display: block;
 }
 
+$selectedColor: hsla(171, 99%, 38%, 1);
 lg-calendar {
     display: block;
 }
@@ -84,6 +85,15 @@ lg-month {
         border-spacing: 0;
         width: 100%;
         margin-bottom: 20px;
+        td {
+            border: 2px solid transparent;
+            border-radius: 84%;
+            display: inline-block;
+            line-height: 38px;
+            text-align: center;
+            width: 14%;
+            font-family: 'Lato', sans-serif;
+        }
         thead {
             font-weight: 600;
             text-transform: uppercase;
@@ -98,76 +108,30 @@ lg-month {
                 font-family: 'Lato', sans-serif;
                 font-size: 16px;
             }
+            td {
+                font-weight: 400;
+            }
+            td.week-end {
+                color: hsla(189, 7%, 60%, 1);
+            }
+            td.prev-month,
+            td.next-month {
+                color: hsla(189, 7%, 81%, 1);
+            }
+            td.selected {
+                background-color: $selectedColor;
+                color: white;
+            }
+            td.next-month.selected,
+            td.prev-month.selected {
+                background-color: transparent;
+                border: 1px solid $selectedColor;
+                color: hsla(189, 7%, 81%, 1);
+            }
+            td.current-day {
+                background: $selectedColor;
+                color: blue;
+            }
         }
     }
-}
-
-lg-month tbody td.selected {
-    background-color: hsla(171, 99%, 38%, 1);
-    color: white;
-}
-
-lg-month td {
-    border: 2px solid transparent;
-    border-radius: 84%;
-    display: inline-block;
-    line-height: 38px;
-    text-align: center;
-    width: 14%;
-    font-family: 'Lato', sans-serif;
-}
-
-lg-month tbody td {
-    font-weight: 400;
-}
-
-lg-month .week-end {
-    color: hsla(189, 7%, 60%, 1);
-}
-
-lg-month .prev-month,
-lg-month .next-month {
-    color: hsla(189, 7%, 81%, 1);
-}
-
-lg-month .current-day {
-    background: hsla(171, 99%, 38%, 1);
-    color: hsla(0, 0%, 98%, 1);
-}
-
-lg-month .event.current-day:after {
-    background: hsla(0, 0%, 98%, 1);
-}
-
-lg-month .hour {
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    background: white;
-    margin-top: 20px;
-}
-
-lg-month .hour span {
-    padding: 10px 5px !important;
-    font-size: 13px !important;
-    background-color: transparent;
-}
-
-lg-month .selector {
-    position: relative;
-    width: 48px;
-    top: -25px;
-    margin: 0 auto;
-    border-radius: 5px;
-    height: 32px;
-    border: 2px solid hsla(171, 99%, 38%, 1);
-}
-
-lg-month .select {
-    font-weight: bold;
-    color: hsla(171, 99%, 38%, 1);
-}
-
-lg-month .none {
-    border-bottom: none !important;
 }
