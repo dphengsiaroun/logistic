@@ -21,7 +21,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		transportType: 'Camion',
 		truckType: 'Bache',
 		loaderWeight: '90',
-		preciseWeight: '9',
+		preciseWeight: '100',
 		height: '2',
 		deep: '5',
 		width: '10',

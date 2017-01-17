@@ -4,7 +4,7 @@
 	text-align: center;
 	font-size: 0px;
 	padding: 10px 0px;
-	border-bottom: 1px solid $borderColor;
+	border-bottom: 1px solid $darkBorderColor;
 
 	title {
 		font-weight: bold;
@@ -27,7 +27,7 @@
 	}
 
 	hr {
-		border-color: $borderColor;
+		border-color: $darkBorderColor;
 		border-style: solid;
 		border-top: none;
 	}
@@ -42,7 +42,7 @@
 	section {
 		padding: 10px 10px;
 		margin: 0px;
-		border-bottom: 1px solid $borderColor;
+		border-bottom: 1px solid $darkBorderColor;
 
 		big-label {
 			display: block;
@@ -52,6 +52,9 @@
 			width: 100%;
 			margin-bottom: 15px;
 		}
+	}
+	section.dark {
+		background-color: $backgroundDarkColor;
 	}
 }
 
