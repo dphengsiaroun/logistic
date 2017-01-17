@@ -136,6 +136,9 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 		}).then(function() {
 			ctrl.isEditable = (ctrl.loader.current.content.accountId === ctrl.user.account.id);
 			console.log('ctrl.isEditable', ctrl.isEditable);
+		}).catch(function() {
+			ctrl.isEditable = false;
+			console.log('ctrl.isEditable', ctrl.isEditable);
 		});
 	};
 }]);
