@@ -19,6 +19,7 @@ var lgMenuUrl = require('./tmpl/lg-menu.html');
 app.component('lgMenu', {
 	templateUrl: lgMenuUrl,
 	controller: function LgMenuCtrl($element, $scope, $state, $rootScope, user) {
+		'ngInject';
 		this.user = user;
 
 		console.log('LgMenuCtrl', arguments);
@@ -26,7 +27,7 @@ app.component('lgMenu', {
 
 		this.isBackPresent = false;
 		var refreshBack = function() {
-			console.log('refreshBack');
+			console.log('refreshBack', arguments);
 			console.log('$state.$current', $state.$current);
 			if ($state.$current.back === undefined) {
 				ctrl.isBackPresent = true;

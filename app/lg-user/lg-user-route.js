@@ -63,9 +63,8 @@ app.config(['$stateProvider', function($stateProvider) {
 		url: '/user-delete',
 		component: 'lgConfirm',
 		resolve: {
-			service: ['$injector', function($injector) {
-				var user = $injector.get('user');
-				var $state = $injector.get('$state');
+			service: function($state, user) {
+				'ngInject';
 				var result = {};
 				result.doCancel = function() {
 					$state.go('user:retrieve');
@@ -79,7 +78,7 @@ app.config(['$stateProvider', function($stateProvider) {
 				result.cancelMsg = 'Non, annuler';
 				result.confirmMsg = 'Oui, supprimer';
 				return result;
-			}]
+			}
 		},
 		needsUser: true
 	});
