@@ -46,11 +46,28 @@ app.component('lgHour', {
 			}
 		};
 
-		this.update = function(hour) {
+		this.isAm = true;
 
-			this.action.apply(null, arguments);
+		this.setAm = function() {
+			this.isAm = true;
+		};
+		this.setPm = function() {
+			this.isAm = false;
+		};
+
+		this.update = function(hour) {
+			var h = hour;
+			if (this.isAm === false) {
+				if (h === 12) {
+					h = 0;
+				} else {
+					h += 12;
+				}
+			}
+			console.log('h', h);
+			this.action.apply(null, [h]);
 			this.refresh();
-			if (this.selectedHours === hour) {
+			if (this.selectedHours === h) {
 				self.lgCalendarWrapper.next();
 			}
 		};
