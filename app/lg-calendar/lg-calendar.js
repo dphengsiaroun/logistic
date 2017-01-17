@@ -9,6 +9,7 @@ require('./lg-calendar.scss');
 require('./lg-month.js');
 require('./lg-hour.js');
 require('./lg-hour2.js');
+require('./lg-hour3.js');
 
 app.directive('input', ['$injector', function($injector) {
 	var $compile = $injector.get('$compile');
