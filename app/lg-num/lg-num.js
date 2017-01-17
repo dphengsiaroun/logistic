@@ -112,6 +112,10 @@ app.component('lgNum', {
 			minusElt.on('touchstart', touchstart(ctrl.minus));
 			minusElt.on('touchend', touchend);
 			minusElt.on('mouseup', touchend);
+
+			elt.on('touchend', function(e) {
+				e.preventDefault();
+			});
 		};
 
 		this.$onInit = function() {

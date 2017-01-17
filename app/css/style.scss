@@ -59,6 +59,10 @@ input, my-input {
     border: 1px solid $borderColor;
 }
 
+input[readonly], my-input[readonly] {
+    background-color: $littleLightGray;
+}
+
 /* placeholder */
 ::-webkit-input-placeholder { /* Chrome */
   color: hsla(0, 0%, 60%, 1);
@@ -88,6 +92,7 @@ label {
     display: block;
     font-weight: bold;
     font-size: 17px;
+    margin-top: 20px;
 }
 
 comment {

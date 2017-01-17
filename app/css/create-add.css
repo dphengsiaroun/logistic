@@ -45,34 +45,6 @@
     padding: 0px 10px;
 }
 
-truck-dim {
-    display: block;
-    text-align: center;
-}
-
-dimension {
-    display: table;
-    width: 100%;
-    margin: 0 0 20px;
-    padding: 0px;
-}
-
-dimension > div {
-    display: table-cell;
-    width: 30%;
-    text-align: center;
-} 
-
-dimension > div > img {
-    display: inline-block;
-    width: 70px;
-}
-
-dimension > div > p{
-    font-size: 17px;
-    font-weight: bold;
-}
-
 .comments {
     font-size: 14px;
     text-align: center;

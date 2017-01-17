@@ -1,193 +1,203 @@
 @import '../css/color';
-
 .ad-title {
-	text-align: center;
-	font-size: 0px;
-	padding: 10px 0px;
-	border-bottom: 1px solid $darkBorderColor;
-
-	title {
-		font-weight: bold;
-		font-size: 25px;
-		padding: 0px 0px 5px;
-	}
-
-	svg {
-		width: 80px;
-		height: 80px;
-		display: inline-block;
-		padding: 0px;
-		margin: 0px;
-	}
-	
-	subtitle {
-		font-weight: bold;
-		font-size: 25px;
-		padding: 0px 0px 5px;
-	}
-
-	hr {
-		border-color: $darkBorderColor;
-		border-style: solid;
-		border-top: none;
-	}
-
-
+    text-align: center;
+    font-size: 0px;
+    padding: 10px 0px;
+    border-bottom: 1px solid $darkBorderColor;
+    title {
+        font-weight: bold;
+        font-size: 25px;
+        padding: 0px 0px 5px;
+    }
+    svg {
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        padding: 0px;
+        margin: 0px;
+    }
+    subtitle {
+        font-weight: bold;
+        font-size: 25px;
+        padding: 0px 0px 5px;
+    }
+    hr {
+        border-color: $darkBorderColor;
+        border-style: solid;
+        border-top: none;
+    }
 }
 
 .ad {
-	padding: 0px;
-	margin: 0px;
-
-	section {
-		padding: 10px 10px;
-		margin: 0px;
-		border-bottom: 1px solid $darkBorderColor;
-
-		big-label {
-			display: block;
-			font-weight: bold;
-			font-size: 25px;
-			text-align: center;
-			width: 100%;
-			margin-bottom: 15px;
-		}
-	}
-	section.dark {
-		background-color: $backgroundDarkColor;
-	}
+    padding: 0px;
+    margin: 0px;
+    section {
+        padding: 10px 10px;
+        margin: 0px;
+        border-bottom: 1px solid $darkBorderColor;
+        big-label {
+            display: block;
+            font-weight: bold;
+            font-size: 25px;
+            text-align: center;
+            width: 100%;
+        }
+        dimension {
+            display: table;
+            width: 100%;
+            margin: 0 0 20px;
+            padding: 0px;
+            div {
+                display: table-cell;
+                width: 30%;
+                text-align: center;
+                img {
+                    display: inline-block;
+                    width: 70px;
+                }
+                p {
+                    font-size: 17px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    section.dark {
+        background-color: $backgroundDarkColor;
+    }
 }
 
 .bouton {
-	padding: 0 10px;
+    padding: 0 10px;
 }
-
 
 
 /* Liste annonce */
- .banner-annonce {
-	width: 100%;
-	padding: 0 10px;
-	background: hsla(0, 0%, 96%, 1);
-	text-align: center
+
+.banner-annonce {
+    width: 100%;
+    padding: 0 10px;
+    background: hsla(0, 0%, 96%, 1);
+    text-align: center
 }
 
 .banner-annonce button {
-	height: 45px;
+    height: 45px;
 }
 
 .banner-annonce img {
-	width: 25px;
-	display: inline-block;
+    width: 25px;
+    display: inline-block;
 }
 
 .banner-annonce h1 {
-	font-size: 20px;
-	margin: 3px 0;
-	display: inline-block;
+    font-size: 20px;
+    margin: 3px 0;
+    display: inline-block;
 }
 
 .liste-annonce {
-	width: 100%;
-	display: block;
-	padding: 0px;
+    width: 100%;
+    display: block;
+    padding: 0px;
 }
 
 .block-annonce {
-	width: 100%;
-	font-size: 0px;
-	margin: 0px;
-	border-bottom: 1px solid hsla(0, 0%, 93%, 1);
+    width: 100%;
+    font-size: 0px;
+    margin: 0px;
+    border-bottom: 1px solid hsla(0, 0%, 93%, 1);
 }
 
 .identity {
-	display: inline-block;
-	float: left;
-	width: 25%;
-	margin: 0px;
-	padding: 27px 0px;
-	font-size: 27px;
-	text-align: center;
-	background: hsla(171, 99%, 38%, 1);
-	color: white;
+    display: inline-block;
+    float: left;
+    width: 25%;
+    margin: 0px;
+    padding: 27px 0px;
+    font-size: 27px;
+    text-align: center;
+    background: hsla(171, 99%, 38%, 1);
+    color: white;
 }
 
 .details {
-	display: inline-block;
-	width: 75%;
-	margin: 0px;
-	padding: 10px;
-	text-align: left;
-	background-color: white;
+    display: inline-block;
+    width: 75%;
+    margin: 0px;
+    padding: 10px;
+    text-align: left;
+    background-color: white;
 }
 
 .details p {
-	color: hsla(214, 46%, 25%, 1);
-	font-size: 17px;
+    color: hsla(214, 46%, 25%, 1);
+    font-size: 17px;
 }
 
 .details-time {
-	margin: 5px 0;
+    margin: 5px 0;
 }
 
-.size, .origin, .year, .tarif{
-	font-size: 14px;
+.size,
+.origin,
+.year,
+.tarif {
+    font-size: 14px;
 }
 
-.size{
-	color: hsla(0, 0%, 84%, 1);
-	float: left;
+.size {
+    color: hsla(0, 0%, 84%, 1);
+    float: left;
 }
 
-.origin{
-	color: hsla(171, 99%, 38%, 1);
-	float: right;
+.origin {
+    color: hsla(171, 99%, 38%, 1);
+    float: right;
 }
 
 .year {
-	float: left;
-	color: black;
+    float: left;
+    color: black;
 }
 
-.tarif{
-	color: hsla(171, 99%, 38%, 1);
-	float: right;
+.tarif {
+    color: hsla(171, 99%, 38%, 1);
+    float: right;
 }
+
 
 /* Détails annonce */
 
 .details-annonce {
-	width: 100%;
-	padding: 0px;
+    width: 100%;
+    padding: 0px;
 }
 
 .recap {
-	width: 100%;
-	padding: 20px 10px;
-	background-color: hsla(0, 0%, 96%, 1);
-
-	h2 {
-		margin: 40px 0px;
-		font-size: 21px;
-		text-align: center;
-	}
-
-	h3 {
-		text-align: left;
-		margin: 25px 0;
-		font-size: 19px;
-	}
-
-	div {
-		text-align: center;
-	}
-
-	p {
-		font-size: 16px;
-	}
+    width: 100%;
+    padding: 20px 10px;
+    background-color: hsla(0, 0%, 96%, 1);
+    h2 {
+        margin: 40px 0px;
+        font-size: 21px;
+        text-align: center;
+    }
+    h3 {
+        text-align: left;
+        margin: 25px 0;
+        font-size: 19px;
+    }
+    div {
+        text-align: center;
+    }
+    p {
+        font-size: 16px;
+    }
 }
 
-.publie, .expire {
-	color: hsla(0, 0%, 65%, 1);
-	font-size: 20px;
+.publie,
+.expire {
+    color: hsla(0, 0%, 65%, 1);
+    font-size: 20px;
 }

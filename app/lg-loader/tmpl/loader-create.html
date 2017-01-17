@@ -62,28 +62,26 @@
 		/>
 		<label>Poids précis si connu (en kg)</label>
 		<input type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*"/>
-		<truck-dim>
-			<dimension>
-				<div>
-					<img src="img/box-hauteur.png" />
-					<p>Hauteur</p>
-					<input type="num" placeholder="H." vertical ng-model="$ctrl.loader.createData.height" options="{format: 2, step: 0.1}" />
-				</div>
-				<div>
-					<img src="img/box-profondeur.png" />
-					<p>Profondeur</p>
-					<input type="num" placeholder="P." vertical ng-model="$ctrl.loader.createData.deep" options="{format: 2, step: 0.1}" />
-				</div>
-				<div>
-					<img src="img/box-largeur.png" />
-					<p>Largeur</p>
-					<input type="num" placeholder="L." vertical ng-model="$ctrl.loader.createData.width" options="{format: 2, step: 0.1}" />
-				</div>
-			</dimension>
-		</truck-dim>
+		<label>Dimensions en mètre</label>
+		<dimension>
+			<div class="no-zoom">
+				<img src="img/box-hauteur.png" />
+				<p>Hauteur</p>
+				<input type="num" placeholder="H." vertical ng-model="$ctrl.loader.createData.height" options="{format: 2, step: 0.1}" />
+			</div>
+			<div class="no-zoom">
+				<img src="img/box-profondeur.png" />
+				<p>Profondeur</p>
+				<input type="num" placeholder="P." vertical ng-model="$ctrl.loader.createData.deep" options="{format: 2, step: 0.1}" />
+			</div>
+			<div class="no-zoom">
+				<img src="img/box-largeur.png" />
+				<p>Largeur</p>
+				<input type="num" placeholder="L." vertical ng-model="$ctrl.loader.createData.width" options="{format: 2, step: 0.1}" />
+			</div>
+		</dimension>
 		<label>Volume résultant</label>
-		<input type="choice" choices="$root.config.volumes" title="Volume résultant" placeholder="Ex: 200, 455, 2300" ng-model="$ctrl.loader.createData.volume"
-		/>
+		<input type="text" readonly />
 		<label>Prix souhaité (facultatif)</label>
 		<input type="choice" choices="$root.config.prices" title="Prix souhaité" placeholder="Ex: 200, 455, 2300" ng-model="$ctrl.loader.createData.priceWanted"
 		/>
@@ -95,8 +93,13 @@
 		<input type="choice" choices="$root.config.times" title="Durée d\'affichage" placeholder="Ex: 1 semaine, 15 jours" ng-model="$ctrl.loader.createData.adTimes"
 		/>
 	</section>
-	<section class="dark">
+	<section>
 		<lg-error error="$ctrl.loader.error"></lg-error>
 		<button ng-click="$ctrl.loader.create()">Enregistrer ></button>
 	</section>
 </form>
+<script>
+$('.no-zoom').bind('touchend', function(e) {
+	e.preventDefault();
+});
+</script>
