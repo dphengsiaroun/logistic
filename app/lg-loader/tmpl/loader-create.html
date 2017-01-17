@@ -58,10 +58,10 @@
 	<section class="dark">
 		<big-label>Chargement</big-label>
 		<label>Poids</label>
-		<input type="choice" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.createData.weightInterval"
-		/>
+		<input type="choice" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos"
+			ng-model="$ctrl.loader.createData.weightInterval" />
 		<label>Poids précis si connu (en kg)</label>
-		<input type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*"/>
+		<input type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
 		<label>Dimensions en mètre</label>
 		<dimension>
 			<div class="no-zoom">
@@ -81,25 +81,30 @@
 			</div>
 		</dimension>
 		<label>Volume résultant</label>
-		<input type="text" readonly />
-		<label>Prix souhaité (facultatif)</label>
-		<input type="choice" choices="$root.config.prices" title="Prix souhaité" placeholder="Ex: 200, 455, 2300" ng-model="$ctrl.loader.createData.priceWanted"
-		/>
-		<div class="photo">
-			<label>Inserer une photo</label>
-			<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
-		</div>
+		<my-input readonly class="filled" ng-bind="$ctrl.volumeStr"></my-input>
+		<label>Photo du chargement</label>
+		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+		<comment>Votre annonce sera davantage consultée si elle contient une photo.</comment>
+	</section>
+	<section>
+		<big-label>Prix</big-label>
+		<label>Tarif souhaité en DZD (facultatif)</label>
+		<input type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.createData.priceWanted" />
+
 		<label>Durée d'affichage max. de l'annonce</label>
 		<input type="choice" choices="$root.config.times" title="Durée d\'affichage" placeholder="Ex: 1 semaine, 15 jours" ng-model="$ctrl.loader.createData.adTimes"
 		/>
 	</section>
-	<section>
+	<section class="dark">
+		<big-label>Finaliser</big-label>
+		<label>Attention</label>
+		<comment>En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</comment>
 		<lg-error error="$ctrl.loader.error"></lg-error>
-		<button ng-click="$ctrl.loader.create()">Enregistrer ></button>
+		<button ng-click="$ctrl.loader.create()">Déposer votre annonce</button>
 	</section>
 </form>
 <script>
-$('.no-zoom').bind('touchend', function(e) {
-	e.preventDefault();
-});
+	$('.no-zoom').bind('touchend', function (e) {
+		e.preventDefault();
+	});
 </script>

@@ -13,6 +13,7 @@ app.filter('message', function() {
 			'2': 'Ce login est déjà pris.',
 			'3': 'Aie... Erreur technique... désolé.',
 			'4': 'Email déjà pris.',
+			'5': 'Authentification requise.',
 			'7': 'Ancien mot de passe incorrect.',
 			'8': 'Code de réactivation non valide.',
 			'9': 'Code de réactivation expiré.',

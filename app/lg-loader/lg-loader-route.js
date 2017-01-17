@@ -145,8 +145,17 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 
 app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $injector) {
 	'ngInject';
+	var ctrl = this;
 	this.loader = $injector.get('loader');
 	this.user = $injector.get('user');
+	$scope.$watchGroup(['$ctrl.loader.createData.height', '$ctrl.loader.createData.deep',
+		'$ctrl.loader.createData.width'], function() {
+		ctrl.loader.createData.volume = ctrl.loader.createData.height *
+			ctrl.loader.createData.deep * ctrl.loader.createData.width;
+		ctrl.loader.createData.volume =	Number((ctrl.loader.createData.volume).toFixed(2));
+		ctrl.volumeStr = ctrl.loader.createData.volume + ' m3';
+		console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
+	}, true);
 });
 
 app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams) {

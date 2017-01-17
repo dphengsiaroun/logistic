@@ -30,7 +30,7 @@ app.run(['$injector', function($injector) {
 		'De 500 kg à 1 tonne', 'De 1 à 5 tonnes', 'Plus de 5 tonnes'];
 	$rootScope.config.volumes = ['100', '130', '180', '200'];
 	$rootScope.config.prices = ['100', '200', '1000', '2000'];
-	$rootScope.config.times = ['1 semaine', '15 jours', 'Maximum'];
+	$rootScope.config.times = ['1 semaine', '2 Semaines', '1 mois', '2 mois', 'Illimité'];
 	$rootScope.config.Address = ['2 rue de Paris, 1000 ALGER', '15 rue de Tripoli, 1100 ORAN'];
 	$rootScope.config.goodTypes = ['Fruits frais', 'Légumes frais', 'Fruits et légumes frais'];
 }]);

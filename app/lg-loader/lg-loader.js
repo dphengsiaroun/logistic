@@ -24,7 +24,6 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		height: 2,
 		deep: 5,
 		width: 10,
-		volume: '200',
 		priceWanted: '300',
 		adTimes: '1 semaine',
 
