@@ -18,6 +18,8 @@
 
 	// 20 Mega par personne d'image max.
 	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 20000000);
+	// 2 Mega par personne anonyme d'image max.
+	define('MAX_PICTURE_SIZE_PER_ANONYMOUS_SESSION', 2000000);
 
 	define('FORGOTTEN_PASSWORD_EXPIRED_DELAY', (24 * 3600));
 

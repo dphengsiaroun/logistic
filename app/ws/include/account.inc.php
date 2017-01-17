@@ -49,6 +49,15 @@ EOF;
 			throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 		}
 
+		public static function isConnected() {
+			try {
+				self::getConnected();
+			} catch (Exception $e) {
+				return false;
+			}
+			return true;
+		}
+
 		protected function retrieve() {
 			global $db, $cfg;
 			// On lance notre requête de vérification
