@@ -21,7 +21,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'loader:created',
-		url: '/create-loader',
+		url: '/created-loader',
 		component: 'lgMessage',
 		resolve: {
 			service: function(user) {
@@ -52,7 +52,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function(user, loader) {
 				'ngInject';
-				return user.waitForCheckConnection().then(function() {
+				return user.waitForCheckConnection('loader:updated').then(function() {
 					var login = user.account.content.login;
 					console.log('login', login);
 					var state = 'loader:list({login: \'' + login + '\'})';
@@ -96,7 +96,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function(user, loader) {
 				'ngInject';
-				return user.waitForCheckConnection().then(function() {
+				return user.waitForCheckConnection('loader:deleted').then(function() {
 					var login = user.account.content.login;
 					console.log('login', login);
 					var state = 'loader:list({login: \'' + login + '\'})';
@@ -132,7 +132,7 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 	console.log('$stateParams', $stateParams);
 	ctrl.$onInit = function() {
 		ctrl.loader.get($stateParams.id).then(function() {
-			return ctrl.user.waitForCheckConnection();
+			return ctrl.user.waitForCheckConnection('LoaderCtrl');
 		}).then(function() {
 			ctrl.isEditable = (ctrl.loader.current.content.accountId === ctrl.user.account.id);
 			console.log('ctrl.isEditable', ctrl.isEditable);
@@ -165,7 +165,7 @@ app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, use
 	ctrl.user = user;
 	this.$onInit = function() {
 		this.loader.get($stateParams.id).then(function() {
-			return ctrl.user.waitForCheckConnection();
+			return ctrl.user.waitForCheckConnection('LoaderUpdateCtrl');
 		}).then(function() {
 			ctrl.loader.updateData = angular.copy(ctrl.loader.current.content);
 			ctrl.loader.updateData.id = $stateParams.id;

@@ -16,7 +16,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'user:signupSuccess',
-		url: '/signup',
+		url: '/signup-success',
 		component: 'lgUserSignupSuccessRoute',
 		back: false
 	});
@@ -45,7 +45,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'user:updated',
-		url: '/profile',
+		url: '/updated-profile',
 		component: 'lgMessage',
 		resolve: {
 			service: function() {
@@ -84,7 +84,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'user:deleted',
-		url: '/user-delete',
+		url: '/user-deleted',
 		component: 'lgMessage',
 		resolve: {
 			service: function() {
@@ -134,7 +134,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'user:forgottenPassword:mailsent',
-		url: '/forgotten-password',
+		url: '/forgotten-password-mailsent',
 		component: 'lgMessage',
 		resolve: {
 			service: function(user) {

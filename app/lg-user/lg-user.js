@@ -20,9 +20,9 @@ app.service('user', function User($injector) {
 	var service = this;
 
 	var refreshState = function() {
-		service.waitForCheckConnection().catch(function() {
+		service.waitForCheckConnection('needsUser').catch(function() {
 			if ($state.$current.needsUser) {
-				console.log('go to signin because need user');
+				console.log('go to signin because the state needs user');
 				$state.go('user:signin');
 			}
 		});
@@ -101,6 +101,7 @@ app.service('user', function User($injector) {
 			$rootScope.isConnected = true;
 			console.log('after signin, go to', service.afterConnectState);
 			$state.go(service.afterConnectState);
+			service.afterConnectState = 'home';
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -182,9 +183,11 @@ app.service('user', function User($injector) {
 
 	this.isConnected();
 
-	this.waitForCheckConnection = function() {
+	this.waitForCheckConnection = function(reason) {
 		return $q(function(resolve, reject) {
+			console.log('waitForCheckConnection start with reason and state', reason, $state.$current.name);
 			console.log('$rootScope.isConnected', $rootScope.isConnected);
+			console.log('$state.$current.name', $state.$current.name);
 			if ($rootScope.isConnected === true) {
 				resolve();
 				return;
@@ -193,10 +196,14 @@ app.service('user', function User($injector) {
 				reject();
 				return;
 			}
-			$rootScope.$watch('isConnected', function() {
+			var deregister = $rootScope.$watch('isConnected', function() {
 				if ($rootScope.isConnected === true) {
+					console.log('$rootScope.isConnected resolve', $rootScope.isConnected);
+					deregister();
 					resolve();
 				} else if ($rootScope.isConnected === false) {
+					console.log('$rootScope.isConnected reject', $rootScope.isConnected);
+					deregister();
 					reject();
 				}
 			});

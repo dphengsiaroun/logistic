@@ -34,6 +34,7 @@ app.component('lgMenu', {
 			} else {
 				ctrl.isBackPresent = $state.$current.back;
 			}
+			console.log('refreshBack end', $state.$current.name);
 		};
 
 		refreshBack();

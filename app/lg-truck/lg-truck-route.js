@@ -99,7 +99,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function(user, truck) {
 				'ngInject';
-				return user.waitForCheckConnection().then(function() {
+				return user.waitForCheckConnection('truck:deleted').then(function() {
 					var login = user.account.content.login;
 					console.log('login', login);
 					var state = 'truck:list({login: \'' + login + '\'})';
