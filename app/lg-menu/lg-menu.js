@@ -36,18 +36,9 @@ app.component('lgMenu', {
 				ctrl.isBackPresent = $state.$current.back;
 			}
 		};
-		var refreshState = function() {
-			refreshBack();
-			ctrl.user.waitForCheckConnection().catch(function() {
-				if ($state.$current.needsUser) {
-					console.log('go home because need user');
-					$state.go('home');
-				}
-			});
-		};
+
 		refreshBack();
-		// UI router throw this event when route changes.
-		$rootScope.$on('$viewContentLoaded', refreshState);
+		$rootScope.$on('$viewContentLoaded', refreshBack);
 
 		this.isMenuOn = false;
 

@@ -19,6 +19,17 @@ app.service('user', function User($injector) {
 
 	var service = this;
 
+	var refreshState = function() {
+		service.waitForCheckConnection().catch(function() {
+			if ($state.$current.needsUser) {
+				console.log('go to signin because need user');
+				$state.go('user:signin');
+			}
+		});
+	};
+
+	$rootScope.$on('$viewContentLoaded', refreshState);
+
 	this.signupData = {
 		email: 'email@email.com',
 		password: 'test',

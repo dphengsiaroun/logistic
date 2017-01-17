@@ -12,14 +12,12 @@ app.config(['$stateProvider', function($stateProvider) {
 	$stateProvider.state({
 		name: 'loader:retrieve',
 		url: '/loader/{id}',
-		component: 'lgLoaderRetrieveRoute',
-		needsUser: true
+		component: 'lgLoaderRetrieveRoute'
 	});
 	$stateProvider.state({
 		name: 'loader:create',
 		url: '/create-loader',
-		component: 'lgLoaderCreateRoute',
-		needsUser: true
+		component: 'lgLoaderCreateRoute'
 	});
 	$stateProvider.state({
 		name: 'loader:created',
