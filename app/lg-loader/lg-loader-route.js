@@ -161,6 +161,8 @@ app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, use
 			ctrl.loader.updateData = angular.copy(ctrl.loader.current.content);
 			ctrl.loader.updateData.id = $stateParams.id;
 			console.log('ctrl.loader.updateData', ctrl.loader.updateData);
+		}).catch(function() {
+			console.error('you should not see this');
 		});
 	};
 });
