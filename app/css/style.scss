@@ -381,7 +381,7 @@ button {
 }
 
 button[disabled] {
-	 background: hsla(171, 10%, 38%, 1);
+	 background: $disabledButtonColor;
 }
 
 button i {

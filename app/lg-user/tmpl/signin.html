@@ -12,14 +12,11 @@
 	</div>
 	<lg-hr>ou</lg-hr>
 
-	<form name="signinCtrl" ng-submit="$ctrl.user.signin();">
-		<input type="text" placeholder="email, n°tel, identifiant" ng-model="$ctrl.user.signinData.email" />
-		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signinData.password" />
+	<form name="signinCtrl">
+		<input type="text" placeholder="email, n°tel, identifiant" ng-model="$ctrl.user.signinData.email" required/>
+		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signinData.password" required/>
 		<lg-error error="$ctrl.user.error"></lg-error>
-
-		<div class="bouton">
-			<button>Se connecter</button>
-		</div>
+		<button ng-click="$ctrl.user.signin()" ng-disabled="signinCtrl.$invalid">Se connecter</button>
 	</form>
 
 	<lg-hr>ou</lg-hr>
