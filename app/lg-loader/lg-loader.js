@@ -1,7 +1,7 @@
 'use strict';
 
 require('../css/lg-ad.scss');
-//require('./lg-loader.scss');
+// require('./lg-loader.scss');
 module.exports = 'lg-loader';
 
 var app = angular.module(module.exports, ['ui.router']);
@@ -24,29 +24,37 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		height: 2,
 		deep: 5,
 		width: 10,
-		priceWanted: '300',
+		priceWanted: 300,
 		adTimes: '1 semaine',
 
 	};
 
 	this.create = function() {
 		console.log('loader->createLoader', service.createData);
-		$http({
-			url: 'ws/loader/create.php',
-			method: 'POST',
-			data: service.createData,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
-			}
-			service.error = undefined;
-			$state.go('loader:created');
-		}).catch(function(error) {
-			console.error('error', error);
-		});
+		if (user.account) {
+			$http({
+				url: 'ws/loader/create.php',
+				method: 'POST',
+				data: service.createData,
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === 'ko') {
+					service.error = response;
+					return;
+				}
+				service.error = undefined;
+				$state.go('loader:created');
+			}).catch(function(error) {
+				console.error('error', error);
+			});
+		} else {
+			localStorage.setItem('loader', angular.toJson(service.createData));
+			user.afterConnectState = 'loader:created';
+			$state.go('user:signin');
+			console.log('loader', angular.fromJson(localStorage.getItem('loader')));
+		}
+
 	};
 
 	this.listData = {

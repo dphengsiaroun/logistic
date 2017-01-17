@@ -18,10 +18,8 @@ var lgMenuUrl = require('./tmpl/lg-menu.html');
 // permet de récuperer les valeurs en post sous format json
 app.component('lgMenu', {
 	templateUrl: lgMenuUrl,
-	controller: ['$element', '$scope', '$injector', function LgMenuCtrl($element, $scope, $injector) {
-		var $state = $injector.get('$state');
-		var $rootScope = $injector.get('$rootScope');
-		this.user = $injector.get('user');
+	controller: function LgMenuCtrl($element, $scope, $state, $rootScope, user) {
+		this.user = user;
 
 		console.log('LgMenuCtrl', arguments);
 		var ctrl = this;
@@ -81,7 +79,7 @@ app.component('lgMenu', {
 		};
 		ctrl.refresh();
 
-	}]
+	}
 });
 
 app.component('lgMenuContent', {

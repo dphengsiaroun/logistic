@@ -29,6 +29,7 @@ app.service('user', function User($injector) {
 	};
 
 	$rootScope.$on('$viewContentLoaded', refreshState);
+	this.afterConnectState = 'home';
 
 	this.signupData = {
 		email: 'email@email.com',
@@ -98,7 +99,8 @@ app.service('user', function User($injector) {
 			service.error = undefined;
 			service.account = response.data.account;
 			$rootScope.isConnected = true;
-			$state.go('home');
+			console.log('after signin, go to', service.afterConnectState);
+			$state.go(service.afterConnectState);
 		}).catch(function(error) {
 			service.error = error;
 		});

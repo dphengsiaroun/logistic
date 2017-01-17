@@ -51,6 +51,7 @@ var app = angular.module('mainApp', [
 	'ngSanitize',
 	'vcRecaptcha',
 	'ui.mask',
+	'ui.router',
 	lgRoute,
 	lgUpload,
 	lgMenu,
@@ -72,7 +73,7 @@ var app = angular.module('mainApp', [
 	]);
 
 // permet de récuperer les valeurs en post sous format json
-app.run(function($rootScope, $window) {
+app.run(function($rootScope, $window, $state) {
 
 	$rootScope.back = function() {
 		console.log('back', arguments);
@@ -82,6 +83,11 @@ app.run(function($rootScope, $window) {
 	$rootScope.goto = function(url) {
 		console.log('goto', arguments);
 		$window.location.href = url;
+	};
+
+	$rootScope.goToState = function(state) {
+		console.log('goToState', arguments);
+		$state.go(state);
 	};
 
 });
