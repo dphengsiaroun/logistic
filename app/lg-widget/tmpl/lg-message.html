@@ -1,2 +1,2 @@
 <title ng-bind-html="$ctrl.service.message"></title>
-<a ui-sref="{{$ctrl.service.state}}"><i class="fa fa-home" aria-hidden="true"></i> {{$ctrl.service.label}}</a>
+<button ng-click="$root.goToState($ctrl.service.state)"><i class="fa fa-home" aria-hidden="true"></i> {{$ctrl.service.label}}</button>

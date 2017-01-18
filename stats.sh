@@ -12,6 +12,7 @@ set +e
     echo "FILE_COUNT=$FILE_COUNT"
     STAT=`wc -l $FILE_LIST`
     echo "STAT=$STAT"
+    echo "$FILE_LIST" | grep 'css$' | xargs grep -e 'hsla'
 )
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
