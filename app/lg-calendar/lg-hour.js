@@ -60,16 +60,8 @@ app.component('lgHour', {
 
 		this.isAm = true;
 
-		this.setAm = function() {
-			this.isAm = true;
-			var hour = this.selectedHours % 12;
-			var h = this.compute24Hour(hour);
-			console.log('h', h);
-			this.action.apply(null, [h]);
-			this.refresh();
-		};
-		this.setPm = function() {
-			this.isAm = false;
+		this.setAmPm = function(isAm) {
+			this.isAm = isAm;
 			var hour = this.selectedHours % 12;
 			var h = this.compute24Hour(hour);
 			console.log('h', h);
