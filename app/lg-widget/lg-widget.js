@@ -5,7 +5,7 @@ module.exports = 'lg-widget';
 
 var app = angular.module(module.exports, []);
 
-require('./lg-widget.css');
+require('./lg-widget.scss');
 require('./lg-hr.js');
 
 var lgPromptUrl = require('./tmpl/lg-prompt.html');

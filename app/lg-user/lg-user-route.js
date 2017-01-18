@@ -154,6 +154,26 @@ app.config(['$stateProvider', function($stateProvider) {
 		back: false,
 	});
 
+	$stateProvider.state({
+		name: 'user:hasAccount',
+		url: '/do-you-have-an-account',
+		component: 'lgPrompt',
+		resolve: {
+			service: function($state, user) {
+				'ngInject';
+				return {
+					questionMsg: 'Avez-vous déjà un compte chez nous&nbsp;?',
+					doNo: function() {
+						$state.go('user:signup');
+					},
+					doYes: function() {
+						$state.go('user:signin');
+					}
+				};
+			}
+		},
+	});
+
 }]);
 
 var signinUrl = require('./tmpl/signin.html');

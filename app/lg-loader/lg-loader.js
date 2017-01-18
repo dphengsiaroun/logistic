@@ -55,7 +55,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 				fn: service.createAfterConnect,
 				args: []
 			});
-			$state.go('user:signin');
+			$state.go('user:hasAccount');
 		}
 
 	};
