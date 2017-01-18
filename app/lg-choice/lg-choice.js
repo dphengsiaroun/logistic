@@ -85,36 +85,10 @@ app.component('lgChoiceWrapper', {
 
 		ctrl.geoloc = function() {
 			console.log('geoloc', arguments);
-			if (!$window.navigator.geolocation) {
-				return;
-			}
-			$window.navigator.geolocation.getCurrentPosition(function(geopos) {
-				console.log('getCurrentPosition', arguments);
-				$http({
-					url: 'http://nominatim.openstreetmap.org/reverse',
-					method: 'GET',
-					params: {
-						format: 'json',
-						//lat: geopos.coords.latitude,
-						//lon: geopos.coords.longitude,
-						lat: 33.324754,
-						lon: 1.879442,
-						zoom: 18,
-						addressdetails: 1
-					}
-				}).then(function(response) {
-					console.log('response', response);
-					var city = response.data.address.city || response.data.address.town;
-					var displayCity = [city, 
-					response.data.address.state, geoloc.mapCountry(response.data.address.country)].join(', ');
-					if ($rootScope.config.cities.indexOf(displayCity) === -1) {
-						$rootScope.config.cities.push(displayCity);
-					}
-
-					ctrl.myInput = displayCity;
-				}).catch(function(error) {
-					console.error('error', error);
-				});
+			geoloc.guessCity().then(function(displayCity) {
+				ctrl.myInput = displayCity;
+			}).catch(function(error) {
+				console.error('error', error);
 			});
 		};
 
