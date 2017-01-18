@@ -4,31 +4,28 @@ lg-message {
     display: block;
     padding: 20px 10px;
     text-align: center;
-}
-
-lg-message title {
-    display: block;
-    width: 100%;
-    font-size: 23px;
-    text-align: center;
-    margin: 30px 0;
-    font-weight: bold;
-}
-
-lg-message a {
-    padding: 20px 0px;
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-}
-
-lg-message i {
-    color: white;
+    title {
+        display: block;
+        width: 100%;
+        font-size: 23px;
+        text-align: center;
+        margin: 30px 0;
+        font-weight: bold;
+    }
+    a {
+        padding: 20px 0px;
+        background: hsla(171, 99%, 38%, 1);
+        color: white;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+    i {
+        color: white;
+    }
 }
 
 
@@ -85,36 +82,33 @@ lg-footer p {
 
 lg-show-picture {
     display: none;
-}
-
-lg-show-picture veil {
-    position: fixed;
-    z-index: 200;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background-color: black;
-    display: block;
-    text-align: center;
-    line-height: 100vh;
-}
-
-lg-show-picture veil img {
-    max-width: 100vw;
-    max-height: 100vh;
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-}
-
-lg-show-picture .fa {
-    position: fixed;
-    z-index: 200;
-    top: 0px;
-    right: 0px;
-    margin: 10px;
-    font-size: 40px;
-    color: white;
-    background-color: black;
+    veil {
+        position: fixed;
+        z-index: 200;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: black;
+        display: block;
+        text-align: center;
+        line-height: 100vh;
+        img {
+            max-width: 100vw;
+            max-height: 100vh;
+            width: auto;
+            height: auto;
+            vertical-align: middle;
+        }
+    }
+    .fa {
+        position: fixed;
+        z-index: 200;
+        top: 0px;
+        right: 0px;
+        margin: 10px;
+        font-size: 40px;
+        color: white;
+        background-color: black;
+    }
 }
