@@ -8,7 +8,7 @@
 	<section class="dark">
 		<big-label>Origine</big-label>
 		<label>Ville</label>
-		<input type="choice" choices="$root.config.cities" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.DepartureCity"
+		<input type="choice" options="{place:true}" choices="$root.config.cities" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.DepartureCity"
 		/>
 		<label>Date et heure de chargement</label>
 		<input type="lgDate" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime"

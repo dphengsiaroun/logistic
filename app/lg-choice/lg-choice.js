@@ -23,6 +23,11 @@ app.directive('input', ['$injector', function($injector) {
 				console.log('required');
 				requiredAttr = ' is-mandatory="true" ';
 			}
+			var optionsAttr = '';
+			if (attr.options) {
+				console.log('options');
+				optionsAttr = 'options="' + attr.options + '" ';
+			}
 			var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
 				'<lg-choice-wrapper ' +
 				'placeholder="\'' + attr.placeholder + '\'" ' +
@@ -30,6 +35,7 @@ app.directive('input', ['$injector', function($injector) {
 				'title="\'' + attr.title + '\'" ' +
 				'ng-model="' + attr.ngModel + '" ' +
 				requiredAttr +
+				optionsAttr +
 				'></lg-choice-wrapper>');
 			element.after(elt);
 			element.attr('style', 'display: none !important');
@@ -51,6 +57,9 @@ app.component('lgChoiceWrapper', {
 		var self = this;
 
 		this.showLgChoice = false;
+		this.defaultsOptions = {
+			place: false
+		};
 
 		this.start = function() {
 			console.log('start');
@@ -74,6 +83,8 @@ app.component('lgChoiceWrapper', {
 
 		this.$onInit = function() {
 			var ctrl = this.ngModel;
+			angular.extend(this.defaultsOptions, this.options);
+
 			ctrl.$render = function() {
 				var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
 				var html = choice || self.placeholder;
@@ -112,6 +123,7 @@ app.component('lgChoiceWrapper', {
 	}],
 	bindings: {
 		title: '<',
+		options: '<',
 		choices: '<',
 		placeholder: '<',
 		isMandatory: '<',
