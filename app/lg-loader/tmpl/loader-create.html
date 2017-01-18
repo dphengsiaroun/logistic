@@ -17,7 +17,7 @@
 	<section>
 		<big-label>Destination</big-label>
 		<label>Ville</label>
-		<input type="choice" choices="$root.config.cities" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"
+		<input type="choice" options="{place:true}" choices="$root.config.cities" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"
 		/>
 		<label>Date et heure de livraison</label>
 		<input type="lgDate" title="Date et heure de livraison" placeholder="Date de départ" ng-model="$ctrl.loader.createData.arrivalDatetime"

@@ -1,5 +1,7 @@
 'use strict';
 
+var lgGeoloc = require('../lg-geoloc/lg-geoloc.js');
+
 require('./lg-choice.scss');
 module.exports = 'lg-choice';
 
@@ -7,7 +9,7 @@ var removeDiacritic = function(str) {
 	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
-var app = angular.module(module.exports, ['lg-misc']);
+var app = angular.module(module.exports, ['lg-misc', lgGeoloc]);
 
 app.directive('input', ['$injector', function($injector) {
 	var $compile = $injector.get('$compile');
@@ -52,7 +54,7 @@ app.component('lgChoiceWrapper', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgChoiceWrapperUrl,
-	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll) {
+	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll, geoloc) {
 		'ngInject';
 		var ctrl = this;
 
@@ -93,19 +95,23 @@ app.component('lgChoiceWrapper', {
 					method: 'GET',
 					params: {
 						format: 'json',
-						lat: geopos.coords.latitude,
-						lon: geopos.coords.longitude,
+						//lat: geopos.coords.latitude,
+						//lon: geopos.coords.longitude,
+						lat: 33.324754,
+						lon: 1.879442,
 						zoom: 18,
 						addressdetails: 1
 					}
 				}).then(function(response) {
-					console.log('response', response.data.address.county);
-					var city = response.data.address.county;
-					if ($rootScope.config.cities.indexOf(city) === -1) {
-						$rootScope.config.cities.push(city);
+					console.log('response', response);
+					var city = response.data.address.city || response.data.address.town;
+					var displayCity = [city, 
+					response.data.address.state, geoloc.mapCountry(response.data.address.country)].join(', ');
+					if ($rootScope.config.cities.indexOf(displayCity) === -1) {
+						$rootScope.config.cities.push(displayCity);
 					}
 
-					ctrl.myInput = response.data.address.county;
+					ctrl.myInput = displayCity;
 				}).catch(function(error) {
 					console.error('error', error);
 				});
