@@ -1,0 +1,50 @@
+lg-num {
+    display: table;
+    width: 100%;
+    margin: 5px 0px;
+    plus,
+    minus {
+        display: table-cell;
+        background: hsla(171, 99%, 38%, 1);
+        color: white;
+        border: 1px solid hsla(0, 0%, 92%, 1);
+        ;
+        width: 20%;
+        height: 55px;
+        font-size: 22px;
+        line-height: 22px;
+        margin: 5px 0px;
+        vertical-align: middle;
+        text-align: center;
+        /* Pour Safari iPhone */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    minus {
+        border-radius: 5px 0 0 5px;
+        border-right: none;
+    }
+    plus {
+        border-radius: 0 5px 5px 0;
+        border-left: none;
+    }
+    my-input {
+        display: table-cell;
+        width: 60%;
+        border-radius: 0px;
+        border-left: none;
+        border-right: none;
+        vertical-align: top;
+        text-align: center;
+    }
+    my-input.filled {
+        color: black;
+    }
+    my-input.editing {
+        background-color: hsla(0, 0%, 95%, 1);
+    }
+    .fa {
+        color: white;
+    }
+}

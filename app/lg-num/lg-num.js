@@ -1,7 +1,7 @@
 'use strict';
 
-require('./lg-num.css');
-require('./lg-num-vertical.css');
+require('./lg-num.scss');
+require('./lg-num-vertical.scss');
 module.exports = 'lg-num';
 
 var app = angular.module(module.exports, []);
