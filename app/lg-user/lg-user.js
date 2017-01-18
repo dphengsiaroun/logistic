@@ -29,7 +29,26 @@ app.service('user', function User($injector) {
 	};
 
 	$rootScope.$on('$viewContentLoaded', refreshState);
-	this.afterConnectState = 'home';
+	this.afterConnectAction = {
+		state: 'home',
+		fn: undefined,
+		args: undefined
+	};
+
+	this.goToStateAfterConnect = function() {
+
+		if (service.afterConnectAction.fn) {
+			service.afterConnectAction.fn.apply(null, service.afterConnectAction.args);
+		}
+		console.log('after connect, go to', service.afterConnectAction.state);
+		$state.go(service.afterConnectAction.state);
+
+		service.afterConnectAction = {
+			state: 'home',
+			fn: undefined,
+			args: undefined
+		};
+	};
 
 	this.signupData = {
 		email: 'email@email.com',
@@ -99,9 +118,7 @@ app.service('user', function User($injector) {
 			service.error = undefined;
 			service.account = response.data.account;
 			$rootScope.isConnected = true;
-			console.log('after signin, go to', service.afterConnectState);
-			$state.go(service.afterConnectState);
-			service.afterConnectState = 'home';
+			service.goToStateAfterConnect();
 		}).catch(function(error) {
 			service.error = error;
 		});

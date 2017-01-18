@@ -30,7 +30,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	};
 
 	this.create = function() {
-		console.log('loader->createLoader', service.createData);
+		console.log('loader->create', service.createData);
 		if (user.account) {
 			$http({
 				url: 'ws/loader/create.php',
@@ -50,11 +50,20 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			});
 		} else {
 			localStorage.setItem('loader', angular.toJson(service.createData));
-			user.afterConnectState = 'loader:created';
+			user.afterConnectAction = {
+				state: 'loader:created',
+				fn: service.createAfterConnect,
+				args: []
+			};
 			$state.go('user:signin');
-			console.log('loader', angular.fromJson(localStorage.getItem('loader')));
 		}
 
+	};
+
+	this.createAfterConnect = function() {
+		service.createData = angular.fromJson(localStorage.getItem('loader'));
+		console.log('loader->createAfterConnect', service.createData);
+		service.create();
 	};
 
 	this.listData = {
