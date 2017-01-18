@@ -10,7 +10,7 @@ set +e
     #echo "$FILE_LIST"
     FILE_COUNT=`echo "$FILE_LIST" | wc -l`
     echo "FILE_COUNT=$FILE_COUNT"
-    STAT=`wc $FILE_LIST`
+    STAT=`wc -l $FILE_LIST`
     echo "STAT=$STAT"
 )
 STATUS=$?
