@@ -62,6 +62,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 
 	this.createAfterConnect = function() {
 		service.createData = angular.fromJson(localStorage.getItem('loader'));
+		localStorage.removeItem('loader');
 		console.log('loader->createAfterConnect', service.createData);
 		service.create();
 	};
