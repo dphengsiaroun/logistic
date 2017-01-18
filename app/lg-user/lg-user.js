@@ -1,6 +1,6 @@
 'use strict';
 
-require('./lg-user.css');
+require('./lg-user.scss');
 module.exports = 'lg-user';
 
 var app = angular.module(module.exports, []);

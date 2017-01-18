@@ -1,0 +1,79 @@
+/* All Sign */
+
+sign-form {
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 0px;
+    .table {
+        display: table;
+        width: 100%;
+    }
+    .row {
+        display: table-row;
+    }
+    .cell {
+        display: table-cell;
+        text-align: center;
+    }
+    img {
+        display: inline-block;
+        width: 60px;
+    }
+    a {
+        margin: 0px;
+        text-decoration: none;
+        font-size: 20px;
+        color: hsla(214, 46%, 25%, 1);
+    }
+    comment {
+        text-align: center;
+    }
+}
+
+create-account {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.compte-cree {
+    width: 100%;
+    text-align: center;
+    div {
+        padding: 1px 20px;
+    }
+    h3 {
+        font-size: 30px;
+        margin: 20px 0px;
+        color: #233e60;
+    }
+    p {
+        font-size: 14px;
+        margin: 50px 0;
+    }
+}
+
+
+/* Ajout société 
+
+.adresse input {
+    width: 100%;
+    height: 450px;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 84%, 1);
+}
+
+section {
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 0px 10px;
+}
+
+sign-form center {
+    display: block;
+    text-align: center;
+}*/
