@@ -52,42 +52,73 @@ app.component('lgChoiceWrapper', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgChoiceWrapperUrl,
-	controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
-		var lgScroll = $injector.get('lgScroll');
-		var self = this;
+	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll) {
+		'ngInject';
+		var ctrl = this;
 
-		this.showLgChoice = false;
-		this.defaultsOptions = {
+		ctrl.showLgChoice = false;
+		ctrl.defaultsOptions = {
 			place: false
 		};
 
-		this.start = function() {
+		ctrl.start = function() {
 			console.log('start');
 			lgScroll.save();
-			this.showLgChoice = true;
+			ctrl.showLgChoice = true;
 		};
 
-		this.stop = function() {
+		ctrl.stop = function() {
 			lgScroll.restore();
-			this.showLgChoice = false;
+			ctrl.showLgChoice = false;
 		};
 
-		this.update = function(choice) {
-			this.stop();
+		ctrl.update = function(choice) {
+			ctrl.stop();
 
-			this.ngModel.$setViewValue(choice);
-			this.ngModel.$render();
+			ctrl.ngModel.$setViewValue(choice);
+			ctrl.ngModel.$render();
 			// because we have no blur event, then we must set the touched ourselves.
-			this.ngModel.$setTouched();
+			ctrl.ngModel.$setTouched();
 		};
 
-		this.$onInit = function() {
-			var ctrl = this.ngModel;
+		ctrl.geoloc = function() {
+			console.log('geoloc', arguments);
+			if (!$window.navigator.geolocation) {
+				return;
+			}
+			$window.navigator.geolocation.getCurrentPosition(function(geopos) {
+				console.log('getCurrentPosition', arguments);
+				$http({
+					url: 'http://nominatim.openstreetmap.org/reverse',
+					method: 'GET',
+					params: {
+						format: 'json',
+						lat: geopos.coords.latitude,
+						lon: geopos.coords.longitude,
+						zoom: 18,
+						addressdetails: 1
+					}
+				}).then(function(response) {
+					console.log('response', response.data.address.county);
+					var city = response.data.address.county;
+					if ($rootScope.config.cities.indexOf(city) === -1) {
+						$rootScope.config.cities.push(city);
+					}
+
+					ctrl.myInput = response.data.address.county;
+				}).catch(function(error) {
+					console.error('error', error);
+				});
+			});
+		};
+
+		ctrl.$onInit = function() {
+			var ngModel = this.ngModel;
 			angular.extend(this.defaultsOptions, this.options);
 
-			ctrl.$render = function() {
-				var choice = (ctrl.$viewValue === '') ? undefined : ctrl.$viewValue;
-				var html = choice || self.placeholder;
+			ngModel.$render = function() {
+				var choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
+				var html = choice || ctrl.placeholder;
 				var elt = $element.find('my-input');
 				if (choice !== undefined) {
 					console.log('filled');
@@ -101,26 +132,26 @@ app.component('lgChoiceWrapper', {
 				// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
 				checkValidity(1);
 			};
-			console.log('this.ngModel', this.ngModel);
+			console.log('ngModel', ngModel);
 			var checkValidity = function(value) {
 				var isOutOfChoice = false;
-				ctrl.$setValidity('outOfChoice', isOutOfChoice);
+				ngModel.$setValidity('outOfChoice', isOutOfChoice);
 			};
 
-			this.myFilter = function(value, index, array) {
-				if (self.ngModel.$modelValue !== undefined && self.ngModel.$modelValue === value) {
+			ctrl.myFilter = function(value, index, array) {
+				if (ngModel.$modelValue !== undefined && ngModel.$modelValue === value) {
 					return false;
 				}
-				if (self.myInput === undefined) {
+				if (ctrl.myInput === undefined) {
 					return true;
 				}
-				if (removeDiacritic(value.toLowerCase()).indexOf(removeDiacritic(self.myInput.toLowerCase())) !== -1) {
+				if (removeDiacritic(value.toLowerCase()).indexOf(removeDiacritic(ctrl.myInput.toLowerCase())) !== -1) {
 					return true;
 				}
 				return false;
 			};
 		};
-	}],
+	},
 	bindings: {
 		title: '<',
 		options: '<',

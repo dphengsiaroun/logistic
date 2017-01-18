@@ -1,7 +1,7 @@
 <my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
 <lg-choice ng-show="$ctrl.showLgChoice">
 	<my-head>
-		<head-left>
+		<head-left ng-click="$ctrl.geoloc()">
 			<i ng-show="$ctrl.defaultsOptions.place" class="fa fa-location-arrow" aria-hidden="true"></i>
 		</head-left>
 		<head-center>
