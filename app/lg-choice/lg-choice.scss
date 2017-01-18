@@ -1,0 +1,67 @@
+@import '../css/color';
+lg-choice-wrapper {
+    display: block;
+    my-input {
+        display: block;
+        border: 1px solid $borderColor;
+        border-radius: 5px;
+        margin: 5px 0px;
+        color: $placeholderColor;
+        padding: 16px;
+        width: 100%;
+        background-color: white;
+    }
+    my-input.filled {
+        color: $inputColor;
+    }
+}
+
+lg-choice {
+    display: block;
+    position: fixed;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: white;
+    my-head {
+        z-index: 102;
+        position: fixed;
+        display: table;
+        width: 100%;
+        height: 59px;
+        background-color: $headerColor;
+    }
+    .input-auto {
+        position: fixed;
+        z-index: 101;
+        text-align: left;
+        width: 100%;
+        padding: 59px 10px 0px;
+        background-color: $littleLightGray;
+        input {
+            width: 100%;
+            margin: 5px 0px;
+            font-size: 17px;
+            padding: 15px 10px;
+            border-radius: 5px;
+            border: 1px solid $borderColor;
+        }
+    }
+    .list {
+        position: relative;
+        top: 123px;
+        p {
+            padding: 15px 35px;
+            font-size: 20px;
+            border-bottom: 1px solid $borderColor;
+            i {
+                position: absolute;
+                left: 8px;
+            }
+        }
+    }
+}

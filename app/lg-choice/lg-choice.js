@@ -1,6 +1,6 @@
 'use strict';
 
-require('./lg-choice.css');
+require('./lg-choice.scss');
 module.exports = 'lg-choice';
 
 var removeDiacritic = function(str) {
@@ -47,22 +47,20 @@ app.component('lgChoiceWrapper', {
 	},
 	templateUrl: lgChoiceWrapperUrl,
 	controller: ['$scope', '$element', '$injector', function LgChoiceWrapperCtrl($scope, $element, $injector) {
-		var lgSequence = $injector.get('lgSequence');
 		var lgScroll = $injector.get('lgScroll');
 		var self = this;
 
-		this.style = '';
-		this.id = lgSequence.next();
+		this.showLgChoice = false;
 
 		this.start = function() {
+			console.log('start');
 			lgScroll.save();
-			this.style = '#lgChoice' + this.id + ' {display: block;}';
-			console.log('choice ctrl', this);
+			this.showLgChoice = true;
 		};
 
 		this.stop = function() {
 			lgScroll.restore();
-			this.style = '#lgChoice' + this.id + ' {display: none;}';
+			this.showLgChoice = false;
 		};
 
 		this.update = function(choice) {
