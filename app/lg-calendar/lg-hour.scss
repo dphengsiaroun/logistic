@@ -15,6 +15,15 @@ lg-hour {
             height: 80px;
             margin: 0px 40px;
             border-radius: 100%;
+            background-color: white;
+            border: 5px solid $buttonColor;
+            color: $buttonColor;
+            font-size: 29px;
+            font-weight: bold;
+        }
+        button.active {
+            background-color: $buttonColor;
+            color: white;
         }
     }
     pendule {
@@ -44,9 +53,9 @@ lg-hour {
             color: hsla(0, 0%, 95%, 1);
             line-height: 40px;
         }
-        ampm {
+        selected-hour {
             display: inline-block;
-            font-size: 80px;
+            font-size: 67px;
             color: hsla(0, 0%, 85%, 1);
 			position: relative;
 			top: 43px;

@@ -46,6 +46,11 @@ app.component('lgHour', {
 			}
 		};
 
+		this.formatHour = function() {
+			var hour = this.selectedHours < 10 ? '0'+this.selectedHours : this.selectedHours;
+			return hour + ':00';
+		};
+
 		this.compute24Hour = function(hour) {
 			var h = hour;
 			if (this.isAm === false) {
