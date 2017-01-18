@@ -46,16 +46,7 @@ app.component('lgHour', {
 			}
 		};
 
-		this.isAm = true;
-
-		this.setAm = function() {
-			this.isAm = true;
-		};
-		this.setPm = function() {
-			this.isAm = false;
-		};
-
-		this.update = function(hour) {
+		this.compute24Hour = function(hour) {
 			var h = hour;
 			if (this.isAm === false) {
 				if (h === 12) {
@@ -64,6 +55,30 @@ app.component('lgHour', {
 					h += 12;
 				}
 			}
+			return h;
+		};
+
+		this.isAm = true;
+
+		this.setAm = function() {
+			this.isAm = true;
+			var hour = this.selectedHours % 12;
+			var h = this.compute24Hour(hour);
+			console.log('h', h);
+			this.action.apply(null, [h]);
+			this.refresh();
+		};
+		this.setPm = function() {
+			this.isAm = false;
+			var hour = this.selectedHours % 12;
+			var h = this.compute24Hour(hour);
+			console.log('h', h);
+			this.action.apply(null, [h]);
+			this.refresh();
+		};
+
+		this.update = function(hour) {
+			var h = this.compute24Hour(hour);
 			console.log('h', h);
 			this.action.apply(null, [h]);
 			this.refresh();
