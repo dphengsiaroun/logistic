@@ -11,7 +11,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 #Security Access
 
-<FilesMatch "\.(sql|inc|class\.php|ini|json)$">
+<FilesMatch "\.(sql|inc|class\.php|ini)$">
 	Order Allow,Deny
 	Deny from all
 </FilesMatch>
