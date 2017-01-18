@@ -20,15 +20,14 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 	this.guessCity = function() {
 		return $q(function(resolve, reject) {
 			if (!$window.navigator.geolocation) {
-				alert('hello');
+				alert('Gps non supporté.');
 				return reject('window.navigator.geolocation undefined');
 			}
 			console.log('try to getCurrentPosition');
 			$window.navigator.geolocation.getCurrentPosition(function(geopos) {
-				alert('getCurrentPosition');
 				console.log('getCurrentPosition', arguments);
 				$http({
-					url: 'http://nominatim.openstreetmap.org/reverse',
+					url: 'https://nominatim.openstreetmap.org/reverse',
 					method: 'GET',
 					params: {
 						format: 'json',
@@ -52,7 +51,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 					reject(error);
 				});
 			}, function(error) {
-				alert('Geoloc non activatée.', error);
+				alert('Geoloc non activée.', error);
 			});
 		});
 	};
