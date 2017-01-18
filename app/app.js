@@ -73,8 +73,8 @@ var app = angular.module('mainApp', [
 	]);
 
 // permet de récuperer les valeurs en post sous format json
-app.run(function($rootScope, $window, $state) {
-
+app.run(function($rootScope, $window, $state, $parse) {
+	'ngInject';
 	$rootScope.back = function() {
 		console.log('back', arguments);
 		$window.history.back();
@@ -87,7 +87,11 @@ app.run(function($rootScope, $window, $state) {
 
 	$rootScope.goToState = function(state) {
 		console.log('goToState', arguments);
-		$state.go(state);
+		var array = state.split(/[()]/);
+		var to = array[0];
+		var params = $parse(array[1])({});
+		console.log('goto', to, params);
+		$state.go(to, params);
 	};
 
 });
