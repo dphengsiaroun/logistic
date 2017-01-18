@@ -50,11 +50,11 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			});
 		} else {
 			localStorage.setItem('loader', angular.toJson(service.createData));
-			user.afterConnectAction = {
+			user.setAfterConnectAction({
 				state: 'loader:created',
 				fn: service.createAfterConnect,
 				args: []
-			};
+			});
 			$state.go('user:signin');
 		}
 

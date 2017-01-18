@@ -29,25 +29,27 @@ app.service('user', function User($injector) {
 	};
 
 	$rootScope.$on('$viewContentLoaded', refreshState);
-	this.afterConnectAction = {
-		state: 'home',
-		fn: undefined,
-		args: undefined
+
+	this.setAfterConnectAction = function(obj) {
+		localStorage.setItem('afterConnect', angular.toJson(obj));
 	};
 
 	this.goToStateAfterConnect = function() {
-
-		if (service.afterConnectAction.fn) {
-			service.afterConnectAction.fn.apply(null, service.afterConnectAction.args);
+		var json = localStorage.getItem('afterConnect');
+		localStorage.removeItem('afterConnect');
+		if (json === null) {
+			if ($state.$current.name === 'home') {
+				return;
+			}
+			$state.go('home');
+			return;
 		}
-		console.log('after connect, go to', service.afterConnectAction.state);
-		$state.go(service.afterConnectAction.state);
-
-		service.afterConnectAction = {
-			state: 'home',
-			fn: undefined,
-			args: undefined
-		};
+		var obj = angular.fromJson(json);
+		if (obj.fn) {
+			obj.fn.apply(null, obj.args);
+		}
+		console.log('after connect, go to', obj.state);
+		$state.go(obj.state);
 	};
 
 	this.signupData = {

@@ -13,39 +13,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		component: 'lgHomeRoute',
 		back: false
 	});
-	/*
-	['loader'].forEach(function(type) {
-		$stateProvider.state({
-			name: type + ':createAdStep1',
-			url: '/' + type + '-create-ad',
-			component: 'lg' + camelize(type) + 'CreateAdStep1Route'
-		});
-		$stateProvider.state({
-			name: 'loader:createAdStep2',
-			url: '/loader-create-ad',
-			component: 'lgLoaderCreateAdStep2Route'
-		});
-		$stateProvider.state({
-			name: 'loader:listAd',
-			url: '/loader-list',
-			component: 'lgLoaderListAdRoute'
-		});
-		$stateProvider.state({
-			name: 'loader:ad',
-			url: '/loader-ad',
-			component: 'lgLoaderAdRoute'
-		});
-		$stateProvider.state({
-			name: 'loader:createProposal',
-			url: '/loader-create-proposal',
-			component: 'lgLoaderCreateProposalRoute'
-		});
-		$stateProvider.state({
-			name: 'loader:createProposalSent',
-			url: '/loader-create-proposal',
-			component: 'lgLoaderCreateProposalSentRoute'
-		});
-	});*/
 
 	$stateProvider.state({
 		name: 'test:calendar',
@@ -72,7 +39,16 @@ var test2Url = require('./tmpl/test2.html');
 var testCalendarUrl = require('./tmpl/test-calendar.html');
 
 app.component('lgHomeRoute', {
-	templateUrl: homeUrl
+	templateUrl: homeUrl,
+	controller: function LgHomeCtrl(user) {
+		'ngInject';
+		console.log('LgHomeCtrl', arguments);
+		user.waitForCheckConnection('LgHomeCtrl').then(function() {
+			user.goToStateAfterConnect();
+		}).catch(function() {
+			console.log('No user connected.');
+		});
+	}
 });
 
 app.component('lgTestNumRoute', {
