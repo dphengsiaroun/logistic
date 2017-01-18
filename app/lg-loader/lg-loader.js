@@ -52,7 +52,8 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			localStorage.setItem('loader', angular.toJson(service.createData));
 			user.setAfterConnectAction({
 				state: 'loader:created',
-				fn: service.createAfterConnect,
+				service: 'loader',
+				fn: 'createAfterConnect',
 				args: []
 			});
 			$state.go('user:hasAccount');
