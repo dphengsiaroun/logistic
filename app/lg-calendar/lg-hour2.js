@@ -1,6 +1,6 @@
 'use strict';
 
-require('./lg-hour2.css');
+require('./lg-hour2.scss');
 
 var app = angular.module('lg-calendar');
 var id = 0;

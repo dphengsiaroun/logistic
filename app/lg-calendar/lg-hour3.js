@@ -1,6 +1,6 @@
 'use strict';
 
-require('./lg-hour3.css');
+require('./lg-hour3.scss');
 
 var app = angular.module('lg-calendar');
 
