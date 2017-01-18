@@ -20,10 +20,12 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 	this.guessCity = function() {
 		return $q(function(resolve, reject) {
 			if (!$window.navigator.geolocation) {
+				alert('hello');
 				return reject('window.navigator.geolocation undefined');
 			}
 			console.log('try to getCurrentPosition');
 			$window.navigator.geolocation.getCurrentPosition(function(geopos) {
+				alert('getCurrentPosition');
 				console.log('getCurrentPosition', arguments);
 				$http({
 					url: 'http://nominatim.openstreetmap.org/reverse',
@@ -49,6 +51,8 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 				}).catch(function(error) {
 					reject(error);
 				});
+			}, function(error) {
+				alert('Geoloc non activatée.', error);
 			});
 		});
 	};
