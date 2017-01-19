@@ -24,26 +24,42 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 	};
 
 	this.create = function() {
-		console.log('carrier->createCarrier', service.createData);
-		$http({
-			url: 'ws/carrier/create.php',
-			method: 'POST',
-			data: service.createData,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
-			}
-			service.error = undefined;
-			$state.go('carrier:created');
-		}).catch(function(error) {
-			console.error('error', error);
-		});
+		console.log('carrier->create', service.createData);
+		if (user.account) {
+			$http({
+				url: 'ws/carrier/create.php',
+				method: 'POST',
+				data: service.createData,
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === 'ko') {
+					service.error = response;
+					return;
+				}
+				service.error = undefined;
+				$state.go('carrier:created');
+			}).catch(function(error) {
+				console.error('error', error);
+			});
+		} else {
+			localStorage.setItem('carrier', angular.toJson(service.createData));
+			user.setAfterConnectAction({
+				state: 'carrier:created',
+				service: 'carrier',
+				fn: 'createAfterConnect',
+				args: []
+			});
+			$state.go('user:hasAccount');
+		}
+
 	};
 
-	this.listData = {
+	this.createAfterConnect = function() {
+		service.createData = angular.fromJson(localStorage.getItem('carrier'));
+		localStorage.removeItem('carrier');
+		console.log('carrier->createAfterConnect', service.createData);
+		service.create();
 	};
 
 	this.list = function() {

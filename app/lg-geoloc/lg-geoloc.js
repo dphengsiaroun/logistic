@@ -41,8 +41,8 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 				}).then(function(response) {
 					console.log('response', response);
 					var city = response.data.address.city || response.data.address.town;
-					var displayCity = [city, 
-					response.data.address.state, service.mapCountry(response.data.address.country)].join(', ');
+					var displayCity = [city,
+						response.data.address.state, service.mapCountry(response.data.address.country)].join(', ');
 					if ($rootScope.config.cities.indexOf(displayCity) === -1) {
 						$rootScope.config.cities.push(displayCity);
 					}

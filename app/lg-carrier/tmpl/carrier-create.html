@@ -21,22 +21,22 @@
 		<big-label>Transport</big-label>
 		<label>Type de transport</label>
 		<input type="choice" choices="$root.config.transportCategories" title="Moyen de transport" placeholder="Ex : Camion, Bateau, etc."
-			ng-model="$ctrl.loader.createData.transportCategory" />
+			ng-model="$ctrl.carrier.createData.transportCategory" />
 
-		<div ng-show="$ctrl.loader.createData.transportCategory === 'Camion'">
+		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
 			<input type="choice" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc."
-				ng-model="$ctrl.loader.createData.transportTruckType" />
+				ng-model="$ctrl.carrier.createData.transportTruckType" />
 		</div>
-		<div ng-show="$ctrl.loader.createData.transportCategory === 'Bateau'">
+		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Bateau'">
 			<label>Type de bateau</label>
 			<input type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
-				ng-model="$ctrl.loader.createData.transportBoatType" />
+				ng-model="$ctrl.carrier.createData.transportBoatType" />
 		</div>
-		<div ng-show="$ctrl.loader.createData.transportCategory === 'Avion'">
+		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Avion'">
 			<label>Type d'avion</label>
 			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
-				ng-model="$ctrl.loader.createData.transportPlaneType" />
+				ng-model="$ctrl.carrier.createData.transportPlaneType" />
 		</div>
 	</section>
 	<section>
@@ -75,7 +75,7 @@
 		<big-label>Finaliser</big-label>
 		<label>Attention</label>
 		<comment>En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</comment>
-		<lg-error error="$ctrl.loader.error"></lg-error>
-		<button ng-click="$ctrl.loader.create()">Déposer votre annonce</button>
+		<lg-error error="$ctrl.carrier.error"></lg-error>
+		<button ng-click="$ctrl.carrier.create()">Déposer votre annonce</button>
 	</section>
 </form>

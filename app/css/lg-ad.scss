@@ -71,22 +71,36 @@
     padding: 0 10px;
 }
 
-.banner-annonce {
+.banner-ad {
     width: 100%;
-    padding: 0 10px;
     background: $veryLightGray;
+    padding: 0 10px;
     text-align: center;
     button {
         height: 45px;
-    }
-    img {
-        width: 25px;
-        display: inline-block;
     }
     h1 {
         font-size: 20px;
         margin: 3px 0;
         display: inline-block;
+    }
+}
+
+.write-ad {
+    width: 100%;
+    position: fixed;
+    top: 450px;
+    padding: 0 10px;
+    text-align: center;
+    button {
+        height: 78px;
+        width: 78px;
+        border-radius: 50%;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    svg {
+        width: 45px;
+        fill: white;
     }
 }
 

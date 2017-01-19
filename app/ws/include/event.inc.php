@@ -1,6 +1,7 @@
 <?php
 
 	require_once(BASE_DIR . '/include/event/EventLoader.php');
+	require_once(BASE_DIR . '/include/event/EventCarrier.php');
 
 	class Event {
 
@@ -93,6 +94,15 @@ EOF;
 					break;
 				case '/loader/update':
 					EventLoader::update($this);
+					break;
+				case '/carrier/create':
+					EventCarrier::create($this);
+					break;
+				case '/carrier/delete':
+					EventCarrier::delete($this);
+					break;
+				case '/carrier/update':
+					EventCarrier::update($this);
 					break;
 			}
 

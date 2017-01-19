@@ -1,12 +1,12 @@
-<section class="banner-annonce">
-        <button ui-sref="carrier:create">Ajouter une annonce</button>
+<section class="banner-ad">
+        <button ui-sref="carrier:list">Ajouter une annonce</button>
 </section>
 <section class="liste-annonce">
     <div class="block-annonce" ng-repeat="carrier in $ctrl.carrier.carriers">
         <a ui-sref="carrier:retrieve({ id: carrier.id, login: $ctrl.user.account.content.login })">
             <span class="identity">JLG</span>
             <div class="details">
-                <p>{{carrier.name}}</p>
+                <p>{{carrier.content.name}}</p>
                 <div>
                     <div class="details-time">
                         <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>
@@ -22,4 +22,7 @@
         </a>
     </div>
     <div class="clear"></div>
+</section>
+<section class="write-ad">
+        <button ui-sref="carrier:create"><img class="lg-svg" src="img/write.svg" /></button>
 </section>

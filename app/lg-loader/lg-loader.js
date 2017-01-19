@@ -1,7 +1,6 @@
 'use strict';
 
 require('../css/lg-ad.scss');
-// require('./lg-loader.scss');
 module.exports = 'lg-loader';
 
 var app = angular.module(module.exports, ['ui.router']);
@@ -13,14 +12,17 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	var service = this;
 	this.createData = {
 		countryDepart: 'Algerie',
-		cityDepart: 'Oran',
+		departureCity: 'Oran',
+		departureDatetime: 'mardi 31 janvier - 06:00',
 		countryArrived: 'Algerie',
-		cityArrived: 'Alger',
-		loaderType: 'Classique',
+		arrivalCity: 'Alger',
+		arrivalDatetime: 'vendredi 10 février - 18:00',
+		typeOfGoods: 'Classique',
 		conditioning: 'Colis',
-		transportType: 'Camion',
-		truckType: 'Bache',
-		loaderWeight: '90',
+		transportCategory: 'Camion',
+		transportTruckType: 'Bâché',
+		weightInterval: '90',
+		preciseWeight: 1500,
 		height: 2,
 		deep: 5,
 		width: 10,
