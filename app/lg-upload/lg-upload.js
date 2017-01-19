@@ -1,6 +1,6 @@
 'use strict';
 
-require('./lg-upload.css');
+require('./lg-upload.scss');
 require('blueimp-file-upload/js/vendor/jquery.ui.widget.js');
 require('blueimp-file-upload/js/jquery.iframe-transport.js');
 require('blueimp-file-upload/js/jquery.fileupload.js');
