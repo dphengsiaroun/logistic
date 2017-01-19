@@ -35,6 +35,7 @@ app.service('user', function User($injector) {
 	};
 
 	this.goToStateAfterConnect = function() {
+		console.log('goToStateAfterConnect', arguments);
 		var json = localStorage.getItem('afterConnect');
 		localStorage.removeItem('afterConnect');
 		if (json === null) {
@@ -45,8 +46,13 @@ app.service('user', function User($injector) {
 			return;
 		}
 		var obj = angular.fromJson(json);
-		if (obj.fn) {
-			obj.fn.apply(null, obj.args);
+		console.log('obj', obj);
+		if (obj.fn && obj.service) {
+			var service = $injector.get(obj.service);
+			if (obj.fn in service) {
+				console.log('about to apply obj.fn', obj.fn);
+				service[obj.fn].apply(null, obj.args);
+			}
 		}
 		console.log('after connect, go to', obj.state);
 		$state.go(obj.state);
