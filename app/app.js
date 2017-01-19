@@ -5,7 +5,7 @@ require('./css/segmented-controls.css');
 
 require('./lg-eyepassword/lg-eyepassword.css');
 
-require('./css/create-add.css');
+require('./css/create-ad.scss');
 require('./css/style.scss');
 
 window.Hashes = require('jshashes');

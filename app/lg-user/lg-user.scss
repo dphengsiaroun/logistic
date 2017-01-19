@@ -1,4 +1,3 @@
-/* All Sign */
 
 sign-form {
     display: block;
@@ -24,7 +23,6 @@ sign-form {
         margin: 0px;
         text-decoration: none;
         font-size: 20px;
-        color: hsla(214, 46%, 25%, 1);
     }
     comment {
         text-align: center;
@@ -35,23 +33,6 @@ create-account {
     display: inline-block;
     text-align: center;
     width: 100%;
-}
-
-.compte-cree {
-    width: 100%;
-    text-align: center;
-    div {
-        padding: 1px 20px;
-    }
-    h3 {
-        font-size: 30px;
-        margin: 20px 0px;
-        color: #233e60;
-    }
-    p {
-        font-size: 14px;
-        margin: 50px 0;
-    }
 }
 
 lg-user-signup-success-route {

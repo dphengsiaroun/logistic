@@ -1,3 +1,4 @@
+@import '../css/color';
 lg-num.vertical {
     display: inline-block;
     width: 60px;
@@ -23,7 +24,7 @@ lg-num.vertical {
         width: 100%;
         height: 60px;
         padding: 20px 0px;
-        border: 1px solid hsla(0, 0%, 92%, 1);
+        border: 1px solid $borderColor;
         border-top: none;
         border-bottom: none;
         text-align: center;

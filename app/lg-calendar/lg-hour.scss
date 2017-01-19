@@ -45,18 +45,18 @@ lg-hour {
             width: 50px;
             height: 50px;
             line-height: 47px;
-            color: $darkGreen;
+            color: $hourNumberColor;
         }
         hour.selected {
             border: 5px solid $selectedColor;
             background-color: $selectedColor;
-            color: hsla(0, 0%, 95%, 1);
+            color: $hourTextColor;
             line-height: 40px;
         }
         selected-hour {
             display: inline-block;
             font-size: 67px;
-            color: hsla(0, 0%, 85%, 1);
+            color: $mediumGray;
 			position: relative;
 			top: 43px;
         }
@@ -65,7 +65,7 @@ lg-hour {
             font-size: 16px;
 			position: relative;
 			top: 24px;
-            color: hsla(0, 0%, 85%, 1);
+            color: $mediumGray;
         }
     }
 }

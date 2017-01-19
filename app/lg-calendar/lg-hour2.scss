@@ -1,3 +1,4 @@
+@import '../css/color';
 lg-hour2 {
     position: relative;
     top: 100px;
@@ -16,7 +17,7 @@ earth {
     height: 260px;
     margin: 20px;
     border-radius: 50%;
-    border: 5px solid hsla(171, 99%, 38%, 1);
+    border: 5px solid $hourBorderColor;
     text-align: center;
     line-height: 60px;
     hour {
@@ -28,12 +29,12 @@ earth {
         width: 38px;
         height: 38px;
         line-height: 37px;
-        color: hsla(171, 99%, 20%, 1);
+        color: $hourNumberColor;
     }
     hour.selected {
-        border: 5px solid hsla(171, 99%, 38%, 1);
-        background-color: hsla(171, 99%, 38%, 1);
-        color: hsla(0, 0%, 95%, 1);
+        border: 5px solid $selectedColor;
+        background-color: $selectedColor;
+        color: $hourTextColor;
         line-height: 28px;
     }
 }

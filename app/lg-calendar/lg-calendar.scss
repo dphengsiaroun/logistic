@@ -1,5 +1,5 @@
 @import '../css/color';
-$light-gray: hsla(0, 0%, 66%, 1);
+
 lg-calendar-wrapper {
     position: relative;
     display: block;
@@ -14,13 +14,11 @@ lg-calendar-wrapper {
         i.fa {
             font-size: 25px;
             line-height: 18px;
-            color: $light-gray;
+            color: $gray;
         }
     }
 }
 
-$selectedColor: $lightGreen;
-$disabledColor: hsla(0, 0%, 93%, 1);
 lg-calendar {
     display: block;
     font-family: 'Lato', sans-serif;
@@ -47,7 +45,7 @@ lg-calendar {
         display: block;
         width: 100%;
         text-align: center;
-        background-color: $light-gray;
+        background-color: $headCalendarColor;
         padding: 5px;
     }
     month-list {
@@ -63,15 +61,15 @@ lg-month {
     text-align: center;
     padding: 0px 0px 10px;
     background: white;
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid $gray;
     header {
         position: relative;
     }
     h2 {
         text-transform: uppercase;
-        font-size: 23px;
+        font-size: 22px;
         margin: 20px 0;
-        color: hsla(189, 7%, 81%, 1);
+        color: $monthColor;
     }
     table {
         border-collapse: collapse;
@@ -90,24 +88,24 @@ lg-month {
             font-weight: 600;
             text-transform: uppercase;
             td {
-                color: hsla(189, 7%, 81%, 1);
+                color: $gray;
                 font-size: 17px;
             }
         }
         tbody {
             tr {
-                border-bottom: 1px solid hsla(0, 0%, 92%, 1);
+                border-bottom: 1px solid $borderColor;
                 font-size: 16px;
             }
             td {
                 font-weight: 400;
             }
             td.week-end {
-                color: hsla(189, 7%, 60%, 1);
+                color: $gray;
             }
             td.prev-month,
             td.next-month {
-                color: hsla(189, 7%, 81%, 1);
+                color: $littleLightGray;
             }
             td.selected {
                 background-color: $selectedColor;
@@ -117,7 +115,7 @@ lg-month {
             td.prev-month.selected {
                 background-color: transparent;
                 border: 1px solid $selectedColor;
-                color: hsla(189, 7%, 81%, 1);
+                color: $littleGray;
             }
             td.disabled {
                 color: $disabledColor;

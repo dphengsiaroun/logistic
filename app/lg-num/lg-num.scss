@@ -1,3 +1,4 @@
+@import '../css/color';
 lg-num {
     display: table;
     width: 100%;
@@ -5,9 +6,9 @@ lg-num {
     plus,
     minus {
         display: table-cell;
-        background: hsla(171, 99%, 38%, 1);
+        background: $buttonColor;
         color: white;
-        border: 1px solid hsla(0, 0%, 92%, 1);
+        border: 1px solid $borderColor;
         ;
         width: 20%;
         height: 55px;
@@ -42,7 +43,7 @@ lg-num {
         color: black;
     }
     my-input.editing {
-        background-color: hsla(0, 0%, 95%, 1);
+        background-color: $veryLightGray;
     }
     .fa {
         color: white;

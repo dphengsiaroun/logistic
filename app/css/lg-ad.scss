@@ -71,29 +71,23 @@
     padding: 0 10px;
 }
 
-
-/* Liste annonce */
-
 .banner-annonce {
     width: 100%;
     padding: 0 10px;
-    background: hsla(0, 0%, 96%, 1);
-    text-align: center
-}
-
-.banner-annonce button {
-    height: 45px;
-}
-
-.banner-annonce img {
-    width: 25px;
-    display: inline-block;
-}
-
-.banner-annonce h1 {
-    font-size: 20px;
-    margin: 3px 0;
-    display: inline-block;
+    background: $veryLightGray;
+    text-align: center;
+    button {
+        height: 45px;
+    }
+    img {
+        width: 25px;
+        display: inline-block;
+    }
+    h1 {
+        font-size: 20px;
+        margin: 3px 0;
+        display: inline-block;
+    }
 }
 
 .liste-annonce {
@@ -106,7 +100,7 @@
     width: 100%;
     font-size: 0px;
     margin: 0px;
-    border-bottom: 1px solid hsla(0, 0%, 93%, 1);
+    border-bottom: 1px solid $lightGray;
 }
 
 .identity {
@@ -117,7 +111,7 @@
     padding: 27px 0px;
     font-size: 27px;
     text-align: center;
-    background: hsla(171, 99%, 38%, 1);
+    background: $lightGreen;
     color: white;
 }
 
@@ -128,11 +122,10 @@
     padding: 10px;
     text-align: left;
     background-color: white;
-}
-
-.details p {
-    color: hsla(214, 46%, 25%, 1);
-    font-size: 17px;
+    p {
+        color: $darkBlue;
+        font-size: 17px;
+    }
 }
 
 .details-time {
@@ -142,28 +135,30 @@
 .size,
 .origin,
 .year,
-.tarif {
+.tarif,
+.date,
+.duree,
+.vehicule {
     font-size: 14px;
 }
 
-.size {
-    color: hsla(0, 0%, 84%, 1);
+.size,
+.date {
+    color: $littleGray;
     float: left;
 }
 
-.origin {
-    color: hsla(171, 99%, 38%, 1);
+.origin,
+.tarif,
+.duree {
+    color: $lightGreen;
     float: right;
 }
 
-.year {
+.year,
+.vehicule {
     float: left;
     color: black;
-}
-
-.tarif {
-    color: hsla(171, 99%, 38%, 1);
-    float: right;
 }
 
 
@@ -177,7 +172,7 @@
 .recap {
     width: 100%;
     padding: 20px 10px;
-    background-color: hsla(0, 0%, 96%, 1);
+    background-color: $veryLightGray;
     h2 {
         margin: 40px 0px;
         font-size: 21px;
@@ -198,6 +193,6 @@
 
 .publie,
 .expire {
-    color: hsla(0, 0%, 65%, 1);
+    color: $gray;
     font-size: 20px;
 }

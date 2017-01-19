@@ -1,10 +1,9 @@
 @import './color';
-
 @font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(../font/SourceSansPro.woff) format('woff');
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(../font/SourceSansPro.woff) format('woff');
 }
 
 * {
@@ -27,11 +26,16 @@ body {
 }
 
 ui-view {
-	display: block;
-	padding: 58px 0px 0px;
+    display: block;
+    padding: 58px 0px 0px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     text-align: center;
     color: $darkColor;
@@ -46,11 +50,12 @@ form {
     padding: 0 10px;
 }
 
-input, my-input {
-	display: block;
+input,
+my-input {
+    display: block;
     font-size: 18px;
     width: 100%;
-	height: 55px;
+    height: 55px;
     margin: 5px 0px;
     background: white;
     box-shadow: none;
@@ -59,29 +64,39 @@ input, my-input {
     border: 1px solid $borderColor;
 }
 
-input[readonly], my-input[readonly] {
+input[readonly],
+my-input[readonly] {
     background-color: $littleLightGray;
 }
 
+
 /* placeholder */
-::-webkit-input-placeholder { /* Chrome */
-  color: hsla(0, 0%, 60%, 1);
+
+::-webkit-input-placeholder {
+    /* Chrome */
+    color: $placeholderColor;
 }
-:-ms-input-placeholder { /* IE 10+ */
-  color: hsla(0, 0%, 60%, 1);
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $placeholderColor;
 }
-::-moz-placeholder { /* Firefox 19+ */
-  color: hsla(0, 0%, 60%, 1);
-  opacity: 1;
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $placeholderColor;
+    opacity: 1;
 }
-:-moz-placeholder { /* Firefox 4 - 18 */
-  color: hsla(0, 0%, 60%, 1);
-  opacity: 1;
+
+:-moz-placeholder {
+    /* Firefox 4 - 18 */
+    color: $placeholderColor;
+    opacity: 1;
 }
 
 my-input {
-	color: hsla(0, 0%, 60%, 1);
-	line-height: 18px;
+    color: $placeholderColor;
+    line-height: 18px;
 }
 
 my-input.filled {
@@ -110,12 +125,13 @@ a {
     clear: both;
 }
 
-lg-title, title {
-	display: block;
-	font-size: 30px;
-	font-weight: bold;
-	text-align: center;
-	padding: 30px 10px 10px;
+lg-title,
+title {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px 10px 10px;
 }
 
 title {
@@ -123,159 +139,24 @@ title {
 }
 
 subtitle {
-	display: block;
-	font-size: 19px;
+    display: block;
+    font-size: 19px;
     text-align: center;
     padding: 0px 10px 10px;
 }
 
 title-icon {
     display: block;
-	font-size: 60px;
-	font-weight: bold;
-	text-align: center;
-	padding: 0px;
-}
-
-/* Ajout société */
-.adresse input {
-    width: 100%;
-    height: 450px;
-    font-size: 16px;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid hsla(0, 0%, 84%, 1);
-}
-
-/* Liste annonce */
-.banner-annonce {
-    width: 100%;
-    padding: 10px;
-    background: hsla(52, 100%, 68%, 1);
-}
-
-.banner-img {
-    width: 28%;
-    display: inline-block;
-}
-.banner-title {
-    width: 70%;
-    display: inline-block;
-}
-
-.banner-annonce img {
-    width: 25px;
-    display: inline-block;
-}
-
-.banner-annonce h1 {
-    font-size: 20px;
-    margin: 3px 0;
-    display: inline-block;
-}
-
-.liste-annonce {
-    width: 100%;
-    display: block;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
     padding: 0px;
 }
 
-.block-annonce {
-    width: 100%;
-    font-size: 0px;
-    margin: 0px;
-    border-bottom: 1px solid hsla(0, 0%, 93%, 1);
-}
-
-.identity {
-    display: inline-block;
-    float: left;
-    width: 25%;
-    margin: 0px;
-    padding: 27px 0px;
-    font-size: 27px;
-    text-align: center;
-    background: hsla(171, 99%, 38%, 1);
-    color: white;
-}
-
-.details {
-    display: inline-block;
-    width: 75%;
-    margin: 0px;
-    padding: 10px;
-    text-align: left;
-    background-color: white;
-}
-
-.details p {
-    color: hsla(214, 46%, 25%, 1);
-    font-size: 17px;
-}
-
-.details-time {
-    margin: 5px 0;
-}
-
-.date, .duree, .vehicule, .tarif{
-    font-size: 14px;
-}
-
-.date{
-    color: hsla(0, 0%, 84%, 1);
-    float: left;
-}
-
-.duree{
-    color: hsla(171, 99%, 38%, 1);
-    float: right;
-}
-
-.vehicule {
-    float: left;
-    color: black;
-}
-
-.tarif{
-    color: hsla(171, 99%, 38%, 1);
-    float: right;
-}
-
-/* Détails annonce */
-.details-annonce {
-    width: 100%;
-    padding: 0px;
-}
-
-.recap {
-    width: 100%;
-    padding: 20px;
-    background-color: white;
-}
-
-.recap h3 {
-    text-align: left;
-    margin: 25px 0;
-    font-size: 19px;
-}
-
-.publie, .expire {
-    color: hsla(0, 0%, 76%, 1);
-    font-size: 20px;
-}
-
-.recap h2 {
-    margin: 40px 0px;
-    font-size: 21px;
-    text-align: center;
-}
-
-.recap p {
-    font-size: 16px;
-}
 
 /* Créer proposition Transporteur / Chargeur */
-.proposition{
+
+.proposition {
     width: 100%;
     padding: 20px 10px;
 }
@@ -285,6 +166,7 @@ title-icon {
     text-align: center;
     margin: 20px 0px 40px;
 }
+
 .proposition h3 {
     text-align: left;
     font-size: 16px;
@@ -300,23 +182,23 @@ title-icon {
     margin: 0 auto;
 }
 
-.proposition form > input {
+.proposition form>input {
     width: 100%;
     margin: 5px 0px;
     font-size: 13px;
     padding: 17px 10px;
     border-radius: 5px;
-    border: 1px solid hsla(0, 0%, 84%, 1);
+    border: 1px solid $mediumGray;
 }
 
-.proposition form > label {
+.proposition form>label {
     margin-bottom: 20px;
     font-size: 16px;
 }
 
 .btn-proposition input {
     width: 100%;
-    background: hsla(171, 99%, 38%, 1);
+    background: $buttonColor;
     color: white;
     height: 70px;
     font-size: 14px;
@@ -324,8 +206,8 @@ title-icon {
     border-radius: 5px;
 }
 
-.input-date, .input-address {
-    border: 1px solid hsla(0, 0%, 92%, 1);
+.input-date {
+    border: 1px solid $borderColor;
     border-radius: 5px;
     margin: 5px 0px;
     background-color: white;
@@ -334,15 +216,7 @@ title-icon {
 .input-date a {
     padding: 20px;
     font-size: 14px;
-    color: hsla(0, 0%, 66%, 1);
-    display: inline-block;
-    width: 100%;
-}
-
-.input-address a {
-    padding: 50px 14px;
-    font-size: 14px;
-    color: hsla(0, 0%, 66%, 1);
+    color: $gray;
     display: inline-block;
     width: 100%;
 }
@@ -350,38 +224,36 @@ title-icon {
 .tarif-initial {
     width: 100%;
     margin: 0 auto;
-}
-
-.tarif-initial label {
-    font-size: 16px;
-}
-
-.tarif-initial input {
-    width: 52%;
-    text-align: center;
-    font-size: 18px;
-    margin: 5px 0px;
-    padding: 15px 10px;
-    border-radius: 0px;
-    border: none;
-    border-top: 1px solid hsla(0, 0%, 84%, 1);
-    border-bottom: 1px solid hsla(0, 0%, 84%, 1);
+    label {
+        font-size: 16px;
+    }
+    input {
+        width: 52%;
+        text-align: center;
+        font-size: 18px;
+        margin: 5px 0px;
+        padding: 15px 10px;
+        border-radius: 0px;
+        border: none;
+        border-top: 1px solid $mediumGray;
+        border-bottom: 1px solid $mediumGray;
+    }
 }
 
 button {
     width: 100%;
-    background: hsla(171, 99%, 38%, 1);
+    background: $buttonColor;
     color: white;
     height: 60px;
     font-size: 18px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-	margin: 10px 0px;
+    margin: 10px 0px;
 }
 
 button[disabled] {
-	 background: $disabledButtonColor;
+    background: $disabledButtonColor;
 }
 
 button i {
@@ -389,10 +261,10 @@ button i {
 }
 
 button.critical {
-    background: hsla(0, 100%, 50%, 1);
+    background: $criticalColor;
     color: white;
 }
 
 .critical {
-    color: red;
+    color: $criticalColor;
 }
