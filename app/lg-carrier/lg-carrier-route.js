@@ -19,7 +19,6 @@ app.config(['$stateProvider', function($stateProvider) {
 		name: 'carrier:create',
 		url: '/create-carrier',
 		component: 'lgCarrierCreateRoute',
-		needsUser: true
 	});
 	$stateProvider.state({
 		name: 'carrier:created',
