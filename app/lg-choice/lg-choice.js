@@ -110,12 +110,21 @@ app.component('lgChoiceWrapper', {
 		};
 
 		ctrl.getLabel = function(label) {
-			console.log('getLabel', arguments);
 			if (label === undefined) {
 				return '';
 			}
 			if (ctrl.defaultsOptions.label) {
 				return ctrl.defaultsOptions.label.apply(null, arguments);
+			}
+			return label;
+		};
+
+		ctrl.getLabelToFilter = function(label) {
+			if (label === undefined) {
+				return '';
+			}
+			if (ctrl.defaultsOptions.labelToFilter) {
+				return ctrl.defaultsOptions.labelToFilter.apply(null, arguments);
 			}
 			return label;
 		};
@@ -155,7 +164,8 @@ app.component('lgChoiceWrapper', {
 				if (ctrl.myInput === undefined) {
 					return true;
 				}
-				if (removeDiacritic(value.toLowerCase()).indexOf(removeDiacritic(ctrl.myInput.toLowerCase())) !== -1) {
+				var label = ctrl.getLabelToFilter(value);
+				if (removeDiacritic(label.toLowerCase()).indexOf(removeDiacritic(ctrl.myInput.toLowerCase())) !== -1) {
 					return true;
 				}
 				return false;

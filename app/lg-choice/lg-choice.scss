@@ -63,5 +63,8 @@ lg-choice {
                 left: 8px;
             }
         }
+        p.preselected {
+            background-color: $backgroundColor;
+        }
     }
 }
