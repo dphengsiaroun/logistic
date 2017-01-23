@@ -20,6 +20,8 @@
 		<p class="preselected" ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== undefined">
 			<i class="fa fa-check" aria-hidden="true"></i><span ng-bind-html="$ctrl.getLabel($ctrl.ngModel.$modelValue)"></span>
 		</p>
-		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter" ng-bind-html="$ctrl.getLabel(choice)"></p>
+		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter | limitTo:20" >
+			<i class="fa fa-map-marker" aria-hidden="true"></i><span ng-bind-html="$ctrl.getLabel(choice)"></span>
+		</p>
 	</div>
 </lg-choice>

@@ -38,7 +38,7 @@ app.run(function($rootScope, $http) {
 			return obj;
 		}
 
-		return '<b>' + obj.city + '</b>, ' + obj.region + ', ' + obj.country;
+		return '<b>' + obj.city + '</b>, <span class="region">' + obj.region + ', ' + obj.country + '</span>';
 	};
 
 	$rootScope.config.getCityLabelToFilter = function(obj) {
