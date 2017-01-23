@@ -67,8 +67,7 @@ app.component('lgChoiceWrapper', {
 			console.log('start');
 			lgScroll.save();
 			ctrl.showLgChoice = true;
-			ctrl.isProximityMode = false;
-			ctrl.myChoices = ctrl.choices;
+			ctrl.setNormalMode();
 		};
 
 		ctrl.stop = function() {
@@ -87,13 +86,7 @@ app.component('lgChoiceWrapper', {
 
 		ctrl.isProximityMode = false;
 
-		ctrl.geoloc = function() {
-			console.log('geoloc', arguments);
-			if (ctrl.isProximityMode) {
-				ctrl.isProximityMode = false;
-				ctrl.myChoices = ctrl.choices;
-				return;
-			}
+		ctrl.setProximityMode = function() {
 			ctrl.isProximityMode = true;
 			geoloc.guessCity().then(function(displayCity) {
 				ctrl.myChoices = [displayCity];
@@ -102,12 +95,24 @@ app.component('lgChoiceWrapper', {
 			});
 		};
 
+		ctrl.setNormalMode = function() {
+			ctrl.isProximityMode = false;
+			ctrl.myChoices = ctrl.choices;
+		};
+
+		ctrl.geoloc = function() {
+			if (ctrl.isProximityMode) {
+				ctrl.setNormalMode();
+				return;
+			}
+			ctrl.setProximityMode();
+		};
+
 		ctrl.$onInit = function() {
 			var ngModel = this.ngModel;
 			angular.extend(this.defaultsOptions, this.options);
 
-			ctrl.myChoices = ctrl.choices;
-			ctrl.isProximityMode = false;
+			ctrl.setNormalMode();
 
 			ngModel.$render = function() {
 				var choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
