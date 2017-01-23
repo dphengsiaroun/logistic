@@ -1,4 +1,9 @@
 @import '../css/color';
+
+$clockTextColor: $lightGray;
+$hourBorderColor: $lightGreen;
+$hourNumberColor: $darkGreen;
+
 lg-hour2 {
     position: relative;
     top: 100px;
@@ -34,7 +39,7 @@ earth {
     hour.selected {
         border: 5px solid $selectedColor;
         background-color: $selectedColor;
-        color: $hourTextColor;
+        color: $clockTextColor;
         line-height: 28px;
     }
 }

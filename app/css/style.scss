@@ -15,7 +15,7 @@
 }
 
 svg {
-    fill: $darkColor;
+    fill: $fontColor;
 }
 
 body {
@@ -38,7 +38,6 @@ h5,
 h6 {
     margin: 0;
     text-align: center;
-    color: $darkColor;
 }
 
 h1 {
@@ -118,7 +117,7 @@ comment {
 
 a {
     text-decoration: none;
-    color: $darkColor;
+    color: $fontColor;
 }
 
 .clear {
@@ -261,10 +260,10 @@ button i {
 }
 
 button.critical {
-    background: $criticalColor;
+    background: $criticalButtonColor;
     color: white;
 }
 
 .critical {
-    color: $criticalColor;
+    color: $criticalFontColor;
 }

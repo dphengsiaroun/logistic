@@ -1,5 +1,8 @@
 @import '../css/color';
 
+$headCalendarColor: $mediumGray;
+$monthColor: $fontColor;
+
 lg-calendar-wrapper {
     position: relative;
     display: block;
@@ -118,7 +121,7 @@ lg-month {
                 color: $littleGray;
             }
             td.disabled {
-                color: $disabledColor;
+                color: $disabledFontColor;
             }
             td.current-day {
                 background: $selectedColor;

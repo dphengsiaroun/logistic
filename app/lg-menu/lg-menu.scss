@@ -13,7 +13,7 @@ lg-menu {
 my-head {
     display: table;
     width: 100%;
-    background-color: $darkColor;
+    background-color: $headerColor;
 	height: 59px;
 
     head-left {
@@ -101,7 +101,7 @@ my-head {
             display: inline-block;
             width: 15%;
             font-size: 36px;
-            color: $darkColor;
+            color: $fontColor;
             height: 100%;
         }
 

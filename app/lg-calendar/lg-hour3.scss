@@ -1,4 +1,9 @@
 @import '../css/color';
+
+$hourBorderColor: $lightGreen;
+$clockTextColor: $lightGray;
+$hourNumberColor: $darkGreen;
+
 lg-hour3 {
     position: relative;
     top: 100px;
@@ -38,12 +43,12 @@ pendule {
     ampm {
         display: inline-block;
         font-size: 80px;
-        color: $hourTextColor;
+        color: $clockTextColor;
     }
     span {
         display: inline-block;
         font-size: 16px;
-        color: $hourTextColor;
+        color: $clockTextColor;
     }
 }
 

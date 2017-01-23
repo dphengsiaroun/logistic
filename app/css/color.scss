@@ -11,37 +11,26 @@ $lightGreen: hsla(171, 99%, 38%, 1);
 $darkGreen: hsla(171, 99%, 20%, 1);
 
 
-$criticalColor: $red;
-
-$darkColor: $darkBlue;
-$notificationColor: $yellow;
-
-$squareColor: $yellow;
-
+$headerColor: $darkBlue;
 $fontColor: $darkBlue;
-
 $backgroundColor: $veryLightGray;
 $backgroundDarkColor: $lightGray;
-
 $borderColor: $lightGray;
 $darkBorderColor: $littleLightGray;
+$secondaryColor: $yellow;
 
-$disabledButtonColor: $littleLightGray;
-
-$selectedColor: $lightGreen;
-
-$placeholderColor: $gray;
-$inputColor: black;
-$headerColor: $darkBlue;
 $buttonColor: $lightGreen;
+$disabledButtonColor: $littleLightGray;
+$criticalButtonColor: $red;
+
+$criticalFontColor: $red;
+$disabledFontColor: $lightGray;
+$notificationColor: $secondaryColor;
 
 $progressBarColor: $darkBlue;
 
-$hourBorderColor: $lightGreen;
-$hourBackgroundColor: $lightGreen;
-$hourTextColor: $lightGray;
-$hourNumberColor: $darkGreen;
+$inputColor: black;
+$placeholderColor: $gray;
 
-$headCalendarColor: $mediumGray;
-$monthColor: $darkBlue;
-$disabledColor: hsla(0, 0%, 93%, 1);
+$selectedColor: $buttonColor;
+
