@@ -20,6 +20,6 @@
 		<p ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== undefined">
 			<i class="fa fa-check" aria-hidden="true"></i><span ng-bind-html="$ctrl.ngModel.$modelValue"></span>
 		</p>
-		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.choices | filter: $ctrl.myFilter" ng-bind-html="choice"></p>
+		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter" ng-bind-html="choice"></p>
 	</div>
 </lg-choice>
