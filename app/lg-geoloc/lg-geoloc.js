@@ -10,6 +10,9 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 	this.countryMap = {
 		'RADP': 'Algérie',
 	};
+	this.geopos = undefined;
+	this.address = undefined;
+	this.displayCity = undefined;
 	this.mapCountry = function(str) {
 		if (str in this.countryMap) {
 			return this.countryMap[str];
@@ -17,8 +20,19 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 		return str;
 	};
 
+	this.getDisplayCity = function() {
+		var city = service.address.city || service.address.town;
+		var displayCity = ['<b>' + city + '</b>',
+			service.address.state, service.mapCountry(service.address.country)].join(', ');
+		return displayCity;
+	};
+
 	this.guessCity = function() {
 		return $q(function(resolve, reject) {
+			if (service.geopos && service.address) {
+				console.log('guessCity returns cache');
+				return resolve(service.getDisplayCity());
+			}
 			if (!$window.navigator.geolocation) {
 				alert('Gps non supporté.');
 				return reject('window.navigator.geolocation undefined');
@@ -26,6 +40,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 			console.log('try to getCurrentPosition');
 			$window.navigator.geolocation.getCurrentPosition(function(geopos) {
 				console.log('getCurrentPosition', arguments);
+				service.geopos = geopos;
 				$http({
 					url: 'https://nominatim.openstreetmap.org/reverse',
 					method: 'GET',
@@ -40,9 +55,8 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 					}
 				}).then(function(response) {
 					console.log('response', response);
-					var city = response.data.address.city || response.data.address.town;
-					var displayCity = [city,
-						response.data.address.state, service.mapCountry(response.data.address.country)].join(', ');
+					service.address = response.data.address;
+					var displayCity = service.getDisplayCity();
 					if ($rootScope.config.cities.indexOf(displayCity) === -1) {
 						$rootScope.config.cities.push(displayCity);
 					}

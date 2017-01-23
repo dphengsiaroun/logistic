@@ -86,7 +86,7 @@ app.component('lgChoiceWrapper', {
 		ctrl.geoloc = function() {
 			console.log('geoloc', arguments);
 			geoloc.guessCity().then(function(displayCity) {
-				ctrl.myInput = displayCity;
+				// ctrl.myInput = displayCity;
 			}).catch(function(error) {
 				console.error('error', error);
 			});

@@ -11,7 +11,7 @@ app.run(['$injector', function($injector) {
 	$rootScope.config.typeOfGoods = ['Classique', 'Dangereux', 'Animaux', 'Massif', 'Frigo'];
 	$rootScope.config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
 	$rootScope.config.countries = ['Algérie', 'France', 'Maroc'];
-	$rootScope.config.cities = ['Alger', 'Abbana', 'Bejaia', 'Biskra', 'Constantine', 'Oran'];
+	$rootScope.config.cities = ['<b>Alger</b>, Alger, Algérie', 'Abbana', 'Bejaia', 'Biskra', 'Constantine', 'Oran'];
 	$rootScope.config.conditioningTypes = ['Colis', 'Palette', 'Vrac', 'Indifférent'];
 	$rootScope.config.years = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012'];
 	$rootScope.config.loaderTypes = ['Animaux', 'Classique', 'Dangereux', 'Frigo', 'Massif'];
