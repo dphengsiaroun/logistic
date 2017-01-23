@@ -20,11 +20,12 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 		return str;
 	};
 
-	this.getDisplayCity = function() {
-		var city = service.address.city || service.address.town;
-		var displayCity = ['<b>' + city + '</b>',
-			service.address.state, service.mapCountry(service.address.country)].join(', ');
-		return displayCity;
+	this.getCityObj = function() {
+		var result = {};
+		result.city = service.address.city || service.address.town;
+		result.region = service.address.state;
+		result.country = service.mapCountry(service.address.country);
+		return result;
 	};
 
 	this.guessCity = function() {
@@ -56,11 +57,11 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 				}).then(function(response) {
 					console.log('response', response);
 					service.address = response.data.address;
-					var displayCity = service.getDisplayCity();
-					if ($rootScope.config.cities.indexOf(displayCity) === -1) {
-						$rootScope.config.cities.push(displayCity);
+					var cityObj = service.getCityObj();
+					if ($rootScope.config.cities.indexOf(cityObj) === -1) {
+						$rootScope.config.cities.push(cityObj);
 					}
-					return resolve(displayCity);
+					return resolve(cityObj);
 				}).catch(function(error) {
 					reject(error);
 				});

@@ -11,7 +11,12 @@ app.run(['$injector', function($injector) {
 	$rootScope.config.typeOfGoods = ['Classique', 'Dangereux', 'Animaux', 'Massif', 'Frigo'];
 	$rootScope.config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
 	$rootScope.config.countries = ['Algérie', 'France', 'Maroc'];
-	$rootScope.config.cities = ['<b>Alger</b>, Alger, Algérie', 'Abbana', 'Bejaia', 'Biskra', 'Constantine', 'Oran'];
+	$rootScope.config.cities = [{city: 'Alger', region: 'Alger', country: 'Algérie'},
+		{city: 'Abbana', region: 'Alger', country: 'Algérie'},
+		{city: 'Bejaia', region: 'Alger', country: 'Algérie'},
+		{city: 'Biskra', region: 'Alger', country: 'Algérie'},
+		{city: 'Constantine', region: 'Alger', country: 'Algérie'},
+		{city: 'Oran', region: 'Alger', country: 'Algérie'}];
 	$rootScope.config.conditioningTypes = ['Colis', 'Palette', 'Vrac', 'Indifférent'];
 	$rootScope.config.years = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012'];
 	$rootScope.config.loaderTypes = ['Animaux', 'Classique', 'Dangereux', 'Frigo', 'Massif'];
@@ -33,4 +38,13 @@ app.run(['$injector', function($injector) {
 	$rootScope.config.times = ['1 semaine', '2 Semaines', '1 mois', '2 mois', 'Illimité'];
 	$rootScope.config.Address = ['2 rue de Paris, 1000 ALGER', '15 rue de Tripoli, 1100 ORAN'];
 	$rootScope.config.goodTypes = ['Fruits frais', 'Légumes frais', 'Fruits et légumes frais'];
+
+	$rootScope.config.getCityLabel = function(obj) {
+		console.log('getCityLabel', arguments);
+		if (obj.city === undefined) {
+			return obj;
+		}
+
+		return '<b>' + obj.city + '</b>, ' + obj.region + ', ' + obj.country;
+	};
 }]);

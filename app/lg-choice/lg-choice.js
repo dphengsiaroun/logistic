@@ -76,6 +76,7 @@ app.component('lgChoiceWrapper', {
 		};
 
 		ctrl.update = function(choice) {
+			console.log('update', arguments);
 			ctrl.stop();
 
 			ctrl.ngModel.$setViewValue(choice);
@@ -108,15 +109,26 @@ app.component('lgChoiceWrapper', {
 			ctrl.setProximityMode();
 		};
 
+		ctrl.getLabel = function(label) {
+			console.log('getLabel', arguments);
+			if (label === undefined) {
+				return '';
+			}
+			if (ctrl.defaultsOptions.label) {
+				return ctrl.defaultsOptions.label.apply(null, arguments);
+			}
+			return label;
+		};
+
 		ctrl.$onInit = function() {
-			var ngModel = this.ngModel;
-			angular.extend(this.defaultsOptions, this.options);
+			var ngModel = ctrl.ngModel;
+			angular.extend(ctrl.defaultsOptions, ctrl.options);
 
 			ctrl.setNormalMode();
 
 			ngModel.$render = function() {
 				var choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
-				var html = choice || ctrl.placeholder;
+				var html = ctrl.getLabel(choice) || ctrl.placeholder;
 				var elt = $element.find('my-input');
 				if (choice !== undefined) {
 					console.log('filled');
