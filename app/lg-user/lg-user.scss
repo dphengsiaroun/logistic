@@ -1,4 +1,3 @@
-
 sign-form {
     display: block;
     text-align: left;
@@ -38,4 +37,28 @@ create-account {
 lg-user-signup-success-route {
     display: block;
     margin: 0px 10px;
+}
+
+.profil {
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+    margin: 20px 0px 10px;
+    i {
+        font-size: 70px;
+    }
+    h1 {
+        font-size: 30px;
+        margin: 10px 0;
+    }
+    h2 {
+        font-size: 30px;
+        margin: 10px 0;
+    }
+}
+
+.edit-profile a {
+    display: block;
+    text-align: center;
+    width: 100%;
 }
