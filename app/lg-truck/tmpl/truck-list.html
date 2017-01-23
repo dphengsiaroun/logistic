@@ -1,5 +1,6 @@
-<section class="banner-ad">
-        <button ui-sref="truck:list">Ajouter un véhicule</button>
+<section class="filter">
+		<i class="fa fa-filter" aria-hidden="true"></i>
+		<span>Mes véhicules</span>
 </section>
 <section class="liste-annonce">
     <div class="block-annonce" ng-repeat="truck in $ctrl.truck.trucks">
@@ -24,5 +25,5 @@
     <div class="clear"></div>
 </section>
 <section class="write-ad">
-        <button ui-sref="truck:create"><img class="lg-svg" src="img/write.svg" /></button>
+        <button ui-sref="truck:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 </section>

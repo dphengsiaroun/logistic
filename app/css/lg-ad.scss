@@ -76,25 +76,25 @@
     padding: 0 10px;
 }
 
-.banner-ad {
+.filter {
     width: 100%;
-    background: $veryLightGray;
-    padding: 0 10px;
+    background-color: $secondaryColor;
+    padding: 15px 10px;
     text-align: center;
-    button {
-        height: 45px;
-    }
-    h1 {
-        font-size: 20px;
-        margin: 3px 0;
+    span {
+        font-size: 23px;
+        margin: 3px 0px 3px 15px;
         display: inline-block;
+    }
+    i {
+        font-size: 23px;
     }
 }
 
 .write-ad {
     width: 35%;
     position: fixed;
-    top: 80%;
+    bottom: 20px;
     left: 33%;
     text-align: center;
     padding: 0 10px;
@@ -102,11 +102,13 @@
         height: 78px;
         width: 78px;
         border-radius: 50%;
-        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    }
-    svg {
-        width: 45px;
-        fill: white;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+        i {
+            font-size: 50px;
+            position: relative;
+            left: 4px;
+            top: 1px;
+        }
     }
 }
 
