@@ -1,29 +1,38 @@
 @import '../css/color';
 .ad-title {
-    display: block;
+    display: table;
     width: 100%;
-    text-align: center;
-    font-size: 0px;
     padding: 10px 0px;
     background-color: $secondaryColor;
     border-bottom: 1px solid $darkBorderColor;
-    div {
-        display: inline-block;
+    left {
+        display: table-cell;
+        width: 100px;
         padding: 0px;
         margin: 0px;
-        title {
-            font-weight: bold;
-            font-size: 27px;
-            text-align: left;
-            padding: 0px 0px 5px;
-        }
+        font-size: 0px;
+        vertical-align: middle;
         svg {
             width: 60px;
             height: 60px;
             position: relative;
-            top: 5px;
+            top: 0px;
+            left: 25px;
             padding: 0px;
             margin: 0px 39px 0px 0px;
+        }
+    }
+    right {
+        display: table-cell;
+        height: 10px;
+        width: 200px;
+        vertical-align: middle;
+        title {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            font-size: 27px;
+            padding: 0px 0px 5px;
         }
         subtitle {
             font-weight: bold;
