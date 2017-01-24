@@ -18,8 +18,7 @@
 		<input type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc." ng-model="$ctrl.carrier.createData.country"
 		/>
 		<label>Ville</label>
-		<input type="choice" options="{place:true, label: $root.config.getCityLabel, labelToFilter: $root.config.getCityLabelToFilter}" choices="$root.config.cities" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.carrier.createData.city"
-		/>
+		<lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.carrier.createData.city"></lg-city>
 	</section>
 	<section class="dark">
 		<big-label>Transport</big-label>

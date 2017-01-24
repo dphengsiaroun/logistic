@@ -11,8 +11,7 @@
 	<section class="dark">
 		<big-label>Origine</big-label>
 		<label>Ville</label>
-		<input type="choice" options="{place:true, label: $root.config.getCityLabel, labelToFilter: $root.config.getCityLabelToFilter}" choices="$root.config.cities" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"
-		/>
+		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"></lg-city>
 		<label>Date et heure de chargement</label>
 		<input type="lgDate" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime"
 			options="{position: 'next-days', constraint: 'only-future'}" />
@@ -20,8 +19,7 @@
 	<section>
 		<big-label>Destination</big-label>
 		<label>Ville</label>
-		<input type="choice" options="{place:true, label: $root.config.getCityLabel, labelToFilter: $root.config.getCityLabelToFilter}" choices="$root.config.cities" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"
-		/>
+		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"></lg-city>
 		<label>Date et heure de livraison</label>
 		<input type="lgDate" title="Date et heure de livraison" placeholder="Date de départ" ng-model="$ctrl.loader.createData.arrivalDatetime"
 			options="{position: 'next-days', constraint: 'only-future'}" />
