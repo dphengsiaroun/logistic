@@ -34,11 +34,12 @@
 			ng-model="$ctrl.loader.createData.conditioning" />
 	</section>
 	<section>
-		<big-label>Transport</big-label>
-		<label>Moyen de transport</label>
-		<input type="choice" choices="$root.config.transportCategories" title="Moyen de transport" placeholder="Ex : Camion, Bateau, etc."
-			ng-model="$ctrl.loader.createData.transportCategory" />
-
+		<big-label>Transport</big-label><br/>
+		<lg-select ng-model="$ctrl.loader.createData.transportCategory">
+			<lg-option value="Camion" selected><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option> 
+			<lg-option value="Avion" selected><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
+			<lg-option value="Bateau" selected><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
+		</lg-select>
 
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
