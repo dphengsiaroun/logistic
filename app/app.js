@@ -1,7 +1,7 @@
 'use strict';
 
 require('font-awesome/css/font-awesome.css');
-require('./css/segmented-controls.css');
+require('./css/segmented-controls.scss');
 
 require('./lg-eyepassword/lg-eyepassword.css');
 
