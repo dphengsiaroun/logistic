@@ -1,4 +1,5 @@
-<my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ></my-input>
+<my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
+<icon ng-bind-html="$ctrl.getIcon()"></icon>
 <lg-choice ng-show="$ctrl.showLgChoice">
 	<my-head>
 		<head-left ng-click="$ctrl.geoloc()">
@@ -17,7 +18,7 @@
 		<input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" ng-model-options="{ debounce: 200 }"/>
 	</div>
 	<div class="list">
-		<p class="preselected" ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== undefined">
+		<p class="preselected" ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== ''">
 			<i class="fa fa-check" aria-hidden="true"></i><span ng-bind-html="$ctrl.getLabel($ctrl.ngModel.$modelValue)"></span>
 		</p>
 		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter | limitTo:20" >

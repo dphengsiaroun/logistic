@@ -119,10 +119,7 @@ app.component('lgChoiceWrapper', {
 			return label;
 		};
 
-		ctrl.getIcon = function(label) {
-			if (label === undefined) {
-				return '';
-			}
+		ctrl.getIcon = function() {
 			if (ctrl.defaultsOptions.icon) {
 				return ctrl.defaultsOptions.icon.apply(null, arguments);
 			}
@@ -147,7 +144,7 @@ app.component('lgChoiceWrapper', {
 
 			ngModel.$render = function() {
 				var choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
-				var html = ctrl.getLabel(choice) || ctrl.placeholder;
+				ctrl.currentValue = ctrl.getLabel(choice) || ctrl.placeholder;
 				var elt = $element.find('my-input');
 				if (choice !== undefined) {
 					console.log('filled');
@@ -157,8 +154,6 @@ app.component('lgChoiceWrapper', {
 					elt.removeClass('filled');
 
 				}
-				elt.html(html);
-				// var linkingFn = $compile(elt.contents()); // compare this line with the next one...
 				checkValidity(1);
 			};
 			console.log('ngModel', ngModel);

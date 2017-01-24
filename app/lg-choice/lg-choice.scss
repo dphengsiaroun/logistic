@@ -1,12 +1,16 @@
 @import '../css/color';
 lg-choice-wrapper {
     display: block;
-	width: 100%;
+    position: relative;
+    top: 0px;
+    right: 0px;
+    width: 100%;
     my-input {
         display: block;
         border: 1px solid $borderColor;
         border-radius: 5px;
         margin: 5px 0px;
+        padding-right: 40px;
         color: $placeholderColor;
         width: 100%;
         background-color: white;
@@ -16,7 +20,16 @@ lg-choice-wrapper {
     }
     .region {
         font-size: 15px;
-		color: $selectedColor;
+        color: $selectedColor;
+    }
+    >icon {
+        position: absolute;
+        top: 7px;
+        right: 19px;
+        font-size: 30px;
+        i {
+            color: $selectedColor;
+        }
     }
 }
 
