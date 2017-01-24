@@ -45,6 +45,28 @@ app.run(function($rootScope, $http) {
 		return '<i class="fa fa-map-marker" aria-hidden="true"></i>';
 	};
 
+	$rootScope.config.getWeightIcon = function() {
+		return '<i class="fa fa-balance-scale" aria-hidden="true"></i>';
+	};
+
+	$rootScope.config.getLoaderTypesIcon = function(label) {
+		'Animaux', 'Classique', 'Dangereux', 'Frigo', 'Massif'
+		switch (label) {
+			case 'Animaux':
+				return '<i class="fa fa-paw" aria-hidden="true"></i>';
+			case 'Classique':
+				return '<i class="fa fa-archive" aria-hidden="true"></i>';
+			case 'Dangereux':
+				return '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>';
+			case 'Frigo':
+				return '<i class="fa fa-snowflake-o" aria-hidden="true"></i>';
+			case 'Massif':
+				return '<i class="fa fa-th-large" aria-hidden="true"></i>';
+		}
+		return '<i class="fa fa-archive" aria-hidden="true"></i>';
+	};
+
+
 	$rootScope.config.getCityLabelToFilter = function(obj) {
 		if (obj.city === undefined) {
 			return obj;

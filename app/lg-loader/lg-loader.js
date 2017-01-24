@@ -21,7 +21,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		conditioning: 'Colis',
 		transportCategory: 'Camion',
 		transportTruckType: 'Bâché',
-		weightInterval: '90',
+		weightInterval: '',
 		preciseWeight: 1500,
 		height: 1,
 		deep: 1,

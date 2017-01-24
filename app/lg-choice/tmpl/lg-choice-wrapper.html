@@ -1,5 +1,5 @@
 <my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
-<icon ng-bind-html="$ctrl.getIcon()"></icon>
+<icon ng-bind-html="$ctrl.getIcon($ctrl.currentValue)"></icon>
 <lg-choice ng-show="$ctrl.showLgChoice">
 	<my-head>
 		<head-left ng-click="$ctrl.geoloc()">

@@ -77,14 +77,25 @@ lg-choice {
             border-bottom: 1px solid $borderColor;
             i {
                 position: absolute;
+                left: 8px;
+                color: $selectedColor;
+            }
+            i.fa-balance-scale {
+                left: 6px;
+            }
+            .fa-map-marker {
                 left: 13px;
+            }
+            i.fa-check {
+                left: 8px;
             }
         }
         p.preselected {
             background-color: $backgroundColor;
-        }
-        .fa-map-marker {
-            color: $selectedColor;
+            i {
+                color: $fontColor;
+            }
+            
         }
     }
 }

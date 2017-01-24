@@ -27,7 +27,7 @@
 	<section class="dark">
 		<big-label>Marchandise</big-label>
 		<label>Type</label>
-		<input type="choice" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc."
+		<input type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc."
 			ng-model="$ctrl.loader.createData.typeOfGoods" />
 		<label>Conditionnement</label>
 		<input type="choice" choices="$root.config.conditioningTypes" title="Type de conditionnement" placeholder="Ex : Colis, Palettes, etc."
@@ -60,7 +60,7 @@
 	<section class="dark">
 		<big-label>Chargement</big-label>
 		<label>Poids</label>
-		<input type="choice" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos"
+		<input type="choice" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos"
 			ng-model="$ctrl.loader.createData.weightInterval" />
 		<label>Poids précis si connu (en kg)</label>
 		<input type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
