@@ -70,7 +70,8 @@ app.service('user', function User($injector) {
 				city: 'Torcy',
 				zipcode: '77200',
 				country: 'France'
-			}
+			},
+			profile: 'both'
 		}
 	};
 

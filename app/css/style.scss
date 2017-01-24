@@ -66,6 +66,33 @@ my-input[readonly] {
     background-color: $littleLightGray;
 }
 
+lg-select {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border: 1px solid $borderColor;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    lg-option {
+        display: table-cell;
+        width: 1%;
+        padding: 17px 2px;
+        font-size: 16px;
+        border-right: 1px solid $borderColor;
+    }
+    lg-option[selected] {
+        background-color: $headerColor;
+        color: white;
+    }
+    lg-option:first-child[selected] {
+        border-radius: 5px 0px 0px 5px;
+    }
+    lg-option:last-child[selected] {
+        border-radius: 0px 5px 5px 0px;
+    }
+}
+
 
 /* placeholder */
 

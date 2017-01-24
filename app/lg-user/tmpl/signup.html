@@ -17,6 +17,12 @@
 		<input type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Identifiant" ui-mask-placeholder ui-mask-placeholder-char="space"
 			ng-model="$ctrl.user.signupData.content.login" />
 		<input type="text" placeholder="Email" ng-model="$ctrl.user.signupData.email" /><br/>
+		<lg-select ng-model="$ctrl.user.signupData.content.profile">
+			<lg-option value="loader" selected>Chargeur</lg-option> 
+			<lg-option value="carrier" selected>Transporteur</lg-option>
+			<lg-option value="both" selected>Les deux</lg-option>
+		</lg-select>
+		<br/>
 		<input type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" />
 		<input type="text" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode" />
 		<input type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" />
@@ -24,16 +30,11 @@
 		/>
 		<input type="text" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" /><br/>
 		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" />
+		
 		<br/>
-		<div class="segmented-control" style="width: 100%; color: #223c5d; border-radius: 5px;">
-<input type="radio" name="sc-1-1" id="sc-1-1-1" checked>
-<input type="radio" name="sc-1-1" id="sc-1-1-2">
-<label for="sc-1-1-1" data-value="Chargeur">Chargeur</label>
-<label for="sc-1-1-2" data-value="Transporteur">Transporteur</label>
-</div>
-<lg-error error="$ctrl.user.error"></lg-error>
+		<lg-error error="$ctrl.user.error"></lg-error>
 
-<button>Créer le compte</button>
+		<button>Créer le compte</button>
 
-</form>
+	</form>
 </sign-form>
