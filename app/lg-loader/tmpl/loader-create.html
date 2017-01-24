@@ -26,19 +26,24 @@
 	</section>
 	<section class="dark">
 		<big-label>Marchandise</big-label>
+		<br/>
+		<lg-select class="conditioning" ng-model="$ctrl.loader.createData.conditioning">
+			<lg-option value="Indifférent"><img class="title lg-svg" src="img/questions.svg" /><span>Indifférent</span></lg-option>
+			<lg-option value="Colis"><img class="title lg-svg" src="img/package.svg" /><span>Colis</span></lg-option> 
+			<lg-option value="Palette"><img class="title lg-svg" src="img/pallet.svg" /><span>Palette</span></lg-option>
+			<lg-option value="Vrac"><img class="title lg-svg" src="img/vrac.svg" /><span>Vrac</span></lg-option>
+		</lg-select>
 		<label>Type</label>
 		<input type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc."
 			ng-model="$ctrl.loader.createData.typeOfGoods" />
-		<label>Conditionnement</label>
-		<input type="choice" choices="$root.config.conditioningTypes" title="Type de conditionnement" placeholder="Ex : Colis, Palettes, etc."
-			ng-model="$ctrl.loader.createData.conditioning" />
+		
 	</section>
 	<section>
 		<big-label>Transport</big-label><br/>
 		<lg-select ng-model="$ctrl.loader.createData.transportCategory">
-			<lg-option value="Camion" selected><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option> 
-			<lg-option value="Avion" selected><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
-			<lg-option value="Bateau" selected><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
+			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option> 
+			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
+			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
 		</lg-select>
 
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Camion'">

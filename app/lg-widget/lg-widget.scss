@@ -102,7 +102,7 @@ lg-select {
     lg-option {
         display: table-cell;
         width: 1%;
-        padding: 17px 2px;
+        padding: 10px 2px;
         font-size: 16px;
         border-right: 1px solid $borderColor;
         span {
@@ -117,9 +117,10 @@ lg-select {
     lg-option[selected] {
         background-color: $headerColor;
         color: white;
-        i, span {
+        i, span, svg {
             background-color: $headerColor;
             color: white;
+            fill: white;
         }
     }
     lg-option:first-child[selected] {
