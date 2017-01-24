@@ -41,6 +41,10 @@ app.run(function($rootScope, $http) {
 		return '<b>' + obj.city + '</b>, <span class="region">' + obj.region + ', ' + obj.country + '</span>';
 	};
 
+	$rootScope.config.getCityIcon = function() {
+		return '<i class="fa fa-map-marker" aria-hidden="true"></i>';
+	};
+
 	$rootScope.config.getCityLabelToFilter = function(obj) {
 		if (obj.city === undefined) {
 			return obj;

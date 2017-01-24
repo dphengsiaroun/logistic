@@ -119,6 +119,16 @@ app.component('lgChoiceWrapper', {
 			return label;
 		};
 
+		ctrl.getIcon = function(label) {
+			if (label === undefined) {
+				return '';
+			}
+			if (ctrl.defaultsOptions.icon) {
+				return ctrl.defaultsOptions.icon.apply(null, arguments);
+			}
+			return '';
+		};
+
 		ctrl.getLabelToFilter = function(label) {
 			if (label === undefined) {
 				return '';

@@ -109,3 +109,17 @@ app.component('lgSelect', {
 		};
 	}
 });
+
+var lgCityUrl = require('./tmpl/lg-city.html');
+
+app.component('lgCity', {
+	require: {
+		ngModel: 'ngModel',
+	},
+	templateUrl: lgCityUrl,
+	bindings: {
+		title: '@',
+		placeholder: '@',
+		myModel: '=ngModel'
+	}
+});
