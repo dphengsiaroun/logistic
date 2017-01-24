@@ -49,6 +49,8 @@ form {
 
 input,
 my-input {
+    // Avoid safari to put its own settings
+    -webkit-appearance: none;
     display: block;
     font-size: 18px;
     width: 100%;
