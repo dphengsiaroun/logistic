@@ -6,20 +6,20 @@ function addDays(date, days) {
 	return result;
 }
 
-var app = angular.module('lg-calendar');
+var app = angular.module('lg-datetime');
 
 var lgDtMonthUrl = require('./tmpl/lg-dt-month.html');
 
-app.component('lgDtMonthUrl', {
+app.component('lgDtMonth', {
 	require: {
 		lgDatetime: '^^lgDatetime'
 	},
 	templateUrl: lgDtMonthUrl,
 	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
 		var ctrl = this;
-		// console.log('lgMonth ctrl', ctrl, arguments);
+		console.log('lgMonth ctrl', ctrl, arguments);
 		ctrl.$onInit = function() {
-			// console.log('lgMonth ctrl $onInit', ctrl);
+			console.log('lgMonth ctrl $onInit', ctrl);
 			ctrl.printDays($element);
 
 			ctrl.build();
@@ -106,9 +106,7 @@ app.component('lgDtMonthUrl', {
 			// ctrl part needs a real jquery
 			var elt = $element.find('tbody');
 			var selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
-			selectedElt.off('click');
 			selectedElt.removeClass('selected');
-			$compile(selectedElt)($scope);
 
 			if (ctrl.selectedDate === undefined) {
 				return;
@@ -117,18 +115,14 @@ app.component('lgDtMonthUrl', {
 				'-' + ctrl.selectedDate.getDate();
 			var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
-			newSelectedElt.on('click', function() {
-				ctrl.lgCalendarWrapper.next();
-				$scope.$apply();
-			});
 		};
 
 
 		ctrl.printDays = function($element) {
 			var elt = $element.find('tr');
 			var html = '';
-			for (var k = 0; k < 7; k++) {
-				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k].substr(0, 2) + '</td>';
+			for (var k = 1; k < 8; k++) {
+				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k%7].substr(0, 2) + '</td>';
 			}
 			elt.html(html);
 		};
