@@ -143,11 +143,10 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 	};
 }]);
 
-app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $injector) {
+app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, loader, user) {
 	'ngInject';
 	var ctrl = this;
-	this.loader = $injector.get('loader');
-	this.user = $injector.get('user');
+	ctrl.loader = loader;
 	$scope.$watchGroup(['$ctrl.loader.createData.height', '$ctrl.loader.createData.deep',
 		'$ctrl.loader.createData.width'], function() {
 		ctrl.loader.createData.volume = ctrl.loader.createData.height *
@@ -156,6 +155,36 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $injector) 
 		ctrl.volumeStr = ctrl.loader.createData.volume + ' m3';
 		console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
 	}, true);
+
+	$scope.$watchGroup(['$ctrl.loader.createData.departureCity', '$ctrl.loader.createData.arrivalCity'], function() {
+		console.log('ctrl.loader.createDataInfoRoute', arguments);
+		console.log('$ctrl.loader.createData.departureCity', ctrl.loader.createData.departureCity);
+		if (!(ctrl.loader.createData.departureCity && ctrl.loader.createData.arrivalCity)) {
+			ctrl.loader.createDataInfoRoute = '';
+			return;
+		}
+		$http({
+				url: 'ws/geoloc/route.php',
+				method: 'POST',
+				data: {
+					departure: ctrl.loader.createData.departureCity,
+					arrival: ctrl.loader.createData.arrivalCity
+				},
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).then(function(response) {
+			console.log('response', response);
+			if (response.data.status === 'ko') {
+				ctrl.loader.createDataInfoRoute = 'Distance non calculable...ko';
+				return;
+			}
+			ctrl.loader.createDataInfoRoute = 'Distance : <b>' + response.data.route.distance +
+				'km</b> - Durée : <b>' + response.data.route.duration + '</b>';
+		}).catch(function(error) {
+			console.error('error', error);
+			ctrl.loader.createDataInfoRoute = 'Distance non calculable...error';
+		});
+		ctrl.loader.createDataInfoRoute = 'Distance : <b>120km</b> - Durée : <b>1h50</b>';
+	});
 });
 
 app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams) {

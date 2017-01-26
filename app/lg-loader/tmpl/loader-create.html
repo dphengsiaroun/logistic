@@ -15,7 +15,7 @@
 		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"></lg-city>
 		<label>Arrivée</label>
 		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"></lg-city>
-		<info>Distance : <b>120km</b> - Durée : <b>1h50</b></info>
+		<info ng-bind-html="$ctrl.loader.createDataInfoRoute"></info>
 	</section>
 	<section>
 		<big-label>Destination</big-label>
