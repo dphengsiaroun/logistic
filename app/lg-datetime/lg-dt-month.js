@@ -8,14 +8,14 @@ function addDays(date, days) {
 
 var app = angular.module('lg-calendar');
 
-var lgMonthUrl = require('./tmpl/lg-month.html');
+var lgDtMonthUrl = require('./tmpl/lg-dt-month.html');
 
-app.component('lgMonth', {
+app.component('lgDtMonthUrl', {
 	require: {
-		lgCalendarWrapper: '^^lgCalendarWrapper'
+		lgDatetime: '^^lgDatetime'
 	},
-	templateUrl: lgMonthUrl,
-	controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
+	templateUrl: lgDtMonthUrl,
+	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
 		var ctrl = this;
 		// console.log('lgMonth ctrl', ctrl, arguments);
 		ctrl.$onInit = function() {

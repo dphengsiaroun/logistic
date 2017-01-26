@@ -2,7 +2,7 @@
 <span ng-click="$ctrl.start()" class="icon"><i ng-click="$ctrl.toggle();" class="fa fa-calendar" aria-hidden="true"></i></span>
 
 
-<lg-datetime ng-show="$ctrl.state !== 'outsideState'">
+<lg-datetime-content ng-show="$ctrl.state !== 'outsideState'">
 	<my-head>
 		<head-left ng-click="$ctrl.cancel()">
 			<i class="fa fa-times" aria-hidden="true"></i>
@@ -21,4 +21,4 @@
 		<lg-dt-hour action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
 		</lg-dt-hour>
 	</month-list>
-</lg-datetime>
+</lg-datetime-content>

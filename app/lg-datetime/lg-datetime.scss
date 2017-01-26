@@ -3,7 +3,7 @@
 $headCalendarColor: $mediumGray;
 $monthColor: $fontColor;
 
-lg-calendar-wrapper {
+lg-datetime {
     position: relative;
     display: block;
     my-input.filled {
@@ -22,7 +22,7 @@ lg-calendar-wrapper {
     }
 }
 
-lg-calendar {
+lg-datetime-content {
     display: block;
     font-family: 'Lato', sans-serif;
     position: fixed;

@@ -17,6 +17,7 @@ app.component('lgDatetime', {
 	templateUrl: lgDatetimeUrl,
 	controller: function lgDatetimeCtrl($scope, $element, $filter, lgScroll) {
 		'ngInject';
+		console.log('lgDatetimeCtrl');
 		var ctrl = this;
 		var ngModelCtrl;
 		ctrl.format = 'EEEE dd LLLL';
@@ -125,9 +126,9 @@ app.component('lgDatetime', {
 
 	},
 	bindings: {
-		title: '<',
+		title: '@',
 		choices: '<',
-		placeholder: '<',
+		placeholder: '@',
 		isMandatory: '<',
 		options: '<'
 	}
