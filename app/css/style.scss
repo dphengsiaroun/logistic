@@ -10,7 +10,6 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    font-size: 20px;
     color: $fontColor;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -105,7 +104,12 @@ label {
     display: block;
     font-weight: bold;
     font-size: 17px;
-    margin-top: 20px;
+}
+
+info {
+    display: block;
+    font-weight: normal;
+    font-size: 17px;
 }
 
 comment {

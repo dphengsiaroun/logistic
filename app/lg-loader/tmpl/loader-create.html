@@ -9,20 +9,24 @@
 </div>
 <form class="ad" name="loaderCtrl">
 	<section class="dark">
-		<big-label>Origine</big-label>
-		<label>Ville</label>
+		<big-label>Trajet</big-label>
+		<br/>
+		<label>Départ</label>
 		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"></lg-city>
-		<label>Date et heure de chargement</label>
-		<input type="lgDate" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime"
-			options="{position: 'next-days', constraint: 'only-future'}" />
+		<label>Arrivée</label>
+		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"></lg-city>
+		<info>Distance : <b>120km</b> - Durée : <b>1h50</b></info>
 	</section>
 	<section>
 		<big-label>Destination</big-label>
-		<label>Ville</label>
-		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"></lg-city>
+		<br/>
+		<label>Date et heure de chargement</label>
+		<input type="lgDate" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime"
+			options="{position: 'next-days', constraint: 'only-future'}" />
 		<label>Date et heure de livraison</label>
 		<input type="lgDate" title="Date et heure de livraison" placeholder="Date de départ" ng-model="$ctrl.loader.createData.arrivalDatetime"
 			options="{position: 'next-days', constraint: 'only-future'}" />
+		<br/>
 	</section>
 	<section class="dark">
 		<big-label>Marchandise</big-label>
