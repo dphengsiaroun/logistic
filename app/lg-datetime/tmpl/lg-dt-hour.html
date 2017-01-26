@@ -1,27 +1,37 @@
-<div class="hour">
-	<!--<span>00:00</span>
-	<span>01:00</span>
-	<span>02:00</span>
-	<span class="select">03:00</span>
-	<span>04:00</span>
-	<span>05:00</span>
-	<span>06:00</span>
-	<span>07:00</span>
-            <span>08:00</span>
-            <span>09:00</span>
-            <span>10:00</span>
-            <span>11:00</span>
-            <span>12:00</span>
-            <span>13:00</span>
-            <span>14:00</span>
-            <span>15:00</span>
-            <span>16:00</span>
-            <span>17:00</span>
-            <span>18:00</span>
-            <span>19:00</span>
-            <span>20:00</span>
-            <span>21:00</span>
-            <span>22:00</span>
-            <span>23:00</span>-->
-	<div class="selector"></div>
+<div class="hour no-zoom">
+	<p class="no-zoom">A partir de</p>
+	<selector></selector>
+	<hours class="no-zoom">
+		<div class="no-zoom">
+			<span>0h</span>
+			<span>1h</span>
+			<span>2h</span>
+			<span>3h</span>
+			<span>4h</span>
+			<span>5h</span>
+			<span>6h</span>
+			<span>7h</span>
+			<span>8h</span>
+			<span>9h</span>
+			<span>10h</span>
+			<span>11h</span>
+			<span>12h</span>
+			<span>13h</span>
+			<span>14h</span>
+			<span>15h</span>
+			<span>16h</span>
+			<span>17h</span>
+			<span>18h</span>
+			<span>19h</span>
+			<span>20h</span>
+			<span>21h</span>
+			<span>22h</span>
+			<span>23h</span>
+		</div>
+	</hours>
 </div>
+<script>
+	$('.no-zoom').bind('touchend', function (e) {
+		e.preventDefault();
+	});
+</script>

@@ -13,6 +13,8 @@
 		<head-right ng-show="$ctrl.selectedDate" ng-click="$ctrl.stop()">
 			<i class="fa fa-check" aria-hidden="true"></i>
 		</head-right>
+		<head-right ng-hide="$ctrl.selectedDate">
+		</head-right>
 	</my-head>
 	<retroaction-msg ng-show="$ctrl.selectedDate">{{$ctrl.selectedDate | date : $ctrl.format }}</retroaction-msg>
 	<month-list ng-show="$ctrl.state === 'dateState'">
@@ -22,3 +24,8 @@
 		</lg-dt-hour>
 	</month-list>
 </lg-datetime-content>
+<script>
+	$('my-head, head-center, retroaction-msg, month-list, lg-dt-month').bind('touchend', function (e) {
+		e.preventDefault();
+	});
+</script>

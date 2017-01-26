@@ -127,8 +127,8 @@ app.component('lgMonth', {
 		ctrl.printDays = function($element) {
 			var elt = $element.find('tr');
 			var html = '';
-			for (var k = 0; k < 7; k++) {
-				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k].substr(0, 2) + '</td>';
+			for (var k = 1; k < 8; k++) {
+				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k%7].substr(0, 2) + '</td>';
 			}
 			elt.html(html);
 		};
