@@ -19,6 +19,12 @@ app.component('lgDtHour', {
 			allHourElt.removeClass('selected');
 			var hourElt = angular.element($element[0].querySelector('line .h' + hour));
 			hourElt.addClass('selected');
+			this.action.apply(null, [hour]);
+		};
+
+		ctrl.$onInit = function() {
+			console.log('$onInit', arguments);
+			ctrl.update(ctrl.selectedHours);
 		};
 	},
 	bindings: {
