@@ -1,7 +1,10 @@
 <?php
-
+	require_once(BASE_DIR . '/include/misc.inc.php');
+	require_once(BASE_DIR . '/include/database.inc.php');
+	
 	require_once(BASE_DIR . '/include/event/EventLoader.php');
 	require_once(BASE_DIR . '/include/event/EventCarrier.php');
+	require_once(BASE_DIR . '/include/event/EventGeoloc.php');
 
 	class Event {
 
@@ -103,6 +106,12 @@ EOF;
 					break;
 				case '/carrier/update':
 					EventCarrier::update($this);
+					break;
+				case '/geoloc/city':
+					EventGeoloc::insertCity($this);
+					break;
+				case '/geoloc/route':
+					EventGeoloc::insertRoute($this);
 					break;
 			}
 

@@ -1,7 +1,5 @@
 <?php
 
-	require_once(BASE_DIR . '/include/event/EventLoader.php');
-
 	class EventLoader {
 
         public static function create($e) {
