@@ -6,6 +6,7 @@ module.exports = 'lg-test';
 var app = angular.module(module.exports, ['ui.router']);
 
 var testsUrl = require('./tmpl/tests.html');
+var testDatetimeUrl = require('./tmpl/test-datetime.html');
 
 app.config(function($stateProvider) {
 
@@ -13,6 +14,11 @@ app.config(function($stateProvider) {
 		name: 'tests',
 		url: '/tests',
 		templateUrl: testsUrl
+	});
+	$stateProvider.state({
+		name: 'test:datetime',
+		url: '/test-datetime',
+		templateUrl: testDatetimeUrl
 	});
 	$stateProvider.state({
 		name: 'test:calendar',

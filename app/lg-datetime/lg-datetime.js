@@ -6,6 +6,7 @@ var app = angular.module(module.exports, ['lg-misc']);
 
 require('./lg-datetime.scss');
 require('./lg-dt-month.js');
+require('./lg-dt-hour.js');
 
 var lgDatetimeUrl = require('./tmpl/lg-datetime.html');
 
@@ -14,16 +15,15 @@ app.component('lgDatetime', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgDatetimeUrl,
-	controller: function lgDatetimeCtrl($scope, $element, $injector) {
-		var lgScroll = $injector.get('lgScroll');
-		var $filter = $injector.get('$filter');
-		var self = this;
+	controller: function lgDatetimeCtrl($scope, $element, $filter, lgScroll) {
+		'ngInject';
+		var ctrl = this;
 		var ngModelCtrl;
-		this.format = 'EEEE dd LLLL';
+		ctrl.format = 'EEEE dd LLLL';
 
-		this.state = 'outsideState';
+		ctrl.state = 'outsideState';
 
-		this.myOptions = {
+		ctrl.myOptions = {
 			position: 'now',
 			monthNbr: 6,
 			constraint: {},
@@ -31,97 +31,70 @@ app.component('lgDatetime', {
 			defaultHour: 6
 		};
 
-		this.start = function() {
+		ctrl.start = function() {
 			this.state = 'dateState';
 			lgScroll.save();
 			this.compute();
 		};
 
-		this.stop = function() {
+		ctrl.stop = function() {
 			this.state = 'outsideState';
 			lgScroll.restore();
 		};
 
-		this.update = function(date) {
-			self.selectedDate = date;
+		ctrl.update = function(date) {
+			ctrl.selectedDate = date;
 			ngModelCtrl.$setViewValue(date);
 			ngModelCtrl.$render();
 			ngModelCtrl.$setTouched();
 		};
 
-		this.cancel = function() {
-			self.update(undefined);
-			self.stop();
+		ctrl.cancel = function() {
+			ctrl.update(undefined);
+			ctrl.stop();
 		};
 
-		this.next = function() {
-			console.log('next', arguments);
-			console.log('next', self);
-			if (self.state === 'dateState') {
-				if (self.ngModel.$viewValue === undefined) {
-					return;
-				}
-				self.format = 'EEEE dd LLLL - HH:mm';
-				self.state = 'hourState';
-			} else if (self.state === 'hourState') {
-				if (self.ngModel.$viewValue === undefined) {
-					return;
-				}
-				self.format = 'EEEE dd LLLL';
-				self.state = 'outsideState';
-			}
-		};
-
-		this.back = function() {
-			console.log('back', arguments);
-			console.log('back', self);
-			if (self.state === 'hourState') {
-				self.state = 'dateState';
-			}
-		};
-
-		this.compute = function() {
+		ctrl.compute = function() {
 			console.log('compute');
-			this.myOptions.start = new Date();
-			if (this.myOptions.position === 'now') {
-				this.myOptions.start = new Date();
+			ctrl.myOptions.start = new Date();
+			if (ctrl.myOptions.position === 'now') {
+				ctrl.myOptions.start = new Date();
 			}
-			this.months = [];
-			for (var i = 0; i < this.myOptions.monthNbr; i++) {
-				var date = new Date(this.myOptions.start);
+			ctrl.months = [];
+			for (var i = 0; i < ctrl.myOptions.monthNbr; i++) {
+				var date = new Date(ctrl.myOptions.start);
 				date.setMonth(date.getMonth() + i);
-				this.months.push(date);
-				// console.log('this.months', this.months);
+				ctrl.months.push(date);
 			}
 
 		};
 
-		this.setDate = function(year, month, day) {
+		ctrl.setDate = function(year, month, day) {
 			console.log('setDate', arguments);
 			console.log('year', year);
-			var date = new Date(year, month, day, self.myOptions.defaultHour);
+			var date = new Date(year, month, day, ctrl.myOptions.defaultHour);
 			console.log('date', date);
-			self.update(date);
-			self.selectedHours = date.getHours();
+			ctrl.update(date);
+			ctrl.selectedHours = date.getHours();
 		};
 
-		this.setHours = function(hour) {
+		ctrl.setHours = function(hour) {
 			console.log('setHours', arguments);
 			var date = ngModelCtrl.$viewValue;
 			date.setHours(hour);
-			self.selectedHours = date.getHours();
+			ctrl.selectedHours = date.getHours();
 			console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
 			ngModelCtrl.$render();
 			ngModelCtrl.$setTouched();
 		};
 
-		this.$onInit = function() {
-			console.log('lgCalendarWrapper ctrl $onInit', this);
-			console.log('this.ngModel', this.ngModel);
-			ngModelCtrl = this.ngModel;
+		ctrl.$onInit = function() {
+			console.log('lgCalendarWrapper ctrl $onInit', ctrl);
+			console.log('this.ngModel', ctrl.ngModel);
+			ngModelCtrl = ctrl.ngModel;
 
-			console.log('options', this.options);
-			angular.extend(this.myOptions, this.options);
+			console.log('options', ctrl.options);
+			angular.extend(ctrl.myOptions, ctrl.options);
 
 			ngModelCtrl.$render = function() {
 				console.log('ngModelCtrl.$render', arguments);
@@ -130,7 +103,7 @@ app.component('lgDatetime', {
 				if (ngModelCtrl.$viewValue !== undefined) {
 					datetime = $filter('date')(ngModelCtrl.$viewValue, 'EEEE dd LLLL - HH:mm');
 				}
-				var html = datetime || self.placeholder;
+				var html = datetime || ctrl.placeholder;
 				var elt = $element.find('my-input');
 				if (datetime !== undefined) {
 					console.log('filled');
