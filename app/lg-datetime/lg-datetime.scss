@@ -1,7 +1,6 @@
 @import '../css/color';
 $headCalendarColor: $mediumGray;
 $monthColor: $fontColor;
-$weekendFontColor: $lightDarkBlue;
 lg-datetime {
     position: relative;
     display: block;
@@ -104,7 +103,8 @@ lg-dt-month {
                 font-weight: 400;
             }
             td.week-end {
-                color: $weekendFontColor;
+                color: $fontColor;
+                opacity: 0.6;
             }
             td.prev-month,
             td.next-month {
