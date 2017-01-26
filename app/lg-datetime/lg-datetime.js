@@ -1,50 +1,20 @@
 'use strict';
 
-
-module.exports = 'lg-calendar';
+module.exports = 'lg-datetime';
 
 var app = angular.module(module.exports, ['lg-misc']);
 
-require('./lg-calendar.scss');
-require('./lg-month.js');
-require('./lg-hour.js');
-require('./lg-hour2.js');
-require('./lg-hour3.js');
+require('./lg-datetime.scss');
+require('./lg-dt-month.js');
 
-app.directive('input', ['$injector', function($injector) {
-	var $compile = $injector.get('$compile');
-	return {
-		restrict: 'E',
-		require: '?ngModel',
-		link: function(scope, element, attr, ctrl) {
-			if (attr.type !== 'lgDate') {
-				return;
-			}
-			var title = attr.title || attr.placeholder;
-			var elt = angular.element('<!-- input type="lgDate" ng-model="' + attr.ngModel + '" -->' +
-				'<lg-calendar-wrapper ' +
-				'placeholder="\'' + attr.placeholder + '\'" ' +
-				'title="\'' + title + '\'" ' +
-				'options="' + attr.options + '" ' +
-				'ng-model="' + attr.ngModel + '" ' +
-				'></lg-calendar-wrapper>');
-			element.after(elt);
+var lgDatetimeUrl = require('./tmpl/lg-datetime.html');
 
-			element.attr('style', 'display: none !important');
-			$compile(elt)(scope);
-		}
-	};
-
-}]);
-
-var lgCalendarWrapperUrl = require('./tmpl/lg-calendar-wrapper.html');
-
-app.component('lgCalendarWrapper', {
+app.component('lgDatetime', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgCalendarWrapperUrl,
-	controller: function lgCalendarWrapperCtrl($scope, $element, $injector) {
+	templateUrl: lgDatetimeUrl,
+	controller: function lgDatetimeCtrl($scope, $element, $injector) {
 		var lgScroll = $injector.get('lgScroll');
 		var $filter = $injector.get('$filter');
 		var self = this;

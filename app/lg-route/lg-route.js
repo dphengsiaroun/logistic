@@ -14,29 +14,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		back: false
 	});
 
-	$stateProvider.state({
-		name: 'test:calendar',
-		url: '/test-calendar',
-		component: 'lgTestCalendarRoute'
-	});
-	$stateProvider.state({
-		name: 'test:num',
-		url: '/test-num',
-		component: 'lgTestNumRoute'
-	});
-	$stateProvider.state({
-		name: 'test2',
-		url: '/test2',
-		component: 'lgTest2Route'
-	});
-
 	$urlRouterProvider.otherwise('/');
 });
 
 var homeUrl = require('./tmpl/home.html');
-var testNumUrl = require('./tmpl/test-num.html');
-var test2Url = require('./tmpl/test2.html');
-var testCalendarUrl = require('./tmpl/test-calendar.html');
 
 app.component('lgHomeRoute', {
 	templateUrl: homeUrl,
@@ -50,16 +31,3 @@ app.component('lgHomeRoute', {
 		});
 	}
 });
-
-app.component('lgTestNumRoute', {
-	templateUrl: testNumUrl
-});
-
-app.component('lgTest2Route', {
-	templateUrl: test2Url
-});
-
-app.component('lgTestCalendarRoute', {
-	templateUrl: testCalendarUrl
-});
-

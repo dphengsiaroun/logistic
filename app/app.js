@@ -36,9 +36,11 @@ var lgEyePassword = require('./lg-eyepassword/lg-eyepassword.js');
 var lgConfig = require('./lg-config/lg-config.js');
 var lgWidget = require('./lg-widget/lg-widget.js');
 var lgUpload = require('./lg-upload/lg-upload.js');
-var lgDebug = require('./lg-debug/lg-debug.js');
 var lgHttp = require('./lg-http/lg-http.js');
 var lgError = require('./lg-error/lg-error.js');
+
+var lgDebug = require('./lg-debug/lg-debug.js');
+var lgTest = require('./lg-test/lg-test.js');
 
 window.values = function(obj) {
 	return Object.keys(obj).map(function(key) {
@@ -64,11 +66,12 @@ var app = angular.module('mainApp', [
 	lgEyePassword,
 	lgConfig,
 	lgWidget,
-	lgDebug,
 	lgHttp,
 	lgError,
 	lgMisc,
-	lgNum
+	lgNum,
+	lgDebug,
+	lgTest
 	]);
 
 // permet de récuperer les valeurs en post sous format json

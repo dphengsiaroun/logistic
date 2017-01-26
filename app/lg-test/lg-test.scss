@@ -1,0 +1,27 @@
+tests {
+    width: 100%;
+    background-color: #ebebeb;
+    text-align: left;
+    a {
+        display: block;
+        background: white;
+        border-bottom: 1px solid #ebebeb;
+        padding: 10px;
+        width: 100%;
+        font-size: 23px;
+        position: relative;
+        .fa {
+            display: inline-block;
+            width: 15%;
+            font-size: 36px;
+            color: #223c5d;
+            height: 100%;
+        }
+        p {
+            display: inline-block;
+            vertical-align: top;
+            padding: 6px 11px;
+            font-size: 20px;
+        }
+    }
+}

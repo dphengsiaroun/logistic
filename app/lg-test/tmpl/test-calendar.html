@@ -1,0 +1,20 @@
+<lg-title>Test calendar</lg-title>
+<form>
+	<input type="text" placeholder="name" ng-model="name" />
+	<input type="lgDate" title="Choisir une date d\'aller" placeholder="Aller" ng-model="departDate" options="{position: 'next-days', constraint: 'only-future'}" />
+	<input type="lgDate" placeholder="Retour" ng-model="arrivalDate" options="{lgHour: 2, position: 'next-days', constraint: { after: 'departDate'}}"/>
+	<input type="lgDate" placeholder="Retour2" ng-model="arrival2Date" options="{lgHour: 3, position: 'next-days', constraint: { after: 'departDate'}}"/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<input type="lgDate" placeholder="Retour" ng-model="otherDate" options="{position: 'next-days', constraint: { after: 'departDate'}}"/>
+</form>

@@ -1,0 +1,20 @@
+<lg-title>Test</lg-title>
+<form>
+	<label>Inserer des photos</label><br/>
+	<input id="fileupload" type="file" name="files[]" data-url="ws/upload.php" multiple>
+</form>
+<script>
+	$(function() {
+		console.log('starting script', arguments);
+		$('#fileupload').fileupload({
+			dataType: 'json',
+			done: function (e, data) {
+				console.log('done', arguments);
+				$.each(data.result.files, function (index, file) {
+					console.log('appending', arguments);
+					$('<p/>').text(file.originalname).appendTo(document.body);
+				});
+			}
+		});
+	});
+</script>
