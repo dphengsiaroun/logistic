@@ -114,6 +114,9 @@ lg-dt-month {
                 background-color: $selectedColor;
                 color: white;
             }
+            td.week-end.selected {
+                opacity: 1;
+            }
             td.next-month.selected,
             td.prev-month.selected {
                 background-color: transparent;
@@ -148,7 +151,7 @@ lg-dt-hour {
         display: block;
         overflow-x: hidden;
         width: 100%;
-        div {
+        line {
             display: table;
             table-layout: fixed;
             width: 350%;
@@ -159,13 +162,16 @@ lg-dt-hour {
                 display: table-cell;
                 padding: 10px;
             }
+            .selected {
+                color: white;
+            }
         }
     }
     selector {
         position: absolute;
-        bottom: 13px;
+        bottom: 12px;
         left: 44%;
-        width: 40px;
+        width: 14%;
         height: 33px;
         border-radius: 25%;
         background-color: $selectedColor;

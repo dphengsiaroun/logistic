@@ -25,7 +25,16 @@
 	</month-list>
 </lg-datetime-content>
 <script>
-	$('my-head, head-center, retroaction-msg, month-list, lg-dt-month').bind('touchend', function (e) {
-		e.preventDefault();
+	$('lg-datetime').bind('touchend', function (e) {
+		var t2 = e.timeStamp;
+        var t1 = $(this).data('lastTouch') || t2;
+        var dt = t2 - t1;
+        var fingers = e.originalEvent.touches.length;
+        $(this).data('lastTouch', t2);
+        if (!dt || dt > 500 || fingers > 1) return; // not double-tap
+
+        e.preventDefault(); // double tap - prevent the zoom
+        // also synthesize click events we just swallowed up
+        //$(this).trigger('click').trigger('click');
 	});
 </script>
