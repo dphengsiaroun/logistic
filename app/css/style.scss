@@ -67,6 +67,20 @@ my-input[readonly] {
     background-color: $littleLightGray;
 }
 
+textarea {
+    -webkit-appearance: none;
+    display: block;
+    font-size: 18px;
+    width: 100%;
+    min-height: 100px;
+    margin: 5px 0px;
+    background: white;
+    box-shadow: none;
+    padding: 17px 10px;
+    border-radius: 5px;
+    border: 1px solid #ebebeb;
+}
+
 /* placeholder */
 
 ::-webkit-input-placeholder {

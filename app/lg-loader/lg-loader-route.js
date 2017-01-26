@@ -143,7 +143,7 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 	};
 }]);
 
-app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $filter, loader, user) {
+app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, lgFormat, loader, user) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.loader = loader;
@@ -174,17 +174,18 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $fil
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				ctrl.loader.createDataInfoRoute = 'Distance non calculable...ko';
+				ctrl.loader.createDataInfoRoute = '';
+				console.error('error', response);
 				return;
 			}
-			var durationStr = $filter('date')(response.data.route.duration*1000, 'H\'h\'mm', 'UTC');
-			ctrl.loader.createDataInfoRoute = 'Distance : <b>' + response.data.route.distance +
+			var durationStr = lgFormat.formatDuration(response.data.route.duration);
+			var distanceStr = Math.round(response.data.route.distance/1000);
+			ctrl.loader.createDataInfoRoute = 'Distance : <b>' + distanceStr +
 				'km</b> - Durée : <b>' + durationStr + '</b>';
 		}).catch(function(error) {
 			console.error('error', error);
-			ctrl.loader.createDataInfoRoute = 'Distance non calculable...error';
+			ctrl.loader.createDataInfoRoute = '';
 		});
-		ctrl.loader.createDataInfoRoute = 'Distance : <b>120km</b> - Durée : <b>1h50</b>';
 	});
 });
 

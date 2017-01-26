@@ -28,3 +28,17 @@ app.service('lgScroll', ['$injector', function LgScroll($injector) {
 		$window.scrollTo(0, this.lastSaved);
 	};
 }]);
+
+app.service('lgFormat', function LgFormat($filter) {
+	'ngInject';
+	this.formatDuration = function(duration) {
+		var result = '';
+		if (duration < 24*60*60) {
+			result = $filter('date')(duration*1000, 'H\'h\'mm', 'UTC');
+		} else {
+
+			result = $filter('date')((duration - 24*60*60)*1000, 'd\'j et \'H\'h\'mm', 'UTC');
+		}
+		return result;
+	};
+});
