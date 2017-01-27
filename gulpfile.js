@@ -35,7 +35,7 @@ var path = {
 	wpk: 'app/wpk',
 	html: ['app/index.html', 'app/install/index.html'],
 	htaccess: ['app/.htaccess.tmpl'],
-	resources: ['app/img/**/*',	'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
+	resources: ['app/img/**/*',	'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
 		'!app/ws/**/*.log',	'!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
 	undeploy: 'utils/remove.php',
