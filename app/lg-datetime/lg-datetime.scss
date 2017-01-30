@@ -1,6 +1,7 @@
 @import '../css/color';
 $headCalendarColor: $mediumGray;
 $monthColor: $fontColor;
+
 lg-datetime {
     position: relative;
     display: block;
@@ -55,6 +56,7 @@ lg-datetime-content {
         z-index: 101;
         display: block;
         width: 100%;
+        padding-bottom: 200px;
     }
 }
 
