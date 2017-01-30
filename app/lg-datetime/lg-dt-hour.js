@@ -19,7 +19,8 @@ app.component('lgDtHour', {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;
 			console.log('width', width);
-			hourElt[0].scrollLeft = (2.5 + hour * 1.5) * width/10;
+			console.log('hourElt[0]', hourElt.html());
+			hourElt[0].scrollLeft = (0 + hour * 1.73) * width/10;
 			this.action.apply(null, [hour]);
 		};
 
@@ -28,14 +29,17 @@ app.component('lgDtHour', {
 			hourElt = $element.find('hours');
 			lineElt = hourElt.find('line');
 			hourElt[0].onscroll = onScroll;
-			ctrl.update(ctrl.selectedHours);
 		};
+
+		$scope.$watch('$ctrl.lgDatetime.state', function() {
+			ctrl.update(ctrl.selectedHours);
+		});
 
 		ctrl.swipe = function() {
 			console.log('swipe', arguments);
 			var pos = hourElt[0].scrollLeft;
 			console.log('pos', pos);
-			var hour = Math.round(((pos-100) * 6.8) / width);
+			var hour = Math.round(((pos) * 5.8) / width);
 			console.log('hour', hour);
 			ctrl.update(hour);
 		};
@@ -44,6 +48,7 @@ app.component('lgDtHour', {
 
 		var onScroll = function() {
 			if (isUpdating === true) {
+				console.log('onScroll set isUpdating to false');
 				isUpdating = false;
 				return;
 			}

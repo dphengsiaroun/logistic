@@ -16,13 +16,13 @@
 		<head-right ng-hide="$ctrl.selectedDate">
 		</head-right>
 	</my-head>
-	<retroaction-msg ng-show="$ctrl.selectedDate">{{$ctrl.selectedDate | date : $ctrl.format }}</retroaction-msg>
 	<month-list ng-show="$ctrl.state === 'dateState'">
 		<lg-dt-month ng-repeat="month in $ctrl.months track by $index" month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate">
 		</lg-dt-month>
 	</month-list>
 	<lg-dt-hour action="$ctrl.setHours" selected-hours="$ctrl.selectedHours">
 	</lg-dt-hour>
+	<retroaction-msg ng-show="$ctrl.selectedDate">{{$ctrl.selectedDate | date : $ctrl.format }}</retroaction-msg>
 </lg-datetime-content>
 <script>
 	$('lg-datetime').bind('touchend', function (e) {

@@ -25,6 +25,11 @@ webpackConfig.output.path = '/';
 var compiler = webpack(webpackConfig);
 app.use('/app/wpk/', webpackDevMiddleware(compiler, {}));
 
+app.use(function(req, res, next) {
+	console.log('req.url', req.url);
+	next();
+});
+
 app.use(['/app/ws', '/dist/ws'], jlgProxy);
 
 app.use(express.static('.'));
