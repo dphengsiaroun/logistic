@@ -20,7 +20,7 @@ app.component('lgDatetime', {
 		console.log('lgDatetimeCtrl');
 		var ctrl = this;
 		var ngModelCtrl;
-		ctrl.format = 'EEEE dd LLLL';
+		ctrl.format = 'EEEE dd LLLL - HH:mm';
 
 		ctrl.state = 'outsideState';
 
@@ -29,7 +29,7 @@ app.component('lgDatetime', {
 			monthNbr: 6,
 			constraint: {},
 			lgHour: 1,
-			defaultHour: 6
+			defaultHour: 7
 		};
 
 		ctrl.start = function() {
@@ -74,10 +74,9 @@ app.component('lgDatetime', {
 		ctrl.setDate = function(year, month, day) {
 			console.log('setDate', arguments);
 			console.log('year', year);
-			var date = new Date(year, month, day, ctrl.myOptions.defaultHour);
+			var date = new Date(year, month, day, ctrl.selectedHours);
 			console.log('date', date);
 			ctrl.update(date);
-			ctrl.selectedHours = date.getHours();
 		};
 
 		ctrl.setHours = function(hour) {
@@ -101,13 +100,14 @@ app.component('lgDatetime', {
 
 			console.log('options', ctrl.options);
 			angular.extend(ctrl.myOptions, ctrl.options);
+			ctrl.selectedHours = ctrl.myOptions.defaultHour;
 
 			ngModelCtrl.$render = function() {
 				console.log('ngModelCtrl.$render', arguments);
 
 				var datetime = undefined;
 				if (ngModelCtrl.$viewValue !== undefined) {
-					datetime = $filter('date')(ngModelCtrl.$viewValue, 'EEEE dd LLLL - HH:mm');
+					datetime = $filter('date')(ngModelCtrl.$viewValue, ctrl.format);
 				}
 				var html = datetime || ctrl.placeholder;
 				var elt = $element.find('my-input');
