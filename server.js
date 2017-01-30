@@ -4,7 +4,6 @@ var httpProxy = require('http-proxy');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 var webpackDevMiddleware = require('webpack-dev-middleware');
-var environments = require('./cfg/environments.js');
 var cfgUtils = require('./cfg/utils.js');
 var env = cfgUtils.getEnv('dev');
 var port = 8000;

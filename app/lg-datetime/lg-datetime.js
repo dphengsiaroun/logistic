@@ -15,7 +15,7 @@ app.component('lgDatetime', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgDatetimeUrl,
-	controller: function lgDatetimeCtrl($scope, $element, $filter, lgScroll) {
+	controller: function lgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
 		'ngInject';
 		console.log('lgDatetimeCtrl');
 		var ctrl = this;
@@ -60,6 +60,14 @@ app.component('lgDatetime', {
 			ctrl.myOptions.start = new Date();
 			if (ctrl.myOptions.position === 'now') {
 				ctrl.myOptions.start = new Date();
+			}
+			if (ctrl.myOptions.after) {
+				console.log('ctrl.myOptions.after', ctrl.myOptions.after);
+				ctrl.myOptions.start = $parse(ctrl.myOptions.after)($scope.$parent);
+				console.log('ctrl.myOptions.after ctrl.myOptions.start', ctrl.myOptions.start);
+				if (!ctrl.myOptions.start) {
+					ctrl.myOptions.start = new Date();
+				}
 			}
 			ctrl.months = [];
 			for (var i = 0; i < ctrl.myOptions.monthNbr; i++) {

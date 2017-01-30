@@ -62,7 +62,7 @@ app.component('lgDtMonth', {
 			};
 
 			ctrl.isForbidden = function(d) {
-				var now = new Date();
+				var now = ctrl.lgDatetime.myOptions.start;
 				var nowAtMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
 				if (d <= nowAtMidnight) {
 					return true;

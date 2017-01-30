@@ -19,7 +19,6 @@ app.component('lgDtHour', {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;
 			console.log('width', width);
-			console.log('hourElt[0]', hourElt.html());
 			hourElt[0].scrollLeft = (0 + hour * 1.73) * width/10;
 			this.action.apply(null, [hour]);
 		};

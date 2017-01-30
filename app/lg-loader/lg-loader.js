@@ -11,8 +11,6 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 
 	var service = this;
 	this.createData = {
-		departureDatetime: 'mardi 31 janvier - 06:00',
-		arrivalDatetime: 'vendredi 10 février - 18:00',
 		typeOfGoods: 'Classique',
 		conditioning: 'Colis',
 		transportCategory: 'Camion',
