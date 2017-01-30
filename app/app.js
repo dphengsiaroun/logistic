@@ -50,6 +50,7 @@ window.values = function(obj) {
 };
 
 var app = angular.module('mainApp', [
+	'ngTouch',
 	'ngSanitize',
 	'vcRecaptcha',
 	'ui.mask',
@@ -75,6 +76,11 @@ var app = angular.module('mainApp', [
 	lgDebug,
 	lgTest
 	]);
+
+app.config(function($touchProvider) {
+	'ngInject';
+	$touchProvider.ngClickOverrideEnabled(true);
+});
 
 // permet de récuperer les valeurs en post sous format json
 app.run(function($rootScope, $window, $state, $parse) {
