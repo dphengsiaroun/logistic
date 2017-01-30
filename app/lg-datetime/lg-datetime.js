@@ -81,13 +81,13 @@ app.component('lgDatetime', {
 
 		ctrl.setHours = function(hour) {
 			console.log('setHours', arguments);
+			ctrl.selectedHours = hour;
 			var date = ngModelCtrl.$viewValue;
 			console.log('date', date);
 			if (!date) {
 				return;
 			}
 			date.setHours(hour);
-			ctrl.selectedHours = date.getHours();
 			console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
 			ngModelCtrl.$render();
 			ngModelCtrl.$setTouched();

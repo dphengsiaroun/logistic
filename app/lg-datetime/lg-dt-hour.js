@@ -12,20 +12,18 @@ app.component('lgDtHour', {
 	controller: function LgDtHourCtrl($scope, $element, $locale, $compile) {
 		var ctrl = this;
 		ctrl.update = function(hour) {
-			console.log('update', arguments);
+			console.log('LgDtHourCtrl update', arguments);
+			console.log('$element', $element.html());
 			var elt = $element.find('line');
 			elt.css('left', (44-(hour*14.6)) + '%');
-			var allHourElt = $element.find('line span');
-			allHourElt.removeClass('selected');
-			var hourElt = angular.element($element[0].querySelector('line .h' + hour));
-			hourElt.addClass('selected');
 			this.action.apply(null, [hour]);
 		};
 
 		ctrl.$onInit = function() {
-			console.log('$onInit', arguments);
+			console.log('LgDtHourCtrl $onInit', arguments);
 			ctrl.update(ctrl.selectedHours);
 		};
+
 	},
 	bindings: {
 		action: '<',
