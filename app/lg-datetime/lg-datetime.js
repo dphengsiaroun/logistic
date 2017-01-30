@@ -33,14 +33,15 @@ app.component('lgDatetime', {
 		};
 
 		ctrl.start = function() {
-			this.state = 'dateState';
+			ctrl.state = 'dateState';
 			lgScroll.save();
-			this.compute();
+			ctrl.compute();
 		};
 
 		ctrl.stop = function() {
-			this.state = 'outsideState';
+			ctrl.state = 'outsideState';
 			lgScroll.restore();
+			ctrl.months = [];
 		};
 
 		ctrl.update = function(date) {
@@ -76,7 +77,7 @@ app.component('lgDatetime', {
 				date.setMonth(date.getMonth() + i);
 				ctrl.months.push(date);
 			}
-
+			console.log('ctrl.months', ctrl.months);
 		};
 
 		ctrl.setDate = function(year, month, day) {

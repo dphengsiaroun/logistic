@@ -129,7 +129,7 @@ app.component('lgDtMonth', {
 
 	},
 	bindings: {
-		monthDate: '<',
+		monthDate: '=',
 		action: '<',
 		selectedDate: '<'
 	}
