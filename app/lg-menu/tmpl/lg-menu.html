@@ -3,10 +3,10 @@
 		<i ng-show="$ctrl.isBackPresent" ng-click="$ctrl.off(); $root.back();" class="fa fa-chevron-left" aria-hidden="true"></i>
 	</head-left>
 	<head-center class="logo" ng-show="!$ctrl.user.account">
-		<a ng-click="$ctrl.off()" href="#/"><img src="img/logo.png" /></a>
+		<a ng-click="$ctrl.off()" ui-sref="home"><img src="img/logo.png" /></a>
 	</head-center>
 	<head-center class="logo" ng-show="$ctrl.user.account">
-		<a ng-click="$ctrl.off()" href="#/"><img class="lg-svg" src="img/logo.svg" /><br/>
+		<a ng-click="$ctrl.off()" ui-sref="home"><img class="lg-svg" src="img/logo.svg" /><br/>
 			{{$ctrl.user.account.content.firstname}} {{$ctrl.user.account.content.lastname | uppercase }}
 		</a>
 	</head-center>

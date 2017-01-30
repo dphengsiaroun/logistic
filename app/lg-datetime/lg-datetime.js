@@ -64,6 +64,7 @@ app.component('lgDatetime', {
 			ctrl.months = [];
 			for (var i = 0; i < ctrl.myOptions.monthNbr; i++) {
 				var date = new Date(ctrl.myOptions.start);
+				date.setDate(1);
 				date.setMonth(date.getMonth() + i);
 				ctrl.months.push(date);
 			}
@@ -82,6 +83,10 @@ app.component('lgDatetime', {
 		ctrl.setHours = function(hour) {
 			console.log('setHours', arguments);
 			var date = ngModelCtrl.$viewValue;
+			console.log('date', date);
+			if (!date) {
+				return;
+			}
 			date.setHours(hour);
 			ctrl.selectedHours = date.getHours();
 			console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
