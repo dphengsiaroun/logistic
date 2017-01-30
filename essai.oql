@@ -1,0 +1,52 @@
+1er exemple
+http://overpass-api.de/command_line.html
+
+http://overpass-api.de/api/interpreter?data=[out:json];node[name=%22Gielgen%22];out;
+
+http://overpass-api.de/api/interpreter?data=[out:json];node[name=%22Gielgen%22];out;
+
+
+S'entrainer avec l'URL :
+http://overpass-api.de/query_form.html
+
+[out:json][timeout:60];
+(node["is_in:country"="France"]["place"]["population"]["name"~"^L"];);
+out 99;
+
+
+[out:json][timeout:60];
+(node["is_in:country"="France"]["place"]["population"]["name"~"^L"];);
+out 99;
+
+[out:json][timeout:60];
+area[name="France"]["border_type"="territorial"]["type"="boundary"];(node[place="city"](area););
+out 99;
+
+[out:csv('name','addr:postcode';false;';'])][timeout:60];
+area[name="France"]["border_type"="territorial"]["type"="boundary"];
+(node[place]["addr:postcode"][population]["ref:INSEE"](area););
+out 37000;
+
+[out:csv('name','addr:postcode';false;';')][timeout:60];
+area[name="France"]["border_type"="territorial"]["type"="boundary"];
+(node[place]["addr:postcode"][population]["ref:INSEE"](area););
+out 37000;
+
+"type": "node",
+  "id": 26691425,
+  "lat": 48.5894638,
+  "lon": 6.5013779,
+  "tags": {
+    "addr:postcode": "54300",
+    "is_in:continent": "Europe",
+    "is_in:country": "France",
+    "is_in:department": "Meurthe-et-Moselle",
+    "is_in:region": "Lorraine",
+    "name": "Lunéville",
+    "name:de": "Lünstadt",
+    "place": "town",
+    "population": "19881",
+    "ref:FR:SIREN": "215403296",
+    "ref:INSEE": "54329",
+    "wikidata": "Q208794"
+  }
