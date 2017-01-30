@@ -151,15 +151,17 @@ lg-dt-hour {
     }
     hours {
         display: block;
-        overflow-x: hidden;
         width: 100%;
+		overflow-x: scroll;
+        -webkit-overflow-scrolling: auto;
         line {
             display: table;
             table-layout: fixed;
-            width: 350%;
+            width: 500%;
             position: relative;
             top: 0px;
             left: 0px;
+			padding: 0% 70%;
             span {
                 display: table-cell;
                 padding: 10px;
