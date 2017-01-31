@@ -9,7 +9,7 @@ $mediumGray: hsl(0, 0%, 85%);
 $gray: hsl(0, 0%, 66%);
 $lightGreen: hsl(171, 99%, 38%);
 $darkGreen: hsl(171, 99%, 20%);
-
+$transparentLightGreen: hsla(171, 99%, 38%, 0.3);
 
 
 $headerColor: $darkBlue;
@@ -36,4 +36,6 @@ $placeholderColor: $gray;
 
 $selectedColor: $buttonColor;
 $selectedColorCmpl: white;
+
+$transparentSelectedColor: $transparentLightGreen;
 

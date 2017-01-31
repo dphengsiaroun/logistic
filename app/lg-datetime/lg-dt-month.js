@@ -145,10 +145,10 @@ app.component('lgDtMonth', {
 				return;
 			}
 			var tdElts = elt.find('td');
-			for (var i = 0; i < tdElts.length; i++) {
-				var tdElt = tdElts[i];
-
-				angular.element(tdElt).addClass('interval');
+			for (var i = getDays(ctrl.lgDatetime.opts.start); i < getDays(ctrl.selectedDate); i++) {
+				var myClass = 'd' + i;
+				var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
+				newSelectedElt.addClass('interval');
 			}
 		};
 

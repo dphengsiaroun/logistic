@@ -130,6 +130,15 @@ lg-dt-month {
                 background: $selectedColor;
                 color: blue;
             }
+            td.interval {
+                background-color: $transparentSelectedColor;
+            }
+            td.next-month.interval,
+            td.prev-month.interval {
+                background-color: transparent;
+                border: 1px solid $transparentSelectedColor;
+                color: $littleGray;
+            }
         }
     }
 }
