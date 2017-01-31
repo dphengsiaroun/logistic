@@ -4,6 +4,10 @@ var app = angular.module('lg-datetime');
 
 var lgDtHourUrl = require('./tmpl/lg-dt-hour.html');
 
+function makeRange(start, end) {
+	return Array.apply(null, Array(end - start + 1)).map((n, i) => i + start);
+}
+
 app.component('lgDtHour', {
 	require: {
 		lgDatetime: '^^lgDatetime'
@@ -14,6 +18,9 @@ app.component('lgDtHour', {
 		var hourElt;
 		var isUpdating = false;
 		var width = screen.width;
+		var hourRange = makeRange(0, 23);
+
+		ctrl.hourRange = hourRange;
 
 		ctrl.update = function(hour, $index) {
 			console.log('LgDtHourCtrl update', arguments);
@@ -34,10 +41,38 @@ app.component('lgDtHour', {
 
 		$scope.$watch('$ctrl.lgDatetime.state', function() {
 			console.log('LgDtHourCtrl $watch', arguments);
-			var $index = ctrl.hours.indexOf(ctrl.lgDatetime.selectedHours);
+			var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
 			$timeout(() => {
 				ctrl.update(ctrl.lgDatetime.selectedHours, $index);
 			}, 0);
+		});
+
+		$scope.$watch('$ctrl.lgDatetime.selectedDate', function() {
+			console.log('LgDtHourCtrl $watch $ctrl.lgDatetime.selectedDate', arguments);
+			var opts = ctrl.lgDatetime.opts;
+			if (ctrl.lgDatetime.selectedDate === undefined) {
+				return;
+			}
+			if (ctrl.lgDatetime.selectedDate.toDateString() === opts.start.toDateString()) {
+				if (opts.after) {
+					ctrl.hourRange = makeRange(opts.start.getHours(), 23);
+				} else {
+					ctrl.hourRange = makeRange((opts.start.getHours() + 1) % 24, 23);
+				}
+			} else {
+				ctrl.hourRange = hourRange;
+			}
+			if (ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours) === -1) {
+				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+				$timeout(() => {
+					ctrl.update(ctrl.hourRange[0], $index);
+				}, 0);
+			} else {
+				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+				$timeout(() => {
+					ctrl.update(ctrl.lgDatetime.selectedHours, $index);
+				}, 0);
+			}
 		});
 
 		ctrl.swipe = function() {
@@ -46,7 +81,7 @@ app.component('lgDtHour', {
 			console.log('pos', pos);
 			var $index = Math.round(((pos-0) * 99/(12.9875-0)));
 			console.log('$index', $index);
-			var hour = ctrl.hours[$index];
+			var hour = ctrl.hourRange[$index];
 			ctrl.update(hour, $index);
 		};
 

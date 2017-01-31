@@ -10,10 +10,6 @@ require('./lg-dt-hour.js');
 
 var lgDatetimeUrl = require('./tmpl/lg-datetime.html');
 
-function makeRange(start, end) {
-	return Array.apply(null, Array(end - start + 1)).map((n, i) => i + start);
-}
-
 app.component('lgDatetime', {
 	require: {
 		ngModel: 'ngModel',
@@ -23,14 +19,11 @@ app.component('lgDatetime', {
 		'ngInject';
 		console.log('lgDatetimeCtrl');
 		var ctrl = this;
-		ctrl.format = 'EEEE dd LLLL - HH:mm';
+		ctrl.format = 'EEEE dd LLLL - H:mm';
 
 		ctrl.lgDtHour = undefined;
 
 		ctrl.state = 'outsideState';
-
-		var hourRange = makeRange(0, 23);
-		ctrl.hourRange = hourRange;
 
 		ctrl.opts = {
 			monthNbr: 6,
@@ -53,29 +46,9 @@ app.component('lgDatetime', {
 
 		ctrl.update = (date) => {
 			ctrl.selectedDate = date;
-			ctrl.adjustHourRange();
 			ctrl.ngModel.$setViewValue(date);
 			ctrl.ngModel.$render();
 			ctrl.ngModel.$setTouched();
-		};
-
-		ctrl.adjustHourRange = () => {
-			if (ctrl.selectedDate === undefined) {
-				return;
-			}
-			if (ctrl.selectedDate.toDateString() === ctrl.opts.start.toDateString()) {
-				if (ctrl.opts.after) {
-					ctrl.hourRange = makeRange(ctrl.opts.start.getHours(), 23);
-				} else {
-					ctrl.hourRange = makeRange((ctrl.opts.start.getHours() + 1) % 24, 23);
-				}
-				if (ctrl.hourRange.indexOf(ctrl.selectedHours) === -1) {
-					var $index = ctrl.hourRange.indexOf(ctrl.selectedHours);
-					ctrl.lgDtHour.update(ctrl.hourRange[0], $index);
-				}
-			} else {
-				ctrl.hourRange = hourRange;
-			}
 		};
 
 		ctrl.cancel = () => {
