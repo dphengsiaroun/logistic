@@ -30,7 +30,7 @@ app.component('lgDatetime', {
 		ctrl.state = 'outsideState';
 
 		var hourRange = makeRange(0, 23);
-		ctrl.hours = hourRange;
+		ctrl.hourRange = hourRange;
 
 		ctrl.opts = {
 			monthNbr: 6,
@@ -65,16 +65,16 @@ app.component('lgDatetime', {
 			}
 			if (ctrl.selectedDate.toDateString() === ctrl.opts.start.toDateString()) {
 				if (ctrl.opts.after) {
-					ctrl.hours = makeRange(ctrl.opts.start.getHours(), 23);
+					ctrl.hourRange = makeRange(ctrl.opts.start.getHours(), 23);
 				} else {
-					ctrl.hours = makeRange((ctrl.opts.start.getHours() + 1) % 24, 23);
+					ctrl.hourRange = makeRange((ctrl.opts.start.getHours() + 1) % 24, 23);
 				}
-				if (ctrl.hours.indexOf(ctrl.selectedHours) === -1) {
-					var $index = ctrl.hours.indexOf(ctrl.selectedHours);
-					ctrl.lgDtHour.update(ctrl.hours[0], $index);
+				if (ctrl.hourRange.indexOf(ctrl.selectedHours) === -1) {
+					var $index = ctrl.hourRange.indexOf(ctrl.selectedHours);
+					ctrl.lgDtHour.update(ctrl.hourRange[0], $index);
 				}
 			} else {
-				ctrl.hours = hourRange;
+				ctrl.hourRange = hourRange;
 			}
 		};
 
