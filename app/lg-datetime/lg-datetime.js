@@ -10,6 +10,10 @@ require('./lg-dt-hour.js');
 
 var lgDatetimeUrl = require('./tmpl/lg-datetime.html');
 
+function makeRange(start, end) {
+	return Array.apply(null, Array(end - start + 1)).map((n, i) => i + start);
+}
+
 app.component('lgDatetime', {
 	require: {
 		ngModel: 'ngModel',
@@ -24,10 +28,10 @@ app.component('lgDatetime', {
 
 		ctrl.state = 'outsideState';
 
-		ctrl.hours = Array.apply(null, Array(24)).map((n, i) => i);
+		var hourRange = makeRange(0, 23);
+		ctrl.hours = hourRange;
 
 		ctrl.opts = {
-			position: 'now',
 			monthNbr: 6,
 			constraint: {},
 			lgHour: 1,
@@ -48,9 +52,22 @@ app.component('lgDatetime', {
 
 		ctrl.update = (date) => {
 			ctrl.selectedDate = date;
+			ctrl.adjustHourRange();
 			ngModelCtrl.$setViewValue(date);
 			ngModelCtrl.$render();
 			ngModelCtrl.$setTouched();
+		};
+
+		ctrl.adjustHourRange = () => {
+			if (ctrl.selectedDate.toDateString() === ctrl.opts.start.toDateString()) {
+				if (ctrl.opts.after) {
+					ctrl.hours = makeRange(ctrl.opts.start.getHours(), 23);
+				} else {
+					ctrl.hours = makeRange((ctrl.opts.start.getHours() + 1) % 24, 23);
+				}
+				return;
+			}
+			ctrl.hours = hourRange;
 		};
 
 		ctrl.cancel = () => {
@@ -61,16 +78,10 @@ app.component('lgDatetime', {
 		ctrl.compute = () => {
 			console.log('compute');
 			ctrl.opts.start = new Date();
-			if (ctrl.opts.position === 'now') {
-				ctrl.opts.start = new Date();
-			}
 			if (ctrl.opts.after) {
 				console.log('ctrl.opts.after', ctrl.opts.after);
 				ctrl.opts.start = $parse(ctrl.opts.after)($scope.$parent);
 				console.log('ctrl.opts.after ctrl.opts.start', ctrl.opts.start);
-				if (!ctrl.opts.start) {
-					ctrl.opts.start = new Date();
-				}
 			}
 			ctrl.months = [];
 			for (var i = 0; i < ctrl.opts.monthNbr; i++) {
