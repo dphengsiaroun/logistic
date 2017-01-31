@@ -25,9 +25,12 @@ app.component('lgDtMonth', {
 			ctrl.build();
 		};
 
-		ctrl.$onChanges = function(map) {
-			if (map.selectedDate !== undefined) {
+		ctrl.$onChanges = function(changesObj) {
+			if (changesObj.selectedDate !== undefined) {
 				ctrl.refresh();
+				if (ctrl.lgDatetime.opts.after) {
+					ctrl.refreshInterval();
+				}			
 			}
 		};
 
@@ -36,7 +39,7 @@ app.component('lgDtMonth', {
 		};
 
 		ctrl.build = function() {
-			console.log('lg-month refresh', arguments);
+			console.log('lg-month build', arguments);
 			var date = new Date(ctrl.monthDate);
 			ctrl.year = date.getFullYear();
 			ctrl.month = date.getMonth();
@@ -125,6 +128,23 @@ app.component('lgDtMonth', {
 				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k%7].substr(0, 2) + '</td>';
 			}
 			elt.html(html);
+		};
+
+		ctrl.refreshInterval = function() {
+			console.log('lg-month refreshInterval', arguments);
+			var elt = $element.find('tbody');
+			var selectedElt = angular.element(elt[0].getElementsByClassName('interval'));
+			selectedElt.removeClass('interval');
+
+			if (ctrl.selectedDate === undefined) {
+				return;
+			}
+			var tdElts = elt.find('td');
+			for (var i = 0; i < tdElts.length; i++) {
+				var tdElt = tdElts[i];
+
+				angular.element(tdElt).addClass('interval');
+			}
 		};
 
 	},
