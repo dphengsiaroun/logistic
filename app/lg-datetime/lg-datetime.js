@@ -15,7 +15,7 @@ app.component('lgDatetime', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgDatetimeUrl,
-	controller: function lgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
+	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
 		'ngInject';
 		console.log('lgDatetimeCtrl');
 		var ctrl = this;
@@ -94,11 +94,6 @@ app.component('lgDatetime', {
 			angular.extend(ctrl.opts, ctrl.options);
 			console.log('options', ctrl.options);
 			ctrl.opts.start = new Date();
-			if (ctrl.opts.after) {
-				console.log('ctrl.opts.after', ctrl.opts.after);
-				ctrl.opts.start = $parse(ctrl.opts.after)($scope.$parent);
-				console.log('ctrl.opts.after ctrl.opts.start', ctrl.opts.start);
-			}
 			ctrl.selectedHours = ctrl.opts.defaultHour;
 		};
 
@@ -135,11 +130,22 @@ app.component('lgDatetime', {
 			};
 		};
 
+		ctrl.$onChanges = (changesObj) => {
+			console.log('LgDatetimeCtrl $onChanges');
+			if (changesObj.after) {
+				ctrl.opts.after = changesObj.after.currentValue instanceof Date;
+				ctrl.opts.start = changesObj.after.currentValue;
+				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start', ctrl.opts.start);
+			}
+
+		};
+
 	},
 	bindings: {
 		title: '@',
 		choices: '<',
 		placeholder: '@',
-		options: '<'
+		options: '<',
+		after: '<'
 	}
 });
