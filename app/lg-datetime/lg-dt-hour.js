@@ -16,15 +16,11 @@ app.component('lgDtHour', {
 		var isUpdating = false;
 		var width = screen.width;
 
-		ctrl.hours = Array.apply(null, Array(24)).map(function(n, i) {
-			return i;
-		});
-
-		ctrl.update = function(hour) {
+		ctrl.update = function(hour, $index) {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;
 			console.log('width', width);
-			hourElt[0].scrollLeft = (0 + hour * 1.73) * width/10;
+			hourElt[0].scrollLeft = (0 + $index * 1.3) * width/10;
 			this.action.apply(null, [hour]);
 		};
 
@@ -41,11 +37,12 @@ app.component('lgDtHour', {
 
 		ctrl.swipe = function() {
 			console.log('swipe', arguments);
-			var pos = hourElt[0].scrollLeft;
+			var pos = hourElt[0].scrollLeft/width;
 			console.log('pos', pos);
-			var hour = Math.round(((pos) * 5.8) / width);
-			console.log('hour', hour);
-			ctrl.update(hour);
+			var $index = Math.round(((pos-0) * 99/(12.9875-0)));
+			console.log('$index', $index);
+			var hour = ctrl.hours[$index];
+			ctrl.update(hour, $index);
 		};
 
 		var isScrolling = false;
@@ -70,7 +67,8 @@ app.component('lgDtHour', {
 	},
 	bindings: {
 		action: '<',
-		selectedHours: '<'
+		selectedHours: '<',
+		hours: '<'
 	}
 });
 

@@ -3,11 +3,12 @@
 	<selector></selector>
 	<hours>
 		<line>
+			<span class="padding">&nbsp;</span>
 			<span class="h{{hour}}" ng-class="{selected: $ctrl.selectedHours === hour}" 
-			 	ng-click="$ctrl.update(hour)" 
-				ng-repeat="hour in $ctrl.hours">
+				ng-click="$ctrl.update(hour, $index)" ng-repeat="hour in $ctrl.hours track by $index">
 				{{hour}}h
 			</span>
+			<span class="padding">&nbsp;</span>
 		</line>
 	</hours>
 </div>

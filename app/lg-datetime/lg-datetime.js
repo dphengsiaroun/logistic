@@ -24,6 +24,8 @@ app.component('lgDatetime', {
 
 		ctrl.state = 'outsideState';
 
+		ctrl.hours = Array.apply(null, Array(24)).map((n, i) => i);
+
 		ctrl.opts = {
 			position: 'now',
 			monthNbr: 6,
@@ -32,31 +34,31 @@ app.component('lgDatetime', {
 			defaultHour: 7
 		};
 
-		ctrl.start = function() {
+		ctrl.start = () => {
 			ctrl.state = 'dateState';
 			lgScroll.save();
 			ctrl.compute();
 		};
 
-		ctrl.stop = function() {
+		ctrl.stop = () => {
 			ctrl.state = 'outsideState';
 			lgScroll.restore();
 			ctrl.months = [];
 		};
 
-		ctrl.update = function(date) {
+		ctrl.update = (date) => {
 			ctrl.selectedDate = date;
 			ngModelCtrl.$setViewValue(date);
 			ngModelCtrl.$render();
 			ngModelCtrl.$setTouched();
 		};
 
-		ctrl.cancel = function() {
+		ctrl.cancel = () => {
 			ctrl.update(undefined);
 			ctrl.stop();
 		};
 
-		ctrl.compute = function() {
+		ctrl.compute = () => {
 			console.log('compute');
 			ctrl.opts.start = new Date();
 			if (ctrl.opts.position === 'now') {
@@ -80,7 +82,7 @@ app.component('lgDatetime', {
 			console.log('ctrl.months', ctrl.months);
 		};
 
-		ctrl.setDate = function(year, month, day) {
+		ctrl.setDate = (year, month, day) => {
 			console.log('setDate', arguments);
 			console.log('year', year);
 			var date = new Date(year, month, day, ctrl.selectedHours);
@@ -88,7 +90,7 @@ app.component('lgDatetime', {
 			ctrl.update(date);
 		};
 
-		ctrl.setHours = function(hour) {
+		ctrl.setHours = (hour) => {
 			console.log('setHours', arguments);
 			ctrl.selectedHours = hour;
 			var date = ngModelCtrl.$viewValue;
@@ -102,7 +104,7 @@ app.component('lgDatetime', {
 			ngModelCtrl.$setTouched();
 		};
 
-		ctrl.$onInit = function() {
+		ctrl.$onInit = () => {
 			console.log('lgCalendarWrapper ctrl $onInit', ctrl);
 			console.log('this.ngModel', ctrl.ngModel);
 			ngModelCtrl = ctrl.ngModel;
@@ -111,7 +113,7 @@ app.component('lgDatetime', {
 			angular.extend(ctrl.opts, ctrl.options);
 			ctrl.selectedHours = ctrl.opts.defaultHour;
 
-			ngModelCtrl.$render = function() {
+			ngModelCtrl.$render = () => {
 				console.log('ngModelCtrl.$render', arguments);
 
 				var datetime = undefined;
@@ -132,7 +134,7 @@ app.component('lgDatetime', {
 				checkValidity(1);
 			};
 
-			var checkValidity = function(value) {
+			var checkValidity = (value) => {
 				var isOutOfChoice = false;
 				ngModelCtrl.$setValidity('outOfChoice', isOutOfChoice);
 			};

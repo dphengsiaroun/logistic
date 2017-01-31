@@ -158,20 +158,29 @@ lg-dt-hour {
             overflow-x: scroll;
             -webkit-overflow-scrolling: auto;
             line {
-                display: table;
-                table-layout: fixed;
-                width: 500%;
+                display: block;
                 height: 99px;
                 position: relative;
                 top: -19px;
                 left: 0px;
-                padding: 0% 43%;
+                padding: 0%;
+                white-space: nowrap;
+                // background-color: tomato;
                 span {
-                    display: table-cell;
+                    display: inline-block;
+                    width: 13%;
                     height: 100%;
-                    padding: 29px 10px 10px;
+                    padding: 0px;
+                    padding-top: 29px;
+                    padding-bottom: 10px;
+                    padding-left: 3%;
+                    padding-right: 3%;
                     font-weight: bold;
                     font-size: 18px;
+                    // background-color: green;
+                }
+                span.padding {
+                    width: 43%;
                 }
                 .selected {
                     color: white;
