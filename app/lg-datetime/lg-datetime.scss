@@ -39,7 +39,8 @@ lg-datetime-content {
         left: 0px;
         width: 100%;
         text-align: center;
-        background-color: $headCalendarColor;
+        color: $selectedColorCmpl;
+        background-color: $selectedColor;
         padding: 5px;
     }
     month-list {
