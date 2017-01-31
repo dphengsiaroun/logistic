@@ -9,7 +9,7 @@ function addDays(date, days) {
 function getDays(date) {
 	var d = new Date(date);
 	d.setHours(12);
-	return Math.floor(d/8.64e7);
+	return Math.floor(d / 8.64e7);
 };
 
 var app = angular.module('lg-datetime');
@@ -24,27 +24,27 @@ app.component('lgDtMonth', {
 	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
 		var ctrl = this;
 		console.log('lgMonth ctrl', ctrl, arguments);
-		ctrl.$onInit = function() {
+		ctrl.$onInit = function () {
 			console.log('lgMonth ctrl $onInit', ctrl);
 			ctrl.printDays($element);
 
 			ctrl.build();
 		};
 
-		ctrl.$onChanges = function(changesObj) {
+		ctrl.$onChanges = function (changesObj) {
 			if (changesObj.selectedDate !== undefined) {
 				ctrl.refresh();
 				if (ctrl.lgDatetime.opts.after) {
 					ctrl.refreshInterval();
-				}			
+				}
 			}
 		};
 
-		ctrl.update = function() {
+		ctrl.update = function () {
 			ctrl.action.apply(null, arguments);
 		};
 
-		ctrl.build = function() {
+		ctrl.build = function () {
 			console.log('lg-month build', arguments);
 			var date = new Date(ctrl.monthDate);
 			ctrl.year = date.getFullYear();
@@ -58,7 +58,7 @@ app.component('lgDtMonth', {
 			var lastMonday = addDays(firstDayDate, -day + 1);
 			var dayDate = lastMonday;
 
-			ctrl.isSelected = function(d) {
+			ctrl.isSelected = function (d) {
 				if (ctrl.selectedDate === undefined) {
 					// console.log('no selected date');
 					return false;
@@ -70,7 +70,7 @@ app.component('lgDtMonth', {
 				return result;
 			};
 
-			ctrl.isForbidden = function(d) {
+			ctrl.isForbidden = function (d) {
 				var now = ctrl.lgDatetime.opts.start;
 				var nowAtMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
 				if (d <= nowAtMidnight) {
@@ -86,19 +86,24 @@ app.component('lgDtMonth', {
 				for (var k = 0; k < 7; k++) {
 					var dayOfMonth = dayDate.getDate();
 					var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
-					var myClass = (dayDate.getMonth() < ctrl.month) ? 'prev-month' : '';
-					myClass += (dayDate.getMonth() > ctrl.month) ? ' next-month' : '';
-					myClass += (k >= 5) ? ' week-end' : '';
-					myClass += (ctrl.isSelected(dayDate)) ? ' selected' : '';
-					var ngClick;
+					var myClass = '';
+					var ngClick = '';
+					
 					if (ctrl.isForbidden(dayDate)) {
 						myClass += ' disabled';
-						ngClick = '';
 					} else {
 						ngClick = 'ng-click="$ctrl.update(' + actionArgs + ')" ';
 					}
+					myClass += (k >= 5) ? ' week-end' : '';
+					myClass += (ctrl.isSelected(dayDate)) ? ' selected' : '';
 					myClass += ' d' + getDays(dayDate);
-					html += '<td ' + ngClick + 'class="' + myClass + '">' + dayOfMonth + '</td>';
+
+					if (dayDate.getMonth() !== ctrl.month) {
+						ngClick = '';
+						myClass = ' other-month';
+					}
+
+					html += '<td ' + ngClick + 'class="' + myClass + '"><span>' + dayOfMonth + '</span></td>';
 					dayDate = addDays(dayDate, 1);
 				}
 				if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {
@@ -111,7 +116,7 @@ app.component('lgDtMonth', {
 			$compile(elt.contents())($scope);
 		};
 
-		ctrl.refresh = function() {
+		ctrl.refresh = function () {
 			// ctrl part needs a real jquery
 			var elt = $element.find('tbody');
 			var selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
@@ -126,29 +131,36 @@ app.component('lgDtMonth', {
 		};
 
 
-		ctrl.printDays = function($element) {
+		ctrl.printDays = function ($element) {
 			var elt = $element.find('tr');
 			var html = '';
 			for (var k = 1; k < 8; k++) {
-				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k%7].substr(0, 2) + '</td>';
+				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k % 7].substr(0, 2) + '</td>';
 			}
 			elt.html(html);
 		};
 
-		ctrl.refreshInterval = function() {
+		ctrl.refreshInterval = function () {
 			console.log('lg-month refreshInterval', arguments);
 			var elt = $element.find('tbody');
-			var selectedElt = angular.element(elt[0].getElementsByClassName('interval'));
-			selectedElt.removeClass('interval');
+			var e = angular.element(elt[0].getElementsByClassName('interval'));
+			e.removeClass('interval');
+			e = angular.element(elt[0].getElementsByClassName('interval-start'));
+			e.removeClass('interval-start');
 
 			if (ctrl.selectedDate === undefined) {
 				return;
 			}
 			var tdElts = elt.find('td');
-			for (var i = getDays(ctrl.lgDatetime.opts.start); i < getDays(ctrl.selectedDate); i++) {
+			for (var i = getDays(ctrl.lgDatetime.opts.start); i <= getDays(ctrl.selectedDate); i++) {
 				var myClass = 'd' + i;
 				var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
-				newSelectedElt.addClass('interval');
+				if (i === getDays(ctrl.lgDatetime.opts.start)) {
+					newSelectedElt.addClass('interval-start');
+				} else {
+					newSelectedElt.addClass('interval');
+				}
+				
 			}
 		};
 

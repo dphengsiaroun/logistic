@@ -79,11 +79,15 @@ lg-dt-month {
         margin-bottom: 20px;
         td {
             border: 2px solid transparent;
-            border-radius: 84%;
             display: inline-block;
             line-height: 38px;
             text-align: center;
             width: 14%;
+            span {
+                display: block;
+                line-height: 38px;
+                height: 100%;
+            }
         }
         thead {
             font-weight: 600;
@@ -98,46 +102,53 @@ lg-dt-month {
             tr {
                 border-bottom: 1px solid $borderColor;
                 font-size: 16px;
-            }
-            td {
-                font-weight: 400;
-            }
-            td.week-end {
-                color: $fontColor;
-                opacity: 0.6;
-            }
-            td.prev-month,
-            td.next-month {
-                color: $littleLightGray;
-            }
-            td.selected {
-                background-color: $selectedColor;
-                color: white;
-            }
-            td.week-end.selected {
-                opacity: 1;
-            }
-            td.next-month.selected,
-            td.prev-month.selected {
-                background-color: transparent;
-                border: 1px solid $selectedColor;
-                color: $littleGray;
-            }
-            td.disabled {
-                color: $disabledFontColor;
-            }
-            td.current-day {
-                background: $selectedColor;
-                color: blue;
-            }
-            td.interval {
-                background-color: $transparentSelectedColor;
-            }
-            td.next-month.interval,
-            td.prev-month.interval {
-                background-color: transparent;
-                border: 1px solid $transparentSelectedColor;
-                color: $littleGray;
+                td {
+                    font-weight: 400;
+                }
+                td.week-end span {
+                    color: $transparentFontColor;
+                }
+                td.other-month {
+                    opacity: 0;
+                }
+                td.selected {
+                    span {
+                        border-radius: 84%;
+                        background-color: $selectedColor;
+                        color: white;
+                    }
+                }
+                td.week-end.selected {
+                    opacity: 1;
+                }
+                td.other-month.selected {
+                    background-color: transparent;
+                    border: 1px solid $selectedColor;
+                    color: $littleGray;
+                }
+                td.disabled span {
+                    color: $disabledFontColor;
+                }
+                td.current-day {
+                    background: $selectedColor;
+                    color: blue;
+                }
+                td.interval {
+                    background-color: $transparentSelectedColor;
+                }
+                td.other-month.interval {
+                    background-color: transparent;
+                    border: 1px solid $transparentSelectedColor;
+                    color: $littleGray;
+                }
+                td.interval-start {
+                    border-radius: 84% 0% 0% 84%;
+                    background-color: $transparentSelectedColor;
+                }
+                td.interval.selected {
+                    border-radius: 0% 84% 84% 0%;
+                    background-color: $transparentSelectedColor;
+                }
             }
         }
     }
