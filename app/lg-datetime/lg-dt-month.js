@@ -6,6 +6,12 @@ function addDays(date, days) {
 	return result;
 }
 
+function getDays(date) {
+	var d = new Date(date);
+	d.setHours(12);
+	return Math.floor(d/8.64e7);
+};
+
 var app = angular.module('lg-datetime');
 
 var lgDtMonthUrl = require('./tmpl/lg-dt-month.html');
@@ -91,7 +97,7 @@ app.component('lgDtMonth', {
 					} else {
 						ngClick = 'ng-click="$ctrl.update(' + actionArgs + ')" ';
 					}
-					myClass += ' ' + dayDate.getFullYear() + '-' + dayDate.getMonth() + '-' + dayOfMonth;
+					myClass += ' d' + getDays(dayDate);
 					html += '<td ' + ngClick + 'class="' + myClass + '">' + dayOfMonth + '</td>';
 					dayDate = addDays(dayDate, 1);
 				}
@@ -114,8 +120,7 @@ app.component('lgDtMonth', {
 			if (ctrl.selectedDate === undefined) {
 				return;
 			}
-			var myClass = ctrl.selectedDate.getFullYear() + '-' + ctrl.selectedDate.getMonth() +
-				'-' + ctrl.selectedDate.getDate();
+			var myClass = 'd' + getDays(ctrl.selectedDate);
 			var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
 		};
