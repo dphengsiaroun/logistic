@@ -15,6 +15,11 @@ app.component('lgDtHour', {
 		var lineElt;
 		var isUpdating = false;
 		var width = screen.width;
+
+		ctrl.hours = Array.apply(null, Array(24)).map(function(n, i) {
+			return i;
+		});
+
 		ctrl.update = function(hour) {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;

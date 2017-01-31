@@ -24,7 +24,7 @@ app.component('lgDatetime', {
 
 		ctrl.state = 'outsideState';
 
-		ctrl.myOptions = {
+		ctrl.opts = {
 			position: 'now',
 			monthNbr: 6,
 			constraint: {},
@@ -58,21 +58,21 @@ app.component('lgDatetime', {
 
 		ctrl.compute = function() {
 			console.log('compute');
-			ctrl.myOptions.start = new Date();
-			if (ctrl.myOptions.position === 'now') {
-				ctrl.myOptions.start = new Date();
+			ctrl.opts.start = new Date();
+			if (ctrl.opts.position === 'now') {
+				ctrl.opts.start = new Date();
 			}
-			if (ctrl.myOptions.after) {
-				console.log('ctrl.myOptions.after', ctrl.myOptions.after);
-				ctrl.myOptions.start = $parse(ctrl.myOptions.after)($scope.$parent);
-				console.log('ctrl.myOptions.after ctrl.myOptions.start', ctrl.myOptions.start);
-				if (!ctrl.myOptions.start) {
-					ctrl.myOptions.start = new Date();
+			if (ctrl.opts.after) {
+				console.log('ctrl.opts.after', ctrl.opts.after);
+				ctrl.opts.start = $parse(ctrl.opts.after)($scope.$parent);
+				console.log('ctrl.opts.after ctrl.opts.start', ctrl.opts.start);
+				if (!ctrl.opts.start) {
+					ctrl.opts.start = new Date();
 				}
 			}
 			ctrl.months = [];
-			for (var i = 0; i < ctrl.myOptions.monthNbr; i++) {
-				var date = new Date(ctrl.myOptions.start);
+			for (var i = 0; i < ctrl.opts.monthNbr; i++) {
+				var date = new Date(ctrl.opts.start);
 				date.setDate(1);
 				date.setMonth(date.getMonth() + i);
 				ctrl.months.push(date);
@@ -108,8 +108,8 @@ app.component('lgDatetime', {
 			ngModelCtrl = ctrl.ngModel;
 
 			console.log('options', ctrl.options);
-			angular.extend(ctrl.myOptions, ctrl.options);
-			ctrl.selectedHours = ctrl.myOptions.defaultHour;
+			angular.extend(ctrl.opts, ctrl.options);
+			ctrl.selectedHours = ctrl.opts.defaultHour;
 
 			ngModelCtrl.$render = function() {
 				console.log('ngModelCtrl.$render', arguments);
@@ -143,7 +143,6 @@ app.component('lgDatetime', {
 		title: '@',
 		choices: '<',
 		placeholder: '@',
-		isMandatory: '<',
 		options: '<'
 	}
 });
