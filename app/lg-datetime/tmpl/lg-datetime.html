@@ -20,7 +20,7 @@
 		<lg-dt-month ng-repeat="month in $ctrl.months track by $index" month-date="month" selected-date="$ctrl.selectedDate" action="$ctrl.setDate">
 		</lg-dt-month>
 	</month-list>
-	<lg-dt-hour action="$ctrl.setHours" selected-hours="$ctrl.selectedHours" hours="$ctrl.hourRange">
+	<lg-dt-hour selected-hours="$ctrl.selectedHours" hours="$ctrl.hourRange">
 	</lg-dt-hour>
 	<retroaction-msg>{{$ctrl.selectedDate || '&nbsp;' | date : $ctrl.format }}</retroaction-msg>
 </lg-datetime-content>

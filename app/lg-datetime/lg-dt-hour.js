@@ -12,7 +12,6 @@ app.component('lgDtHour', {
 	controller: function LgDtHourCtrl($scope, $element, $window, $timeout) {
 		var ctrl = this;
 		var hourElt;
-		var lineElt;
 		var isUpdating = false;
 		var width = screen.width;
 
@@ -23,13 +22,12 @@ app.component('lgDtHour', {
 			var pos = (0 + $index * 1.3) * width/10;
 			console.log('pos', pos);
 			hourElt[0].scrollLeft = pos;
-			this.action.apply(null, [hour]);
+			ctrl.lgDatetime.setHours(hour);
 		};
 
 		ctrl.$onInit = function() {
 			console.log('LgDtHourCtrl $onInit', arguments);
 			hourElt = $element.find('hours');
-			lineElt = hourElt.find('line');
 			hourElt[0].onscroll = onScroll;
 			ctrl.lgDatetime.lgDtHour = ctrl;
 		};
@@ -73,7 +71,6 @@ app.component('lgDtHour', {
 
 	},
 	bindings: {
-		action: '<',
 		selectedHours: '<',
 		hours: '<'
 	}
