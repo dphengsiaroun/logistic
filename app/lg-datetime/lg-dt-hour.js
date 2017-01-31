@@ -34,9 +34,9 @@ app.component('lgDtHour', {
 
 		$scope.$watch('$ctrl.lgDatetime.state', function() {
 			console.log('LgDtHourCtrl $watch', arguments);
-			var $index = ctrl.hours.indexOf(ctrl.selectedHours);
+			var $index = ctrl.hours.indexOf(ctrl.lgDatetime.selectedHours);
 			$timeout(() => {
-				ctrl.update(ctrl.selectedHours, $index);
+				ctrl.update(ctrl.lgDatetime.selectedHours, $index);
 			}, 0);
 		});
 
@@ -71,7 +71,6 @@ app.component('lgDtHour', {
 
 	},
 	bindings: {
-		selectedHours: '<',
 		hours: '<'
 	}
 });
