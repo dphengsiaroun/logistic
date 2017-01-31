@@ -26,6 +26,8 @@ app.component('lgDatetime', {
 		var ngModelCtrl;
 		ctrl.format = 'EEEE dd LLLL - HH:mm';
 
+		ctrl.lgDtHour = undefined;
+
 		ctrl.state = 'outsideState';
 
 		var hourRange = makeRange(0, 23);
@@ -59,11 +61,18 @@ app.component('lgDatetime', {
 		};
 
 		ctrl.adjustHourRange = () => {
+			if (ctrl.selectedDate === undefined) {
+				return;
+			}
 			if (ctrl.selectedDate.toDateString() === ctrl.opts.start.toDateString()) {
 				if (ctrl.opts.after) {
 					ctrl.hours = makeRange(ctrl.opts.start.getHours(), 23);
 				} else {
 					ctrl.hours = makeRange((ctrl.opts.start.getHours() + 1) % 24, 23);
+				}
+				if (ctrl.hours.indexOf(ctrl.selectedHours) === -1) {
+					var $index = ctrl.hours.indexOf(ctrl.selectedHours);
+					ctrl.lgDtHour.update(ctrl.hours[0], $index);
 				}
 				return;
 			}

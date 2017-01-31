@@ -9,7 +9,7 @@ app.component('lgDtHour', {
 		lgDatetime: '^^lgDatetime'
 	},
 	templateUrl: lgDtHourUrl,
-	controller: function LgDtHourCtrl($scope, $element, $window) {
+	controller: function LgDtHourCtrl($scope, $element, $window, $timeout) {
 		var ctrl = this;
 		var hourElt;
 		var lineElt;
@@ -20,7 +20,9 @@ app.component('lgDtHour', {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;
 			console.log('width', width);
-			hourElt[0].scrollLeft = (0 + $index * 1.3) * width/10;
+			var pos = (0 + $index * 1.3) * width/10;
+			console.log('pos', pos);
+			hourElt[0].scrollLeft = pos;
 			this.action.apply(null, [hour]);
 		};
 
@@ -29,10 +31,15 @@ app.component('lgDtHour', {
 			hourElt = $element.find('hours');
 			lineElt = hourElt.find('line');
 			hourElt[0].onscroll = onScroll;
+			ctrl.lgDatetime.lgDtHour = ctrl;
 		};
 
 		$scope.$watch('$ctrl.lgDatetime.state', function() {
-			ctrl.update(ctrl.selectedHours);
+			console.log('LgDtHourCtrl $watch', arguments);
+			var $index = ctrl.hours.indexOf(ctrl.selectedHours);
+			$timeout(() => {
+				ctrl.update(ctrl.selectedHours, $index);
+			}, 0);
 		});
 
 		ctrl.swipe = function() {
