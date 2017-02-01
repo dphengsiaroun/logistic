@@ -143,7 +143,7 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 	};
 }]);
 
-app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, lgFormat, loader, user) {
+app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, lgFormat, loader, user) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.loader = loader;
