@@ -29,14 +29,12 @@ app.component('lgDtMonth', {
 			ctrl.printDays($element);
 
 			ctrl.build();
+			ctrl.refresh();
 		};
 
 		ctrl.$onChanges = function(changesObj) {
 			if (changesObj.selectedDate !== undefined) {
 				ctrl.refresh();
-				if (ctrl.lgDatetime.opts.after) {
-					ctrl.refreshInterval();
-				}
 			}
 		};
 
@@ -128,6 +126,10 @@ app.component('lgDtMonth', {
 			var myClass = 'd' + getDays(ctrl.selectedDate);
 			var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
+
+			if (ctrl.lgDatetime.opts.after) {
+				ctrl.refreshInterval();
+			}
 		};
 
 
@@ -141,7 +143,6 @@ app.component('lgDtMonth', {
 		};
 
 		ctrl.refreshInterval = function() {
-			console.log('lg-month refreshInterval', arguments);
 			var elt = $element.find('tbody');
 			var e = angular.element(elt[0].getElementsByClassName('interval'));
 			e.removeClass('interval');
@@ -153,14 +154,13 @@ app.component('lgDtMonth', {
 			}
 			var start = getDays(ctrl.lgDatetime.opts.start);
 			var end = getDays(ctrl.selectedDate);
-			console.log('lg-month refreshInterval start end', start, end);
 			for (var i = start; i <= end; i++) {
 				var myClass = 'd' + i;
-				var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
+				var dayElt = angular.element(elt[0].getElementsByClassName(myClass));
 				if (i === start) {
-					newSelectedElt.addClass('interval-start');
+					dayElt.addClass('interval-start');
 				} else {
-					newSelectedElt.addClass('interval');
+					dayElt.addClass('interval');
 				}
 			}
 		};
