@@ -12,11 +12,8 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	var service = this;
 	this.createData = {
 		typeOfGoods: 'Classique',
-		conditioning: 'Colis',
-		transportCategory: 'Camion',
 		transportTruckType: 'Bâché',
 		weightInterval: '',
-		preciseWeight: 1500,
 		height: 1,
 		deep: 1,
 		width: 1,
