@@ -159,7 +159,7 @@ app.component('lgDatetime', {
 			}
 			var durationStr = '';
 			if (ctrl.opts.after) {
-				var duration = (ctrl.selectedDate - ctrl.opts.start)/1000;
+				var duration = (ctrl.selectedDate - ctrl.after)/1000;
 				durationStr = '<br/>Durée&nbsp;:&nbsp;' + lgFormat.formatDuration(duration);
 			}
 			ctrl.retroactionMsg = $filter('date')(ctrl.selectedDate, ctrl.format) + durationStr;
