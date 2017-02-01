@@ -80,21 +80,29 @@
 			<div class="no-zoom">
 				<img class="box" src="img/box-hauteur.png" />
 				<p>Hauteur</p>
-				<input type="num" placeholder="H." vertical ng-model="$ctrl.loader.createData.height" options="{format: 2, step: 0.1}" />
+				<p><b>{{$ctrl.loader.createData.height | distance }}</b></p>
 			</div>
 			<div class="no-zoom">
 				<img class="box" src="img/box-profondeur.png" />
 				<p>Profondeur</p>
-				<input type="num" placeholder="P." vertical ng-model="$ctrl.loader.createData.deep" options="{format: 2, step: 0.1}" />
+				<p><b>{{$ctrl.loader.createData.deep | distance }}</b></p>
 			</div>
 			<div class="no-zoom">
 				<img class="box" src="img/box-largeur.png" />
 				<p>Largeur</p>
-				<input type="num" placeholder="L." vertical ng-model="$ctrl.loader.createData.width" options="{format: 2, step: 0.1}" />
+				<p><b>{{$ctrl.loader.createData.width | distance }}</b></p>
 			</div>
 		</dimension>
-		<label>Volume résultant</label>
-		<my-input readonly class="filled" ng-bind="$ctrl.volumeStr"></my-input>
+		<update-dim>
+			<span>
+				<label>Volume : 
+					<b>{{$ctrl.volumeStr}}</b>
+				</label>
+			</span>
+			<span><button><i class="fa fa-cog" aria-hidden="true"></i> Modifier</button></span>
+		</update-dim>
+		<br/>
+		<br/>
 		<label>Photo du chargement</label>
 		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
 		<comment>Votre annonce sera davantage consultée si elle contient une photo.</comment>
