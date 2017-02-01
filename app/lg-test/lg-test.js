@@ -7,6 +7,7 @@ var app = angular.module(module.exports, ['ui.router']);
 
 var testsUrl = require('./tmpl/tests.html');
 var testDatetimeUrl = require('./tmpl/test-datetime.html');
+var testSliderUrl = require('./tmpl/test-slider.html');
 
 app.config(function($stateProvider) {
 
@@ -14,6 +15,11 @@ app.config(function($stateProvider) {
 		name: 'tests',
 		url: '/tests',
 		templateUrl: testsUrl
+	});
+	$stateProvider.state({
+		name: 'test:slider',
+		url: '/test-slider',
+		templateUrl: testSliderUrl
 	});
 	$stateProvider.state({
 		name: 'test:datetime',
