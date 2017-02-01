@@ -15,7 +15,7 @@
 		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"></lg-city>
 		<label>Arrivée</label>
 		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"></lg-city>
-		<info ng-bind-html="$ctrl.loader.createDataInfoRoute"></info>
+		<info ng-bind-html="$ctrl.loader.createData.infoRoute"></info>
 	</section>
 	<section>
 		<big-label>Horaires</big-label>
@@ -27,6 +27,7 @@
 		<lg-datetime title="Date et heure de livraison" placeholder="Date de départ" ng-model="$ctrl.loader.createData.arrivalDatetime" 
 			options="{defaultHour: 14}" after="$ctrl.loader.createData.departureDatetime" offset="$ctrl.loader.createData.minDuration">
 		</lg-datetime>
+		<info ng-bind-html="$ctrl.loader.createData.infoDuration"></info>
 		<br/>
 	</section>
 	<section class="dark">
@@ -53,7 +54,7 @@
 
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
-			<input type="choice" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc."
+			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc."
 				ng-model="$ctrl.loader.createData.transportTruckType" />
 		</div>
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Bateau'">

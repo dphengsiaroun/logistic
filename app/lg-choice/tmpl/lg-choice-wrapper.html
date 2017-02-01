@@ -1,5 +1,5 @@
 <my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
-<icon ng-bind-html="$ctrl.getIcon($ctrl.currentValue)"></icon>
+<icon lg-bind-html-compile="$ctrl.getIcon($ctrl.currentValue)"></icon>
 <lg-choice ng-show="$ctrl.showLgChoice">
 	<my-head>
 		<head-left ng-click="$ctrl.geoloc()">
@@ -19,10 +19,10 @@
 	</div>
 	<div class="list">
 		<p class="preselected" ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== '' && $ctrl.ngModel.$modelValue !== undefined">
-			<i class="fa fa-check" aria-hidden="true"></i><span ng-bind-html="$ctrl.getLabel($ctrl.ngModel.$modelValue)"></span>
+			<icon><i class="fa fa-check" aria-hidden="true"></i></icon><span ng-bind-html="$ctrl.getLabel($ctrl.ngModel.$modelValue)"></span>
 		</p>
 		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter | limitTo:20" >
-			<icon ng-bind-html="$ctrl.getIcon(choice)"></icon><span ng-bind-html="$ctrl.getLabel(choice)"></span>
+			<icon lg-bind-html-compile="$ctrl.getIcon(choice)"></icon><span ng-bind-html="$ctrl.getLabel(choice)"></span>
 		</p>
 	</div>
 </lg-choice>

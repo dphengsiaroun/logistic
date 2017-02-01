@@ -149,44 +149,53 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, lgFo
 	ctrl.loader = loader;
 	$scope.$watchGroup(['$ctrl.loader.createData.height', '$ctrl.loader.createData.deep',
 		'$ctrl.loader.createData.width'], function() {
-		ctrl.loader.createData.volume = ctrl.loader.createData.height *
-			ctrl.loader.createData.deep * ctrl.loader.createData.width;
-		ctrl.loader.createData.volume =	Number((ctrl.loader.createData.volume).toFixed(2));
-		ctrl.volumeStr = ctrl.loader.createData.volume + ' m3';
-		console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
-	}, true);
+			ctrl.loader.createData.volume = ctrl.loader.createData.height *
+				ctrl.loader.createData.deep * ctrl.loader.createData.width;
+			ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
+			ctrl.volumeStr = ctrl.loader.createData.volume + ' m3';
+			console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
+		}, true);
 
 	$scope.$watchGroup(['$ctrl.loader.createData.departureCity', '$ctrl.loader.createData.arrivalCity'], function() {
-		console.log('ctrl.loader.createDataInfoRoute', arguments);
 		console.log('$ctrl.loader.createData.departureCity', ctrl.loader.createData.departureCity);
 		if (!(ctrl.loader.createData.departureCity && ctrl.loader.createData.arrivalCity)) {
-			ctrl.loader.createDataInfoRoute = '';
+			ctrl.loader.createData.infoRoute = '';
 			return;
 		}
 		$http({
-				url: 'ws/geoloc/route.php',
-				method: 'POST',
-				data: {
-					departure: ctrl.loader.createData.departureCity,
-					arrival: ctrl.loader.createData.arrivalCity
-				},
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			url: 'ws/geoloc/route.php',
+			method: 'POST',
+			data: {
+				departure: ctrl.loader.createData.departureCity,
+				arrival: ctrl.loader.createData.arrivalCity
+			},
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				ctrl.loader.createDataInfoRoute = '';
-				console.error('error', response);
-				return;
+				return $q.reject(response);
 			}
 			ctrl.loader.createData.minDuration = response.data.route.duration;
-			ctrl.loader.createData.distance = Math.round(response.data.route.distance/1000);
+			ctrl.loader.createData.distance = Math.round(response.data.route.distance / 1000);
 			var durationStr = lgFormat.formatDuration(ctrl.loader.createData.minDuration);
-			ctrl.loader.createDataInfoRoute = 'Distance : <b>' + ctrl.loader.createData.distance +
-				'km</b> - Durée : <b>' + durationStr + '</b>';
+			ctrl.loader.createData.infoRoute = 'Distance : <b>' + ctrl.loader.createData.distance +
+				'km</b> - Durée min. : <b>' + durationStr + '</b>';
 		}).catch(function(error) {
 			console.error('error', error);
-			ctrl.loader.createDataInfoRoute = '';
+			ctrl.loader.createData.infoRoute = '';
 		});
+	});
+
+	$scope.$watchGroup(['$ctrl.loader.createData.departureDatetime', '$ctrl.loader.createData.arrivalDatetime'], function() {
+		console.log('$ctrl.loader.createData.infoDuration update');
+		if (!(ctrl.loader.createData.departureDatetime && ctrl.loader.createData.arrivalDatetime)) {
+			ctrl.loader.createData.infoDuration = '';
+			return;
+		}
+		ctrl.loader.createData.infoDuration = 'Durée effective : <b>' +
+			lgFormat.formatDuration((ctrl.loader.createData.arrivalDatetime -
+				ctrl.loader.createData.departureDatetime) / 1000) +
+			'</b>';
 	});
 });
 

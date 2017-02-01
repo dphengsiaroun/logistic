@@ -30,6 +30,13 @@ lg-choice-wrapper {
         i {
             color: $selectedColor;
         }
+        svg {
+            position: absolute;
+            width: 34px;
+            left: -35px;
+			top: 3px;
+            fill: $selectedColor;
+        }
     }
 }
 
@@ -75,19 +82,27 @@ lg-choice {
             padding: 15px 35px;
             font-size: 20px;
             border-bottom: 1px solid $borderColor;
-            i {
-                position: absolute;
-                left: 8px;
-                color: $selectedColor;
-            }
-            i.fa-balance-scale {
-                left: 6px;
-            }
-            .fa-map-marker {
-                left: 13px;
-            }
-            i.fa-check {
-                left: 8px;
+            icon {
+                svg {
+                    position: absolute;
+                    width: 23px;
+                    left: 6px;
+                    fill: $selectedColor;
+                }
+                i {
+                    position: absolute;
+                    left: 8px;
+                    color: $selectedColor;
+                }
+                i.fa-balance-scale {
+                    left: 6px;
+                }
+                .fa-map-marker {
+                    left: 13px;
+                }
+                i.fa-check {
+                    left: 8px;
+                }
             }
         }
         p.preselected {
@@ -95,7 +110,6 @@ lg-choice {
             i {
                 color: $fontColor;
             }
-            
         }
     }
 }

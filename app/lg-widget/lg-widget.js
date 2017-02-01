@@ -123,3 +123,19 @@ app.component('lgCity', {
 		myModel: '=ngModel'
 	}
 });
+
+app.directive('lgBindHtmlCompile', function($compile) {
+	'ngInject';
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			scope.$watch(function() {
+				var html = scope.$eval(attrs.lgBindHtmlCompile);
+				return html;
+			}, function(value) {
+				element.html(value);
+				$compile(element.contents())(scope);
+			});
+		}
+	};
+});
