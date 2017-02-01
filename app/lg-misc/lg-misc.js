@@ -33,11 +33,19 @@ app.service('lgFormat', function LgFormat($filter) {
 	'ngInject';
 	this.formatDuration = function(duration) {
 		var result = '';
+		var minuteFormat = 'mm';
+		var hourFormat = ' et \'H\'h\'';
+		if (duration % (60 * 60) === 0) {
+			minuteFormat = '';
+			if (duration % (24 * 60 * 60) === 0) {
+				hourFormat = '';
+			}
+		}
 		if (duration < 24*60*60) {
-			result = $filter('date')(duration*1000, 'H\'h\'mm', 'UTC');
+			result = $filter('date')(duration*1000, 'H\'h\'' + minuteFormat, 'UTC');
 		} else {
 
-			result = $filter('date')((duration - 24*60*60)*1000, 'd\'j et \'H\'h\'mm', 'UTC');
+			result = $filter('date')((duration - 24*60*60)*1000, 'd\'j' + hourFormat + minuteFormat, 'UTC');
 		}
 		return result;
 	};

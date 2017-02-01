@@ -15,7 +15,7 @@ app.component('lgDatetime', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgDatetimeUrl,
-	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
+	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll, lgFormat) {
 		'ngInject';
 		console.log('lgDatetimeCtrl');
 		var ctrl = this;
@@ -78,6 +78,9 @@ app.component('lgDatetime', {
 
 		ctrl.setHours = (hour) => {
 			console.log('setHours', arguments);
+			if (ctrl.selectedHours === hour) {
+				return;
+			}
 			ctrl.selectedHours = hour;
 			var date = ctrl.ngModel.$viewValue;
 			console.log('date', date);
@@ -85,9 +88,8 @@ app.component('lgDatetime', {
 				return;
 			}
 			date.setHours(hour);
-			console.log('ctrl.ngModel.$setViewValue', ctrl.ngModel.$viewValue);
-			ctrl.ngModel.$render();
-			ctrl.ngModel.$setTouched();
+			date = new Date(date);
+			ctrl.update(date);
 		};
 
 		ctrl.initOptions = () => {
@@ -130,15 +132,38 @@ app.component('lgDatetime', {
 			};
 		};
 
-		ctrl.$onChanges = (changesObj) => {
-			console.log('LgDatetimeCtrl $onChanges');
+		ctrl.$onChanges = function(changesObj) {
+			console.log('LgDatetimeCtrl $onChanges', changesObj);
 			if (changesObj.after) {
 				ctrl.opts.after = changesObj.after.currentValue instanceof Date;
-				ctrl.opts.start = changesObj.after.currentValue;
+				if (ctrl.opts.after) {
+					console.log('LgDatetimeCtrl $onChanges ctrl.offset', ctrl.offset);
+					var offset = Math.ceil(ctrl.offset / 3600) * 3600;
+					ctrl.opts.start = new Date(changesObj.after.currentValue.getTime() +
+					(offset * 1000));
+				}
+				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start', ctrl.opts.start);
+			}
+			if (changesObj.offset && ctrl.opts.after) {
+				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start update');
+				ctrl.opts.start = new Date(ctrl.opts.start.getTime() + (changesObj.offset.currentValue / 1000));
 				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start', ctrl.opts.start);
 			}
 
 		};
+
+		$scope.$watch('$ctrl.selectedDate', () => {
+			if (!ctrl.selectedDate) {
+				ctrl.retroactionMsg = '&nbsp;<br/>&nbsp;';
+				return;
+			}
+			var durationStr = '';
+			if (ctrl.opts.after) {
+				var duration = (ctrl.selectedDate - ctrl.opts.start)/1000;
+				durationStr = '<br/>Durée&nbsp;:&nbsp;' + lgFormat.formatDuration(duration);
+			}
+			ctrl.retroactionMsg = $filter('date')(ctrl.selectedDate, ctrl.format) + durationStr;
+		}, true);
 
 	},
 	bindings: {
@@ -146,6 +171,7 @@ app.component('lgDatetime', {
 		choices: '<',
 		placeholder: '@',
 		options: '<',
-		after: '<'
+		after: '<',
+		offset: '<'
 	}
 });

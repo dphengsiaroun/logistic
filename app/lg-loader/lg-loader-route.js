@@ -178,9 +178,10 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, lgFo
 				console.error('error', response);
 				return;
 			}
-			var durationStr = lgFormat.formatDuration(response.data.route.duration);
-			var distanceStr = Math.round(response.data.route.distance/1000);
-			ctrl.loader.createDataInfoRoute = 'Distance : <b>' + distanceStr +
+			ctrl.loader.createData.minDuration = response.data.route.duration;
+			ctrl.loader.createData.distance = Math.round(response.data.route.distance/1000);
+			var durationStr = lgFormat.formatDuration(ctrl.loader.createData.minDuration);
+			ctrl.loader.createDataInfoRoute = 'Distance : <b>' + ctrl.loader.createData.distance +
 				'km</b> - Durée : <b>' + durationStr + '</b>';
 		}).catch(function(error) {
 			console.error('error', error);
