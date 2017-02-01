@@ -2,10 +2,10 @@
 <sign-form>
 	<div class="table">
 		<div class="row">
-			<div class="cell">
+			<div ng-click="$root.goto('./ws/oauth2/facebook.php')" class="cell">
 				<img class="cell-fb" src="img/facebook.svg" />
 			</div>
-			<div class="cell">
+			<div ng-click="$root.goto('./ws/oauth2/google.php')" class="cell">
 				<img class="cell-go" src="img/google-plus.svg" />
 			</div>
 		</div>
@@ -18,7 +18,7 @@
 			ng-model="$ctrl.user.signupData.content.login" />
 		<input type="text" placeholder="Email" ng-model="$ctrl.user.signupData.email" /><br/>
 		<lg-select ng-model="$ctrl.user.signupData.content.profile">
-			<lg-option value="loader" selected>Chargeur</lg-option> 
+			<lg-option value="loader" selected>Chargeur</lg-option>
 			<lg-option value="carrier" selected>Transporteur</lg-option>
 			<lg-option value="both" selected>Les deux</lg-option>
 		</lg-select>
