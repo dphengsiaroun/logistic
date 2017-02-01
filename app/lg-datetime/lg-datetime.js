@@ -132,28 +132,23 @@ app.component('lgDatetime', {
 			};
 		};
 
-		ctrl.$onChanges = function(changesObj) {
+		ctrl.$onChanges = function (changesObj) {
 			console.log('LgDatetimeCtrl $onChanges', changesObj);
+			var offset = ctrl.offset || 0;
+			offset = Math.ceil(offset / 3600) * 3600;
 			if (changesObj.after) {
 				ctrl.opts.after = changesObj.after.currentValue instanceof Date;
-				if (ctrl.opts.after) {
-					console.log('LgDatetimeCtrl $onChanges ctrl.offset', ctrl.offset);
-					var offset = ctrl.offset || 0;
-					offset = Math.ceil(offset / 3600) * 3600;
-					ctrl.opts.start = new Date(changesObj.after.currentValue.getTime() +
-					(offset * 1000));
-					console.log('LgDatetimeCtrl $onChanges check start is before selectedDate');
-					if (ctrl.opts.start > ctrl.selectedDate) {
-						console.log('LgDatetimeCtrl $onChanges : start is after selectedDate');
-						ctrl.update(undefined);
-					}
-				}
 				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start', ctrl.opts.start);
 			}
-			if (changesObj.offset && ctrl.opts.after) {
-				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start update');
-				ctrl.opts.start = new Date(ctrl.opts.start.getTime() + (changesObj.offset.currentValue / 1000));
-				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start', ctrl.opts.start);
+			if (ctrl.opts.after) {
+				console.log('LgDatetimeCtrl $onChanges offset', offset);
+				ctrl.opts.start = new Date(ctrl.after.getTime() +
+					(offset * 1000));
+				console.log('LgDatetimeCtrl $onChanges check start is before selectedDate');
+			}
+			if (ctrl.opts.start > ctrl.selectedDate) {
+				console.log('LgDatetimeCtrl $onChanges : start is after selectedDate');
+				ctrl.update(undefined);
 			}
 
 		};
@@ -165,7 +160,7 @@ app.component('lgDatetime', {
 			}
 			var durationStr = '';
 			if (ctrl.opts.after) {
-				var duration = (ctrl.selectedDate - ctrl.after)/1000;
+				var duration = (ctrl.selectedDate - ctrl.after) / 1000;
 				durationStr = '<br/>Durée&nbsp;:&nbsp;' + lgFormat.formatDuration(duration);
 			}
 			ctrl.retroactionMsg = $filter('date')(ctrl.selectedDate, ctrl.format) + durationStr;
