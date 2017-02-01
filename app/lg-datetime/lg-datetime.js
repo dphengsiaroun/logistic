@@ -138,7 +138,8 @@ app.component('lgDatetime', {
 				ctrl.opts.after = changesObj.after.currentValue instanceof Date;
 				if (ctrl.opts.after) {
 					console.log('LgDatetimeCtrl $onChanges ctrl.offset', ctrl.offset);
-					var offset = Math.ceil(ctrl.offset / 3600) * 3600;
+					var offset = ctrl.offset || 0;
+					offset = Math.ceil(offset / 3600) * 3600;
 					ctrl.opts.start = new Date(changesObj.after.currentValue.getTime() +
 					(offset * 1000));
 					console.log('LgDatetimeCtrl $onChanges check start is before selectedDate');
