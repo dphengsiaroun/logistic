@@ -149,6 +149,10 @@ lg-dt-month {
                     border-radius: 0% 84% 84% 0%;
                     background-color: $transparentSelectedColor;
                 }
+                td.interval-start.selected {
+                    border-radius: 84% 84% 84% 84%;
+                    background-color: $transparentSelectedColor;
+                }
             }
         }
     }
