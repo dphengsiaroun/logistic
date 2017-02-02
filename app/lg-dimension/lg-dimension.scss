@@ -17,4 +17,30 @@ lg-dimension {
             border: none;
         }
     }
+    
 }
+
+lg-dimension-edit {
+    display: block;
+    height: 0px;
+    width: 0px;
+    my-head {
+        z-index: 102;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+    }
+    my-body {
+        z-index: 102;
+        position: fixed;
+        top: 59px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+    }
+}
+
