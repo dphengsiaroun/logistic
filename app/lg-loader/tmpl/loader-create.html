@@ -77,30 +77,18 @@
 		<input type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
 		<label>Dimensions en mètre</label>
 		<dimension>
-			<div class="no-zoom">
-				<img class="box" src="img/box-hauteur.png" />
-				<p>Hauteur</p>
-				<p><b>{{$ctrl.loader.createData.height | distance }}</b></p>
+			<div class="box no-zoom">
+				<img class="lg-svg" src="img/box/box-width.svg" />
 			</div>
-			<div class="no-zoom">
-				<img class="box" src="img/box-profondeur.png" />
-				<p>Profondeur</p>
-				<p><b>{{$ctrl.loader.createData.deep | distance }}</b></p>
+			<div class="box no-zoom">
+				<img class="lg-svg" src="img/box/box-height.svg" />
 			</div>
-			<div class="no-zoom">
-				<img class="box" src="img/box-largeur.png" />
-				<p>Largeur</p>
-				<p><b>{{$ctrl.loader.createData.width | distance }}</b></p>
+			<div class="box no-zoom">
+				<img class="lg-svg" src="img/box/box-deep.svg" />
 			</div>
 		</dimension>
-		<update-dim>
-			<span>
-				<label>Volume : 
-					<b>{{$ctrl.volumeStr}}</b>
-				</label>
-			</span>
-			<span><button><i class="fa fa-cog" aria-hidden="true"></i> Modifier</button></span>
-		</update-dim>
+		<lg-dimension ng-model="$ctrl.loader.createData.dimension">
+		</lg-dimension>
 		<br/>
 		<br/>
 		<label>Photo du chargement</label>

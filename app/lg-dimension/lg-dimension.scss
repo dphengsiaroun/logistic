@@ -1,0 +1,20 @@
+@import '../css/color';
+
+lg-dimension {
+    my-input {
+        display: table;
+        table-layout: fixed;
+        padding: 0px;
+        span {
+            display: table-cell;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            color: $placeholderColor;
+            border-right: 1px solid $borderColor;
+        }
+        span:last-child {
+            border: none;
+        }
+    }
+}

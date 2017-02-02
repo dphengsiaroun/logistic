@@ -1,0 +1,28 @@
+<dimension ng-show="$ctrl.filled">
+	<div>
+		<p>Largeur</p>
+		<p><b>{{$ctrl.loader.createData.dimension.width | distance }}</b></p>
+	</div>
+	<div>
+		<p>Hauteur</p>
+		<p><b>{{$ctrl.loader.createData.dimension.height | distance }}</b></p>
+	</div>
+	<div>
+		<p>Profondeur</p>
+		<p><b>{{$ctrl.loader.createData.dimension.deep | distance }}</b></p>
+	</div>
+</dimension>
+<my-input ng-hide="$ctrl.filled">
+	<span>
+		Hauteur
+	</span>
+	<span>
+		Largeur
+	</span>
+	<span>
+		Profondeur
+	</span>
+</my-input>
+<span>
+	<label>Volume résultant : <b>{{$ctrl.volumeStr}}</b></label>
+</span>

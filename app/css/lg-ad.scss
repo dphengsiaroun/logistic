@@ -64,7 +64,7 @@
         dimension {
             display: table;
             width: 100%;
-            margin: 0 0 20px;
+            margin: 0px;
             padding: 0px;
             div {
                 display: table-cell;
@@ -73,30 +73,25 @@
                 img {
                     display: inline-block;
                 }
-                img.box {
-                    width: 90px;
-                }
-                img.truck {
-                    width: 70px;
-                }
                 p {
                     font-size: 17px;
                     font-weight: normal;
                 }
             }
-        }
-        update-dim {
-            display: table;
-            width: 100%;
-            span {
-                display: table-cell;
-                label {
-                    font-weight: bold;
+            div.box {
+                svg {
+                    width: 70px;
                 }
-                button {
-                    width: 100%;
-                    padding: 0px 10px;
-                    background-color: $headerColor;
+                img {
+                    width: 90px;
+                }
+            }
+            div.truck {
+                svg {
+                    width: 70px;
+                }
+                img {
+                    width: 70px;
                 }
             }
         }

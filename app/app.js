@@ -35,6 +35,7 @@ var lgChoice = require('./lg-choice/lg-choice.js');
 var lgCalendar = require('./lg-calendar/lg-calendar.js');
 var lgDatetime = require('./lg-datetime/lg-datetime.js');
 var lgSlider = require('./lg-slider/lg-slider.js');
+var lgDimension = require('./lg-dimension/lg-dimension.js');
 var lgNum = require('./lg-num/lg-num.js');
 var lgEyePassword = require('./lg-eyepassword/lg-eyepassword.js');
 var lgConfig = require('./lg-config/lg-config.js');
@@ -70,6 +71,7 @@ var app = angular.module('mainApp', [
 	lgCalendar,
 	lgDatetime,
 	lgSlider,
+	lgDimension,
 	lgEyePassword,
 	lgConfig,
 	lgWidget,
