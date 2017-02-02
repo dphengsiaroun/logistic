@@ -43,7 +43,8 @@ app.component('lgSlider', {
 			cursor.css({
 				top: y + 'px',
 			});
-			ctrl.update(y);
+			var val = Math.round((ctrl.max - ctrl.min) * ((maxHeight - y) / maxHeight) + ctrl.min);
+			ctrl.update(val);
 		};
 
 
@@ -94,6 +95,11 @@ app.component('lgSlider', {
 		cursor.on('mousedown', mousedown);
 
 
+	},
+	bindings: {
+		min: '<',
+		max: '<',
+		step: '<',
 	}
 });
 
