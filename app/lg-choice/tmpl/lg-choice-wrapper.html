@@ -2,8 +2,10 @@
 <icon lg-bind-html-compile="$ctrl.getIcon($ctrl.currentValue)"></icon>
 <lg-choice ng-show="$ctrl.showLgChoice">
 	<my-head>
-		<head-left ng-click="$ctrl.geoloc()">
-			<i ng-show="$ctrl.defaultsOptions.place" class="fa fa-location-arrow" aria-hidden="true"></i>
+		<head-left ng-show="$ctrl.defaultsOptions.place" ng-click="$ctrl.geoloc()">
+			<i class="fa fa-location-arrow" aria-hidden="true"></i>
+		</head-left>
+		<head-left ng-hide="$ctrl.defaultsOptions.place">
 		</head-left>
 		<head-center>
 			<p>{{$ctrl.title}}</p>
