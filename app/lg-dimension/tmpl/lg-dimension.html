@@ -12,7 +12,7 @@
 		<p><b>{{$ctrl.loader.createData.dimension.deep | distance }}</b></p>
 	</div>
 </dimension>
-<my-input ng-hide="$ctrl.filled">
+<my-input ng-hide="$ctrl.filled" ng-click="$ctrl.start('kiki')">
 	<span>
 		Hauteur
 	</span>
@@ -26,3 +26,21 @@
 <span>
 	<label>Volume résultant : <b>{{$ctrl.volumeStr}}</b></label>
 </span>
+<lg-dimension-edit ng-show="$ctrl.state === 'editState'">
+	<my-head>
+		<head-left ng-click="$ctrl.cancel()">
+			<i class="fa fa-times" aria-hidden="true"></i>
+		</head-left>
+		<head-center>
+			<p>{{$ctrl.title}}</p>
+		</head-center>
+		<head-right ng-show="$ctrl.dimension" ng-click="$ctrl.stop()">
+			<i class="fa fa-check" aria-hidden="true"></i>
+		</head-right>
+		<head-right ng-hide="$ctrl.dimension">
+		</head-right>
+	</my-head>
+	<my-body>
+		coucou
+	</my-body>
+</lg-datetime-edit>
