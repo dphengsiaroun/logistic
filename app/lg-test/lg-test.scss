@@ -1,3 +1,4 @@
+@import '../css/color';
 tests {
     width: 100%;
     background-color: #ebebeb;
@@ -26,12 +27,35 @@ tests {
     }
 }
 
-test-slider {
-    display: table;
-	table-layout: fixed;
+fixed {
+    display: block;
+    position: fixed;
+    top: 59px;
+    left: 0px;
+    bottom: 0px;
+    background-color: white;
     width: 100%;
-	span {
-		display: table-cell;
-
-	}
+    height: 100%;
+    test-slider {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        text-align: center;
+        span {
+            display: table-cell;
+        }
+    }
+    my-canvas {
+		display: block;
+        width: 100%;
+        height: 100px;
+		background-color: $lightGray;
+		svg {
+			line {
+				fill: black;
+				stroke: black;
+				stroke-width: 1px;
+			}
+		}
+    }
 }

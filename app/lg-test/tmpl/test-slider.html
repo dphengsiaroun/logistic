@@ -1,15 +1,31 @@
-<lg-title>Test slider</lg-title>
-<test-slider ng-init="width = 104">
-	<span>
+<fixed>
+	<my-canvas>
+		<svg width="300" height="100">
+			<line x1="5" y1="95" x2="105" y2="95" />
+			<line x1="5" y1="95" x2="5" y2="45" />
+			<line x1="5" y1="45" x2="105" y2="45" />
+			<line x1="105" y1="95" x2="105" y2="45" />
+
+			<line x1="5" y1="45" x2="10" y2="40" />
+			<line x1="105" y1="95" x2="110" y2="90" />
+			<line x1="105" y1="45" x2="110" y2="40" />
+
+			<line x1="10" y1="40" x2="110" y2="40" />
+			<line x1="110" y1="40" x2="110" y2="90" />
+		</svg>
+	</my-canvas>
+	<test-slider ng-init="width = 104">
+		<span>
 		<label>Width : {{width}}</label>
-		<lg-slider ng-model="width" min="10" max="243" step="10" options="{}"></lg-slider>
+		<lg-slider ng-model="width" min="10" max="240" step="10" options="{}"></lg-slider>
 	</span>
-	<span>
+		<span>
 		<label>Height : {{height}}</label>
-		<lg-slider ng-model="height" min="10" max="259" step="10" options="{}"></lg-slider>
+		<lg-slider ng-model="height" min="10" max="250" step="10" options="{}"></lg-slider>
 	</span>
-	<span>
+		<span>
 		<label>Depth : {{depth}}</label>
-		<lg-slider ng-model="depth" xmin="10" xmax="1219" step="10" options="{}"></lg-slider>
+		<lg-slider ng-model="depth" min="10" max="1200" step="10" options="{}"></lg-slider>
 	</span>
-</test-slider>
+	</test-slider>
+</fixed>
