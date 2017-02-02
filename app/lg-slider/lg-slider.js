@@ -22,7 +22,18 @@ app.component('lgSlider', {
 		var startY = 0;
 		var y = 0;
 		var maxHeight = line.height();
-		console.log('maxHeight', maxHeight);
+
+		ctrl.$onInit = function() {
+			if (ctrl.min === undefined) {
+				ctrl.min = 0;
+			};
+			if (ctrl.max === undefined) {
+				ctrl.max = 100;
+			};
+			if (ctrl.ngModel.$viewValue === undefined) {
+				ctrl.ngModel.$setViewValue(ctrl.min);
+			};
+		};
 
 		ctrl.update = function(val) {
 			ctrl.ngModel.$setViewValue(val);
@@ -31,12 +42,10 @@ app.component('lgSlider', {
 		};
 
 		var start = function(e) {
-			console.log('start', arguments);
 			startY = e.pageY - y;
 		};
 
 		var move = function(e) {
-			console.log('start', arguments);
 			y = e.pageY - startY;
 			y = (y < 0) ? 0 : y;
 			y = (y > maxHeight) ? maxHeight : y;
@@ -93,7 +102,6 @@ app.component('lgSlider', {
 		};
 
 		cursor.on('mousedown', mousedown);
-
 
 	},
 	bindings: {
