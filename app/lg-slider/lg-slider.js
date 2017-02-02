@@ -23,12 +23,28 @@ app.component('lgSlider', {
 		var maxHeight = line.height();
 		console.log('maxHeight', maxHeight);
 
+		var start = function(e) {
+			console.log('start', arguments);
+			startY = e.pageY - y;
+		};
+
+		var move = function(e) {
+			console.log('start', arguments);
+			y = e.pageY - startY;
+			y = (y < 0) ? 0 : y;
+			y = (y > maxHeight) ? maxHeight : y;
+			cursor.css({
+				top: y + 'px',
+			});
+		};
+
+
 		var touchstart = function(event) {
 			console.log('touchstart', arguments);
 			event.preventDefault();
 			var touch = event.changedTouches[0];
 			console.log('touch', touch);
-			startY = touch.pageY - y;
+			start(touch);
 		};
 		var touchend = function(event) {
 			console.log('touchend', arguments);
@@ -36,12 +52,7 @@ app.component('lgSlider', {
 		var touchmove = function(event) {
 			event.preventDefault();
 			var touch = event.changedTouches[0];
-			y = touch.pageY - startY;
-			y = (y < 0) ? 0 : y;
-			y = (y > maxHeight) ? maxHeight : y;
-			cursor.css({
-				top: y + 'px',
-			});
+			move(touch);
 		};
 		var touchcancel = function(event) {
 			console.log('touchcancel', arguments);
@@ -50,6 +61,26 @@ app.component('lgSlider', {
 		cursor.on('touchend', touchend);
 		cursor.on('touchmove', touchmove);
 		cursor.on('touchcancel', touchcancel);
+
+		var mousedown = function(event) {
+			console.log('mousedown', arguments);
+			event.preventDefault();
+			start(event);
+		};
+
+		var mousemove = function(event) {
+			console.log('mousemove', arguments);
+			move(event);
+		};
+
+		var mouseup = function(event) {
+			console.log('mouseup', arguments);
+		};
+
+		cursor.on('mousedown', mousedown);
+		cursor.on('mousemove', mousemove);
+		cursor.on('mouseup', mouseup);
+
 	}
 });
 
