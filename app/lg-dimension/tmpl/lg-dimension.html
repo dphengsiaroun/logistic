@@ -1,18 +1,18 @@
-<dimension ng-show="$ctrl.filled">
+<dimension ng-show="$ctrl.dimension">
 	<div>
 		<p>Largeur</p>
-		<p><b>{{$ctrl.loader.createData.dimension.width | distance }}</b></p>
+		<p><b>{{$ctrl.dimension.width | distance }}</b></p>
 	</div>
 	<div>
 		<p>Hauteur</p>
-		<p><b>{{$ctrl.loader.createData.dimension.height | distance }}</b></p>
+		<p><b>{{$ctrl.dimension.height | distance }}</b></p>
 	</div>
 	<div>
 		<p>Profondeur</p>
-		<p><b>{{$ctrl.loader.createData.dimension.deep | distance }}</b></p>
+		<p><b>{{$ctrl.dimension.deep | distance }}</b></p>
 	</div>
 </dimension>
-<my-input ng-hide="$ctrl.filled" ng-click="$ctrl.start('kiki')">
+<my-input ng-hide="$ctrl.dimension" ng-click="$ctrl.start()">
 	<span>
 		Hauteur
 	</span>

@@ -17,6 +17,7 @@ app.component('lgDimension', {
 		'ngInject';
 		console.log('LgDimensionCtrl');
 		var ctrl = this;
+		ctrl.dimension = undefined;
 
 		ctrl.start = function() {
 			console.log('start', arguments);
@@ -43,7 +44,7 @@ app.component('lgDimension', {
 		};
 	},
 	bindings: {
-		
+		title: '@',
 	}
 });
 
