@@ -1,31 +1,36 @@
 <fixed>
 	<my-canvas>
-		<svg width="300" height="100">
-			<line x1="5" y1="95" x2="105" y2="95" />
-			<line x1="5" y1="95" x2="5" y2="45" />
-			<line x1="5" y1="45" x2="105" y2="45" />
-			<line x1="105" y1="95" x2="105" y2="45" />
+		<svg width="320px" height="100px" viewBox="0 -400 1500 500">
+			<g transform="translate(0,100)">
+				<g transform="scale(1,-1)">
+					<rect x="0" y="0" ng-attr-width="{{$ctrl.depth}}" ng-attr-height="{{$ctrl.height}}" />
+					<polygon points="
+						0,{{$ctrl.height}}
+						{{$ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
+						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
+						{{$ctrl.depth}},{{$ctrl.height}}" />
+					<polygon points="
+						{{$ctrl.depth}},0
+						{{$ctrl.depth}},{{$ctrl.height}}
+						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
+						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.width * $ctrl.coef}}" />
 
-			<line x1="5" y1="45" x2="10" y2="40" />
-			<line x1="105" y1="95" x2="110" y2="90" />
-			<line x1="105" y1="45" x2="110" y2="40" />
-
-			<line x1="10" y1="40" x2="110" y2="40" />
-			<line x1="110" y1="40" x2="110" y2="90" />
+				</g>
+			</g>
 		</svg>
 	</my-canvas>
-	<test-slider ng-init="width = 104">
+	<test-slider ng-init="$ctrl.width = 104">
 		<span>
-		<label>Width : {{width}}</label>
-		<lg-slider ng-model="width" min="10" max="240" step="10" options="{}"></lg-slider>
+		<label>Width : {{$ctrl.width}}</label>
+		<lg-slider ng-model="$ctrl.width" min="10" max="240" step="10" options="{}"></lg-slider>
 	</span>
 		<span>
-		<label>Height : {{height}}</label>
-		<lg-slider ng-model="height" min="10" max="250" step="10" options="{}"></lg-slider>
+		<label>Height : {{$ctrl.height}}</label>
+		<lg-slider ng-model="$ctrl.height" min="10" max="250" step="10" options="{}"></lg-slider>
 	</span>
 		<span>
-		<label>Depth : {{depth}}</label>
-		<lg-slider ng-model="depth" min="10" max="1200" step="10" options="{}"></lg-slider>
+		<label>Depth : {{$ctrl.depth}}</label>
+		<lg-slider ng-model="$ctrl.depth" min="10" max="1200" step="10" options="{}"></lg-slider>
 	</span>
 	</test-slider>
 </fixed>
