@@ -1,5 +1,7 @@
 'use strict';
 
+require('angular/angular-csp.css');
+
 require('font-awesome/css/font-awesome.css');
 
 require('./lg-eyepassword/lg-eyepassword.css');
