@@ -17,8 +17,11 @@ app.component('lgSlider', {
 		'ngInject';
 		console.log('LgSliderCtrl');
 		var cursor = $element.find('cursor');
+		var line = $element.find('line');
 		var startY = 0;
 		var y = 0;
+		var maxHeight = line.height();
+		console.log('maxHeight', maxHeight);
 
 		var touchstart = function(event) {
 			console.log('touchstart', arguments);
@@ -31,12 +34,11 @@ app.component('lgSlider', {
 			console.log('touchend', arguments);
 		};
 		var touchmove = function(event) {
-			console.log('touchmove', arguments);
 			event.preventDefault();
 			var touch = event.changedTouches[0];
 			y = touch.pageY - startY;
 			y = (y < 0) ? 0 : y;
-			y = (y > 300) ? 300 : y;
+			y = (y > maxHeight) ? maxHeight : y;
 			cursor.css({
 				top: y + 'px',
 			});
