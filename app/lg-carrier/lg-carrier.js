@@ -14,7 +14,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		type: 'benne',
 		height: '2',
 		width: '10',
-		deep: '8',
+		depth: '8',
 		city: {city: 'Ain Tolba', region: 'A\u00efn T\u00e9mouchent', country: 'Algérie'},
 		conditioning: 'Palette',
 		maxVolume: '3',

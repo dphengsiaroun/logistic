@@ -1,14 +1,22 @@
 <lg-title>Test slider</lg-title>
 <style>
-test-slider {
-	display: block;
-	width: 100%;
-	text-align: center;
-}
+    test-slider {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 </style>
 <test-slider>
-	<label>Poids : {{weight}}</label>
-	<lg-slider ng-model="weight" options="{}"></lg-slider>
-	<lg-slider ng-model="weight" options="{}"></lg-slider>
-	<lg-slider ng-model="weight" options="{}"></lg-slider>
+	<span>
+		<label>Poids : {{weight}}</label>
+		<lg-slider ng-model="width" options="{}"></lg-slider>
+	</span>
+	<span>
+		<label>Poids : {{weight}}</label>
+		<lg-slider ng-model="height" options="{}"></lg-slider>
+	</span>
+	<span>
+		<label>Poids : {{weight}}</label>
+		<lg-slider ng-model="depth" options="{}"></lg-slider>
+	</span>
 </test-slider>

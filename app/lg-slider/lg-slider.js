@@ -16,6 +16,7 @@ app.component('lgSlider', {
 	controller: function LgSliderCtrl($element) {
 		'ngInject';
 		console.log('LgSliderCtrl');
+		var ctrl = this;
 		var cursor = $element.find('cursor');
 		var line = $element.find('line');
 		var startY = 0;
@@ -23,12 +24,18 @@ app.component('lgSlider', {
 		var maxHeight = line.height();
 		console.log('maxHeight', maxHeight);
 
-		var start = function (e) {
+		ctrl.update = function(val) {
+			ctrl.ngModel.$setViewValue(val);
+			ctrl.ngModel.$render();
+			ctrl.ngModel.$setTouched();
+		};
+
+		var start = function(e) {
 			console.log('start', arguments);
 			startY = e.pageY - y;
 		};
 
-		var move = function (e) {
+		var move = function(e) {
 			console.log('start', arguments);
 			y = e.pageY - startY;
 			y = (y < 0) ? 0 : y;
@@ -36,25 +43,26 @@ app.component('lgSlider', {
 			cursor.css({
 				top: y + 'px',
 			});
+			ctrl.update(y);
 		};
 
 
-		var touchstart = function (event) {
+		var touchstart = function(event) {
 			console.log('touchstart', arguments);
 			event.preventDefault();
 			var touch = event.changedTouches[0];
 			console.log('touch', touch);
 			start(touch);
 		};
-		var touchend = function (event) {
+		var touchend = function(event) {
 			console.log('touchend', arguments);
 		};
-		var touchmove = function (event) {
+		var touchmove = function(event) {
 			event.preventDefault();
 			var touch = event.changedTouches[0];
 			move(touch);
 		};
-		var touchcancel = function (event) {
+		var touchcancel = function(event) {
 			console.log('touchcancel', arguments);
 		};
 		cursor.on('touchstart', touchstart);
@@ -62,7 +70,7 @@ app.component('lgSlider', {
 		cursor.on('touchmove', touchmove);
 		cursor.on('touchcancel', touchcancel);
 
-		var mousedown = function (event) {
+		var mousedown = function(event) {
 			console.log('mousedown', arguments);
 			event.preventDefault();
 			start(event);
@@ -70,13 +78,13 @@ app.component('lgSlider', {
 			cursor.on('mouseup', mouseup);
 		};
 
-		var mousemove = function (event) {
+		var mousemove = function(event) {
 			console.log('mousemove', arguments);
 			event.preventDefault();
 			move(event);
 		};
 
-		var mouseup = function (event) {
+		var mouseup = function(event) {
 			console.log('mouseup', arguments);
 			event.preventDefault();
 			cursor.off('mousemove');

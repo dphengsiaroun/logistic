@@ -147,10 +147,10 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, 
 	'ngInject';
 	var ctrl = this;
 	ctrl.loader = loader;
-	$scope.$watchGroup(['$ctrl.loader.createData.height', '$ctrl.loader.createData.deep',
+	$scope.$watchGroup(['$ctrl.loader.createData.height', '$ctrl.loader.createData.depth',
 		'$ctrl.loader.createData.width'], function() {
 			ctrl.loader.createData.volume = ctrl.loader.createData.height *
-				ctrl.loader.createData.deep * ctrl.loader.createData.width;
+				ctrl.loader.createData.depth * ctrl.loader.createData.width;
 			ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
 			ctrl.volumeStr = ctrl.loader.createData.volume + ' m3';
 			console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);

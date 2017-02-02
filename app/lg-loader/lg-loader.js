@@ -15,7 +15,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		transportTruckType: 'Bâché',
 		weightInterval: '',
 		height: 1,
-		deep: 1,
+		depth: 1,
 		width: 1,
 		priceWanted: 300,
 		adTimes: '1 semaine',

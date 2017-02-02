@@ -14,9 +14,9 @@ app.service('truck', ['$injector', function Truck($injector) {
 	var service = this;
 	this.createData = {
 		type: 'benne',
-		height: '2',
-		width: '10',
-		deep: '8',
+		height: 1,
+		width: 1,
+		depth: 1,
 		country: 'Algerie',
 		city: 'Alger',
 		conditioning: 'Palette',
