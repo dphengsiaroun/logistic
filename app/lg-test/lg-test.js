@@ -19,7 +19,11 @@ app.config(function($stateProvider) {
 	$stateProvider.state({
 		name: 'test:slider',
 		url: '/test-slider',
-		templateUrl: testSliderUrl
+		templateUrl: testSliderUrl,
+		controller: function TestSliderCtrl() {
+			// this.width = 100;
+		},
+		controllerAs: '$ctrl'
 	});
 	$stateProvider.state({
 		name: 'test:datetime',
