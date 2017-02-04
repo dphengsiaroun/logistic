@@ -236,19 +236,19 @@
     <rect
        style="opacity:1;fill:#89ff90;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:5, 5;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4910"
-       ng-attr-width="{{$ctrl.width}}"
+       ng-attr-width="{{$ctrl.depth}}"
        ng-attr-height="{{$ctrl.height}}"
-       x="240"
-       y="112" />
+       ng-attr-x="240"
+       ng-attr-y="{{362 - $ctrl.height}}" />
     <path
        style="opacity:1;fill:#89ff90;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:5, 5;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 1450,112 100,-90.4 0,229.4 -100,90 z"
+       ng-attr-d="m {{$ctrl.depth - 1200 + 1450}},{{112 + 250 - $ctrl.height}} {{$ctrl.width * 100 / 240}},{{-$ctrl.width * 100 / 240}} 0,{{$ctrl.height}} {{-$ctrl.width * 100 / 240}},{{$ctrl.width * 100 / 240}} z"
        id="rect4912"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
     <path
        style="fill:#89ff90;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 237,109 345,27 1550,24.2 1450,109 Z"
+       d="M 240,{{362 - $ctrl.height}} {{240 + $ctrl.width * 100 / 240}},{{362 - $ctrl.height - $ctrl.width * 100 / 240}} {{240 + $ctrl.width * 100 / 240 + $ctrl.depth}},{{362 - $ctrl.height - $ctrl.width * 100 / 240}} {{240 + $ctrl.depth}},{{362 - $ctrl.height}} Z"
        id="path4915"
        inkscape:connector-curvature="0" />
   </g>
