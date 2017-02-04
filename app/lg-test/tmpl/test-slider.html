@@ -1,15 +1,16 @@
 <fixed>
 	<my-canvas>
-		<svg width="320px" height="100px" viewBox="0 -400 1500 500">
-			<g transform="translate(0,100)">
+		<img src="img/box/camion.svg" />
+		<svg width="320px" height="100px" viewBox="0 -400 2000 500">
+			<g ng-attr-transform="translate(420,135)">
 				<g transform="scale(1,-1)">
 					<rect x="0" y="0" ng-attr-width="{{$ctrl.depth}}" ng-attr-height="{{$ctrl.height}}" />
-					<polygon points="
+					<polygon ng-attr-points="
 						0,{{$ctrl.height}}
 						{{$ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
 						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
 						{{$ctrl.depth}},{{$ctrl.height}}" />
-					<polygon points="
+					<polygon ng-attr-points="
 						{{$ctrl.depth}},0
 						{{$ctrl.depth}},{{$ctrl.height}}
 						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}

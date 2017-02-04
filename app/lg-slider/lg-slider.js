@@ -53,10 +53,7 @@ app.component('lgSlider', {
 
 		};
 
-
-
 		ctrl.update = function (val) {
-			console.log('update', arguments);
 			ctrl.ngModel.$setViewValue(val);
 			ctrl.ngModel.$setTouched();
 		};
