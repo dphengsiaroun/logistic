@@ -23,7 +23,7 @@ app.component('lgSlider', {
 		var y = 0;
 		var maxHeight = line.height();
 
-		var setCursorAtBeginning = function () {
+		var setCursorAtBeginning = function() {
 			var val = ctrl.ngModel.$viewValue;
 			if (!val) {
 				ctrl.ngModel.$setViewValue(ctrl.min);
@@ -37,8 +37,8 @@ app.component('lgSlider', {
 			});
 		};
 
-		ctrl.$onInit = function () {
-			ctrl.ngModel.$render = function () {
+		ctrl.$onInit = function() {
+			ctrl.ngModel.$render = function() {
 				console.log('LgSliderCtrl ctrl.ngModel.$render', arguments);
 				setCursorAtBeginning();
 			};
@@ -50,19 +50,18 @@ app.component('lgSlider', {
 			};
 
 
-
 		};
 
-		ctrl.update = function (val) {
+		ctrl.update = function(val) {
 			ctrl.ngModel.$setViewValue(val);
 			ctrl.ngModel.$setTouched();
 		};
 
-		var start = function (e) {
+		var start = function(e) {
 			startY = e.pageY - y;
 		};
 
-		var move = function (e) {
+		var move = function(e) {
 			y = e.pageY - startY;
 			y = (y < 0) ? 0 : y;
 			y = (y > maxHeight) ? maxHeight : y;
@@ -75,23 +74,23 @@ app.component('lgSlider', {
 		};
 
 
-		var touchstart = function (event) {
+		var touchstart = function(event) {
 			console.log('touchstart', arguments);
 			event.preventDefault();
 			var touch = event.changedTouches[0];
 			console.log('touch', touch);
 			start(touch);
 		};
-		var touchend = function (event) {
+		var touchend = function(event) {
 			console.log('touchend', arguments);
 			touchmove(event);
 		};
-		var touchmove = function (event) {
+		var touchmove = function(event) {
 			event.preventDefault();
 			var touch = event.changedTouches[0];
 			move(touch);
 		};
-		var touchcancel = function (event) {
+		var touchcancel = function(event) {
 			console.log('touchcancel', arguments);
 		};
 		cursor.on('touchstart', touchstart);
@@ -99,7 +98,7 @@ app.component('lgSlider', {
 		cursor.on('touchmove', touchmove);
 		cursor.on('touchcancel', touchcancel);
 
-		var mousedown = function (event) {
+		var mousedown = function(event) {
 			console.log('mousedown', arguments);
 			event.preventDefault();
 			start(event);
@@ -107,13 +106,13 @@ app.component('lgSlider', {
 			cursor.on('mouseup', mouseup);
 		};
 
-		var mousemove = function (event) {
+		var mousemove = function(event) {
 			console.log('mousemove', arguments);
 			event.preventDefault();
 			move(event);
 		};
 
-		var mouseup = function (event) {
+		var mouseup = function(event) {
 			console.log('mouseup', arguments);
 			event.preventDefault();
 			cursor.off('mousemove');

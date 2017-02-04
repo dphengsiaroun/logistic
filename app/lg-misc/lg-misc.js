@@ -5,14 +5,14 @@ module.exports = 'lg-misc';
 var app = angular.module(module.exports, []);
 
 app.service('lgMisc', ['$injector', function LgMisc($injector) {
-	this.isWebService = function (url) {
+	this.isWebService = function(url) {
 		return url.match(/ws\/.*\.php/);
 	};
 }]);
 
 app.service('lgSequence', function LgSequence() {
 	this.current = 0;
-	this.next = function () {
+	this.next = function() {
 		this.current++;
 		return this.current;
 	};
@@ -21,17 +21,17 @@ app.service('lgSequence', function LgSequence() {
 app.service('lgScroll', ['$injector', function LgScroll($injector) {
 	var $window = $injector.get('$window');
 	this.lastSaved = 0;
-	this.save = function () {
+	this.save = function() {
 		this.lastSaved = $window.scrollY;
 	};
-	this.restore = function () {
+	this.restore = function() {
 		$window.scrollTo(0, this.lastSaved);
 	};
 }]);
 
 app.service('lgFormat', function LgFormat($filter) {
 	'ngInject';
-	this.formatDuration = function (duration) {
+	this.formatDuration = function(duration) {
 		var result = '';
 		var minuteFormat = 'mm';
 		var hourFormat = ' et \'H\'h\'';
@@ -59,7 +59,7 @@ app.filter('distance', function() {
 		var decimalStr = '0' + decimal;
 		if (decimal > 10) {
 			decimalStr = '' + decimal;
-		} 
+		}
 		return integer + 'm' + decimalStr;
 	};
 });

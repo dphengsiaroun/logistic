@@ -49,8 +49,8 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 						format: 'json',
 						lat: geopos.coords.latitude,
 						lon: geopos.coords.longitude,
-						//lat: 33.324754,
-						//lon: 1.879442,
+						// lat: 33.324754,
+						// lon: 1.879442,
 						zoom: 18,
 						addressdetails: 1
 					}
