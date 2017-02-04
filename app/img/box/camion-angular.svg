@@ -1,22 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
-   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1570"
-   height="479"
    viewBox="0 0 1570 479"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="camion.svg">
   <defs
      id="defs4">
     <linearGradient
@@ -28,58 +11,6 @@
          id="stop5754" />
     </linearGradient>
   </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.354"
-     inkscape:cx="1.12e+003"
-     inkscape:cy="379"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     units="px"
-     showborder="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="961"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     fit-margin-top="10"
-     fit-margin-left="10"
-     fit-margin-right="10"
-     fit-margin-bottom="10"
-     objecttolerance="10000"
-     inkscape:snap-path-clip="true"
-     gridtolerance="10000"
-     guidetolerance="10000"
-     inkscape:snap-perpendicular="true"
-     inkscape:snap-tangential="true"
-     showguides="true">
-    <inkscape:grid
-       type="xygrid"
-       id="grid3336"
-       visible="true"
-       snapvisiblegridlinesonly="true"
-       originx="1461"
-       originy="123"
-       enabled="true" />
-  </sodipodi:namedview>
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
   <g
      inkscape:groupmode="layer"
      id="layer5"
@@ -305,8 +236,8 @@
     <rect
        style="opacity:1;fill:#89ff90;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:5, 5;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4910"
-       width="1210"
-       height="229"
+       ng-attr-width="{{$ctrl.width}}"
+       ng-attr-height="{{$ctrl.height}}"
        x="240"
        y="112" />
     <path
