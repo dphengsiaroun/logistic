@@ -1,60 +1,52 @@
 @import '../../css/color';
-
 $squareColor: $secondaryColor;
-
 lg-home-route {
     display: block;
     margin: 0px;
     padding: 20px 0px 30px;
-
     .tagline {
         text-align: center;
         font-size: 17px;
         margin-top: 0px;
         margin-bottom: 10px;
     }
-}
-
-lg-home-route .square-parent {
-    width: 100%;
-    font-size: 0px;
-    margin: 0px;
-    padding: 0px 5px;
-}
-
-lg-home-route .square {
-    display: inline-block;
-    width: 50%;
-    margin: 0px;
-    padding: 0px;
-    font-size: 20px;
-    text-align: center;
-}
-
-lg-home-route .square > div {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 10px;
-}
-
-lg-home-route .square a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: $squareColor;
-    border-radius: 10px;
-    margin: 0px;
-    padding: 20px 0px 15px;
-}
-
-lg-home-route .square a img, .square a svg {
-    width: 70px;
-    height: 70px;
-}
-
-lg-home-route .square a p {
-    margin: 0px;
-    padding: 0px;
+    .square-parent {
+        width: 100%;
+        font-size: 0px;
+        margin: 0px;
+        padding: 0px 5px;
+        .square {
+            display: inline-block;
+            width: 50%;
+            margin: 0px;
+            padding: 0px;
+            font-size: 20px;
+            text-align: center;
+            >div {
+                display: block;
+                width: 100%;
+                height: 100%;
+                margin: 0px;
+                padding: 10px;
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background: $squareColor;
+                    border-radius: 10px;
+                    margin: 0px;
+                    padding: 20px 0px 15px;
+                    svg {
+                        width: 70px;
+                        height: 70px;
+                        fill: $fontColor;
+                    }
+                    p {
+                        margin: 0px;
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+    }
 }
