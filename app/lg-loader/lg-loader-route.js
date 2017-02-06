@@ -143,10 +143,11 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 	};
 }]);
 
-app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, lgFormat, loader, user) {
+app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, $window, lgFormat, loader, user) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.loader = loader;
+	$window.scrollTo(0, 0);
 	$scope.$watchGroup(['$ctrl.loader.createData.height', '$ctrl.loader.createData.depth',
 		'$ctrl.loader.createData.width'], function() {
 			ctrl.loader.createData.volume = ctrl.loader.createData.height *
