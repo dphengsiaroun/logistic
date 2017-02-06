@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2000 600" style="enable-background:new 0 0 2000 600;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF0000;stroke:#000000;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:#00FFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st3{stroke:#000000;stroke-miterlimit:10;}
+	.st4{fill:#F7931E;stroke:#000000;stroke-miterlimit:10;}
+	.st5{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st6{fill:#0000FF;stroke:#000000;stroke-miterlimit:10;}
+	.st7{fill:#FF00FF;stroke:#000000;stroke-miterlimit:10;}
+	.st8{fill:#00FF00;stroke:#000000;stroke-miterlimit:10;}
+	.st9{fill:#D9E021;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<g id="Tracteur">
+	<polygon class="st0" points="440.5,444.5 440.5,424.5 470.5,394.5 510.5,394.5 540.5,424.5 540.5,444.5 660.5,444.5 660.5,424.5 
+		690.5,394.5 730.5,394.5 760.5,424.5 760.5,444.5 770.5,444.5 770.5,424.5 800.5,394.5 840.5,394.5 870.5,424.5 870.5,444.5 
+		890.5,444.5 890.5,374.5 570.5,374.5 570.5,104.5 420.5,104.5 330.5,134.5 300.5,264.5 300.5,444.5 	"/>
+	<path class="st1" d="M420.7,115.8"/>
+	<polygon class="st2" points="312.5,264.5 340.5,142.5 420.5,142.5 420.5,264.5 	"/>
+	<rect x="400.5" y="274.5" class="st3" width="20" height="10"/>
+	<polygon class="st4" points="890.5,444.5 990.5,344.5 990.5,274.5 671.5,274.5 670.5,4.5 520.5,4.5 430.5,34.5 330.5,134.5 
+		420.5,104.5 570.5,104.5 570.5,374.5 890.5,374.5 	"/>
+	<line class="st1" x1="420.5" y1="104.5" x2="520.5" y2="4.5"/>
+	<line class="st1" x1="570.5" y1="104.5" x2="671.5" y2="4.5"/>
+	<path class="st1" d="M570.5,374.5"/>
+	<line class="st1" x1="671.5" y1="274.5" x2="570.5" y2="374.5"/>
+	<line class="st1" x1="990.5" y1="274.5" x2="890.5" y2="374.5"/>
+</g>
+<g id="Remorque_interieur">
+	<polygon class="st5" points="611.5,349.5 711.5,249.5 711.5,14.5 611.5,114.5 	"/>
+	<rect x="711.5" y="14.5" class="st5" width="1200" height="235"/>
+	<line class="st1" x1="1811.5" y1="114.5" x2="1911.5" y2="14.5"/>
+	<path class="st1" d="M1811.5,349.5l100-100L1811.5,349.5z"/>
+	<path class="st1" d="M711.5,249.5l-100,100L711.5,249.5z"/>
+	<path class="st1" d="M611.5,349.5"/>
+	<polygon class="st5" points="611.5,349.5 1811.5,349.5 1911.5,249.5 711.5,249.5 	"/>
+	<rect x="611.5" y="114.5" class="st1" width="1200" height="235"/>
+</g>
+<g id="Box">
+	<rect x="611.5" y="289.5" class="st2" width="80" height="60"/>
+	<polyline class="st6" points="691.5,349.5 791.5,249.5 791.5,189.5 691.5,289.5 691.5,349.5 	"/>
+	<polyline class="st7" points="611.5,289.5 691.5,289.5 791.5,189.5 711.5,189.5 611.5,289.5 	"/>
+</g>
+<g id="Remorque">
+	<polygon class="st0" points="1420.5,365 1420.5,365.5 1421,365.5 	"/>
+	<path class="st8" d="M600.5,104.5v260l300.5,1l0.7-0.5l0.3,80h499v-79.5V365v0.5h19.5V365l0.5,0.5h-0.5V445h10v-20l30-30h40l30,30
+		v20h10v-20l30-30h40l30,30v20h10v-20l30-30h40l30,30v20h20l0.5-80l0.5,0.5l49-1v-260H600.5z M1811.5,349.5h-1200v-235h1200V349.5z"
+		/>
+	<rect x="611.5" y="114.5" class="st1" width="1200" height="235"/>
+	<polygon class="st9" points="700.5,4.5 600.5,104.5 1820.5,104.5 1820.5,364.5 1920.5,264.5 1920.5,4.5 	"/>
+	<line class="st1" x1="1920.5" y1="4.5" x2="1820" y2="105"/>
+	<polygon class="st9" points="1820.5,364.5 1770.5,364.5 1770.5,445.5 1870.5,345.5 1870.5,314.5 	"/>
+</g>
+<g id="Brouillon">
+</g>
+<g id="Roues">
+	<circle class="st3" cx="1701.5" cy="444.5" r="40"/>
+	<circle class="st3" cx="1591.5" cy="444.5" r="40"/>
+	<circle class="st3" cx="1481.5" cy="444.5" r="40"/>
+	<circle class="st3" cx="821.5" cy="444.5" r="40"/>
+	<circle class="st3" cx="711.5" cy="444.5" r="40"/>
+	<circle class="st3" cx="491.5" cy="444.5" r="40"/>
+</g>
+</svg>
