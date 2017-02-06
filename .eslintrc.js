@@ -1,7 +1,7 @@
 module.exports = {
 	"extends": "google",
 	"parserOptions": {
-		"ecmaVersion": 5,
+		"ecmaVersion": 6,
 		"sourceType": "script"
 	},
 	"rules": {

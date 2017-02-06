@@ -8,6 +8,7 @@
   "devDependencies": {
     "babel-core": "6.22.1",
     "babel-loader": "6.2.10",
+    "babel-preset-env": "1.1.8",
     "consolidate": "0.14.5",
     "css-loader": "0.26.1",
     "del": "2.2.2",
