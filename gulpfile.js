@@ -1,31 +1,31 @@
-var gulp = require('gulp');
-var gulpIf = require('gulp-if');
-var rename = require('gulp-rename');
-var runSequence = require('run-sequence');
-var del = require('del');
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.config.js');
+const gulp = require('gulp');
+const gulpIf = require('gulp-if');
+const rename = require('gulp-rename');
+const runSequence = require('run-sequence');
+const del = require('del');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js');
 webpackConfig.setupProd();
-var eslint = require('gulp-eslint');
-var fs = require('fs');
-var rp = require('request-promise');
-var consolidate = require('consolidate');
-var ejs = require('ejs');
+const eslint = require('gulp-eslint');
+const fs = require('fs');
+const rp = require('request-promise');
+const consolidate = require('consolidate');
+const ejs = require('ejs');
 consolidate.requires.ejs = ejs;
-var gutil = require('gulp-util');
-var ftp = require('gulp-ftp');
-var zip = require('gulp-zip');
-var debug = require('gulp-debug');
+const gutil = require('gulp-util');
+const ftp = require('gulp-ftp');
+const zip = require('gulp-zip');
+const debug = require('gulp-debug');
 
-var Promise = require('bluebird');
+const Promise = require('bluebird');
 Promise.promisifyAll(fs);
 
-var cfgUtils = require('./cfg/utils.js');
+const cfgUtils = require('./cfg/utils.js');
 
 
 gulp.task('default', ['rebuild']);
 
-var path = {
+const path = {
 	base: 'app',
 	dist: 'dist',
 	zipSrc: ['dist/**/*', 'dist/.htaccess', '!dist/**/*.map'],

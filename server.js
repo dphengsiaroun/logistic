@@ -1,27 +1,27 @@
-var express = require('express');
-var serveIndex = require('serve-index');
-var httpProxy = require('http-proxy');
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.config.js');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var cfgUtils = require('./cfg/utils.js');
-var env = cfgUtils.getEnv('dev');
-var port = 8000;
+const express = require('express');
+const serveIndex = require('serve-index');
+const httpProxy = require('http-proxy');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const cfgUtils = require('./cfg/utils.js');
+const env = cfgUtils.getEnv('dev');
+const port = 8000;
 
 
-var proxyUrl = env.proxyUrl;
+const proxyUrl = env.proxyUrl;
 
-var app = express();
+const app = express();
 
 
 // http proxy
-var apiProxy = httpProxy.createProxyServer();
-var jlgProxy = function(req, res, next) {
+const apiProxy = httpProxy.createProxyServer();
+const jlgProxy = function(req, res, next) {
 	apiProxy.web(req, res, {target: proxyUrl});
 };
 
 webpackConfig.output.path = '/';
-var compiler = webpack(webpackConfig);
+const compiler = webpack(webpackConfig);
 app.use('/app/wpk/', webpackDevMiddleware(compiler, {}));
 
 app.use(function(req, res, next) {
