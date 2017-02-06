@@ -21,7 +21,14 @@ app.config(function($stateProvider) {
 		url: '/test-slider',
 		templateUrl: testSliderUrl,
 		controller: function TestSliderCtrl() {
-			this.coef = 0.6;
+			this.width = 240;
+			this.height = 250;
+			this.depth = 1200;
+
+			this.coef = 0.33;
+			this.tx = 341;
+			this.ty = 438;
+			this.scale = 1.07;
 		},
 		controllerAs: '$ctrl'
 	});

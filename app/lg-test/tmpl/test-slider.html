@@ -1,25 +1,8 @@
 <fixed>
 	<my-canvas>
-		<svg width="320px" height="100px" viewBox="0 -400 1500 500">
-			<g transform="translate(0,100)">
-				<g transform="scale(1,-1)">
-					<rect x="0" y="0" ng-attr-width="{{$ctrl.depth}}" ng-attr-height="{{$ctrl.height}}" />
-					<polygon points="
-						0,{{$ctrl.height}}
-						{{$ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
-						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
-						{{$ctrl.depth}},{{$ctrl.height}}" />
-					<polygon points="
-						{{$ctrl.depth}},0
-						{{$ctrl.depth}},{{$ctrl.height}}
-						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.height + $ctrl.width * $ctrl.coef}}
-						{{$ctrl.depth + $ctrl.width * $ctrl.coef}},{{$ctrl.width * $ctrl.coef}}" />
-
-				</g>
-			</g>
-		</svg>
+		<img class="lg-svg" compile src="img/box/camion-angular.svg" />
 	</my-canvas>
-	<test-slider ng-init="$ctrl.width = 104">
+	<test-slider>
 		<span>
 		<label>Width : {{$ctrl.width}}</label>
 		<lg-slider ng-model="$ctrl.width" min="10" max="240" step="10" options="{}"></lg-slider>
@@ -33,4 +16,8 @@
 		<lg-slider ng-model="$ctrl.depth" min="10" max="1200" step="10" options="{}"></lg-slider>
 	</span>
 	</test-slider>
+	<input ng-model="$ctrl.coef" type="number" step="0.01"/>
+	<input ng-model="$ctrl.tx" type="number"/>
+	<input ng-model="$ctrl.ty" type="number"/>
+	<input ng-model="$ctrl.scale" type="number" step="0.01"/>
 </fixed>

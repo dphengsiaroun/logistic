@@ -15,14 +15,12 @@ consolidate.requires.ejs = ejs;
 var gutil = require('gulp-util');
 var ftp = require('gulp-ftp');
 var zip = require('gulp-zip');
+var debug = require('gulp-debug');
 
 var Promise = require('bluebird');
 Promise.promisifyAll(fs);
 
 var cfgUtils = require('./cfg/utils.js');
-
-
-
 
 
 gulp.task('default', ['rebuild']);
@@ -39,6 +37,8 @@ var path = {
 		'!app/ws/**/*.log',	'!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
 	undeploy: 'utils/remove.php',
+	lint: ['**/*.js', '!node_modules/**/*', '!app/ws/**/*', '!**/*.min.js', '!**/*.prod.js',
+		'!app/wpk/**/*', '!dist/**/*']
 };
 
 
@@ -92,7 +92,8 @@ gulp.task('rebuild', function() {
 });
 
 gulp.task('lint', function() {
-	return gulp.src(['**/*.js'])
+	return gulp.src(path.lint)
+	.pipe(debug())
 	.pipe(eslint())
 	.pipe(eslint.formatEach())
 	.pipe(eslint.failAfterError());
@@ -103,7 +104,7 @@ function isFixed(file) {
 }
 
 gulp.task('lint-fix', function() {
-	return gulp.src(['**/*.js'])
+	return gulp.src(path.lint)
 	.pipe(eslint({
 		fix: true
 	}))

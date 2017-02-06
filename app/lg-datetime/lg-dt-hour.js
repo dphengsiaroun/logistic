@@ -5,7 +5,9 @@ var app = angular.module('lg-datetime');
 var lgDtHourUrl = require('./tmpl/lg-dt-hour.html');
 
 function makeRange(start, end) {
-	return Array.apply(null, Array(end - start + 1)).map((n, i) => i + start);
+	return Array.apply(null, Array(end - start + 1)).map(function(n, i) {
+		return i + start;
+	});
 }
 
 app.component('lgDtHour', {
@@ -42,7 +44,7 @@ app.component('lgDtHour', {
 		$scope.$watch('$ctrl.lgDatetime.state', function() {
 			console.log('LgDtHourCtrl $watch', arguments);
 			var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
-			$timeout(() => {
+			$timeout(function() {
 				ctrl.update(ctrl.lgDatetime.selectedHours, $index);
 			}, 0);
 		});
@@ -64,12 +66,12 @@ app.component('lgDtHour', {
 			}
 			if (ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours) === -1) {
 				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
-				$timeout(() => {
+				$timeout(function() {
 					ctrl.update(ctrl.hourRange[0], $index);
 				}, 0);
 			} else {
 				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
-				$timeout(() => {
+				$timeout(function() {
 					ctrl.update(ctrl.lgDatetime.selectedHours, $index);
 				}, 0);
 			}

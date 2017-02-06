@@ -186,17 +186,19 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, 
 		});
 	});
 
-	$scope.$watchGroup(['$ctrl.loader.createData.departureDatetime', '$ctrl.loader.createData.arrivalDatetime'], function() {
-		console.log('$ctrl.loader.createData.infoDuration update');
-		if (!(ctrl.loader.createData.departureDatetime && ctrl.loader.createData.arrivalDatetime)) {
-			ctrl.loader.createData.infoDuration = '';
-			return;
+	$scope.$watchGroup(['$ctrl.loader.createData.departureDatetime', '$ctrl.loader.createData.arrivalDatetime'],
+		function() {
+			console.log('$ctrl.loader.createData.infoDuration update');
+			if (!(ctrl.loader.createData.departureDatetime && ctrl.loader.createData.arrivalDatetime)) {
+				ctrl.loader.createData.infoDuration = '';
+				return;
+			}
+			ctrl.loader.createData.infoDuration = 'Durée effective : <b>' +
+				lgFormat.formatDuration((ctrl.loader.createData.arrivalDatetime -
+					ctrl.loader.createData.departureDatetime) / 1000) +
+				'</b>';
 		}
-		ctrl.loader.createData.infoDuration = 'Durée effective : <b>' +
-			lgFormat.formatDuration((ctrl.loader.createData.arrivalDatetime -
-				ctrl.loader.createData.departureDatetime) / 1000) +
-			'</b>';
-	});
+	);
 });
 
 app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams) {

@@ -32,31 +32,31 @@ app.component('lgDatetime', {
 			defaultHour: 7
 		};
 
-		ctrl.start = () => {
+		ctrl.start = function() {
 			ctrl.state = 'dateState';
 			lgScroll.save();
 			ctrl.compute();
 		};
 
-		ctrl.stop = () => {
+		ctrl.stop = function() {
 			ctrl.state = 'outsideState';
 			lgScroll.restore();
 			ctrl.months = [];
 		};
 
-		ctrl.update = (date) => {
+		ctrl.update = function(date) {
 			ctrl.selectedDate = date;
 			ctrl.ngModel.$setViewValue(date);
 			ctrl.ngModel.$render();
 			ctrl.ngModel.$setTouched();
 		};
 
-		ctrl.cancel = () => {
+		ctrl.cancel = function() {
 			ctrl.update(undefined);
 			ctrl.stop();
 		};
 
-		ctrl.compute = () => {
+		ctrl.compute = function() {
 			console.log('compute');
 			ctrl.months = [];
 			for (var i = 0; i < ctrl.opts.monthNbr; i++) {
@@ -68,7 +68,7 @@ app.component('lgDatetime', {
 			console.log('ctrl.months', ctrl.months);
 		};
 
-		ctrl.setDate = (year, month, day) => {
+		ctrl.setDate = function(year, month, day) {
 			console.log('setDate', arguments);
 			console.log('year', year);
 			var date = new Date(year, month, day, ctrl.selectedHours);
@@ -76,7 +76,7 @@ app.component('lgDatetime', {
 			ctrl.update(date);
 		};
 
-		ctrl.setHours = (hour) => {
+		ctrl.setHours = function(hour) {
 			console.log('setHours', arguments);
 			if (ctrl.selectedHours === hour) {
 				return;
@@ -92,20 +92,20 @@ app.component('lgDatetime', {
 			ctrl.update(date);
 		};
 
-		ctrl.initOptions = () => {
+		ctrl.initOptions = function() {
 			angular.extend(ctrl.opts, ctrl.options);
 			console.log('options', ctrl.options);
 			ctrl.opts.start = new Date();
 			ctrl.selectedHours = ctrl.opts.defaultHour;
 		};
 
-		ctrl.$onInit = () => {
+		ctrl.$onInit = function() {
 			console.log('lgCalendarWrapper ctrl $onInit', ctrl);
 			console.log('this.ngModel', ctrl.ngModel);
 
 			ctrl.initOptions();
 
-			ctrl.ngModel.$render = () => {
+			ctrl.ngModel.$render = function() {
 				console.log('ctrl.ngModel.$render', arguments);
 
 				var datetime = undefined;
@@ -126,13 +126,13 @@ app.component('lgDatetime', {
 				checkValidity(1);
 			};
 
-			var checkValidity = (value) => {
+			var checkValidity = function(value) {
 				var isOutOfChoice = false;
 				ctrl.ngModel.$setValidity('outOfChoice', isOutOfChoice);
 			};
 		};
 
-		ctrl.$onChanges = function (changesObj) {
+		ctrl.$onChanges = function(changesObj) {
 			console.log('LgDatetimeCtrl $onChanges', changesObj);
 			var offset = ctrl.offset || 0;
 			offset = Math.ceil(offset / 3600) * 3600;
@@ -153,7 +153,7 @@ app.component('lgDatetime', {
 
 		};
 
-		$scope.$watch('$ctrl.selectedDate', () => {
+		$scope.$watch('$ctrl.selectedDate', function() {
 			if (!ctrl.selectedDate) {
 				ctrl.retroactionMsg = '&nbsp;<br/>&nbsp;';
 				return;

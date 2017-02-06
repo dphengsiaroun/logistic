@@ -4,7 +4,7 @@ module.exports = 'lg-config';
 
 var app = angular.module(module.exports, []);
 
-app.run(function ($rootScope, $http) {
+app.run(function($rootScope, $http) {
 	'ngInject';
 	console.log('lg-config run', arguments);
 	$rootScope.config = {};
@@ -33,7 +33,7 @@ app.run(function ($rootScope, $http) {
 	$rootScope.config.Address = ['2 rue de Paris, 1000 ALGER', '15 rue de Tripoli, 1100 ORAN'];
 	$rootScope.config.goodTypes = ['Fruits frais', 'Légumes frais', 'Fruits et légumes frais'];
 
-	$rootScope.config.getCityLabel = function (obj) {
+	$rootScope.config.getCityLabel = function(obj) {
 		if (obj.city === undefined) {
 			return obj;
 		}
@@ -41,15 +41,15 @@ app.run(function ($rootScope, $http) {
 		return '<b>' + obj.city + '</b>, <span class="region">' + obj.region + ', ' + obj.country + '</span>';
 	};
 
-	$rootScope.config.getCityIcon = function () {
+	$rootScope.config.getCityIcon = function() {
 		return '<i class="fa fa-map-marker" aria-hidden="true"></i>';
 	};
 
-	$rootScope.config.getWeightIcon = function () {
+	$rootScope.config.getWeightIcon = function() {
 		return '<i class="fa fa-balance-scale" aria-hidden="true"></i>';
 	};
 
-	$rootScope.config.getLoaderTypesIcon = function (label) {
+	$rootScope.config.getLoaderTypesIcon = function(label) {
 		switch (label) {
 			case 'Animaux':
 				return '<i class="fa fa-paw" aria-hidden="true"></i>';
@@ -66,7 +66,7 @@ app.run(function ($rootScope, $http) {
 	};
 
 
-	$rootScope.config.getCityLabelToFilter = function (obj) {
+	$rootScope.config.getCityLabelToFilter = function(obj) {
 		if (obj.city === undefined) {
 			return obj;
 		}
@@ -74,16 +74,16 @@ app.run(function ($rootScope, $http) {
 		return obj.city;
 	};
 
-	$http.get('json/cities.json').then(function (response) {
+	$http.get('json/cities.json').then(function(response) {
 		$rootScope.config.cities = response.data;
-		$rootScope.config.cities.forEach(function (obj) {
+		$rootScope.config.cities.forEach(function(obj) {
 			obj.country = 'Algérie';
 		});
-	}).catch(function (error) {
+	}).catch(function(error) {
 		console.error('error', error);
 	});
 
-	$rootScope.config.getTruckTypesIcon = function (label) {
+	$rootScope.config.getTruckTypesIcon = function(label) {
 		['Benne', 'Bâché', 'Frigo', 'Citerne', 'Porte voiture', 'Semi-remorque',
 			'Semi-frigo', 'Bétaillère', 'Taxi'];
 		switch (label) {
