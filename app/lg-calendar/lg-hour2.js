@@ -37,7 +37,6 @@ app.component('lgHour2', {
 
 		this.refreshStyle = function() {
 			this.style = '';
-			console.log('xxxxxxxxxxxxxx');
 			for (let i = 0; i < 24; i++) {
 				var top = this.y + this.radius*Math.cos(i*6.28/24);
 				var left = this.x - this.radius*Math.sin(i*6.28/24);
