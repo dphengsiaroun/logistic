@@ -59,7 +59,7 @@ app.component('lgDatetime', {
 		ctrl.compute = function() {
 			console.log('compute');
 			ctrl.months = [];
-			for (var i = 0; i < ctrl.opts.monthNbr; i++) {
+			for (let i = 0; i < ctrl.opts.monthNbr; i++) {
 				var date = new Date(ctrl.opts.start);
 				date.setDate(1);
 				date.setMonth(date.getMonth() + i);

@@ -39,7 +39,7 @@ app.component('lgHour', {
 		this.refreshStyle = function() {
 			this.style = '';
 
-			for (var i = 1; i <= 12; i++) {
+			for (let i = 1; i <= 12; i++) {
 				var top = this.y - this.radius*Math.cos(i*6.28/12);
 				var left = this.x + this.radius*Math.sin(i*6.28/12);
 				this.style += '.id-' + this.id + '.hour-' + i + ' { top: ' + top + 'px; left: ' + left + 'px;}\n';

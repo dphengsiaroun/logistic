@@ -20,7 +20,7 @@ app.component('lgHour2', {
 
 		this.getRange = function(start, stop) {
 			var result = [];
-			for (var i = start; i <= stop; i++) {
+			for (let i = start; i <= stop; i++) {
 				result.push(i);
 			}
 			return result;
@@ -37,8 +37,8 @@ app.component('lgHour2', {
 
 		this.refreshStyle = function() {
 			this.style = '';
-
-			for (var i = 0; i < 24; i++) {
+			console.log('xxxxxxxxxxxxxx');
+			for (let i = 0; i < 24; i++) {
 				var top = this.y + this.radius*Math.cos(i*6.28/24);
 				var left = this.x - this.radius*Math.sin(i*6.28/24);
 				this.style += '.i-' + this.id + '.h-' + i + ' { top: ' + top + 'px; left: ' + left + 'px;}\n';

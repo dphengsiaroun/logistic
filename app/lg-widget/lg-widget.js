@@ -97,7 +97,7 @@ app.component('lgSelect', {
 				elt.attr('selected', '');
 				if (isInit) {
 					var optionElts = $element.find('lg-option');
-					for (var i = 0; i < optionElts.length; i++) {
+					for (let i = 0; i < optionElts.length; i++) {
 						var e = angular.element(optionElts[i]);
 						var val = e.attr('value');
 						e.attr('ng-click', '$ctrl.update(\'' + val + '\')');

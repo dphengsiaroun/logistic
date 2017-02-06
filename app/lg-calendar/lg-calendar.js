@@ -117,7 +117,7 @@ app.component('lgCalendarWrapper', {
 				this.myOptions.start = new Date();
 			}
 			this.months = [];
-			for (var i = 0; i < this.myOptions.monthNbr; i++) {
+			for (let i = 0; i < this.myOptions.monthNbr; i++) {
 				var date = new Date(this.myOptions.start);
 				date.setMonth(date.getMonth() + i);
 				this.months.push(date);

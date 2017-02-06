@@ -72,9 +72,9 @@ app.component('lgMonth', {
 
 			var elt = $element.find('tbody');
 			var html = '';
-			for (var j = 0; j < 5; j++) {
+			for (let j = 0; j < 5; j++) {
 				html += '<tr>';
-				for (var k = 0; k < 7; k++) {
+				for (let k = 0; k < 7; k++) {
 					var dayOfMonth = dayDate.getDate();
 					var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
 					var myClass = (dayDate.getMonth() < ctrl.month) ? 'prev-month' : '';
@@ -127,7 +127,7 @@ app.component('lgMonth', {
 		ctrl.printDays = function($element) {
 			var elt = $element.find('tr');
 			var html = '';
-			for (var k = 1; k < 8; k++) {
+			for (let k = 1; k < 8; k++) {
 				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k%7].substr(0, 2) + '</td>';
 			}
 			elt.html(html);
