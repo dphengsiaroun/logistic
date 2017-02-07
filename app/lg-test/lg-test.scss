@@ -41,17 +41,18 @@ fixed {
         table-layout: fixed;
         width: 100%;
         text-align: center;
+		margin: 20px 0px;
         span {
             display: table-cell;
+			padding: 0px 10px;
             label {
                 position: relative;
                 input {
-                    border: none;
                     font-size: 23px;
                     text-align: center;
                     padding: 5px 5px;
                     min-height: 0px;
-                    margin: 0px;
+                    margin: 5px 0px;
                 }
             }
         }
