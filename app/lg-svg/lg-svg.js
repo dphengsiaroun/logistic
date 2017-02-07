@@ -2,6 +2,8 @@
 
 module.exports = 'lg-svg';
 
+require('./lg-svg.scss');
+
 var app = angular.module(module.exports, []);
 
 // permet de récuperer les valeurs en post sous format json
@@ -17,10 +19,10 @@ app.directive('lgSvg', function($http, $compile) {
 
 			$http.get(url).then(function(response) {
 				var svg = angular.element(comment + response.data);
-				var svgElt = svg.contents().parent();
-				svgElt.addClass('ng-cloak');
 				element.replaceWith(svg);
-				$compile(svg)(scope);
+				if ('compile' in attrs) {
+					$compile(svg)(scope);
+				}
 			}).catch(function(error) {
 				console.log('error', error);
 			});
