@@ -41,10 +41,10 @@ fixed {
         table-layout: fixed;
         width: 100%;
         text-align: center;
-		margin: 20px 0px;
+        margin: 20px 0px;
         span {
             display: table-cell;
-			padding: 0px 10px;
+            padding: 0px 10px;
             label {
                 position: relative;
                 input {
@@ -52,8 +52,32 @@ fixed {
                     text-align: center;
                     padding: 5px 5px;
                     min-height: 0px;
-                    margin: 5px 0px;
+                    margin: 0px;
                 }
+            }
+        }
+    }
+    test-slider2 {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        padding: 0px 5px;
+        label {
+			display: table;
+            position: relative;
+			width: 100%;
+            span {
+				display: table-cell;
+				width: 70%;
+            }
+            input {
+                display: table-cell;
+                width: 100%;
+                font-size: 23px;
+                text-align: center;
+                padding: 0px 5px;
+                min-height: 0px;
+                margin: 5px 0px;
             }
         }
     }

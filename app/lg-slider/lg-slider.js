@@ -13,15 +13,21 @@ app.component('lgSlider', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgSliderUrl,
-	controller: function LgSliderCtrl($element) {
+	controller: function LgSliderCtrl($element, $attrs) {
 		'ngInject';
-		console.log('LgSliderCtrl');
+		console.log('LgSliderCtrl', arguments);
+		var isHorizontal = ('horizontal' in $attrs);
+		console.log('isHorizontal', isHorizontal);
 		var ctrl = this;
 		var cursor = $element.find('cursor');
 		var line = $element.find('line');
+		var startX = 0;
 		var startY = 0;
+		var x = 0;
 		var y = 0;
 		var maxHeight = line.height();
+		var maxWidth = line.width();
+		console.log('maxWidth', maxWidth);
 
 		var setCursorAtBeginning = function() {
 			var val = ctrl.ngModel.$viewValue;
@@ -35,11 +41,21 @@ app.component('lgSlider', {
 			}
 
 			console.log('setCursorAtBeginning val', val);
-			y = Math.round(((-maxHeight) / (ctrl.max - ctrl.min) * val) +
-				((ctrl.max * maxHeight) / (ctrl.max - ctrl.min)));
-			cursor.css({
-				top: y + 'px',
-			});
+			if (isHorizontal) {
+				x = Math.round(((-maxWidth) / (ctrl.max - ctrl.min) * val) +
+					((ctrl.max * maxWidth) / (ctrl.max - ctrl.min)));
+				cursor.css({
+					left: x + 'px',
+				});
+			} else {
+				y = Math.round(((-maxHeight) / (ctrl.max - ctrl.min) * val) +
+					((ctrl.max * maxHeight) / (ctrl.max - ctrl.min)));
+				cursor.css({
+					top: y + 'px',
+				});
+			}
+
+
 		};
 
 		ctrl.$onInit = function() {
@@ -63,19 +79,36 @@ app.component('lgSlider', {
 		};
 
 		var start = function(e) {
-			startY = e.pageY - y;
+			if (isHorizontal) {
+				startX = e.pageX - x;
+			} else {
+				startY = e.pageY - y;
+			}
 		};
 
 		var move = function(e) {
-			y = e.pageY - startY;
-			y = (y < 0) ? 0 : y;
-			y = (y > maxHeight) ? maxHeight : y;
-			cursor.css({
-				top: y + 'px',
-			});
-			var val = Math.round((ctrl.max - ctrl.min) * ((maxHeight - y) / maxHeight) + ctrl.min);
+			var val;
+			if (isHorizontal) {
+				x = e.pageX - startX;
+				x = (x < 0) ? 0 : x;
+				x = (x > maxWidth) ? maxWidth : x;
+				cursor.css({
+					left: x + 'px',
+				});
+				val = Math.round((ctrl.max - ctrl.min) * (( + x) / maxWidth) + ctrl.min);
+			} else {
+				y = e.pageY - startY;
+				y = (y < 0) ? 0 : y;
+				y = (y > maxHeight) ? maxHeight : y;
+				cursor.css({
+					top: y + 'px',
+				});
+				val = Math.round((ctrl.max - ctrl.min) * ((maxHeight - y) / maxHeight) + ctrl.min);
+
+			}
 			val = Math.round(val / ctrl.step) * ctrl.step;
 			ctrl.update(val);
+
 		};
 
 

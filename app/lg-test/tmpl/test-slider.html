@@ -2,24 +2,38 @@
 	<my-canvas>
 		<img class="lg-svg" compile src="img/box/truck-angular.svg" />
 	</my-canvas>
+	<test-slider2>
+		<label><span>Largeur</span>
+			<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
+		</label>
+		<lg-slider horizontal ng-model="$ctrl.width" min="10" max="230" step="10"></lg-slider>
+		<label><span>Hauteur</span>
+			<input type="number" pattern="[0-9]*" ng-model="$ctrl.height" ng-model-options="{ updateOn: 'blur' }" />
+		</label>
+		<lg-slider horizontal ng-model="$ctrl.height" min="10" max="230" step="10"></lg-slider>
+		<label><span>Profondeur</span>
+			<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
+		</label>
+		<lg-slider horizontal ng-model="$ctrl.depth" min="10" max="1190" step="10"></lg-slider>
+	</test-slider2>
 	<test-slider>
 		<span>
-			<label>Width
+			<label>Largeur
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-			<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>
+			<!--<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>-->
 		</span>
 		<span>
-			<label>Height
+			<label>Hauteur
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.height" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-		<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>
+		<!--<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>-->
 		</span>
 		<span>
-			<label>Depth
+			<label>Profondeur
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.depth" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-			<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10" options="{}"></lg-slider>
+			<!--<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10"></lg-slider>-->
 		</span>
 	</test-slider>
 </fixed>
