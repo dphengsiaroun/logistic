@@ -11,15 +11,13 @@
 		</span>
 		<span>
 			<label>Height
-				<br/>
-				<strong>{{$ctrl.height}}</strong>
+				<input type="number" pattern="[0-9]*" ng-model="$ctrl.height" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
 		<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>
 		</span>
 		<span>
 			<label>Depth
-				<br/>
-				<strong>{{$ctrl.depth}}</strong>
+				<input type="number" pattern="[0-9]*" ng-model="$ctrl.depth" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
 			<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10" options="{}"></lg-slider>
 		</span>
