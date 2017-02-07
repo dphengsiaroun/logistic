@@ -37,24 +37,48 @@ fixed {
     width: 100%;
     height: 100%;
     test-slider {
-        display: table;
-        table-layout: fixed;
+        display: block;
         width: 100%;
-        text-align: center;
-        margin: 20px 0px;
-        span {
-            display: table-cell;
+		height: 100%;
+        margin: 0px;
+        dimension {
+            display: table;
+            table-layout: fixed;
+			width: 100%;
+			background-color: $selectedColor;
+			label {
+				display: table-cell;
+				text-align: center;
+				color: white;
+				font-weight: normal;
+				font-size: 13px;
+				input {
+					margin: 0px 0px;
+					padding: 0px 0px;
+					min-height: 0px;
+					text-align: center;
+					border: none;
+					background-color: transparent;
+					color: white;
+				}
+			}
+        }
+		volume {
+			display: block;
+			width: 100%;
+			margin: 0px 0px;
+			padding: 0px 10px;
+			background-color: $headerColor;
+			color: white;
+		}
+        settings {
+            display: table;
+			width: 100%;
+			height: 50%;
             padding: 0px 10px;
-            label {
-                position: relative;
-                input {
-                    font-size: 23px;
-                    text-align: center;
-                    padding: 5px 5px;
-                    min-height: 0px;
-                    margin: 0px;
-                }
-            }
+			span {
+				display: table-cell;
+			}
         }
     }
     test-slider2 {
@@ -63,12 +87,12 @@ fixed {
         width: 100%;
         padding: 0px 5px;
         label {
-			display: table;
+            display: table;
             position: relative;
-			width: 100%;
+            width: 100%;
             span {
-				display: table-cell;
-				width: 70%;
+                display: table-cell;
+                width: 70%;
             }
             input {
                 display: table-cell;

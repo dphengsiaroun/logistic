@@ -2,7 +2,7 @@
 	<my-canvas>
 		<img class="lg-svg" compile src="img/box/truck-angular.svg" />
 	</my-canvas>
-	<test-slider2>
+	<!--<test-slider2>
 		<label><span>Largeur</span>
 			<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
 		</label>
@@ -15,25 +15,32 @@
 			<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
 		</label>
 		<lg-slider horizontal ng-model="$ctrl.depth" min="10" max="1190" step="10"></lg-slider>
-	</test-slider2>
+	</test-slider2>-->
 	<test-slider>
-		<span>
-			<label>Largeur
+		<dimension>
+			<label>Largeur (cm)
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-			<!--<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>-->
-		</span>
-		<span>
-			<label>Hauteur
+			<label>Hauteur (cm)
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.height" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-		<!--<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>-->
-		</span>
-		<span>
-			<label>Profondeur
+			<label>Profondeur (cm)
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.depth" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-			<!--<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10"></lg-slider>-->
-		</span>
+		</dimension>
+		<volume>
+			Volume résultant : {{$ctrl.volume}} m3
+		</volume>
+		<settings>
+			<span>
+				<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>
+			</span>
+			<span>
+				<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>
+			</span>
+			<span>
+				<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10"></lg-slider>
+			</span>
+		</settings>
 	</test-slider>
 </fixed>

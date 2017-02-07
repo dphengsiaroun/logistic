@@ -20,7 +20,9 @@ app.config(function($stateProvider) {
 		name: 'test:slider',
 		url: '/test-slider',
 		templateUrl: testSliderUrl,
-		controller: function TestSliderCtrl() {
+		controller: function TestSliderCtrl($scope) {
+			'ngInject';
+			var ctrl = this;
 			this.width = 100;
 			this.height = 150;
 			this.depth = 500;
@@ -29,6 +31,11 @@ app.config(function($stateProvider) {
 			this.tx = 341;
 			this.ty = 438;
 			this.scale = 1.07;
+
+			$scope.$watchGroup(['$ctrl.height', '$ctrl.depth', '$ctrl.width'], function() {
+				ctrl.volume = ctrl.height *	ctrl.depth * ctrl.width / (100 * 100 * 100);
+				ctrl.volume = Number((ctrl.volume).toFixed(2));
+			}, true);
 		},
 		controllerAs: '$ctrl'
 	});
