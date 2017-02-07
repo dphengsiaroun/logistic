@@ -1,6 +1,6 @@
 <fixed>
 	<my-canvas>
-		<img class="lg-svg" src="img/box/truck-angular.svg" />
+		<img class="lg-svg" compile src="img/box/truck-angular.svg" />
 	</my-canvas>
 	<!--<test-slider2>
 		<label><span>Largeur</span>
@@ -32,15 +32,17 @@
 			Volume résultant : {{$ctrl.volume}} m3
 		</volume>
 		<settings>
-			<span>
-				<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>
-			</span>
-			<span>
-				<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>
-			</span>
-			<span>
-				<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10"></lg-slider>
-			</span>
+			<my-table>
+				<span>
+					<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>
+				</span>
+				<span>
+					<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>
+				</span>
+				<span>
+					<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10"></lg-slider>
+				</span>
+			</my-table>
 		</settings>
 	</test-slider>
 </fixed>

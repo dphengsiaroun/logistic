@@ -25,6 +25,11 @@ app.component('lgSlider', {
 		var startY = 0;
 		var x = 0;
 		var y = 0;
+		if (!isHorizontal) {
+			var parentHeight = $element.parent().height();
+			$element.css('height', (parentHeight - 70) + 'px');
+		}
+
 		var maxHeight = line.height();
 		var maxWidth = line.width();
 		console.log('maxWidth', maxWidth);
