@@ -4,16 +4,24 @@
 	</my-canvas>
 	<test-slider>
 		<span>
-		<label>Width : {{$ctrl.width}}</label>
-		<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>
-	</span>
+			<label>Width
+				<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
+			</label>
+			<lg-slider ng-model="$ctrl.width" min="10" max="230" step="10" options="{}"></lg-slider>
+		</span>
 		<span>
-		<label>Height : {{$ctrl.height}}</label>
+			<label>Height
+				<br/>
+				<strong>{{$ctrl.height}}</strong>
+			</label>
 		<lg-slider ng-model="$ctrl.height" min="10" max="230" step="10" options="{}"></lg-slider>
-	</span>
+		</span>
 		<span>
-		<label>Depth : {{$ctrl.depth}}</label>
-		<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10" options="{}"></lg-slider>
-	</span>
+			<label>Depth
+				<br/>
+				<strong>{{$ctrl.depth}}</strong>
+			</label>
+			<lg-slider ng-model="$ctrl.depth" min="10" max="1190" step="10" options="{}"></lg-slider>
+		</span>
 	</test-slider>
 </fixed>

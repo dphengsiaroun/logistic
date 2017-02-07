@@ -27,7 +27,7 @@
 <g id="Box">
 	<rect class="box-front" ng-attr-x="{{511 - $ctrl.width * $ctrl.coef}}" ng-attr-y="{{305 - $ctrl.height + $ctrl.width * $ctrl.coef}}" ng-attr-width="{{$ctrl.depth}}" ng-attr-height="{{$ctrl.height}}"/>
 	<path class="box-right" ng-attr-d="M{{511 - $ctrl.width * $ctrl.coef + $ctrl.depth}},{{305 - $ctrl.height + $ctrl.width * $ctrl.coef}} l{{$ctrl.width * $ctrl.coef}},-{{$ctrl.width * $ctrl.coef}} l0,{{$ctrl.height}} l-{{$ctrl.width * $ctrl.coef}},{{$ctrl.width * $ctrl.coef}} Z"/>
-	<polyline class="box-top" points="411,345 491,345 591,245 511,245 411,345 	"/>
+	<path class="box-top" ng-attr-d="M{{511 - $ctrl.width * $ctrl.coef + $ctrl.depth}},{{305 - $ctrl.height + $ctrl.width * $ctrl.coef}} l{{$ctrl.width * $ctrl.coef}},-{{$ctrl.width * $ctrl.coef}} l{{-$ctrl.depth}},0 l-{{$ctrl.width * $ctrl.coef}},{{$ctrl.width * $ctrl.coef}} Z"/>
 </g>
 <g id="Remorque">
 	<path class="trailer-front" d="M400,160v260l300.5,1l0.7-0.5l0.3,80h499V421v-0.5v0.5h19.5v-0.5l0.5,0.5h-0.5v79.5h10v-20l30-30h40l30,30v20
