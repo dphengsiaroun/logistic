@@ -25,10 +25,15 @@ app.component('lgSlider', {
 
 		var setCursorAtBeginning = function() {
 			var val = ctrl.ngModel.$viewValue;
-			if (!val) {
+			if (!val || val < ctrl.min) {
 				ctrl.ngModel.$setViewValue(ctrl.min);
 				val = ctrl.min;
 			}
+			if (val > ctrl.max) {
+				ctrl.ngModel.$setViewValue(ctrl.max);
+				val = ctrl.max;
+			}
+
 			console.log('setCursorAtBeginning val', val);
 			y = Math.round(((-maxHeight) / (ctrl.max - ctrl.min) * val) +
 				((ctrl.max * maxHeight) / (ctrl.max - ctrl.min)));
