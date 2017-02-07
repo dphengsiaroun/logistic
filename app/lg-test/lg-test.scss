@@ -46,17 +46,71 @@ fixed {
         }
     }
     my-canvas {
-		display: block;
+        display: block;
         width: 100%;
         height: 160px;
-		background-color: $lightGray;
-		svg {
-			display: block;
-			position: absolute;
-			top: 0px;
-			left:0px;
-			width: 100%;
-			padding: 5px;
-		}
+        background-color: $lightGray;
+        svg {
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            .cab {
+                fill: hsl(0, 100%, 50%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+            .line {
+                fill: none;
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+            .window {
+                fill: hsl(0, 100%, 30%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+            .black {
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+            .cab-top {
+                fill: hsl(0, 100%, 80%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+            .trailer-in {
+                fill: hsl(120, 100%, 90%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+
+            .box-front {
+                fill: hsl(240, 100%, 70%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+			.box-top {
+                fill: hsl(240, 100%, 90%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+			.box-right {
+                fill: hsl(240, 100%, 80%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+            .trailer-front {
+                fill: hsl(120, 100%, 50%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+            .trailer-top {
+                fill: hsl(120, 100%, 80%);
+                stroke: black;
+                stroke-miterlimit: 10;
+            }
+        }
     }
 }

@@ -21,9 +21,9 @@ app.config(function($stateProvider) {
 		url: '/test-slider',
 		templateUrl: testSliderUrl,
 		controller: function TestSliderCtrl() {
-			this.width = 240;
-			this.height = 250;
-			this.depth = 1200;
+			this.width = 230;
+			this.height = 230;
+			this.depth = 1190;
 
 			this.coef = 0.33;
 			this.tx = 341;

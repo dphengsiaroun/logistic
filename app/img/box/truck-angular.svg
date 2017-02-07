@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1800 600" xml:space="preserve">
+<g id="Tracteur">
+	<polygon class="cab" points="240,500 240,480 270,450 310,450 340,480 340,500 460,500 460,480 490,450 530,450 560,480 560,500
+		570,500 570,480 600,450 640,450 670,480 670,500 690,500 690,430 370,430 370,160 220,160 130,190 100,320 100,500 	"/>
+	<path class="line" d="M220.2,171.3"/>
+	<polygon class="window" points="112,320 140,198 220,198 220,320"/>
+	<rect x="200" y="330" class="black" width="20" height="10"/>
+	<polygon class="cab-top" points="690,500 790,400 790,330 471,330 470,60 320,60 230,90 130,190 220,160 370,160 370,430 690,430 	"/>
+	<line class="line" x1="220" y1="160" x2="320" y2="60"/>
+	<line class="line" x1="370" y1="160" x2="471" y2="60"/>
+	<path class="line" d="M370,430"/>
+	<line class="line" x1="471" y1="330" x2="370" y2="430"/>
+	<line class="line" x1="790" y1="330" x2="690" y2="430"/>
+</g>
+<g id="Remorque_interieur">
+	<polygon class="trailer-in" points="411,405 511,305 511,70 411,170 	"/>
+	<rect x="511" y="70" class="trailer-in" width="1200" height="235"/>
+	<line class="line" x1="1611" y1="170" x2="1711" y2="70"/>
+	<path class="line" d="M1611,405l100-100L1611,405z"/>
+	<path class="line" d="M511,305L411,405L511,305z"/>
+	<path class="line" d="M411,405"/>
+	<polygon class="trailer-in" points="411,405 1611,405 1711,305 511,305 	"/>
+	<rect x="411" y="170" class="line" width="1200" height="235"/>
+</g>
+<g id="Box">
+	<rect class="box-front" x="411" y="345" width="80" height="60"/>
+	<polyline class="box-right" points="491,405 591,305 591,245 491,345 491,405 	"/>
+	<polyline class="box-top" points="411,345 491,345 591,245 511,245 411,345 	"/>
+</g>
+<g id="Remorque">
+	<path class="trailer-front" d="M400,160v260l300.5,1l0.7-0.5l0.3,80h499V421v-0.5v0.5h19.5v-0.5l0.5,0.5h-0.5v79.5h10v-20l30-30h40l30,30v20
+		h10v-20l30-30h40l30,30v20h10v-20l30-30h40l30,30v20h20l0.5-80l0.5,0.5l49-1V160H400z M1611,405H411V170h1200V405z"/>
+	<rect x="411" y="170" class="line" width="1200" height="235"/>
+	<polygon class="trailer-top" points="500,60 400,160 1620,160 1620,420 1720,320 1720,60 	"/>
+	<line class="line" x1="1720" y1="60" x2="1619.5" y2="160.5"/>
+	<polygon class="trailer-top" points="1620,420 1570,420 1570,501 1670,401 1670,370 	"/>
+</g>
+<g id="Brouillon">
+</g>
+<g id="Roues">
+	<circle class="black" cx="1501" cy="500" r="40"/>
+	<circle class="black" cx="1391" cy="500" r="40"/>
+	<circle class="black" cx="1281" cy="500" r="40"/>
+	<circle class="black" cx="621" cy="500" r="40"/>
+	<circle class="black" cx="511" cy="500" r="40"/>
+	<circle class="black" cx="291" cy="500" r="40"/>
+</g>
+</svg>
