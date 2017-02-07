@@ -17,12 +17,10 @@ app.directive('lgSvg', function($http, $compile) {
 
 			$http.get(url).then(function(response) {
 				var svg = angular.element(comment + response.data);
-				console.log('svg', svg);
+				var svgElt = svg.contents().parent();
+				svgElt.addClass('ng-cloak');
 				element.replaceWith(svg);
-				console.log('svg to compile', element);
-				if ('compile' in attrs) {
-					$compile(svg)(scope);
-				}
+				$compile(svg)(scope);
 			}).catch(function(error) {
 				console.log('error', error);
 			});
