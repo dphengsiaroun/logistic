@@ -20,6 +20,10 @@
 			foreach ($request as $key => $value) {
 				$truck->{$key} = $value;
  			}
+			debug('request', $request);
+			if (!property_exists($request, 'name')) {
+				throw new Exception(ERROR_MISSING_TRUCK_NAME_MSG, ERROR_MISSING_TRUCK_NAME_CODE);
+			}
 			$name = str2spinal($request->name);
 			$truck->id = $name;
 			$account->content->trucks->{$name} = $truck;
@@ -50,9 +54,9 @@
 			$account->save();
 			return $account->content->trucks;
 		}
-		
 
-		
+
+
 
 	}
 

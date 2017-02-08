@@ -17,6 +17,7 @@ app.filter('message', function() {
 			'7': 'Ancien mot de passe incorrect.',
 			'8': 'Code de réactivation non valide.',
 			'9': 'Code de réactivation expiré.',
+			'10': 'Le nom du camion est vide.',
 		};
 		if (error === undefined) {
 			return '';

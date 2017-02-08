@@ -52,3 +52,6 @@
 
 	define('ERROR_EXPIRED_REACTIVATION_CODE_CODE', 9);
 	define('ERROR_EXPIRED_REACTIVATION_CODE_MSG', 'Expired reactivation code.');
+
+	define('ERROR_MISSING_TRUCK_NAME_CODE', 10);
+	define('ERROR_MISSING_TRUCK_NAME_MSG', 'Missing truck name.');
