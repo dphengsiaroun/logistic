@@ -121,6 +121,7 @@ app.component('lgChoiceWrapper', {
 
 		ctrl.getIcon = function() {
 			if (ctrl.defaultsOptions.icon) {
+				console.log('ctrl.getIcon', ctrl.defaultsOptions.icon.apply(null, arguments));
 				return ctrl.defaultsOptions.icon.apply(null, arguments);
 			}
 			return '';

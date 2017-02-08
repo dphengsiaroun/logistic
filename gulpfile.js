@@ -5,7 +5,7 @@ const runSequence = require('run-sequence');
 const del = require('del');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
-webpackConfig.setupProd();
+// webpackConfig.setupProd();
 const eslint = require('gulp-eslint');
 const fs = require('fs');
 const rp = require('request-promise');
@@ -33,8 +33,8 @@ const path = {
 	wpk: 'app/wpk',
 	html: ['app/index.html', 'app/install/index.html'],
 	htaccess: ['app/.htaccess.tmpl'],
-	resources: ['app/img/**/*',	'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
-		'!app/ws/**/*.log',	'!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
+	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
+		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
 	undeploy: 'utils/remove.php',
 	lint: ['**/*.js', '!node_modules/**/*', '!app/ws/**/*', '!**/*.min.js', '!**/*.prod.js',
@@ -74,12 +74,12 @@ gulp.task('html', function() {
 });
 
 gulp.task('webpack', function(callback) {
-    webpack(webpackConfig, function(err, stats) {
-        if (err) {
+	webpack(webpackConfig, function(err, stats) {
+		if (err) {
 			throw new gutil.PluginError('webpack', err);
 		}
-        callback();
-    });
+		callback();
+	});
 });
 
 gulp.task('build', function() {
@@ -93,10 +93,10 @@ gulp.task('rebuild', function() {
 
 gulp.task('lint', function() {
 	return gulp.src(path.lint)
-	.pipe(debug())
-	.pipe(eslint())
-	.pipe(eslint.formatEach())
-	.pipe(eslint.failAfterError());
+		.pipe(debug())
+		.pipe(eslint())
+		.pipe(eslint.formatEach())
+		.pipe(eslint.failAfterError());
 });
 
 function isFixed(file) {
@@ -105,11 +105,11 @@ function isFixed(file) {
 
 gulp.task('lint-fix', function() {
 	return gulp.src(path.lint)
-	.pipe(eslint({
-		fix: true
-	}))
-	.pipe(eslint.formatEach())
-	.pipe(gulpIf(isFixed, gulp.dest('.')));
+		.pipe(eslint({
+			fix: true
+		}))
+		.pipe(eslint.formatEach())
+		.pipe(gulpIf(isFixed, gulp.dest('.')));
 });
 
 gulp.task('deploy:config', function(callback) {
@@ -139,8 +139,8 @@ gulp.task('deploy:unzip', function(callback) {
 
 gulp.task('deploy:zip', function(callback) {
 	return gulp.src(path.zipSrc, {base: 'dist'})
-        .pipe(zip(path.zip))
-        .pipe(gulp.dest('.'));
+		.pipe(zip(path.zip))
+		.pipe(gulp.dest('.'));
 });
 
 gulp.task('deploy:ftp', function() {
@@ -183,10 +183,16 @@ gulp.task('undeploy', function() {
 
 gulp.task('config', function(callback) {
 	var devEnv = cfgUtils.getEnv('dev');
+	var svg = {svgs: ['/img/truck-type/benne.svg', '/img/truck-type/covered-truck.svg']};
 	consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws).then(function(str) {
 		return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
-	}).then(function(str) {
+	}).then(function() {
 		console.log('./app/ws/include/suggested.config.php saved.');
+		return consolidate.ejs('./cfg/svg.tmpl', svg);
+	}).then(function(str) {
+		return fs.writeFileAsync('./app/lg-widget/tmpl/lg-image.html', str);
+	}).then(function() {
+		console.log('./app/lg-widget/tmpl/lg-image.html saved.');
 		callback();
 	}).catch(function(error) {
 		console.error('error', error);

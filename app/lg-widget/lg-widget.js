@@ -140,6 +140,8 @@ app.directive('lgBindHtmlCompile', function($compile) {
 	};
 });
 
+require('./tmpl/lg-image.html');
+
 app.component('imgSvg', {
 	controller: function ImgSvgCtrl($scope, $element, $attrs, $templateCache, $compile) {
 		'ngInject';
