@@ -34,10 +34,10 @@
 		<big-label>Marchandises</big-label>
 		<br/>
 		<lg-select class="conditioning" ng-model="$ctrl.loader.createData.conditioning">
-			<lg-option value="Indifférent"><img class="title lg-svg" src="img/questions.svg" /><span>Indifférent</span></lg-option>
-			<lg-option value="Colis"><img class="title lg-svg" src="img/package.svg" /><span>Colis</span></lg-option>
-			<lg-option value="Palette"><img class="title lg-svg" src="img/pallet.svg" /><span>Palette</span></lg-option>
-			<lg-option value="Vrac"><img class="title lg-svg" src="img/vrac.svg" /><span>Vrac</span></lg-option>
+			<lg-option value="Indifférent"><img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
+			<lg-option value="Colis"><img-svg src="/img/package.svg"></img-svg><span>Colis</span></lg-option>
+			<lg-option value="Palette"><img-svg src="/img/pallet.svg"></img-svg><span>Palette</span></lg-option>
+			<lg-option value="Vrac"><img-svg src="/img/vrac.svg"></img-svg><span>Vrac</span></lg-option>
 		</lg-select>
 		<label>Type</label>
 		<input type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise"
@@ -78,13 +78,13 @@
 		<label>Dimensions en mètre</label>
 		<dimension>
 			<div class="box no-zoom">
-				<img class="lg-svg" src="img/box/box-width.svg" />
+				<img-svg src="/img/box/box-width.svg"></img-svg>
 			</div>
 			<div class="box no-zoom">
-				<img class="lg-svg" src="img/box/box-height.svg" />
+				<img-svg src="/img/box/box-height.svg"></img-svg>
 			</div>
 			<div class="box no-zoom">
-				<img class="lg-svg" src="img/box/box-depth.svg" />
+				<img-svg src="/img/box/box-depth.svg"></img-svg>
 			</div>
 		</dimension>
 		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.loader.createData.dimension">

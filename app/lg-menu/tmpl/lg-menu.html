@@ -6,7 +6,7 @@
 		<a ng-click="$ctrl.off()" ui-sref="home"><img src="img/logo.png" /></a>
 	</head-center>
 	<head-center class="logo" ng-show="$ctrl.user.account">
-		<a ng-click="$ctrl.off()" ui-sref="home"><img class="lg-svg" src="img/logo.svg" /><br/>
+		<a ng-click="$ctrl.off()" ui-sref="home"><img-svg src="/img/logo.svg"></img-svg><br/>
 			{{$ctrl.user.account.content.firstname}} {{$ctrl.user.account.content.lastname | uppercase }}
 		</a>
 	</head-center>

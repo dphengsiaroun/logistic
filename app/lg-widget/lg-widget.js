@@ -143,9 +143,7 @@ app.directive('lgBindHtmlCompile', function($compile) {
 app.component('imgSvg', {
 	controller: function ImgSvgCtrl($scope, $element, $attrs, $templateCache) {
 		'ngInject';
-		console.log('ImgSvgCtrl', arguments);
 		var svg = $templateCache.get($attrs.src);
-		console.log('svg', svg);
 		$element.html(svg);
 		if ('compile' in $attrs) {
 			$compile($element.contents())($scope);
