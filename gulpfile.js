@@ -16,6 +16,7 @@ const gutil = require('gulp-util');
 const ftp = require('gulp-ftp');
 const zip = require('gulp-zip');
 const debug = require('gulp-debug');
+const glob = require('glob');
 
 const Promise = require('bluebird');
 Promise.promisifyAll(fs);
@@ -183,20 +184,29 @@ gulp.task('undeploy', function() {
 
 gulp.task('config', function(callback) {
 	var devEnv = cfgUtils.getEnv('dev');
-	var svg = {svgs: ['/img/truck-type/benne.svg', '/img/truck-type/covered-truck.svg']};
-	consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws).then(function(str) {
-		return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
-	}).then(function() {
-		console.log('./app/ws/include/suggested.config.php saved.');
-		return consolidate.ejs('./cfg/svg.tmpl', svg);
-	}).then(function(str) {
-		return fs.writeFileAsync('./app/lg-widget/tmpl/lg-image.html', str);
-	}).then(function() {
-		console.log('./app/lg-widget/tmpl/lg-image.html saved.');
-		callback();
-	}).catch(function(error) {
-		console.error('error', error);
+	glob('app/img/**/*.svg', function(err, files) {
+		if (err) {
+			console.error('error', err);
+			return;
+		}
+		var svg = {svgs: files.map((file) => {
+			return file.replace(/^app/, '');
+		})};
+		consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws).then(function(str) {
+			return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
+		}).then(function() {
+			console.log('./app/ws/include/suggested.config.php saved.');
+			return consolidate.ejs('./cfg/svg.tmpl', svg);
+		}).then(function(str) {
+			return fs.writeFileAsync('./app/lg-widget/tmpl/lg-image.html', str);
+		}).then(function() {
+			console.log('./app/lg-widget/tmpl/lg-image.html saved.');
+			callback();
+		}).catch(function(error) {
+			console.error('error', error);
+		});
 	});
+
 });
 
 
