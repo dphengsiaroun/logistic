@@ -148,10 +148,13 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, 
 	var ctrl = this;
 	ctrl.loader = loader;
 	$window.scrollTo(0, 0);
-	$scope.$watchGroup(['$ctrl.loader.createData.height', '$ctrl.loader.createData.depth',
-		'$ctrl.loader.createData.width'], function() {
-			ctrl.loader.createData.volume = ctrl.loader.createData.height *
-				ctrl.loader.createData.depth * ctrl.loader.createData.width;
+	$scope.$watchGroup(['$ctrl.loader.createData.dimension.height', '$ctrl.loader.createData.dimension.depth',
+		'$ctrl.loader.createData.dimension.width'], function() {
+			if (ctrl.loader.createData.dimension === undefined) {
+				return;
+			}
+			ctrl.loader.createData.volume = ctrl.loader.createData.dimension.height *
+				ctrl.loader.createData.dimension.depth * ctrl.loader.createData.dimension.width;
 			ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
 			ctrl.volumeStr = ctrl.loader.createData.volume + ' m3';
 			console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);

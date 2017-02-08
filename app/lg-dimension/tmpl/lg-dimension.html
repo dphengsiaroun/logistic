@@ -1,17 +1,20 @@
-<dimension ng-show="$ctrl.dimension">
-	<div>
-		<p>Largeur</p>
-		<p><b>{{$ctrl.dimension.width | distance }}</b></p>
-	</div>
-	<div>
-		<p>Hauteur</p>
-		<p><b>{{$ctrl.dimension.height | distance }}</b></p>
-	</div>
-	<div>
-		<p>Profondeur</p>
-		<p><b>{{$ctrl.dimension.depth | distance }}</b></p>
-	</div>
-</dimension>
+<my-input ng-show="$ctrl.dimension" ng-click="$ctrl.start()">
+	<span>
+		Largeur
+		<br/>
+		<b>{{$ctrl.dimension.width | distance }}</b>
+	</span>
+	<span>
+		Hauteur
+		<br/>
+		<b>{{$ctrl.dimension.height | distance }}</b>
+	</span>
+	<span>
+		Profondeur
+		<br/>
+		<b>{{$ctrl.dimension.depth | distance }}</b>
+	</span>
+</my-input>
 <my-input ng-hide="$ctrl.dimension" ng-click="$ctrl.start()">
 	<span>
 		Hauteur
@@ -41,6 +44,8 @@
 		</head-right>
 	</my-head>
 	<my-body>
-		coucou
+		<my-canvas>
+			<img-svg compile src="/img/box/truck-angular.svg"></img-svg>
+		</my-canvas>
 	</my-body>
-</lg-datetime-edit>
+	</lg-datetime-edit>

@@ -26,7 +26,6 @@ require('angular-recaptcha');
 var lgMisc = require('./lg-misc/lg-misc.js');
 var lgRoute = require('./lg-route/lg-route.js');
 var lgMenu = require('./lg-menu/lg-menu.js');
-var lgSvg = require('./lg-svg/lg-svg.js');
 var lgCarrier = require('./lg-carrier/lg-carrier.js');
 var lgTruck = require('./lg-truck/lg-truck.js');
 var lgLoader = require('./lg-loader/lg-loader.js');
@@ -62,7 +61,6 @@ var app = angular.module('mainApp', [
 	lgRoute,
 	lgUpload,
 	lgMenu,
-	lgSvg,
 	lgUser,
 	lgCarrier,
 	lgLoader,

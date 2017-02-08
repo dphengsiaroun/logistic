@@ -1,5 +1,4 @@
 @import '../css/color';
-
 lg-dimension {
     my-input {
         display: table;
@@ -17,7 +16,6 @@ lg-dimension {
             border: none;
         }
     }
-    
 }
 
 lg-dimension-edit {
@@ -44,3 +42,66 @@ lg-dimension-edit {
     }
 }
 
+my-canvas {
+    display: block;
+    width: 100%;
+    background-color: $lightGray;
+    svg {
+        display: block;
+        width: 100%;
+        .cab {
+            fill: hsl(0, 100%, 50%);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .line {
+            fill: none;
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .window {
+            fill: hsl(0, 100%, 30%);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .black {
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .cab-top {
+            fill: hsl(0, 100%, 80%);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .trailer-in {
+            fill: hsl(120, 100%, 90%);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .box-front {
+            fill: hsla(240, 100%, 70%, 0.3);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .box-top {
+            fill: hsla(240, 100%, 90%, 0.5);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .box-right {
+            fill: hsla(240, 100%, 80%, 0.4);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .trailer-front {
+            fill: hsl(120, 100%, 50%);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+        .trailer-top {
+            fill: hsla(120, 100%, 80%, 0.3);
+            stroke: black;
+            stroke-miterlimit: 10;
+        }
+    }
+}

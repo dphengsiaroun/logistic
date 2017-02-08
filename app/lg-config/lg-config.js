@@ -88,25 +88,25 @@ app.run(function($rootScope, $http) {
 			'Semi-frigo', 'Bétaillère', 'Taxi'];
 		switch (label) {
 			case 'Benne':
-				return '<img class="title lg-svg" src="img/truck-type/benne.svg" />';
+				return '<img-svg src="/img/truck-type/benne.svg"></img-svg>';
 			case 'Bâché':
-				return '<img class="title lg-svg" src="img/truck-type/covered-truck.svg" />';
+				return '<img-svg src="/img/truck-type/covered-truck.svg"></img-svg>';
 			case 'Frigo':
-				return '<img class="title lg-svg" src="img/truck-type/frigo.svg" />';
+				return '<img-svg src="/img/truck-type/frigo.svg"></img-svg>';
 			case 'Citerne':
-				return '<img class="title lg-svg" src="img/truck-type/tank-truck.svg" />';
+				return '<img-svg src="/img/truck-type/tank-truck.svg"></img-svg>';
 			case 'Porte voiture':
-				return '<img class="title lg-svg" src="img/truck-type/evacuator.svg" />';
+				return '<img-svg src="/img/truck-type/evacuator.svg"></img-svg>';
 			case 'Semi-remorque':
-				return '<img class="title lg-svg" src="img/truck-type/semi-trailer.svg" />';
+				return '<img-svg src="/img/truck-type/semi-trailer.svg"></img-svg>';
 			case 'Semi-frigo':
-				return '<img class="title lg-svg" src="img/truck-type/semi-trailer-fridge.svg" />';
+				return '<img-svg src="/img/truck-type/semi-trailer-fridge.svg"></img-svg>';
 			case 'Bétaillère':
-				return '<img class="title lg-svg" src="img/truck-type/animal-truck.svg" />';
+				return '<img-svg src="/img/truck-type/animal-truck.svg"></img-svg>';
 			case 'Taxi':
-				return '<img class="title lg-svg" src="img/truck-type/taxi-truck.svg" />';
+				return '<img-svg src="/img/truck-type/taxi-truck.svg"></img-svg>';
 
 		}
-		return '<img class="title lg-svg" src="img/questions.svg" />';
+		return '<img-svg src="/img/questions.svg"></img-svg>';
 	};
 });
