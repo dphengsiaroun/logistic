@@ -15,23 +15,6 @@
 		<label>Remorque</label>
 		<comment>Mesures en mètre</comment>
 		<truck-dim>
-			<dimension>
-				<div>
-					<img src="img/hauteur.png" />
-					<p>Hauteur</p>
-					<input type="num" placeholder="H." vertical ng-model="$ctrl.updateData.height" options="{format: 2, step: 0.1}" />
-				</div>
-				<div>
-					<img src="img/profondeur.png" />
-					<p>Profondeur</p>
-					<input type="num" placeholder="P." vertical ng-model="$ctrl.truck.updateData.depth" options="{format: 2, step: 0.1}" />
-				</div>
-				<div>
-					<img src="img/largeur.png" />
-					<p>Largeur</p>
-					<input type="num" placeholder="L." vertical ng-model="$ctrl.truck.updateData.width" options="{format: 2, step: 0.1}" />
-				</div>
-			</dimension>
 		</truck-dim>
 		<label>Année du camion</label>
 		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.truck.updateData.birthyear"
