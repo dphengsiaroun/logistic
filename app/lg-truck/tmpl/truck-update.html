@@ -1,7 +1,11 @@
 <div class="ad-title">
-	<h1>Transporteur</h1>
-	<img-svg src="/img/frontal-truck.svg"></img-svg>
-	<subtitle>Modifier un véhicule</subtitle>
+	<left>
+		<img-svg class="frontal-truck" src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Transporteur</title>
+		<subtitle>Modifier un véhicule</subtitle>
+	</right>
 </div>
 <form class="ad" name="updateCtrl">
 	<section>
@@ -16,18 +20,18 @@
 		<comment>Mesures en mètre</comment>
 		<truck-dim>
 			<dimension>
-				<div>
-					<img src="img/hauteur.png" />
+				<div class="truck height">
+					<img-svg src="/img/truck/truck-height.svg"></img-svg>
 					<p>Hauteur</p>
 					<input type="num" placeholder="H." vertical ng-model="$ctrl.updateData.height" options="{format: 2, step: 0.1}" />
 				</div>
-				<div>
-					<img src="img/profondeur.png" />
+				<div class="truck depth">
+					<img-svg src="/img/truck/truck-depth.svg"></img-svg>
 					<p>Profondeur</p>
 					<input type="num" placeholder="P." vertical ng-model="$ctrl.truck.updateData.depth" options="{format: 2, step: 0.1}" />
 				</div>
-				<div>
-					<img src="img/largeur.png" />
+				<div class="truck">
+					<img-svg src="/img/truck/truck-width.svg"></img-svg>
 					<p>Largeur</p>
 					<input type="num" placeholder="L." vertical ng-model="$ctrl.truck.updateData.width" options="{format: 2, step: 0.1}" />
 				</div>
