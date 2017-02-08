@@ -1,20 +1,9 @@
 @import '../css/color';
 .add-vehicle.ad-title {
     svg {
-        top: 10px;
-        left: 25px;
-    }
-    .fa {
-        position: absolute;
-        top: 65px;
-        left: 67px;
-        font-size: 29px;
-        border-radius: 100%;
-        width: 35px;
-        height: 35px;
-        line-height: 37px;
-        text-align: center;
-        background-color: $headerColor;
-        color: $secondaryColor;
+        width: 70px;
+        height: 70px;
+        margin: 0px;
+
     }
 }
