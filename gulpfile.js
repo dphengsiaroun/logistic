@@ -189,9 +189,7 @@ gulp.task('config', function(callback) {
 			console.error('error', err);
 			return;
 		}
-		var svg = {svgs: files.map((file) => {
-			return file.replace(/^app/, '');
-		})};
+		var svg = {svgs: files.map((f) => f.replace(/^app/, ''))};
 		consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws).then(function(str) {
 			return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
 		}).then(function() {
