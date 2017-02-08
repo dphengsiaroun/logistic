@@ -52,18 +52,18 @@
 		<label>Dimension en mètre</label>
 		<truck-dim>
 			<dimension>
-				<div>
-					<img class="truck" src="img/hauteur.png" />
+				<div class="truck height">
+					<img-svg src="/img/truck/truck-height.svg"></img-svg>
 					<p>Hauteur</p>
 					<input type="num" placeholder="H." vertical ng-model="$ctrl.truck.createData.height" options="{format: 2, step: 0.1}" />
 				</div>
-				<div>
-					<img class="truck" src="img/profondeur.png" />
+				<div class="truck depth">
+					<img-svg src="/img/truck/truck-depth.svg"></img-svg>
 					<p>Profondeur</p>
 					<input type="num" placeholder="P." vertical ng-model="$ctrl.truck.createData.depth" options="{format: 2, step: 0.1}" />
 				</div>
-				<div>
-					<img class="truck" src="img/largeur.png" />
+				<div class="truck">
+					<img-svg src="/img/truck/truck-width.svg"></img-svg>
 					<p>Largeur</p>
 					<input type="num" placeholder="L." vertical ng-model="$ctrl.truck.createData.width" options="{format: 2, step: 0.1}" />
 				</div>

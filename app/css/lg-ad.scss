@@ -70,9 +70,6 @@
                 display: table-cell;
                 width: 30%;
                 text-align: center;
-                img {
-                    display: inline-block;
-                }
                 p {
                     font-size: 17px;
                     font-weight: normal;
@@ -82,16 +79,23 @@
                 svg {
                     width: 70px;
                 }
-                img {
-                    width: 90px;
-                }
             }
             div.truck {
                 svg {
-                    width: 70px;
+					position: relative;
+					top: 0px;
+					left: 0px;
+                    width: 90px;
                 }
-                img {
-                    width: 70px;
+            }
+			div.truck.height {
+                svg {
+					left: 4px;
+                }
+            }
+			div.truck.depth {
+                svg {
+					left: 4px;
                 }
             }
         }
