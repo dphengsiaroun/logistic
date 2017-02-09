@@ -76,7 +76,7 @@
 		<label>Poids précis si connu (en kg)</label>
 		<input type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
 		<label>Dimensions en mètre</label>
-		<dimension>
+		<dimension ng-click="$ctrl.editDimension()">
 			<div class="box no-zoom">
 				<img-svg src="/img/box/box-width.svg"></img-svg>
 			</div>

@@ -143,7 +143,8 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 	};
 }]);
 
-app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, $window, lgFormat, loader, user) {
+app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
+	$scope, $element, $http, $q, $window, lgFormat, loader, user) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.loader = loader;
@@ -189,6 +190,15 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl($scope, $http, $q, 
 			ctrl.loader.createData.infoRoute = '';
 		});
 	});
+
+	ctrl.editDimension = function() {
+		console.log('editDimension', arguments);
+		var dimensionElt = $element.find('lg-dimension');
+		console.log('dimensionElt', dimensionElt);
+		var dimensionCtrl = dimensionElt.controller('lgDimension');
+		console.log('dimensionCtrl', dimensionCtrl);
+		dimensionCtrl.start();
+	};
 
 	$scope.$watchGroup(['$ctrl.loader.createData.departureDatetime', '$ctrl.loader.createData.arrivalDatetime'],
 		function() {
