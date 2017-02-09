@@ -13,11 +13,16 @@ app.component('lgDimension', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgDimensionUrl,
-	controller: function LgDimensionCtrl(lgScroll) {
+	controller: function LgDimensionCtrl($element, $document, lgScroll) {
 		'ngInject';
 		console.log('LgDimensionCtrl');
 		var ctrl = this;
 		ctrl.coef = 0.429;
+		var settingsElt = $element.find('settings');
+		var width = screen.width;
+		console.log('LgDimensionCtrl width', width);
+		var top = 59 + (106 / 320) * width + 55 + 20;
+		settingsElt.css('top', top + 'px');
 
 
 
