@@ -16,15 +16,17 @@
 		<head-right ng-show="$ctrl.isMandatory" class="menu">
 		</head-right>
 	</my-head>
-	<div class="input-auto">
-		<input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" ng-model-options="{ debounce: 200 }"/>
-	</div>
-	<div class="list">
-		<p class="preselected" ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== '' && $ctrl.ngModel.$modelValue !== undefined">
-			<icon><i class="fa fa-check" aria-hidden="true"></i></icon><span ng-bind-html="$ctrl.getLabel($ctrl.ngModel.$modelValue)"></span>
-		</p>
-		<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter | limitTo:20" >
-			<icon lg-bind-html-compile="$ctrl.getIcon(choice)"></icon><span ng-bind-html="$ctrl.getLabel(choice)"></span>
-		</p>
-	</div>
+	<input-auto>
+		<input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" ng-model-options="{ debounce: 200 }" />
+	</input-auto>
+	<fixed>
+		<list>
+			<p class="preselected" ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== '' && $ctrl.ngModel.$modelValue !== undefined">
+				<icon><i class="fa fa-check" aria-hidden="true"></i></icon><span ng-bind-html="$ctrl.getLabel($ctrl.ngModel.$modelValue)"></span>
+			</p>
+			<p ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter | limitTo:20">
+				<icon lg-bind-html-compile="$ctrl.getIcon(choice)"></icon><span ng-bind-html="$ctrl.getLabel(choice)"></span>
+			</p>
+		</list>
+	</fixed>
 </lg-edit>

@@ -73,6 +73,7 @@ app.component('lgChoice', {
 		ctrl.stop = function() {
 			lgScroll.restore();
 			ctrl.showLgChoice = false;
+			$element.find("input")[0].blur();
 		};
 
 		ctrl.update = function(choice) {

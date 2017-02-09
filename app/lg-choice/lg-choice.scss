@@ -34,7 +34,7 @@ lg-choice {
             position: absolute;
             width: 34px;
             left: -35px;
-			top: 3px;
+            top: 3px;
             fill: $selectedColor;
         }
     }
@@ -43,7 +43,6 @@ lg-choice {
 lg-edit {
     display: block;
     position: fixed;
-    overflow-y: scroll;
     height: 100%;
     width: 100%;
     top: 0;
@@ -59,12 +58,13 @@ lg-edit {
         height: 59px;
         background-color: $headerColor;
     }
-    .input-auto {
+    input-auto {
         position: fixed;
         z-index: 101;
+        top: 59px;
         text-align: left;
         width: 100%;
-        padding: 59px 10px 0px;
+        padding: 0px 10px 0px;
         background-color: $littleLightGray;
         input {
             width: 100%;
@@ -75,40 +75,53 @@ lg-edit {
             border: 1px solid $borderColor;
         }
     }
-    .list {
-        position: relative;
-        top: 123px;
-        p {
-            padding: 15px 35px;
-            font-size: 20px;
-            border-bottom: 1px solid $borderColor;
-            icon {
-                svg {
-                    position: absolute;
-                    width: 23px;
-                    left: 6px;
-                    fill: $selectedColor;
-                }
-                i {
-                    position: absolute;
-                    left: 8px;
-                    color: $selectedColor;
-                }
-                i.fa-balance-scale {
-                    left: 6px;
-                }
-                .fa-map-marker {
-                    left: 13px;
-                }
-                i.fa-check {
-                    left: 8px;
+    fixed {
+        display: block;
+        position: fixed;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        background-color: white;
+        list {
+            position: relative;
+            top: 123px;
+            p {
+                padding: 15px 35px;
+                font-size: 20px;
+                border-bottom: 1px solid $borderColor;
+                icon {
+                    svg {
+                        position: absolute;
+                        width: 23px;
+                        left: 6px;
+                        fill: $selectedColor;
+                    }
+                    i {
+                        position: absolute;
+                        left: 8px;
+                        color: $selectedColor;
+                    }
+                    i.fa-balance-scale {
+                        left: 6px;
+                    }
+                    .fa-map-marker {
+                        left: 13px;
+                    }
+                    i.fa-check {
+                        left: 8px;
+                    }
                 }
             }
-        }
-        p.preselected {
-            background-color: $backgroundColor;
-            i {
-                color: $fontColor;
+            p.preselected {
+                background-color: $backgroundColor;
+                i {
+                    color: $fontColor;
+                }
             }
         }
     }
