@@ -26,18 +26,22 @@
 		<label>Date et heure de livraison</label>
 		<lg-datetime title="Date et heure de livraison" placeholder="Date de départ" ng-model="$ctrl.loader.createData.arrivalDatetime"
 			options="{defaultHour: 14}" after="$ctrl.loader.createData.departureDatetime" offset="$ctrl.loader.createData.minDuration">
-		</lg-datetime>
-		<info ng-bind-html="$ctrl.loader.createData.infoDuration"></info>
-		<br/>
+			</lg-datetime>
+			<info ng-bind-html="$ctrl.loader.createData.infoDuration"></info>
+			<br/>
 	</section>
 	<section class="dark">
 		<big-label>Marchandises</big-label>
 		<br/>
 		<lg-select class="conditioning" ng-model="$ctrl.loader.createData.conditioning">
-			<lg-option value="Indifférent"><img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
-			<lg-option value="Colis"><img-svg src="/img/package.svg"></img-svg><span>Colis</span></lg-option>
-			<lg-option value="Palette"><img-svg src="/img/pallet.svg"></img-svg><span>Palette</span></lg-option>
-			<lg-option value="Vrac"><img-svg src="/img/vrac.svg"></img-svg><span>Vrac</span></lg-option>
+			<lg-option value="Indifférent">
+				<img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
+			<lg-option value="Colis">
+				<img-svg src="/img/package.svg"></img-svg><span>Colis</span></lg-option>
+			<lg-option value="Palette">
+				<img-svg src="/img/pallet.svg"></img-svg><span>Palette</span></lg-option>
+			<lg-option value="Vrac">
+				<img-svg src="/img/vrac.svg"></img-svg><span>Vrac</span></lg-option>
 		</lg-select>
 		<label>Type</label>
 		<input type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise"
@@ -54,8 +58,8 @@
 
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
-			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc."
-				ng-model="$ctrl.loader.createData.transportTruckType" />
+			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion"
+				placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.loader.createData.transportTruckType" />
 		</div>
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Bateau'">
 			<label>Type de bateau</label>
@@ -105,6 +109,8 @@
 		<input type="choice" choices="$root.config.times" title="Durée d\'affichage" placeholder="Ex: 1 semaine, 15 jours" ng-model="$ctrl.loader.createData.adTimes"
 		/>
 	</section>
+</form>
+<formx class="ad">
 	<section class="dark">
 		<big-label>Finaliser</big-label>
 		<label>Attention</label>
@@ -112,9 +118,11 @@
 		<lg-error error="$ctrl.loader.error"></lg-error>
 		<button ng-click="$ctrl.loader.create()">Déposer votre annonce</button>
 	</section>
-</form>
+</formx>
+
 <script>
 	$('.no-zoom').bind('touchend', function (e) {
 		e.preventDefault();
 	});
+
 </script>
