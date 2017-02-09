@@ -27,7 +27,7 @@ module.exports = {
 			{test: /fontawesome-webfont\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
 			// managing angular templates into javascript file.
 			{test: /\.html$/, loader: 'ngtemplate?relativeTo=app!html?attrs=img-svg:src&root=' + path.resolve('./app')},
-			{test: /img\/.+\.svg$/, loader: 'ngtemplate?relativeTo=app!html?attrs=false'}
+			{test: /img[\\\/].+\.svg/, loader: 'ngtemplate?relativeTo=app!html?attrs=false'}
 		]
 	},
 	devtool: 'source-map',
