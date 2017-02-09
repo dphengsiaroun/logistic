@@ -39,6 +39,60 @@ lg-dimension-edit {
         width: 100%;
         height: 100%;
         background-color: white;
+		dimension {
+            display: table;
+            table-layout: fixed;
+			width: 100%;
+			background-color: $selectedColor;
+			label {
+				display: table-cell;
+				text-align: center;
+				color: white;
+				font-weight: normal;
+				font-size: 13px;
+				input {
+					margin: 0px 0px;
+					padding: 0px 0px;
+					min-height: 0px;
+					text-align: center;
+					border: none;
+					background-color: transparent;
+					color: white;
+				}
+			}
+        }
+		volume {
+			display: block;
+			width: 100%;
+			margin: 0px 0px;
+			padding: 0px 10px;
+			background-color: $headerColor;
+			color: white;
+		}
+		settings {
+            display: block;
+			position: fixed;
+			overflow-y: auto;
+			top: 255px;
+			bottom: 0px;
+			left: 0px;
+			width: 100%;
+            margin: 0px 0px;
+			padding: 0px 0px;
+			my-table {
+				display: table;
+				width: 100%;
+				height: 100%;
+				margin: 0px 0px;
+				padding: 0px 0px;
+				span {
+					display: table-cell;
+					text-align: center;
+					margin: 0px 0px;
+					padding: 0px 0px;
+				}
+			}
+        }
     }
 }
 
