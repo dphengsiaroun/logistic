@@ -17,3 +17,10 @@ app.config(['$provide', function($provide) {
 		return $delegate;
 	}]);
 }]);
+
+app.run(function($rootScope) {
+	'ngInject';
+	$rootScope.$watch(function() {
+		console.log('$rootScope compilation', arguments);
+	});
+});
