@@ -1,6 +1,6 @@
 <my-input id="lgChoiceInput{{$ctrl.id}}" ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
 <icon lg-bind-html-compile="$ctrl.getIcon($ctrl.currentValue)"></icon>
-<lg-choice ng-show="$ctrl.showLgChoice">
+<lg-edit ng-show="$ctrl.showLgChoice">
 	<my-head>
 		<head-left ng-show="$ctrl.defaultsOptions.place" ng-click="$ctrl.geoloc()">
 			<i class="fa fa-location-arrow" aria-hidden="true"></i>
@@ -27,4 +27,4 @@
 			<icon lg-bind-html-compile="$ctrl.getIcon(choice)"></icon><span ng-bind-html="$ctrl.getLabel(choice)"></span>
 		</p>
 	</div>
-</lg-choice>
+</lg-edit>

@@ -31,14 +31,14 @@ app.directive('input', ['$injector', function($injector) {
 				optionsAttr = 'options="' + attr.options + '" ';
 			}
 			var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
-				'<lg-choice-wrapper ' +
+				'<lg-choice ' +
 				'placeholder="\'' + attr.placeholder + '\'" ' +
 				'choices="' + attr.choices + '" ' +
 				'title="\'' + attr.title + '\'" ' +
 				'ng-model="' + attr.ngModel + '" ' +
 				requiredAttr +
 				optionsAttr +
-				'></lg-choice-wrapper>');
+				'></lg-choice>');
 			element.after(elt);
 			element.attr('style', 'display: none !important');
 			$compile(elt)(scope);
@@ -47,13 +47,13 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
-var lgChoiceWrapperUrl = require('./tmpl/lg-choice-wrapper.html');
+var lgChoiceUrl = require('./tmpl/lg-choice.html');
 
-app.component('lgChoiceWrapper', {
+app.component('lgChoice', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgChoiceWrapperUrl,
+	templateUrl: lgChoiceUrl,
 	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll, geoloc) {
 		'ngInject';
 		var ctrl = this;
