@@ -150,7 +150,7 @@ app.component('lgSlider', {
 		};
 
 		var mousemove = function(event) {
-			console.log('mousemove', arguments);
+			// console.log('mousemove', arguments);
 			event.preventDefault();
 			move(event);
 		};
