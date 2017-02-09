@@ -24,6 +24,10 @@ app.component('lgDimension', {
 		var top = 59 + (106 / 320) * width + 55 + 20;
 		settingsElt.css('top', top + 'px');
 
+		var fixedElt = $element.find('lg-edit');
+		fixedElt.on('touchmove', function(e) {
+			e.preventDefault();
+		});
 
 
 		ctrl.start = function() {

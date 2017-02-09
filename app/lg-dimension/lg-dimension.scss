@@ -18,10 +18,15 @@ lg-dimension {
     }
 }
 
-lg-dimension-edit {
+lg-edit {
     display: block;
-    height: 0px;
-    width: 0px;
+	position: fixed;
+    height: 100%;
+    width: 100%;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 100;
     my-head {
         z-index: 102;
         position: fixed;

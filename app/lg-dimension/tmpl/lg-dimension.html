@@ -29,7 +29,7 @@
 <span>
 	<label>Volume résultant : <b>{{$ctrl.volumeStr}}</b></label>
 </span>
-<lg-dimension-edit ng-show="$ctrl.state === 'editState'">
+<lg-edit ng-show="$ctrl.state === 'editState'">
 	<my-head>
 		<head-left ng-click="$ctrl.cancel()">
 			<i class="fa fa-times" aria-hidden="true"></i>
@@ -75,4 +75,4 @@
 			</my-table>
 		</settings>
 	</my-body>
-</lg-dimension-edit>
+</lg-edit>
