@@ -13,7 +13,7 @@ app.component('lgSlider', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgSliderUrl,
-	controller: function LgSliderCtrl($element, $attrs) {
+	controller: function LgSliderCtrl($element, $attrs, $document) {
 		'ngInject';
 		console.log('LgSliderCtrl', arguments);
 		var isHorizontal = ('horizontal' in $attrs);
@@ -145,8 +145,8 @@ app.component('lgSlider', {
 			console.log('mousedown', arguments);
 			event.preventDefault();
 			start(event);
-			cursor.on('mousemove', mousemove);
-			cursor.on('mouseup', mouseup);
+			$document.on('mousemove', mousemove);
+			$document.on('mouseup', mouseup);
 		};
 
 		var mousemove = function(event) {
@@ -158,8 +158,8 @@ app.component('lgSlider', {
 		var mouseup = function(event) {
 			console.log('mouseup', arguments);
 			event.preventDefault();
-			cursor.off('mousemove');
-			cursor.off('mouseup');
+			$document.off('mousemove');
+			$document.off('mouseup');
 		};
 
 		cursor.on('mousedown', mousedown);
