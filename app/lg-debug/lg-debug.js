@@ -18,9 +18,12 @@ app.config(['$provide', function($provide) {
 	}]);
 }]);
 
+var counter = 0;
+
 app.run(function($rootScope) {
 	'ngInject';
 	$rootScope.$watch(function() {
-		console.log('$rootScope compilation', arguments);
+		console.log('$rootScope compilation', counter);
+		counter++;
 	});
 });

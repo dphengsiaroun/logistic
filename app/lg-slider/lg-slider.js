@@ -9,11 +9,14 @@ var app = angular.module(module.exports, []);
 var lgSliderUrl = require('./tmpl/lg-slider.html');
 
 app.component('lgSlider', {
-	require: {
-		ngModel: 'ngModel',
-	},
 	templateUrl: lgSliderUrl,
-	controller: function LgSliderCtrl($element, $attrs, $document) {
+	bindings: {
+		min: '<',
+		max: '<',
+		step: '<',
+		value: '=',
+	},
+	controller: function LgSliderCtrl($scope, $element, $attrs, $document) {
 		'ngInject';
 		console.log('LgSliderCtrl', arguments);
 		var isHorizontal = ('horizontal' in $attrs);
@@ -35,13 +38,14 @@ app.component('lgSlider', {
 		console.log('maxWidth', maxWidth);
 
 		var setCursorAtBeginning = function() {
-			var val = ctrl.ngModel.$viewValue;
+			var val = ctrl.value;
+			console.log('setCursorAtBeginning val', val);
 			if (!val || val < ctrl.min) {
-				ctrl.ngModel.$setViewValue(ctrl.min);
+				ctrl.value = ctrl.min;
 				val = ctrl.min;
 			}
 			if (val > ctrl.max) {
-				ctrl.ngModel.$setViewValue(ctrl.max);
+				ctrl.value = ctrl.max;
 				val = ctrl.max;
 			}
 
@@ -64,10 +68,11 @@ app.component('lgSlider', {
 		};
 
 		ctrl.$onInit = function() {
-			ctrl.ngModel.$render = function() {
-				console.log('LgSliderCtrl ctrl.ngModel.$render', arguments);
+
+
+			$scope.$watch('$ctrl.value', () => {
 				setCursorAtBeginning();
-			};
+			});
 			if (ctrl.min === undefined) {
 				ctrl.min = 0;
 			};
@@ -79,8 +84,8 @@ app.component('lgSlider', {
 		};
 
 		ctrl.update = function(val) {
-			ctrl.ngModel.$setViewValue(val);
-			ctrl.ngModel.$setTouched();
+			console.log('update', val);
+			ctrl.value = val;
 		};
 
 		var start = function(e) {
@@ -113,7 +118,7 @@ app.component('lgSlider', {
 			}
 			val = Math.round(val / ctrl.step) * ctrl.step;
 			ctrl.update(val);
-
+			$scope.$parent.$digest();
 		};
 
 
@@ -164,11 +169,6 @@ app.component('lgSlider', {
 
 		cursor.on('mousedown', mousedown);
 
-	},
-	bindings: {
-		min: '<',
-		max: '<',
-		step: '<',
 	}
 });
 
