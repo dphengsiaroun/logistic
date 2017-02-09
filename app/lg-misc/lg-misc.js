@@ -56,9 +56,9 @@ app.filter('distance', function() {
 	return function(number) {
 		var integer = Math.floor(number);
 		var decimal = Math.round((number - integer) * 100);
-		var decimalStr = '0' + decimal;
-		if (decimal > 10) {
-			decimalStr = '' + decimal;
+		var decimalStr = '' + decimal;
+		if (decimal < 10) {
+			decimalStr = '0' + decimal;
 		}
 		return integer + 'm' + decimalStr;
 	};
