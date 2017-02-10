@@ -5,7 +5,7 @@ const runSequence = require('run-sequence');
 const del = require('del');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
-// webpackConfig.setupProd();
+webpackConfig.setupProd();
 const eslint = require('gulp-eslint');
 const fs = require('fs');
 const rp = require('request-promise');
@@ -36,7 +36,7 @@ const path = {
 	html: ['app/index.html', 'app/install/index.html'],
 	htaccess: ['app/.htaccess.tmpl'],
 	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
-		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl'],
+		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl', '!app/img/**/*.svg'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
 	undeploy: 'utils/remove.php',
 	lint: ['**/*.js', '!node_modules/**/*', '!app/ws/**/*', '!**/*.min.js', '!**/*.prod.js',

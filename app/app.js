@@ -108,5 +108,9 @@ app.run(function($rootScope, $window, $state, $parse) {
 		$state.go(to, params);
 	};
 
+	$rootScope.hello = function() {
+		// alert('hello');
+	};
+
 });
 

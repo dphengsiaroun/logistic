@@ -78,18 +78,18 @@ lg-edit {
     fixed {
         display: block;
         position: fixed;
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
         height: 100%;
         width: 100%;
-        top: 0;
+        top: 123px;
         bottom: 0;
         left: 0;
         z-index: 100;
         background-color: white;
         list {
             position: relative;
-            top: 123px;
+            top: 0px;
             p {
                 padding: 15px 35px;
                 font-size: 20px;
