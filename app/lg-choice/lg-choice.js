@@ -57,6 +57,7 @@ app.component('lgChoice', {
 	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll, geoloc) {
 		'ngInject';
 		var ctrl = this;
+		var fixedListElt = $element.find('fixed-list');
 
 		ctrl.showLgChoice = false;
 		ctrl.defaultsOptions = {
@@ -66,6 +67,10 @@ app.component('lgChoice', {
 		ctrl.closeInput = function() {
 			console.log('closeInput');
 			$element.find('input')[0].blur();
+		};
+
+		ctrl.scrollTopList = function() {
+			fixedListElt[0].scrollTop = 0;
 		};
 
 		ctrl.start = function() {
