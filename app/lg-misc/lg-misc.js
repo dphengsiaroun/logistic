@@ -4,6 +4,8 @@ module.exports = 'lg-misc';
 
 var app = angular.module(module.exports, []);
 
+require('./lg-misc.scss');
+
 app.service('lgMisc', ['$injector', function LgMisc($injector) {
 	this.isWebService = function(url) {
 		return url.match(/ws\/.*\.php/);
@@ -18,16 +20,19 @@ app.service('lgSequence', function LgSequence() {
 	};
 });
 
-app.service('lgScroll', ['$injector', function LgScroll($injector) {
-	var $window = $injector.get('$window');
+app.service('lgScroll', function LgScroll($window, $document) {
+	'ngInject';
+	var body = $document.find('body').eq(0);
 	this.lastSaved = 0;
 	this.save = function() {
 		this.lastSaved = $window.scrollY;
+		body.addClass('lg-scroll-noscroll');
 	};
 	this.restore = function() {
 		$window.scrollTo(0, this.lastSaved);
+		body.removeClass('lg-scroll-noscroll');
 	};
-}]);
+});
 
 app.service('lgFormat', function LgFormat($filter) {
 	'ngInject';
