@@ -29,8 +29,9 @@ app.service('lgScroll', function LgScroll($window, $document) {
 		body.addClass('lg-scroll-noscroll');
 	};
 	this.restore = function() {
-		$window.scrollTo(0, this.lastSaved);
 		body.removeClass('lg-scroll-noscroll');
+		$window.scrollTo(0, this.lastSaved);
+
 	};
 });
 
