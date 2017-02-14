@@ -25,21 +25,6 @@ app.component('lgMenu', {
 		console.log('LgMenuCtrl', arguments);
 		var ctrl = this;
 
-		this.isBackPresent = false;
-		var refreshBack = function() {
-			console.log('refreshBack', arguments);
-			console.log('$state.$current', $state.$current);
-			if ($state.$current.back === undefined) {
-				ctrl.isBackPresent = true;
-			} else {
-				ctrl.isBackPresent = $state.$current.back;
-			}
-			console.log('refreshBack end', $state.$current.name);
-		};
-
-		refreshBack();
-		$rootScope.$on('$viewContentLoaded', refreshBack);
-
 		this.isMenuOn = false;
 
 		this.toggle = function() {

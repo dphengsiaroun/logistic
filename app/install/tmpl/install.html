@@ -18,7 +18,7 @@
     <label for="prefix">Prefix for tables</label><br/>
     <input type="text" id="prefix" ng-model="obj.prefix" />
 
-   
+
     <input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
     <label for="dbCreation">Create the tables</label><br/>
 
@@ -49,7 +49,9 @@
     <input type="text" id="smtp.server.password" ng-model="obj.smtp.password" />
     <label for="smtp.server.from">SMTP Server From</label><br/>
     <input type="text" id="smtp.server.from" ng-model="obj.smtp.from" />
-    
+
+	<label for="routeGoogleAPIKey">Route Google API Key</label><br/>
+    <input type="text" id="routeGoogleAPIKey" ng-model="obj.routeGoogleAPIKey" />
 
     <button type="installForm.$submit()">Install</button>
 </form>

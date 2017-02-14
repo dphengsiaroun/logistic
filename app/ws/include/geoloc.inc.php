@@ -33,16 +33,63 @@
 				debug('route: Using cache', $result);
 				return $result;
 			}
-			$url = 'http://router.project-osrm.org/route/v1/driving/' . $q . '?overview=false';
-			$json = json_decode(file_get_contents($url));
-			debug('OSRM called: $json', $json);
-			$result = $json->routes[0];
+			// route not stored in cache so retrive it from a web service
+			// OSRM way:
+			$result = self::routeUsingOSRM($q);
+			if (!$result) {
+				$result = self::routeUsingGoogle($request);
+			}
+			if (!$result) {
+				throw new Exception(ERROR_CANNOT_GET_ROUTE_MSG, ERROR_CANNOT_GET_ROUTE_CODE);
+			}
+
+
 			$content = array(
 				'key' => $q,
 				'result' => $result
 			);
 			$e = Event::insert('/geoloc/route', $content);
 			Event::synchronize();
+			return $result;
+		}
+
+		public static function routeUsingOSRM($q) {
+			$url = 'http://router.project-osrm.org/route/v1/driving/' . $q . '?overview=false';
+			$response = @file_get_contents($url);
+			if ($response === FALSE) {
+				return FALSE;
+			}
+			$json = json_decode($response);
+			debug('OSRM called: $json', $json);
+			$result = $json->routes[0];
+			return $result;
+		}
+
+		public static function routeUsingGoogle($request) {
+			global $cfg;
+
+			$origins = $request->departure->city . '+' . $request->departure->region  . '+' . $request->departure->country;
+			$origins = str_replace(' ', '+', $origins);
+			$destinations = $request->arrival->city . '+' . $request->arrival->region  . '+' . $request->arrival->country;
+			$destinations = str_replace(' ', '+', $destinations);
+			$url = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=' .
+				$origins . '&destinations=' . $destinations . '&key=' . $cfg->routeGoogleAPIKey;
+			debug('Google $url', $url);
+			$googleJson = json_decode(@file_get_contents($url));
+			if ($googleJson == NULL) {
+				return FALSE;
+			}
+			debug('Google called: $googleJson', $googleJson);
+			$row = $googleJson->rows[0];
+			debug('Google called: $googleJson', $row);
+			debug('Google called: $googleJson', $row->elements[0]);
+			if (!property_exists($row->elements[0], 'duration')) {
+				return FALSE;
+			}
+			$result = array(
+				'duration' => $googleJson->rows[0]->elements[0]->duration->value,
+				'distance' => $googleJson->rows[0]->elements[0]->distance->value,
+			);
 			return $result;
 		}
 

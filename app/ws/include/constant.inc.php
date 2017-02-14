@@ -55,3 +55,6 @@
 
 	define('ERROR_MISSING_TRUCK_NAME_CODE', 10);
 	define('ERROR_MISSING_TRUCK_NAME_MSG', 'Missing truck name.');
+
+	define('ERROR_CANNOT_GET_ROUTE_CODE', 11);
+	define('ERROR_CANNOT_GET_ROUTE_MSG', 'Cannot get route. External API not working');

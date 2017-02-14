@@ -42,6 +42,8 @@
 			$result['smtp']['password'] = $cfg->smtpServerPassword;
 			$result['smtp']['from'] = $cfg->smtpServerFrom;
 
+			$result['routeGoogleAPIKey'] = $cfg->routeGoogleAPIKey;
+
 		}
 		return $result;
 	}
@@ -91,6 +93,8 @@
 	\$cfg->smtpServerUsername = '{$request->smtp->username}';
 	\$cfg->smtpServerPassword = '{$request->smtp->password}';
 	\$cfg->smtpServerFrom = '{$request->smtp->from}';
+
+	\$cfg->routeGoogleAPIKey = '{$request->routeGoogleAPIKey}';
 
 	\$cfg->appUrl = '$appUrl/';
 
