@@ -98,13 +98,13 @@ app.config(['$stateProvider', function($stateProvider) {
 	$stateProvider.state({
 		name: 'user:updatePassword',
 		url: '/update-password',
-		component: 'lgUserUpdatePasswordRoute'
+		component: 'lgUserUpdatePasswordRoute',
 		needsUser: true
 	});
 	$stateProvider.state({
 		name: 'user:initiatePassword',
 		url: '/initiate-password',
-		component: 'lgUserInitiatePasswordRoute'
+		component: 'lgUserInitiatePasswordRoute',
 		needsUser: true
 	});
 	$stateProvider.state({
@@ -119,7 +119,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					message: 'Votre mot de passe a bien été mis à jour.'
 				};
 			}
-		}
+		},
 		needsUser: true
 	});
 	$stateProvider.state({
