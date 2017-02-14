@@ -17,8 +17,7 @@ app.config(['$stateProvider', function($stateProvider) {
 	$stateProvider.state({
 		name: 'user:signupSuccess',
 		url: '/signup-success',
-		component: 'lgUserSignupSuccessRoute',
-		back: false
+		component: 'lgUserSignupSuccessRoute'
 	});
 	$stateProvider.state({
 		name: 'user:signout',
@@ -94,21 +93,18 @@ app.config(['$stateProvider', function($stateProvider) {
 					message: 'Votre compte a bien été supprimé.'
 				};
 			}
-		},
-		back: false
+		}
 	});
 	$stateProvider.state({
 		name: 'user:updatePassword',
 		url: '/update-password',
-		component: 'lgUserUpdatePasswordRoute',
-		back: false,
+		component: 'lgUserUpdatePasswordRoute'
 		needsUser: true
 	});
 	$stateProvider.state({
 		name: 'user:initiatePassword',
 		url: '/initiate-password',
-		component: 'lgUserInitiatePasswordRoute',
-		back: false,
+		component: 'lgUserInitiatePasswordRoute'
 		needsUser: true
 	});
 	$stateProvider.state({
@@ -123,8 +119,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					message: 'Votre mot de passe a bien été mis à jour.'
 				};
 			}
-		},
-		back: false,
+		}
 		needsUser: true
 	});
 	$stateProvider.state({
@@ -144,14 +139,12 @@ app.config(['$stateProvider', function($stateProvider) {
 					message: 'Un lien de réactivation a été envoyé sur le mail ' + user.forgottenPasswordData.email
 				};
 			}
-		},
-		back: false,
+		}
 	});
 	$stateProvider.state({
 		name: 'user:chooseNewPassword',
 		url: '/choose-new-password',
-		component: 'lgUserChooseNewPasswordRoute',
-		back: false,
+		component: 'lgUserChooseNewPasswordRoute'
 	});
 
 	$stateProvider.state({

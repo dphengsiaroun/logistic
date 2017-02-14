@@ -10,8 +10,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider.state({
 		name: 'home',
 		url: '/',
-		component: 'lgHomeRoute',
-		back: false
+		component: 'lgHomeRoute'
 	});
 
 	$urlRouterProvider.otherwise('/');

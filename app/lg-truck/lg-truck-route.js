@@ -40,8 +40,7 @@ app.config(['$stateProvider', function($stateProvider) {
 				};
 			}
 		},
-		needsUser: true,
-		back: false
+		needsUser: true
 	});
 	$stateProvider.state({
 		name: 'truck:update',
@@ -111,8 +110,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					};
 				});
 			}
-		},
-		back: false
+		}
 	});
 
 }]);
