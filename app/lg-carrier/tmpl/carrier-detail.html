@@ -3,7 +3,7 @@
         <a ui-sref="truck:detail">
             <span class="identity">JLG</span>
             <div class="details">
-                <p>{{$ctrl.truck.current.name}}</p>
+                <p>{{$ctrl.carrier.current.content.name}}</p>
                 <div>
                     <div class="details-time">
                         <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>
@@ -28,8 +28,8 @@
     <p>Remorque : 12m, bachée, 4m3 disponible, seulement palette acceptée, non réfrigéré</p>
     <h2>Soyez le premier à proposer une offre de chargeur</h2>
     <div>
-        <button ui-sref="truck:update({id: $ctrl.carrier.current.id})">Editer</button>
+        <button ui-sref="carrier:update({id: $ctrl.carrier.current.id})">Editer</button>
         <lg-hr>ou</lg-hr>
-        <a class="critical" ui-sref="truck:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer ce véhicule</a>
+        <a class="critical" ui-sref="carrier:delete({id: $ctrl.carrier.current.id})" class="critical">Supprimer ce véhicule</a>
     </div>
 </section>

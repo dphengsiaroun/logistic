@@ -7,7 +7,7 @@
 		<subtitle>Déposer une annonce</subtitle>
 	</right>
 </div>
-<form class="ad" name="carrierCtrl">
+<formx class="ad" name="carrierCtrl">
 	<section class="dark">
 		<label>Libellé unique du camion</label>
 		<input type="text" placeholder="Ex : Camion 1" ng-model="$ctrl.carrier.createData.name" required/>
@@ -21,15 +21,17 @@
 		<lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.carrier.createData.city"></lg-city>
 	</section>
 	<section class="dark">
-		<big-label>Transport</big-label>
-		<label>Type de transport</label>
-		<input type="choice" choices="$root.config.transportCategories" title="Moyen de transport" placeholder="Ex : Camion, Bateau, etc."
-			ng-model="$ctrl.carrier.createData.transportCategory" />
+		<big-label>Transport</big-label><br/>
+		<lg-select ng-model="$ctrl.carrier.createData.transportCategory">
+			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
+			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
+			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
+		</lg-select>
 
 		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
-			<input type="choice" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc."
-				ng-model="$ctrl.carrier.createData.transportTruckType" />
+			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion"
+				placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.carrier.createData.transportTruckType" />
 		</div>
 		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Bateau'">
 			<label>Type de bateau</label>
@@ -48,26 +50,22 @@
 		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.createData.maxVolume" />
 		<label>Poids max. (en tonne)</label>
 		<input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.createData.maxWeight" />
-		<label>Dimension en mètre</label>
-		<carrier-dim>
-			<dimension>
-				<div class="truck height">
-					<img-svg src="/img/truck/truck-height.svg"></img-svg>
-					<p>Hauteur</p>
-					<input type="num" placeholder="H." vertical ng-model="$ctrl.carrier.createData.height" options="{format: 2, step: 0.1}" />
-				</div>
-				<div class="truck depth">
-					<img-svg src="/img/truck/truck-depth.svg"></img-svg>
-					<p>Profondeur</p>
-					<input type="num" placeholder="P." vertical ng-model="$ctrl.carrier.createData.depth" options="{format: 2, step: 0.1}" />
-				</div>
-				<div class="truck">
-					<img-svg src="/img/truck/truck-width.svg"></img-svg>
-					<p>Largeur</p>
-					<input type="num" placeholder="L." vertical ng-model="$ctrl.carrier.createData.width" options="{format: 2, step: 0.1}" />
-				</div>
-			</dimension>
-		</carrier-dim>
+		<label>Dimensions en mètre</label>
+		<dimension ng-click="$ctrl.editDimension()">
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-width.svg"></img-svg>
+			</div>
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-height.svg"></img-svg>
+			</div>
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-depth.svg"></img-svg>
+			</div>
+		</dimension>
+		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.carrier.createData.dimension">
+		</lg-dimension>
+		<br/>
+		<br/>
 		<label>Année du camion</label>
 		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.createData.birthyear"
 		/>

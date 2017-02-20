@@ -1,6 +1,8 @@
 <section class="details-annonce">
     <div class="block-annonce">
-        <a href="">
+		<img src="img/package.png"/>
+
+        <!--<a href="">
             <span class="identity">JLG</span>
             <div class="details">
                 <p>{{$ctrl.loader.current.content.name}}</p>
@@ -16,19 +18,21 @@
                 </div>
             </div>
             <div class="clear"></div>
-        </a>
+        </a>-->
     </div>
 </section>
 <section class="recap">
-    <p class="publie">Publié le : 12/11/2018 13h</p>
-    <p class="expire">Expire le : 12/11/2018 13h (dans 3 jours)</p>
-    <h3>Description du chargement :</h3>
-    <p>Type : Betails</p>
-    <p>Race : Veaux</p>
-    <h3>Description du véhicule souhaité :</h3>
-    <p>Bétaillère, 12T minimum</p>
-   
-    
+	<div>
+		<p class="publie">Publié le : 12/11/2018 13h</p>
+		<p class="expire">Expire le : 12/11/2018 13h (dans 3 jours)</p>
+	</div>
+	<div>
+		<h3>Description du chargement :</h3>
+		<p>Type : Betails</p>
+		<p>Race : Veaux</p>
+		<h3>Description du véhicule souhaité :</h3>
+		<p>Bétaillère, 12T minimum</p>
+	</div>
     <div ng-show="!$ctrl.isEditable">
          <h2>Soyez le premier à proposer une offre de transport</h2>
         <a href="#/loader-create-proposal">Entrer en contact ></a><br/>
