@@ -1,29 +1,33 @@
 <section class="filter">
-		<i class="fa fa-filter" aria-hidden="true"></i>
-		<span>Annonces Transporteurs</span>
+	<i class="fa fa-filter" aria-hidden="true"></i>
+	<span>Annonces Transporteurs</span>
 </section>
 <section class="liste-annonce">
-    <div class="block-annonce" ng-repeat="carrier in $ctrl.carrier.carriers">
-        <a ui-sref="carrier:retrieve({ id: carrier.id, login: $ctrl.user.account.content.login })">
-            <span class="identity">JLG</span>
-            <div class="details">
-                <p>{{carrier.content.name}}</p>
-                <div>
-                    <div class="details-time">
-                        <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>
-                        <div class="clear"></div>
-                    </div>
-                    <div>
-                        <span class="year">Année : 2009</span><span class="tarif">0.4DZD/km</span>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </a>
-    </div>
-    <div class="clear"></div>
+	<div class="block-annonce" ng-repeat="carrier in $ctrl.carrier.carriers">
+		<a ui-sref="carrier:retrieve({ id: carrier.id, login: $ctrl.user.account.content.login })">
+			<div class="img-fix">
+				<img src="img/truck-ad-thumbnail.png">
+			</div>
+			<div>
+				<div class="details">
+					<div>
+						<div class="detail-left">
+							<h2>{{carrier.content.name}}</h2>
+							<span class="size">H10 x P7 x L2</span>
+							<br/>
+							<span class="origin">Alger, Alger, Algérie</span>
+						</div>
+						<div class="detail-right">
+							<span class="year">Camion 12t Baché</span>
+							<span class="year">Année : 2009</span>
+							<span class="tarif">0.4DZD/km</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
 </section>
 <section class="write-ad">
-        <button ui-sref="carrier:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+	<button ui-sref="carrier:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 </section>

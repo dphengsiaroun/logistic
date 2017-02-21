@@ -51,11 +51,13 @@ lg-prompt {
     }
 }
 
-lg-footer p {
-    padding: 15px;
-    font-size: 12px;
-    text-align: center;
-    margin: 0px;
+lg-footer {
+    p {
+        width: 100%;
+        padding: 15px;
+        font-size: 12px;
+        text-align: center;
+    }
 }
 
 lg-show-picture {
@@ -117,7 +119,9 @@ lg-select {
     lg-option[selected] {
         background-color: $headerColor;
         color: white;
-        i, span, svg {
+        i,
+        span,
+        svg {
             background-color: $headerColor;
             color: white;
             fill: white;
