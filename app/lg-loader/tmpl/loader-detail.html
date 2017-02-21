@@ -1,5 +1,5 @@
 <section class="block-annonce">
-		<img src="img/package.png"/>
+	<img src="img/package.png" />
 </section>
 <section class="recap">
 	<h1>Chargement de 12 Veaux</h1>
@@ -8,23 +8,66 @@
 		<p class="publie">Publié le : 12/11/2018 13h</p>
 		<p class="expire">Expire le : 12/11/2018 13h (dans 3 jours)</p>
 	</info>
-	<img src="img/oran.jpg"/>
+	<img src="img/oran.jpg" />
 	<description>
-		<p>Cherche transporteur pour charger du bétail de Oran à Biskra</p>
-		<h3>Description du chargement :</h3>
-		<p><b>Type :</b> Bétails</p>
-		<p><b>Race :</b> Veaux</p>
-		<h3>Description du véhicule souhaité :</h3>
-		<p>Bétaillère, 12T minimum</p>
+		<p>Cherche transporteur pour charger du bétail de Oran à Biskra (voir détail)</p>
+		<lg-hr>Trajet</lg-hr>
+		<p><b>Départ :</b>
+		 Oran, Oran, Algérie
+		</p>
+		<p><b>Arrivée :</b>
+		 Biskra, Biskra, Algérie
+		</p>
+		<lg-hr>Horaire</lg-hr>
+		<p><b>Date et heure de chargement :</b>
+			<br/>Jeudi 9 Mars à 11h
+		</p>
+		<p><b>Date et heure de livraison :</b>
+			<br/>Vendredi 10 Mars à 17h
+		</p>
+		<lg-hr>Chargement</lg-hr>
+		<p><b>Type :</b>
+		 Bétails
+		</p>
+		<p><b>Race :</b>
+		 Veaux
+		</p>
+		<p><b>Poids :</b>
+		 1 tonne
+		</p>
+		<p><b>Dimension :</b></p>
+		<table>
+			<thead>
+				<tr>
+					<th>Largeur</th>
+					<th>Hauteur</th>
+					<th>Profondeur</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>2m30</td>
+					<td>2m30</td>
+					<td>12m00</td>
+				</tr>
+			</tbody>
+		</table>
+		<lg-hr>Transport</lg-hr>
+		<p><b>Catégorie :</b>
+		 Camion
+		</p>
+		<p><b>Type :</b>
+		 Bétaillère, 12T minimum
+		</p>
 	</description>
 	<br/>
-    <div ng-show="!$ctrl.isEditable">
-         <h2>Soyez le premier à proposer une offre de transport</h2>
-        <a href="#/loader-create-proposal">Entrer en contact ></a><br/>
-    </div>
-    <div ng-show="$ctrl.isEditable">
-        <button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
-        <lg-hr>ou</lg-hr>
-        <a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
-    </div>
+	<div ng-show="!$ctrl.isEditable">
+		<h2>Soyez le premier à proposer une offre de transport</h2>
+		<a href="#/loader-create-proposal">Entrer en contact ></a><br/>
+	</div>
+	<div ng-show="$ctrl.isEditable">
+		<button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
+		<lg-hr>ou</lg-hr>
+		<a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
+	</div>
 </section>

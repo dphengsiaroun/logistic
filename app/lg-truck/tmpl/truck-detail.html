@@ -1,35 +1,49 @@
-<section class="liste-annonce">
-    <div class="block-annonce">
-        <a ui-sref="truck:detail">
-            <span class="identity">JLG</span>
-            <div class="details">
-                <p>{{$ctrl.truck.current.name}}</p>
-                <div>
-                    <div class="details-time">
-                        <span class="size">H10 x P7 x L2</span><span class="origin">Alger, Algérie</span>
-                        <div class="clear"></div>
-                    </div>
-                    <div>
-                        <span class="year">Année : 2009</span><span class="tarif">0.4DZD/km</span>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </a>
-    </div>
-    <div class="clear"></div>
+<section class="block-annonce">
+	<img src="img/truck-ad.png" />
 </section>
 <section class="recap">
-    <p class="publie">Publié le : 12/11/2018 13h</p>
-    <p class="expire">Expire le : 12/11/2018 13h (dans 3 jours)</p>
-    <h3>Description du véhicule :</h3>
-    <p>Tracteur : 350 CV</p>
-    <p>Remorque : 12m, bachée, 4m3 disponible, seulement palette acceptée, non réfrigéré</p>
-    <h2>Soyez le premier à proposer une offre de chargeur</h2>
-    <div>
-        <button ui-sref="truck:update({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})">Editer</button>
-        <lg-hr>ou</lg-hr>
-        <a class="critical" ui-sref="truck:delete({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})" class="critical">Supprimer ce véhicule</a>
-    </div>
+	<h1>{{$ctrl.truck.current.name}}</h1>
+	<info>
+		<p class="publie">Publié le : 12/11/2018 13h</p>
+		<p class="expire">Expire le : 12/11/2018 13h (dans 3 jours)</p>
+	</info>
+	<img src="img/oran.jpg" />
+	<description>
+		<lg-hr>Localisation</lg-hr>
+		<p><b>Ville :</b> Oran, Oran, Algérie
+		</p>
+		<lg-hr>Description du véhicule</lg-hr>
+		<p><b>Catégorie :</b> Camion
+		</p>
+		<p><b>Type :</b> Bétaillère, 12T minimum
+		</p>
+		<p><b>Année :</b> 2009
+		</p>
+		<p><b>Dimension :</b></p>
+		<table>
+			<thead>
+				<tr>
+					<th>Largeur</th>
+					<th>Hauteur</th>
+					<th>Profondeur</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>2m30</td>
+					<td>2m30</td>
+					<td>12m00</td>
+				</tr>
+			</tbody>
+		</table>
+		<p><b>Volume en m3 :</b> 20
+		</p>
+	</description>
+	<br/>
+	<h2>Soyez le premier à proposer une offre de chargeur</h2>
+	<div>
+		<button ui-sref="truck:update({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})">Editer</button>
+		<lg-hr>ou</lg-hr>
+		<a class="critical" ui-sref="truck:delete({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})" class="critical">Supprimer ce véhicule</a>
+	</div>
 </section>

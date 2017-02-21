@@ -18,7 +18,6 @@ app.service('truck', ['$injector', function Truck($injector) {
 		width: 1,
 		depth: 1,
 		country: 'Algerie',
-		city: 'Alger',
 		conditioning: 'Palette',
 		maxVolume: '3',
 		maxWeight: '12',

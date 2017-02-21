@@ -237,7 +237,7 @@
         text-align: left;
     }
     h2 {
-        margin: 40px 0px;
+        margin: 20px 0px;
         font-size: 21px;
         text-align: center;
     }
@@ -253,7 +253,7 @@
     }
     img {
         width: 100%;
-		margin: 0px 0px 10px;
+        margin: 0px 0px 10px;
     }
     description {
         text-align: left;
@@ -264,6 +264,23 @@
         }
         p {
             font-size: 15px;
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
+			text-align: center;
+			margin: 10px 0px;
+			thead th {
+				background-color: $inputColor;
+				color: white;
+            }
+            td,
+            th {
+                padding: 10px;
+                vertical-align: top;
+				background-color: white;
+				font-size: 14px;
+            }
         }
     }
 }
