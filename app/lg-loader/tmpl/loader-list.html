@@ -1,25 +1,24 @@
 <section class="filter">
-		<i class="fa fa-filter" aria-hidden="true"></i>
-		<span>Annonces Chargeurs</span>
+	<i class="fa fa-filter" aria-hidden="true"></i>
+	<span>Annonces Chargeurs</span>
 </section>
 <section class="liste-annonce">
 	<div class="block-annonce" ng-repeat="loader in $ctrl.loader.loaders">
 		<a ui-sref="loader:retrieve({ id: loader.id })">
-			<div class="img-fix">
-				<img src="img/package.png">
-			</div>
 			<div>
+				<div class="img-fix">
+					<img src="img/package-thumb.png">
+				</div>
 				<div class="details">
+					<h2>Livraison de 12 veaux</h2>
+					<span class="origin"><i class="fa fa-map-marker" aria-hidden="true"></i> Abdelmalek Ramdane, Algérie</span>
 					<div>
 						<div class="detail-left">
-							<h2>Livraison de 12 veaux</h2>
-							<span class="size">H10 x P7 x L2</span>
-							<br/>
-							<span class="origin">Oran, Oran, Algérie</span>
+							<span>Jeudi 10 mars à 11h</span>
+
 						</div>
 						<div class="detail-right">
-							<span class="year">Bétail</span>
-							<span class="year">12 veaux</span>
+
 							<span class="tarif">300 DZD</span>
 						</div>
 					</div>
@@ -30,5 +29,5 @@
 	<div class="clear"></div>
 </section>
 <section class="write-ad">
-		<button ui-sref="loader:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+	<button ui-sref="loader:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 </section>

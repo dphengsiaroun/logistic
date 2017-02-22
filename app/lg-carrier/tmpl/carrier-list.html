@@ -5,21 +5,18 @@
 <section class="liste-annonce">
 	<div class="block-annonce" ng-repeat="carrier in $ctrl.carrier.carriers">
 		<a ui-sref="carrier:retrieve({ id: carrier.id, login: $ctrl.user.account.content.login })">
-			<div class="img-fix">
-				<img src="img/truck-ad.png">
-			</div>
 			<div>
+				<div class="img-fix">
+					<img src="img/truck-ad-thumb.png">
+				</div>
 				<div class="details">
+					<h2>{{carrier.content.name}}</h2>
+					<span class="origin"><i class="fa fa-map-marker" aria-hidden="true"></i> Abdelmalek Ramdane, Algérie</span>
 					<div>
 						<div class="detail-left">
-							<h2>{{carrier.content.name}}</h2>
-							<span class="size">H10 x P7 x L2</span>
-							<br/>
-							<span class="origin">Abdelmalek Ramdane, Mostaganem, Algérie</span>
+							<span class="year">Camion 12t Bétaillère</span>
 						</div>
 						<div class="detail-right">
-							<span class="year">Camion 12t Baché</span>
-							<span class="year">Année : 2009</span>
 							<span class="tarif">0.4DZD/km</span>
 						</div>
 					</div>
