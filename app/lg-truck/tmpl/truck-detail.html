@@ -1,46 +1,54 @@
 <img-ad>
 	<img src="img/truck-ad.png" />
 </img-ad>
-<section class="recap">
+<recap>
 	<h1>{{$ctrl.truck.current.name}}</h1>
 	<info>
-		<p class="publie">Publié le : 12/11/2018 13h</p>
-		<p class="expire">Expire le : 12/11/2018 13h (dans 3 jours)</p>
+		<p>Publié le : 12/11/2018 13h</p>
+		<p>Expire le : 12/11/2018 13h (dans 3 jours)</p>
 	</info>
 	<p><b><i class="fa fa-map-marker" aria-hidden="true"></i></b> Oran, Oran, Algérie</p>
-	<img src="img/oran.jpg" />
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103672.42945538035!2d-0.711452778311177!3d35.70743901145291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7e8854841f537d%3A0x4187f63762f7290f!2zT3JhbiwgQWxnw6lyaWU!5e0!3m2!1sfr!2sfr!4v1487758829546" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+	<!--<img src="img/oran.jpg" />-->
 	<description>
 		<lg-hr>Description du véhicule</lg-hr>
-		<p><b>Catégorie :</b> Camion
-		</p>
-		<p><b>Type :</b> Bétaillère, 12T minimum
-		</p>
-		<p><b>Année :</b> 2009
-		</p>
-		<p><b>Dimension :</b></p>
 		<table>
-			<thead>
-				<tr>
-					<th>Largeur</th>
-					<th>Hauteur</th>
-					<th>Profondeur</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr>
+					<th>Catégorie</th>
+					<td>Camion</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>Bétaillère, 12T minimum</td>
+				</tr>
+				<tr>
+					<th>Année</th>
+					<td>2009</td>
+				</tr>
+				<tr>
+					<th>Largeur</th>
 					<td>2m30</td>
+				</tr>
+				<tr>
+					<th>Hauteur</th>
 					<td>2m30</td>
+				</tr>
+				<tr>
+					<th>Profondeur</th>
 					<td>12m00</td>
+				</tr>
+				<tr>
+					<th>Volume en m3</th>
+					<td>20</td>
 				</tr>
 			</tbody>
 		</table>
-		<p><b>Volume en m3 :</b> 20</p>
 	</description>
-	<br/>
 	<h2>Soyez le premier à proposer une offre de chargeur</h2>
 	<div>
 		<button ui-sref="truck:update({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})">Editer</button>
 		<lg-hr>ou</lg-hr>
 		<a class="critical" ui-sref="truck:delete({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})" class="critical">Supprimer ce véhicule</a>
 	</div>
-</section>
+</recap>

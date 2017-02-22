@@ -163,28 +163,25 @@ img-ad {
         width: 100%;
         font-size: 0px;
         margin: 0px;
-        background-color: white;
-        border-bottom: 1px solid $lightGray;
         a {
-            width: 100%;
             display: block;
-			height: inherit;
+            width: 100%;
+            height: inherit;
+            padding: 10px 10px 0px;
             .img-fix {
-                display: inline-block;
-                width: 25%;
+                width: 100%;
                 img {
                     width: 100%;
                 }
             }
             div {
                 background-color: white;
-                display: inline-block;
-                width: 75%;
+                width: 100%;
                 vertical-align: middle;
                 .details {
                     width: 100%;
-                    padding: 0px 10px;
-                    font-size: 13px;
+                    padding: 10px;
+                    font-size: 15px;
                     text-align: left;
                     background-color: white;
                     div {
@@ -198,13 +195,22 @@ img-ad {
                                 text-align: left;
                                 font-size: 16px;
                             }
+                            .size,
+                            .date {
+                                color: $littleGray;
+                            }
                         }
                         div.detail-right {
                             display: table-cell;
-                            width: 50%;
+                            width: 90%;
                             text-align: right;
                             span {
                                 display: block;
+                            }
+                            .origin,
+                            .tarif,
+                            .duree {
+                                color: $lightGreen;
                             }
                         }
                     }
@@ -218,21 +224,6 @@ img-ad {
     }
 }
 
-.size,
-.date {
-    color: $littleGray;
-}
-
-.origin,
-.tarif,
-.duree {
-    color: $lightGreen;
-}
-
-// .year,
-// .vehicule {
-//     color: black;
-// }
 
 /* Détails annonce */
 
@@ -241,7 +232,8 @@ img-ad {
     padding: 0px;
 }
 
-.recap {
+recap {
+    display: block;
     width: 100%;
     padding: 15px 10px;
     background-color: $veryLightGray;
@@ -264,6 +256,9 @@ img-ad {
             color: $gray;
         }
     }
+    iframe {
+        margin: 10px 0px;
+    }
     img {
         width: 100%;
         margin: 10px 0px;
@@ -277,31 +272,40 @@ img-ad {
         }
         p {
             font-size: 15px;
+			padding: 10px;
+            margin: 10px 0px;
         }
         table {
             width: 100%;
             max-width: 100%;
-            text-align: center;
             margin: 10px 0px;
+            border-collapse: collapse;
             thead th {
-                background-color: $inputColor;
-                color: white;
+                color: $inputColor;
+                background-color: transparent;
+                text-align: center;
+                font-size: 18px;
+                padding: 6px;
+            }
+            tbody {
+                tr {
+					border: 1px solid $borderColor;
+					border-left: none;
+					border-right: none;
+                    td {
+                        text-align: right;
+                    }
+                }
             }
             td,
             th {
                 padding: 10px;
-                vertical-align: top;
+                vertical-align: middle;
                 background-color: white;
-                font-size: 14px;
+                font-size: 15px;
             }
         }
     }
-}
-
-.publie,
-.expire {
-    color: $gray;
-    font-size: 20px;
 }
 
 lg-select.conditioning lg-option i.fa {

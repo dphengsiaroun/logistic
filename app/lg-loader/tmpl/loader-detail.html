@@ -1,66 +1,96 @@
 <img-ad>
 	<img src="img/package.png" />
 </img-ad>
-<section class="recap">
+<recap>
 	<h1>Chargement de 12 Veaux</h1>
 	<span>Prix souhaité : 300 DZD</span>
 	<info>
-		<p class="publie">Publié le : 12/11/2018 13h</p>
-		<p class="expire">Expire le : 12/11/2018 13h (dans 3 jours)</p>
+		<p>Publié le : 12/11/2018 13h</p>
+		<p>Expire le : 12/11/2018 13h (dans 3 jours)</p>
 	</info>
-	<p><b><i class="fa fa-map-marker" aria-hidden="true"></i></b> Oran, Oran, Algérie</p>
-	<img src="img/oran.jpg" />
+	<p><b><i class="fa fa-map-marker" aria-hidden="true"></i></b> Abdelmalek Ramdane, Mostaganem, Algérie</p>
+	<!--<img src="img/oran.jpg" />-->
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103672.42945538035!2d-0.711452778311177!3d35.70743901145291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7e8854841f537d%3A0x4187f63762f7290f!2zT3JhbiwgQWxnw6lyaWU!5e0!3m2!1sfr!2sfr!4v1487758829546" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
 	<description>
-		<p>Cherche transporteur pour charger du bétail de Oran à Biskra (voir détail)</p>
+		<p>Cherche transporteur pour charger du bétail de Abdelmalek Ramdane, Mostaganem, Algérie à Biskra (voir détail)</p>
+
 		<lg-hr>Trajet</lg-hr>
-		<p><b>Départ :</b>
-		 Oran, Oran, Algérie
-		</p>
-		<p><b>Arrivée :</b>
-		 Biskra, Biskra, Algérie
-		</p>
-		<lg-hr>Horaire</lg-hr>
-		<p><b>Date et heure de chargement :</b>
-			<br/>Jeudi 9 Mars à 11h
-		</p>
-		<p><b>Date et heure de livraison :</b>
-			<br/>Vendredi 10 Mars à 17h
-		</p>
-		<lg-hr>Chargement</lg-hr>
-		<p><b>Type :</b>
-		 Bétails
-		</p>
-		<p><b>Race :</b>
-		 Veaux
-		</p>
-		<p><b>Poids :</b>
-		 1 tonne
-		</p>
-		<p><b>Dimension :</b></p>
 		<table>
-			<thead>
-				<tr>
-					<th>Largeur</th>
-					<th>Hauteur</th>
-					<th>Profondeur</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr>
-					<td>2m30</td>
-					<td>2m30</td>
-					<td>12m00</td>
+					<th>Départ</th>
+					<td>Oran, Oran, Algérie</td>
+				</tr>
+				<tr>
+					<th>Arrivée</th>
+					<td>Abdelmalek Ramdane, Mostaganem, Algérie</td>
 				</tr>
 			</tbody>
 		</table>
-		<p><b>Volume en m3 :</b> 20</p>
+
+		<lg-hr>Horaire</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Date et heure<br/>de chargement</th>
+					<td>Jeudi 9 Mars
+						<br/>11h
+					</td>
+				</tr>
+				<tr>
+					<th>Date et heure<br/>de livraison</th>
+					<td>Vendredi 10 Mars<br/>17h</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<lg-hr>Chargement</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Type</th>
+					<td>Bétails</td>
+				</tr>
+				<tr>
+					<th>Race</th>
+					<td>Veaux</td>
+				</tr>
+				<tr>
+					<th>Poids</th>
+					<td>1 tonne</td>
+				</tr>
+				<tr>
+					<th>Largeur</th>
+					<td>2m30</td>
+				</tr>
+				<tr>
+					<th>Hauteur</th>
+					<td>2m30</td>
+				</tr>
+				<tr>
+					<th>Profondeur</th>
+					<td>12m00</td>
+				</tr>
+				<tr>
+					<th>Volume en m3</th>
+					<td>20</td>
+				</tr>
+			</tbody>
+		</table>
+
 		<lg-hr>Transport</lg-hr>
-		<p><b>Catégorie :</b>
-		 Camion
-		</p>
-		<p><b>Type :</b>
-		 Bétaillère, 12T minimum
-		</p>
+		<table>
+			<tbody>
+				<tr>
+					<th>Catégorie</th>
+					<td>Camion</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>Bétaillère, 12T minimum</td>
+				</tr>
+			</tbody>
+		</table>
 	</description>
 	<br/>
 	<div ng-show="!$ctrl.isEditable">
@@ -72,4 +102,4 @@
 		<lg-hr>ou</lg-hr>
 		<a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
 	</div>
-</section>
+</recap>
