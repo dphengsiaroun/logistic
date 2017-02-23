@@ -77,8 +77,6 @@ app.component('lgDimension', {
 				ctrl.width = Math.round(ctrl.dimension.width * 100);
 				ctrl.height = Math.round(ctrl.dimension.height * 100);
 				ctrl.depth = Math.round(ctrl.dimension.depth * 100);
-
-
 			};
 		};
 	},

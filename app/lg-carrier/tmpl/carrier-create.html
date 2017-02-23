@@ -8,9 +8,13 @@
 	</right>
 </div>
 <formx class="ad" name="carrierCtrl">
-	<section class="dark">
+	<section ng-hide="$ctrl.user.account" class="dark">
 		<label>Libellé unique du camion</label>
 		<input type="text" placeholder="Ex : Camion 1" ng-model="$ctrl.carrier.createData.name" required/>
+	</section>
+	<section ng-show="$ctrl.user.account" class="dark">
+		<label>Sélectionner un véhicule de votre flotte</label>
+		<input type="choice" choices="$root.config.transportTruckTypes" title="Liste de mes véhicules" placeholder="Ex : Camion 1" ng-model="$ctrl.carrier.createData.name" required/>
 	</section>
 	<section>
 		<big-label>Localisation</big-label>
@@ -40,8 +44,8 @@
 			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
 				ng-model="$ctrl.carrier.createData.transportPlaneType" />
 		</div>
-		<label>Année du camion</label>
-		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.createData.birthyear"
+		<label>Année du moyen de transport</label>
+		<input type="number" pattern="[0-9]*" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.createData.birthyear"
 		/>
 		<label>Insérer une photo</label>
 		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
@@ -62,6 +66,7 @@
 		</dimension>
 		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.carrier.createData.dimension">
 		</lg-dimension>
+		<br/>
 		<label>Volume max. (en m3)</label>
 		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.createData.maxVolume" />
 		<label>Poids max. (en tonne)</label>

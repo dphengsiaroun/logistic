@@ -1,51 +1,50 @@
 <section class="details-annonce">
-    <div class="block-annonce">
-        <a href="chargeur-annonce-details.html">
-            <span class="identity">JLG</span>
-            <div class="details">
-                <p>Alger(Algérie) > Oran(Algérie)</p>
-                <div>
-                    <div class="details-time">
-                        <span class="date">12/11/2018 13h > 12/11/2018 21h</span><span class="duree">8h</span>
-                        <div class="clear"></div>
-                    </div>
-                    <div>
-                        <span class="vehicule">12 veaux (bétails)</span><span class="tarif">0.4DZD/km</span>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </a>
-    </div>
+	<div class="block-annonce">
+		<a href="chargeur-annonce-details.html">
+			<span class="identity">JLG</span>
+			<div class="details">
+				<p>Alger(Algérie) > Oran(Algérie)</p>
+				<div>
+					<div class="details-time">
+						<span class="date">12/11/2018 13h > 12/11/2018 21h</span><span class="duree">8h</span>
+						<div class="clear"></div>
+					</div>
+					<div>
+						<span class="vehicule">12 veaux (bétails)</span><span class="tarif">0.4DZD/km</span>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</a>
+	</div>
 </section>
 <section class="proposition">
-    <h1>Proposer votre tarif</h1>
-    <form name="createAddForm" ng-submit="createAdd();">
-        <div class="tarif-initial">
-            <label>Tarif initial : 0.4 DZD/km</label><br/>
-            <button class="plus2">+</button><input type="text" name="" id="" placeholder="0.2" ng-model="addCtrl.initialPrice"/><button class="moins2"> - </button>
-        </div>
-        <br/>
-
-        <label>Camion proposé :</label>
-        <input type="choice" choices="$root.config.vehicleTypes" title="Camion proposé" placeholder="Ex: Camion A, Camion B" ng-model="addCtrl.vehicleType" />
-        <br/>
-
-        <label>Date de chargement :</label>
-        <div class="input-date">
-            <a href="#">Ex: 12/03/2018 14h</a>
-        </div>
-        <br/>
-
-        <label>Date de déchargement :</label>
-        <div class="input-date">
-            <a href="#">Ex: 12/03/2018 19h</a>
-        </div>
-        <br/>
-        
-        <div class="bouton">
-			<button><a href="#/loader-proposal-sent">Proposer offre ></a></button>
+	<h1>Proposer votre tarif</h1>
+	<form name="createAddForm" ng-submit="createAdd();">
+		<div class="tarif-initial">
+			<label>Tarif initial : 0.4 DZD/km</label><br/>
+			<button class="plus2">+</button><input type="text" name="" id="" placeholder="0.2" ng-model="addCtrl.initialPrice" /><button
+				class="moins2"> - </button>
 		</div>
-    </form>
+		<br/>
+
+		<label>Camion proposé :</label>
+		<input type="choice" choices="$root.config.vehicleTypes" title="Camion proposé" placeholder="Ex: Camion A, Camion B" ng-model="addCtrl.vehicleType"
+		/>
+		<br/>
+
+		<label>Date de chargement :</label>
+		<div class="input-date">
+			<a href="#">Ex: 12/03/2018 14h</a>
+		</div>
+		<br/>
+
+		<label>Date de déchargement :</label>
+		<div class="input-date">
+			<a href="#">Ex: 12/03/2018 19h</a>
+		</div>
+		<br/>
+		<button><a href="#/loader-proposal-sent">Proposer offre ></a></button>
+	</form>
 </section>
