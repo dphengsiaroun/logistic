@@ -13,10 +13,7 @@
 		<input type="text" placeholder="Ex : Camion 1" ng-model="$ctrl.carrier.updateData.name" required/>
 	</section>
 	<section>
-		<big-label>Origine</big-label>
-		<label>Pays</label>
-		<input type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Ex : Algérie, Maroc, etc." ng-model="$ctrl.carrier.updateData.country"
-		/>
+		<big-label>Localisation</big-label>
 		<label>Ville</label>
 		<lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.carrier.updateData.city"></lg-city>
 	</section>
@@ -27,7 +24,6 @@
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
 			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
 		</lg-select>
-
 		<div ng-show="$ctrl.carrier.updateData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
 			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion"
@@ -43,13 +39,14 @@
 			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
 				ng-model="$ctrl.carrier.updateData.transportPlaneType" />
 		</div>
+		<label>Année du camion</label>
+		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.updateData.birthyear"
+		/>
+		<label>Insérer une photo</label>
+		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
 	</section>
 	<section>
 		<big-label>Chargement</big-label>
-		<label>Volume max. (en m3)</label>
-		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.updateData.maxVolume" />
-		<label>Poids max. (en tonne)</label>
-		<input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.updateData.maxWeight" />
 		<label>Dimensions en mètre</label>
 		<dimension ng-click="$ctrl.editDimension()">
 			<div class="box no-zoom">
@@ -65,12 +62,10 @@
 		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.carrier.updateData.dimension">
 		</lg-dimension>
 		<br/>
-		<br/>
-		<label>Année du camion</label>
-		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.updateData.birthyear"
-		/>
-		<label>Insérer une photo</label>
-		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+		<label>Volume max. (en m3)</label>
+		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.updateData.maxVolume" />
+		<label>Poids max. (en tonne)</label>
+		<input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.updateData.maxWeight" />
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.carrier.error"></lg-error>

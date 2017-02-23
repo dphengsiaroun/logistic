@@ -10,7 +10,6 @@
 <formx class="ad" name="loaderCtrl">
 	<section class="dark">
 		<big-label>Trajet</big-label>
-		<br/>
 		<label>Départ</label>
 		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"></lg-city>
 		<label>Arrivée</label>
@@ -19,7 +18,6 @@
 	</section>
 	<section>
 		<big-label>Horaires</big-label>
-		<br/>
 		<label>Date et heure de chargement</label>
 		<lg-datetime title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime" options="{defaultHour: 14}">
 		</lg-datetime>
@@ -32,7 +30,6 @@
 	</section>
 	<section class="dark">
 		<big-label>Marchandises</big-label>
-		<br/>
 		<lg-select class="conditioning" ng-model="$ctrl.loader.createData.conditioning">
 			<lg-option value="Indifférent">
 				<img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
@@ -49,7 +46,7 @@
 
 	</section>
 	<section>
-		<big-label>Transport</big-label><br/>
+		<big-label>Transport</big-label>
 		<lg-select ng-model="$ctrl.loader.createData.transportCategory">
 			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>

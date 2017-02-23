@@ -13,7 +13,7 @@
 		<input type="text" placeholder="Ex : Camion 1" ng-model="$ctrl.truck.updateData.name" required/>
 	</section>
 	<section>
-		<big-label>Origine</big-label>
+		<big-label>Localisation</big-label>
 		<label>Ville</label>
 		<lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.updateData.city"></lg-city>
 	</section>
@@ -40,13 +40,14 @@
 			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
 				ng-model="$ctrl.truck.updateData.transportPlaneType" />
 		</div>
+		<label>Année du camion</label>
+		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.truck.updateData.birthyear"
+		/>
+		<label>Insérer une photo</label>
+		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
 	</section>
 	<section>
 		<big-label>Chargement</big-label>
-		<label>Volume max. (en m3)</label>
-		<input type="num" placeholder="Volume max." ng-model="$ctrl.truck.updateData.maxVolume" />
-		<label>Poids max. (en tonne)</label>
-		<input type="num" placeholder="Poids max." ng-model="$ctrl.truck.updateData.maxWeight" />
 		<label>Dimensions en mètre</label>
 		<dimension ng-click="$ctrl.editDimension()">
 			<div class="box no-zoom">
@@ -62,12 +63,10 @@
 		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.truck.updateData.dimension">
 		</lg-dimension>
 		<br/>
-		<br/>
-		<label>Année du camion</label>
-		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.truck.updateData.birthyear"
-		/>
-		<label>Insérer une photo</label>
-		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+		<label>Volume max. (en m3)</label>
+		<input type="num" placeholder="Volume max." ng-model="$ctrl.truck.updateData.maxVolume" />
+		<label>Poids max. (en tonne)</label>
+		<input type="num" placeholder="Poids max." ng-model="$ctrl.truck.updateData.maxWeight" />
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>

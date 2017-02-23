@@ -18,7 +18,7 @@
 		<lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.carrier.createData.city"></lg-city>
 	</section>
 	<section class="dark">
-		<big-label>Transport</big-label><br/>
+		<big-label>Transport</big-label>
 		<lg-select ng-model="$ctrl.carrier.createData.transportCategory">
 			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
@@ -40,13 +40,14 @@
 			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
 				ng-model="$ctrl.carrier.createData.transportPlaneType" />
 		</div>
+		<label>Année du camion</label>
+		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.createData.birthyear"
+		/>
+		<label>Insérer une photo</label>
+		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
 	</section>
 	<section>
 		<big-label>Chargement</big-label>
-		<label>Volume max. (en m3)</label>
-		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.createData.maxVolume" />
-		<label>Poids max. (en tonne)</label>
-		<input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.createData.maxWeight" />
 		<label>Dimensions en mètre</label>
 		<dimension ng-click="$ctrl.editDimension()">
 			<div class="box no-zoom">
@@ -61,13 +62,10 @@
 		</dimension>
 		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.carrier.createData.dimension">
 		</lg-dimension>
-		<br/>
-		<br/>
-		<label>Année du camion</label>
-		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.createData.birthyear"
-		/>
-		<label>Insérer une photo</label>
-		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+		<label>Volume max. (en m3)</label>
+		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.createData.maxVolume" />
+		<label>Poids max. (en tonne)</label>
+		<input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.createData.maxWeight" />
 	</section>
 	<section class="dark">
 		<big-label>Finaliser</big-label>

@@ -13,8 +13,8 @@
         font-size: 0px;
         vertical-align: middle;
         svg {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             position: relative;
             top: 0px;
             left: 25px;
@@ -32,11 +32,10 @@
             text-align: center;
             font-weight: bold;
             font-size: 27px;
-            padding: 0px 0px 5px;
         }
         subtitle {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 17px;
             padding: 0px 0px 5px;
         }
     }
@@ -60,6 +59,7 @@
             font-size: 25px;
             text-align: center;
             width: 100%;
+            margin-bottom: 10px;
         }
         dimension {
             display: table;
@@ -105,23 +105,31 @@
     }
 }
 
-.bouton {
-    padding: 0 10px;
-}
-
 .filter {
+    display: block;
     width: 100%;
     background-color: $secondaryColor;
     padding: 10px;
     text-align: center;
-    span {
-        font-size: 18px;
-        margin: 3px 0px 3px 15px;
+    .qty-ad {
         display: inline-block;
-        font-weight: bold;
+        width: 65%;
+        text-align: left;
+        vertical-align: top;
+        span {
+            font-size: 14px;
+            font-weight: bold;
+        }
     }
-    i {
-        font-size: 25px;
+    div {
+        display: inline-block;
+        width: 29%;
+        text-align: right;
+        i {
+            font-size: 22px;
+            margin: 0px 0px 0px 20px;
+            // color: $lightGreen;
+        }
     }
 }
 
@@ -167,7 +175,8 @@ img-ad {
             display: block;
             width: 100%;
             height: inherit;
-            padding: 5px 5px 0px;
+            padding: 3px 4px 0px;
+            border-bottom: 1px solid #efefef;
             div {
                 background-color: white;
                 width: 100%;
@@ -184,12 +193,12 @@ img-ad {
                     display: inline-block;
                     width: 76%;
                     padding: 0px 7px;
-                    font-size: 13px;
+                    font-size: 14px;
                     text-align: left;
                     background-color: white;
                     h2 {
                         text-align: left;
-                        font-size: 17px;
+                        font-size: 18px;
                         margin-bottom: 5px;
                     }
                     .origin {
@@ -206,13 +215,14 @@ img-ad {
                         }
                         div.detail-right {
                             display: table-cell;
-                            width: 90%;
+                            width: 70%;
                             text-align: right;
                             span {
                                 display: block;
                             }
                             .tarif {
                                 color: $lightGreen;
+								font-weight: bold;
                             }
                         }
                     }

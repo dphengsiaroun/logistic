@@ -95,7 +95,7 @@
 	<br/>
 	<div ng-show="!$ctrl.isEditable">
 		<h2>Soyez le premier à proposer une offre de transport</h2>
-		<a href="#/loader-create-proposal">Entrer en contact ></a><br/>
+		<button ui-sref="#/loader-create-proposal">Entrer en contact</button>
 	</div>
 	<div ng-show="$ctrl.isEditable">
 		<button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>

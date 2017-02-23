@@ -1,13 +1,18 @@
 <section class="filter">
-	<i class="fa fa-filter" aria-hidden="true"></i>
-	<span>Annonces Chargeurs</span>
+	<div class="qty-ad">
+		<span>1 203 annonces de chargement</span>
+	</div>
+	<div>
+		<i class="fa fa-filter" aria-hidden="true"></i>
+		<i class="fa fa-calendar" aria-hidden="true"></i>
+	</div>
 </section>
 <section class="liste-annonce">
 	<div class="block-annonce" ng-repeat="loader in $ctrl.loader.loaders">
 		<a ui-sref="loader:retrieve({ id: loader.id })">
 			<div>
 				<div class="img-fix">
-					<img src="img/package-thumb.png">
+					<img src="img/package-thumbnail.png">
 				</div>
 				<div class="details">
 					<h2>Livraison de 12 veaux</h2>
