@@ -35,9 +35,9 @@ app.service('lgScroll', function LgScroll($window, $document) {
 	};
 });
 
-app.service('lgFormat', function LgFormat($filter) {
+app.filter('duration', function duration($filter) {
 	'ngInject';
-	this.formatDuration = function(duration) {
+	return function(duration) {
 		var result = '';
 		var minuteFormat = 'mm';
 		var hourFormat = ' et \'H\'h\'';

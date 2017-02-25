@@ -191,68 +191,78 @@ ad-list {
             }
             places {
                 display: table;
-                labels {
-                    display: table-cell;
-                    width: 50%;
-                    from,
-                    to {
-                        display: block;
-                        width: 100%;
+                width: 100%;
+                from,
+                to {
+                    display: table-row;
+                    width: 100%;
+                    labels {
+                        display: table-cell;
+                        width: 15%;
                         text-align: left;
                         font-size: 13px;
                     }
-                }
-                values {
-                    display: table-cell;
-                    width: 50%;
-                    from,
-                    to {
-                        display: block;
-                        width: 100%;
-                        text-align: left;
-                        font-size: 13px;
-                        font-weight: bold;
+                    values {
+                        display: table-cell;
+                        width: 85%;
+                        city {
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                        region {
+                            padding-left: 5px;
+                            font-size: 12px;
+                            color: $gray;
+                        }
                     }
                 }
             }
         }
-        content {
-            display: table;
-            width: 100%;
+    }
+    content {
+        display: table;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        background-color: white;
+        content-left {
+            display: table-cell;
+            width: 40%;
             margin: 0px;
-            padding: 0px;
+            padding: 5px 10px;
+            vertical-align: top;
             background-color: white;
-            content-left {
-                display: table-cell;
-                width: 50%;
-                margin: 0px;
-                padding: 5px 10px;
-                vertical-align: top;
-                background-color: white;
-				img {
-					height: 100px;
-				}
+            img {
+                height: 100px;
             }
-            content-right {
-                display: table-cell;
-                width: 50%;
-                margin: 0px;
-                padding: 5px 10px;
-                vertical-align: top;
-                background-color: white;
-                * {
-                    display: block;
-                    text-align: right;
-                    font-size: 13px;
-                }
-                rate-km {
-                    color: $gray;
-                }
-                rate {
-                    font-size: 28px;
-                    font-weight: bold;
-                    color: $selectedColor;
-                }
+        }
+        content-right {
+            display: table-cell;
+            width: 60%;
+            margin: 0px;
+            padding: 5px 10px;
+            vertical-align: top;
+            background-color: white;
+            * {
+                display: block;
+                text-align: right;
+                font-size: 14px;
+            }
+            conditioning {
+                font-weight: bold;
+            }
+            transport-category {
+                font-size: 13px;
+            }
+            rate-km {
+                color: $gray;
+            }
+            rate {
+                margin-top: 15px;
+                font-size: 27px;
+                font-weight: bold;
+                color: $selectedColor;
+				letter-spacing: -1px;
             }
         }
     }

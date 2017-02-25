@@ -142,7 +142,7 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 }]);
 
 app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
-	$scope, $element, $http, $q, $window, lgFormat, loader, user) {
+	$scope, $element, $http, $q, $window, $filter, loader, user) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.loader = loader;
@@ -180,7 +180,7 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
 			}
 			ctrl.loader.createData.minDuration = response.data.route.duration;
 			ctrl.loader.createData.distance = Math.round(response.data.route.distance / 1000);
-			var durationStr = lgFormat.formatDuration(ctrl.loader.createData.minDuration);
+			var durationStr = $filter('duration')(ctrl.loader.createData.minDuration);
 			ctrl.loader.createData.infoRoute = 'Distance : <b>' + ctrl.loader.createData.distance +
 				'km</b> - Durée min. : <b>' + durationStr + '</b>';
 		}).catch(function(error) {
@@ -206,7 +206,7 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
 				return;
 			}
 			ctrl.loader.createData.infoDuration = 'Durée effective : <b>' +
-				lgFormat.formatDuration((ctrl.loader.createData.arrivalDatetime -
+				$filter('duration')((ctrl.loader.createData.arrivalDatetime -
 					ctrl.loader.createData.departureDatetime) / 1000) +
 				'</b>';
 		}

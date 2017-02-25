@@ -15,7 +15,7 @@ app.component('lgDatetime', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgDatetimeUrl,
-	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll, lgFormat) {
+	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
 		'ngInject';
 		console.log('lgDatetimeCtrl');
 		var ctrl = this;
@@ -161,7 +161,7 @@ app.component('lgDatetime', {
 			var durationStr = '';
 			if (ctrl.opts.after) {
 				var duration = (ctrl.selectedDate - ctrl.after) / 1000;
-				durationStr = '<br/>Durée&nbsp;:&nbsp;' + lgFormat.formatDuration(duration);
+				durationStr = '<br/>Durée&nbsp;:&nbsp;' + $filter('duration')(duration);
 			}
 			ctrl.retroactionMsg = $filter('date')(ctrl.selectedDate, ctrl.format) + durationStr;
 		}, true);

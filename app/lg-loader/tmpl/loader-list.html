@@ -13,31 +13,40 @@
 			<title>{{ad.content.title}}</title>
 			<subtitle>
 				<date>{{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
-				<distance>1120km - 15h20</distance>
+				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
 			</subtitle>
 			<places>
-				<labels>
-					<from><i class="fa fa-map-marker" aria-hidden="true"></i> Origine :</from>
-					<to><i class="fa fa-map-marker" aria-hidden="true"></i> Destination :</to>
-				</labels>
-				<values>
-					<from>Abdelmalek Ramdane</from>
-					<to>Abi Youcef</to>
-				</values>
+				<from>
+					<labels>
+						De :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.departureCity.city}}</city>
+						<region>{{ad.content.departureCity.region}}</region>
+					</values>
+				</from>
+				<to>
+					<labels>
+						A :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.arrivalCity.city}}</city>
+						<region>{{ad.content.arrivalCity.region}}</region>
+					</values>
+				</to>
 			</places>
 
 
 		</header>
 		<content>
 			<content-left>
-				<img src="img/loader-default-90.svg">
+				<img src="img/loader-default.svg">
 			</content-left>
 			<content-right>
-				<conditioning>Colis - Classique</conditioning>
-				<transport-category>Camion</transport-category>
-				<transport-subcategory>Bâché</transport-subcategory>
+				<conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>
+				<transport-category>{{ad.content.transportCategory}} - {{ad.content.transportTruckType}}</transport-category>
 				<rate-km>0.4 DZD/km</rate-km>
-				<rate>300 DZD</rate>
+				<rate>{{ad.content.priceWanted}} DZD</rate>
 			</content-right>
 		</content>
 	</ad-block>
