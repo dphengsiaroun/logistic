@@ -40,7 +40,8 @@
 		</header>
 		<content>
 			<content-left>
-				<img src="img/loader-default.svg">
+				<img ng-show="ad.content.image === undefined" src="img/loader-default.svg">
+				<img ng-show="ad.content.image.thumbnailUrl" ng-src="{{ad.content.image.thumbnailUrl}}">
 			</content-left>
 			<content-right>
 				<conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>

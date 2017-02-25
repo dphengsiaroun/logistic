@@ -10,25 +10,29 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	'ngInject';
 
 	var service = this;
-	this.createData = {
-		typeOfGoods: 'Classique',
-		transportTruckType: 'Bâché',
-		weightInterval: '',
-		height: 1,
-		depth: 1,
-		width: 1,
-		priceWanted: 300,
-		adTimes: '1 semaine',
-
+	this.initCreateData = function() {
+		this.createData = {
+			typeOfGoods: 'Classique',
+			transportTruckType: 'Bâché',
+			weightInterval: '',
+			height: 1,
+			depth: 1,
+			width: 1,
+			imageId: new Date().getTime(),
+		};
 	};
+	this.initCreateData();
+
 
 	this.create = function() {
 		console.log('loader->create', service.createData);
+		var createData = service.createData;
+		this.initCreateData();
 		if (user.account) {
 			$http({
 				url: 'ws/loader/create.php',
 				method: 'POST',
-				data: service.createData,
+				data: createData,
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function(response) {
 				console.log('response', response);
@@ -42,7 +46,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 				console.error('error', error);
 			});
 		} else {
-			localStorage.setItem('loader', angular.toJson(service.createData));
+			localStorage.setItem('loader', angular.toJson(createData));
 			user.setAfterConnectAction({
 				state: 'loader:created',
 				service: 'loader',

@@ -42,14 +42,16 @@ app.component('lgUpload', {
 	bindings: {
 		formData: '='
 	},
+	require: {ngModel: 'ngModel'},
 	controller: function($scope, $http) {
 		console.log('DemoFileUploadController', arguments);
+		var ctrl = this;
 
-		this.$onInit = function() {
-			console.log('this.formData', this.formData);
+		ctrl.$onInit = function() {
+			console.log('ctrl.formData', ctrl.formData);
 			$scope.options = {
 				url: url,
-				formData: this.formData,
+				formData: ctrl.formData,
 				disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent),
 				imageMaxWidth: 1280,
 				imageMaxHeight: 960,
@@ -70,9 +72,8 @@ app.component('lgUpload', {
 	}
 });
 
-app.controller('LgUploadInitCtrl', ['$scope', '$injector', function($scope, $injector) {
-	var $http = $injector.get('$http');
-	var lgPicture = $injector.get('lgPicture');
+app.controller('LgUploadInitCtrl', function($scope, $http, lgPicture) {
+	'ngInject';
 	var formData = $scope.$parent.$ctrl.formData;
 	console.log('formData XXX', formData);
 	$http.get(url + '?suffix=' + formData.suffix).then(function(response) {
@@ -88,9 +89,11 @@ app.controller('LgUploadInitCtrl', ['$scope', '$injector', function($scope, $inj
 	$scope.refresh = function() {
 		if ($scope.queue.length === 0) {
 			delete $scope.file;
+			$scope.$parent.$ctrl.ngModel.$setViewValue(undefined);
 			return;
 		}
 		$scope.file = $scope.queue[0];
+		$scope.$parent.$ctrl.ngModel.$setViewValue($scope.file);
 
 		if ($scope.file.error !== undefined) {
 			$scope.file.reset = function() {
@@ -123,5 +126,5 @@ app.controller('LgUploadInitCtrl', ['$scope', '$injector', function($scope, $inj
 		console.log('showImage', arguments, $scope.file);
 		lgPicture.show($scope.file.url);
 	};
-}]);
+});
 
