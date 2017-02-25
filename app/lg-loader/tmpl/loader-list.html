@@ -8,11 +8,11 @@
 	</div>
 </section>
 <ad-list>
-	<ad-block ng-repeat="loader in $ctrl.loader.loaders" ng-click="$root.goToState('loader:retrieve({ id: loader.id })')">
+	<ad-block ng-repeat="ad in $ctrl.loader.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header>
-			<title>Livraison de 12 veaux</title>
+			<title>{{ad.content.title}}</title>
 			<subtitle>
-				<date>Jeudi 10 mars à 11h</date>
+				<date>{{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>1120km - 15h20</distance>
 			</subtitle>
 			<places>

@@ -69,3 +69,11 @@ app.filter('distance', function() {
 		return integer + 'm' + decimalStr;
 	};
 });
+
+
+app.filter('ucfirst', function() {
+	'ngInject';
+	return function(str) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	};
+});
