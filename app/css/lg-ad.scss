@@ -133,27 +133,6 @@
     }
 }
 
-.write-ad {
-    width: 35%;
-    position: fixed;
-    bottom: 20px;
-    left: 33%;
-    text-align: center;
-    padding: 0 10px;
-    button {
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
-        i {
-            font-size: 36px;
-            position: relative;
-            left: 3px;
-            top: 2px;
-        }
-    }
-}
-
 img-ad {
     width: 100%;
     font-size: 0px;
@@ -171,14 +150,14 @@ ad-list {
     ad-block {
         display: block;
         width: 100%;
-        margin: 3px 0px;
+        margin: 5px 0px;
         padding: 0px;
         background-color: white;
         header {
             display: block;
             width: 100%;
             margin: 0px;
-            padding: 5px;
+            padding: 5px 10px;
             background-color: white;
             title {
                 display: block;
@@ -247,7 +226,7 @@ ad-list {
                 display: table-cell;
                 width: 50%;
                 margin: 0px;
-                padding: 5px;
+                padding: 5px 10px;
                 vertical-align: top;
                 background-color: white;
 				img {
@@ -258,7 +237,7 @@ ad-list {
                 display: table-cell;
                 width: 50%;
                 margin: 0px;
-                padding: 5px;
+                padding: 5px 10px;
                 vertical-align: top;
                 background-color: white;
                 * {
@@ -270,7 +249,7 @@ ad-list {
                     color: $gray;
                 }
                 rate {
-                    font-size: 30px;
+                    font-size: 28px;
                     font-weight: bold;
                     color: $selectedColor;
                 }

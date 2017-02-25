@@ -134,3 +134,26 @@ lg-select {
         border-radius: 0px 5px 5px 0px;
     }
 }
+
+
+lg-create-button {
+	display: block;
+    position: fixed;
+    bottom: 20px;
+    left: 33%;
+	width: 35%;
+	padding: 0 10px;
+    text-align: center;
+    button {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+        .fa {
+			position: relative;
+			left: 3px;
+            top: 2px;
+            font-size: 36px;
+        }
+    }
+}

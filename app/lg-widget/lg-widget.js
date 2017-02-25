@@ -152,3 +152,55 @@ app.component('imgSvg', {
 		}
 	}
 });
+
+
+app.component('lgCreateButton', {
+	template: '<button ui-sref="{{$ctrl.state}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>',
+	bindings: {
+		state: '@'
+	},
+	controller: function LgCreateButtonCtrl($scope, $element, $attrs, $document) {
+		'ngInject';
+		console.log('lgCreateButton ctrl', arguments);
+		var ctrl = this;
+		var lastScrollTop = 0;
+
+		ctrl.show = function() {
+			if ($element.attr('style')) {
+				$element.removeAttr('style');
+			}
+		};
+		ctrl.hide = function() {
+			if ($element.attr('style') === undefined) {
+				$element.attr('style', 'display: none');
+			}
+		};
+		ctrl.$onInit = function() {
+			console.log('lgCreateButton ctrl onInit', arguments);
+
+			$document.on('scroll', function() {
+				console.log('touchmove', arguments);
+				var st = $document.scrollTop();
+				if (st >= lastScrollTop) {
+					// downscroll code
+					console.log('downscroll', st);
+					ctrl.hide();
+				} else {
+					// upscroll code
+					console.log('upscroll', st);
+					ctrl.show();
+				}
+				if (st > 0) {
+					lastScrollTop = st;
+				}
+			});
+		};
+
+
+
+		ctrl.$onDestroy = function() {
+			console.log('lgCreateButton ctrl onDestroy', arguments);
+			$document.off('scroll');
+		};
+	}
+});
