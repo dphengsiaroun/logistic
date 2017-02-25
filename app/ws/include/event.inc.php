@@ -1,7 +1,7 @@
 <?php
 	require_once(BASE_DIR . '/include/misc.inc.php');
 	require_once(BASE_DIR . '/include/database.inc.php');
-	
+
 	require_once(BASE_DIR . '/include/event/EventLoader.php');
 	require_once(BASE_DIR . '/include/event/EventCarrier.php');
 	require_once(BASE_DIR . '/include/event/EventGeoloc.php');
@@ -16,6 +16,8 @@
 
 		public static function insert($type, $content) {
 			global $db, $cfg;
+			$content = (object) $content;
+			$content->created_t = time();
 
 			$sql = <<<EOF
 INSERT INTO {$cfg->prefix}event (type, content) VALUES

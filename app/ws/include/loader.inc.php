@@ -7,6 +7,7 @@
 
 		public static function create($account, $request) {
 			$request->accountId = $account->id;
+			self::manageSessionImage($account, $request);
 			$e = Event::insert('/loader/create', $request);
 			Event::synchronize();
 			$loader = self::retrieve($e->id);
@@ -76,6 +77,10 @@ EOF;
 			Event::synchronize();
 			$loader = self::retrieve($request->id);
 			return $loader;
+		}
+
+		public static function manageSessionImage($account, $request) {
+			// TODO: Gérer le probleme de la localisation de l'image qui pourrait être en session'
 		}
 	}
 

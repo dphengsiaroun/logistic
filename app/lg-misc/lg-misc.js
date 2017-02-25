@@ -74,6 +74,17 @@ app.filter('distance', function() {
 app.filter('ucfirst', function() {
 	'ngInject';
 	return function(str) {
+		if (typeof str !== 'string') {
+			return undefined;
+		}
 		return str.charAt(0).toUpperCase() + str.slice(1);
+	};
+});
+
+
+app.filter('ts2date', function() {
+	'ngInject';
+	return function(timestamp) {
+		return new Date(timestamp * 1000);
 	};
 });
