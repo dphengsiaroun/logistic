@@ -163,74 +163,97 @@ img-ad {
     }
 }
 
-.liste-annonce {
-    width: 100%;
+ad-list {
     display: block;
+    width: 100%;
+    margin: 0px;
     padding: 0px;
-    .block-annonce {
+    ad-block {
+        display: block;
         width: 100%;
-        font-size: 0px;
-        margin: 0px;
-        a {
+        margin: 3px 0px;
+        padding: 0px;
+        background-color: white;
+        header {
             display: block;
             width: 100%;
-            height: inherit;
-            padding: 3px 4px 0px;
-            border-bottom: 1px solid #efefef;
-            div {
-                background-color: white;
+            margin: 0px;
+            padding: 5px;
+            background-color: white;
+            title {
+                display: block;
                 width: 100%;
-                vertical-align: middle;
-                .img-fix {
-                    display: inline-block;
-                    width: 24%;
-                    img {
+                text-align: left;
+                font-size: 15px;
+            }
+            date {
+                display: block;
+                width: 100%;
+                text-align: left;
+                font-size: 13px;
+                color: $gray;
+            }
+            places {
+                display: table;
+                labels {
+                    display: table-cell;
+					width: 50%;
+                    from,
+                    to {
+                        display: block;
                         width: 100%;
-                        vertical-align: middle;
-                    }
-                }
-                .details {
-                    display: inline-block;
-                    width: 76%;
-                    padding: 0px 7px;
-                    font-size: 14px;
-                    text-align: left;
-                    background-color: white;
-                    h2 {
                         text-align: left;
-                        font-size: 18px;
-                        margin-bottom: 5px;
-                    }
-                    .origin {
                         font-size: 13px;
                     }
-                    div {
-                        display: table;
-                        table-layout: fixed;
+                }
+                values {
+                    display: table-cell;
+					width: 50%;
+                    from,
+                    to {
+                        display: block;
                         width: 100%;
-                        margin-top: 5px;
-                        div.detail-left {
-                            display: table-cell;
-                            width: 100%;
-                        }
-                        div.detail-right {
-                            display: table-cell;
-                            width: 70%;
-                            text-align: right;
-                            span {
-                                display: block;
-                            }
-                            .tarif {
-                                color: $lightGreen;
-								font-weight: bold;
-                            }
-                        }
-                    }
-                    p {
-                        color: $darkBlue;
-                        font-size: 17px;
+                        text-align: left;
+                        font-size: 13px;
+						font-weight: bold;
                     }
                 }
+            }
+        }
+        content {
+            display: table;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color: white;
+            content-left {
+                display: table-cell;
+                width: 50%;
+                margin: 0px;
+                padding: 5px;
+				vertical-align: top;
+                background-color: white;
+            }
+            content-right {
+                display: table-cell;
+                width: 50%;
+                margin: 0px;
+                padding: 5px;
+				vertical-align: top;
+                background-color: white;
+				* {
+					display: block;
+					text-align: right;
+					font-size: 13px;
+				}
+				rate-km {
+					color: $gray;
+				}
+				rate {
+					font-size: 24px;
+					font-weight: bold;
+					color: $selectedColor;
+				}
             }
         }
     }

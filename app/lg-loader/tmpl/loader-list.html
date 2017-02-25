@@ -7,32 +7,39 @@
 		<i class="fa fa-calendar" aria-hidden="true"></i>
 	</div>
 </section>
-<section class="liste-annonce">
-	<div class="block-annonce" ng-repeat="loader in $ctrl.loader.loaders">
-		<a ui-sref="loader:retrieve({ id: loader.id })">
-			<div>
-				<div class="img-fix">
-					<img src="img/package-thumbnail.png">
-				</div>
-				<div class="details">
-					<h2>Livraison de 12 veaux</h2>
-					<span class="origin"><i class="fa fa-map-marker" aria-hidden="true"></i> Abdelmalek Ramdane, Algérie</span>
-					<div>
-						<div class="detail-left">
-							<span>Jeudi 10 mars à 11h</span>
+<ad-list>
+	<ad-block ng-repeat="loader in $ctrl.loader.loaders" ng-click="$root.goToState('loader:retrieve({ id: loader.id })')">
+		<header>
+			<title>Livraison de 12 veaux</title>
+			<date>Jeudi 10 mars à 11h</date>
+			<places>
+				<labels>
+					<from><i class="fa fa-map-marker" aria-hidden="true"></i> Origine :</from>
+					<to><i class="fa fa-map-marker" aria-hidden="true"></i> Destination :</to>
+				</labels>
+				<values>
+					<from>Abdelmalek Ramdane</from>
+					<to>Abi Youcef</to>
+				</values>
+			</places>
 
-						</div>
-						<div class="detail-right">
 
-							<span class="tarif">300 DZD</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="clear"></div>
-</section>
+		</header>
+		<content>
+			<content-left>
+				<img src="img/loader-default.svg">
+			</content-left>
+			<content-right>
+				<distance>1120km - 15h20</distance>
+				<conditioning>Colis - Classique</conditioning>
+				<transport-category>Camion</transport-category>
+				<transport-subcategory>Bâché</transport-subcategory>
+				<rate-km>0.4 DZD/km</rate-km>
+				<rate>300 DZD</rate>
+			</content-right>
+		</content>
+	</ad-block>
+</ad-list>
 <section class="write-ad">
 	<button ui-sref="loader:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 </section>
