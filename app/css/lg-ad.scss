@@ -117,7 +117,7 @@
         text-align: left;
         vertical-align: top;
         span {
-            font-size: 15px;
+            font-size: 13px;
             font-weight: bold;
         }
     }
@@ -184,20 +184,37 @@ ad-list {
                 display: block;
                 width: 100%;
                 text-align: left;
-                font-size: 15px;
+                font-size: 20px;
             }
-            date {
-                display: block;
+            subtitle {
+                display: table;
+                margin: 0px;
+                padding: 0px;
                 width: 100%;
-                text-align: left;
-                font-size: 13px;
-                color: $gray;
+                date {
+                    display: table-cell;
+                    width: 50%;
+                    margin: 0px;
+                    padding: 0px;
+                    text-align: left;
+                    font-size: 13px;
+                    color: $gray;
+                }
+                distance {
+                    display: table-cell;
+                    width: 50%;
+                    margin: 0px;
+                    padding: 0px;
+                    text-align: right;
+                    font-size: 13px;
+                    color: $gray;
+                }
             }
             places {
                 display: table;
                 labels {
                     display: table-cell;
-					width: 50%;
+                    width: 50%;
                     from,
                     to {
                         display: block;
@@ -208,14 +225,14 @@ ad-list {
                 }
                 values {
                     display: table-cell;
-					width: 50%;
+                    width: 50%;
                     from,
                     to {
                         display: block;
                         width: 100%;
                         text-align: left;
                         font-size: 13px;
-						font-weight: bold;
+                        font-weight: bold;
                     }
                 }
             }
@@ -231,29 +248,32 @@ ad-list {
                 width: 50%;
                 margin: 0px;
                 padding: 5px;
-				vertical-align: top;
+                vertical-align: top;
                 background-color: white;
+				img {
+					height: 100px;
+				}
             }
             content-right {
                 display: table-cell;
                 width: 50%;
                 margin: 0px;
                 padding: 5px;
-				vertical-align: top;
+                vertical-align: top;
                 background-color: white;
-				* {
-					display: block;
-					text-align: right;
-					font-size: 13px;
-				}
-				rate-km {
-					color: $gray;
-				}
-				rate {
-					font-size: 24px;
-					font-weight: bold;
-					color: $selectedColor;
-				}
+                * {
+                    display: block;
+                    text-align: right;
+                    font-size: 13px;
+                }
+                rate-km {
+                    color: $gray;
+                }
+                rate {
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: $selectedColor;
+                }
             }
         }
     }

@@ -11,7 +11,10 @@
 	<ad-block ng-repeat="loader in $ctrl.loader.loaders" ng-click="$root.goToState('loader:retrieve({ id: loader.id })')">
 		<header>
 			<title>Livraison de 12 veaux</title>
-			<date>Jeudi 10 mars à 11h</date>
+			<subtitle>
+				<date>Jeudi 10 mars à 11h</date>
+				<distance>1120km - 15h20</distance>
+			</subtitle>
 			<places>
 				<labels>
 					<from><i class="fa fa-map-marker" aria-hidden="true"></i> Origine :</from>
@@ -30,7 +33,6 @@
 				<img src="img/loader-default.svg">
 			</content-left>
 			<content-right>
-				<distance>1120km - 15h20</distance>
 				<conditioning>Colis - Classique</conditioning>
 				<transport-category>Camion</transport-category>
 				<transport-subcategory>Bâché</transport-subcategory>
