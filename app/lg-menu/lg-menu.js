@@ -15,6 +15,30 @@ var app = angular.module(module.exports, []);
 
 var lgMenuUrl = require('./tmpl/lg-menu.html');
 
+app.run(function($transitions, $rootScope) {
+		'ngInject';
+		$transitions.onStart({}, function(trans) {
+			$rootScope.isBackPresent = true;
+			console.log('onStart', arguments);
+			var from = trans.$from();
+			console.log('from', from);
+			var to = trans.$to();
+			console.log('to', to);
+			if (from.noBackForNextState) {
+				$rootScope.isBackPresent = false;
+			}
+			if (from.component === 'lgMessage') {
+				$rootScope.isBackPresent = false;
+			}
+			if (from.component === 'lgConfirm') {
+				$rootScope.isBackPresent = false;
+			}
+			if (to.component === 'lgMessage') {
+				$rootScope.isBackPresent = false;
+			}
+		});
+	});
+
 // permet de récuperer les valeurs en post sous format json
 app.component('lgMenu', {
 	templateUrl: lgMenuUrl,

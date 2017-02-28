@@ -1,6 +1,8 @@
 <my-head>
-	<head-left>
+	<head-left ng-show="$root.isBackPresent">
 		<i ng-click="$ctrl.off(); $root.back();" class="fa fa-chevron-left" aria-hidden="true"></i>
+	</head-left>
+	<head-left ng-hide="$root.isBackPresent">
 	</head-left>
 	<head-center ng-show="!$ctrl.user.account">
 		<a ng-click="$ctrl.off()" ui-sref="home"><img-svg src="/img/logo.svg"></img-svg></a>
