@@ -10,12 +10,12 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	'ngInject';
 
 	var service = this;
-	this.initCreateData = function() {
-		this.createData = {
+	service.initCreateData = function() {
+		service.createData = {
 			typeOfGoods: 'Classique',
 			transportTruckType: 'Bâché',
 			weightInterval: '',
-			imageId: new Date().getTime(),
+			imageId: new Date().getTime()
 		};
 	};
 	this.initCreateData();
@@ -43,6 +43,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 				console.error('error', error);
 			});
 		} else {
+			createData.userNotConnected = true;
 			localStorage.setItem('loader', angular.toJson(createData));
 			user.setAfterConnectAction({
 				state: 'loader:created',
