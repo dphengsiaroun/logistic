@@ -316,7 +316,6 @@ recap {
         }
         p {
             font-size: 15px;
-            padding: 10px;
             margin: 10px 0px;
         }
         table {
@@ -338,6 +337,10 @@ recap {
                     border-right: none;
                     td {
                         text-align: right;
+						region {
+							font-size: 13px;
+							color: $selectedColor;
+						}
                     }
                 }
             }

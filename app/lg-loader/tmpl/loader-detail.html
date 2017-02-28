@@ -8,91 +8,90 @@
 	<info>
 		<p>Publié le : {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
 	</info>
+	<description>
+		<p>{{$ctrl.loader.current.content.comments}}</p>
+
+		<lg-hr>Trajet</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Départ</th>
+					<td><city>{{$ctrl.loader.current.content.departureCity.city}}</city> <region>{{$ctrl.loader.current.content.departureCity.region}}</region></td>
+				</tr>
+				<tr>
+					<th>Arrivée</th>
+					<td><city>{{$ctrl.loader.current.content.arrivalCity.city}}</city> <region>{{$ctrl.loader.current.content.arrivalCity.region}}</region></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<lg-hr>Horaire</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Date et heure<br/>de chargement</th>
+					<td>{{$ctrl.loader.current.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}
+					</td>
+				</tr>
+				<tr>
+					<th>Date et heure<br/>de livraison</th>
+					<td>{{$ctrl.loader.current.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<lg-hr>Chargement</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Conditionnement</th>
+					<td>{{$ctrl.loader.current.content.conditioning}}</td>
+				</tr>
+				<tr>
+					<th>Type de marchandise</th>
+					<td>{{$ctrl.loader.current.content.typeOfGoods}}</td>
+				</tr>
+				<tr>
+					<th>Poids</th>
+					<td>{{$ctrl.loader.current.content.weightInterval}}</td>
+				</tr>
+				<tr>
+					<th>Largeur</th>
+					<td>{{$ctrl.loader.current.content.width}}m</td>
+				</tr>
+				<tr>
+					<th>Hauteur</th>
+					<td>{{$ctrl.loader.current.content.height}}m</td>
+				</tr>
+				<tr>
+					<th>Profondeur</th>
+					<td>{{$ctrl.loader.current.content.depth}}m</td>
+				</tr>
+				<tr>
+					<th>Volume</th>
+					<td>{{$ctrl.loader.current.content.volume}}m3</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<lg-hr>Transport</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Catégorie</th>
+					<td>{{$ctrl.loader.current.content.transportCategory}}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{$ctrl.loader.current.content.transportTruckType}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</description>
+	<br/>
 	<p><b><i class="fa fa-map-marker" aria-hidden="true"></i></b> Abdelmalek Ramdane, Mostaganem, Algérie</p>
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103672.42945538035!2d-0.711452778311177!3d35.70743901145291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7e8854841f537d%3A0x4187f63762f7290f!2zT3JhbiwgQWxnw6lyaWU!5e0!3m2!1sfr!2sfr!4v1487758829546"
 		width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-		<description>
-			<p>Cherche transporteur pour charger du bétail de Abdelmalek Ramdane, Mostaganem, Algérie à Biskra (voir détail)</p>
-
-			<lg-hr>Trajet</lg-hr>
-			<table>
-				<tbody>
-					<tr>
-						<th>Départ</th>
-						<td>Oran, Oran, Algérie</td>
-					</tr>
-					<tr>
-						<th>Arrivée</th>
-						<td>Abdelmalek Ramdane, Mostaganem, Algérie</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<lg-hr>Horaire</lg-hr>
-			<table>
-				<tbody>
-					<tr>
-						<th>Date et heure<br/>de chargement</th>
-						<td>Jeudi 9 Mars
-							<br/>11h
-						</td>
-					</tr>
-					<tr>
-						<th>Date et heure<br/>de livraison</th>
-						<td>Vendredi 10 Mars<br/>17h</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<lg-hr>Chargement</lg-hr>
-			<table>
-				<tbody>
-					<tr>
-						<th>Type</th>
-						<td>Bétails</td>
-					</tr>
-					<tr>
-						<th>Race</th>
-						<td>Veaux</td>
-					</tr>
-					<tr>
-						<th>Poids</th>
-						<td>1 tonne</td>
-					</tr>
-					<tr>
-						<th>Largeur</th>
-						<td>2m30</td>
-					</tr>
-					<tr>
-						<th>Hauteur</th>
-						<td>2m30</td>
-					</tr>
-					<tr>
-						<th>Profondeur</th>
-						<td>12m00</td>
-					</tr>
-					<tr>
-						<th>Volume en m3</th>
-						<td>20</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<lg-hr>Transport</lg-hr>
-			<table>
-				<tbody>
-					<tr>
-						<th>Catégorie</th>
-						<td>Camion</td>
-					</tr>
-					<tr>
-						<th>Type</th>
-						<td>Bétaillère, 12T minimum</td>
-					</tr>
-				</tbody>
-			</table>
-		</description>
-		<br/>
 		<div ng-show="!$ctrl.isEditable">
 			<h2>Soyez le premier à proposer une offre de transport</h2>
 			<button ui-sref="#/loader-create-proposal">Entrer en contact</button>
