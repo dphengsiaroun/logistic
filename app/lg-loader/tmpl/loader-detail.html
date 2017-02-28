@@ -97,10 +97,11 @@
 	<br/>
 	<iframe ng-src="{{$ctrl.loader.current.content | googlemap}}" width="100%" height="200" frameborder="0" style="border:0"
 		allowfullscreen></iframe>
-		<div ng-show="!$ctrl.isEditable">
-			<h2>Soyez le premier à proposer une offre de transport</h2>
-			<button ui-sref="#/loader-create-proposal">Entrer en contact</button>
-		</div>
+		<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
+		<bottom ng-show="!$ctrl.isEditable">
+			<button ui-sref="#/loader-create-proposal">Appeler</button>
+			<button ui-sref="#/loader-create-proposal">Envoyer un email</button>
+		</bottom>
 		<div ng-show="$ctrl.isEditable">
 			<button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
 			<lg-hr>ou</lg-hr>

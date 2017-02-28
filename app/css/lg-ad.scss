@@ -301,7 +301,7 @@ recap {
         }
     }
     iframe {
-        margin: 10px 0px;
+        margin: 10px 0px 0px;
     }
     img {
         width: 100%;
@@ -328,13 +328,14 @@ recap {
                     border: 1px solid $borderColor;
                     border-left: none;
                     border-right: none;
-                    td, th {
+                    td,
+                    th {
                         padding: 10px;
                         vertical-align: middle;
                         background-color: white;
                         font-size: 15px;
                     }
-					td {
+                    td {
                         text-align: right;
                         region {
                             font-size: 13px;
@@ -344,6 +345,24 @@ recap {
                 }
             }
         }
+    }
+}
+
+bottom {
+    display: table;
+    position: fixed;
+    bottom: 0;
+	left: 0;
+    width: 100%;
+    button {
+        display: table-cell;
+        width: 50%;
+		margin: 0px;
+		vertical-align: top;
+		border-radius: 0px;
+    }
+    button:nth-child(2) {
+        background: $red;
     }
 }
 

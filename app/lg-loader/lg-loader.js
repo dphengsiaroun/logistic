@@ -18,13 +18,12 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			imageId: new Date().getTime()
 		};
 	};
-	this.initCreateData();
+	service.initCreateData();
 
 
-	this.create = function() {
+	service.create = function() {
 		console.log('loader->create', service.createData);
 		var createData = service.createData;
-		this.initCreateData();
 		if (user.account) {
 			$http({
 				url: 'ws/loader/create.php',
@@ -38,6 +37,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 					return;
 				}
 				service.error = undefined;
+				service.initCreateData();
 				$state.go('loader:created');
 			}).catch(function(error) {
 				console.error('error', error);
@@ -51,22 +51,23 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 				fn: 'createAfterConnect',
 				args: []
 			});
+			service.initCreateData();
 			$state.go('user:hasAccount');
 		}
 
 	};
 
-	this.createAfterConnect = function() {
+	service.createAfterConnect = function() {
 		service.createData = angular.fromJson(localStorage.getItem('loader'));
 		localStorage.removeItem('loader');
 		console.log('loader->createAfterConnect', service.createData);
 		service.create();
 	};
 
-	this.listData = {
+	service.listData = {
 	};
 
-	this.list = function() {
+	service.list = function() {
 		console.log('loader->list');
 		return $http({
 			url: 'ws/loader/list.php',
@@ -89,9 +90,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		});
 	};
 
-	this.get = function(id) {
+	service.get = function(id) {
 		if (service.loaderMap === undefined) {
-			return this.list().then(function() {
+			return service.list().then(function() {
 				service.current = service.loaderMap[id];
 			});
 		}
@@ -99,9 +100,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		return $q.resolve();
 	};
 
-	this.updateData = {};
+	service.updateData = {};
 
-	this.update = function() {
+	service.update = function() {
 		console.log('updateLoader->update', service.updateData);
 		$http({
 			url: 'ws/loader/update.php',
@@ -124,7 +125,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		});
 	};
 
-	this.delete = function(id) {
+	service.delete = function(id) {
 		console.log('loader->delete');
 		return $http({
 			url: 'ws/loader/delete.php',

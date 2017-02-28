@@ -44,7 +44,7 @@
 		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.truck.updateData.birthyear"
 		/>
 		<label>Insérer une photo</label>
-		<lg-upload form-data="{suffix: '_ad123'}"></lg-upload>
+		<lg-upload form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-upload>
 	</section>
 	<section>
 		<big-label>Chargement</big-label>
@@ -72,4 +72,4 @@
 		<lg-error error="$ctrl.truck.error"></lg-error>
 		<button ng-click="$ctrl.truck.create();">Mettre à jour</button>
 	</section>
-</form>
+	</form>

@@ -91,10 +91,8 @@
 		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.loader.createData.dimension">
 		</lg-dimension>
 		<br/>
-		<br/>
-		<label>Photo du chargement</label>
+		<comment class="above">Votre annonce sera davantage consultée si elle contient une photo.</comment>
 		<lg-upload form-data="{suffix: '_ad' + $ctrl.loader.createData.imageId}" ng-model="$ctrl.loader.createData.image"></lg-upload>
-		<comment>Votre annonce sera davantage consultée si elle contient une photo.</comment>
 	</section>
 	<section>
 		<big-label>Prix</big-label>

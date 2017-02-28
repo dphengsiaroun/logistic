@@ -91,10 +91,8 @@
 		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.loader.updateData.dimension">
 		</lg-dimension>
 		<br/>
-		<br/>
-		<label>Photo du chargement</label>
-		<lg-upload form-data="{suffix: '_ad' + $ctrl.loader.updateData.imageId}" ng-model="$ctrl.loader.updateData.image"></lg-upload>
 		<comment>Votre annonce sera davantage consultée si elle contient une photo.</comment>
+		<lg-upload form-data="{suffix: '_ad' + $ctrl.loader.updateData.imageId}" ng-model="$ctrl.loader.updateData.image"></lg-upload>
 	</section>
 	<section>
 		<big-label>Prix</big-label>
@@ -109,7 +107,7 @@
 <formx class="ad">
 	<section class="dark">
 		<lg-error error="$ctrl.loader.error"></lg-error>
-		<button ng-click="$ctrl.loader.create();">Mettre à jour</button>
+		<button ng-click="$ctrl.loader.update();">Mettre à jour</button>
 	</section>
 </formx>
 
