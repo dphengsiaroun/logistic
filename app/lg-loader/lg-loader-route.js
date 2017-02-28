@@ -155,9 +155,8 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
 			ctrl.loader.createData.volume = ctrl.loader.createData.dimension.height *
 				ctrl.loader.createData.dimension.depth * ctrl.loader.createData.dimension.width;
 			ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
-			ctrl.volumeStr = ctrl.loader.createData.volume + ' m3';
 			console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
-		}, true);
+		});
 
 	$scope.$watchGroup(['$ctrl.loader.createData.departureCity', '$ctrl.loader.createData.arrivalCity'], function() {
 		console.log('$ctrl.loader.createData.departureCity', ctrl.loader.createData.departureCity);

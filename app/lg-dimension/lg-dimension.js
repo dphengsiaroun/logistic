@@ -13,7 +13,7 @@ app.component('lgDimension', {
 		ngModel: 'ngModel',
 	},
 	templateUrl: lgDimensionUrl,
-	controller: function LgDimensionCtrl($element, $document, lgScroll) {
+	controller: function LgDimensionCtrl($element, $document, $filter, lgScroll) {
 		'ngInject';
 		console.log('LgDimensionCtrl');
 		var ctrl = this;
@@ -77,6 +77,7 @@ app.component('lgDimension', {
 				ctrl.width = Math.round(ctrl.dimension.width * 100);
 				ctrl.height = Math.round(ctrl.dimension.height * 100);
 				ctrl.depth = Math.round(ctrl.dimension.depth * 100);
+				ctrl.volumeStr = $filter('volume')(ctrl.dimension);
 			};
 		};
 	},

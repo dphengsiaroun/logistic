@@ -88,3 +88,10 @@ app.filter('ts2date', function() {
 		return new Date(timestamp * 1000);
 	};
 });
+
+app.filter('volume', function() {
+	'ngInject';
+	return function(dimension) {
+		return (dimension.width * dimension.height * dimension.depth).toFixed(3) + 'm3';
+	};
+});
