@@ -262,7 +262,7 @@ ad-list {
                 font-size: 27px;
                 font-weight: bold;
                 color: $selectedColor;
-				letter-spacing: -1px;
+                letter-spacing: -1px;
             }
         }
     }
@@ -323,33 +323,25 @@ recap {
             max-width: 100%;
             margin: 10px 0px;
             border-collapse: collapse;
-            thead th {
-                color: $inputColor;
-                background-color: transparent;
-                text-align: center;
-                font-size: 18px;
-                padding: 6px;
-            }
             tbody {
                 tr {
                     border: 1px solid $borderColor;
                     border-left: none;
                     border-right: none;
-                    td {
+                    td, th {
+                        padding: 10px;
+                        vertical-align: middle;
+                        background-color: white;
+                        font-size: 15px;
+                    }
+					td {
                         text-align: right;
-						region {
-							font-size: 13px;
-							color: $selectedColor;
-						}
+                        region {
+                            font-size: 13px;
+                            color: $selectedColor;
+                        }
                     }
                 }
-            }
-            td,
-            th {
-                padding: 10px;
-                vertical-align: middle;
-                background-color: white;
-                font-size: 15px;
             }
         }
     }

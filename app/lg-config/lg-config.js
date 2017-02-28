@@ -83,6 +83,13 @@ app.run(function($rootScope, $http) {
 		console.error('error', error);
 	});
 
+	$http.get('ws/config/retrieve.php').then(function(response) {
+		$rootScope.config.serverConfig = response.data.serverConfig;
+		console.log('$rootScope.config', $rootScope.config);
+	}).catch(function(error) {
+		console.error('error', error);
+	});
+
 	$rootScope.config.getTruckTypesIcon = function(label) {
 		['Benne', 'Bâché', 'Frigo', 'Citerne', 'Porte voiture', 'Semi-remorque',
 			'Semi-frigo', 'Bétaillère', 'Taxi'];

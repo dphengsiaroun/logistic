@@ -16,11 +16,17 @@
 			<tbody>
 				<tr>
 					<th>Départ</th>
-					<td><city>{{$ctrl.loader.current.content.departureCity.city}}</city> <region>{{$ctrl.loader.current.content.departureCity.region}}</region></td>
+					<td>
+						<city>{{$ctrl.loader.current.content.departureCity.city}}</city>
+						<region>{{$ctrl.loader.current.content.departureCity.region}}</region>
+					</td>
 				</tr>
 				<tr>
 					<th>Arrivée</th>
-					<td><city>{{$ctrl.loader.current.content.arrivalCity.city}}</city> <region>{{$ctrl.loader.current.content.arrivalCity.region}}</region></td>
+					<td>
+						<city>{{$ctrl.loader.current.content.arrivalCity.city}}</city>
+						<region>{{$ctrl.loader.current.content.arrivalCity.region}}</region>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -29,12 +35,12 @@
 		<table>
 			<tbody>
 				<tr>
-					<th>Date et heure<br/>de chargement</th>
+					<th>Chargement</th>
 					<td>{{$ctrl.loader.current.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}
 					</td>
 				</tr>
 				<tr>
-					<th>Date et heure<br/>de livraison</th>
+					<th>Livraison</th>
 					<td>{{$ctrl.loader.current.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
 				</tr>
 			</tbody>
@@ -57,19 +63,19 @@
 				</tr>
 				<tr>
 					<th>Largeur</th>
-					<td>{{$ctrl.loader.current.content.width}}m</td>
+					<td>{{$ctrl.loader.current.content.dimension.width | distance}}</td>
 				</tr>
 				<tr>
 					<th>Hauteur</th>
-					<td>{{$ctrl.loader.current.content.height}}m</td>
+					<td>{{$ctrl.loader.current.content.dimension.height | distance}}</td>
 				</tr>
 				<tr>
 					<th>Profondeur</th>
-					<td>{{$ctrl.loader.current.content.depth}}m</td>
+					<td>{{$ctrl.loader.current.content.dimension.depth | distance}}</td>
 				</tr>
 				<tr>
 					<th>Volume</th>
-					<td>{{$ctrl.loader.current.content.volume}}m3</td>
+					<td>{{$ctrl.loader.current.content.dimension | volume}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -89,9 +95,8 @@
 		</table>
 	</description>
 	<br/>
-	<p><b><i class="fa fa-map-marker" aria-hidden="true"></i></b> Abdelmalek Ramdane, Mostaganem, Algérie</p>
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103672.42945538035!2d-0.711452778311177!3d35.70743901145291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7e8854841f537d%3A0x4187f63762f7290f!2zT3JhbiwgQWxnw6lyaWU!5e0!3m2!1sfr!2sfr!4v1487758829546"
-		width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+	<iframe ng-src="{{$ctrl.loader.current.content | googlemap}}" width="100%" height="200" frameborder="0" style="border:0"
+		allowfullscreen></iframe>
 		<div ng-show="!$ctrl.isEditable">
 			<h2>Soyez le premier à proposer une offre de transport</h2>
 			<button ui-sref="#/loader-create-proposal">Entrer en contact</button>

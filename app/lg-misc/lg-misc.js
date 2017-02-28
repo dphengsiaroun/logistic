@@ -92,6 +92,30 @@ app.filter('ts2date', function() {
 app.filter('volume', function() {
 	'ngInject';
 	return function(dimension) {
-		return (dimension.width * dimension.height * dimension.depth).toFixed(3) + 'm3';
+		if (dimension && dimension.width && dimension.height && dimension.depth) {
+			return (dimension.width * dimension.height * dimension.depth).toFixed(3) + 'm3';
+		}
+		return '';
+	};
+});
+
+app.filter('googlemap', function($rootScope) {
+	'ngInject';
+	return function(content) {
+		if (!content) {
+			return '';
+		}
+		var result = 'https://www.google.com/maps/embed/v1/directions?key=' +
+			$rootScope.config.serverConfig.routeGoogleAPIKey +
+			'&origin=' +
+			content.departureCity.city + '+' +
+			content.departureCity.region + '+' +
+			content.departureCity.country +
+			'&destination=' +
+			content.arrivalCity.city + '+' +
+			content.arrivalCity.region + '+' +
+			content.arrivalCity.country;
+		result = result.replace(/ /g, '+');
+		return result;
 	};
 });

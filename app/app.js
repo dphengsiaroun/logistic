@@ -79,11 +79,21 @@ var app = angular.module('mainApp', [
 	lgNum,
 	lgDebug,
 	lgTest
-	]);
+]);
 
 app.config(function($touchProvider) {
 	'ngInject';
 	$touchProvider.ngClickOverrideEnabled(true);
+});
+
+app.config(function($sceDelegateProvider) {
+	'ngInject';
+	$sceDelegateProvider.resourceUrlWhitelist([
+		// Allow same origin resource loads.
+		'self',
+		// Allow loading from our assets domain.  Notice the difference between * and **.
+		'https://www.google.com/**'
+	]);
 });
 
 // permet de récuperer les valeurs en post sous format json

@@ -73,6 +73,7 @@ app.component('lgDimension', {
 						height: 0.7,
 						depth: 0.8,
 					};
+					ctrl.ngModel.$setViewValue(ctrl.dimension);
 				}
 				ctrl.width = Math.round(ctrl.dimension.width * 100);
 				ctrl.height = Math.round(ctrl.dimension.height * 100);

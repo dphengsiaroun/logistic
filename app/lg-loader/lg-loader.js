@@ -15,9 +15,6 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			typeOfGoods: 'Classique',
 			transportTruckType: 'Bâché',
 			weightInterval: '',
-			height: 1,
-			depth: 1,
-			width: 1,
 			imageId: new Date().getTime(),
 		};
 	};
