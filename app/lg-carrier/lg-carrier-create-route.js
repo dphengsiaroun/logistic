@@ -70,6 +70,7 @@ app.component('lgCarrierCreateTruckChooseRoute', {
 		'ngInject';
 		var ctrl = this;
 		ctrl.hasTruck = false;
+		ctrl.truck = truck;
 		truck.empty().then(function() {
 			ctrl.hasTruck = true;
 		}).catch(function() {
@@ -81,10 +82,11 @@ app.component('lgCarrierCreateTruckChooseRoute', {
 var lgCarrierCreateTruckCreateUrl = require('./tmpl/carrier-create-truck-create.html');
 app.component('lgCarrierCreateTruckCreateRoute', {
 	templateUrl: lgCarrierCreateTruckCreateUrl,
-	controller: function LgCarrierCreateTruckCreateRouteCtrl(truck) {
+	controller: function LgCarrierCreateTruckCreateRouteCtrl(truck, context) {
 		'ngInject';
 		var ctrl = this;
 		ctrl.truck = truck;
+		context.push('carrier:create:truck:choose');
 	}
 });
 

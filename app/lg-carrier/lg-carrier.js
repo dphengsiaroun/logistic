@@ -1,6 +1,7 @@
 'use strict';
 
 require('../css/lg-ad.scss');
+require('./lg-carrier.scss');
 module.exports = 'lg-carrier';
 
 var app = angular.module(module.exports, ['ui.router']);

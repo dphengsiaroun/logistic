@@ -24,4 +24,41 @@ at-list-one-vehicle {
         margin: 30px 0;
         font-weight: bold;
     }
+    list {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        item {
+            display: table;
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 100%;
+            margin: 1px 0px 0px;
+            padding: 0px;
+            background-color: white;
+            border: none;
+            left,
+            right {
+                display: table-cell;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: middle;
+                img {
+					display: block;
+                    height: 60px;
+                    margin: 0px;
+                    padding: 0px;
+                }
+				span {
+					margin: 0px;
+                    padding: 0px;
+					font-size: 15px;
+				}
+            }
+			left {
+				width: 100px;
+			}
+        }
+    }
 }

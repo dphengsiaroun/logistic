@@ -1,10 +1,17 @@
 <no-vehicle ng-hide="$ctrl.hasTruck">
 	<span>Ajouter un véhicule à votre flotte</span>
-	<button  ui-sref="carrier:create:truck:create">Continuer</button>
+	<button ui-sref="carrier:create:truck:create">Continuer</button>
 </no-vehicle>
 <at-list-one-vehicle ng-show="$ctrl.hasTruck">
 	<span>Choisissez un vehicule parmi la liste</span>
-	<list></list>
+	<list>
+		<item ng-click="goToState('carrier:create')" ng-repeat="truck in $ctrl.truck.trucks">
+			<left><img src="img/truck-ad.svg" /></left>
+			<right>
+				<span>{{truck.name}}</span>
+			</right>
+		</item>
+	</list>
 	<lg-hr>ou</lg-hr>
 	<button>Ajouter un nouveau véhicule</button>
 </at-list-one-vehicle>

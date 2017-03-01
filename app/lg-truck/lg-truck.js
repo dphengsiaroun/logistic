@@ -10,36 +10,55 @@ require('./lg-truck-route.js');
 app.service('truck', function Truck($q, $http, $state, user) {
 	'ngInject';
 	var service = this;
-	service.createData = {
-		type: 'benne',
-		height: 1,
-		width: 1,
-		depth: 1,
-		country: 'Algerie',
-		conditioning: 'Palette',
-		maxVolume: '3',
-		maxWeight: '12',
-		birthyear: '2008'
+	service.initCreateData = function() {
+		service.createData = {
+			imageId: new Date().getTime()
+		};
 	};
+	service.initCreateData();
 
 	service.create = function() {
 		console.log('truck->createTruck');
-		$http({
-			url: 'ws/truck/create.php',
-			method: 'POST',
-			data: service.createData,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
-			}
-			service.error = undefined;
-			$state.go('truck:created');
-		}).catch(function(error) {
-			console.error('error', error);
-		});
+		var createData = service.createData;
+		if (user.account) {
+			$http({
+				url: 'ws/truck/create.php',
+				method: 'POST',
+				data: createData,
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === 'ko') {
+					service.error = response;
+					return;
+				}
+				service.initCreateData();
+				service.error = undefined;
+				$state.go('truck:created');
+			}).catch(function(error) {
+				console.error('error', error);
+			});
+		} else {
+			console.log('user not connected');
+			createData.userNotConnected = true;
+			localStorage.setItem('truck', angular.toJson(createData));
+			user.setAfterConnectAction({
+				state: 'truck:created',
+				service: 'truck',
+				fn: 'createAfterConnect',
+				args: []
+			});
+			service.initCreateData();
+			$state.go('user:hasAccount');
+		}
+
+	};
+
+	service.createAfterConnect = function() {
+		service.createData = angular.fromJson(localStorage.getItem('truck'));
+		localStorage.removeItem('truck');
+		console.log('truck->createAfterConnect', service.createData);
+		service.create();
 	};
 
 	service.list = function() {
@@ -80,11 +99,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 	service.empty = function() {
 		console.log('empty', arguments);
 		return user.waitForCheckConnection().then(function() {
-			if (service.truckMap === undefined) {
-				return service.list();
-			} else {
-				return true;
-			}
+			return service.list();
 		}).then(function() {
 			for (var p in service.truckMap) {
 				if (service.truckMap.hasOwnProperty(p)) {

@@ -24,18 +24,21 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 	$stateProvider.state({
 		name: 'truck:created',
-		url: '/create-truck',
+		url: '/created-truck',
 		component: 'lgMessage',
 		resolve: {
-			service: function(user) {
+			service: function(user, context) {
 				'ngInject';
 				var login = user.account.content.login;
-				console.log('login', login);
-				var state = 'truck:list({login: \'' + login + '\'})';
+				console.log('login XXXXXX', login);
+				var state = context.pop();
+				if (state === undefined) {
+					state = 'truck:list({login: \'' + login + '\'})';
+				}
 				console.log('state', state);
 				return {
 					state: state,
-					label: 'Revenir à la liste des véhicules',
+					label: '<i class="fa fa-chevron-right" aria-hidden="true"></i> Continuer',
 					message: 'Votre véhicule a bien été ajouté.'
 				};
 			}
