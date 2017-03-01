@@ -1,0 +1,21 @@
+<div class="ad-title">
+	<left>
+		<img-svg src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Transporteur</title>
+		<subtitle>Etape 4 - Prix</subtitle>
+	</right>
+</div>
+<formx class="ad" name="carrierCtrl">
+	<section class="dark">
+		<big-label>Prix</big-label>
+		<label>Tarif souhaité en DZD (facultatif)</label>
+		<input type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.carrier.createData.priceWanted" />
+		<label>Commentaire</label>
+		<textarea ng-model="$ctrl.carrier.createData.comments"></textarea>
+	</section>
+	<section>
+		<button ng-click="$ctrl.carrier.create()">Ajouter</button>
+	</section>
+</form>

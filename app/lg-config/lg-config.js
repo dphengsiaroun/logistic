@@ -12,7 +12,10 @@ app.run(function($rootScope, $http) {
 	$rootScope.config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
 	$rootScope.config.countries = ['Algérie', 'France', 'Maroc'];
 	$rootScope.config.conditioningTypes = ['Colis', 'Palette', 'Vrac', 'Indifférent'];
-	$rootScope.config.years = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+	var year = (new Date()).getFullYear();
+	$rootScope.config.years = [...Array(19).keys()].map((n, i) => year - i);
+	$rootScope.config.years.push('avant ' + (year - 18));
+	console.log('$rootScope.config.years', $rootScope.config.years);
 	$rootScope.config.loaderTypes = ['Animaux', 'Classique', 'Dangereux', 'Frigo', 'Massif'];
 
 	$rootScope.config.transportCategories = ['Camion', 'Avion', 'Bateau'];

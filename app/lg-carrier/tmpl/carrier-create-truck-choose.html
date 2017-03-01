@@ -1,8 +1,9 @@
-<no-vehicle ng-hide="$ctrl.hasTruck">Ajouter un véhicule à votre flotte
+<no-vehicle ng-hide="$ctrl.hasTruck">
+	<span>Ajouter un véhicule à votre flotte</span>
 	<button  ui-sref="carrier:create:truck:create">Continuer</button>
 </no-vehicle>
 <at-list-one-vehicle ng-show="$ctrl.hasTruck">
-	Choisissez un vehicule parmi la liste
+	<span>Choisissez un vehicule parmi la liste</span>
 	<list></list>
 	<lg-hr>ou</lg-hr>
 	<button>Ajouter un nouveau véhicule</button>

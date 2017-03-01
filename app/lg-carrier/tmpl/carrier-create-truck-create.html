@@ -1,7 +1,16 @@
+<div class="ad-title">
+	<left>
+		<img-svg src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Transporteur</title>
+		<subtitle>Etape 1 - Vehicule</subtitle>
+	</right>
+</div>
 <formx class="ad" name="carrierCtrl">
 	<section class="dark">
-		<label>Immatriculation ou libellé du camion</label>
-		<input type="text" placeholder="Ex : Camion 1" ng-model="$ctrl.carrier.createData.name" required/>
+		<label>Immatriculation ou libellé du vehicule</label>
+		<input type="text" placeholder="Ex : XX-123-YY" ng-model="$ctrl.carrier.createData.name" required/>
 	</section>
 	<section>
 		<big-label>Transport</big-label>
@@ -26,8 +35,10 @@
 			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
 				ng-model="$ctrl.carrier.createData.transportPlaneType" />
 		</div>
+	</section>
+	<section class="dark">
 		<label>Année du vehicule</label>
-		<input type="number" pattern="[0-9]*" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.createData.birthyear"
+		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.carrier.createData.birthyear"
 		/>
 		<label>Insérer une photo</label>
 		<lg-upload form-data="{suffix: '_ad' + $ctrl.carrier.createData.imageId}" ng-model="$ctrl.carrier.createData.image"></lg-upload>

@@ -2,7 +2,7 @@
 
 var app = angular.module('lg-carrier');
 
-app.config(['$stateProvider', function ($stateProvider) {
+app.config(['$stateProvider', function($stateProvider) {
 
 	$stateProvider.state({
 		name: 'carrier:create',
@@ -20,11 +20,26 @@ app.config(['$stateProvider', function ($stateProvider) {
 		component: 'lgCarrierCreateTruckCreateRoute',
 	});
 	$stateProvider.state({
+		name: 'carrier:create:way',
+		url: '/carrier-create/way',
+		component: 'lgCarrierCreateWayRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:create:loading',
+		url: '/carrier-create/loading',
+		component: 'lgCarrierCreateLoadingRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:create:price',
+		url: '/carrier-create/price',
+		component: 'lgCarrierCreatePriceRoute',
+	});
+	$stateProvider.state({
 		name: 'carrier:created',
 		url: '/created-carrier',
 		component: 'lgMessage',
 		resolve: {
-			service: function (user) {
+			service: function(user) {
 				'ngInject';
 				var login = user.account.content.login;
 				console.log('login', login);
@@ -39,7 +54,6 @@ app.config(['$stateProvider', function ($stateProvider) {
 		},
 		needsUser: true
 	});
-
 
 
 }]);
@@ -67,4 +81,19 @@ app.component('lgCarrierCreateTruckChooseRoute', {
 var lgCarrierCreateTruckCreateUrl = require('./tmpl/carrier-create-truck-create.html');
 app.component('lgCarrierCreateTruckCreateRoute', {
 	templateUrl: lgCarrierCreateTruckCreateUrl
+});
+
+var lgCarrierCreateWayUrl = require('./tmpl/carrier-create-way.html');
+app.component('lgCarrierCreateWayRoute', {
+	templateUrl: lgCarrierCreateWayUrl
+});
+
+var lgCarrierCreateLoadingUrl = require('./tmpl/carrier-create-loading.html');
+app.component('lgCarrierCreateLoadingRoute', {
+	templateUrl: lgCarrierCreateLoadingUrl
+});
+
+var lgCarrierCreatePriceUrl = require('./tmpl/carrier-create-price.html');
+app.component('lgCarrierCreatePriceRoute', {
+	templateUrl: lgCarrierCreatePriceUrl
 });

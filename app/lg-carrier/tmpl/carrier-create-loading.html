@@ -1,0 +1,36 @@
+<div class="ad-title">
+	<left>
+		<img-svg src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Transporteur</title>
+		<subtitle>Etape 3 - Chargement</subtitle>
+	</right>
+</div>
+<formx class="ad" name="carrierCtrl">
+	<section class="dark">
+		<big-label>Chargement</big-label>
+		<label>Dimensions en mètre</label>
+		<dimension ng-click="$ctrl.editDimension()">
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-width.svg"></img-svg>
+			</div>
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-height.svg"></img-svg>
+			</div>
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-depth.svg"></img-svg>
+			</div>
+		</dimension>
+		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.carrier.createData.dimension">
+		</lg-dimension>
+		<br/>
+		<label>Volume max. (en m3)</label>
+		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.createData.maxVolume" />
+		<label>Poids max. (en tonne)</label>
+		<input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.createData.maxWeight" />
+	</section>
+	<section>
+		<button ng-click="$ctrl.carrier.create()">Ajouter</button>
+	</section>
+</form>
