@@ -7,76 +7,13 @@
 		<subtitle>Déposer une annonce</subtitle>
 	</right>
 </div>
-<formx class="ad" name="carrierCtrl">
-	<section ng-hide="$ctrl.user.account" class="dark">
-		<label>Libellé unique du camion</label>
-		<input type="text" placeholder="Ex : Camion 1" ng-model="$ctrl.carrier.createData.name" required/>
-	</section>
-	<section ng-show="$ctrl.user.account" class="dark">
-		<label>Sélectionner un véhicule de votre flotte</label>
-		<input type="choice" choices="$root.config.transportTruckTypes" title="Liste de mes véhicules" placeholder="Ex : Camion 1" ng-model="$ctrl.carrier.createData.name" required/>
-	</section>
-	<section>
-		<big-label>Localisation</big-label>
-		<label>Ville</label>
-		<lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.carrier.createData.city"></lg-city>
-	</section>
-	<section class="dark">
-		<big-label>Transport</big-label>
-		<lg-select ng-model="$ctrl.carrier.createData.transportCategory">
-			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
-			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
-			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
-		</lg-select>
-
-		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Camion'">
-			<label>Type de camion</label>
-			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion"
-				placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.carrier.createData.transportTruckType" />
-		</div>
-		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Bateau'">
-			<label>Type de bateau</label>
-			<input type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
-				ng-model="$ctrl.carrier.createData.transportBoatType" />
-		</div>
-		<div ng-show="$ctrl.carrier.createData.transportCategory === 'Avion'">
-			<label>Type d'avion</label>
-			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
-				ng-model="$ctrl.carrier.createData.transportPlaneType" />
-		</div>
-		<label>Année du moyen de transport</label>
-		<input type="number" pattern="[0-9]*" title="Année du camion" placeholder="Ex : 2005, 2006, 2007" ng-model="$ctrl.carrier.createData.birthyear"
-		/>
-		<label>Insérer une photo</label>
-		<lg-upload form-data="{suffix: '_ad' + $ctrl.carrier.createData.imageId}" ng-model="$ctrl.carrier.createData.image"></lg-upload>
-	</section>
-	<section>
-		<big-label>Chargement</big-label>
-		<label>Dimensions en mètre</label>
-		<dimension ng-click="$ctrl.editDimension()">
-			<div class="box no-zoom">
-				<img-svg src="/img/truck/truck-width.svg"></img-svg>
-			</div>
-			<div class="box no-zoom">
-				<img-svg src="/img/truck/truck-height.svg"></img-svg>
-			</div>
-			<div class="box no-zoom">
-				<img-svg src="/img/truck/truck-depth.svg"></img-svg>
-			</div>
-		</dimension>
-		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.carrier.createData.dimension">
-		</lg-dimension>
-		<br/>
-		<label>Volume max. (en m3)</label>
-		<input type="num" placeholder="Volume max." ng-model="$ctrl.carrier.createData.maxVolume" />
-		<label>Poids max. (en tonne)</label>
-		<input type="num" placeholder="Poids max." ng-model="$ctrl.carrier.createData.maxWeight" />
-	</section>
-	<section class="dark">
-		<big-label>Finaliser</big-label>
-		<label>Attention</label>
-		<comment>En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</comment>
-		<lg-error error="$ctrl.carrier.error"></lg-error>
-		<button ng-click="$ctrl.carrier.create()">Déposer votre annonce</button>
-	</section>
-</form>
+<section class="summary">
+	<div>
+		<ul>
+			<li><a ui-sref="carrier:create:truck:choose">1 Choix du véhicule <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+			<li class="disable"><a ui-sref="/">2 Trajet</a></li>
+			<li class="disable"><a ui-sref="/">3 Chargement</a></li>
+			<li class="disable"><a ui-sref="/">4 Prix</a></li>
+		</ul>
+	</div>
+</section>

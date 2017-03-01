@@ -5,6 +5,7 @@ module.exports = 'lg-carrier';
 
 var app = angular.module(module.exports, ['ui.router']);
 require('./lg-carrier-route.js');
+require('./lg-carrier-create-route.js');
 
 app.service('carrier', function Carrier(user, $http, $state, $q) {
 	'ngInject';

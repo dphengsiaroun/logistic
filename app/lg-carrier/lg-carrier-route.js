@@ -4,7 +4,7 @@ var app = angular.module('lg-carrier');
 
 app.config(['$stateProvider', function($stateProvider) {
 
-		$stateProvider.state({
+	$stateProvider.state({
 		name: 'carrier:list',
 		url: '/ads/carriers',
 		component: 'lgCarrierListRoute'
@@ -13,31 +13,6 @@ app.config(['$stateProvider', function($stateProvider) {
 		name: 'carrier:retrieve',
 		url: '/carrier/{id}',
 		component: 'lgCarrierRetrieveRoute',
-		needsUser: true
-	});
-	$stateProvider.state({
-		name: 'carrier:create',
-		url: '/create-carrier',
-		component: 'lgCarrierCreateRoute',
-	});
-	$stateProvider.state({
-		name: 'carrier:created',
-		url: '/created-carrier',
-		component: 'lgMessage',
-		resolve: {
-			service: function(user) {
-				'ngInject';
-				var login = user.account.content.login;
-				console.log('login', login);
-				var state = 'carrier:list({login: \'' + login + '\'})';
-				console.log('state', state);
-				return {
-					state: state,
-					label: 'Revenir à la liste des chargements',
-					message: 'Votre annonce de transport a bien été ajoutée.'
-				};
-			}
-		},
 		needsUser: true
 	});
 	$stateProvider.state({
@@ -140,12 +115,6 @@ app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scop
 	};
 }]);
 
-app.controller('CarrierCreateCtrl', function CarrierCreateCtrl($scope, $injector) {
-	'ngInject';
-	this.carrier = $injector.get('carrier');
-	this.user = $injector.get('user');
-});
-
 app.controller('CarrierUpdateCtrl', function CarrierUpdateCtrl($scope, carrier, user, $stateParams) {
 	'ngInject';
 	var ctrl = this;
@@ -162,15 +131,9 @@ app.controller('CarrierUpdateCtrl', function CarrierUpdateCtrl($scope, carrier, 
 	};
 });
 
-var carrierCreateUrl = require('./tmpl/carrier-create.html');
 var carrierListUrl = require('./tmpl/carrier-list.html');
 var carrierDetailUrl = require('./tmpl/carrier-detail.html');
 var carrierUpdateUrl = require('./tmpl/carrier-update.html');
-
-app.component('lgCarrierCreateRoute', {
-	templateUrl: carrierCreateUrl,
-	controller: 'CarrierCreateCtrl',
-});
 
 app.component('lgCarrierListRoute', {
 	templateUrl: carrierListUrl,

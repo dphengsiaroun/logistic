@@ -7,12 +7,10 @@ module.exports = 'lg-truck';
 var app = angular.module(module.exports, ['ui.router']);
 require('./lg-truck-route.js');
 
-app.service('truck', ['$injector', function Truck($injector) {
-	var $http = $injector.get('$http');
-	var $state = $injector.get('$state');
-
+app.service('truck', function Truck($q, $http, $state, user) {
+	'ngInject';
 	var service = this;
-	this.createData = {
+	service.createData = {
 		type: 'benne',
 		height: 1,
 		width: 1,
@@ -24,7 +22,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 		birthyear: '2008'
 	};
 
-	this.create = function() {
+	service.create = function() {
 		console.log('truck->createTruck');
 		$http({
 			url: 'ws/truck/create.php',
@@ -44,7 +42,7 @@ app.service('truck', ['$injector', function Truck($injector) {
 		});
 	};
 
-	this.list = function() {
+	service.list = function() {
 		console.log('truck->list');
 		return $http({
 			url: 'ws/truck/list.php',
@@ -65,13 +63,13 @@ app.service('truck', ['$injector', function Truck($injector) {
 		});
 	};
 
-	this.get = function(id) {
+	service.get = function(id) {
 		console.log('get', arguments);
 		if (id === undefined) {
 			throw new Error('id is undefined');
 		}
 		if (service.truckMap === undefined) {
-			this.list().then(function() {
+			service.list().then(function() {
 				service.current = service.truckMap[id];
 			});
 		} else {
@@ -79,9 +77,27 @@ app.service('truck', ['$injector', function Truck($injector) {
 		}
 	};
 
-	this.updateData = {};
+	service.empty = function() {
+		console.log('empty', arguments);
+		return user.waitForCheckConnection().then(function() {
+			if (service.truckMap === undefined) {
+				return service.list();
+			} else {
+				return true;
+			}
+		}).then(function() {
+			for (var p in service.truckMap) {
+				if (service.truckMap.hasOwnProperty(p)) {
+					return $q.resolve();
+				}
+			}
+			return $q.reject();
+		});
+	};
 
-	this.update = function() {
+	service.updateData = {};
+
+	service.update = function() {
 		console.log('updateTruck->update');
 		$http({
 			url: 'ws/truck/update.php',
@@ -125,5 +141,5 @@ app.service('truck', ['$injector', function Truck($injector) {
 		});
 	};
 
-}]);
+});
 

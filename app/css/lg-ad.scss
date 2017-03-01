@@ -352,17 +352,18 @@ bottom {
     display: table;
     position: fixed;
     bottom: 0;
-	left: 0;
+    left: 0;
     width: 100%;
     button {
         display: table-cell;
         width: 50%;
-		margin: 0px;
-		vertical-align: top;
-		border-radius: 0px;
+        margin: 0px;
+        padding: 5px;
+        vertical-align: top;
+        border-radius: 0px;
     }
     button:nth-child(2) {
-        background: $red;
+        background: $veryLightGreen;
     }
 }
 
@@ -373,4 +374,33 @@ lg-select.conditioning lg-option i.fa {
 
 lg-select.conditioning svg {
     width: 40px;
+}
+
+.summary {
+    padding: 5px;
+    div {
+        display: block;
+        width: 100%;
+        background-color: white;
+        ul {
+            li {
+                display: block;
+                width: 100%;
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    padding: 20px;
+                    font-size: 20px;
+                    border-bottom: 1px solid $borderColor;
+					i {
+						margin-left: 33%;
+					}
+                }
+            }
+            li.disable {
+                background-color: $gray;
+                opacity: 0.35;
+            }
+        }
+    }
 }
