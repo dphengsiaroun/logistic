@@ -11,11 +11,11 @@
 	<section class="dark">
 		<big-label>Prix</big-label>
 		<label>Tarif souhaité en DZD (facultatif)</label>
-		<input type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.carrier.createData.priceWanted" />
+		<input type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted" />
 		<label>Commentaire</label>
-		<textarea ng-model="$ctrl.carrier.createData.comments"></textarea>
+		<textarea ng-model="$ctrl.pricingData.comments"></textarea>
 	</section>
 	<section>
-		<button ng-click="$ctrl.carrier.create()">Ajouter</button>
+		<button ng-click="$ctrl.addPricing()">Ajouter</button>
 	</section>
 </form>

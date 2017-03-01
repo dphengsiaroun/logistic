@@ -14,8 +14,8 @@
 				<span ng-show="$ctrl.getStep() === 1">Choix du véhicule</span> <span ng-hide="$ctrl.getStep() === 1">Vehicule : {{$ctrl.carrier.createData.truck.name}}</span> <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
 			<li ng-class="$ctrl.getClass(2)"><a ui-sref="carrier:create:availability">2 Disponibilité <i ng-show="$ctrl.getStep() === 2" class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
 			<li ng-class="$ctrl.getClass(3)"><a ui-sref="carrier:create:loading">3 Chargement</a></li>
-			<li ng-class="$ctrl.getClass(4)"><a ui-sref="carrier:create:price">4 Prix</a></li>
+			<li ng-class="$ctrl.getClass(4)"><a ui-sref="carrier:create:pricing">4 Prix</a></li>
 		</ul>
-		<button ng-click="$ctrl.carrier.create()">Déposer mon annonce</button>
+		<button ng-show="$ctrl.getStep() === 5" ng-click="$ctrl.carrier.create()">Déposer mon annonce</button>
 	</div>
 </summary>

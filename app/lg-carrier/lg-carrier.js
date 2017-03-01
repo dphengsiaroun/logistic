@@ -16,6 +16,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		truck: undefined,
 		availability: undefined,
 		loading: undefined,
+		pricing: undefined
 	};
 
 	service.create = function() {
