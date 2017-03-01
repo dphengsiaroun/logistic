@@ -66,7 +66,7 @@ app.component('lgCarrierCreateRoute', {
 var carrierCreateTruckChooseUrl = require('./tmpl/carrier-create-truck-choose.html');
 app.component('lgCarrierCreateTruckChooseRoute', {
 	templateUrl: carrierCreateTruckChooseUrl,
-	controller: function lgCarrierCreateTruckChooseRouteCtrl(truck) {
+	controller: function LgCarrierCreateTruckChooseRouteCtrl(truck) {
 		'ngInject';
 		var ctrl = this;
 		ctrl.hasTruck = false;
@@ -80,7 +80,12 @@ app.component('lgCarrierCreateTruckChooseRoute', {
 
 var lgCarrierCreateTruckCreateUrl = require('./tmpl/carrier-create-truck-create.html');
 app.component('lgCarrierCreateTruckCreateRoute', {
-	templateUrl: lgCarrierCreateTruckCreateUrl
+	templateUrl: lgCarrierCreateTruckCreateUrl,
+	controller: function LgCarrierCreateTruckCreateRouteCtrl(truck) {
+		'ngInject';
+		var ctrl = this;
+		ctrl.truck = truck;
+	}
 });
 
 var lgCarrierCreateWayUrl = require('./tmpl/carrier-create-way.html');

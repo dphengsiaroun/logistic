@@ -44,6 +44,7 @@
 		<lg-upload form-data="{suffix: '_ad' + $ctrl.carrier.createData.imageId}" ng-model="$ctrl.carrier.createData.image"></lg-upload>
 	</section>
 	<section class="dark">
-		<button ng-click="$ctrl.carrier.create()">Ajouter</button>
+		<lg-error error="$ctrl.truck.error"></lg-error>
+		<button ng-click="$ctrl.truck.create()">Ajouter</button>
 	</section>
 </formx>
