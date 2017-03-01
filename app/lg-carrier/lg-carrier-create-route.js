@@ -20,9 +20,14 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgCarrierCreateTruckCreateRoute',
 	});
 	$stateProvider.state({
-		name: 'carrier:create:way',
-		url: '/carrier-create/way',
-		component: 'lgCarrierCreateWayRoute',
+		name: 'carrier:create:availability',
+		url: '/carrier-create/availability',
+		component: 'lgCarrierCreateAvailabilityRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:create:trip:create',
+		url: '/carrier-create/trip-create',
+		component: 'lgCarrierCreateTripCreateRoute',
 	});
 	$stateProvider.state({
 		name: 'carrier:create:loading',
@@ -60,13 +65,41 @@ app.config(['$stateProvider', function($stateProvider) {
 
 var carrierCreateUrl = require('./tmpl/carrier-create.html');
 app.component('lgCarrierCreateRoute', {
-	templateUrl: carrierCreateUrl
+	templateUrl: carrierCreateUrl,
+	controller: function LgCarrierCreateRouteCtrl(carrier) {
+		'ngInject';
+		var ctrl = this;
+		ctrl.carrier = carrier;
+		ctrl.getStep = function() {
+			if (carrier.createData.truck === undefined) {
+				return 1;
+			}
+			if (carrier.createData.availability === undefined) {
+				return 2;
+			}
+			if (carrier.createData.loading === undefined) {
+				return 3;
+			}
+			return 4;
+		};
+		ctrl.getClass = function(step) {
+			var currentStep = ctrl.getStep();
+			console.log('currentStep', currentStep);
+			if (step > currentStep) {
+				return {disabled: true};
+			} else if (step === currentStep) {
+				return {active: true};
+			} else {
+				return {done: true};
+			}
+		};
+	}
 });
 
 var carrierCreateTruckChooseUrl = require('./tmpl/carrier-create-truck-choose.html');
 app.component('lgCarrierCreateTruckChooseRoute', {
 	templateUrl: carrierCreateTruckChooseUrl,
-	controller: function LgCarrierCreateTruckChooseRouteCtrl(truck) {
+	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, truck, carrier) {
 		'ngInject';
 		var ctrl = this;
 		ctrl.hasTruck = false;
@@ -76,6 +109,10 @@ app.component('lgCarrierCreateTruckChooseRoute', {
 		}).catch(function() {
 			ctrl.hasTruck = false;
 		});
+		ctrl.selectTruck = function(t) {
+			carrier.createData.truck = t;
+			$state.go('carrier:create');
+		};
 	}
 });
 
@@ -90,14 +127,50 @@ app.component('lgCarrierCreateTruckCreateRoute', {
 	}
 });
 
-var lgCarrierCreateWayUrl = require('./tmpl/carrier-create-way.html');
-app.component('lgCarrierCreateWayRoute', {
-	templateUrl: lgCarrierCreateWayUrl
+var lgCarrierCreateAvailabilityUrl = require('./tmpl/carrier-create-availability.html');
+app.component('lgCarrierCreateAvailabilityRoute', {
+	templateUrl: lgCarrierCreateAvailabilityUrl,
+	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, carrier) {
+		'ngInject';
+		var ctrl = this;
+		ctrl.select = function(str) {
+			carrier.createData.availability = str;
+			if (str === 'total') {
+				$state.go('carrier:create');
+			}
+			if (str === 'specificTrip') {
+				$state.go('carrier:create:trip:create');
+			}
+		};
+	}
+});
+
+var lgCarrierCreateTripCreateUrl = require('./tmpl/carrier-create-trip-create.html');
+app.component('lgCarrierCreateTripCreateRoute', {
+	templateUrl: lgCarrierCreateTripCreateUrl,
+	controller: function LgCarrierCreateTripCreateRouteCtrl($state, carrier) {
+		'ngInject';
+		var ctrl = this;
+		ctrl.tripData = {};
+		ctrl.addTrip = function() {
+			carrier.createData.trip = ctrl.tripData;
+			$state.go('carrier:create');
+		};
+	}
 });
 
 var lgCarrierCreateLoadingUrl = require('./tmpl/carrier-create-loading.html');
 app.component('lgCarrierCreateLoadingRoute', {
-	templateUrl: lgCarrierCreateLoadingUrl
+	templateUrl: lgCarrierCreateLoadingUrl,
+	controller: function LgCarrierCreateLoadingRouteCtrl($state, carrier) {
+		'ngInject';
+		var ctrl = this;
+		ctrl.loadingData = {};
+		ctrl.addLoading = function() {
+			carrier.createData.loading = ctrl.loadingData;
+			$state.go('carrier:create');
+		};
+	}
 });
 
 var lgCarrierCreatePriceUrl = require('./tmpl/carrier-create-price.html');

@@ -12,19 +12,13 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 	'ngInject';
 
 	var service = this;
-	this.createData = {
-		type: 'benne',
-		height: 2,
-		width: 10,
-		depth: 8,
-		city: {city: 'Ain Tolba', region: 'A\u00efn T\u00e9mouchent', country: 'Algérie'},
-		conditioning: 'Palette',
-		maxVolume: 3,
-		maxWeight: 12,
-		birthyear: 2008
+	service.createData = {
+		truck: undefined,
+		availability: undefined,
+		loading: undefined,
 	};
 
-	this.create = function() {
+	service.create = function() {
 		console.log('carrier->create', service.createData);
 		if (user.account) {
 			$http({
@@ -56,14 +50,14 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 
 	};
 
-	this.createAfterConnect = function() {
+	service.createAfterConnect = function() {
 		service.createData = angular.fromJson(localStorage.getItem('carrier'));
 		localStorage.removeItem('carrier');
 		console.log('carrier->createAfterConnect', service.createData);
 		service.create();
 	};
 
-	this.list = function() {
+	service.list = function() {
 		console.log('carrier->list');
 		return $http({
 			url: 'ws/carrier/list.php',
@@ -86,7 +80,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		});
 	};
 
-	this.get = function(id) {
+	service.get = function(id) {
 		if (service.carrierMap === undefined) {
 			return this.list().then(function() {
 				service.current = service.carrierMap[id];
@@ -96,9 +90,9 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		return $q.resolve();
 	};
 
-	this.updateData = {};
+	service.updateData = {};
 
-	this.update = function() {
+	service.update = function() {
 		console.log('updateCarrier->update', service.updateData);
 		$http({
 			url: 'ws/carrier/update.php',
@@ -121,7 +115,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		});
 	};
 
-	this.delete = function(id) {
+	service.delete = function(id) {
 		console.log('carrier->delete');
 		return $http({
 			url: 'ws/carrier/delete.php',

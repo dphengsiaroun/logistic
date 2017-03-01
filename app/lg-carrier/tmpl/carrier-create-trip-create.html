@@ -1,0 +1,39 @@
+<div class="ad-title">
+	<left>
+		<img-svg src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Transporteur</title>
+		<subtitle>Déposer une annonce</subtitle>
+	</right>
+</div>
+<formx class="ad" name="carrierCtrl">
+	<section class="dark">
+		<big-label>Trajet</big-label>
+		<label>Départ</label>
+		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.departureCity"></lg-city>
+		<label>Arrivée</label>
+		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.arrivalCity"></lg-city>
+		<info ng-bind-html="$ctrl.tripData.infoRoute"></info>
+	</section>
+	<section>
+		<big-label>Horaires</big-label>
+		<label>Date et heure de chargement</label>
+		<lg-datetime title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.tripData.departureDatetime" options="{defaultHour: 14}">
+		</lg-datetime>
+		<label>Date et heure de livraison</label>
+		<lg-datetime title="Date et heure de livraison" placeholder="Date de départ" ng-model="$ctrl.tripData.arrivalDatetime"
+			options="{defaultHour: 14}" after="$ctrl.tripData.departureDatetime" offset="$ctrl.tripData.minDuration">
+			</lg-datetime>
+			<info ng-bind-html="$ctrl.tripData.infoDuration"></info>
+			<br/>
+	</section>
+	<section>
+		<label>Espace restant dans le vehicule</label>
+		TODO : mettre un dimension widget
+	</section>
+	<section class="dark">
+		<lg-error error="$ctrl.trip.error"></lg-error>
+		<button ng-click="$ctrl.addTrip()">Valider</button>
+	</section>
+</form>

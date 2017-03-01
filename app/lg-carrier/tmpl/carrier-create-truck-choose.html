@@ -5,7 +5,7 @@
 <at-list-one-vehicle ng-show="$ctrl.hasTruck">
 	<span>Choisissez un vehicule parmi la liste</span>
 	<list>
-		<item ng-click="goToState('carrier:create')" ng-repeat="truck in $ctrl.truck.trucks">
+		<item ng-click="$ctrl.selectTruck(truck)" ng-repeat="truck in $ctrl.truck.trucks">
 			<left><img src="img/truck-ad.svg" /></left>
 			<right>
 				<span>{{truck.name}}</span>
@@ -13,5 +13,5 @@
 		</item>
 	</list>
 	<lg-hr>ou</lg-hr>
-	<button>Ajouter un nouveau véhicule</button>
+	<button ui-sref="carrier:create:truck:create">Ajouter un nouveau véhicule</button>
 </at-list-one-vehicle>

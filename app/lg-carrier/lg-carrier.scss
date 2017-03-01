@@ -1,3 +1,53 @@
+@import '../css/color';
+summary {
+    padding: 5px;
+    div {
+        display: block;
+        width: 100%;
+        ul {
+            display: block;
+            width: 100%;
+            background-color: white;
+            li {
+                display: block;
+                width: 100%;
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    padding: 20px;
+                    font-size: 20px;
+                    border-bottom: 1px solid $borderColor;
+                    span {
+                        color: white;
+                    }
+                    i {
+                        margin-left: 33%;
+                    }
+                }
+            }
+            li.active {
+                background-color: $lightGreen;
+                a {
+                    color: white;
+                    i {
+                        color: white;
+                    }
+                }
+            }
+            li.disabled {
+                opacity: 0.2;
+                background-color: $gray;
+            }
+            li.done {
+                background-color: white;
+                span {
+                    color: $fontColor;
+                }
+            }
+        }
+    }
+}
+
 no-vehicle {
     display: block;
     padding: 20px 10px;
@@ -45,20 +95,38 @@ at-list-one-vehicle {
                 padding: 0px;
                 vertical-align: middle;
                 img {
-					display: block;
+                    display: block;
                     height: 60px;
                     margin: 0px;
                     padding: 0px;
                 }
-				span {
-					margin: 0px;
+                span {
+                    margin: 0px;
                     padding: 0px;
-					font-size: 15px;
-				}
+                    font-size: 15px;
+                }
             }
-			left {
-				width: 100px;
-			}
+            left {
+                width: 100px;
+            }
+        }
+    }
+}
+
+trajet {
+	display: block;
+	width: 100%;
+	padding: 5px;
+    .way {
+        display: block;
+        width: 100%;
+        background-color: white;
+        li {
+            display: inline-block;
+            width: 100%;
+            padding: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid $borderColor;
         }
     }
 }

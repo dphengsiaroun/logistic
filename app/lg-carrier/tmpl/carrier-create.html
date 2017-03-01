@@ -7,14 +7,15 @@
 		<subtitle>Déposer une annonce</subtitle>
 	</right>
 </div>
-<section class="summary">
+<summary>
 	<div>
 		<ul>
-			<li class="active"><a ui-sref="carrier:create:truck:choose">1 Choix du véhicule <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-			<li class="disable"><a ui-sref="carrier:create:way">2 Trajet</a></li>
-			<li class="disable"><a ui-sref="carrier:create:loading">3 Chargement</a></li>
-			<li class="disable"><a ui-sref="carrier:create:price">4 Prix</a></li>
-			<li class="disable"><a ui-sref="carrier:create:price">5 Déposer mon annonce</a></li>
+			<li ng-class="$ctrl.getClass(1)"><a ui-sref="carrier:create:truck:choose">1
+				<span ng-show="$ctrl.getStep() === 1">Choix du véhicule</span> <span ng-hide="$ctrl.getStep() === 1">Vehicule : {{$ctrl.carrier.createData.truck.name}}</span> <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+			<li ng-class="$ctrl.getClass(2)"><a ui-sref="carrier:create:availability">2 Disponibilité <i ng-show="$ctrl.getStep() === 2" class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+			<li ng-class="$ctrl.getClass(3)"><a ui-sref="carrier:create:loading">3 Chargement</a></li>
+			<li ng-class="$ctrl.getClass(4)"><a ui-sref="carrier:create:price">4 Prix</a></li>
 		</ul>
+		<button ng-click="$ctrl.carrier.create()">Déposer mon annonce</button>
 	</div>
-</section>
+</summary>
