@@ -44,7 +44,7 @@ lg-prompt {
             display: inline-block;
             width: 50%;
             margin: 0px;
-            padding: 0px 15px;
+            padding: 0px 5px;
             font-size: 14px;
             text-align: center;
         }
@@ -135,14 +135,13 @@ lg-select {
     }
 }
 
-
 lg-create-button {
-	display: block;
+    display: block;
     position: fixed;
     bottom: 20px;
     left: 33%;
-	width: 35%;
-	padding: 0 10px;
+    width: 35%;
+    padding: 0 10px;
     text-align: center;
     button {
         height: 60px;
@@ -150,8 +149,8 @@ lg-create-button {
         border-radius: 50%;
         box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
         .fa {
-			position: relative;
-			left: 3px;
+            position: relative;
+            left: 3px;
             top: 2px;
             font-size: 36px;
         }

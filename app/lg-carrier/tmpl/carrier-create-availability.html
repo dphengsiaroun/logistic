@@ -4,12 +4,21 @@
 	</left>
 	<right>
 		<title>Transporteur</title>
-		<subtitle>Etape 2 - Trajet</subtitle>
+		<subtitle>Etape 2 - Disponibilité</subtitle>
 	</right>
 </div>
 <trajet>
 	<ul class="way">
-		<li ng-click="$ctrl.select('total')">Disponibilité totale</li>
-		<li ng-click="$ctrl.select('specificTrip')">Disponibilité sur un trajet spécifique (ex: retour à vide) <i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+		<li ng-click="$ctrl.select('total')">
+			<availability>
+				<span>Disponibilité totale</span>
+			</availability>
+		</li>
+		<li ng-click="$ctrl.select('specificTrip')">
+			<availability>
+				<span>Disponibilité sur un trajet spécifique (ex: retour à vide)</span>
+				<i class="fa fa-chevron-right" aria-hidden="true"></i>
+			</availability>
+		</li>
 	</ul>
 </trajet>
