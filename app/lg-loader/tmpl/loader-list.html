@@ -7,7 +7,7 @@
 		<i class="fa fa-calendar" aria-hidden="true"></i>
 	</div>
 </section>
-<ad-list>
+<loader-list>
 	<ad-block ng-repeat="ad in $ctrl.loader.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header>
 			<title>{{ad.content.title}}</title>
@@ -35,8 +35,6 @@
 					</values>
 				</to>
 			</places>
-
-
 		</header>
 		<content>
 			<content-left>
@@ -51,5 +49,5 @@
 			</content-right>
 		</content>
 	</ad-block>
-</ad-list>
+</loader-list>
 <lg-create-button state="loader:create"></lg-create-button>

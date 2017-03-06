@@ -74,3 +74,68 @@
         }
     }
 }
+
+truck-list {
+	width: 100%;
+    display: block;
+    padding: 0px 3px;
+    ad-block {
+        width: 100%;
+        font-size: 0px;
+        border-bottom: 1px solid $lightGray;
+        a {
+            width: 100%;
+            display: block;
+            height: inherit;
+			margin: 3px 0px;
+            .img-fix {
+                display: inline-block;
+                width: 30%;
+                img {
+					display: block;
+                    width: 100%;
+                }
+            }
+            div {
+                background-color: white;
+                display: block;
+                width: 100%;
+				vertical-align: middle;
+                .details {
+					display: inline-block;
+                    width: 70%;
+                    padding: 0px 10px;
+                    font-size: 13px;
+                    text-align: left;
+                    background-color: white;
+                    h2 {
+                        text-align: left;
+                        font-size: 16px;
+						margin: 0px 0px 5px;
+                    }
+                    div {
+                        display: table;
+                        table-layout: fixed;
+                        width: 100%;
+                        .detail-left {
+                            display: table-cell;
+                            width: 100%;
+							span {
+								display: block;
+							}
+                        }
+                        .detail-right {
+                            display: table-cell;
+                            width: 50%;
+                            text-align: right;
+                        }
+                    }
+                    p {
+                        color: $darkBlue;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+}

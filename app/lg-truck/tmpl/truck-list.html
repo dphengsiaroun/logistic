@@ -7,8 +7,8 @@
 		<i class="fa fa-calendar" aria-hidden="true"></i>
 	</div>
 </section>
-<section class="list-ad">
-	<div class="block-ad" ng-repeat="truck in $ctrl.truck.trucks">
+<truck-list>
+	<ad-block ng-repeat="truck in $ctrl.truck.trucks">
 		<a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.user.account.content.login })">
 			<div>
 				<div class="img-fix">
@@ -25,6 +25,6 @@
 				</div>
 			</div>
 		</a>
-	</div>
-</section>
+	</ad-block>
+</truck-list>
 <lg-create-button state="truck:create"></lg-create-button>

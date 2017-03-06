@@ -7,8 +7,8 @@
 		<i class="fa fa-calendar" aria-hidden="true"></i>
 	</div>
 </section>
-<section class="list-ad">
-	<div class="block-ad" ng-repeat="carrier in $ctrl.carrier.carriers">
+<carrier-list>
+	<ad-block ng-repeat="carrier in $ctrl.carrier.carriers">
 		<a ui-sref="carrier:retrieve({ id: carrier.id, login: $ctrl.user.account.content.login })">
 			<div>
 				<div class="img-fix">
@@ -22,12 +22,12 @@
 							<span class="year">Camion 12t Bétaillère</span>
 						</div>
 						<div class="detail-right">
-							<span class="tarif">0.4DZD/km</span>
+							<price>0.4DZD/km</price>
 						</div>
 					</div>
 				</div>
 			</div>
 		</a>
-	</div>
-</section>
+	</ad-block>
+</carrier-list>
 <lg-create-button state="carrier:create"></lg-create-button>
