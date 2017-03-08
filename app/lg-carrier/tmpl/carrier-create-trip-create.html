@@ -28,11 +28,24 @@
 			<info ng-bind-html="$ctrl.tripData.infoDuration"></info>
 			<br/>
 	</section>
-	<section>
-		<label>Espace restant dans le vehicule</label>
-		TODO : mettre un dimension widget
+	<section  class="dark">
+		<big-label>Chargement restant</big-label>
+		<label>Dimensions en mètre</label>
+		<dimension ng-click="$ctrl.editDimension()">
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-width.svg"></img-svg>
+			</div>
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-height.svg"></img-svg>
+			</div>
+			<div class="box no-zoom">
+				<img-svg src="/img/truck/truck-depth.svg"></img-svg>
+			</div>
+		</dimension>
+		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.carrier.createData.dimension">
+		</lg-dimension>
 	</section>
-	<section class="dark">
+	<section>
 		<lg-error error="$ctrl.trip.error"></lg-error>
 		<button ng-click="$ctrl.addTrip()">Valider</button>
 	</section>
