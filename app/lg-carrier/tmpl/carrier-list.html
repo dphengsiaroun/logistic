@@ -8,26 +8,46 @@
 	</div>
 </section>
 <carrier-list>
-	<ad-block ng-repeat="carrier in $ctrl.carrier.carriers">
-		<a ui-sref="carrier:retrieve({ id: carrier.id, login: $ctrl.user.account.content.login })">
-			<div>
-				<div class="img-fix">
-					<img src="img/truck-default.svg">
-				</div>
-				<div class="details">
-					<h2>{{carrier.content.truck.name}}</h2>
-					<span class="origin"><i class="fa fa-map-marker" aria-hidden="true"></i> Oran, Algérie</span>
-					<div>
-						<div class="detail-left">
-							<span class="year">Camion 12t Bétaillère</span>
-						</div>
-						<div class="detail-right">
-							<price>0.4DZD/km</price>
-						</div>
-					</div>
-				</div>
-			</div>
-		</a>
+	<ad-block ng-repeat="ad in $ctrl.carrier.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
+		<header>
+			<title>{{ad.content.truck.name}}</title>
+			<subtitle>
+				<date>{{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
+				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
+			</subtitle>
+			<places>
+				<from>
+					<labels>
+						De :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.departureCity.city}}</city>
+						<region>{{ad.content.trip.departureCity.region}}</region>
+					</values>
+				</from>
+				<to>
+					<labels>
+						A :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.arrivalCity.city}}</city>
+						<region>{{ad.content.trip.arrivalCity.region}}</region>
+					</values>
+				</to>
+			</places>
+		</header>
+		<content>
+			<content-left>
+				<img ng-show="ad.content.image === undefined" src="img/truck-default.svg">
+				<img ng-show="ad.content.image.thumbnailUrl" ng-src="{{ad.content.image.thumbnailUrl}}">
+			</content-left>
+			<content-right>
+				<conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>
+				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
+				<rate-km>0.4 DZD/km</rate-km>
+				<rate>{{ad.content.pricing.priceWanted}} DZD</rate>
+			</content-right>
+		</content>
 	</ad-block>
 </carrier-list>
 <lg-create-button state="carrier:create"></lg-create-button>
