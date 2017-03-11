@@ -18,7 +18,7 @@ summary {
                     display: table-cell;
                     vertical-align: middle;
                     font-size: 20px;
-					border-bottom: 1px solid $borderColor;
+                    border-bottom: 1px solid $borderColor;
                 }
                 num-step {
                     width: 10%;
@@ -29,10 +29,10 @@ summary {
                     width: 80%;
                     font-weight: normal;
                     div {
-						display: table;
+                        display: table;
                         span {
-							display: table-cell;
-							vertical-align: middle;
+                            display: table-cell;
+                            vertical-align: middle;
                             img {
                                 display: block;
                                 height: 50px;
@@ -117,6 +117,8 @@ at-list-one-vehicle {
                 h2 {
                     font-size: 16px;
                     text-align: left;
+                    padding: 3px 8px 2px 95px;
+                    background-color: rgba(255, 232, 82, 0.37);
                 }
                 img {
                     display: block;
@@ -128,16 +130,13 @@ at-list-one-vehicle {
                     display: block;
                     width: 100%;
                     margin: 0px;
-                    padding: 0px;
+                    padding: 0px 5px;
                     font-size: 13px;
-                    text-align: left;
+                    text-align: right;
                 }
             }
             left {
-                width: 27%;
-            }
-            right {
-                padding: 0px 10px;
+                width: 1%;
             }
         }
     }

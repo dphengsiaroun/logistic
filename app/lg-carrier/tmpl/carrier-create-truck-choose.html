@@ -6,10 +6,13 @@
 	<span>Choisissez un vehicule parmi la liste</span>
 	<list>
 		<item ng-click="$ctrl.selectTruck(truck)" ng-repeat="truck in $ctrl.truck.trucks">
-			<left><img src="img/truck-default.svg" /></left>
+			<left>
+				<img ng-show="truck.image === undefined" src="img/truck-default.svg">
+				<img ng-show="truck.image.thumbnailUrl" ng-src="{{truck.image.thumbnailUrl}}">
+			</left>
 			<right>
 				<h2>{{truck.name}}</h2>
-				<span>XX-123-YY</span>
+				<span>{{truck.model}} - {{truck.birthyear}}</span>
 				<span>{{truck.transportCategory}} - {{truck.transportTruckType}}</span>
 			</right>
 		</item>
