@@ -30,11 +30,6 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgCarrierCreateTripCreateRoute',
 	});
 	$stateProvider.state({
-		name: 'carrier:create:loading',
-		url: '/carrier-create/loading',
-		component: 'lgCarrierCreateLoadingRoute',
-	});
-	$stateProvider.state({
 		name: 'carrier:create:pricing',
 		url: '/carrier-create/pricing',
 		component: 'lgCarrierCreatePricingRoute',
@@ -77,13 +72,10 @@ app.component('lgCarrierCreateRoute', {
 			if (carrier.createData.availability === undefined) {
 				return 2;
 			}
-			if (carrier.createData.loading === undefined) {
+			if (carrier.createData.pricing === undefined) {
 				return 3;
 			}
-			if (carrier.createData.pricing === undefined) {
-				return 4;
-			}
-			return 5;
+			return 4;
 		};
 		ctrl.getClass = function(step) {
 			var currentStep = ctrl.getStep();
@@ -157,20 +149,6 @@ app.component('lgCarrierCreateTripCreateRoute', {
 		ctrl.tripData = {};
 		ctrl.addTrip = function() {
 			carrier.createData.trip = ctrl.tripData;
-			$state.go('carrier:create');
-		};
-	}
-});
-
-var lgCarrierCreateLoadingUrl = require('./tmpl/carrier-create-loading.html');
-app.component('lgCarrierCreateLoadingRoute', {
-	templateUrl: lgCarrierCreateLoadingUrl,
-	controller: function LgCarrierCreateLoadingRouteCtrl($state, carrier) {
-		'ngInject';
-		var ctrl = this;
-		ctrl.loadingData = {};
-		ctrl.addLoading = function() {
-			carrier.createData.loading = ctrl.loadingData;
 			$state.go('carrier:create');
 		};
 	}

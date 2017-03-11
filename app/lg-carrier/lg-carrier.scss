@@ -4,71 +4,63 @@ summary {
     div {
         display: block;
         width: 100%;
-        ul {
-            display: block;
+        steps {
+            display: table;
             width: 100%;
             background-color: white;
-            li {
-                display: block;
+            step {
+                display: table-row;
                 width: 100%;
-                a {
-                    display: inline-block;
-                    width: 100%;
-                    padding: 20px;
+                height: 60px;
+                num-step,
+                label,
+                chevron {
+                    display: table-cell;
+                    vertical-align: middle;
                     font-size: 20px;
-                    border-bottom: 1px solid $borderColor;
-                    container {
-                        display: block;
-                        width: 100%;
-                        num-step {
-                            display: inline-block;
-                            width: 10%;
-                            font-size: 20px;
-                        }
+					border-bottom: 1px solid $borderColor;
+                }
+                num-step {
+                    width: 10%;
+                    padding: 5px;
+                    text-align: center;
+                }
+                label {
+                    width: 80%;
+                    font-weight: normal;
+                    div {
+						display: table;
                         span {
-                            display: inline-block;
-                            width: 77%;
-                            font-size: 20px;
-							div {
-								display: table;
-								img, span {
-									display: table-cell;
-									vertical-align: middle;
-								}
-								img {
-									width: 100%;
-								}
-								span {
-									margin-left: 10px;
-								}
-							}
-                        }
-                        i {
-                            display: inline-block;
-                            width: 10%;
-                            font-size: 20px;
-                            text-align: right;
+							display: table-cell;
+							vertical-align: middle;
+                            img {
+                                display: block;
+                                height: 50px;
+                            }
                         }
                     }
                 }
+                chevron {
+                    width: 10%;
+                    padding: 5px;
+                    text-align: center;
+                }
             }
-            li.active {
+            step.active {
                 background-color: $lightGreen;
-                a {
-                    num-step,
-                    span,
-                    i {
-                        color: white;
-                    }
+                num-step,
+                label,
+                .fa {
+                    color: white;
                 }
             }
-            li.disabled {
+            step.disabled {
                 opacity: 0.2;
                 background-color: $gray;
             }
-            li.done {
+            step.done {
                 background-color: white;
-                span {
+                label {
                     color: $fontColor;
                 }
             }

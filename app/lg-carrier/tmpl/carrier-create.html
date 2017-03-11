@@ -9,50 +9,37 @@
 </div>
 <summary>
 	<div>
-		<ul>
-			<li ng-class="$ctrl.getClass(1)">
-				<a ui-sref="carrier:create:truck:choose">
-					<container>
-						<num-step>1</num-step>
-						<span ng-show="$ctrl.getStep() === 1">Choix du véhicule</span>
-						<span ng-hide="$ctrl.getStep() === 1">
-							<div>
-								<img src="img/truck-default.svg" />
-								<span>{{$ctrl.carrier.createData.truck.name}}</span>
-							</div>
-						</span>
-						<i ng-show="$ctrl.getStep() >= 1" class="fa fa-chevron-right" aria-hidden="true"></i>
-					</container>
-				</a>
-			</li>
-			<li ng-class="$ctrl.getClass(2)">
-				<a ui-sref="carrier:create:availability">
-					<container>
-						<num-step>2</num-step>
-						<span>Disponibilité</span>
-						<i ng-show="$ctrl.getStep() >= 2" class="fa fa-chevron-right" aria-hidden="true"></i>
-					</container>
-				</a>
-			</li>
-			<li ng-class="$ctrl.getClass(3)">
-				<a ui-sref="carrier:create:loading">
-					<container>
-						<num-step>3</num-step>
-						<span>Chargement</span>
-						<i ng-show="$ctrl.getStep() >= 3" class="fa fa-chevron-right" aria-hidden="true"></i>
-					</container>
-				</a>
-			</li>
-			<li ng-class="$ctrl.getClass(4)">
-				<a ui-sref="carrier:create:pricing">
-					<container>
-						<num-step>4</num-step>
-						<span>Prix</span>
-						<i ng-show="$ctrl.getStep() >= 4" class="fa fa-chevron-right" aria-hidden="true"></i>
-					</container>
-				</a>
-			</li>
-		</ul>
-		<button ng-show="$ctrl.getStep() === 5" ng-click="$ctrl.carrier.create()">Déposer mon annonce</button>
+		<steps>
+			<step ng-click="$root.goToState('carrier:create:truck:choose')" ng-class="$ctrl.getClass(1)">
+				<num-step>1</num-step>
+				<label ng-show="$ctrl.getStep() === 1">Choix du véhicule</label>
+				<label ng-hide="$ctrl.getStep() === 1">
+					<div>
+						<span><img src="img/truck-default.svg" /></span>
+						<span>{{$ctrl.carrier.createData.truck.name}}</span>
+					</div>
+
+
+				</label>
+				<chevron>
+					<i ng-show="$ctrl.getStep() >= 1" class="fa fa-chevron-right" aria-hidden="true"></i>
+				</chevron>
+			</step>
+			<step ng-click="$root.goToState('carrier:create:availability')" ng-class="$ctrl.getClass(2)">
+				<num-step>2</num-step>
+				<label>Disponibilité</label>
+				<chevron>
+					<i ng-show="$ctrl.getStep() >= 2" class="fa fa-chevron-right" aria-hidden="true"></i>
+				</chevron>
+			</step>
+			<step ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.getClass(3)">
+				<num-step>3</num-step>
+				<label>Prix</label>
+				<chevron>
+					<i ng-show="$ctrl.getStep() >= 3" class="fa fa-chevron-right" aria-hidden="true"></i>
+				</chevron>
+			</step>
+		</steps>
+		<button ng-show="$ctrl.getStep() === 4" ng-click="$ctrl.carrier.create()">Déposer mon annonce</button>
 	</div>
 </summary>
