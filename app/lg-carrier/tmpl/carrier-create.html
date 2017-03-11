@@ -15,7 +15,7 @@
 					<container>
 						<num-step>1</num-step>
 						<span ng-show="$ctrl.getStep() === 1">Choix du véhicule</span> <span ng-hide="$ctrl.getStep() === 1">Vehicule : {{$ctrl.carrier.createData.truck.name}}</span>
-						<i ng-show="$ctrl.getStep() === 1" class="fa fa-chevron-right" aria-hidden="true"></i>
+						<i ng-show="$ctrl.getStep() >= 1" class="fa fa-chevron-right" aria-hidden="true"></i>
 					</container>
 				</a>
 			</li>
@@ -24,7 +24,7 @@
 					<container>
 						<num-step>2</num-step>
 						<span>Disponibilité</span>
-						<i ng-show="$ctrl.getStep() === 2" class="fa fa-chevron-right" aria-hidden="true"></i>
+						<i ng-show="$ctrl.getStep() >= 2" class="fa fa-chevron-right" aria-hidden="true"></i>
 					</container>
 				</a>
 			</li>
@@ -33,7 +33,7 @@
 					<container>
 						<num-step>3</num-step>
 						<span>Chargement</span>
-						<i ng-show="$ctrl.getStep() === 3" class="fa fa-chevron-right" aria-hidden="true"></i>
+						<i ng-show="$ctrl.getStep() >= 3" class="fa fa-chevron-right" aria-hidden="true"></i>
 					</container>
 				</a>
 			</li>
@@ -42,7 +42,7 @@
 					<container>
 						<num-step>4</num-step>
 						<span>Prix</span>
-						<i ng-show="$ctrl.getStep() === 4" class="fa fa-chevron-right" aria-hidden="true"></i>
+						<i ng-show="$ctrl.getStep() >= 4" class="fa fa-chevron-right" aria-hidden="true"></i>
 					</container>
 				</a>
 			</li>
