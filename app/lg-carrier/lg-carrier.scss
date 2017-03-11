@@ -48,13 +48,6 @@ summary {
                                 }
                                 values {
                                     display: table-cell;
-                                    city {
-                                        font-weight: bold;
-                                    }
-                                    region {
-                                        color: $gray;
-                                        font-size: 12px;
-                                    }
                                 }
                             }
                         }
@@ -86,6 +79,15 @@ summary {
             }
         }
     }
+}
+
+city {
+    font-weight: bold;
+}
+
+region {
+    color: $gray;
+    font-size: 12px;
 }
 
 no-vehicle {
@@ -189,7 +191,7 @@ trajet {
                 left,
                 right {
                     display: table-cell;
-					vertical-align: middle;
+                    vertical-align: middle;
                 }
                 left {
                     width: 90%;
@@ -204,7 +206,7 @@ trajet {
                 }
                 right {
                     width: 10%;
-					text-align: right;
+                    text-align: right;
                 }
             }
         }
