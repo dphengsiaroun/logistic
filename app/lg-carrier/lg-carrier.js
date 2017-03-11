@@ -12,12 +12,15 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 	'ngInject';
 
 	var service = this;
-	service.createData = {
-		truck: undefined,
-		availability: undefined,
-		loading: undefined,
-		pricing: undefined
+
+	service.initCreateData = function() {
+		service.createData = {
+			truck: undefined,
+			availability: undefined,
+			pricing: undefined
+		};
 	};
+	service.initCreateData();
 
 	service.create = function() {
 		console.log('carrier->create', service.createData);
@@ -34,6 +37,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 					return;
 				}
 				service.error = undefined;
+				service.initCreateData();
 				$state.go('carrier:created');
 			}).catch(function(error) {
 				console.error('error', error);
@@ -46,6 +50,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 				fn: 'createAfterConnect',
 				args: []
 			});
+			service.initCreateData();
 			$state.go('user:hasAccount');
 		}
 
