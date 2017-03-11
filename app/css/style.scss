@@ -12,6 +12,7 @@
     margin: 0px;
     color: $fontColor;
     font-family: 'Source Sans Pro', sans-serif;
+    // letter-spacing: -0.5px;
 }
 
 svg {
@@ -79,6 +80,7 @@ textarea {
     border-radius: 3px;
     border: 1px solid #ebebeb;
 }
+
 
 /* placeholder */
 
@@ -168,91 +170,9 @@ title-icon {
     padding: 0px;
 }
 
-
-/* Créer proposition Transporteur / Chargeur */
-
-.proposition {
-    width: 100%;
-    padding: 20px 10px;
-}
-
-.proposition h1 {
-    font-size: 30px;
-    text-align: center;
-    margin: 20px 0px 40px;
-}
-
-.proposition h3 {
-    text-align: left;
-    font-size: 16px;
-}
-
-.proposition span {
-    font-size: 13px;
-}
-
-.proposition form {
-    width: 100%;
-    font-size: 18px;
-    margin: 0 auto;
-}
-
-.proposition form>input {
-    width: 100%;
-    margin: 5px 0px;
-    font-size: 13px;
-    padding: 17px 10px;
-    border-radius: 5px;
-    border: 1px solid $mediumGray;
-}
-
-.proposition form>label {
-    margin-bottom: 20px;
-    font-size: 16px;
-}
-
-.btn-proposition input {
-    width: 100%;
-    background: $buttonColor;
-    color: white;
-    height: 70px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-}
-
-.input-date {
-    border: 1px solid $borderColor;
-    border-radius: 5px;
-    margin: 5px 0px;
-    background-color: white;
-}
-
-.input-date a {
-    padding: 20px;
-    font-size: 14px;
-    color: $gray;
-    display: inline-block;
-    width: 100%;
-}
-
-.tarif-initial {
-    width: 100%;
-    margin: 0 auto;
-    label {
-        font-size: 16px;
-    }
-    input {
-        width: 52%;
-        text-align: center;
-        font-size: 18px;
-        margin: 5px 0px;
-        padding: 15px 10px;
-        border-radius: 0px;
-        border: none;
-        border-top: 1px solid $mediumGray;
-        border-bottom: 1px solid $mediumGray;
-    }
+info-route {
+	display: block;
+    font-size: 15px;
 }
 
 button {

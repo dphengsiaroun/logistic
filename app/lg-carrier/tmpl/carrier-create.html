@@ -37,7 +37,7 @@
 				<label ng-show="$ctrl.getStep() <= 2">Disponibilité</label>
 				<label ng-hide="$ctrl.getStep() <= 2">
 					<span ng-show="$ctrl.carrier.createData.availability === 'total'">Disponibilité totale</span>
-					<availability>
+					<availability ng-show="$ctrl.carrier.createData.availability === 'specificTrip'">
 						<date>{{$ctrl.carrier.createData.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 						<distance>{{$ctrl.carrier.createData.trip.distance}}km - {{$ctrl.carrier.createData.trip.minDuration | duration}}</distance>
 						<places>
@@ -68,7 +68,17 @@
 			</step>
 			<step ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.getClass(3)">
 				<num-step>3</num-step>
-				<label>Prix</label>
+				<label ng-show="$ctrl.getStep() <= 3">Prix</label>
+				<label ng-show="$ctrl.getStep() > 3">
+					<span ng-show="$ctrl.carrier.createData.availability === 'total'">
+						<span ng-show="$ctrl.carrier.createData.pricing.priceWantedPerKm">Prix : {{$ctrl.carrier.createData.pricing.priceWantedPerKm}} DZD/km</span>
+						<span ng-hide="$ctrl.carrier.createData.pricing.priceWantedPerKm">Prix</span>
+					</span>
+					<span ng-show="$ctrl.carrier.createData.availability === 'specificTrip'">
+						<span ng-show="$ctrl.carrier.createData.pricing.priceWanted">Prix : {{$ctrl.carrier.createData.pricing.priceWanted}} DZD</span>
+						<span ng-hide="$ctrl.carrier.createData.pricing.priceWanted">Prix</span>
+					</span>
+				</label>
 				<chevron>
 					<i ng-show="$ctrl.getStep() >= 3" class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>

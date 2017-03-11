@@ -11,13 +11,24 @@
 	<ul class="way">
 		<li ng-click="$ctrl.select('total')">
 			<availability>
-				<span>Disponibilité totale</span>
+				<left>
+					<label>Disponibilité totale</label>
+					<comments>Le vehicule est disponible pour tous types de trajet dans les environs de sa ville d'origine</comments>
+				</left>
+				<right>
+
+				</right>
 			</availability>
 		</li>
 		<li ng-click="$ctrl.select('specificTrip')">
 			<availability>
-				<span>Disponibilité sur un trajet spécifique (ex: retour à vide)</span>
-				<i class="fa fa-chevron-right" aria-hidden="true"></i>
+				<left>
+					<label>Disponibilité sur un trajet spécifique</label>
+					<comments>ex: retour à vide, espace de chargement restant, etc.</comments>
+				</left>
+				<right>
+					<i class="fa fa-chevron-right" aria-hidden="true"></i>
+				</right>
 			</availability>
 		</li>
 	</ul>

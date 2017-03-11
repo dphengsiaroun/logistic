@@ -14,7 +14,7 @@
 		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.departureCity"></lg-city>
 		<label>Arrivée</label>
 		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.arrivalCity"></lg-city>
-		<info ng-bind-html="$ctrl.tripData.infoRoute"></info>
+		<info-route ng-bind-html="$ctrl.tripData.infoRoute"></info-route>
 	</section>
 	<section>
 		<big-label>Horaires</big-label>
@@ -25,7 +25,7 @@
 		<lg-datetime title="Date et heure de livraison" placeholder="Date de départ" ng-model="$ctrl.tripData.arrivalDatetime"
 			options="{defaultHour: 14}" after="$ctrl.tripData.departureDatetime" offset="$ctrl.tripData.minDuration">
 			</lg-datetime>
-			<info ng-bind-html="$ctrl.tripData.infoDuration"></info>
+			<info-route ng-bind-html="$ctrl.tripData.infoDuration"></info-route>
 			<br/>
 	</section>
 	<section  class="dark">

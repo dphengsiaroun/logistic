@@ -25,11 +25,6 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgCarrierCreateAvailabilityRoute',
 	});
 	$stateProvider.state({
-		name: 'carrier:create:pricing',
-		url: '/carrier-create/pricing',
-		component: 'lgCarrierCreatePricingRoute',
-	});
-	$stateProvider.state({
 		name: 'carrier:created',
 		url: '/created-carrier',
 		component: 'lgMessage',
@@ -136,17 +131,4 @@ app.component('lgCarrierCreateAvailabilityRoute', {
 });
 
 require('./ctrl/carrier-create-trip-create.js');
-
-var lgCarrierCreatePricingUrl = require('./tmpl/carrier-create-pricing.html');
-app.component('lgCarrierCreatePricingRoute', {
-	templateUrl: lgCarrierCreatePricingUrl,
-	controller: function LgCarrierCreateLoadingRouteCtrl($state, carrier) {
-		'ngInject';
-		var ctrl = this;
-		ctrl.pricingData = {};
-		ctrl.addPricing = function() {
-			carrier.createData.pricing = ctrl.pricingData;
-			$state.go('carrier:create');
-		};
-	}
-});
+require('./ctrl/carrier-create-pricing.js');
