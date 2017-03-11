@@ -38,7 +38,7 @@ app.config(['$stateProvider', function($stateProvider) {
 				console.log('state', state);
 				return {
 					state: state,
-					label: '<i class="fa fa-chevron-right" aria-hidden="true"></i> Continuer',
+					label: '<i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer',
 					message: 'Votre véhicule a bien été ajouté.'
 				};
 			}

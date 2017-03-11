@@ -13,6 +13,10 @@
 		<input type="text" placeholder="Ex : XX-123-YY" ng-model="$ctrl.truck.createData.name" required/>
 	</section>
 	<section>
+		<label>Ville d'origine</label>
+		<lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city"></lg-city>
+	</section>
+	<section>
 		<big-label>Transport</big-label>
 		<lg-select ng-model="$ctrl.truck.createData.transportCategory">
 			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
