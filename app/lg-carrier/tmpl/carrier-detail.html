@@ -1,10 +1,11 @@
 <img-ad>
-	<img src="img/truck-default.svg" />
+	<img ng-show="$ctrl.carrier.current.content.truck.image === undefined" src="img/truck-default.svg">
+	<img ng-show="$ctrl.carrier.current.content.truck.image.url" ng-src="{{$ctrl.carrier.current.content.truck.image.url}}">
 </img-ad>
 <recap>
 	<h1>{{$ctrl.carrier.current.content.truck.name}}</h1>
 	<info>
-		<p>Publié le : {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
+		<p>Publié le : {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
 	</info>
 	<description>
 		<lg-hr>Description du véhicule</lg-hr>
@@ -12,15 +13,15 @@
 			<tbody>
 				<tr>
 					<th>Catégorie</th>
-					<td>{{$ctrl.loader.current.content.truck.transportCategory}}</td>
+					<td>{{$ctrl.carrier.current.content.truck.transportCategory}}</td>
 				</tr>
 				<tr>
 					<th>Type</th>
-					<td>{{$ctrl.loader.current.content.truck.transportTruckType}}</td>
+					<td>{{$ctrl.carrier.current.content.truck.transportTruckType}}</td>
 				</tr>
 				<tr>
 					<th>Année</th>
-					<td>{{$ctrl.loader.current.content.truck.birthyear}}</td>
+					<td>{{$ctrl.carrier.current.content.truck.birthyear}}</td>
 				</tr>
 				<tr>
 					<th>Largeur</th>
@@ -43,12 +44,12 @@
 	</description>
 	<br/>
 	<iframe ng-src="{{$ctrl.carrier.current.content.city | googlemap}}" width="100%" height="200" frameborder="0" style="border:0"
-		allowfullscreen></iframe>
-		<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
-		<bottom ng-show="!$ctrl.isEditable">
-			<button ui-sref="#/carrier-create-proposal">Appeler</button>
-			<button ui-sref="#/carrier-create-proposal">Envoyer un message</button>
-		</bottom>
+	 allowfullscreen></iframe>
+	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
+	<bottom ng-show="!$ctrl.isEditable">
+		<button ui-sref="#/carrier-create-proposal">Appeler</button>
+		<button ui-sref="#/carrier-create-proposal">Envoyer un message</button>
+	</bottom>
 	<div>
 		<button ui-sref="carrier:update({login: $ctrl.user.account.content.login, id: $ctrl.carrier.current.id})">Editer</button>
 		<lg-hr>ou</lg-hr>

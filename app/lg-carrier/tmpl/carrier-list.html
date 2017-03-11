@@ -13,7 +13,7 @@
 			<title>{{ad.content.truck.name}}</title>
 			<subtitle>
 				<date>{{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
-				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
+				<distance>{{ad.content.trip.distance}}km - {{ad.content.trip.minDuration | duration}}</distance>
 			</subtitle>
 			<places>
 				<from>
@@ -42,11 +42,10 @@
 		</header>
 		<content>
 			<content-left>
-				<img ng-show="ad.content.image === undefined" src="img/truck-default.svg">
-				<img ng-show="ad.content.image.thumbnailUrl" ng-src="{{ad.content.image.thumbnailUrl}}">
+				<img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
+				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
 			</content-left>
 			<content-right>
-				<conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>
 				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
 				<rate-km>0.4 DZD/km</rate-km>
 				<rate>{{ad.content.pricing.priceWanted}} DZD</rate>
