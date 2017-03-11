@@ -32,7 +32,7 @@ app.config(['$stateProvider', function($stateProvider) {
 				console.log('state', state);
 				return {
 					state: state,
-					label: 'Revenir à la liste des chargements',
+					label: 'Voir les annonces de chargements',
 					message: 'Votre annonce de chargement a bien été ajoutée.'
 				};
 			}
@@ -58,7 +58,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					console.log('state', state);
 					return {
 						state: state,
-						label: 'Revenir à la liste des chargements',
+						label: 'Voir les annonces de chargements',
 						message: 'Votre annonce de chargement a bien été modifiée.'
 					};
 				});
@@ -102,7 +102,7 @@ app.config(['$stateProvider', function($stateProvider) {
 					console.log('state', state);
 					return {
 						state: state,
-						label: 'Revenir à la liste des chargements',
+						label: 'Voir les annonces de chargements',
 						message: 'Votre annonce de chargement a bien été supprimée.'
 					};
 				});

@@ -47,7 +47,7 @@ app.config(['$stateProvider', function($stateProvider) {
 				console.log('state', state);
 				return {
 					state: state,
-					label: 'Revenir à la liste des chargements',
+					label: 'Voir les annonces de transport',
 					message: 'Votre annonce de transport a bien été ajoutée.'
 				};
 			}
