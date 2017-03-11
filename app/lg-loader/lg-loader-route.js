@@ -142,7 +142,7 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
 }]);
 
 app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
-	$scope, $element, $http, $q, $window, $filter, loader, user) {
+	$scope, $element, $http, $q, $window, $filter, loader, user, geoloc) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.loader = loader;
@@ -158,35 +158,7 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
 			console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
 		});
 
-	$scope.$watchGroup(['$ctrl.loader.createData.departureCity', '$ctrl.loader.createData.arrivalCity'], function() {
-		console.log('$ctrl.loader.createData.departureCity', ctrl.loader.createData.departureCity);
-		if (!(ctrl.loader.createData.departureCity && ctrl.loader.createData.arrivalCity)) {
-			ctrl.loader.createData.infoRoute = '';
-			return;
-		}
-		$http({
-			url: 'ws/geoloc/route.php',
-			method: 'POST',
-			data: {
-				departure: ctrl.loader.createData.departureCity,
-				arrival: ctrl.loader.createData.arrivalCity
-			},
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				return $q.reject(response);
-			}
-			ctrl.loader.createData.minDuration = response.data.route.duration;
-			ctrl.loader.createData.distance = Math.round(response.data.route.distance / 1000);
-			var durationStr = $filter('duration')(ctrl.loader.createData.minDuration);
-			ctrl.loader.createData.infoRoute = 'Distance : <b>' + ctrl.loader.createData.distance +
-				'km</b> - Durée min. : <b>' + durationStr + '</b>';
-		}).catch(function(error) {
-			console.error('error', error);
-			ctrl.loader.createData.infoRoute = '';
-		});
-	});
+	geoloc.updateInfoRoute($scope, '$ctrl.loader.createData');
 
 	ctrl.editDimension = function() {
 		console.log('editDimension', arguments);

@@ -4,7 +4,7 @@ module.exports = 'lg-geoloc';
 
 var app = angular.module(module.exports, []);
 
-app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
+app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $filter) {
 	'ngInject';
 	var service = this;
 	this.countryMap = {
@@ -67,6 +67,41 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope) {
 				});
 			}, function(error) {
 				alert('Geoloc non activée.', error);
+			});
+		});
+	};
+
+	this.updateInfoRoute = function(scope, watchStr) {
+		scope.$watchGroup([
+			watchStr + '.departureCity',
+			watchStr + '.arrivalCity'],
+		function() {
+			var data = $parse(watchStr)(scope);
+			if (!(data.departureCity && data.arrivalCity)) {
+				data.infoRoute = '';
+				return;
+			}
+			$http({
+				url: 'ws/geoloc/route.php',
+				method: 'POST',
+				data: {
+					departure: data.departureCity,
+					arrival: data.arrivalCity
+				},
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			}).then(function(response) {
+				console.log('response', response);
+				if (response.data.status === 'ko') {
+					return $q.reject(response);
+				}
+				data.minDuration = response.data.route.duration;
+				data.distance = Math.round(response.data.route.distance / 1000);
+				var durationStr = $filter('duration')(data.minDuration);
+				data.infoRoute = 'Distance : <b>' + data.distance +
+					'km</b> - Durée min. : <b>' + durationStr + '</b>';
+			}).catch(function(error) {
+				console.error('error', error);
+				data.infoRoute = '';
 			});
 		});
 	};
