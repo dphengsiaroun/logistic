@@ -15,14 +15,19 @@ app.config(function($stateProvider) {
 var lgCarrierCreatePricingUrl = require('../tmpl/carrier-create-pricing.html');
 app.component('lgCarrierCreatePricingRoute', {
 	templateUrl: lgCarrierCreatePricingUrl,
-	controller: function LgCarrierCreatePricingRouteCtrl($state, carrier) {
+	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {
 		'ngInject';
 		var ctrl = this;
 		ctrl.pricingData = {};
 		ctrl.carrier = carrier;
 		ctrl.addPricing = function() {
 			carrier.createData.pricing = ctrl.pricingData;
-			$state.go('carrier:create');
+			console.log('carrier', carrier);
+			if (carrier.type === 'create') {
+				$state.go('carrier:create');
+			} else {
+				$state.go('carrier:' + carrier.type, {login: user.account.content.login, id: carrier.current.id});
+			}
 		};
 	}
 });

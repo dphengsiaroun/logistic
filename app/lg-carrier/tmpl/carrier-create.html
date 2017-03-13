@@ -10,10 +10,10 @@
 <summary>
 	<div>
 		<steps>
-			<step ng-click="$root.goToState('carrier:create:truck:choose')" ng-class="$ctrl.getClass(1)">
+			<step ng-click="$root.goToState('carrier:create:truck:choose')" ng-class="$ctrl.carrierStepManager.getClass(1)">
 				<num-step>1</num-step>
-				<label ng-show="$ctrl.getStep() === 1">Choix du véhicule</label>
-				<label ng-hide="$ctrl.getStep() === 1">
+				<label ng-show="$ctrl.carrierStepManager.getStep() === 1">Choix du véhicule</label>
+				<label ng-hide="$ctrl.carrierStepManager.getStep() === 1">
 					<item>
 						<left>
 							<img ng-show="$ctrl.carrier.createData.truck.image === undefined" src="img/truck-default.svg">
@@ -29,13 +29,13 @@
 
 				</label>
 				<chevron>
-					<i ng-show="$ctrl.getStep() >= 1" class="fa fa-chevron-right" aria-hidden="true"></i>
+					<i ng-show="$ctrl.carrierStepManager.getStep() >= 1" class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>
 			</step>
-			<step ng-click="$root.goToState('carrier:create:availability')" ng-class="$ctrl.getClass(2)">
+			<step ng-click="$root.goToState('carrier:create:availability')" ng-class="$ctrl.carrierStepManager.getClass(2)">
 				<num-step>2</num-step>
-				<label ng-show="$ctrl.getStep() <= 2">Disponibilité</label>
-				<label ng-hide="$ctrl.getStep() <= 2">
+				<label ng-show="$ctrl.carrierStepManager.getStep() <= 2">Disponibilité</label>
+				<label ng-hide="$ctrl.carrierStepManager.getStep() <= 2">
 					<span ng-show="$ctrl.carrier.createData.availability === 'total'">Disponibilité totale</span>
 					<availability ng-show="$ctrl.carrier.createData.availability === 'specificTrip'">
 						<date>{{$ctrl.carrier.createData.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
@@ -63,13 +63,13 @@
 					</header>
 				</label>
 				<chevron>
-					<i ng-show="$ctrl.getStep() >= 2" class="fa fa-chevron-right" aria-hidden="true"></i>
+					<i ng-show="$ctrl.carrierStepManager.getStep() >= 2" class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>
 			</step>
-			<step ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.getClass(3)">
+			<step ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.carrierStepManager.getClass(3)">
 				<num-step>3</num-step>
-				<label ng-show="$ctrl.getStep() <= 3">Prix</label>
-				<label ng-show="$ctrl.getStep() > 3">
+				<label ng-show="$ctrl.carrierStepManager.getStep() <= 3">Prix</label>
+				<label ng-show="$ctrl.carrierStepManager.getStep() > 3">
 					<span ng-show="$ctrl.carrier.createData.availability === 'total'">
 						<span ng-show="$ctrl.carrier.createData.pricing.priceWantedPerKm">Prix : {{$ctrl.carrier.createData.pricing.priceWantedPerKm}} DZD/km</span>
 						<span ng-hide="$ctrl.carrier.createData.pricing.priceWantedPerKm">Prix</span>
@@ -80,10 +80,11 @@
 					</span>
 				</label>
 				<chevron>
-					<i ng-show="$ctrl.getStep() >= 3" class="fa fa-chevron-right" aria-hidden="true"></i>
+					<i ng-show="$ctrl.carrierStepManager.getStep() >= 3" class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>
 			</step>
 		</steps>
-		<button ng-show="$ctrl.getStep() === 4" ng-click="$ctrl.carrier.create()">Déposer mon annonce</button>
+		<button ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'" ng-click="$ctrl.carrier.create()">Déposer mon annonce</button>
+		<button ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'update'" ng-click="$ctrl.carrier.update()">Modifier mon annonce</button>
 	</div>
 </summary>

@@ -14,11 +14,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		url: '/carrier/{id}',
 		component: 'lgCarrierRetrieveRoute'
 	});
-	$stateProvider.state({
-		name: 'carrier:update',
-		url: '/carrier/{id}/update',
-		component: 'lgCarrierUpdateRoute'
-	});
+
 	$stateProvider.state({
 		name: 'carrier:updated',
 		url: '/updated-carrier',
@@ -141,9 +137,3 @@ app.component('lgCarrierRetrieveRoute', {
 	templateUrl: carrierDetailUrl,
 	controller: 'CarrierCtrl',
 });
-
-app.component('lgCarrierUpdateRoute', {
-	templateUrl: carrierUpdateUrl,
-	controller: 'CarrierUpdateCtrl',
-});
-

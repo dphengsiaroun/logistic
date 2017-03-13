@@ -99,6 +99,8 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 	service.updateData = {};
 
 	service.update = function() {
+		service.updateData = service.createData;
+		service.initCreateData();
 		console.log('updateCarrier->update', service.updateData);
 		$http({
 			url: 'ws/carrier/update.php',
