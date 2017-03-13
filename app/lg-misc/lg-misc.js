@@ -119,3 +119,24 @@ app.filter('googlemap', function($rootScope) {
 		return result;
 	};
 });
+
+app.filter('googlemapforcarrier', function($rootScope) {
+	'ngInject';
+	return function(content) {
+		if (!content) {
+			return '';
+		}
+		var result = 'https://www.google.com/maps/embed/v1/directions?key=' +
+			$rootScope.config.serverConfig.routeGoogleAPIKey +
+			'&origin=' +
+			content.trip.departureCity.city + '+' +
+			content.trip.departureCity.region + '+' +
+			content.trip.departureCity.country +
+			'&destination=' +
+			content.trip.arrivalCity.city + '+' +
+			content.trip.arrivalCity.region + '+' +
+			content.trip.arrivalCity.country;
+		result = result.replace(/ /g, '+');
+		return result;
+	};
+});

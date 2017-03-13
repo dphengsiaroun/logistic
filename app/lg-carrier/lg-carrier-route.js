@@ -85,8 +85,6 @@ app.config(['$stateProvider', function($stateProvider) {
 			}
 		}
 	});
-
-
 }]);
 
 app.controller('CarrierListCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
@@ -110,7 +108,7 @@ app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scop
 			return ctrl.user.waitForCheckConnection();
 		}).then(function() {
 			ctrl.isEditable = (ctrl.carrier.current.content.accountId === ctrl.user.account.id);
-			console.log('ctrl.isEditable', ctrl.isEditable);
+			 console.log('ctrl.isEditable', ctrl.isEditable);
 		});
 	};
 }]);
