@@ -65,6 +65,7 @@ app.component('lgCarrierUpdateRoute', {
 		ctrl.carrier = carrier;
 		ctrl.carrierStepManager = carrierStepManager;
 		carrier.createData = carrier.current.content;
+		carrier.createData.id = carrier.current.id;
 		carrier.type = 'update';
 	}
 });
