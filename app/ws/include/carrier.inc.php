@@ -7,6 +7,7 @@
 
 		public static function create($account, $request) {
 			$request->accountId = $account->id;
+			$request->login = $account->content->login;
 			$e = Event::insert('/carrier/create', $request);
 			Event::synchronize();
 			$carrier = self::retrieve($e->id);

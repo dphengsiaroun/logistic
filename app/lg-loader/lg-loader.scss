@@ -21,6 +21,9 @@ loader-list {
                 width: 100%;
                 text-align: left;
                 font-size: 20px;
+				margin-bottom: 5px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid $borderColor;
             }
             subtitle {
                 display: table;
@@ -34,7 +37,6 @@ loader-list {
                     padding: 0px;
                     text-align: left;
                     font-size: 13px;
-                    color: $gray;
                 }
                 distance {
                     display: table-cell;
@@ -43,6 +45,15 @@ loader-list {
                     padding: 0px;
                     text-align: right;
                     font-size: 13px;
+                }
+				created,
+                by {
+                    display: block;
+                    width: 100%;
+                    margin: 0px;
+                    padding: 0px;
+                    text-align: left;
+                    font-size: 11px;
                     color: $gray;
                 }
             }
@@ -86,10 +97,11 @@ loader-list {
             display: table-cell;
             width: 40%;
             margin: 0px;
-            padding: 5px 10px;
+            padding: 5px 10px 10px;
             vertical-align: top;
             background-color: white;
             img {
+				display: block;
                 height: 100px;
             }
         }

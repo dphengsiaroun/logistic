@@ -6,7 +6,8 @@
 	<h1>{{$ctrl.loader.current.content.title}}</h1>
 	<span>Prix souhaité : {{$ctrl.loader.current.content.priceWanted}} DZD</span>
 	<info>
-		<p>Publié le : {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
+		<p>Publié le {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
+		<p>Par {{$ctrl.loader.current.content.login | ucfirst}}</p>
 	</info>
 	<description>
 		<p>{{$ctrl.loader.current.content.comments}}</p>
@@ -30,6 +31,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<a ng-href="{{$ctrl.loader.current.content | googlemap}}" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
 
 		<lg-hr>Horaire</lg-hr>
 		<table>
@@ -95,8 +97,6 @@
 		</table>
 	</description>
 	<br/>
-	<iframe ng-src="{{$ctrl.loader.current.content | googlemap}}" width="100%" height="200" frameborder="0" style="border:0"
-		allowfullscreen></iframe>
 		<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
 		<bottom ng-show="!$ctrl.isEditable">
 			<button ui-sref="#/loader-create-proposal">Appeler</button>

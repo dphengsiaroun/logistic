@@ -1,6 +1,8 @@
 <?php
 
 	require_once(BASE_DIR . "/include/account.inc.php");
+	require_once(BASE_DIR . "/include/loader.inc.php");
+	require_once(BASE_DIR . "/include/image.inc.php");
 
 	class Truck {
 
@@ -17,6 +19,7 @@
 
 		public static function create($account, $request) {
 			$truck = new Truck($account);
+			Image::manageSession($account, $request);
 			foreach ($request as $key => $value) {
 				$truck->{$key} = $value;
  			}

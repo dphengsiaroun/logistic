@@ -105,37 +105,14 @@ app.filter('googlemap', function($rootScope) {
 		if (!content) {
 			return '';
 		}
-		var result = 'https://www.google.com/maps/embed/v1/directions?key=' +
-			$rootScope.config.serverConfig.routeGoogleAPIKey +
-			'&origin=' +
+		var result = 'https://www.google.com/maps/dir/' +
 			content.departureCity.city + '+' +
 			content.departureCity.region + '+' +
 			content.departureCity.country +
-			'&destination=' +
+			'/' +
 			content.arrivalCity.city + '+' +
 			content.arrivalCity.region + '+' +
 			content.arrivalCity.country;
-		result = result.replace(/ /g, '+');
-		return result;
-	};
-});
-
-app.filter('googlemapforcarrier', function($rootScope) {
-	'ngInject';
-	return function(content) {
-		if (!content) {
-			return '';
-		}
-		var result = 'https://www.google.com/maps/embed/v1/directions?key=' +
-			$rootScope.config.serverConfig.routeGoogleAPIKey +
-			'&origin=' +
-			content.trip.departureCity.city + '+' +
-			content.trip.departureCity.region + '+' +
-			content.trip.departureCity.country +
-			'&destination=' +
-			content.trip.arrivalCity.city + '+' +
-			content.trip.arrivalCity.region + '+' +
-			content.trip.arrivalCity.country;
 		result = result.replace(/ /g, '+');
 		return result;
 	};

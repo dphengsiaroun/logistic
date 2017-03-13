@@ -13,7 +13,7 @@
 			<title>{{ad.content.truck.name}}</title>
 			<subtitle>
 				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-				<by>Par {{ad.content.accountId}}</by>
+				<by>Par {{ad.content.login | ucfirst}}</by>
 			</subtitle>
 			<subtitle>
 				<date>{{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
@@ -47,6 +47,7 @@
 			</content-left>
 			<content-right>
 				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
+				<model>{{ad.content.truck.model}}</model>
 				<rate-km>{{ad.content.pricing.priceWanted / ad.content.trip.distance | currency : '' : 0}} DZD/km</rate-km>
 				<rate>{{ad.content.pricing.priceWanted}} DZD</rate>
 			</content-right>
@@ -55,7 +56,7 @@
 			<title>{{ad.content.truck.name}}</title>
 			<subtitle>
 				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-				<by>Par {{ad.content.accountId}}</by>
+				<by>Par {{ad.content.login | ucfirst}}</by>
 			</subtitle>
 			<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.truck.city.city}}</city>
 			<region>{{ad.content.truck.city.region}}</region>
@@ -67,6 +68,7 @@
 			</content-left>
 			<content-right>
 				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
+				<model>{{ad.content.truck.model}}</model>
 				<rate>{{ad.content.pricing.priceWantedPerKm}} DZD/km</rate>
 			</content-right>
 		</content>

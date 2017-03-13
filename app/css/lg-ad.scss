@@ -183,6 +183,10 @@ recap {
             margin: 10px 0;
             font-size: 17px;
         }
+		a {
+			display: block;
+            text-align: center;
+        }
         p {
             font-size: 15px;
             margin: 10px 0px;
@@ -204,6 +208,9 @@ recap {
                         background-color: white;
                         font-size: 15px;
                     }
+					th {
+						text-align: left;
+					}
                     td {
                         text-align: right;
                         region {

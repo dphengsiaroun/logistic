@@ -8,11 +8,24 @@
 	<span ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWanted}} DZD</span>
 	<info>
 		<p>Publié le {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
-		<p>Par {{$ctrl.carrier.current.content.accountId}}</p>
+		<p>Par {{$ctrl.carrier.current.content.login | ucfirst}}</p>
 	</info>
 	<description>
-		<lg-hr>Commentaires</lg-hr>
-		<p>{{$ctrl.carrier.current.content.pricing.comments}}</p>
+		<comments ng-show="$ctrl.carrier.current.content.pricing.comments">
+			<lg-hr>Commentaires</lg-hr>
+			<p>{{$ctrl.carrier.current.content.pricing.comments}}</p>
+		</comments>
+
+		<lg-hr>Disponibilité</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Détails</th>
+					<td ng-show="$ctrl.carrier.current.content.availability === 'total'">Disponibilité totale</td>
+					<td ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
+				</tr>
+			</tbody>
+		</table>
 
 		<lg-hr>Description du véhicule</lg-hr>
 		<table>
@@ -30,23 +43,12 @@
 					<td>{{$ctrl.carrier.current.content.truck.model}}</td>
 				</tr>
 				<tr>
-					<th>Ville d'origine</th>
-					<td>{{$ctrl.carrier.current.content.truck.city.city}}</td>
-				</tr>
-				<tr>
 					<th>Année</th>
 					<td>{{$ctrl.carrier.current.content.truck.birthyear}}</td>
 				</tr>
-			</tbody>
-		</table>
-
-		<lg-hr>Disponibilité</lg-hr>
-		<table>
-			<tbody>
 				<tr>
-					<th>Type</th>
-					<td ng-show="$ctrl.carrier.current.content.availability === 'total'">Totalité du camion</td>
-					<td ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Trajet spécifique</td>
+					<th>Ville d'origine</th>
+					<td>{{$ctrl.carrier.current.content.truck.city.city}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -71,6 +73,7 @@
 					</tr>
 				</tbody>
 			</table>
+			<a ng-href="{{$ctrl.carrier.current.content.trip | googlemap}}" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
 
 			<lg-hr>Horaire</lg-hr>
 			<table>
@@ -111,12 +114,6 @@
 		</div>
 	</description>
 	<br/>
-	<div ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">
-		<iframe ng-src="{{$ctrl.carrier.current.content | googlemapforcarrier}}" width="100%" height="200" frameborder="0" style="border:0"
-	 allowfullscreen></iframe>
-	</div>
-	<div ng-hide="$ctrl.carrier.current.content.availability === 'specificTrip'">
-	</div>
 	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
 	<bottom ng-show="!$ctrl.isEditable">
 		<button ui-sref="#/carrier-create-proposal">Appeler</button>

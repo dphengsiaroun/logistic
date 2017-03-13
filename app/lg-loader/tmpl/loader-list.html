@@ -12,6 +12,10 @@
 		<header>
 			<title>{{ad.content.title}}</title>
 			<subtitle>
+				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
+				<by>Par {{ad.content.login | ucfirst}}</by>
+			</subtitle>
+			<subtitle>
 				<date>{{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
 			</subtitle>

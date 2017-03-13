@@ -82,6 +82,7 @@ summary {
 }
 
 city {
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -216,7 +217,7 @@ trajet {
 carrier-list {
     width: 100%;
     display: block;
-    padding: 0px 3px;
+    padding: 0px 5px;
     ad-block {
         display: block;
         width: 100%;
@@ -234,6 +235,9 @@ carrier-list {
                 width: 100%;
                 text-align: left;
                 font-size: 20px;
+				margin-bottom: 5px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid $borderColor;
             }
             subtitle {
                 display: table;
@@ -257,13 +261,14 @@ carrier-list {
                     font-size: 13px;
                     // color: $gray;
                 }
-				created, by {
+                created,
+                by {
                     display: block;
                     width: 100%;
                     margin: 0px;
                     padding: 0px;
                     text-align: left;
-                    font-size: 12px;
+                    font-size: 11px;
                     color: $gray;
                 }
             }
@@ -307,10 +312,11 @@ carrier-list {
             display: table-cell;
             width: 40%;
             margin: 0px;
-            padding: 5px 10px;
+            padding: 5px 10px 10px;
             vertical-align: top;
             background-color: white;
             img {
+                display: block;
                 height: 100px;
             }
         }
@@ -329,7 +335,8 @@ carrier-list {
             conditioning {
                 font-weight: bold;
             }
-            transport-category {
+            transport-category,
+            model {
                 font-size: 13px;
             }
             rate-km {
@@ -337,14 +344,14 @@ carrier-list {
             }
             rate {
                 margin-top: 15px;
-                font-size: 27px;
+                font-size: 25px;
                 font-weight: bold;
                 color: $selectedColor;
                 letter-spacing: -1px;
             }
         }
     }
-	 total {
+    total {
         display: table;
         width: 100%;
         margin: 0px;
@@ -358,7 +365,7 @@ carrier-list {
             vertical-align: top;
             background-color: white;
             img {
-				display: block;
+                display: block;
                 height: 100px;
             }
         }
@@ -369,21 +376,21 @@ carrier-list {
             padding: 5px 10px;
             vertical-align: top;
             background-color: white;
-			text-align: right;
-			title {
-				text-align: right;
-				font-size: 20px;
-			}
+            text-align: right;
+            title {
+                text-align: right;
+                font-size: 20px;
+            }
             conditioning {
-				display: block;
+                display: block;
                 font-weight: bold;
             }
             transport-category {
-				display: block;
+                display: block;
                 font-size: 13px;
             }
             rate-km {
-				display: block;
+                display: block;
                 color: $gray;
             }
             rate {
@@ -393,14 +400,14 @@ carrier-list {
                 color: $selectedColor;
                 letter-spacing: -1px;
             }
-			city{
-				display: block;
-				font-size: 13px;
-				text-align: right;
-				region {
-					    margin-left: 5px;
-				}
-			}
+            city {
+                display: block;
+                font-size: 13px;
+                text-align: right;
+                region {
+                    margin-left: 5px;
+                }
+            }
         }
     }
 }
