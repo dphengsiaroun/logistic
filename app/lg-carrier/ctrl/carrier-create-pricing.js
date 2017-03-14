@@ -18,7 +18,12 @@ app.component('lgCarrierCreatePricingRoute', {
 	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {
 		'ngInject';
 		var ctrl = this;
-		ctrl.pricingData = {};
+		if (carrier.type === 'create') {
+			ctrl.pricingData = {};
+		} else {
+			ctrl.pricingData = carrier.createData.pricing;
+			console.log('ctrl.pricingData', ctrl.pricingData);
+		}
 		ctrl.carrier = carrier;
 		ctrl.addPricing = function() {
 			carrier.createData.pricing = ctrl.pricingData;

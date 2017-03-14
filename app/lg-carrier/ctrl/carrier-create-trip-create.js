@@ -18,7 +18,12 @@ app.component('lgCarrierCreateTripCreateRoute', {
 	controller: function LgCarrierCreateTripCreateRouteCtrl($scope, $state, user, carrier, geoloc) {
 		'ngInject';
 		var ctrl = this;
-		ctrl.tripData = {};
+		if (carrier.type === 'create') {
+			ctrl.tripData = {};
+		} else {
+			ctrl.tripData = carrier.createData.trip;
+			console.log('ctrl.tripData', ctrl.tripData);
+		}
 		ctrl.addTrip = function() {
 			carrier.createData.trip = ctrl.tripData;
 			console.log('carrier', carrier);
