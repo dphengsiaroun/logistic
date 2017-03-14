@@ -1,127 +1,127 @@
 <img-ad>
-	<img ng-show="$ctrl.carrier.current.content.truck.image === undefined" src="img/truck-default.svg">
-	<img ng-show="$ctrl.carrier.current.content.truck.image.url" ng-src="{{$ctrl.carrier.current.content.truck.image.url}}">
+    <img ng-show="$ctrl.carrier.current.content.truck.image === undefined" src="img/truck-default.svg">
+    <img ng-show="$ctrl.carrier.current.content.truck.image.url" ng-src="{{$ctrl.carrier.current.content.truck.image.url}}">
 </img-ad>
 <recap>
-	<h1>{{$ctrl.carrier.current.content.truck.name}}</h1>
-	<span ng-show="$ctrl.carrier.current.content.availability === 'total'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWantedPerKm}} DZD/km</span>
-	<span ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWanted}} DZD</span>
-	<info>
-		<p>Publié le {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
-		<p>Par {{$ctrl.carrier.current.content.login | ucfirst}}</p>
-	</info>
-	<description>
-		<comments ng-show="$ctrl.carrier.current.content.pricing.comments">
-			<lg-hr>Commentaires</lg-hr>
-			<p>{{$ctrl.carrier.current.content.pricing.comments}}</p>
-		</comments>
+    <h1>{{$ctrl.carrier.current.content.truck.name}}</h1>
+    <span ng-show="$ctrl.carrier.current.content.availability === 'total'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWantedPerKm}} DZD/km</span>
+    <span ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWanted}} DZD</span>
+    <info>
+        <p>Publié le {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
+        <p>Par {{$ctrl.carrier.current.content.login | ucfirst}}</p>
+    </info>
+    <description>
+        <comments ng-show="$ctrl.carrier.current.content.pricing.comments">
+            <lg-hr>Commentaires</lg-hr>
+            <p>{{$ctrl.carrier.current.content.pricing.comments}}</p>
+        </comments>
 
-		<lg-hr>Disponibilité</lg-hr>
-		<table>
-			<tbody>
-				<tr>
-					<th>Détails</th>
-					<td ng-show="$ctrl.carrier.current.content.availability === 'total'">Disponibilité totale</td>
-					<td ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
-				</tr>
-			</tbody>
-		</table>
+        <lg-hr>Disponibilité</lg-hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Détails</th>
+                    <td ng-show="$ctrl.carrier.current.content.availability === 'total'">Disponibilité totale</td>
+                    <td ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
+                </tr>
+            </tbody>
+        </table>
 
-		<lg-hr>Description du véhicule</lg-hr>
-		<table>
-			<tbody>
-				<tr>
-					<th>Catégorie</th>
-					<td>{{$ctrl.carrier.current.content.truck.transportCategory}}</td>
-				</tr>
-				<tr>
-					<th>Type</th>
-					<td>{{$ctrl.carrier.current.content.truck.transportTruckType}}</td>
-				</tr>
-				<tr>
-					<th>Modèle</th>
-					<td>{{$ctrl.carrier.current.content.truck.model}}</td>
-				</tr>
-				<tr>
-					<th>Année</th>
-					<td>{{$ctrl.carrier.current.content.truck.birthyear}}</td>
-				</tr>
-				<tr>
-					<th>Ville d'origine</th>
-					<td>{{$ctrl.carrier.current.content.truck.city.city}}</td>
-				</tr>
-			</tbody>
-		</table>
+        <lg-hr>Description du véhicule</lg-hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Catégorie</th>
+                    <td>{{$ctrl.carrier.current.content.truck.transportCategory}}</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>{{$ctrl.carrier.current.content.truck.transportTruckType}}</td>
+                </tr>
+                <tr>
+                    <th>Modèle</th>
+                    <td>{{$ctrl.carrier.current.content.truck.model}}</td>
+                </tr>
+                <tr>
+                    <th>Année</th>
+                    <td>{{$ctrl.carrier.current.content.truck.birthyear}}</td>
+                </tr>
+                <tr>
+                    <th>Ville d'origine</th>
+                    <td>{{$ctrl.carrier.current.content.truck.city.city}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-		<div ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">
-			<lg-hr>Trajet</lg-hr>
-			<table>
-				<tbody>
-					<tr>
-						<th>Départ</th>
-						<td>
-							<city>{{$ctrl.carrier.current.content.trip.departureCity.city}}</city>
-							<region>{{$ctrl.carrier.current.content.trip.departureCity.region}}</region>
-						</td>
-					</tr>
-					<tr>
-						<th>Arrivée</th>
-						<td>
-							<city>{{$ctrl.carrier.current.content.trip.arrivalCity.city}}</city>
-							<region>{{$ctrl.carrier.current.content.trip.arrivalCity.region}}</region>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<a ng-href="{{$ctrl.carrier.current.content.trip | googlemap}}" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
+        <div ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">
+            <lg-hr>Trajet</lg-hr>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Départ</th>
+                        <td>
+                            <city>{{$ctrl.carrier.current.content.trip.departureCity.city}}</city>
+                            <region>{{$ctrl.carrier.current.content.trip.departureCity.region}}</region>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Arrivée</th>
+                        <td>
+                            <city>{{$ctrl.carrier.current.content.trip.arrivalCity.city}}</city>
+                            <region>{{$ctrl.carrier.current.content.trip.arrivalCity.region}}</region>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a ng-href="{{$ctrl.carrier.current.content.trip | googlemap}}" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
 
-			<lg-hr>Horaire</lg-hr>
-			<table>
-				<tbody>
-					<tr>
-						<th>Chargement</th>
-						<td>{{$ctrl.carrier.current.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}
-						</td>
-					</tr>
-					<tr>
-						<th>Livraison</th>
-						<td>{{$ctrl.carrier.current.content.trip.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
-					</tr>
-				</tbody>
-			</table>
+            <lg-hr>Horaire</lg-hr>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Chargement</th>
+                        <td>{{$ctrl.carrier.current.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Livraison</th>
+                        <td>{{$ctrl.carrier.current.content.trip.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-			<lg-hr>Chargement disponible</lg-hr>
-			<table>
-				<tbody>
-					<tr>
-						<th>Hauteur</th>
-						<td>{{$ctrl.carrier.current.content.trip.dimension.height | distance}}</td>
-					</tr>
-					<tr>
-						<th>Largeur</th>
-						<td>{{$ctrl.carrier.current.content.trip.dimension.width | distance}}</td>
-					</tr>
-					<tr>
-						<th>Profondeur</th>
-						<td>{{$ctrl.carrier.current.content.trip.dimension.depth | distance}}</td>
-					</tr>
-					<tr>
-						<th>Volume</th>
-						<td>{{$ctrl.carrier.current.content.trip.dimension | volume}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</description>
-	<br/>
-	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
-	<bottom ng-show="!$ctrl.isEditable">
-		<button ui-sref="#/carrier-create-proposal">Appeler</button>
-		<button ui-sref="#/carrier-create-proposal">Envoyer un message</button>
-	</bottom>
-	<div ng-show="$ctrl.isEditable">
-		<button ui-sref="carrier:update({login: $ctrl.user.account.content.login, id: $ctrl.carrier.current.id})">Editer</button>
-		<lg-hr>ou</lg-hr>
-		<a class="critical" ui-sref="carrier:delete({login: $ctrl.user.account.content.login, id: $ctrl.carrier.current.id})" class="critical">Supprimer cette annonce</a>
-	</div>
+            <lg-hr>Chargement disponible</lg-hr>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Hauteur</th>
+                        <td>{{$ctrl.carrier.current.content.trip.dimension.height | distance}}</td>
+                    </tr>
+                    <tr>
+                        <th>Largeur</th>
+                        <td>{{$ctrl.carrier.current.content.trip.dimension.width | distance}}</td>
+                    </tr>
+                    <tr>
+                        <th>Profondeur</th>
+                        <td>{{$ctrl.carrier.current.content.trip.dimension.depth | distance}}</td>
+                    </tr>
+                    <tr>
+                        <th>Volume</th>
+                        <td>{{$ctrl.carrier.current.content.trip.dimension | volume}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </description>
+    <br/>
+    <div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
+    <bottom ng-show="!$ctrl.isEditable">
+        <button ui-sref="#/carrier-create-proposal">Appeler</button>
+        <button ui-sref="#/carrier-create-proposal">Envoyer un message</button>
+    </bottom>
+    <div ng-show="$ctrl.isEditable">
+        <button ui-sref="carrier:update({login: $ctrl.user.account.content.login, id: $ctrl.carrier.current.id})">Editer</button>
+        <lg-hr>ou</lg-hr>
+        <a class="critical" ui-sref="carrier:delete({login: $ctrl.user.account.content.login, id: $ctrl.carrier.current.id})" class="critical">Supprimer cette annonce</a>
+    </div>
 </recap>

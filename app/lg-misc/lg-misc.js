@@ -117,15 +117,3 @@ app.filter('googlemap', function($rootScope) {
         return result;
     };
 });
-
-app.filter('notEmpty', function() {
-    return function(input) {
-        var output = [];
-        for (var i = 0; i < input.length; i++) {
-            if (input[i]) {
-                output.push(input[i]);
-            }
-        }
-        return output;
-    };
-});

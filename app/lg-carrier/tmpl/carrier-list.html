@@ -1,6 +1,7 @@
 <section class="filter">
     <div class="qty-ad">
-        <span>1 323 annonces de transporteur</span>
+        <span ng-hide="$ctrl.carrier.carriers <= 1" ng-init="$ctrl.carrier.carriers">{{$ctrl.carrier.carriers.length}} annonces de transporteur</span>
+        <span ng-show="$ctrl.carrier.carriers <= 1" ng-init="$ctrl.carrier.carriers">{{$ctrl.carrier.carriers.length}} annonces de transporteur</span>
     </div>
     <div>
         <i class="fa fa-filter" aria-hidden="true"></i>

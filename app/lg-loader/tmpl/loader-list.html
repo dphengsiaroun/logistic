@@ -1,6 +1,7 @@
 <section class="filter">
     <div class="qty-ad">
-        <span>1 203 annonces de chargement</span>
+        <span ng-hide="$ctrl.loader.loaders <= 1" ng-init="$ctrl.loader.loaders">{{$ctrl.loader.loaders.length}} annonces de chargement</span>
+        <span ng-show="$ctrl.loader.loaders <= 1" ng-init="$ctrl.loader.loaders">{{$ctrl.loader.loaders.length}} annonce de chargement</span>
     </div>
     <div>
         <i class="fa fa-filter" aria-hidden="true"></i>

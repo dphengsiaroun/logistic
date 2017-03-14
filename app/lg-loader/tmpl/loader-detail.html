@@ -1,110 +1,110 @@
 <img-ad>
-	<img ng-show="$ctrl.loader.current.content.image === undefined" src="img/loader-default.svg">
-	<img ng-show="$ctrl.loader.current.content.image.url" ng-src="{{$ctrl.loader.current.content.image.url}}">
+    <img ng-show="$ctrl.loader.current.content.image === undefined" src="img/loader-default.svg">
+    <img ng-show="$ctrl.loader.current.content.image.url" ng-src="{{$ctrl.loader.current.content.image.url}}">
 </img-ad>
 <recap>
-	<h1>{{$ctrl.loader.current.content.title}}</h1>
-	<span>Prix souhaité : {{$ctrl.loader.current.content.priceWanted}} DZD</span>
-	<info>
-		<p>Publié le {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
-		<p>Par {{$ctrl.loader.current.content.login | ucfirst}}</p>
-	</info>
-	<description>
-		<p>{{$ctrl.loader.current.content.comments}}</p>
+    <h1>{{$ctrl.loader.current.content.title}}</h1>
+    <span>Prix souhaité : {{$ctrl.loader.current.content.priceWanted}} DZD</span>
+    <info>
+        <p>Publié le {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
+        <p>Par {{$ctrl.loader.current.content.login | ucfirst}}</p>
+    </info>
+    <description>
+        <p>{{$ctrl.loader.current.content.comments}}</p>
 
-		<lg-hr>Trajet</lg-hr>
-		<table>
-			<tbody>
-				<tr>
-					<th>Départ</th>
-					<td>
-						<city>{{$ctrl.loader.current.content.departureCity.city}}</city>
-						<region>{{$ctrl.loader.current.content.departureCity.region}}</region>
-					</td>
-				</tr>
-				<tr>
-					<th>Arrivée</th>
-					<td>
-						<city>{{$ctrl.loader.current.content.arrivalCity.city}}</city>
-						<region>{{$ctrl.loader.current.content.arrivalCity.region}}</region>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<a ng-href="{{$ctrl.loader.current.content | googlemap}}" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
+        <lg-hr>Trajet</lg-hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Départ</th>
+                    <td>
+                        <city>{{$ctrl.loader.current.content.departureCity.city}}</city>
+                        <region>{{$ctrl.loader.current.content.departureCity.region}}</region>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Arrivée</th>
+                    <td>
+                        <city>{{$ctrl.loader.current.content.arrivalCity.city}}</city>
+                        <region>{{$ctrl.loader.current.content.arrivalCity.region}}</region>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a ng-href="{{$ctrl.loader.current.content | googlemap}}" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
 
-		<lg-hr>Horaire</lg-hr>
-		<table>
-			<tbody>
-				<tr>
-					<th>Chargement</th>
-					<td>{{$ctrl.loader.current.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}
-					</td>
-				</tr>
-				<tr>
-					<th>Livraison</th>
-					<td>{{$ctrl.loader.current.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
-				</tr>
-			</tbody>
-		</table>
+        <lg-hr>Horaire</lg-hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Chargement</th>
+                    <td>{{$ctrl.loader.current.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Livraison</th>
+                    <td>{{$ctrl.loader.current.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-		<lg-hr>Chargement</lg-hr>
-		<table>
-			<tbody>
-				<tr>
-					<th>Conditionnement</th>
-					<td>{{$ctrl.loader.current.content.conditioning}}</td>
-				</tr>
-				<tr>
-					<th>Type de marchandise</th>
-					<td>{{$ctrl.loader.current.content.typeOfGoods}}</td>
-				</tr>
-				<tr>
-					<th>Poids</th>
-					<td>{{$ctrl.loader.current.content.weightInterval}}</td>
-				</tr>
-				<tr>
-					<th>Largeur</th>
-					<td>{{$ctrl.loader.current.content.dimension.width | distance}}</td>
-				</tr>
-				<tr>
-					<th>Hauteur</th>
-					<td>{{$ctrl.loader.current.content.dimension.height | distance}}</td>
-				</tr>
-				<tr>
-					<th>Profondeur</th>
-					<td>{{$ctrl.loader.current.content.dimension.depth | distance}}</td>
-				</tr>
-				<tr>
-					<th>Volume</th>
-					<td>{{$ctrl.loader.current.content.dimension | volume}}</td>
-				</tr>
-			</tbody>
-		</table>
+        <lg-hr>Chargement</lg-hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Conditionnement</th>
+                    <td>{{$ctrl.loader.current.content.conditioning}}</td>
+                </tr>
+                <tr>
+                    <th>Type de marchandise</th>
+                    <td>{{$ctrl.loader.current.content.typeOfGoods}}</td>
+                </tr>
+                <tr>
+                    <th>Poids</th>
+                    <td>{{$ctrl.loader.current.content.weightInterval}}</td>
+                </tr>
+                <tr>
+                    <th>Largeur</th>
+                    <td>{{$ctrl.loader.current.content.dimension.width | distance}}</td>
+                </tr>
+                <tr>
+                    <th>Hauteur</th>
+                    <td>{{$ctrl.loader.current.content.dimension.height | distance}}</td>
+                </tr>
+                <tr>
+                    <th>Profondeur</th>
+                    <td>{{$ctrl.loader.current.content.dimension.depth | distance}}</td>
+                </tr>
+                <tr>
+                    <th>Volume</th>
+                    <td>{{$ctrl.loader.current.content.dimension | volume}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-		<lg-hr>Transport</lg-hr>
-		<table>
-			<tbody>
-				<tr>
-					<th>Catégorie</th>
-					<td>{{$ctrl.loader.current.content.transportCategory}}</td>
-				</tr>
-				<tr>
-					<th>Type</th>
-					<td>{{$ctrl.loader.current.content.transportTruckType}}</td>
-				</tr>
-			</tbody>
-		</table>
-	</description>
-	<br/>
-		<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
-		<bottom ng-show="!$ctrl.isEditable">
-			<button ui-sref="#/loader-create-proposal">Appeler</button>
-			<button ui-sref="#/loader-create-proposal">Envoyer un message</button>
-		</bottom>
-		<div ng-show="$ctrl.isEditable">
-			<button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
-			<lg-hr>ou</lg-hr>
-			<a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
-		</div>
+        <lg-hr>Transport</lg-hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Catégorie</th>
+                    <td>{{$ctrl.loader.current.content.transportCategory}}</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>{{$ctrl.loader.current.content.transportTruckType}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </description>
+    <br/>
+    <div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
+    <bottom ng-show="!$ctrl.isEditable">
+        <button ui-sref="#/loader-create-proposal">Appeler</button>
+        <button ui-sref="#/loader-create-proposal">Envoyer un message</button>
+    </bottom>
+    <div ng-show="$ctrl.isEditable">
+        <button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
+        <lg-hr>ou</lg-hr>
+        <a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
+    </div>
 </recap>

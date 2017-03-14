@@ -1,6 +1,7 @@
 <section class="filter">
     <div class="qty-ad">
-        <span>10 véhicules dans votre flotte</span>
+        <span ng-hide="$ctrl.truck.trucks <= 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicules dans votre flotte</span>
+        <span ng-show="$ctrl.truck.trucks <= 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicule dans votre flotte</span>
     </div>
     <div>
         <i class="fa fa-filter" aria-hidden="true"></i>

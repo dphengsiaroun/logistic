@@ -126,16 +126,15 @@ app.controller('TruckListCtrl', ['$scope', '$injector', function TruckCtrl($scop
     };
 }]);
 
-app.controller('TruckCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
-    this.truck = $injector.get('truck');
-    this.user = $injector.get('user');
-    var $stateParams = $injector.get('$stateParams');
-    console.log('this.truck', this.truck);
-    console.log('$stateParams', $stateParams);
-    this.$onInit = function() {
-        this.truck.get($stateParams.id);
+app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
+    'ngInject';
+    var ctrl = this;
+    ctrl.truck = truck;
+    ctrl.user = user;
+    ctrl.$onInit = function() {
+        ctrl.truck.get($stateParams.id);
     };
-}]);
+});
 
 app.controller('TruckCreateCtrl', function TruckCtrl($scope, $injector) {
     'ngInject';
@@ -145,19 +144,32 @@ app.controller('TruckCreateCtrl', function TruckCtrl($scope, $injector) {
 
 app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $injector, $stateParams, truck, user) {
     'ngInject';
-    var self = this;
-    this.truck = truck;
-    this.user = user;
-    this.$onInit = function() {
-        this.truck.get($stateParams.id);
-        $scope.$watch('$ctrl.truck.current', function() {
-            if (self.truck.current === undefined) {
-                return;
-            }
-            console.log('self.truck.current', self.truck.current);
-            self.truck.updateData = angular.copy(self.truck.current);
-            self.truck.updateData.oldId = $stateParams.id;
-            console.log('self.truck.updateData', self.truck.updateData);
+    var ctrl = this;
+    ctrl.truck = truck;
+    ctrl.user = user;
+    // ctrl.$onInit = function() {
+    //     ctrl.truck.get($stateParams.id);
+    //     $scope.$watch('$ctrl.truck.current', function() {
+    //         if (ctrl.truck.current === undefined) {
+    //             return;
+    //         }
+    //         console.log('ctrl.truck.current', ctrl.truck.current);
+    //         angular.copy(ctrl.truck.current, ctrl.truck.updateData);
+    //         ctrl.truck.updateData.oldId = $stateParams.id;
+    //         console.log('ctrl.truck.updateData', ctrl.truck.updateData);
+    //         console.log('ctrl.truck.updateData.image', ctrl.truck.updateData.image);
+    //     });
+    // };
+
+    ctrl.$onInit = function() {
+        ctrl.truck.get($stateParams.id).then(function() {
+            return ctrl.user.waitForCheckConnection('TruckUpdateCtrl');
+        }).then(function() {
+            ctrl.truck.updateData = angular.copy(ctrl.truck.current);
+            ctrl.truck.updateData.oldId = $stateParams.id;
+            console.log('ctrl.truck.updateData', ctrl.truck.updateData);
+        }).catch(function() {
+            console.error('you should not see this');
         });
     };
 });
