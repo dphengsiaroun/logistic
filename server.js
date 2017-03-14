@@ -17,7 +17,9 @@ const app = express();
 // http proxy
 const apiProxy = httpProxy.createProxyServer();
 const jlgProxy = function(req, res, next) {
-	apiProxy.web(req, res, {target: proxyUrl});
+	apiProxy.web(req, res, {
+		target: proxyUrl
+	});
 };
 
 webpackConfig.output.path = '/';
@@ -33,7 +35,17 @@ app.use(['/app/ws', '/dist/ws'], jlgProxy);
 
 app.use(express.static('.'));
 app.use('/dist/files', express.static('./app/files'));
-app.use(serveIndex('.', {icons: true}));
+app.use(serveIndex('.', {
+	icons: true
+}));
+
+app.use('/app/', function(req, res, next) {
+	console.log('Url rewriting: req.url', req.url);
+	if (req.url.match(/app\/files/)) {
+		next();
+	}
+	res.sendFile('./app/index.html', {root: __dirname});
+});
 
 
 app.use(function(req, res, next) {
