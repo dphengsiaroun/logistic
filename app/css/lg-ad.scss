@@ -61,9 +61,9 @@
             width: 100%;
             margin-bottom: 10px;
         }
-		price-per-km {
-			font-weight: bold;
-		}
+        price-per-km {
+            font-weight: bold;
+        }
         dimension {
             display: table;
             width: 100%;
@@ -176,6 +176,16 @@ recap {
         width: 100%;
         margin: 10px 0px;
     }
+    origin {
+        city {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        region {
+            font-size: 13px;
+            color: #01c1a4;
+        }
+    }
     description {
         text-align: left;
         h3 {
@@ -183,8 +193,8 @@ recap {
             margin: 10px 0;
             font-size: 17px;
         }
-		a {
-			display: block;
+        a {
+            display: block;
             text-align: center;
         }
         p {
@@ -208,9 +218,9 @@ recap {
                         background-color: white;
                         font-size: 15px;
                     }
-					th {
-						text-align: left;
-					}
+                    th {
+                        text-align: left;
+                    }
                     td {
                         text-align: right;
                         region {

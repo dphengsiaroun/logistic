@@ -19,6 +19,8 @@
 
 		public static function create($account, $request) {
 			$truck = new Truck($account);
+			$request->login = $account->content->login;
+			$request->created_t = time();
 			Image::manageSession($account, $request);
 			foreach ($request as $key => $value) {
 				$truck->{$key} = $value;

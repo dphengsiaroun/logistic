@@ -1,49 +1,42 @@
 <img-ad>
-    <img ng-show="$ctrl.truck.current.content.image === undefined" src="img/truck-default.svg">
-    <img ng-show="$ctrl.truck.current.content.image.url" ng-src="{{$ctrl.truck.current.content.image.url}}">
+    <img ng-show="$ctrl.truck.current.image === undefined" src="img/truck-default.svg">
+    <img ng-show="$ctrl.truck.current.image.url" ng-src="{{$ctrl.truck.current.image.url}}">
 </img-ad>
 <recap>
-    <h1>{{$ctrl.truck}}</h1>
+    <h1>{{$ctrl.truck.current.name}}</h1>
     <info>
-        <p>Publié le : 12/11/2018 13h</p>
+        <p>Publié le {{$ctrl.truck.current.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</p>
+        <p>Par {{$ctrl.truck.current.login | ucfirst}}</p>
     </info>
-    <p><b><i class="fa fa-map-marker" aria-hidden="true"></i></b> Oran, Oran, Algérie</p>
+    <origin>
+        <b><i class="fa fa-map-marker" aria-hidden="true"></i></b>
+        <city>{{$ctrl.truck.current.city.city}}</city>
+        <region>{{$ctrl.truck.current.city.region}}
+            <region>
+    </origin>
     <description>
         <lg-hr>Description du véhicule</lg-hr>
         <table>
             <tbody>
                 <tr>
                     <th>Catégorie</th>
-                    <td>{{$ctrl.truck.current.}}</td>
+                    <td>{{$ctrl.truck.current.transportCategory}}</td>
                 </tr>
                 <tr>
                     <th>Type</th>
-                    <td>{{$ctrl.truck.current.name}}</td>
+                    <td>{{$ctrl.truck.current.transportTruckType}}</td>
+                </tr>
+                <tr>
+                    <th>Modèle</th>
+                    <td>{{$ctrl.truck.current.model}}</td>
                 </tr>
                 <tr>
                     <th>Année</th>
-                    <td>{{$ctrl.truck.current.name}}</td>
-                </tr>
-                <tr>
-                    <th>Largeur</th>
-                    <td>{{$ctrl.truck.current.name}}</td>
-                </tr>
-                <tr>
-                    <th>Hauteur</th>
-                    <td>{{$ctrl.truck.current.name}}</td>
-                </tr>
-                <tr>
-                    <th>Profondeur</th>
-                    <td>{{$ctrl.truck.current.name}}</td>
-                </tr>
-                <tr>
-                    <th>Volume en m3</th>
-                    <td>{{$ctrl.truck.current.name}}</td>
+                    <td>{{$ctrl.truck.current.birthyear}}</td>
                 </tr>
             </tbody>
         </table>
     </description>
-    <h2>Soyez le premier à proposer une offre de chargeur</h2>
     <div>
         <button ui-sref="truck:update({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})">Editer</button>
         <lg-hr>ou</lg-hr>
