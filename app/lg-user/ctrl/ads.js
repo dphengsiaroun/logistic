@@ -6,7 +6,7 @@ app.config(function($stateProvider) {
 	'ngInject';
 	$stateProvider.state({
 		name: 'user:ads',
-		url: '/user/ads',
+		url: '/{login}/ads',
 		component: 'lgUserAdsRoute'
 	});
 });
