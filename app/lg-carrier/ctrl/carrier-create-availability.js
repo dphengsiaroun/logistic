@@ -11,7 +11,6 @@ app.config(function($stateProvider) {
 	});
 });
 
-
 var lgCarrierCreateAvailabilityUrl = require('../tmpl/carrier-create-availability.html');
 app.component('lgCarrierCreateAvailabilityRoute', {
 	templateUrl: lgCarrierCreateAvailabilityUrl,

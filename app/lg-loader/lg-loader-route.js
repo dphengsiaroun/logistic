@@ -117,20 +117,22 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('LoaderListCtrl', ['$scope', '$injector', function LoaderCtrl($scope, $injector) {
-    this.loader = $injector.get('loader');
-    this.user = $injector.get('user');
-    this.$onInit = function() {
-        this.loader.list();
+app.controller('LoaderListCtrl', function LoaderListCtrl($scope, user, loader) {
+	'ngInject';
+	var ctrl = this;
+    ctrl.loader = loader;
+    ctrl.user = user;
+    ctrl.$onInit = function() {
+        ctrl.loader.list();
     };
-}]);
+});
 
-app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope, $injector) {
+app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, user) {
+	'ngInject';
     var ctrl = this;
-    ctrl.loader = $injector.get('loader');
-    ctrl.user = $injector.get('user');
+    ctrl.loader = loader;
+    ctrl.user = user;
     ctrl.isEditable = false;
-    var $stateParams = $injector.get('$stateParams');
     console.log('ctrl.loader', ctrl.loader);
     console.log('$stateParams', $stateParams);
     ctrl.$onInit = function() {
@@ -144,7 +146,7 @@ app.controller('LoaderCtrl', ['$scope', '$injector', function LoaderCtrl($scope,
             console.log('ctrl.isEditable', ctrl.isEditable);
         });
     };
-}]);
+});
 
 app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
     $scope, $element, $http, $q, $window, $filter, loader, user, geoloc) {
