@@ -1,14 +1,18 @@
 <section class="filter">
     <div class="qty-ad">
-        <!--<span ng-show="$ctrl.carriers.length > 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonces de transporteur</span>
-        <span ng-show="$ctrl.carriers.length <= 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonce de transporteur</span>-->
+		<span ng-show="$ctrl.carriers.length === 0 && $ctrl.loaders.length === 0">Vous n'avez aucune annonce en cours.</span>
+        <span ng-show="$ctrl.carriers.length > 1">{{$ctrl.carriers.length}} annonces de transporteur</span>
+        <span ng-show="$ctrl.carriers.length === 1">{{$ctrl.carriers.length}} annonce de transporteur</span>
+		<br/>
+		<span ng-show="$ctrl.loaders.length > 1" >{{$ctrl.carriers.length}} annonces de chargement</span>
+        <span ng-show="$ctrl.loaders.length === 1">{{$ctrl.carriers.length}} annonce de chargement</span>
     </div>
     <div>
         <i class="fa fa-filter" aria-hidden="true"></i>
         <i class="fa fa-calendar" aria-hidden="true"></i>
     </div>
 </section>
-<lg-hr>Transporteurs</lg-hr>
+<lg-hr ng-show="$ctrl.carriers.length > 0">Transporteurs</lg-hr>
 <carrier-list>
     <ad-block ng-repeat="ad in $ctrl.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
         <header ng-show="ad.content.availability === 'specificTrip'">
@@ -76,7 +80,9 @@
         </content>
     </ad-block>
 </carrier-list>
-<lg-hr>Chargements</lg-hr>
+
+
+<lg-hr ng-show="$ctrl.loaders.length > 0">Chargements</lg-hr>
 <loader-list>
     <ad-block ng-repeat="ad in $ctrl.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
         <header>

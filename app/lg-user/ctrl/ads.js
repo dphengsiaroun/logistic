@@ -20,6 +20,8 @@ app.component('lgUserAdsRoute', {
 		ctrl.user = user;
 		ctrl.carrier = carrier;
 		ctrl.loader = loader;
+		ctrl.carriers = [];
+		ctrl.loaders = [];
 		console.log('user', user);
 		ctrl.$onInit = function() {
 			user.waitForCheckConnection().then(function() {
