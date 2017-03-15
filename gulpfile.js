@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
+const replace = require('gulp-replace');
 const rename = require('gulp-rename');
 const runSequence = require('run-sequence');
 const del = require('del');
@@ -33,7 +34,8 @@ const path = {
 	zipSrc: ['dist/**/*', 'dist/.htaccess', '!dist/**/*.map'],
 	zip: 'dist.zip',
 	wpk: 'app/wpk',
-	html: ['app/index.html', 'app/install/index.html'],
+	installHtml: ['app/install/index.html'],
+	indexHtml: 'app/index.html',
 	htaccess: ['app/.htaccess.tmpl'],
 	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
 		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl',
@@ -71,10 +73,18 @@ gulp.task('htaccess', function() {
 		.pipe(gulp.dest(path.dist));
 });
 
-gulp.task('html', function() {
-	return gulp.src(path.html, {base: path.base})
+gulp.task('html:install', function() {
+	return gulp.src(path.installHtml, {base: path.base})
 		.pipe(gulp.dest(path.dist));
 });
+
+gulp.task('html:index', function() {
+	return gulp.src(path.indexHtml, {base: path.base})
+		.pipe(replace(/\/app\//, '/dist/'))
+		.pipe(gulp.dest(path.dist));
+});
+
+gulp.task('html', ['html:install', 'html:index']);
 
 gulp.task('webpack', function(callback) {
 	webpack(webpackConfig, function(err, stats) {
