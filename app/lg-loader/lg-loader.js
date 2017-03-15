@@ -68,31 +68,31 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	service.listData = {
 	};
 
-	service.list = function() {
+	service.list = function(data) {
 		console.log('loader->list');
 		return $http({
 			url: 'ws/loader/list.php',
 			method: 'POST',
-			data: service.listData,
+			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
 				service.error = response;
-				return;
+				return $q.reject(response);
 			}
 			service.error = undefined;
-			service.loaderMap = response.data.loaders;
-			console.log('service.loaderMap', service.loaderMap);
-			service.loaders = values(service.loaderMap);
-			console.log('service.loaders', service.loaders);
+			service.loaders = response.data.loaders;
+			service.loaderMap = makeMap(response.data.loaders);
+			return service.loaders;
 		}).catch(function(error) {
 			service.error = error;
+			return $q.reject(error);
 		});
 	};
 
 	service.get = function(id) {
-		if (service.loaderMap === undefined) {
+		if (service.loaders === undefined) {
 			return service.list().then(function() {
 				service.current = service.loaderMap[id];
 			});

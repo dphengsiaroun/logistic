@@ -89,7 +89,6 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 	service.get = function(id) {
 		if (service.carriers === undefined) {
 			return this.list().then(function() {
-
 				service.current = service.carrierMap[id];
 			});
 		}

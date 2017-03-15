@@ -5,7 +5,7 @@
 
 	$request = getRequest();
 
-	debug('list truck start', $request);
+	debug('list loader start', $request);
 
 	$result = [];
 	try {

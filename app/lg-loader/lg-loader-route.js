@@ -117,13 +117,17 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('LoaderListCtrl', function LoaderListCtrl($scope, user, loader) {
+app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
 	'ngInject';
 	var ctrl = this;
     ctrl.loader = loader;
-    ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.loader.list();
+        loader.list().then(function(loaders) {
+			console.log('loaders', loaders);
+			ctrl.loaders = loaders;
+		}).catch(function(error) {
+			console.error('error', error);
+		});
     };
 });
 

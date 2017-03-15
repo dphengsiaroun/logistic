@@ -1,7 +1,7 @@
 <section class="filter">
     <div class="qty-ad">
-        <span ng-show="$ctrl.loader.loaders.length > 1" ng-init="$ctrl.loader.loaders">{{$ctrl.loader.loaders.length}} annonces de chargement</span>
-        <span ng-show="$ctrl.loader.loaders.length <= 1" ng-init="$ctrl.loader.loaders">{{$ctrl.loader.loaders.length}} annonce de chargement</span>
+        <span ng-show="$ctrl.loaders.length > 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonces de chargement</span>
+        <span ng-show="$ctrl.loaders.length <= 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonce de chargement</span>
     </div>
     <div>
         <i class="fa fa-filter" aria-hidden="true"></i>
@@ -9,7 +9,7 @@
     </div>
 </section>
 <loader-list>
-    <ad-block ng-repeat="ad in $ctrl.loader.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
+    <ad-block ng-repeat="ad in $ctrl.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
         <header>
             <title>{{ad.content.title}}</title>
             <subtitle>
