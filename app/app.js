@@ -53,6 +53,14 @@ window.values = function(obj) {
 	});
 };
 
+window.makeMap = function(array) {
+	var map = {};
+	array.forEach(function(n) {
+		map[n.id] = n;
+	});
+	return map;
+};
+
 var app = angular.module('mainApp', [
 	'ngTouch',
 	'ngSanitize',
