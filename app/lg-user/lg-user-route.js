@@ -167,8 +167,15 @@ app.config(['$stateProvider', function($stateProvider) {
 		},
 	});
 
+	$stateProvider.state({
+		name: 'user:myAds',
+		url: '/my-ads',
+		component: 'lgUserMyAdsRoute'
+	});
+
 }]);
 
+var myAdsUrl = require('./tmpl/my-ads.html');
 var signinUrl = require('./tmpl/signin.html');
 var signupUrl = require('./tmpl/signup.html');
 var signupSuccessUrl = require('./tmpl/signup_success.html');
@@ -217,3 +224,12 @@ app.component('lgUserChooseNewPasswordRoute', {
 	templateUrl: chooseNewPasswordUrl,
 	controller: 'UserChooseNewPasswordCtrl'
 });
+
+app.component('lgUserMyAdsRoute', {
+	templateUrl: myAdsUrl,
+	controller: 'UserMyAdsCtrl'
+});
+
+
+
+
