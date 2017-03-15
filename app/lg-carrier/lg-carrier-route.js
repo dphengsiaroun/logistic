@@ -81,13 +81,14 @@ app.config(['$stateProvider', function($stateProvider) {
     });
 }]);
 
-app.controller('CarrierListCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
-    this.carrier = $injector.get('carrier');
-    this.user = $injector.get('user');
-    this.$onInit = function() {
-        this.carrier.list();
+app.controller('CarrierListCtrl', function CarrierCtrl(carrier) {
+	'ngInject';
+	var ctrl = this;
+    ctrl.carrier = carrier;
+    ctrl.$onInit = function() {
+        carrier.list();
     };
-}]);
+});
 
 app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
     var ctrl = this;

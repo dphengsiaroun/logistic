@@ -10,7 +10,7 @@
 </section>
 <lg-hr>Transporteurs</lg-hr>
 <carrier-list>
-    <ad-block ng-repeat="ad in $ctrl.carrierAds" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
+    <ad-block ng-repeat="ad in $ctrl.carrier.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
         <header ng-show="ad.content.availability === 'specificTrip'">
             <title>{{ad.content.truck.name}}</title>
             <subtitle>
