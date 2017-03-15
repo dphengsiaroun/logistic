@@ -78,7 +78,7 @@
 </carrier-list>
 <lg-hr>Chargements</lg-hr>
 <loader-list>
-    <ad-block ng-repeat="ad in $ctrl.loaderAds" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
+    <ad-block ng-repeat="ad in $ctrl.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
         <header>
             <title>{{ad.content.title}}</title>
             <subtitle>

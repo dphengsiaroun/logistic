@@ -29,6 +29,13 @@ app.component('lgUserAdsRoute', {
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
 				ctrl.carriers = carriers;
+			}).then(function() {
+				return loader.list({
+					accountId: user.account.id
+				});
+			}).then(function(loaders) {
+				console.log('loaders', loaders);
+				ctrl.loaders = loaders;
 			}).catch(function(error) {
 				console.error('error', error);
 			});
