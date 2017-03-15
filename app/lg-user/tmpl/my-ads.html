@@ -1,6 +1,6 @@
 <section class="filter">
     <div class="qty-ad">
-		<span ng-show="$ctrl.carrier.carriers = 0" ng-init="$ctrl.carrier.carriers">0 annonce de transporteur</span>
+		<span ng-show="$ctrl.carrier.carriers == 0" ng-init="$ctrl.carrier.carriers">0 annonce de transporteur</span>
         <span ng-hide="$ctrl.carrier.carriers <= 1" ng-init="$ctrl.carrier.carriers">{{$ctrl.carrier.carriers.length}} annonces de transporteur</span>
         <span ng-show="$ctrl.carrier.carriers <= 1" ng-init="$ctrl.carrier.carriers">{{$ctrl.carrier.carriers.length}} annonces de transporteur</span>
     </div>
