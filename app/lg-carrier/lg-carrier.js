@@ -63,12 +63,12 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		service.create();
 	};
 
-	service.list = function() {
+	service.list = function(data) {
 		console.log('carrier->list');
 		return $http({
 			url: 'ws/carrier/list.php',
 			method: 'POST',
-			data: service.listData,
+			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);

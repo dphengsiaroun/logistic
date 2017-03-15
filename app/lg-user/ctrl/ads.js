@@ -2,7 +2,7 @@
 
 var app = angular.module('lg-user');
 
-app.config(function ($stateProvider) {
+app.config(function($stateProvider) {
 	'ngInject';
 	$stateProvider.state({
 		name: 'user:ads',
@@ -20,8 +20,18 @@ app.component('lgUserAdsRoute', {
 		ctrl.user = user;
 		ctrl.carrier = carrier;
 		ctrl.loader = loader;
-		ctrl.$onInit = function () {
-			carrier.list();
+		console.log('user', user);
+		ctrl.$onInit = function() {
+			user.waitForCheckConnection().then(function() {
+				return carrier.list({
+					accountId: user.account.id
+				});
+			}).then(function(carriers) {
+				console.log('carriers', carriers);
+				ctrl.carriers = carriers;
+			}).catch(function(error) {
+				console.error('error', error);
+			});
 		};
 	}
 });

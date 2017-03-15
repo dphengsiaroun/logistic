@@ -1,7 +1,7 @@
 <section class="filter">
     <div class="qty-ad">
-        <!--<span ng-show="$ctrl.carrier.carriers.length > 1" ng-init="$ctrl.carrier.carriers">{{$ctrl.carrier.carriers.length}} annonces de transporteur</span>
-        <span ng-show="$ctrl.carrier.carriers.length <= 1" ng-init="$ctrl.carrier.carriers">{{$ctrl.carrier.carriers.length}} annonce de transporteur</span>-->
+        <!--<span ng-show="$ctrl.carriers.length > 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonces de transporteur</span>
+        <span ng-show="$ctrl.carriers.length <= 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonce de transporteur</span>-->
     </div>
     <div>
         <i class="fa fa-filter" aria-hidden="true"></i>
@@ -10,7 +10,7 @@
 </section>
 <lg-hr>Transporteurs</lg-hr>
 <carrier-list>
-    <ad-block ng-repeat="ad in $ctrl.carrier.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
+    <ad-block ng-repeat="ad in $ctrl.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
         <header ng-show="ad.content.availability === 'specificTrip'">
             <title>{{ad.content.truck.name}}</title>
             <subtitle>

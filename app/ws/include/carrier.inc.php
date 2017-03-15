@@ -42,17 +42,22 @@ EOF;
 			return $carrier;
 		}
 
-		public static function listAll() {
+		public static function listAll($request) {
 			global $db, $cfg;
 			// On lance notre requête de vérification
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}carrier
 EOF;
+			debug('listAll', $request);
+			$array = array();
 
+			if (property_exists($request, 'accountId')) {
+				$sql .= ' WHERE account_id = :account_id';
+				$array['account_id'] = $request->accountId;
+			}
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-			)) === FALSE) {
+			if ($st->execute($array) === FALSE) {
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
 
