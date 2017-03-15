@@ -51,7 +51,7 @@ EOF;
 			debug('listAll', $request);
 			$array = array();
 
-			if (property_exists($request, 'accountId')) {
+			if (is_object($request) && property_exists($request, 'accountId')) {
 				$sql .= ' WHERE account_id = :account_id';
 				$array['account_id'] = $request->accountId;
 			}
