@@ -1,15 +1,6 @@
 <lg-title>Créer un compte</lg-title>
 <sign-form>
-	<div class="table">
-		<div class="row">
-			<div ng-click="$root.goto('./ws/oauth2/facebook.php')" class="cell">
-				<img class="cell-fb" src="img/facebook.svg" />
-			</div>
-			<div ng-click="$root.goto('./ws/oauth2/google.php')" class="cell">
-				<img class="cell-go" src="img/google-plus.svg" />
-			</div>
-		</div>
-	</div>
+	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
 	<form name="signupCtrl" ng-submit="$ctrl.user.signup();">
 		<input type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" />

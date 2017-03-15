@@ -153,6 +153,11 @@ app.component('imgSvg', {
 	}
 });
 
+var lgSocialLoginUrl = require('./tmpl/lg-social-login.html');
+app.component('lgSocialLogin', {
+	templateUrl: lgSocialLoginUrl
+});
+
 
 app.component('lgCreateButton', {
 	template: '<button ui-sref="{{$ctrl.state}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>',

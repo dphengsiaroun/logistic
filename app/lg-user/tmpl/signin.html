@@ -1,15 +1,6 @@
 <lg-title>S'identifier</lg-title>
 <sign-form>
-	<div class="table">
-		<div class="row">
-			<div ng-click="$root.goto('./ws/oauth2/facebook.php')" class="cell">
-				<img class="cell-fb" src="img/facebook.svg" />
-			</div>
-			<div ng-click="$root.goto('./ws/oauth2/google.php')" class="cell">
-				<img class="cell-go" src="img/google-plus.svg" />
-			</div>
-		</div>
-	</div>
+	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
 
 	<form name="signinCtrl">
