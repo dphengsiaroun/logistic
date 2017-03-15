@@ -82,9 +82,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 				return $q.reject(response);
 			}
 			service.error = undefined;
-			service.loaders = response.data.loaders;
-			service.loaderMap = makeMap(response.data.loaders);
-			return service.loaders;
+			return response.data.loaders;
 		}).catch(function(error) {
 			service.error = error;
 			return $q.reject(error);
@@ -93,7 +91,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 
 	service.get = function(id) {
 		if (service.loaders === undefined) {
-			return service.list().then(function() {
+			return service.list().then(function(loaders) {
+				service.loaders = loaders;
+				service.loaderMap = makeMap(loaders);
 				service.current = service.loaderMap[id];
 			});
 		}

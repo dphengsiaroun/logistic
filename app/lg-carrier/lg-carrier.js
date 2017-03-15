@@ -77,9 +77,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 				return $q.reject(response);
 			}
 			service.error = undefined;
-			service.carriers = response.data.carriers;
-			service.carrierMap = makeMap(response.data.carriers);
-			return service.carriers;
+			return response.data.carriers;
 		}).catch(function(error) {
 			service.error = error;
 			return $q.reject(error);
@@ -88,7 +86,9 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 
 	service.get = function(id) {
 		if (service.carriers === undefined) {
-			return this.list().then(function() {
+			return this.list().then(function(carriers) {
+				service.carriers = carriers;
+				service.carrierMap = makeMap(carriers);
 				service.current = service.carrierMap[id];
 			});
 		}

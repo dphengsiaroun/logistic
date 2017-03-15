@@ -56,28 +56,28 @@ app.component('lgMenu', {
 		console.log('LgMenuCtrl', arguments);
 		var ctrl = this;
 
-		ctrl.carriers = carrier.carriers;
-		ctrl.loaders = loader.loaders;
+		ctrl.myCarriers = [];
+		ctrl.myLoaders = [];
 		console.log('user', user);
 		ctrl.refreshNotifications = function() {
-			ctrl.carriers = [];
-			ctrl.loaders = [];
+			ctrl.myCarriers = [];
+			ctrl.myLoaders = [];
 			user.waitForCheckConnection().then(function() {
-				return $timeout(function() { }, 3000);
+				return $timeout(function() { }, 1000);
 			}).then(function(carriers) {
 				return carrier.list({
 					accountId: user.account.id
 				});
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
-				ctrl.carriers = carriers;
+				ctrl.myCarriers = carriers;
 			}).then(function() {
 				return loader.list({
 					accountId: user.account.id
 				});
 			}).then(function(loaders) {
 				console.log('loaders', loaders);
-				ctrl.loaders = loaders;
+				ctrl.myLoaders = loaders;
 			}).catch(function(error) {
 				console.error('error', error);
 			});
