@@ -14,6 +14,11 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/loader/{id}',
         component: 'lgLoaderRetrieveRoute'
     });
+	 $stateProvider.state({
+        name: 'loader:proposal',
+        url: '/loader-proposal',
+        component: 'lgLoaderProposalRoute'
+    });
     $stateProvider.state({
         name: 'loader:create',
         url: '/create-loader',
@@ -207,6 +212,7 @@ var loaderCreateUrl = require('./tmpl/loader-create.html');
 var loaderListUrl = require('./tmpl/loader-list.html');
 var loaderDetailUrl = require('./tmpl/loader-detail.html');
 var loaderUpdateUrl = require('./tmpl/loader-update.html');
+var loaderProposalUrl = require('./tmpl/loader-create-proposal.html');
 
 app.component('lgLoaderCreateRoute', {
     templateUrl: loaderCreateUrl,
@@ -226,4 +232,9 @@ app.component('lgLoaderRetrieveRoute', {
 app.component('lgLoaderUpdateRoute', {
     templateUrl: loaderUpdateUrl,
     controller: 'LoaderUpdateCtrl',
+});
+
+app.component('lgLoaderProposalRoute', {
+    templateUrl: loaderProposalUrl,
+    controller: 'LoaderCtrl',
 });

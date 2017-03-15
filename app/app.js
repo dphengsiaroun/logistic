@@ -29,6 +29,7 @@ var lgMenu = require('./lg-menu/lg-menu.js');
 var lgCarrier = require('./lg-carrier/lg-carrier.js');
 var lgTruck = require('./lg-truck/lg-truck.js');
 var lgLoader = require('./lg-loader/lg-loader.js');
+var lgProposal = require('./lg-proposal/lg-proposal.js');
 var lgUser = require('./lg-user/lg-user.js');
 var lgChoice = require('./lg-choice/lg-choice.js');
 var lgCalendar = require('./lg-calendar/lg-calendar.js');
@@ -65,6 +66,7 @@ var app = angular.module('mainApp', [
 	lgCarrier,
 	lgLoader,
 	lgTruck,
+	lgProposal,
 	lgChoice,
 	lgCalendar,
 	lgDatetime,
