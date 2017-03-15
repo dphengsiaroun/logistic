@@ -78,6 +78,10 @@ function create_dirs($path) {
 
 if (file_exists('dist.zip')) {
     unzip('dist.zip', './', false, true);
+	$index = file_get_contents('./index.html');
+	$baseUrl = dirname($_SERVER['SCRIPT_NAME']) . '/';
+	$modified = preg_replace('/\/dist\//', $baseUrl, $index);
+	file_put_contents('./index.html', $modified);
 	unlink('./dist.zip');
 	unlink('./unzip.php');
     echo 'Successfully unzipped.';

@@ -1,3 +1,4 @@
+// gulp deploy --target=jlgc2
 var yargs = require('yargs');
 
 var utils = {};
