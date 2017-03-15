@@ -81,7 +81,7 @@ app.config(['$stateProvider', function($stateProvider) {
     });
 }]);
 
-app.controller('CarrierListCtrl', function CarrierCtrl(carrier) {
+app.controller('CarrierListCtrl', function CarrierListCtrl(carrier) {
 	'ngInject';
 	var ctrl = this;
     ctrl.carrier = carrier;
