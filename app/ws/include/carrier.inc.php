@@ -60,7 +60,7 @@ EOF;
 
 			while ($array = $st->fetch()) {
 				$array['content'] = json_decode($array['content']);
-				$result[$array['id']] = $array;
+				$result[] = $array;
 			}
 			return $result;
 		}

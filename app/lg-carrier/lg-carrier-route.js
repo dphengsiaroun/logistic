@@ -86,7 +86,12 @@ app.controller('CarrierListCtrl', function CarrierCtrl(carrier) {
 	var ctrl = this;
     ctrl.carrier = carrier;
     ctrl.$onInit = function() {
-        carrier.list();
+        carrier.list().then(function(carriers) {
+			console.log('carriers', carriers);
+			ctrl.carriers = carriers;
+		}).catch(function(error) {
+			console.error('error', error);
+		});
     };
 });
 

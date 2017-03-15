@@ -74,15 +74,13 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
 				service.error = response;
-				return;
+				return $q.reject(response);
 			}
 			service.error = undefined;
-			service.carrierMap = response.data.carriers;
-			console.log('service.carrierMap', service.carrierMap);
-			service.carriers = values(service.carrierMap);
-			console.log('service.carriers', service.carriers);
+			return response.data.carriers;
 		}).catch(function(error) {
 			service.error = error;
+			return $q.reject(error);
 		});
 	};
 
