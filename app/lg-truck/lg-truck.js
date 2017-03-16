@@ -51,7 +51,6 @@ app.service('truck', function Truck($q, $http, $state, user) {
             service.initCreateData();
             $state.go('user:hasAccount');
         }
-
     };
 
     service.createAfterConnect = function() {

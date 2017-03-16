@@ -147,19 +147,6 @@ app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $injector, $s
     var ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
-    // ctrl.$onInit = function() {
-    //     ctrl.truck.get($stateParams.id);
-    //     $scope.$watch('$ctrl.truck.current', function() {
-    //         if (ctrl.truck.current === undefined) {
-    //             return;
-    //         }
-    //         console.log('ctrl.truck.current', ctrl.truck.current);
-    //         angular.copy(ctrl.truck.current, ctrl.truck.updateData);
-    //         ctrl.truck.updateData.oldId = $stateParams.id;
-    //         console.log('ctrl.truck.updateData', ctrl.truck.updateData);
-    //         console.log('ctrl.truck.updateData.image', ctrl.truck.updateData.image);
-    //     });
-    // };
 
     ctrl.$onInit = function() {
         ctrl.truck.get($stateParams.id).then(function() {

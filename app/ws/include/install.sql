@@ -35,6 +35,13 @@ CREATE TABLE `<?php echo $context->prefix; ?>loader` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `<?php echo $context->prefix; ?>proposal` (
+  `id` INT(16) UNSIGNED NOT NULL,
+  `content` longtext NOT NULL,
+  `account_id` int(16) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `<?php echo $context->prefix; ?>geoloc` (
   `id` INT(16) UNSIGNED NOT NULL,
   `type` VARCHAR(255) NOT NULL ,

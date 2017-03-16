@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('lg-loader');
+var app = angular.module('lg-proposal');
 
 app.config(['$stateProvider', function($stateProvider) {
 
@@ -29,48 +29,47 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('ProposalCreateCtrl', function ProposalCreateCtrl(
-    $scope, $element, $http, $q, $window, $filter, loader, user, geoloc) {
+app.controller('ProposalListCtrl', ['$scope', '$injector', function ProposalCtrl($scope, $injector) {
+    this.proposal = $injector.get('proposal');
+    this.user = $injector.get('user');
+    this.$onInit = function() {
+        this.proposal.list();
+    };
+}]);
+
+app.controller('ProposalCtrl', function ProposalCtrl($stateParams, proposal, user) {
     'ngInject';
     var ctrl = this;
-    ctrl.loader = loader;
-    $window.scrollTo(0, 0);
-    $scope.$watchGroup(['$ctrl.loader.createData.dimension.height', '$ctrl.loader.createData.dimension.depth',
-        '$ctrl.loader.createData.dimension.width'
-    ], function() {
-        if (ctrl.loader.createData.dimension === undefined) {
-            return;
-        }
-        ctrl.loader.createData.volume = ctrl.loader.createData.dimension.height *
-            ctrl.loader.createData.dimension.depth * ctrl.loader.createData.dimension.width;
-        ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
-        console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
-    });
-
-    geoloc.updateInfoRoute($scope, '$ctrl.loader.createData');
-
-    ctrl.editDimension = function() {
-        console.log('editDimension', arguments);
-        var dimensionElt = $element.find('lg-dimension');
-        console.log('dimensionElt', dimensionElt);
-        var dimensionCtrl = dimensionElt.controller('lgDimension');
-        console.log('dimensionCtrl', dimensionCtrl);
-        dimensionCtrl.start();
+    ctrl.proposal = proposal;
+    ctrl.user = user;
+    ctrl.$onInit = function() {
+        ctrl.proposal.get($stateParams.id);
     };
+});
 
-    $scope.$watchGroup(['$ctrl.loader.createData.departureDatetime', '$ctrl.loader.createData.arrivalDatetime'],
-        function() {
-            console.log('$ctrl.loader.createData.infoDuration update');
-            if (!(ctrl.loader.createData.departureDatetime && ctrl.loader.createData.arrivalDatetime)) {
-                ctrl.loader.createData.infoDuration = '';
-                return;
-            }
-            ctrl.loader.createData.infoDuration = 'Durée effective : <b>' +
-                $filter('duration')((ctrl.loader.createData.arrivalDatetime -
-                    ctrl.loader.createData.departureDatetime) / 1000) +
-                '</b>';
-        }
-    );
+app.controller('ProposalCreateCtrl', function ProposalCtrl($scope, $injector) {
+    'ngInject';
+    this.proposal = $injector.get('proposal');
+    this.user = $injector.get('user');
+});
+
+app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $injector, $stateParams, proposal, user) {
+    'ngInject';
+    var ctrl = this;
+    ctrl.proposal = proposal;
+    ctrl.user = user;
+
+    ctrl.$onInit = function() {
+        ctrl.proposal.get($stateParams.id).then(function() {
+            return ctrl.user.waitForCheckConnection('ProposalUpdateCtrl');
+        }).then(function() {
+            ctrl.proposal.updateData = angular.copy(ctrl.proposal.current);
+            ctrl.proposal.updateData.oldId = $stateParams.id;
+            console.log('ctrl.proposal.updateData', ctrl.proposal.updateData);
+        }).catch(function() {
+            console.error('you should not see this');
+        });
+    };
 });
 
 var proposalCreateUrl = require('./tmpl/proposal-create.html');

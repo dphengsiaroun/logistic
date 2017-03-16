@@ -1,0 +1,28 @@
+<div class="ad-title">
+	<left>
+		<img-svg src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Transporteur</title>
+		<subtitle>Faire une proposition</subtitle>
+	</right>
+</div>
+<formx class="ad" name="carrier">
+	<section>
+		<label>Nom</label>
+		<input type="text" placeholder="Nom" ng-model="$ctrl.carrier.createData.title" />
+		<label>Email</label>
+		<input type="text" placeholder="Email" ng-model="$ctrl.carrier.createData.title" />
+		<label>Titre de l'annonce</label>
+		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.carrier.current.content.truck.name" />
+		<label>Message</label>
+		<textarea ng-model="$ctrl.carrier.createData.comments"></textarea>
+	</section>
+</formx>
+<formx class="ad">
+	<section class="dark">
+		<button ui-sref="user:signin">Envoyez votre proposition</button>
+	</section>
+</formx>
+
+
