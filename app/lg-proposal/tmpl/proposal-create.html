@@ -1,9 +1,8 @@
 <div class="ad-title">
 	<left>
-		<img-svg src="/img/frontal-truck.svg"></img-svg>
+		<i class="fa fa-tag" aria-hidden="true"></i>
 	</left>
 	<right>
-		<title>Transporteur</title>
 		<subtitle>Faire une proposition</subtitle>
 	</right>
 </div>
@@ -13,10 +12,8 @@
 		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" />
 		<label>Email</label>
 		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.createData.email" />
-		<label>Téléphone</label>
-		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.createData.phone" />
 		<label>Titre de l'annonce</label>
-		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.title_ad" />
+		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" />
 		<label>Message</label>
 		<textarea ng-model="$ctrl.proposal.createData.message"></textarea>
 	</section>
@@ -24,7 +21,7 @@
 <formx class="ad">
 	<section class="dark">
 		<lg-error error="$ctrl.proposal.error"></lg-error>
-		<button ui-sref="$ctrl.proposal.create();">Envoyez votre proposition</button>
+		<button ng-click="$ctrl.proposal.create();">Envoyez votre proposition</button>
 	</section>
 </formx>
 

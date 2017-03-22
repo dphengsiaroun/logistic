@@ -29,42 +29,59 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('ProposalListCtrl', ['$scope', '$injector', function ProposalCtrl($scope, $injector) {
-    this.proposal = $injector.get('proposal');
-    this.user = $injector.get('user');
-    this.$onInit = function() {
-        this.proposal.list();
-    };
-}]);
-
-app.controller('ProposalCtrl', function ProposalCtrl($stateParams, proposal, user) {
-    'ngInject';
-    var ctrl = this;
+app.controller('ProposalListCtrl', function ProposalListCtrl(proposal) {
+	'ngInject';
+	var ctrl = this;
     ctrl.proposal = proposal;
-    ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.proposal.get($stateParams.id);
+        proposal.list().then(function(proposals) {
+			console.log('proposals', proposals);
+			ctrl.proposals = proposals;
+		}).catch(function(error) {
+			console.error('error', error);
+		});
     };
 });
 
-app.controller('ProposalCreateCtrl', function ProposalCtrl($scope, $injector) {
-    'ngInject';
-    this.proposal = $injector.get('proposal');
-    this.user = $injector.get('user');
-});
-
-app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $injector, $stateParams, proposal, user) {
-    'ngInject';
+app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, proposal, user) {
+	'ngInject';
     var ctrl = this;
     ctrl.proposal = proposal;
     ctrl.user = user;
-
+    ctrl.isEditable = false;
+    console.log('ctrl.proposal', ctrl.proposal);
+    console.log('$stateParams', $stateParams);
     ctrl.$onInit = function() {
         ctrl.proposal.get($stateParams.id).then(function() {
+            return ctrl.user.waitForCheckConnection('ProposalCtrl');
+        }).then(function() {
+            ctrl.isEditable = (ctrl.proposal.current.content.accountId === ctrl.user.account.id);
+            console.log('ctrl.isEditable', ctrl.isEditable);
+        }).catch(function() {
+            ctrl.isEditable = false;
+            console.log('ctrl.isEditable', ctrl.isEditable);
+        });
+    };
+});
+
+app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, proposal, user) {
+    'ngInject';
+    var ctrl = this;
+    ctrl.proposal = proposal;
+    $window.scrollTo(0, 0);
+});
+
+app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, proposal, user, $stateParams) {
+    'ngInject';
+    var ctrl = this;
+    ctrl.proposal = proposal;
+    ctrl.user = user;
+    this.$onInit = function() {
+        this.proposal.get($stateParams.id).then(function() {
             return ctrl.user.waitForCheckConnection('ProposalUpdateCtrl');
         }).then(function() {
-            ctrl.proposal.updateData = angular.copy(ctrl.proposal.current);
-            ctrl.proposal.updateData.oldId = $stateParams.id;
+            ctrl.proposal.updateData = angular.copy(ctrl.proposal.current.content);
+            ctrl.proposal.updateData.id = $stateParams.id;
             console.log('ctrl.proposal.updateData', ctrl.proposal.updateData);
         }).catch(function() {
             console.error('you should not see this');
@@ -73,9 +90,26 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $inject
 });
 
 var proposalCreateUrl = require('./tmpl/proposal-create.html');
-
+// var proposalListUrl = require('./tmpl/proposal-list.html');
+// var proposalDetailUrl = require('./tmpl/proposal-detail.html');
+// var proposalUpdateUrl = require('./tmpl/proposal-update.html');
 
 app.component('lgProposalCreateRoute', {
     templateUrl: proposalCreateUrl,
     controller: 'ProposalCreateCtrl',
 });
+
+// app.component('lgProposalListRoute', {
+//     templateUrl: proposalListUrl,
+//     controller: 'ProposalListCtrl',
+// });
+
+// app.component('lgProposalRetrieveRoute', {
+//     templateUrl: proposalDetailUrl,
+//     controller: 'ProposalCtrl',
+// });
+
+// app.component('lgProposalUpdateRoute', {
+//     templateUrl: proposalUpdateUrl,
+//     controller: 'ProposalUpdateCtrl',
+// });

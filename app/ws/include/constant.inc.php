@@ -59,5 +59,5 @@
 	define('ERROR_CANNOT_GET_ROUTE_CODE', 11);
 	define('ERROR_CANNOT_GET_ROUTE_MSG', 'Cannot get route. External API not working');
 
-	define('ERROR_MISSING_PROPOSAL_NAME_CODE', 10);
+	define('ERROR_MISSING_PROPOSAL_NAME_CODE', 12);
 	define('ERROR_MISSING_PROPOSAL_NAME_MSG', 'Missing proposal name.');

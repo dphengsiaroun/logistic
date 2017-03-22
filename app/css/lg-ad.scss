@@ -11,6 +11,7 @@
         padding: 0px;
         margin: 0px;
         font-size: 0px;
+        text-align: center;
         vertical-align: middle;
         svg {
             width: 55px;
@@ -20,6 +21,11 @@
             left: 25px;
             padding: 0px;
             margin: 0px 39px 0px 0px;
+        }
+        .fa {
+            color: #223c5d;
+            text-align: center;
+            font-size: 50px;
         }
     }
     right {
