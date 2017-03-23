@@ -73,14 +73,14 @@ app.component('lgMenu', {
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
 				ctrl.myCarriers = carriers;
-			}).then(function() {
+			}).then(function(loaders) {
 				return loader.list({
 					accountId: user.account.id
 				});
 			}).then(function(loaders) {
 				console.log('loaders', loaders);
 				ctrl.myLoaders = loaders;
-			}).then(function() {
+			}).then(function(proposals) {
 				return proposal.list({
 					accountId: user.account.id
 				});

@@ -1,269 +1,268 @@
 @import '../css/color';
 .ad-title {
-    display: table;
-    width: 100%;
-    padding: 10px 0px;
-    background-color: $secondaryColor;
-    border-bottom: 1px solid $darkBorderColor;
-    left {
-        display: table-cell;
-        width: 100px;
-        padding: 0px;
-        margin: 0px;
-        font-size: 0px;
-        text-align: center;
-        vertical-align: middle;
-        svg {
-            width: 55px;
-            height: 55px;
-            position: relative;
-            top: 0px;
-            left: 25px;
-            padding: 0px;
-            margin: 0px 39px 0px 0px;
-        }
-        .fa {
-            color: #223c5d;
-            text-align: center;
-            font-size: 50px;
-        }
-    }
-    right {
-        display: table-cell;
-        height: 10px;
-        width: 200px;
-        vertical-align: middle;
-        title {
-            display: block;
-            text-align: center;
-            font-weight: bold;
-            font-size: 27px;
-        }
-        subtitle {
-            font-weight: bold;
-            font-size: 17px;
-            padding: 0px 0px;
-        }
-    }
-    hr {
-        border-color: $darkBorderColor;
-        border-style: solid;
-        border-top: none;
-    }
+	display: table;
+	width: 100%;
+	padding: 10px 0px;
+	background-color: $secondaryColor;
+	border-bottom: 1px solid $darkBorderColor;
+	left {
+		display: table-cell;
+		width: 100px;
+		padding: 0px;
+		margin: 0px;
+		font-size: 0px;
+		text-align: center;
+		vertical-align: middle;
+		svg {
+			width: 55px;
+			height: 55px;
+			position: relative;
+			top: 0px;
+			left: 25px;
+			padding: 0px;
+			margin: 0px 39px 0px 0px;
+		}
+		.fa {
+			color: #223c5d;
+			text-align: center;
+			font-size: 50px;
+		}
+	}
+	right {
+		display: table-cell;
+		height: 10px;
+		width: 200px;
+		vertical-align: middle;
+		title {
+			display: block;
+			text-align: center;
+			font-weight: bold;
+			font-size: 27px;
+		}
+		subtitle {
+			font-weight: bold;
+			font-size: 17px;
+			padding: 0px 0px;
+		}
+	}
+	hr {
+		border-color: $darkBorderColor;
+		border-style: solid;
+		border-top: none;
+	}
 }
 
 .ad {
-    padding: 0px;
-    margin: 0px;
-    section {
-        padding: 10px 5px;
-        margin: 0px;
-        border-bottom: 1px solid $darkBorderColor;
-        big-label {
-            display: block;
-            font-weight: bold;
-            font-size: 25px;
-            text-align: center;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        price-per-km {
-            font-weight: bold;
-        }
-        dimension {
-            display: table;
-            width: 100%;
-            margin: 0px;
-            padding: 0px;
-            div {
-                display: table-cell;
-                width: 30%;
-                text-align: center;
-                p {
-                    font-size: 17px;
-                    font-weight: normal;
-                }
-            }
-            div.box {
-                svg {
-                    width: 70px;
-                }
-            }
-            div.truck {
-                svg {
-                    position: relative;
-                    top: 0px;
-                    left: 0px;
-                    width: 90px;
-                }
-            }
-            div.truck.height {
-                svg {
-                    left: 4px;
-                }
-            }
-            div.truck.depth {
-                svg {
-                    left: 4px;
-                }
-            }
-        }
-    }
-    section.dark {
-        background-color: $backgroundDarkColor;
-    }
+	padding: 0px;
+	margin: 0px;
+	section {
+		padding: 10px 5px;
+		margin: 0px;
+		border-bottom: 1px solid $darkBorderColor;
+		big-label {
+			display: block;
+			font-weight: bold;
+			font-size: 25px;
+			text-align: center;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		price-per-km {
+			font-weight: bold;
+		}
+		dimension {
+			display: table;
+			width: 100%;
+			margin: 0px;
+			padding: 0px;
+			div {
+				display: table-cell;
+				width: 30%;
+				text-align: center;
+				p {
+					font-size: 17px;
+					font-weight: normal;
+				}
+			}
+			div.box {
+				svg {
+					width: 70px;
+				}
+			}
+			div.truck {
+				svg {
+					position: relative;
+					top: 0px;
+					left: 0px;
+					width: 90px;
+				}
+			}
+			div.truck.height {
+				svg {
+					left: 4px;
+				}
+			}
+			div.truck.depth {
+				svg {
+					left: 4px;
+				}
+			}
+		}
+	}
+	section.dark {
+		background-color: $backgroundDarkColor;
+	}
 }
 
 .filter {
-    display: block;
-    width: 100%;
-    background-color: $secondaryColor;
-    padding: 15px 10px;
-    text-align: center;
-    .qty-ad {
-        display: inline-block;
-        width: 69%;
-        text-align: left;
-        vertical-align: top;
-        span {
-            font-size: 13px;
-            font-weight: bold;
-        }
-    }
-    div {
-        display: inline-block;
-        width: 29%;
-        text-align: right;
-        i {
-            font-size: 22px;
-            margin: 0px 0px 0px 20px;
-            // color: $lightGreen;
-        }
-    }
+	display: block;
+	width: 100%;
+	background-color: $secondaryColor;
+	padding: 15px 10px;
+	text-align: center;
+	.qty-ad {
+		display: inline-block;
+		width: 69%;
+		text-align: left;
+		vertical-align: top;
+		span {
+			font-size: 13px;
+			font-weight: bold;
+		}
+	}
+	div {
+		display: inline-block;
+		width: 29%;
+		text-align: right;
+		i {
+			font-size: 22px;
+			margin: 0px 0px 0px 20px; // color: $lightGreen;
+		}
+	}
 }
 
 img-ad {
-    width: 100%;
-    font-size: 0px;
-    margin: 0px;
-    img {
-        width: 100%;
-    }
+	width: 100%;
+	font-size: 0px;
+	margin: 0px;
+	img {
+		width: 100%;
+	}
 }
 
 recap {
-    display: block;
-    width: 100%;
-    padding: 15px 10px;
-    background-color: $veryLightGray;
-    h1 {
-        font-size: 25px;
-        text-align: left;
-    }
-    h2 {
-        margin: 20px 0px;
-        font-size: 21px;
-        text-align: center;
-    }
-    div {
-        text-align: center;
-    }
-    info {
-        margin: 10px 0px;
-        p {
-            font-size: 12px;
-            color: $gray;
-        }
-    }
-    iframe {
-        margin: 10px 0px 0px;
-    }
-    img {
-        width: 100%;
-        margin: 10px 0px;
-    }
-    origin {
-        city {
-            font-size: 14px;
-            font-weight: bold;
-        }
-        region {
-            font-size: 13px;
-            color: $gray;
-        }
-    }
-    description {
-        text-align: left;
-        h3 {
-            text-align: left;
-            margin: 10px 0;
-            font-size: 17px;
-        }
-        a {
-            display: block;
-            text-align: center;
-        }
-        p {
-            font-size: 15px;
-            margin: 10px 0px;
-        }
-        table {
-            width: 100%;
-            max-width: 100%;
-            margin: 10px 0px;
-            border-collapse: collapse;
-            tbody {
-                tr {
-                    border: 1px solid $borderColor;
-                    border-left: none;
-                    border-right: none;
-                    td,
-                    th {
-                        padding: 10px;
-                        vertical-align: middle;
-                        background-color: white;
-                        font-size: 15px;
-                    }
-                    th {
-                        text-align: left;
-                    }
-                    td {
-                        text-align: right;
-                        region {
-                            font-size: 13px;
-                            color: $selectedColor;
-                        }
-                    }
-                }
-            }
-        }
-    }
+	display: block;
+	width: 100%;
+	padding: 15px 10px;
+	background-color: $veryLightGray;
+	h1 {
+		font-size: 25px;
+		text-align: left;
+	}
+	h2 {
+		margin: 20px 0px;
+		font-size: 21px;
+		text-align: center;
+	}
+	div {
+		text-align: center;
+	}
+	info {
+		margin: 10px 0px;
+		p {
+			font-size: 12px;
+			color: $gray;
+		}
+	}
+	iframe {
+		margin: 10px 0px 0px;
+	}
+	img {
+		width: 100%;
+		margin: 10px 0px;
+	}
+	origin {
+		city {
+			font-size: 14px;
+			font-weight: bold;
+		}
+		region {
+			font-size: 13px;
+			color: $gray;
+		}
+	}
+	description {
+		text-align: left;
+		h3 {
+			text-align: left;
+			margin: 10px 0;
+			font-size: 17px;
+		}
+		a {
+			display: block;
+			text-align: center;
+		}
+		p {
+			font-size: 15px;
+			margin: 10px 0px;
+		}
+		table {
+			width: 100%;
+			max-width: 100%;
+			margin: 10px 0px;
+			border-collapse: collapse;
+			tbody {
+				tr {
+					border: 1px solid $borderColor;
+					border-left: none;
+					border-right: none;
+					td,
+					th {
+						padding: 10px;
+						vertical-align: middle;
+						background-color: white;
+						font-size: 15px;
+					}
+					th {
+						text-align: left;
+					}
+					td {
+						text-align: right;
+						region {
+							font-size: 13px;
+							color: $selectedColor;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 bottom {
-    display: table;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    button {
-        display: table-cell;
-        width: 50%;
-        margin: 0px;
-        padding: 5px;
-        vertical-align: top;
-        border-radius: 0px;
-    }
-    button:nth-child(2) {
-        background: $veryLightGreen;
-    }
+	display: table;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	button {
+		display: table-cell;
+		width: 50%;
+		margin: 0px;
+		padding: 5px;
+		vertical-align: top;
+		border-radius: 0px;
+	}
+	button:nth-child(2) {
+		background: $veryLightGreen;
+	}
 }
 
 lg-select.conditioning lg-option i.fa {
-    display: block;
-    font-size: 45px;
+	display: block;
+	font-size: 45px;
 }
 
 lg-select.conditioning svg {
-    width: 40px;
+	width: 40px;
 }

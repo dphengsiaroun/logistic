@@ -1,7 +1,8 @@
 <section class="filter">
     <div class="qty-ad">
+		<span ng-show="$ctrl.loaders.length === 0" ng-init="$ctrl.loaders">Aucune annonce de chargement</span>
         <span ng-show="$ctrl.loaders.length > 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonces de chargement</span>
-        <span ng-show="$ctrl.loaders.length <= 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonce de chargement</span>
+        <span ng-show="$ctrl.loaders.length === 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonce de chargement</span>
     </div>
     <div>
         <i class="fa fa-filter" aria-hidden="true"></i>
