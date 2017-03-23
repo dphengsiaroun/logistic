@@ -86,6 +86,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 
 	service.get = function(id) {
 		if (service.carriers === undefined) {
+			console.log('service.carriers', service.carriers);
 			return this.list().then(function(carriers) {
 				service.carriers = carriers;
 				service.carrierMap = makeMap(carriers);

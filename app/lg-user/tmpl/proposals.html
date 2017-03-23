@@ -1,0 +1,19 @@
+<div class="ad-title">
+	<left>
+		<i class="fa fa-tag" aria-hidden="true"></i>
+	</left>
+	<right>
+		<subtitle>Mes propositions</subtitle>
+	</right>
+</div>
+
+<loader-list>
+    <ad-block ng-repeat="ad in $ctrl.proposals" ng-click="$root.goToState('proposal:retrieve({ id: '+ ad.id +'})')">
+        <header>
+            <title>{{ad.content.titleAd}}</title>
+            <subtitle>
+                <created>Envoyé le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
+            </subtitle>
+        </header>
+    </ad-block>
+</loader-list>

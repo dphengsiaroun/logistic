@@ -23,7 +23,11 @@
 		<a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a>
 	</div>
 	<div ng-show="$ctrl.user.account">
-		<a ng-click="$ctrl.toggle();" href=""><i class="fa fa-tag" aria-hidden="true"></i><span class="notification">2</span><p>Mes propositions</p></a>
+		<a ng-click="$ctrl.toggle();" ui-sref="user:proposals({login: $ctrl.user.account.content.login})">
+			<i class="fa fa-tag" aria-hidden="true"></i>
+			<span class="notification">{{$ctrl.myProposals.length}}</span>
+			<p>Mes propositions</p>
+		</a>
 		<a ng-click="$ctrl.toggle();" href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="notification">1</span><p>Mes engagements</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.user.account.content.login})">
 			<i class="fa fa-bullhorn" aria-hidden="true"></i>

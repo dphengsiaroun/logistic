@@ -48,16 +48,18 @@ app.run(function($transitions, $rootScope, carrier) {
 // permet de récuperer les valeurs en post sous format json
 app.component('lgMenu', {
 	templateUrl: lgMenuUrl,
-	controller: function LgMenuCtrl($element, $scope, $state, $rootScope, $timeout, user, carrier, loader) {
+	controller: function LgMenuCtrl($element, $scope, $state, $rootScope, $timeout, user, carrier, loader, proposal) {
 		'ngInject';
 		this.user = user;
 		this.carrier = carrier;
 		this.loader = loader;
+		this.proposal = proposal;
 		console.log('LgMenuCtrl', arguments);
 		var ctrl = this;
 
 		ctrl.myCarriers = [];
 		ctrl.myLoaders = [];
+		ctrl.myProposals = [];
 		console.log('user', user);
 		ctrl.refreshNotifications = function() {
 			ctrl.myCarriers = [];
@@ -78,6 +80,13 @@ app.component('lgMenu', {
 			}).then(function(loaders) {
 				console.log('loaders', loaders);
 				ctrl.myLoaders = loaders;
+			}).then(function() {
+				return proposal.list({
+					accountId: user.account.id
+				});
+			}).then(function(proposals) {
+				console.log('proposals', proposals);
+				ctrl.myProposals = proposals;
 			}).catch(function(error) {
 				console.error('error', error);
 			});

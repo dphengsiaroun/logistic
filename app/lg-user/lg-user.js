@@ -6,6 +6,7 @@ module.exports = 'lg-user';
 var app = angular.module(module.exports, []);
 require('./lg-user-route.js');
 require('./ctrl/ads.js');
+require('./ctrl/proposals.js');
 
 
 var makeUrl = function(str) {
