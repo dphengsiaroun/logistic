@@ -30,7 +30,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 				url: 'ws/loader/create.php',
 				method: 'POST',
 				data: createData,
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === 'ko') {
@@ -65,8 +67,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		service.create();
 	};
 
-	service.listData = {
-	};
+	service.listData = {};
 
 	service.list = function(data) {
 		console.log('loader->list');
@@ -74,7 +75,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			url: 'ws/loader/list.php',
 			method: 'POST',
 			data: data,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
@@ -90,13 +93,11 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	};
 
 	service.get = function(id) {
-		if (service.loaders === undefined) {
-			return service.list().then(function(loaders) {
-				service.loaders = loaders;
-				service.loaderMap = makeMap(loaders);
-				service.current = service.loaderMap[id];
-			});
-		}
+		return service.list().then(function(loaders) {
+			service.loaders = loaders;
+			service.loaderMap = makeMap(loaders);
+			service.current = service.loaderMap[id];
+		});
 		service.current = service.loaderMap[id];
 		return $q.resolve();
 	};
@@ -109,7 +110,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			url: 'ws/loader/update.php',
 			method: 'POST',
 			data: service.updateData,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
@@ -134,7 +137,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 			data: {
 				id: id
 			},
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
@@ -148,4 +153,3 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	};
 
 });
-
