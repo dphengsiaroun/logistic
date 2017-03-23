@@ -38,7 +38,8 @@ CREATE TABLE `<?php echo $context->prefix; ?>loader` (
 CREATE TABLE `<?php echo $context->prefix; ?>proposal` (
   `id` INT(16) UNSIGNED NOT NULL,
   `content` longtext NOT NULL,
-  `account_id` int(16) NOT NULL,
+  `proposal_account_id` int(16) NOT NULL,
+  `ad_id` int(16) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
