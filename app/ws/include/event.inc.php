@@ -5,6 +5,7 @@
 	require_once(BASE_DIR . '/include/event/EventLoader.php');
 	require_once(BASE_DIR . '/include/event/EventCarrier.php');
 	require_once(BASE_DIR . '/include/event/EventGeoloc.php');
+	require_once(BASE_DIR . '/include/event/EventProposal.php');
 
 	class Event {
 
@@ -114,6 +115,9 @@ EOF;
 					break;
 				case '/geoloc/route':
 					EventGeoloc::insertRoute($this);
+					break;
+				case '/proposal/create':
+					EventProposal::create($this);
 					break;
 			}
 
