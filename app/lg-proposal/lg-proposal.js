@@ -16,7 +16,6 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 			email: 'email@email.com',
 			titleAd: 'Chargement de 10 voitures',
 			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
-			created_p: new Date().getTime()
 		};
 	};
 	service.initCreateData();

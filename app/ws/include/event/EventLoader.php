@@ -4,7 +4,7 @@
 
         public static function create($e) {
             global $db, $cfg;
-
+			debug('$e', $e);
 			$sql = <<<EOF
 INSERT INTO {$cfg->prefix}loader (id, account_id, content) VALUES
 	(:id, :account_id, :content);

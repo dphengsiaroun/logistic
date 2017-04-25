@@ -37,7 +37,7 @@ EOF;
 			$array = $st->fetch();
 			$proposal = new Proposal();
 			$proposal->id = $array['id'];
-			$proposal->accountId = $array['account_id'];
+			$proposal->accountId = $array['ad_account_id'];
 			$proposal->content = json_decode($array['content']);
 			debug('Proposal retrieved.');
 			return $proposal;

@@ -6,7 +6,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
     $stateProvider.state({
         name: 'proposal:create',
-        url: '/create-proposal',
+        url: '/create-proposal/{id}',
         component: 'lgProposalCreateRoute'
     });
     $stateProvider.state({
@@ -64,11 +64,21 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, propo
     };
 });
 
-app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, proposal, user) {
+app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, proposal, user, loader) {
     'ngInject';
     var ctrl = this;
     ctrl.proposal = proposal;
+	ctrl.loader = loader;
+	ctrl.user = user;
     $window.scrollTo(0, 0);
+	this.$onInit = function() {
+		ctrl.proposal.createData.proposalAccountId = ctrl.user.account.id;
+		ctrl.proposal.createData.adId = ctrl.loader.current.id;
+		ctrl.proposal.createData.titleAd = ctrl.loader.current.content.title;
+		ctrl.proposal.createData.adAccountId = ctrl.loader.current.content.accountId;
+		ctrl.proposal.createData.adType = 'loader';
+		console.log('ctrl.proposal.createData', ctrl.proposal.createData);
+    };
 });
 
 app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, proposal, user, $stateParams) {
@@ -77,7 +87,7 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, proposa
     ctrl.proposal = proposal;
     ctrl.user = user;
     this.$onInit = function() {
-        this.proposal.get($stateParams.id).then(function() {
+        ctrl.proposal.get($stateParams.id).then(function() {
             return ctrl.user.waitForCheckConnection('ProposalUpdateCtrl');
         }).then(function() {
             ctrl.proposal.updateData = angular.copy(ctrl.proposal.current.content);

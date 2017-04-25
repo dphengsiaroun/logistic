@@ -40,6 +40,8 @@ CREATE TABLE `<?php echo $context->prefix; ?>proposal` (
   `content` longtext NOT NULL,
   `proposal_account_id` int(16) NOT NULL,
   `ad_id` int(16) NOT NULL,
+  `ad_account_id` int(16) NOT NULL,
+  `ad_type` VARCHAR(40) NOT NULL ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

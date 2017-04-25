@@ -18,6 +18,7 @@ app.filter('message', function() {
 			'8': 'Code de réactivation non valide.',
 			'9': 'Code de réactivation expiré.',
 			'10': 'Le nom du camion est vide.',
+			'12': 'Erreur proposition.',
 		};
 		if (error === undefined) {
 			return '';
