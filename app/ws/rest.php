@@ -62,7 +62,7 @@
 		// } elseif ($method == 'PATCH') {
 
 		if ($method == 'DELETE') {
-			$class::delete();
+			$class::delete($id);
 			return;
 		}
 	}

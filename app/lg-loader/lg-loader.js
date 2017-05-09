@@ -132,14 +132,8 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	service.delete = function(id) {
 		console.log('loader->delete');
 		return $http({
-			url: 'ws/loader/delete.php',
-			method: 'POST',
-			data: {
-				id: id
-			},
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
+			url: 'ws/loaders/' + id,
+			method: 'DELETE'
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
