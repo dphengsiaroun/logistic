@@ -79,14 +79,16 @@ EOF;
 		public static function delete($id) {
 			$request = new stdClass();
 			$request->id = $id;
-
 			$account = Account::getConnected();
 			$request->accountId = $account->id;
 			$e = Event::insert('/loader/delete', $request);
 			Event::synchronize();
 		}
 
-		public static function update($account, $request) {
+		public static function update($id) {
+			$request = getRequest();
+			$request->id = $id;
+			$account = Account::getConnected();
 			$request->accountId = $account->id;
 			$e = Event::insert('/loader/update', $request);
 			Event::synchronize();

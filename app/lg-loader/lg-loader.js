@@ -107,8 +107,8 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	service.update = function() {
 		console.log('updateLoader->update', service.updateData);
 		$http({
-			url: 'ws/loader/update.php',
-			method: 'POST',
+			url: 'ws/loaders/' + service.updateData.id,
+			method: 'PUT',
 			data: service.updateData,
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
