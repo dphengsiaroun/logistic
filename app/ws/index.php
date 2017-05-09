@@ -5,8 +5,14 @@
 	require_once(BASE_DIR . '/include/misc.inc.php');
 	require_once(BASE_DIR . '/include/database.inc.php');
 
-	require_once(BASE_DIR . '/include/carrier.inc.php');
-	require_once(BASE_DIR . '/include/loader.inc.php');
+	$objects = array(
+		'carrier',
+		'loader'
+	);
+
+	foreach ($objects as $class) {
+		require_once(BASE_DIR . '/include/' . $class . '.inc.php');
+	}
 
 	$requestUri = $_SERVER['REQUEST_URI'];
 	$url = preg_replace('/^.*\/ws\/(.*)$/', '$1', $requestUri);
@@ -44,8 +50,8 @@
 			}
 			$result[$resource] = $class::listAll();
 			return;
-		}
-		// } elseif ($method == 'POST') {
+		} elseif ($method == 'POST') {
+			$result[$resource] = $class::create();
 
 		// } elseif ($method == 'PUT') {
 
@@ -53,7 +59,7 @@
 
 		// } elseif ($method == 'DELETE') {
 
-		// }
+		}
 	}
 
 	$result = [];

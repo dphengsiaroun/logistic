@@ -3,14 +3,11 @@
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/loader.inc.php");
 
-	$request = getRequest();
 	debug("create loader start");
-	debug('request', $request);
 
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		$loader = Loader::create($account, $request);
+		$loader = Loader::create();
 
 		$result['status'] = 'ok';
 		$result['loader'] = $loader;

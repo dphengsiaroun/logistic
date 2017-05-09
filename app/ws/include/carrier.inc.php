@@ -5,7 +5,9 @@
 
 	class Carrier {
 
-		public static function create($account, $request) {
+		public static function create() {
+			$account = Account::getConnected();
+			$request = getRequest();
 			$request->accountId = $account->id;
 			$request->login = $account->content->login;
 			$e = Event::insert('/carrier/create', $request);

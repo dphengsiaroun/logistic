@@ -3,14 +3,12 @@
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/carrier.inc.php");
 
-	$request = getRequest();
+
 	debug("create carrier start");
-	debug('request', $request);
 
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		$carrier = Carrier::create($account, $request);
+		$carrier = Carrier::create();
 
 		$result['status'] = 'ok';
 		$result['carrier'] = $carrier;
