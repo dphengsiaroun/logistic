@@ -1,7 +1,7 @@
 RewriteEngine On
-RewriteRule accounts index.php
-RewriteRule accounts/ index.php
-RewriteRule carriers index.php
-RewriteRule carriers/ index.php
-RewriteRule loaders index.php
-RewriteRule loaders/ index.php
+RewriteRule accounts rest.php
+RewriteRule accounts/ rest.php
+RewriteRule carriers rest.php
+RewriteRule carriers/ rest.php
+RewriteRule loaders rest.php
+RewriteRule loaders/ rest.php

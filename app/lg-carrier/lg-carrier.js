@@ -26,7 +26,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		console.log('carrier->create', service.createData);
 		if (user.account) {
 			$http({
-				url: 'ws/carrier/create.php',
+				url: 'ws/carriers',
 				method: 'POST',
 				data: service.createData,
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
