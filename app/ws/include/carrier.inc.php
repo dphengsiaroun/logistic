@@ -74,7 +74,10 @@ EOF;
 			return $result;
 		}
 
-		public static function delete($account, $request) {
+		public static function delete($id) {
+			$request = new stdClass();
+			$request->id = $id;
+			$account = Account::getConnected();
 			$request->accountId = $account->id;
 			$e = Event::insert('/carrier/delete', $request);
 			Event::synchronize();

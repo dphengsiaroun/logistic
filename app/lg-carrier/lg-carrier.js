@@ -125,12 +125,8 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 	service.delete = function(id) {
 		console.log('carrier->delete');
 		return $http({
-			url: 'ws/carrier/delete.php',
-			method: 'POST',
-			data: {
-				id: id
-			},
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			url: 'ws/carriers/' + id,
+			method: 'DELETE'
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
