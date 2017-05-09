@@ -57,8 +57,10 @@
 			$result[$resource] = $class::create();
 			return;
 		}
-		// } elseif ($method == 'PUT') {
-
+		if ($method == 'PUT') {
+			$class::update($id);
+			return;
+		}
 		// } elseif ($method == 'PATCH') {
 
 		if ($method == 'DELETE') {

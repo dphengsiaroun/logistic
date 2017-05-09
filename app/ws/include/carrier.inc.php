@@ -83,7 +83,10 @@ EOF;
 			Event::synchronize();
 		}
 
-		public static function update($account, $request) {
+		public static function update($id) {
+			$request = getRequest();
+			$account = Account::getConnected();
+			$request->id = $id;
 			$request->accountId = $account->id;
 			$e = Event::insert('/carrier/update', $request);
 			Event::synchronize();

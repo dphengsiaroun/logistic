@@ -102,8 +102,8 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 		service.initCreateData();
 		console.log('updateCarrier->update', service.updateData);
 		$http({
-			url: 'ws/carrier/update.php',
-			method: 'POST',
+			url: 'ws/carriers/' + service.updateData.id,
+			method: 'PUT',
 			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
