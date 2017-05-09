@@ -3,13 +3,10 @@
 	define('BASE_DIR', dirname(__DIR__));
 	require_once(BASE_DIR . '/include/carrier.inc.php');
 
-	$request = getRequest();
-
-	debug('list carrier start', $request);
 
 	$result = [];
 	try {
-		$carriers = Carrier::listAll($request);
+		$carriers = Carrier::listAll();
 
 		$result['status'] = 'ok';
 		$result['carriers'] = $carriers;

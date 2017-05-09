@@ -18,7 +18,7 @@
 
 		public static function retrieve($id) {
 			global $db, $cfg;
-			// On lance notre requête de vérification
+
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}loader WHERE id=:id
 EOF;
@@ -44,9 +44,9 @@ EOF;
 			return $loader;
 		}
 
-		public static function listAll($request) {
+		public static function listAll() {
 			global $db, $cfg;
-			// On lance notre requête de vérification
+			$request = getRequest();
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}loader
 EOF;

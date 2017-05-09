@@ -1,0 +1,70 @@
+<?php
+
+	define('BASE_DIR', __DIR__);
+	require_once(BASE_DIR . '/include/constant.inc.php');
+	require_once(BASE_DIR . '/include/misc.inc.php');
+	require_once(BASE_DIR . '/include/database.inc.php');
+
+	require_once(BASE_DIR . '/include/carrier.inc.php');
+	require_once(BASE_DIR . '/include/loader.inc.php');
+
+	$requestUri = $_SERVER['REQUEST_URI'];
+	$url = preg_replace('/^.*\/ws\/(.*)$/', '$1', $requestUri);
+	debug('url', $url);
+
+	$array = preg_split('/\//', $url);
+
+	$resource = $array[0];
+	debug('resource', $resource);
+	if (endsWith($resource, 's')) {
+		$resource = substr($resource, 0, -1);
+	}
+	debug('resource', $resource);
+
+	// debug('$_SERVER', $_SERVER);
+
+	$method = $_SERVER['REQUEST_METHOD'];
+	debug('method', $method);
+
+	$id = NULL;
+
+	if (count($array) > 1) {
+		$id = $array[1];
+	}
+
+
+
+	function run($resource, $method, $id) {
+		global $result;
+		$class = ucfirst($resource);
+		if ($method == 'GET') {
+			if ($id) {
+				$result[$resource] = $class::retrieve($id);
+				return;
+			}
+			$result[$resource] = $class::listAll();
+			return;
+		}
+		// } elseif ($method == 'POST') {
+
+		// } elseif ($method == 'PUT') {
+
+		// } elseif ($method == 'PATCH') {
+
+		// } elseif ($method == 'DELETE') {
+
+		// }
+	}
+
+	$result = [];
+	$result['status'] = 'ok';
+	try {
+		run($resource, $method, $id);
+	} catch (Exception $e) {
+			$result['status'] = 'ko';
+			$result['errorMsg'] = $e->getMessage();
+			$result['errorCode'] = $e->getCode();
+		}
+	echo json_encode($result);
+
+?>

@@ -42,9 +42,11 @@ EOF;
 			return $carrier;
 		}
 
-		public static function listAll($request) {
+		public static function listAll() {
 			global $db, $cfg;
-			// On lance notre requête de vérification
+
+			$request = getRequest();
+
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}carrier
 EOF;

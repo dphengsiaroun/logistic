@@ -3,13 +3,9 @@
 	define('BASE_DIR', dirname(__DIR__));
 	require_once(BASE_DIR . '/include/loader.inc.php');
 
-	$request = getRequest();
-
-	debug('list loader start', $request);
-
 	$result = [];
 	try {
-		$loaders = Loader::listAll($request);
+		$loaders = Loader::listAll();
 
 		$result['status'] = 'ok';
 		$result['loaders'] = $loaders;

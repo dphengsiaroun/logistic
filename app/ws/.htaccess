@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule accounts index.php
+RewriteRule accounts/ index.php
+RewriteRule carriers index.php
+RewriteRule carriers/ index.php
+RewriteRule loaders index.php
+RewriteRule loaders/ index.php
