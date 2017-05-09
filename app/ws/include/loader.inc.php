@@ -76,7 +76,9 @@ EOF;
 			return $result;
 		}
 
-		public static function delete($account, $request) {
+		public static function delete() {
+			$request = getRequest();
+			$account = Account::getConnected();
 			$request->accountId = $account->id;
 			$e = Event::insert('/loader/delete', $request);
 			Event::synchronize();

@@ -15,7 +15,7 @@
 	}
 
 	$requestUri = $_SERVER['REQUEST_URI'];
-	$url = preg_replace('/^.*\/ws\/(.*)\?.*$/', '$1', $requestUri);
+	$url = preg_replace('/^.*\/ws\/(.*?)(?:\?.*?)?$/', '$1', $requestUri);
 	debug('url', $url);
 
 	// debug('$_SERVER', $_SERVER);
@@ -52,15 +52,18 @@
 			}
 			$result[$resource . 's'] = $class::listAll();
 			return;
-		} elseif ($method == 'POST') {
+		}
+		if ($method == 'POST') {
 			$result[$resource] = $class::create();
-
+			return;
+		}
 		// } elseif ($method == 'PUT') {
 
 		// } elseif ($method == 'PATCH') {
 
-		// } elseif ($method == 'DELETE') {
-
+		if ($method == 'DELETE') {
+			$class::delete();
+			return;
 		}
 	}
 

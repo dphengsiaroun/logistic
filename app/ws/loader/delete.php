@@ -3,14 +3,11 @@
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/loader.inc.php");
 
-	$request = getRequest();
 	debug("delete loader start");
-	debug('request', $request);
 
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		Loader::delete($account, $request);
+		Loader::delete();
 
 		$result['status'] = 'ok';
 
