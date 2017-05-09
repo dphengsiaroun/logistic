@@ -74,6 +74,13 @@
 		return $result;
 	}
 
+	function getQueryString() {
+		$qs = $_SERVER['QUERY_STRING'];
+		$result = array();
+		parse_str($qs, $result);
+		return $result;
+	}
+
 	function getTemplate($file, $account = NULL, $context = NULL) {
 		ob_start();
 		require($file);

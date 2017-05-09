@@ -48,7 +48,8 @@ EOF;
 
 		public static function listAll() {
 			global $db, $cfg;
-			$request = getRequest();
+			$request = getQueryString();
+			debug('$request', $request);
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}loader
 EOF;

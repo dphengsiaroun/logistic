@@ -72,9 +72,9 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	service.list = function(data) {
 		console.log('loader->list');
 		return $http({
-			url: 'ws/loader/list.php',
-			method: 'POST',
-			data: data,
+			url: 'ws/loaders',
+			method: 'GET',
+			params: data,
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}

@@ -15,8 +15,10 @@
 	}
 
 	$requestUri = $_SERVER['REQUEST_URI'];
-	$url = preg_replace('/^.*\/ws\/(.*)$/', '$1', $requestUri);
+	$url = preg_replace('/^.*\/ws\/(.*)\?.*$/', '$1', $requestUri);
 	debug('url', $url);
+
+	// debug('$_SERVER', $_SERVER);
 
 	$array = preg_split('/\//', $url);
 
@@ -48,7 +50,7 @@
 				$result[$resource] = $class::retrieve($id);
 				return;
 			}
-			$result[$resource] = $class::listAll();
+			$result[$resource . 's'] = $class::listAll();
 			return;
 		} elseif ($method == 'POST') {
 			$result[$resource] = $class::create();
