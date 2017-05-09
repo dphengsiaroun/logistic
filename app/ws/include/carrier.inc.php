@@ -47,7 +47,7 @@ EOF;
 		public static function listAll() {
 			global $db, $cfg;
 
-			$request = getRequest();
+			$request = getQueryString();
 
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}carrier
