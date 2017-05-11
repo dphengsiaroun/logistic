@@ -22,10 +22,10 @@ app.service('truck', function Truck($q, $http, $state, user) {
         var createData = service.createData;
         if (user.account) {
             $http({
-                url: 'ws/truck/create.php',
+                url: 'ws/users/'+ user.account.content.login +'/trucks',
                 method: 'POST',
                 data: createData,
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function(response) {
                 console.log('response', response);
                 if (response.data.status === 'ko') {
@@ -63,7 +63,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
     service.list = function() {
         console.log('truck->list');
         return $http({
-            url: 'ws/truck/list.php',
+            url: 'ws/trucks',
             method: 'GET'
         }).then(function(response) {
             console.log('response', response);
@@ -114,10 +114,10 @@ app.service('truck', function Truck($q, $http, $state, user) {
     service.update = function() {
         console.log('updateTruck->update');
         $http({
-            url: 'ws/truck/update.php',
-            method: 'POST',
+            url: 'ws/users/'+ user.account.content.login +'/trucks/' + service.updateData.id,
+            method: 'PUT',
             data: service.updateData,
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function(response) {
             console.log('response', response);
             if (response.data.status === 'ko') {
@@ -137,12 +137,12 @@ app.service('truck', function Truck($q, $http, $state, user) {
     this.delete = function(id) {
         console.log('truck->delete');
         return $http({
-            url: 'ws/truck/delete.php',
-            method: 'POST',
+            url: 'ws/users/' + user.account.content.login +'/trucks/' + id,
+            method: 'DELETE',
             data: {
                 id: id
             },
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function(response) {
             console.log('response', response);
             if (response.data.status === 'ko') {

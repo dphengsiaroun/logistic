@@ -7,7 +7,9 @@
 
 	$objects = array(
 		'carrier',
-		'loader'
+		'loader',
+		'truck',
+		'account'
 	);
 
 	foreach ($objects as $class) {
@@ -22,8 +24,14 @@
 
 	$array = preg_split('/\//', $url);
 
-	$resource = $array[0];
-	debug('resource', $resource);
+	if (count($array) > 2) {
+		$resource = $array[2];
+		debug('resource', $resource);
+	} else {
+		$resource = $array[0];
+		debug('resource', $resource);
+	}
+
 	if (endsWith($resource, 's')) {
 		$resource = substr($resource, 0, -1);
 	}
@@ -36,12 +44,12 @@
 
 	$id = NULL;
 
-	if (count($array) > 1) {
+	if (count($array) > 3) {
+		$id = $array[3];
+		debug('valeur de id', $id);
+	} elseif (count($array) > 1) {
 		$id = $array[1];
 	}
-
-
-
 	function run($resource, $method, $id) {
 		global $result;
 		$class = ucfirst($resource);

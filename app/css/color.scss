@@ -9,6 +9,7 @@ $mediumGray: hsl(0, 0%, 85%);
 $gray: hsl(0, 0%, 66%);
 $lightGreen: hsl(171, 99%, 38%);
 $veryLightGreen: hsl(171, 85%, 49%);
+$extralightGreen: hsl(169, 51%, 85%);
 $darkGreen: hsl(171, 99%, 20%);
 
 $transparentDarkBlue: hsla(214, 46%, 25%, 0.6);
@@ -23,6 +24,8 @@ $borderColor: $lightGray;
 $darkBorderColor: $littleLightGray;
 $veryDarkBorderColor: $gray;
 $secondaryColor: $yellow;
+
+$breadcrumbColor: $extralightGreen;
 
 $buttonColor: $lightGreen;
 $disabledButtonColor: $littleLightGray;

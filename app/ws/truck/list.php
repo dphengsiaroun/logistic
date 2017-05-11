@@ -3,12 +3,9 @@
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/truck.inc.php");
 
-	debug("list truck start");
-
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		$trucks = Truck::listAll($account);
+		$trucks = Truck::listAll();
 
 		$result['status'] = 'ok';
 		$result['trucks'] = $trucks;

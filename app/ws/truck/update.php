@@ -3,11 +3,11 @@
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/truck.inc.php");
 
-    $request = getRequest();
+
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		$truck = Truck::update($account, $request);
+
+		$truck = Truck::update();
 		$result['status'] = 'ok';
 		$result['truck'] = $truck;
 	} catch (Exception $e) {

@@ -5,7 +5,7 @@
 	<form name="signupCtrl" ng-submit="$ctrl.user.signup();">
 		<input type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" />
 		<input type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" /><br/>
-		<input type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Identifiant" ui-mask-placeholder ui-mask-placeholder-char="space"
+		<input type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space"
 			ng-model="$ctrl.user.signupData.content.login" />
 		<input type="text" placeholder="Email" ng-model="$ctrl.user.signupData.email" /><br/>
 		<lg-select ng-model="$ctrl.user.signupData.content.profile">

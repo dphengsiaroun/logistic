@@ -5,3 +5,5 @@ RewriteRule carriers rest.php
 RewriteRule carriers/ rest.php
 RewriteRule loaders rest.php
 RewriteRule loaders/ rest.php
+RewriteRule trucks rest.php
+RewriteRule trucks/ rest.php

@@ -1,9 +1,24 @@
+<breadcrumb-carrier>
+	<step-1>
+		<i class="fa fa-truck" aria-hidden="true"></i>
+		<step>Choix du véhicule</step>
+	</step-1>
+	<step-2>
+		<i class="fa fa-pie-chart" aria-hidden="true"></i>
+		<step>Disponibilité</step>
+	</step-2>
+	<step-3>
+		<i class="fa fa-money" aria-hidden="true"></i>
+		<step>Prix</step>
+	</step-3>
+</breadcrumb-carrier>
+
 <no-vehicle ng-hide="$ctrl.hasTruck">
 	<span>Ajouter un véhicule à votre flotte</span>
 	<button ui-sref="carrier:create:truck:create"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer</button>
 </no-vehicle>
 <at-list-one-vehicle ng-show="$ctrl.hasTruck">
-	<span>Choisissez un vehicule parmi la liste</span>
+	<span>Sélectionner un véhicule<br/>parmi la liste</span>
 	<list>
 		<item ng-click="$ctrl.selectTruck(truck)" ng-repeat="truck in $ctrl.truck.trucks">
 			<left>
@@ -19,4 +34,5 @@
 	</list>
 	<lg-hr>ou</lg-hr>
 	<button ui-sref="carrier:create:truck:create">Ajouter un nouveau véhicule</button>
+	<button ui-sref="carrier:create:availability">Etape suivante</button>
 </at-list-one-vehicle>

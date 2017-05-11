@@ -76,15 +76,6 @@ EOF;
 			return $result;
 		}
 
-		public static function delete($id) {
-			$request = new stdClass();
-			$request->id = $id;
-			$account = Account::getConnected();
-			$request->accountId = $account->id;
-			$e = Event::insert('/loader/delete', $request);
-			Event::synchronize();
-		}
-
 		public static function update($id) {
 			$request = getRequest();
 			$request->id = $id;
@@ -94,6 +85,15 @@ EOF;
 			Event::synchronize();
 			$loader = self::retrieve($request->id);
 			return $loader;
+		}
+
+		public static function delete($id) {
+			$request = new stdClass();
+			$request->id = $id;
+			$account = Account::getConnected();
+			$request->accountId = $account->id;
+			$e = Event::insert('/loader/delete', $request);
+			Event::synchronize();
 		}
 	}
 

@@ -3,14 +3,12 @@
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/truck.inc.php");
 
-    $request = getRequest();
+
 	debug("delete truck", $request);
 
 	$result = [];
 	try {
-
-		$account = Account::getConnected();
-		Truck::delete($account, $request->id);
+		Truck::delete();
 		$result['status'] = 'ok';
 
 	} catch (Exception $e) {

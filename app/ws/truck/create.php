@@ -3,13 +3,10 @@
 	define("BASE_DIR", dirname(__DIR__));
 	require_once(BASE_DIR . "/include/truck.inc.php");
 
-	$request = getRequest();
-	debug("create truck start");
-
 	$result = [];
 	try {
-		$account = Account::getConnected();
-		$truck = Truck::create($account, $request);
+
+		$truck = Truck::create();
 
 		$result['status'] = 'ok';
 		$result['truck'] = $truck;

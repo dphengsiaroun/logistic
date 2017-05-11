@@ -1,5 +1,5 @@
 @import '../../css/color';
-$squareColor: $secondaryColor;
+$squareColor: lighten($darkBlue, 55%);
 lg-home-route {
     display: block;
     margin: 0px;

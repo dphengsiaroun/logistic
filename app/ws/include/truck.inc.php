@@ -17,7 +17,9 @@
 			debug('$this->account', $this->account);
 		}
 
-		public static function create($account, $request) {
+		public static function create() {
+			$request = getRequest();
+			$account = Account::getConnected();
 			$truck = new Truck($account);
 			$request->login = $account->content->login;
 			$request->created_t = time();
@@ -36,7 +38,10 @@
 			return $truck;
 		}
 
-		public static function listAll($account) {
+		public static function listAll() {
+			$request = getRequest();
+			debug('$request', $request);
+			$account = Account::getConnected();
 			if (!property_exists($account->content, 'trucks')) {
 				$account->content->trucks = new stdClass();
 				$account->save();
@@ -48,13 +53,19 @@
 			return self::listAll($account)->{$id};
 		}
 
-		public static function update($account, $request) {
-			self::delete($account, $request->oldId);
+		public static function update() {
+			$request = getRequest();
+			debug('request update', $request);
+			$account = Account::getConnected();
+			self::delete($request->oldId);
 			unset($request->oldId);
-			return self::create($account, $request);
+			return self::create();
 		}
 
-		public static function delete($account, $id) {
+		public static function delete($id) {
+			$request = new stdClass();
+			$request->id = $id;
+			$account = Account::getConnected();
 			unset($account->content->trucks->{$id});
 			$account->save();
 			return $account->content->trucks;
