@@ -1,79 +1,82 @@
 <section class="filter">
-    <div class="qty-ad">
+	<div class="qty-ad">
 		<span ng-show="$ctrl.carriers.length === 0" ng-init="$ctrl.carriers">Aucune annonce de transporteur</span>
-        <span ng-show="$ctrl.carriers.length > 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonces de transporteur</span>
-        <span ng-show="$ctrl.carriers.length === 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonce de transporteur</span>
-    </div>
-    <div>
-        <i class="fa fa-filter" aria-hidden="true"></i>
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-    </div>
+		<span ng-show="$ctrl.carriers.length > 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonces de transporteur</span>
+		<span ng-show="$ctrl.carriers.length === 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonce de transporteur</span>
+	</div>
+	<div>
+		<i class="fa fa-filter" aria-hidden="true"></i>
+		<i class="fa fa-calendar" aria-hidden="true"></i>
+	</div>
 </section>
 <carrier-list>
-    <ad-block ng-repeat="ad in $ctrl.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
-        <header ng-show="ad.content.availability === 'specificTrip'">
-            <title>{{ad.content.truck.name}}</title>
-            <subtitle>
-                <created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-                <by>Par {{ad.content.login | ucfirst}}</by>
-            </subtitle>
-            <subtitle>
-                <date>{{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
-                <distance>{{ad.content.trip.distance}}km - {{ad.content.trip.minDuration | duration}}</distance>
-            </subtitle>
-            <places>
-                <from>
-                    <labels>
-                        De :
-                    </labels>
-                    <values>
-                        <city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.departureCity.city}}</city>
-                        <region>{{ad.content.trip.departureCity.region}}</region>
-                    </values>
-                </from>
-                <to>
-                    <labels>
-                        A :
-                    </labels>
-                    <values>
-                        <city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.arrivalCity.city}}</city>
-                        <region>{{ad.content.trip.arrivalCity.region}}</region>
-                    </values>
-                </to>
-            </places>
-        </header>
-        <content ng-show="ad.content.availability === 'specificTrip'">
-            <content-left>
-                <img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
-                <img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
-            </content-left>
-            <content-right>
-                <transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
-                <model>{{ad.content.truck.model}}</model>
-                <rate-km>{{ad.content.pricing.priceWanted / ad.content.trip.distance | currency : '' : 0}} DZD/km</rate-km>
-                <rate>{{ad.content.pricing.priceWanted}} DZD</rate>
-            </content-right>
-        </content>
-        <header ng-show="ad.content.availability === 'total'">
-            <title>{{ad.content.truck.name}}</title>
-            <subtitle>
-                <created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-                <by>Par {{ad.content.login | ucfirst}}</by>
-            </subtitle>
-            <city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.truck.city.city}}</city>
-            <region>{{ad.content.truck.city.region}}</region>
-        </header>
-        <content ng-show="ad.content.availability === 'total'">
-            <content-left>
-                <img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
-                <img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
-            </content-left>
-            <content-right>
-                <transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
-                <model>{{ad.content.truck.model}}</model>
-                <rate>{{ad.content.pricing.priceWantedPerKm}} DZD/km</rate>
-            </content-right>
-        </content>
-    </ad-block>
+	<ad-block ng-repeat="ad in $ctrl.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
+		<header ng-show="ad.content.availability === 'specificTrip'">
+			<title>{{ad.content.truck.name}}</title>
+			<subtitle>
+				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
+				<by>Par {{ad.content.login | ucfirst}}</by>
+			</subtitle>
+			<subtitle>
+				<date>{{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
+				<distance>{{ad.content.trip.distance}}km - {{ad.content.trip.minDuration | duration}}</distance>
+			</subtitle>
+			<places>
+				<from>
+					<labels>
+						De :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.departureCity.city}}</city>
+						<region>{{ad.content.trip.departureCity.region}}</region>
+					</values>
+				</from>
+				<to>
+					<labels>
+						A :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.arrivalCity.city}}</city>
+						<region>{{ad.content.trip.arrivalCity.region}}</region>
+					</values>
+				</to>
+			</places>
+		</header>
+		<content ng-show="ad.content.availability === 'specificTrip'">
+			<content-left>
+				<img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
+				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
+			</content-left>
+			<content-right>
+				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
+				<model>{{ad.content.truck.model}}</model>
+				<rate-km>{{ad.content.pricing.priceWanted / ad.content.trip.distance | currency : '' : 0}} DZD/km</rate-km>
+				<rate>{{ad.content.pricing.priceWanted}} DZD</rate>
+			</content-right>
+		</content>
+		<header ng-show="ad.content.availability === 'total'">
+			<title>{{ad.content.truck.name}}</title>
+			<subtitle>
+				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
+				<by>Par {{ad.content.login | ucfirst}}</by>
+			</subtitle>
+			<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.truck.city.city}}</city>
+			<region>{{ad.content.truck.city.region}}</region>
+		</header>
+		<content ng-show="ad.content.availability === 'total'">
+			<content-left>
+				<img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
+				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
+			</content-left>
+			<content-right>
+				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
+				<model>{{ad.content.truck.model}}</model>
+				<rate>{{ad.content.pricing.priceWantedPerKm}} DZD/km</rate>
+			</content-right>
+		</content>
+	</ad-block>
 </carrier-list>
-<lg-create-button state="carrier:create"></lg-create-button>
+<!--<lg-create-button state="carrier:create"></lg-create-button>-->
+<add-ads>
+	<button ui-sref="carrier:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ajouter une annonce</button>
+</add-ads>

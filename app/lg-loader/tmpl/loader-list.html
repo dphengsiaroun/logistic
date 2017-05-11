@@ -1,4 +1,4 @@
-<section class="filter">
+<section class="filter loader">
     <div class="qty-ad">
 		<span ng-show="$ctrl.loaders.length === 0" ng-init="$ctrl.loaders">Aucune annonce de chargement</span>
         <span ng-show="$ctrl.loaders.length > 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonces de chargement</span>
@@ -18,7 +18,7 @@
                 <by>Par {{ad.content.login | ucfirst}}</by>
             </subtitle>
             <subtitle>
-                <date>{{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
+                <date>Chargement le {{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
                 <distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
             </subtitle>
             <places>
@@ -51,9 +51,12 @@
                 <conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>
                 <transport-category>{{ad.content.transportCategory}} - {{ad.content.transportTruckType}}</transport-category>
                 <rate-km>0.4 DZD/km</rate-km>
+				<span>Rémunération proposée</span>
                 <rate>{{ad.content.priceWanted}} DZD</rate>
             </content-right>
         </content>
     </ad-block>
 </loader-list>
-<lg-create-button state="loader:create"></lg-create-button>
+<add-ads>
+	<button ui-sref="loader:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ajouter une annonce</button>
+</add-ads>

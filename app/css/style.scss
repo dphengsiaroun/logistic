@@ -25,6 +25,7 @@ body {
 
 ui-view {
     display: block;
+	min-height: 500px;
     padding: 58px 0px 0px;
 }
 
@@ -179,8 +180,8 @@ button {
     width: 100%;
     background: $buttonColor;
     color: white;
-    height: 60px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 16px;
     cursor: pointer;
     border: none;
     border-radius: 3px;

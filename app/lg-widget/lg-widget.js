@@ -160,7 +160,7 @@ app.component('lgSocialLogin', {
 
 
 app.component('lgCreateButton', {
-	template: '<button ui-sref="{{$ctrl.state}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>',
+	template: '<button ui-sref="{{$ctrl.state}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Déposer une annonce</button>',
 	bindings: {
 		state: '@'
 	},

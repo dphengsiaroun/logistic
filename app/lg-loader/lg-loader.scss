@@ -126,8 +126,11 @@ loader-list {
             rate-km {
                 color: $gray;
             }
+			span {
+				font-size: 13px;
+				margin-top: 10px;
+			}
             rate {
-                margin-top: 15px;
                 font-size: 27px;
                 font-weight: bold;
                 color: $selectedColor;
@@ -135,4 +138,8 @@ loader-list {
             }
         }
     }
+}
+
+.ad-title.loader {
+	background-color: $loaderColor;
 }

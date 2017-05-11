@@ -8,17 +8,7 @@
     </right>
 </div>
 <formx class="ad" name="truckCtrl">
-    <section class="dark">
-        <label>Immatriculation ou libellé du vehicule</label>
-        <input type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
-        <label>Description succinte du modèle</label>
-        <input type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
-    </section>
-    <section>
-        <label>Ville d'origine</label>
-        <lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city"></lg-city>
-    </section>
-    <section class="dark">
+	<section class="dark">
         <big-label>Transport</big-label><br/>
         <lg-select ng-model="$ctrl.truck.createData.transportCategory">
             <lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
@@ -39,7 +29,17 @@
             <input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.createData.transportPlaneType" />
         </div>
     </section>
+    <section>
+        <label>Immatriculation ou libellé du vehicule</label>
+        <input type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
+        <label>Description succinte du modèle</label>
+        <input type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
+    </section>
     <section class="dark">
+        <label>Ville d'origine</label>
+        <lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city"></lg-city>
+    </section>
+    <section>
         <label>Année du vehicule</label>
         <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" />
         <label>Insérer une photo</label>
