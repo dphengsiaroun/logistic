@@ -411,36 +411,40 @@ carrier-list {
 }
 
 
-breadcrumb-carrier {
+breadcrumb {
 	display: table;
 	width: 100%;
-	step-1, step-2, step-3 {
+	step-1,
+	step-2,
+	step-3 {
 		display: table-cell;
 		width: 30%;
 		height: 87px;
 		background-color: $breadcrumbColor;
 		padding: 10px 0px;
 		text-align: center;
-		i.fa {
-			width: 33%;
-			display: inline-block;
-			padding: 5px 5px;
-			font-size: 22px;
-			border-radius: 100%;
+		div {
+			i.fa {
+				width: 33%;
+				display: inline-block;
+				padding: 5px 5px;
+				font-size: 22px;
+				border-radius: 100%;
+			}
+			step {
+				display: block;
+				margin: 5px 9px 0px;
+				font-size: 12px;
+			}
 		}
-		step {
-			display: block;
-			margin: 5px 9px 0px;
-			font-size: 12px;
-		}
-	}
-	step-2, step-3 {
-		i.fa, step {
+		div.disable {
 			opacity: 0.3;
 		}
 	}
-	step-1:after, step-2:after,
-	step-1:before, step-2:before {
+	step-1:after,
+	step-2:after,
+	step-1:before,
+	step-2:before {
 		content: '';
 		position: absolute;
 		background: white;
@@ -449,7 +453,8 @@ breadcrumb-carrier {
 		right: 7px;
 		z-index: 0;
 	}
-	step-1:after, step-2:after {
+	step-1:after,
+	step-2:after {
 		top: 102px;
 		-webkit-transform: skew(-20deg);
 		-moz-transform: skew(-20deg);
@@ -457,7 +462,8 @@ breadcrumb-carrier {
 		-o-transform: skew(-20deg);
 		transform: skew(-20deg);
 	}
-	step-1:before, step-2:before {
+	step-1:before,
+	step-2:before {
 		top: 59px;
 		-webkit-transform: skew(20deg);
 		-moz-transform: skew(20deg);
@@ -465,10 +471,12 @@ breadcrumb-carrier {
 		-o-transform: skew(20deg);
 		transform: skew(20deg);
 	}
-	step-1:before, step-1:after {
+	step-1:before,
+	step-1:after {
 		left: 32%;
 	}
-	step-2:before, step-2:after {
+	step-2:before,
+	step-2:after {
 		left: 65%;
 	}
 }

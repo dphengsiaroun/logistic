@@ -1,12 +1,23 @@
-<div class="ad-title">
-	<left>
-		<img-svg src="/img/frontal-truck.svg"></img-svg>
-	</left>
-	<right>
-		<title>Transporteur</title>
-		<subtitle>Etape 1 - Vehicule</subtitle>
-	</right>
-</div>
+<breadcrumb>
+	<step-1>
+		<div>
+			<i class="fa fa-truck" aria-hidden="true"></i>
+			<step>Choix du véhicule</step>
+		</div>
+	</step-1>
+	<step-2>
+		<div class="disable">
+			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i>
+			<step>Disponibilité</step>
+		</div>
+	</step-2>
+	<step-3>
+		<div class="disable">
+			<i class="fa fa-money" aria-hidden="true"></i>
+			<step>Prix</step>
+		</div>
+	</step-3>
+</breadcrumb>
 <formx class="ad" name="carrierCtrl">
 	<section class="dark">
 		<label>Immatriculation ou libellé du vehicule</label>
@@ -28,24 +39,20 @@
 
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
-			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion"
-				placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType" />
+			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType" />
 		</div>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Bateau'">
 			<label>Type de bateau</label>
-			<input type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
-				ng-model="$ctrl.truck.createData.transportBoatType" />
+			<input type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.truck.createData.transportBoatType" />
 		</div>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Avion'">
 			<label>Type d'avion</label>
-			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc."
-				ng-model="$ctrl.truck.createData.transportPlaneType" />
+			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.createData.transportPlaneType" />
 		</div>
 	</section>
 	<section class="dark">
 		<label>Année du vehicule</label>
-		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear"
-		/>
+		<input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" />
 		<label>Insérer une photo</label>
 		<lg-upload form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-upload>
 	</section>

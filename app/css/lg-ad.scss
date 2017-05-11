@@ -3,7 +3,7 @@
 	display: table;
 	width: 100%;
 	padding: 10px 0px;
-	background-color: $secondaryColor;
+	background-color: $breadcrumbColor;
 	border-bottom: 1px solid $darkBorderColor;
 	left {
 		display: table-cell;
@@ -37,11 +37,11 @@
 			display: block;
 			text-align: center;
 			font-weight: bold;
-			font-size: 27px;
+			font-size: 25px;
 		}
 		subtitle {
 			font-weight: bold;
-			font-size: 16px;
+			font-size: 14px;
 			padding: 0px 0px;
 		}
 	}
