@@ -66,7 +66,7 @@
 			return;
 		}
 		if ($method == 'PUT') {
-			$class::update($id);
+			$result[$resource] = $class::update($id);
 			return;
 		}
 		// } elseif ($method == 'PATCH') {

@@ -74,7 +74,7 @@
 		return $result;
 	}
 
-	function getQueryString() {
+	function getUrlQueryString() {
 		$qs = $_SERVER['QUERY_STRING'];
 		$result = array();
 		parse_str($qs, $result);
