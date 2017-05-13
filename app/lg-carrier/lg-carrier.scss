@@ -410,8 +410,8 @@ carrier-list {
 	}
 }
 
-$breadcrumbHeight: 88px;
-$breadcrumbDisabledBgColor: desaturate($breadcrumbColor, 100%);
+$breadcrumbHeight: 70px;
+$breadcrumbDisabledBgColor: lighten(desaturate($breadcrumbColor, 70%), 5%);
 $breadcrumbDisabledColor: desaturate(lighten($primaryColor, 20%), 50%);
 
 breadcrumb {
@@ -423,8 +423,9 @@ breadcrumb {
 		display: table-cell;
 		position: relative;
 		background-color: $breadcrumbColor;
-		padding: 10px 0px;
+		padding: 0px 0px;
 		text-align: center;
+		vertical-align: middle;
 		div {
 			position: relative;
 			z-index: 1;
@@ -433,6 +434,7 @@ breadcrumb {
 				display: inline-block;
 				padding: 5px 5px;
 				font-size: 22px;
+				border-radius: 100%;
 			}
 			span {
 				display: inline-block;
