@@ -26,7 +26,7 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 		var createData = service.createData;
 		if (user.account) {
 			$http({
-				url: 'ws/proposal/create.php',
+				url: 'ws/proposals',
 				method: 'POST',
 				data: createData,
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -70,10 +70,9 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 	service.list = function(data) {
 		console.log('proposal->list');
 		return $http({
-			url: 'ws/proposal/list.php',
-			method: 'POST',
-			data: data,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			url: 'ws/proposals',
+			method: 'GET',
+			params: data,
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
@@ -105,8 +104,8 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 	service.update = function() {
 		console.log('updateProposal->update', service.updateData);
 		$http({
-			url: 'ws/proposal/update.php',
-			method: 'POST',
+			url: 'ws/proposals/' + service.updateData.id,
+			method: 'PUT',
 			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
@@ -128,8 +127,8 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 	service.delete = function(id) {
 		console.log('proposal->delete');
 		return $http({
-			url: 'ws/proposal/delete.php',
-			method: 'POST',
+			url: 'ws/proposals/' + id,
+			method: 'DELETE',
 			data: {
 				id: id
 			},

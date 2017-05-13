@@ -9,7 +9,8 @@
 		'Carrier',
 		'Loader',
 		'Truck',
-		'Account'
+		'Account',
+		'Proposal'
 	);
 
 	foreach ($objects as $class) {

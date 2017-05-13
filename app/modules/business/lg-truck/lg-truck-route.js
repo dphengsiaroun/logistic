@@ -153,7 +153,7 @@ app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $injector, $s
             return ctrl.user.waitForCheckConnection('TruckUpdateCtrl');
         }).then(function() {
             ctrl.truck.updateData = angular.copy(ctrl.truck.current);
-            ctrl.truck.updateData.oldId = $stateParams.id;
+            ctrl.truck.updateData.id = $stateParams.id;
             console.log('ctrl.truck.updateData', ctrl.truck.updateData);
         }).catch(function() {
             console.error('you should not see this');
