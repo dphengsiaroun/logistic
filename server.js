@@ -47,6 +47,14 @@ app.use('/app/', function(req, res, next) {
 	res.sendFile('./app/index.html', {root: __dirname});
 });
 
+app.use('/dist/', function(req, res, next) {
+	console.log('Url rewriting: req.url', req.url);
+	if (req.url.match(/dist\/files/)) {
+		next();
+	}
+	res.sendFile('./dist/index.html', {root: __dirname});
+});
+
 
 app.use(function(req, res, next) {
 	console.log('404: Page not Found', req.url);

@@ -31,12 +31,13 @@ gulp.task('default', ['rebuild']);
 const path = {
 	base: 'app',
 	dist: 'dist',
-	zipSrc: ['dist/**/*', 'dist/.htaccess', '!dist/**/*.map'],
+	zipSrc: ['dist/**/*', 'dist/.htaccess', 'dist/ws/.htaccess', '!dist/**/*.map'],
 	zip: 'dist.zip',
 	wpk: 'app/wpk',
 	installHtml: ['app/install/index.html'],
 	indexHtml: 'app/index.html',
 	htaccess: ['app/.htaccess.tmpl'],
+	htaccessWs: ['app/ws/.htaccess'],
 	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
 		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl',
 		'!app/img/**/*.svg', 'app/*.html', '!app/index.html'],
@@ -67,9 +68,16 @@ gulp.task('resources', function() {
 		.pipe(gulp.dest(path.dist));
 });
 
-gulp.task('htaccess', function() {
+gulp.task('htaccess', ['htaccess:app', 'htaccess:ws']);
+
+gulp.task('htaccess:app', function() {
 	return gulp.src(path.htaccess, {base: path.base})
 		.pipe(rename('.htaccess'))
+		.pipe(gulp.dest(path.dist));
+});
+
+gulp.task('htaccess:ws', function() {
+	return gulp.src(path.htaccessWs, {base: path.base})
 		.pipe(gulp.dest(path.dist));
 });
 
