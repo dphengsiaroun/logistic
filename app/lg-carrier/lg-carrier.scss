@@ -410,20 +410,25 @@ carrier-list {
 	}
 }
 
+$breadcrumbHeight: 88px;
 
 breadcrumb {
 	display: table;
+	table-layout: fixed;
 	width: 100%;
-	step-1,
-	step-2,
-	step-3 {
+	height: $breadcrumbHeight;
+	>step {
 		display: table-cell;
-		width: 30%;
-		height: 87px;
+		position: relative;
 		background-color: $breadcrumbColor;
 		padding: 10px 0px;
 		text-align: center;
+		width: 35%;
+		&:last-child {
+			width: 30%;
+		}
 		div {
+			width: 80%;
 			i.fa {
 				display: inline-block;
 				width: 33%;
@@ -431,63 +436,49 @@ breadcrumb {
 				font-size: 22px;
 				border-radius: 100%;
 			}
-			step {
-				display: block;
+			span {
+				display: inline-block;
 				margin: 5px 9px 0px;
 				font-size: 12px;
 				font-weight: bold;
 			}
 		}
-		div.disable {
-			i.fa {
-				color: desaturate(lighten($primaryColor, 20%), 50%);
+		&[disabled] {
+			div {
+				i.fa {
+					color: desaturate(lighten($primaryColor, 20%), 50%);
+				}
+				span {
+					font-weight: normal;
+				}
 			}
-			step {
-				display: block;
-				margin: 5px 9px 0px;
-				font-size: 12px;
-				font-weight: bold;
-			}
-
 		}
-	}
-	step-1:after,
-	step-2:after,
-	step-1:before,
-	step-2:before {
-		content: '';
-		position: absolute;
-		background: white;
-		width: 3px;
-		height: 43px;
-		right: 7px;
-		z-index: 0;
-	}
-	step-1:after,
-	step-2:after {
-		top: 102px;
-		-webkit-transform: skew(-20deg);
-		-moz-transform: skew(-20deg);
-		-ms-transform: skew(-20deg);
-		-o-transform: skew(-20deg);
-		transform: skew(-20deg);
-	}
-	step-1:before,
-	step-2:before {
-		top: 59px;
-		-webkit-transform: skew(20deg);
-		-moz-transform: skew(20deg);
-		-ms-transform: skew(20deg);
-		-o-transform: skew(20deg);
-		transform: skew(20deg);
-	}
-	step-1:before,
-	step-1:after {
-		left: 32%;
-	}
-	step-2:before,
-	step-2:after {
-		left: 65%;
+		&:after {
+			position: absolute;
+			top: 0px;
+			right: 7px;
+			height: $breadcrumbHeight / 2;
+			width: 3px;
+			background: white;
+			content: '';
+			transform: skew(20deg);
+		}
+		&[end]:after {
+			content: none;
+		}
+		&:before {
+			position: absolute;
+			top: $breadcrumbHeight / 2;
+			right: 7px;
+			height: $breadcrumbHeight / 2;
+			width: 3px;
+			background: white;
+			content: '';
+			transform: skew(-20deg);
+		}
+		&[end]:before {
+			content: none;
+		}
 	}
 }
 
