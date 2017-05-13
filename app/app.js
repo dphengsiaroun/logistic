@@ -1,12 +1,10 @@
 'use strict';
 
 require('angular/angular-csp.css');
-
 require('font-awesome/css/font-awesome.css');
 
-require('./lg-eyepassword/lg-eyepassword.css');
-
 require('./css/create-ad.scss');
+require('./css/lg-ad.scss');
 require('./css/style.scss');
 
 window.Hashes = require('jshashes');
@@ -22,30 +20,35 @@ require('angular-ui-router');
 require('angular-ui-mask');
 require('angular-recaptcha');
 
+var lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
+var lgConfig = require('./modules/business/lg-config/lg-config.js');
+var lgLoader = require('./modules/business/lg-loader/lg-loader.js');
+var lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
+var lgTruck = require('./modules/business/lg-truck/lg-truck.js');
+var lgUser = require('./modules/business/lg-user/lg-user.js');
 
-var lgMisc = require('./lg-misc/lg-misc.js');
-var lgRoute = require('./lg-route/lg-route.js');
-var lgMenu = require('./lg-menu/lg-menu.js');
-var lgCarrier = require('./lg-carrier/lg-carrier.js');
-var lgTruck = require('./lg-truck/lg-truck.js');
-var lgLoader = require('./lg-loader/lg-loader.js');
-var lgProposal = require('./lg-proposal/lg-proposal.js');
-var lgUser = require('./lg-user/lg-user.js');
-var lgChoice = require('./lg-choice/lg-choice.js');
-var lgCalendar = require('./lg-calendar/lg-calendar.js');
-var lgDatetime = require('./lg-datetime/lg-datetime.js');
-var lgSlider = require('./lg-slider/lg-slider.js');
-var lgDimension = require('./lg-dimension/lg-dimension.js');
-var lgNum = require('./lg-num/lg-num.js');
-var lgEyePassword = require('./lg-eyepassword/lg-eyepassword.js');
-var lgConfig = require('./lg-config/lg-config.js');
-var lgWidget = require('./lg-widget/lg-widget.js');
-var lgUpload = require('./lg-upload/lg-upload.js');
-var lgHttp = require('./lg-http/lg-http.js');
-var lgError = require('./lg-error/lg-error.js');
+var lgCalendar = require('./modules/form/lg-calendar/lg-calendar.js');
+var lgChoice = require('./modules/form/lg-choice/lg-choice.js');
+var lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
+var lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
+var lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
+var lgNum = require('./modules/form/lg-num/lg-num.js');
+var lgSlider = require('./modules/form/lg-slider/lg-slider.js');
+var lgUpload = require('./modules/form/lg-upload/lg-upload.js');
 
-var lgDebug = require('./lg-debug/lg-debug.js');
-var lgTest = require('./lg-test/lg-test.js');
+var lgMenu = require('./modules/site/lg-menu/lg-menu.js');
+var lgRoute = require('./modules/site/lg-route/lg-route.js');
+
+var lgDebug = require('./modules/technic/lg-debug/lg-debug.js');
+var lgError = require('./modules/technic/lg-error/lg-error.js');
+var lgGeoloc = require('./modules/technic/lg-geoloc/lg-geoloc.js');
+var lgHttp = require('./modules/technic/lg-http/lg-http.js');
+var lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
+var lgTest = require('./modules/technic/lg-test/lg-test.js');
+var lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
+
+
+
 
 window.values = function(obj) {
 	return Object.keys(obj).map(function(key) {
@@ -67,28 +70,33 @@ var app = angular.module('mainApp', [
 	'vcRecaptcha',
 	'ui.mask',
 	'ui.router',
-	lgRoute,
-	lgUpload,
-	lgMenu,
-	lgUser,
+
 	lgCarrier,
+	lgConfig,
 	lgLoader,
-	lgTruck,
 	lgProposal,
-	lgChoice,
+	lgTruck,
+	lgUser,
+
 	lgCalendar,
+	lgChoice,
 	lgDatetime,
-	lgSlider,
 	lgDimension,
 	lgEyePassword,
-	lgConfig,
-	lgWidget,
-	lgHttp,
-	lgError,
-	lgMisc,
 	lgNum,
+	lgSlider,
+	lgUpload,
+
+	lgMenu,
+	lgRoute,
+
 	lgDebug,
-	lgTest
+	lgError,
+	lgGeoloc,
+	lgHttp,
+	lgMisc,
+	lgTest,
+	lgWidget
 ]);
 
 app.config(function($touchProvider) {

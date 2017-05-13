@@ -1,0 +1,132 @@
+@import '../../../css/color';
+
+$headCalendarColor: $mediumGray;
+$monthColor: $fontColor;
+
+lg-calendar-wrapper {
+    position: relative;
+    display: block;
+    my-input.filled {
+        color: black;
+    }
+    .icon {
+        position: absolute;
+        top: 10px;
+        right: 19px;
+        font-size: 25px;
+        i.fa {
+            font-size: 25px;
+            line-height: 18px;
+            color: $selectedColor;
+        }
+    }
+}
+
+lg-calendar {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    position: fixed;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 102;
+    background-color: white;
+    my-head {
+        z-index: 102;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+    }
+    retroaction-msg {
+        z-index: 102;
+        position: fixed;
+        top: 59px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: $headCalendarColor;
+        padding: 5px;
+    }
+    month-list {
+        position: relative;
+        top: 85px;
+        z-index: 101;
+        display: block;
+        width: 100%;
+    }
+}
+
+lg-month {
+    text-align: center;
+    padding: 0px 0px 10px;
+    background: white;
+    border-bottom: 1px solid $gray;
+    header {
+        position: relative;
+    }
+    h2 {
+        text-transform: uppercase;
+        font-size: 22px;
+        margin: 20px 0;
+        color: $monthColor;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        margin-bottom: 20px;
+        td {
+            border: 2px solid transparent;
+            border-radius: 84%;
+            display: inline-block;
+            line-height: 38px;
+            text-align: center;
+            width: 14%;
+        }
+        thead {
+            font-weight: 600;
+            text-transform: uppercase;
+            td {
+                color: $gray;
+                font-size: 17px;
+            }
+        }
+        tbody {
+            tr {
+                border-bottom: 1px solid $borderColor;
+                font-size: 16px;
+            }
+            td {
+                font-weight: 400;
+            }
+            td.week-end {
+                color: $gray;
+            }
+            td.prev-month,
+            td.next-month {
+                color: $littleLightGray;
+            }
+            td.selected {
+                background-color: $selectedColor;
+                color: white;
+            }
+            td.next-month.selected,
+            td.prev-month.selected {
+                background-color: transparent;
+                border: 1px solid $selectedColor;
+                color: $littleGray;
+            }
+            td.disabled {
+                color: $disabledFontColor;
+            }
+            td.current-day {
+                background: $selectedColor;
+                color: blue;
+            }
+        }
+    }
+}

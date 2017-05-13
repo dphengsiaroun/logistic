@@ -1,0 +1,33 @@
+@import '../../../css/color';
+lg-num.vertical {
+    display: inline-block;
+    width: 60px;
+    plus,
+    minus {
+        display: block;
+        width: 100%;
+        height: 60px;
+        margin: 0px 0px;
+        text-align: center;
+        line-height: 59px;
+    }
+    plus {
+        border-radius: 5px 5px 0px 0px;
+        border-bottom: none;
+    }
+    minus {
+        border-radius: 0px 0px 5px 5px;
+        border-top: none;
+    }
+    my-input {
+        display: block;
+        width: 100%;
+        height: 60px;
+        padding: 20px 0px;
+        border: 1px solid $borderColor;
+        border-top: none;
+        border-bottom: none;
+        text-align: center;
+        margin: 0px;
+    }
+}

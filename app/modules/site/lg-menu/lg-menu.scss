@@ -1,0 +1,120 @@
+@import '../../../css/color';
+lg-menu {
+    position: fixed;
+    top: 0px;
+    padding: 0px;
+    width: 100%;
+    display: block;
+    z-index: 50;
+}
+
+my-head {
+    display: table;
+    width: 100%;
+    background-color: $headerColor;
+    height: 59px;
+    head-left {
+        display: table-cell;
+        width: 50px;
+        margin: 0px;
+        vertical-align: top;
+        padding: 17px 10px 0;
+        i.fa {
+            color: white;
+            font-size: 26px;
+        }
+    }
+    head-center {
+        display: table-cell;
+        text-align: center;
+        color: white;
+        font-size: 13px;
+        line-height: 0px;
+        a {
+            color: white;
+            font-size: 13px;
+        }
+        img-svg {
+            svg {
+                width: 60px;
+                height: 60px;
+                margin-top: -2px;
+            }
+        }
+        p {
+            color: white;
+            padding: 29px 0 0;
+            font-size: 17px;
+        }
+    }
+    head-center.connected {
+        img-svg {
+            svg {
+                width: 50px;
+                height: 50px;
+                margin-top: -2px;
+            }
+        }
+    }
+    head-right {
+        display: table-cell;
+        margin: 0px;
+        width: 50px;
+        vertical-align: top;
+        padding: 14px 10px;
+        i.fa {
+            color: white;
+            font-size: 30px;
+        }
+    }
+}
+
+.lg-menu-content {
+    display: none;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    top: 58px;
+    bottom: 0;
+    left: 0;
+    z-index: 75;
+    background-color: $backgroundDarkColor;
+    text-align: left;
+    a {
+        display: block;
+        background: white;
+        border-bottom: 1px solid $borderColor;
+        padding: 10px;
+        width: 100%;
+        font-size: 23px;
+        position: relative;
+        .fa {
+            display: inline-block;
+            width: 15%;
+            font-size: 36px;
+            color: $fontColor;
+            height: 100%;
+        }
+        .notification {
+            display: inline-block;
+            vertical-align: top;
+            padding: 1px 6px;
+            position: absolute;
+            left: 30px;
+            border-radius: 30px;
+            font-size: 13px;
+            background-color: $notificationColor;
+        }
+        p {
+            display: inline-block;
+            vertical-align: top;
+            padding: 6px 11px;
+            font-size: 20px;
+        }
+    }
+}
+
+.btn-logout {
+    border-top: 1px solid $borderColor;
+}

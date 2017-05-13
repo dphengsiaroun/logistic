@@ -1,0 +1,428 @@
+@import '../../../css/color';
+summary {
+	padding: 5px;
+	div {
+		display: block;
+		width: 100%;
+		steps {
+			display: table;
+			width: 100%;
+			background-color: white;
+			step {
+				display: table-row;
+				width: 100%;
+				height: 70px;
+				num-step,
+				label,
+				chevron {
+					display: table-cell;
+					vertical-align: middle;
+					font-size: 20px;
+					border-bottom: 1px solid $borderColor;
+				}
+				num-step {
+					width: 10%;
+					padding: 5px;
+					text-align: center;
+				}
+				label {
+					width: 80%;
+					font-weight: normal;
+					availability {
+						date,
+						distance {
+							display: block;
+							color: $gray;
+							font-size: 13px;
+						}
+						places {
+							display: table;
+							width: 100%;
+							from,
+							to {
+								display: table-row;
+								font-size: 13px;
+								labels {
+									display: table-cell;
+									width: 30px;
+								}
+								values {
+									display: table-cell;
+								}
+							}
+						}
+					}
+				}
+				chevron {
+					width: 10%;
+					padding: 5px;
+					text-align: center;
+				}
+			}
+			step.active {
+				background-color: $lightGreen;
+				num-step,
+				label,
+				.fa {
+					color: white;
+				}
+			}
+			step.disabled {
+				opacity: 0.2;
+				background-color: $gray;
+			}
+			step.done {
+				background-color: white;
+				label {
+					color: $fontColor;
+				}
+			}
+		}
+	}
+}
+
+city {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+region {
+	color: $gray;
+	font-size: 12px;
+}
+
+no-vehicle {
+	display: block;
+	padding: 20px 10px;
+	text-align: center;
+	span {
+		display: block;
+		width: 100%;
+		font-size: 27px;
+		text-align: center;
+		margin: 30px 0;
+		font-weight: bold;
+	}
+}
+
+at-list-one-vehicle {
+	display: block;
+	padding: 15px 5px;
+	text-align: center;
+	>span {
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+		margin: 0px 0px 30px;
+		font-weight: bold;
+	}
+	list {
+		display: block;
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		item {
+			margin: 5px 0px;
+		}
+	}
+}
+
+item {
+	display: table;
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: white;
+	border: 1px solid #eeeeee;
+	border-top: none;
+	border-bottom: none;
+	left,
+	right {
+		display: table-cell;
+		margin: 0px;
+		padding: 0px;
+		vertical-align: middle;
+		h2 {
+			font-size: 17px;
+			text-align: left;
+			padding: 5px 8px 6px 100px;
+			background-color: rgba(255, 232, 82, 0.37);
+		}
+		img {
+			display: block;
+			height: 70px;
+			margin: 0px;
+			padding: 0px;
+		}
+		span {
+			display: block;
+			width: 100%;
+			margin: 0px;
+			padding: 0px 5px;
+			font-size: 14px;
+			text-align: right;
+		}
+	}
+	left {
+		width: 1%;
+	}
+}
+
+trajet {
+	display: block;
+	width: 100%;
+	padding: 5px;
+	.way {
+		display: block;
+		width: 100%;
+		li {
+			display: inline-block;
+			width: 100%;
+			padding: 15px;
+			font-size: 20px;
+			border-bottom: 1px solid $borderColor;
+			background-color: white;
+			availability {
+				display: table;
+				width: 100%;
+				vertical-align: middle;
+				left,
+				right {
+					display: table-cell;
+					vertical-align: middle;
+				}
+				left {
+					width: 90%;
+					label {
+						display: block;
+						font-size: 18px;
+					}
+					comments {
+						display: block;
+						font-size: 14px;
+					}
+				}
+				right {
+					width: 10%;
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
+carrier-list {
+	width: 100%;
+	display: block;
+	padding: 0px 5px;
+	ad-block {
+		display: block;
+		width: 100%;
+		margin: 5px 0px;
+		padding: 0px;
+		background-color: white;
+		header {
+			display: block;
+			width: 100%;
+			margin: 0px;
+			padding: 5px 10px;
+			background-color: white;
+			title {
+				display: block;
+				width: 100%;
+				text-align: left;
+				font-size: 20px;
+				margin-bottom: 5px;
+				padding-bottom: 5px;
+				border-bottom: 1px solid $borderColor;
+			}
+			subtitle {
+				display: table;
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				date {
+					display: table-cell;
+					width: 60%;
+					margin: 0px;
+					padding: 0px;
+					text-align: left;
+					font-size: 13px;
+				}
+				distance {
+					display: table-cell;
+					width: 40%;
+					margin: 0px;
+					padding: 0px;
+					text-align: right;
+					font-size: 13px; // color: $gray;
+				}
+				created,
+				by {
+					display: block;
+					width: 100%;
+					margin: 0px;
+					padding: 0px;
+					text-align: left;
+					font-size: 11px;
+					color: $gray;
+				}
+			}
+			places {
+				display: table;
+				width: 100%;
+				from,
+				to {
+					display: table-row;
+					width: 100%;
+					labels {
+						display: table-cell;
+						width: 15%;
+						text-align: left;
+						font-size: 13px;
+					}
+					values {
+						display: table-cell;
+						width: 85%;
+						city {
+							font-size: 14px;
+							font-weight: bold;
+						}
+						region {
+							padding-left: 5px;
+							font-size: 12px;
+							color: $gray;
+						}
+					}
+				}
+			}
+		}
+	}
+	content {
+		display: table;
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+		background-color: white;
+		content-left {
+			display: table-cell;
+			width: 40%;
+			margin: 0px;
+			padding: 5px 10px 10px;
+			vertical-align: top;
+			background-color: white;
+			img {
+				display: block;
+				height: 100px;
+			}
+		}
+		content-right {
+			display: table-cell;
+			width: 60%;
+			margin: 0px;
+			padding: 5px 10px 5px 0px;
+			vertical-align: top;
+			background-color: white;
+			* {
+				display: block;
+				text-align: right;
+				font-size: 14px;
+			}
+			conditioning {
+				font-weight: bold;
+			}
+			transport-category,
+			model {
+				font-size: 13px;
+			}
+			rate-km {
+				color: $gray;
+			}
+			rate {
+				margin-top: 15px;
+				font-size: 25px;
+				font-weight: bold;
+				color: $selectedColor;
+				letter-spacing: -1px;
+			}
+		}
+	}
+	total {
+		display: table;
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+		background-color: white;
+		content-left {
+			display: table-cell;
+			width: 40%;
+			margin: 0px; // padding: 5px 10px;
+			vertical-align: top;
+			background-color: white;
+			img {
+				display: block;
+				height: 100px;
+			}
+		}
+		content-right {
+			display: table-cell;
+			width: 60%;
+			margin: 0px;
+			padding: 5px 10px;
+			vertical-align: top;
+			background-color: white;
+			text-align: right;
+			title {
+				text-align: right;
+				font-size: 20px;
+			}
+			conditioning {
+				display: block;
+				font-weight: bold;
+			}
+			transport-category {
+				display: block;
+				font-size: 13px;
+			}
+			rate-km {
+				display: block;
+				color: $gray;
+			}
+			rate {
+				// margin-top: 15px;
+				font-size: 25px;
+				font-weight: bold;
+				color: $selectedColor;
+				letter-spacing: -1px;
+			}
+			city {
+				display: block;
+				font-size: 13px;
+				text-align: right;
+				region {
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}
+
+add-ads {
+	display: table;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	button {
+		display: table-cell;
+		width: 100%;
+		height: 50px;
+		margin: 0px;
+		padding: 5px;
+		vertical-align: top;
+		border-radius: 0px;
+	}
+}
