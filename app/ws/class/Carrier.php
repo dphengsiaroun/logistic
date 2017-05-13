@@ -4,8 +4,5 @@
 
 	class Carrier extends RestResource {
 
-	 	public static function getName() {
-			 return 'Carrier';
-		}
 	}
 

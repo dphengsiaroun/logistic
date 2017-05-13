@@ -6,24 +6,26 @@
 
 	abstract class RestResource {
 
-		abstract public static function getName();
+		public function getName() {
+			return get_class($this);
+		}
 
-		public static function create() {
+		public function create() {
 			$account = Account::getConnected();
 			$request = getRequest();
 			$request->accountId = $account->id;
 			$request->login = $account->content->login;
 			Image::manageSession($account, $request);
-			$e = Event::insert('/'. strtolower(static::getName()) .'/create', $request);
+			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
 			Event::synchronize();
-			$result = static::retrieve($e->id);
+			$result = $this->retrieve($e->id);
 			return $result;
 		}
 
-		public static function retrieve($id) {
+		public function retrieve($id) {
 			global $db, $cfg;
 			// On lance notre requête de vérification
-			$name = strtolower(static::getName());
+			$name = strtolower($this->getName());
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}{$name} WHERE id=:id
 EOF;
@@ -37,7 +39,7 @@ EOF;
 			}
 
 			if ($st->rowCount() == 0) {
-				throw new Exception(static::getName() . ' not found for id = ' . $id);
+				throw new Exception($this->getName() . ' not found for id = ' . $id);
 			}
 
 			$array = $st->fetch();
@@ -45,14 +47,14 @@ EOF;
 			$result->id = $array['id'];
 			$result->accountId = $array['account_id'];
 			$result->content = json_decode($array['content']);
-			debug(static::getName() . ' retrieved.');
+			debug($this->getName() . ' retrieved.');
 			return $result;
 		}
 
-		public static function listAll() {
+		public function listAll() {
 			global $db, $cfg;
 
-			$name = strtolower(static::getName());
+			$name = strtolower($this->getName());
 			$request = getUrlQueryString();
 
 			$sql = <<<EOF
@@ -80,23 +82,23 @@ EOF;
 			return $result;
 		}
 
-		public static function delete($id) {
+		public function delete($id) {
 			$request = new stdClass();
 			$request->id = $id;
 			$account = Account::getConnected();
 			$request->accountId = $account->id;
-			$e = Event::insert('/' . strtolower(static::getName()) . '/delete', $request);
+			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
 			Event::synchronize();
 		}
 
-		public static function update($id) {
+		public function update($id) {
 			$request = getRequest();
 			$account = Account::getConnected();
 			$request->id = $id;
 			$request->accountId = $account->id;
-			$e = Event::insert('/' . strtolower(static::getName()) . '/update', $request);
+			$e = Event::insert('/' . strtolower($this->getName()) . '/update', $request);
 			Event::synchronize();
-			$result = static::retrieve($request->id);
+			$result = $this->retrieve($request->id);
 			return $result;
 		}
 	}

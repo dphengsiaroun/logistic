@@ -7,7 +7,8 @@
 
 		private $account;
 
-		public function __construct($account) {
+		public function __construct() {
+			$account = Account::getConnected();
 			if (!property_exists($account->content, 'trucks')) {
 				$account->content->trucks = new stdClass();
 				$account->save();
@@ -16,7 +17,7 @@
 			debug('$this->account', $this->account);
 		}
 
-		public static function create() {
+		public function create() {
 			$request = getRequest();
 			$account = Account::getConnected();
 			$truck = new Truck($account);
@@ -37,7 +38,7 @@
 			return $truck;
 		}
 
-		public static function listAll() {
+		public function listAll() {
 			$request = getRequest();
 			debug('$request', $request);
 			$account = Account::getConnected();
@@ -48,11 +49,11 @@
 			return $account->content->trucks;
 		}
 
-		public static function retrieve($account, $id) {
+		public function retrieve($account, $id) {
 			return self::listAll($account)->{$id};
 		}
 
-		public static function update() {
+		public function update() {
 			$request = getRequest();
 			debug('request update', $request);
 			$account = Account::getConnected();
@@ -61,7 +62,7 @@
 			return self::create();
 		}
 
-		public static function delete($id) {
+		public function delete($id) {
 			$request = new stdClass();
 			$request->id = $id;
 			$account = Account::getConnected();

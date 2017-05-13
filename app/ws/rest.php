@@ -53,26 +53,27 @@
 	function run($resource, $method, $id) {
 		global $result;
 		$class = ucfirst($resource);
+		$obj = new $class();
 		if ($method == 'GET') {
 			if ($id) {
-				$result[$resource] = $class::retrieve($id);
+				$result[$resource] = $obj->retrieve($id);
 				return;
 			}
-			$result[$resource . 's'] = $class::listAll();
+			$result[$resource . 's'] = $obj->listAll();
 			return;
 		}
 		if ($method == 'POST') {
-			$result[$resource] = $class::create();
+			$result[$resource] = $obj->create();
 			return;
 		}
 		if ($method == 'PUT') {
-			$result[$resource] = $class::update($id);
+			$result[$resource] = $obj->update($id);
 			return;
 		}
 		// } elseif ($method == 'PATCH') {
 
 		if ($method == 'DELETE') {
-			$class::delete($id);
+			$obj->delete($id);
 			return;
 		}
 	}
