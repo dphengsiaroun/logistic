@@ -14,7 +14,7 @@
         <a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.user.account.content.login })">
             <div>
                 <div class="img-fix">
-                    <img ng-show="truck.image === undefined" src="img/truck-default.svg">
+                    <img-svg ng-show="truck.image === undefined" src="/img/truck-default.svg"></img-svg>
                     <img ng-show="truck.image.url" ng-src="{{truck.image.url}}">
                 </div>
                 <div class="details">

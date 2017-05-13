@@ -44,10 +44,10 @@
 
 	$id = NULL;
 
-	if (count($array) > 3) {
+	if (count($array) == 4) {
 		$id = $array[3];
 		debug('valeur de id', $id);
-	} elseif (count($array) > 1) {
+	} elseif (count($array) == 2) {
 		$id = $array[1];
 	}
 	function run($resource, $method, $id) {
