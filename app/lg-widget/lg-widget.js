@@ -210,6 +210,7 @@ app.component('lgCreateButton', {
 	}
 });
 
+require('./css/lg-breadcrumb.scss');
 var lgBreadcrumbUrl = require('./tmpl/lg-breadcrumb.html');
 app.component('lgBreadcrumb', {
 	templateUrl: lgBreadcrumbUrl
