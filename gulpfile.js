@@ -38,7 +38,7 @@ const path = {
 	indexHtml: 'app/index.html',
 	htaccess: ['app/.htaccess.tmpl'],
 	htaccessWs: ['app/ws/.htaccess'],
-	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*', 'app/favicon/**/*',
+	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*',
 		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl',
 		'!app/img/**/*.svg', 'app/*.html', '!app/index.html'],
 	ftp: ['dist.zip', 'utils/unzip.php'],
