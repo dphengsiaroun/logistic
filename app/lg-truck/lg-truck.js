@@ -144,15 +144,17 @@ app.service('truck', function Truck($q, $http, $state, user) {
 
 	this.delete = function(id) {
 		console.log('truck->delete');
-		return $http({
-			url: 'ws/users/' + user.account.content.login + '/trucks/' + id,
-			method: 'DELETE',
-			data: {
-				id: id
-			},
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
+		return user.waitForCheckConnection().then(function() {
+			return $http({
+				url: 'ws/users/' + user.account.content.login + '/trucks/' + id,
+				method: 'DELETE',
+				data: {
+					id: id
+				},
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			});
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
