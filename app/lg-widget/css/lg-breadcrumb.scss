@@ -54,8 +54,8 @@ breadcrumb {
 			top: $breadcrumbHeight / 2;
 			transform: skew(-20deg);
 		}
-		&[start]:before,
-		&[start]:after {
+		&:first-child:before,
+		&:first-child:after {
 			content: none;
 		}
 		&[disabled] {
