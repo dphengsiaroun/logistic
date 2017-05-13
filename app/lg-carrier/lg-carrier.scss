@@ -411,6 +411,8 @@ carrier-list {
 }
 
 $breadcrumbHeight: 88px;
+$breadcrumbDisabledBgColor: desaturate($breadcrumbColor, 100%);
+$breadcrumbDisabledColor: desaturate(lighten($primaryColor, 20%), 50%);
 
 breadcrumb {
 	display: table;
@@ -423,18 +425,14 @@ breadcrumb {
 		background-color: $breadcrumbColor;
 		padding: 10px 0px;
 		text-align: center;
-		width: 35%;
-		&:last-child {
-			width: 30%;
-		}
 		div {
-			width: 80%;
+			position: relative;
+			z-index: 1;
+			padding-left: 10px;
 			i.fa {
 				display: inline-block;
-				width: 33%;
 				padding: 5px 5px;
 				font-size: 22px;
-				border-radius: 100%;
 			}
 			span {
 				display: inline-block;
@@ -443,41 +441,48 @@ breadcrumb {
 				font-weight: bold;
 			}
 		}
+
+
+		&:before,
+		&:after {
+			position: absolute;
+			left: -8px;
+			height: $breadcrumbHeight / 2;
+			width: 3px;
+			background: white;
+			border-left: 10px solid $breadcrumbDisabledBgColor;
+			border-right: 10px solid $breadcrumbDisabledBgColor;
+			content: '';
+		}
+		&:before {
+			top: 0px;
+			transform: skew(20deg);
+		}
+		&:after {
+			top: $breadcrumbHeight / 2;
+			transform: skew(-20deg);
+		}
+		&[start]:before,
+		&[start]:after {
+			content: none;
+		}
 		&[disabled] {
+			background-color: $breadcrumbDisabledBgColor;
 			div {
 				i.fa {
-					color: desaturate(lighten($primaryColor, 20%), 50%);
+					color: $breadcrumbDisabledColor;
 				}
 				span {
 					font-weight: normal;
+					color: $breadcrumbDisabledColor;
 				}
 			}
-		}
-		&:after {
-			position: absolute;
-			top: 0px;
-			right: 7px;
-			height: $breadcrumbHeight / 2;
-			width: 3px;
-			background: white;
-			content: '';
-			transform: skew(20deg);
-		}
-		&[end]:after {
-			content: none;
-		}
-		&:before {
-			position: absolute;
-			top: $breadcrumbHeight / 2;
-			right: 7px;
-			height: $breadcrumbHeight / 2;
-			width: 3px;
-			background: white;
-			content: '';
-			transform: skew(-20deg);
-		}
-		&[end]:before {
-			content: none;
+			&[first] {
+				&:before,
+				&:after {
+					border-left: 10px solid $breadcrumbColor;
+				}
+			}
 		}
 	}
 }
