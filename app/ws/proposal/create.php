@@ -1,7 +1,7 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/include/proposal.inc.php");
+	require_once(BASE_DIR . "/class/Proposal.php");
 
 	$request = getRequest();
 	debug("create proposal start");

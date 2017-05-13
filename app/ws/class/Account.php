@@ -3,7 +3,7 @@
 	require_once(BASE_DIR . "/include/constant.inc.php");
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
-	require_once(BASE_DIR . "/include/rememberMe.inc.php");
+	require_once(BASE_DIR . "/class/RememberMe.php");
 
 	debug('cookie', $_COOKIE);
 
@@ -246,14 +246,14 @@ EOF;
 			$id = $st->fetch()['id'];
 			$account = new Account($id);
 			$account->connect();
-			
+
 			return $account;
 		}
 
 		public function connect() {
 			debug('connect');
 			$this->getRememberMe()->connect();
-			
+
 		}
 
 		public function getRememberMe() {
@@ -345,7 +345,7 @@ EOF;
 
 		public function createForgottenPasswordCode() {
 			debug('createForgottenPasswordCode');
-			
+
 			$now = time();
 			debug('now', $now);
 			//$expireTime = $now + 5;

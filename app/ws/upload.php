@@ -1,7 +1,7 @@
 <?php
 
 define("BASE_DIR", __DIR__);
-require_once(BASE_DIR . "/include/account.inc.php");
+require_once(BASE_DIR . "/class/Account.php");
 
 error_reporting(E_ALL | E_STRICT);
 require(BASE_DIR . '/include/lib/UploadHandler.php');
@@ -42,8 +42,8 @@ try {
 		debug('done');
 	}
 
-	
-	
+
+
 } catch (Exception $e) {
 	$result = array(
 		'files' => array(

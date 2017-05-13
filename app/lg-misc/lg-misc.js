@@ -8,7 +8,8 @@ require('./lg-misc.scss');
 
 app.service('lgMisc', ['$injector', function LgMisc($injector) {
     this.isWebService = function(url) {
-        return url.match(/ws\/.*\.php/);
+		var result = url.match(/ws\//);
+        return result;
     };
 }]);
 
@@ -102,7 +103,7 @@ app.filter('volume', function() {
 app.filter('googlemap', function($rootScope) {
     'ngInject';
     return function(content) {
-        if (!content) {
+        if (!content || !content.departureCity || !content.arrivalCity) {
             return '';
         }
         var result = 'https://www.google.com/maps/dir/' +

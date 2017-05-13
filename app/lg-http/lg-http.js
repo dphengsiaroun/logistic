@@ -7,10 +7,8 @@ var app = angular.module(module.exports, ['lg-misc']);
 app.config(function($httpProvider, $provide) {
 	'ngInject';
 
-	$provide.factory('myPhpErrorInterceptor', function($injector) {
+	$provide.factory('myPhpErrorInterceptor', function($q, lgMisc) {
 		'ngInject';
-		var $q = $injector.get('$q');
-		var lgMisc = $injector.get('lgMisc');
 
 		return {
 			response: function(response) {

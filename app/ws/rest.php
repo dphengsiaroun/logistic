@@ -6,14 +6,14 @@
 	require_once(BASE_DIR . '/include/database.inc.php');
 
 	$objects = array(
-		'carrier',
-		'loader',
-		'truck',
-		'account'
+		'Carrier',
+		'Loader',
+		'Truck',
+		'Account'
 	);
 
 	foreach ($objects as $class) {
-		require_once(BASE_DIR . '/include/' . $class . '.inc.php');
+		require_once(BASE_DIR . '/class/' . $class . '.php');
 	}
 
 	$requestUri = $_SERVER['REQUEST_URI'];

@@ -1,26 +1,28 @@
 <?php
 
-	require_once(BASE_DIR . "/include/account.inc.php");
-	require_once(BASE_DIR . "/include/event.inc.php");
+	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/Event.php");
+	require_once(BASE_DIR . "/class/Image.php");
 
-	class Carrier {
+	class Loader {
 
 		public static function create() {
 			$account = Account::getConnected();
 			$request = getRequest();
 			$request->accountId = $account->id;
 			$request->login = $account->content->login;
-			$e = Event::insert('/carrier/create', $request);
+			Image::manageSession($account, $request);
+			$e = Event::insert('/loader/create', $request);
 			Event::synchronize();
-			$carrier = self::retrieve($e->id);
-			return $carrier;
+			$loader = self::retrieve($e->id);
+			return $loader;
 		}
 
 		public static function retrieve($id) {
 			global $db, $cfg;
-			// On lance notre requête de vérification
+
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}carrier WHERE id=:id
+SELECT * FROM {$cfg->prefix}loader WHERE id=:id
 EOF;
 
 			$st = $db->prepare($sql,
@@ -32,26 +34,26 @@ EOF;
 			}
 
 			if ($st->rowCount() == 0) {
-				throw new Exception('Carrier not found for id = ' . $id);
+				throw new Exception('Loader not found for id = ' . $id);
 			}
 
 			$array = $st->fetch();
-			$carrier = new Carrier();
-			$carrier->id = $array['id'];
-			$carrier->accountId = $array['account_id'];
-			$carrier->content = json_decode($array['content']);
-			debug('Carrier retrieved.');
-			return $carrier;
+			$loader = new Loader();
+			$loader->id = $array['id'];
+			$loader->accountId = $array['account_id'];
+			$loader->content = json_decode($array['content']);
+			debug('Loader retrieved.');
+			return $loader;
 		}
 
 		public static function listAll() {
 			global $db, $cfg;
-
 			$request = getQueryString();
-
+			debug('$request', $request);
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}carrier
+SELECT * FROM {$cfg->prefix}loader
 EOF;
+
 			debug('listAll', $request);
 			$array = array();
 
@@ -74,24 +76,24 @@ EOF;
 			return $result;
 		}
 
+		public static function update($id) {
+			$request = getRequest();
+			$request->id = $id;
+			$account = Account::getConnected();
+			$request->accountId = $account->id;
+			$e = Event::insert('/loader/update', $request);
+			Event::synchronize();
+			$loader = self::retrieve($request->id);
+			return $loader;
+		}
+
 		public static function delete($id) {
 			$request = new stdClass();
 			$request->id = $id;
 			$account = Account::getConnected();
 			$request->accountId = $account->id;
-			$e = Event::insert('/carrier/delete', $request);
+			$e = Event::insert('/loader/delete', $request);
 			Event::synchronize();
-		}
-
-		public static function update($id) {
-			$request = getRequest();
-			$account = Account::getConnected();
-			$request->id = $id;
-			$request->accountId = $account->id;
-			$e = Event::insert('/carrier/update', $request);
-			Event::synchronize();
-			$carrier = self::retrieve($request->id);
-			return $carrier;
 		}
 	}
 

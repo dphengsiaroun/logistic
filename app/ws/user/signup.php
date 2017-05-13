@@ -1,7 +1,7 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/include/account.inc.php");
+	require_once(BASE_DIR . "/class/Account.php");
 
 	$request = getRequest();
 	debug("signup start");

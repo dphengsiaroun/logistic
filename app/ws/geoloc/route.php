@@ -1,7 +1,7 @@
 <?php
 
 	define('BASE_DIR', dirname(__DIR__));
-	require_once(BASE_DIR . '/include/geoloc.inc.php');
+	require_once(BASE_DIR . '/class/Geoloc.php');
 
 	$request = getRequest();
 	debug('geoloc', $request);

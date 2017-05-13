@@ -1,6 +1,6 @@
 <?php
 
-	require_once(BASE_DIR . "/include/account.inc.php");
+	require_once(BASE_DIR . "/class/Account.php");
 
 	class RememberMe {
 

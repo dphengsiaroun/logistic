@@ -1,8 +1,7 @@
 <?php
 
-	require_once(BASE_DIR . "/include/account.inc.php");
-	require_once(BASE_DIR . "/include/loader.inc.php");
-	require_once(BASE_DIR . "/include/image.inc.php");
+	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/Image.php");
 
 	class Truck {
 

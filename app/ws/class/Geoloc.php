@@ -1,5 +1,5 @@
 <?php
-	require_once(BASE_DIR . '/include/event.inc.php');
+	require_once(BASE_DIR . '/class/Event.php');
 
 	class Geoloc {
 
