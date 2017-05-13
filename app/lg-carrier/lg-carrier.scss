@@ -425,8 +425,8 @@ breadcrumb {
 		text-align: center;
 		div {
 			i.fa {
-				width: 33%;
 				display: inline-block;
+				width: 33%;
 				padding: 5px 5px;
 				font-size: 22px;
 				border-radius: 100%;
@@ -435,10 +435,20 @@ breadcrumb {
 				display: block;
 				margin: 5px 9px 0px;
 				font-size: 12px;
+				font-weight: bold;
 			}
 		}
 		div.disable {
-			opacity: 0.3;
+			i.fa {
+				color: desaturate(lighten($primaryColor, 20%), 50%);
+			}
+			step {
+				display: block;
+				margin: 5px 9px 0px;
+				font-size: 12px;
+				font-weight: bold;
+			}
+
 		}
 	}
 	step-1:after,
