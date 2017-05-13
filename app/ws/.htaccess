@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteRule cities json/cities.json
 RewriteRule accounts rest.php
 RewriteRule carriers rest.php
 RewriteRule loaders rest.php

@@ -77,7 +77,7 @@ app.run(function($rootScope, $http) {
 		return obj.city;
 	};
 
-	$http.get('json/cities.json').then(function(response) {
+	$http.get('ws/cities').then(function(response) {
 		$rootScope.config.cities = response.data;
 		$rootScope.config.cities.forEach((obj) => {
 			obj.country = 'Algérie';
