@@ -2,6 +2,7 @@
 
 	require_once(BASE_DIR . "/class/Account.php");
 	require_once(BASE_DIR . "/class/Event.php");
+	require_once(BASE_DIR . "/class/Image.php");
 
 	abstract class RestResource {
 
@@ -12,6 +13,7 @@
 			$request = getRequest();
 			$request->accountId = $account->id;
 			$request->login = $account->content->login;
+			Image::manageSession($account, $request);
 			$e = Event::insert('/'. strtolower(static::getName()) .'/create', $request);
 			Event::synchronize();
 			$result = static::retrieve($e->id);
