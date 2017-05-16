@@ -45,7 +45,6 @@ app.run(function($transitions, $rootScope, carrier) {
 	});
 });
 
-// permet de récuperer les valeurs en post sous format json
 app.component('lgMenu', {
 	templateUrl: lgMenuUrl,
 	controller: function LgMenuCtrl($element, $scope, $state, $rootScope, $timeout, user, carrier, loader, proposal) {
@@ -92,14 +91,17 @@ app.component('lgMenu', {
 			});
 		};
 
-		this.isMenuOn = false;
+		ctrl.isMenuOn = false;
 
-		this.toggle = function() {
+		ctrl.toggle = function() {
 			console.log('toggle', arguments);
+			console.log('ctrl.lgMenuContentElt', ctrl.lgMenuContentElt);
+			console.log('1 ctrl.isMenuOn', ctrl.isMenuOn);
 			ctrl.isMenuOn = !ctrl.isMenuOn;
+			console.log('2 ctrl.isMenuOn', ctrl.isMenuOn);
 			if (ctrl.isMenuOn) {
 				ctrl.lgMenuContentElt.css('display', 'block');
-				ctrl.refreshNotifications();
+				// ctrl.refreshNotifications();
 			} else {
 				console.log('off', arguments);
 				ctrl.isMenuOn = false;
@@ -137,6 +139,7 @@ app.component('lgMenuContent', {
 		console.log('lgMenuContent ctrl', arguments, this);
 		this.$onInit = function() {
 			this.lgMenu.lgMenuContentElt = $element;
+			console.log('$element', $element);
 		};
 
 	}]
