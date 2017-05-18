@@ -4,21 +4,20 @@ module.exports = 'lg-back-detector';
 
 var app = angular.module(module.exports, []);
 
-app.service('lgBackDetector', function LgBackDetector($rootScope, $location) {
+app.service('lgBackDetector', function LgBackDetector($rootScope, $location, $transitions, $window) {
 	'ngInject';
 	var service = this;
-	$rootScope.$on('$locationChangeSuccess', function() {
-		service.actualLocation = $location.path();
-	});
-
-	$rootScope.$watch(function() {
-		return $location.path();
-	}, function(newLocation, oldLocation) {
-		if (service.actualLocation === newLocation) {
+	service.last = undefined;
+	$transitions.onStart({}, function(trans) {
+		var from = trans.$from();
+		console.log('lgBackDetector from', from);
+		var to = trans.$to();
+		console.log('lgBackDetector to', to);
+		if (to === service.last) {
 			service.isBack = true;
 		} else {
 			service.isBack = false;
 		}
-
+		service.last = from;
 	});
 });
