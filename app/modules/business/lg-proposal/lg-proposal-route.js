@@ -72,7 +72,6 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 	ctrl.carrier = carrier;
 	ctrl.user = user;
 	console.log('arguments', arguments);
-	$window.scrollTo(0, 0);
 	this.$onInit = function() {
 		ctrl.proposal.get($stateParams.id).then(function() {
 			return ctrl.user.waitForCheckConnection('ProposalCreateCtrl');

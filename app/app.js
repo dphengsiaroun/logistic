@@ -46,6 +46,7 @@ var lgHttp = require('./modules/technic/lg-http/lg-http.js');
 var lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
 var lgTest = require('./modules/technic/lg-test/lg-test.js');
 var lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
+var lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
 
 
 
@@ -96,7 +97,8 @@ var app = angular.module('mainApp', [
 	lgHttp,
 	lgMisc,
 	lgTest,
-	lgWidget
+	lgWidget,
+	lgBackDetector
 ]);
 
 app.config(function($touchProvider) {

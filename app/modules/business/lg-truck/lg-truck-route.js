@@ -118,13 +118,15 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('TruckListCtrl', ['$scope', '$injector', function TruckCtrl($scope, $injector) {
-    this.truck = $injector.get('truck');
-    this.user = $injector.get('user');
+app.controller('TruckListCtrl', function TruckCtrl($scope, user, truck) {
+	'ngInject';
+	var ctrl = this;
+    ctrl.truck = truck;
+    ctrl.user = user;
     this.$onInit = function() {
         this.truck.list();
     };
-}]);
+});
 
 app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
     'ngInject';
@@ -136,13 +138,14 @@ app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
     };
 });
 
-app.controller('TruckCreateCtrl', function TruckCtrl($scope, $injector) {
+app.controller('TruckCreateCtrl', function TruckCtrl($scope, user, truck) {
     'ngInject';
-    this.truck = $injector.get('truck');
-    this.user = $injector.get('user');
+	var ctrl = this;
+    ctrl.truck = truck;
+    ctrl.user = user;
 });
 
-app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $injector, $stateParams, truck, user) {
+app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams, truck, user) {
     'ngInject';
     var ctrl = this;
     ctrl.truck = truck;

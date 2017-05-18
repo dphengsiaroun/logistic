@@ -15,7 +15,7 @@ var app = angular.module(module.exports, []);
 
 var lgMenuUrl = require('./tmpl/lg-menu.html');
 
-app.run(function($transitions, $rootScope, carrier) {
+app.run(function($transitions, $rootScope, $window, carrier, lgBackDetector) {
 	'ngInject';
 	$transitions.onStart({}, function(trans) {
 		$rootScope.isBackPresent = true;
@@ -41,6 +41,10 @@ app.run(function($transitions, $rootScope, carrier) {
 			if (carrier.type === 'update') {
 				carrier.initCreateData();
 			}
+		}
+		console.log('lgBackDetector', lgBackDetector);
+		if (lgBackDetector.isBack === false) {
+			$window.scrollTo(0, 0);
 		}
 	});
 });

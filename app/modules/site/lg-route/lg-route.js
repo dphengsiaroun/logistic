@@ -21,7 +21,7 @@ var homeUrl = require('./tmpl/home.html');
 
 app.component('lgHomeRoute', {
     templateUrl: homeUrl,
-    controller: function LgHomeCtrl(user) {
+    controller: function LgHomeCtrl($window, user) {
         'ngInject';
         console.log('LgHomeCtrl', arguments);
         user.waitForCheckConnection('LgHomeCtrl').then(function() {

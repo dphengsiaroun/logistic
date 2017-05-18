@@ -14,7 +14,7 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 		service.createData = {
 			name: 'Toto',
 			email: 'email@email.com',
-			titleAd: 'Chargement de 10 voitures',
+			titleAd: '',
 			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
 		};
 	};

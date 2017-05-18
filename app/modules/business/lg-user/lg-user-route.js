@@ -195,7 +195,7 @@ app.component('lgUserSignupSuccessRoute', {
 
 app.component('lgUserRetrieveRoute', {
 	templateUrl: profileUrl,
-	controller: 'UserUpdateCtrl'
+	controller: 'UserCtrl'
 });
 
 app.component('lgUserUpdatePasswordRoute', {
