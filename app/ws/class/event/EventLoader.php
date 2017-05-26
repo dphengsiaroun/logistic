@@ -6,15 +6,15 @@ class EventLoader {
 		global $db, $cfg;
 		debug('$e', $e);
 		$sql = <<<EOF
-INSERT INTO {$cfg->prefix}loader (id, account_id, content) VALUES
-(:id, :account_id, :content);
+INSERT INTO {$cfg->prefix}loader (id, user_id, content) VALUES
+(:id, :user_id, :content);
 EOF;
 
 		$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
 			':id' => $e->id,
-			':account_id' => $e->content->accountId,
+			':user_id' => $e->content->accountId,
 			':content' => json_encode($e->content)
 		)) === FALSE) {
 			throw new Exception('Cannot insert event: '.sprint_r($db->errorInfo()));

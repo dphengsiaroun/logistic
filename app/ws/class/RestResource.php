@@ -45,7 +45,7 @@ EOF;
 			$array = $st->fetch();
 			$result = new static();
 			$result->id = $array['id'];
-			$result->accountId = $array['account_id'];
+			$result->accountId = $array['user_id'];
 			$result->content = json_decode($array['content']);
 			debug($this->getName() . ' retrieved.');
 			return $result;
@@ -64,8 +64,8 @@ EOF;
 			$array = array();
 
 			if (is_object($request) && property_exists($request, 'accountId')) {
-				$sql .= ' WHERE account_id = :account_id';
-				$array['account_id'] = $request->accountId;
+				$sql .= ' WHERE user_id = :user_id';
+				$array['user_id'] = $request->accountId;
 			}
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
