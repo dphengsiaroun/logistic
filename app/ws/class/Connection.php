@@ -11,6 +11,7 @@
 			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
 			Event::synchronize();
 			$result = new static();
+			$result->id = $user->lastToken->code;
 			$result->user = $user;
 			return $result;
 		}
@@ -18,6 +19,7 @@
 		public function retrieve($id) {
 			$result = new static();
 			$user = User::getConnected();
+			$result->id = $id;
 			$result->user = $user;
 			return $result;
 		}

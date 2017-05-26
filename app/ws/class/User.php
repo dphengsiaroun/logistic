@@ -252,7 +252,7 @@ EOF;
 
 		public function connect() {
 			debug('connect');
-			$this->getRememberMe()->connect();
+			$this->lastToken = $this->getRememberMe()->connect();
 
 		}
 

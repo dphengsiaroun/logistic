@@ -17,6 +17,7 @@
 			debug('token', $token);
 			setcookie('rememberMe', $token->code,  $token->expirationTime, '/');
 			setcookie('userId', '' . $this->user->id,  $token->expirationTime, '/');
+			return $token;
 		}
 
 		public function disconnect() {

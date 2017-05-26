@@ -152,7 +152,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 			return;
 		}
 		$http({
-			url: makeUrl('isConnected'),
+			url: 'ws/connections/12',
 			method: 'GET'
 		}).then(function(response) {
 			console.log('response', response);
@@ -165,7 +165,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			$rootScope.isConnected = true;
-			service.current = response.data.user;
+			service.current = response.data.connection.user;
 		}).finally(function() {
 			service.isConnectedStatusKnown = true;
 		}).catch(function(error) {
