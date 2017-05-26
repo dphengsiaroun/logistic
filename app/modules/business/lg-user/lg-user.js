@@ -17,10 +17,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	'ngInject';
 	var service = this;
 
-	this.setAfterConnectAction = function(obj) {
-		localStorage.setItem('afterConnect', angular.toJson(obj));
-	};
-
 	this.goToStateAfterConnect = function() {
 		console.log('goToStateAfterConnect', arguments);
 		var json = localStorage.getItem('afterConnect');

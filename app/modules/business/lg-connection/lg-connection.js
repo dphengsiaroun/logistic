@@ -135,4 +135,8 @@ app.service('connection', function Connection($http, $rootScope, $q, $state, use
 		});
 	};
 
+	service.setAfterConnectAction = function(obj) {
+		localStorage.setItem('afterConnect', angular.toJson(obj));
+	};
+
 });

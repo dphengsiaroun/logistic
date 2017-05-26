@@ -6,7 +6,7 @@ module.exports = 'lg-loader';
 var app = angular.module(module.exports, ['ui.router']);
 require('./lg-loader-route.js');
 
-app.service('loader', function Loader(user, $http, $state, $q) {
+app.service('loader', function Loader($http, $state, $q, connection, user) {
 	'ngInject';
 
 	var service = this;
@@ -47,7 +47,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 		} else {
 			createData.userNotConnected = true;
 			localStorage.setItem('loader', angular.toJson(createData));
-			user.setAfterConnectAction({
+			connection.setAfterConnectAction({
 				state: 'loader:created',
 				service: 'loader',
 				fn: 'createAfterConnect',

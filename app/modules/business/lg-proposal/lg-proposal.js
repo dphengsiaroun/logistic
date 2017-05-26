@@ -6,7 +6,7 @@ module.exports = 'lg-proposal';
 var app = angular.module(module.exports, ['ui.router']);
 require('./lg-proposal-route.js');
 
-app.service('proposal', function Proposal(user, $http, $state, $q) {
+app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 	'ngInject';
 
 	var service = this;
@@ -45,7 +45,7 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 		} else {
 			createData.userNotConnected = true;
 			localStorage.setItem('proposal', angular.toJson(createData));
-			user.setAfterConnectAction({
+			connection.setAfterConnectAction({
 				state: 'proposal:created',
 				service: 'proposal',
 				fn: 'createAfterConnect',

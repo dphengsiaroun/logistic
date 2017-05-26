@@ -7,7 +7,7 @@ var app = angular.module(module.exports, ['ui.router']);
 require('./lg-carrier-route.js');
 require('./lg-carrier-create-route.js');
 
-app.service('carrier', function Carrier(user, $http, $state, $q) {
+app.service('carrier', function Carrier($http, $state, $q, connection, user) {
 	'ngInject';
 
 	var service = this;
@@ -43,7 +43,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 			});
 		} else {
 			localStorage.setItem('carrier', angular.toJson(service.createData));
-			user.setAfterConnectAction({
+			connection.setAfterConnectAction({
 				state: 'carrier:created',
 				service: 'carrier',
 				fn: 'createAfterConnect',

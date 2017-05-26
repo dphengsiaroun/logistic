@@ -43,7 +43,7 @@ app.service('truck', function Truck($q, $http, $state, user, connection) {
 			console.log('user not connected');
 			createData.userNotConnected = true;
 			localStorage.setItem('truck', angular.toJson(createData));
-			user.setAfterConnectAction({
+			connection.setAfterConnectAction({
 				state: 'truck:created',
 				service: 'truck',
 				fn: 'createAfterConnect',
