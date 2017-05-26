@@ -19,9 +19,9 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/updated-carrier',
         component: 'lgMessage',
         resolve: {
-            service: function(user, carrier) {
+            service: function(connection, user, carrier) {
                 'ngInject';
-                return user.waitForCheckConnection().then(function() {
+                return connection.waitForCheckConnection().then(function() {
                     var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'carrier:list({login: \'' + login + '\'})';
@@ -63,9 +63,9 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/deleted-carrier',
         component: 'lgMessage',
         resolve: {
-            service: function(user, carrier) {
+            service: function(connection, user, carrier) {
                 'ngInject';
-                return user.waitForCheckConnection().then(function() {
+                return connection.waitForCheckConnection().then(function() {
                     var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'carrier:list({login: \'' + login + '\'})';
@@ -95,7 +95,8 @@ app.controller('CarrierListCtrl', function CarrierListCtrl(carrier) {
     };
 });
 
-app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scope, $injector) {
+app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection) {
+	'ngInject';
     var ctrl = this;
     ctrl.carrier = $injector.get('carrier');
     ctrl.user = $injector.get('user');
@@ -105,13 +106,13 @@ app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scop
     console.log('$stateParams', $stateParams);
     ctrl.$onInit = function() {
         ctrl.carrier.get($stateParams.id).then(function() {
-            return ctrl.user.waitForCheckConnection();
+            return connection.waitForCheckConnection();
         }).then(function() {
             ctrl.isEditable = (ctrl.carrier.current.content.userId === ctrl.user.current.id);
             console.log('ctrl.isEditable', ctrl.isEditable);
         });
     };
-}]);
+});
 
 var carrierListUrl = require('./tmpl/carrier-list.html');
 var carrierDetailUrl = require('./tmpl/carrier-detail.html');

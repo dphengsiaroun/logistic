@@ -14,7 +14,7 @@ app.config(function($stateProvider) {
 var adsUrl = require('../tmpl/ads.html');
 app.component('lgUserAdsRoute', {
 	templateUrl: adsUrl,
-	controller: function LgUserAdsRouteCtrl($state, $stateParams, user, carrier, loader) {
+	controller: function LgUserAdsRouteCtrl($state, $stateParams, user, connection, carrier, loader) {
 		'ngInject';
 		var ctrl = this;
 		ctrl.user = user;
@@ -24,7 +24,7 @@ app.component('lgUserAdsRoute', {
 		ctrl.loaders = [];
 		console.log('user', user);
 		ctrl.$onInit = function() {
-			user.waitForCheckConnection().then(function() {
+			connection.waitForCheckConnection().then(function() {
 				return carrier.list({
 					userId: user.current.id
 				});

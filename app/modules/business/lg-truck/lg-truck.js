@@ -6,7 +6,7 @@ module.exports = 'lg-truck';
 var app = angular.module(module.exports, ['ui.router']);
 require('./lg-truck-route.js');
 
-app.service('truck', function Truck($q, $http, $state, user) {
+app.service('truck', function Truck($q, $http, $state, user, connection) {
 	'ngInject';
 	var service = this;
 	service.initCreateData = function() {
@@ -63,7 +63,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 
 	service.list = function() {
 		console.log('truck->list');
-		return user.waitForCheckConnection().then(function() {
+		return connection.waitForCheckConnection().then(function() {
 			return $http({
 				url: 'ws/users/' + user.current.content.login + '/trucks',
 				method: 'GET'
@@ -100,7 +100,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 
 	service.empty = function() {
 		console.log('empty', arguments);
-		return user.waitForCheckConnection().then(function() {
+		return connection.waitForCheckConnection().then(function() {
 			return service.list();
 		}).then(function() {
 			for (var p in service.truckMap) {
@@ -116,7 +116,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 
 	service.update = function() {
 		console.log('updateTruck->update');
-		user.waitForCheckConnection().then(function() {
+		connection.waitForCheckConnection().then(function() {
 			return $http({
 				url: 'ws/users/' + user.current.content.login + '/trucks/' + service.updateData.id,
 				method: 'PUT',
@@ -143,7 +143,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 
 	this.delete = function(id) {
 		console.log('truck->delete');
-		return user.waitForCheckConnection().then(function() {
+		return connection.waitForCheckConnection().then(function() {
 			return $http({
 				url: 'ws/users/' + user.current.content.login + '/trucks/' + id,
 				method: 'DELETE',

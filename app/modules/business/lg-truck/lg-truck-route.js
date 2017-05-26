@@ -55,9 +55,9 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/updated-truck',
         component: 'lgMessage',
         resolve: {
-            service: function(user, truck) {
+            service: function(user, truck, connection) {
                 'ngInject';
-                return user.waitForCheckConnection().then(function() {
+                return connection.waitForCheckConnection().then(function() {
                     var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'truck:list({login: \'' + login + '\'})';
@@ -99,9 +99,9 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/deleted-truck',
         component: 'lgMessage',
         resolve: {
-            service: function(user, truck) {
+            service: function(user, truck, connection) {
                 'ngInject';
-                return user.waitForCheckConnection('truck:deleted').then(function() {
+                return connection.waitForCheckConnection('truck:deleted').then(function() {
                     var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'truck:list({login: \'' + login + '\'})';
@@ -145,7 +145,7 @@ app.controller('TruckCreateCtrl', function TruckCtrl($scope, user, truck) {
     ctrl.user = user;
 });
 
-app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams, truck, user) {
+app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams, truck, user, connection) {
     'ngInject';
     var ctrl = this;
     ctrl.truck = truck;
@@ -153,7 +153,7 @@ app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams,
 
     ctrl.$onInit = function() {
         ctrl.truck.get($stateParams.id).then(function() {
-            return ctrl.user.waitForCheckConnection('TruckUpdateCtrl');
+            return connection.waitForCheckConnection('TruckUpdateCtrl');
         }).then(function() {
             ctrl.truck.updateData = angular.copy(ctrl.truck.current);
             ctrl.truck.updateData.id = $stateParams.id;

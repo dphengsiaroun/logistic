@@ -49,9 +49,9 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/updated-loader',
         component: 'lgMessage',
         resolve: {
-            service: function(user, loader) {
+            service: function(connection, user, loader) {
                 'ngInject';
-                return user.waitForCheckConnection('loader:updated').then(function() {
+                return connection.waitForCheckConnection('loader:updated').then(function() {
                     var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'loader:list({login: \'' + login + '\'})';
@@ -93,9 +93,9 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/deleted-loader',
         component: 'lgMessage',
         resolve: {
-            service: function(user, loader) {
+            service: function(connection, user, loader) {
                 'ngInject';
-                return user.waitForCheckConnection('loader:deleted').then(function() {
+                return connection.waitForCheckConnection('loader:deleted').then(function() {
                     var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'loader:list({login: \'' + login + '\'})';
@@ -126,7 +126,7 @@ app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
     };
 });
 
-app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, user) {
+app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, user, connection) {
 	'ngInject';
     var ctrl = this;
     ctrl.loader = loader;
@@ -136,7 +136,7 @@ app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, u
     console.log('$stateParams', $stateParams);
     ctrl.$onInit = function() {
         ctrl.loader.get($stateParams.id).then(function() {
-            return ctrl.user.waitForCheckConnection('LoaderCtrl');
+            return connection.waitForCheckConnection('LoaderCtrl');
         }).then(function() {
             ctrl.isEditable = (ctrl.loader.current.content.userId === ctrl.user.current.id);
             console.log('ctrl.isEditable', ctrl.isEditable);
@@ -190,14 +190,14 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
     );
 });
 
-app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams) {
+app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams, connection) {
     'ngInject';
     var ctrl = this;
     ctrl.loader = loader;
     ctrl.user = user;
     this.$onInit = function() {
         this.loader.get($stateParams.id).then(function() {
-            return ctrl.user.waitForCheckConnection('LoaderUpdateCtrl');
+            return connection.waitForCheckConnection('LoaderUpdateCtrl');
         }).then(function() {
             ctrl.loader.updateData = angular.copy(ctrl.loader.current.content);
             ctrl.loader.updateData.id = $stateParams.id;

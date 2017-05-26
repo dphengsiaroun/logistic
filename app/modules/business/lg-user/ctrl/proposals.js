@@ -14,7 +14,7 @@ app.config(function($stateProvider) {
 var proposalsUrl = require('../tmpl/proposals.html');
 app.component('lgUserProposalsRoute', {
 	templateUrl: proposalsUrl,
-	controller: function LgUserProposalsRouteCtrl($state, $stateParams, user, proposal) {
+	controller: function LgUserProposalsRouteCtrl($state, $stateParams, user, connection, proposal) {
 		'ngInject';
 		var ctrl = this;
 		ctrl.user = user;
@@ -22,7 +22,7 @@ app.component('lgUserProposalsRoute', {
 		ctrl.proposals = [];
 		console.log('user', user);
 		ctrl.$onInit = function() {
-			user.waitForCheckConnection().then(function() {
+			connection.waitForCheckConnection().then(function() {
 				return proposal.list({
 					userId: user.current.id
 				});

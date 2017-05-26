@@ -43,7 +43,7 @@ app.controller('ProposalListCtrl', function ProposalListCtrl(proposal) {
 	};
 });
 
-app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, proposal, user) {
+app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, proposal, user, connection) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.proposal = proposal;
@@ -53,7 +53,7 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, propo
 	console.log('$stateParams', $stateParams);
 	ctrl.$onInit = function() {
 		ctrl.proposal.get($stateParams.id).then(function() {
-			return ctrl.user.waitForCheckConnection('ProposalCtrl');
+			return connection.waitForCheckConnection('ProposalCtrl');
 		}).then(function() {
 			ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.user.current.id);
 			console.log('ctrl.isEditable', ctrl.isEditable);
@@ -64,7 +64,7 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, propo
 	};
 });
 
-app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal, user, loader, carrier) {
+app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal, user, connection, loader, carrier) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.proposal = proposal;
@@ -74,7 +74,7 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 	console.log('arguments', arguments);
 	this.$onInit = function() {
 		ctrl.proposal.get($stateParams.id).then(function() {
-			return ctrl.user.waitForCheckConnection('ProposalCreateCtrl');
+			return connection.waitForCheckConnection('ProposalCreateCtrl');
 		}).then(function() {
 			ctrl.proposal.createData.name = ctrl.user.current.content.login;
 			ctrl.proposal.createData.email = ctrl.user.current.email;
@@ -90,14 +90,14 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 	};
 });
 
-app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, proposal, user, $stateParams) {
+app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateParams, proposal, user, connection) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.proposal = proposal;
 	ctrl.user = user;
 	this.$onInit = function() {
 		ctrl.proposal.get($stateParams.id).then(function() {
-			return ctrl.user.waitForCheckConnection('ProposalUpdateCtrl');
+			return connection.waitForCheckConnection('ProposalUpdateCtrl');
 		}).then(function() {
 			ctrl.proposal.updateData = angular.copy(ctrl.proposal.current.content);
 			ctrl.proposal.updateData.id = $stateParams.id;
