@@ -19,7 +19,7 @@
 			global $db, $cfg;
 
 			$sql = <<<EOF
-INSERT INTO {$cfg->prefix}account (email, password, content) VALUES
+INSERT INTO {$cfg->prefix}user (email, password, content) VALUES
 	(:email, :password, :content);
 EOF;
 
@@ -62,7 +62,7 @@ EOF;
 			global $db, $cfg;
 			// On lance notre requête de vérification
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}account WHERE id=:id
+SELECT * FROM {$cfg->prefix}user WHERE id=:id
 EOF;
 
 			$st = $db->prepare($sql,
@@ -144,7 +144,7 @@ EOF;
 			global $db, $cfg;
 
 			$sql = <<<EOF
-UPDATE {$cfg->prefix}account
+UPDATE {$cfg->prefix}user
 SET email = :email, password = :password, content = :content
 WHERE id = :id
 EOF;
@@ -165,7 +165,7 @@ EOF;
 			global $db, $cfg;
 
 			$sql = <<<EOF
-DELETE FROM {$cfg->prefix}account
+DELETE FROM {$cfg->prefix}user
 WHERE id = :id;
 EOF;
 
@@ -184,7 +184,7 @@ EOF;
 			global $db, $cfg;
 
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}account WHERE email=:email;
+SELECT * FROM {$cfg->prefix}user WHERE email=:email;
 EOF;
 
 			$st = $db->prepare($sql,
@@ -202,7 +202,7 @@ EOF;
 			global $db, $cfg;
 
 			$sql = <<<EOF
-SELECT id FROM {$cfg->prefix}account WHERE email=:email;
+SELECT id FROM {$cfg->prefix}user WHERE email=:email;
 EOF;
 
 			$st = $db->prepare($sql,
@@ -225,7 +225,7 @@ EOF;
 			self::signout();
 
 			$sql = <<<EOF
-SELECT id FROM {$cfg->prefix}account WHERE
+SELECT id FROM {$cfg->prefix}user WHERE
 	email = :email AND
 	password = :password;
 EOF;
@@ -266,7 +266,7 @@ EOF;
 
 
 			$sql = <<<EOF
-SELECT id FROM {$cfg->prefix}account WHERE
+SELECT id FROM {$cfg->prefix}user WHERE
 	id = :id AND INSTR(content, :code) != 0;
 EOF;
 
