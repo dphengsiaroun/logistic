@@ -20,8 +20,8 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	var refreshState = function() {
 		service.waitForCheckConnection('needsUser').catch(function() {
 			if ($state.$current.needsUser) {
-				console.log('go to signin because the state needs user');
-				$state.go('user:signin');
+				console.log('go to connection create because needsUser');
+				$state.go('connection:create');
 			}
 		});
 	};
@@ -94,38 +94,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 			service.current = response.data.user;
 			$rootScope.isConnected = true;
 			$state.go('user:signupSuccess');
-		}).catch(function(error) {
-			service.error = error;
-		});
-	};
-
-	this.signinData = {
-		email: 'email@email.com',
-		password: 'test'
-	};
-
-	this.signin = function() {
-		console.log('sign in');
-		var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
-		$http({
-			url: makeUrl('signin'),
-			method: 'POST',
-			data: {
-				email: service.signinData.email,
-				// permet de crypter le password
-				password: SHA256.hex(service.signinData.password)
-			},
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
-			}
-			service.error = undefined;
-			service.current = response.data.user;
-			$rootScope.isConnected = true;
-			service.goToStateAfterConnect();
 		}).catch(function(error) {
 			service.error = error;
 		});

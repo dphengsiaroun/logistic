@@ -22,10 +22,10 @@ require('angular-recaptcha');
 
 var lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
 var lgConfig = require('./modules/business/lg-config/lg-config.js');
+var lgConnection = require('./modules/business/lg-connection/lg-connection.js');
 var lgLoader = require('./modules/business/lg-loader/lg-loader.js');
 var lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
 var lgTruck = require('./modules/business/lg-truck/lg-truck.js');
-var lgUser = require('./modules/business/lg-user/lg-user.js');
 
 var lgCalendar = require('./modules/form/lg-calendar/lg-calendar.js');
 var lgChoice = require('./modules/form/lg-choice/lg-choice.js');
@@ -47,9 +47,6 @@ var lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
 var lgTest = require('./modules/technic/lg-test/lg-test.js');
 var lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
 var lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
-
-
-
 
 window.values = function(obj) {
 	return Object.keys(obj).map(function(key) {
@@ -74,10 +71,10 @@ var app = angular.module('mainApp', [
 
 	lgCarrier,
 	lgConfig,
+	lgConnection,
 	lgLoader,
 	lgProposal,
 	lgTruck,
-	lgUser,
 
 	lgCalendar,
 	lgChoice,

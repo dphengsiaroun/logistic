@@ -5,11 +5,6 @@ var app = angular.module('lg-user');
 app.config(['$stateProvider', function($stateProvider) {
 
 	$stateProvider.state({
-		name: 'user:signin',
-		url: '/signin',
-		component: 'lgUserSigninRoute'
-	});
-	$stateProvider.state({
 		name: 'user:signup',
 		url: '/signup',
 		component: 'lgUserSignupRoute'
@@ -160,7 +155,7 @@ app.config(['$stateProvider', function($stateProvider) {
 						$state.go('user:signup');
 					},
 					doYes: function() {
-						$state.go('user:signin');
+						$state.go('connection:create');
 					}
 				};
 			}
@@ -169,7 +164,6 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-var signinUrl = require('./tmpl/signin.html');
 var signupUrl = require('./tmpl/signup.html');
 var signupSuccessUrl = require('./tmpl/signup_success.html');
 var profileUrl = require('./tmpl/profile.html');
@@ -178,11 +172,6 @@ var initiatePasswordUrl = require('./tmpl/initiate-password.html');
 var forgottenPasswordUrl = require('./tmpl/forgotten-password.html');
 var chooseNewPasswordUrl = require('./tmpl/choose-new-password.html');
 
-
-app.component('lgUserSigninRoute', {
-	templateUrl: signinUrl,
-	controller: 'UserCtrl'
-});
 
 app.component('lgUserSignupRoute', {
 	templateUrl: signupUrl,
