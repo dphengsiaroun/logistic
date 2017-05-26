@@ -1,6 +1,6 @@
 <?php
 
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 	require_once(BASE_DIR . "/class/Event.php");
 	require_once(BASE_DIR . "/class/Image.php");
 
@@ -11,7 +11,7 @@
 		}
 
 		public function create() {
-			$account = Account::getConnected();
+			$account = User::getConnected();
 			$request = getRequest();
 			$request->accountId = $account->id;
 			$request->login = $account->content->login;
@@ -85,7 +85,7 @@ EOF;
 		public function delete($id) {
 			$request = new stdClass();
 			$request->id = $id;
-			$account = Account::getConnected();
+			$account = User::getConnected();
 			$request->accountId = $account->id;
 			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
 			Event::synchronize();
@@ -93,7 +93,7 @@ EOF;
 
 		public function update($id) {
 			$request = getRequest();
-			$account = Account::getConnected();
+			$account = User::getConnected();
 			$request->id = $id;
 			$request->accountId = $account->id;
 			$e = Event::insert('/' . strtolower($this->getName()) . '/update', $request);

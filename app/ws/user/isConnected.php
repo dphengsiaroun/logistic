@@ -1,13 +1,13 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 
     debug('isConnected');
 
 	$result = [];
 	try {
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		$result['status'] = 'ok';
 		$result['account'] = $account;
 	} catch (Exception $e) {

@@ -7,7 +7,7 @@
 
 	debug('cookie', $_COOKIE);
 
-	class Account {
+	class User {
 
 		public function __construct($id) {
 			$this->id = $id;
@@ -33,14 +33,14 @@ EOF;
 				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 			}
 			$id = $db->lastInsertId();
-			$account = new Account($id);
+			$account = new User($id);
 			$account->connect();
 			return $account;
 		}
 
 		public static function getConnected() {
 			if (isset($_COOKIE['accountId'])) {
-				$account = new Account($_COOKIE['accountId']);
+				$account = new User($_COOKIE['accountId']);
 				if (!$account->getRememberMe()->checkToken()) {
 					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}
@@ -74,7 +74,7 @@ EOF;
 			}
 
 			if ($st->rowCount() == 0) {
-				throw new Exception('Account not found for id = ' . $this->id);
+				throw new Exception('User not found for id = ' . $this->id);
 			}
 
 			$array = $st->fetch();
@@ -214,10 +214,10 @@ EOF;
 			}
 
 			if ($st->rowCount() == 0) {
-				throw new Exception('Account not found for email = ' . $email);
+				throw new Exception('User not found for email = ' . $email);
 			}
 			$id = $st->fetch()['id'];
-			return new Account($id);
+			return new User($id);
 		}
 
 		public static function signin($email, $password) {
@@ -244,7 +244,7 @@ EOF;
 				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
 			}
 			$id = $st->fetch()['id'];
-			$account = new Account($id);
+			$account = new User($id);
 			$account->connect();
 
 			return $account;
@@ -285,7 +285,7 @@ EOF;
 			}
 			self::checkForgottenPasswordCode($code);
 			$id = $st->fetch()['id'];
-			return new Account($id);
+			return new User($id);
 		}
 
 		public static function checkForgottenPasswordCode($code) {

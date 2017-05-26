@@ -1,7 +1,7 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 
     $request = getRequest();
 	debug("delete account", $request);
@@ -9,7 +9,7 @@
 	$result = [];
 	try {
 
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		$account->delete();
 		$result['status'] = 'ok';
 

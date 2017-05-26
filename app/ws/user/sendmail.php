@@ -1,7 +1,7 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 	require_once(BASE_DIR . "/include/mail.inc.php");
 
 
@@ -9,8 +9,8 @@
 
 	$result = [];
 	try {
-		if (Account::exists($request->email)) {
-			$account = Account::retrieveFromEmail($request->email);
+		if (User::exists($request->email)) {
+			$account = User::retrieveFromEmail($request->email);
 			sendmail($account, $request->type);
 		}
 

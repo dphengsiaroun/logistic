@@ -1,6 +1,6 @@
 <?php
 
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 
 	class RememberMe {
 
@@ -14,7 +14,7 @@
 
 		public function connect() {
 			$token = $this->addToken();
-			debug('token', $token);			
+			debug('token', $token);
 			setcookie('rememberMe', $token->code,  $token->expirationTime, '/');
 			setcookie('accountId', '' . $this->account->id,  $token->expirationTime, '/');
 		}
@@ -30,7 +30,7 @@
 			$now = time();
 			$code = hash('sha256', $this->account->id . SECRET . $this->account->password . $now);
 			$expirationTime =  $now + (7 * 24 * 3600);
-			
+
 			$token = new stdClass();
 			$token->code = $code;
 			$token->expirationTime = $expirationTime;

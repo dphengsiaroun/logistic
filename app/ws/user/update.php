@@ -1,12 +1,12 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 
     $request = getRequest();
 	$result = [];
 	try {
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		$account->email = $request->email;
 		$account->content = $request->content;
 		$account->save();

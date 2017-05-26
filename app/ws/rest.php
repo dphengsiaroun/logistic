@@ -9,7 +9,7 @@
 		'Carrier',
 		'Loader',
 		'Truck',
-		'Account',
+		'User',
 		'Proposal'
 	);
 

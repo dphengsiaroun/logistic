@@ -1,14 +1,14 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 
     $request = getRequest();
 	debug('sign in with code', $request);
 
 	$result = [];
 	try {
-		$account = Account::retrieveFromCode($request->id, $request->code);
+		$account = User::retrieveFromCode($request->id, $request->code);
 
 		$result['status'] = 'ok';
 		$result['account'] = $account;

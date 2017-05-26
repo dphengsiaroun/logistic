@@ -28,7 +28,7 @@ EOF;
 		$carrier = $obj->retrieve($e->content->id);
 
 		if ($e->content->accountId != $carrier->accountId) {
-			throw new Exceptions('Forbidden operation. Account must match.');
+			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		// On lance notre requête de vérification
 		$sql = <<<EOF
@@ -52,7 +52,7 @@ EOF;
 		debug('carrier to update', $carrier);
 
 		if ($e->content->accountId != $carrier->accountId) {
-			throw new Exceptions('Forbidden operation. Account must match.');
+			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		$sql = <<<EOF
 UPDATE {$cfg->prefix}carrier

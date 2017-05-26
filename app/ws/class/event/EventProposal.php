@@ -31,7 +31,7 @@ EOF;
 		$proposal = $obj->retrieve($e->content->id);
 
 		if ($e->content->accountId != $proposal->accountId) {
-			throw new Exceptions('Forbidden operation. Account must match.');
+			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		// On lance notre requête de vérification
 		$sql = <<<EOF
@@ -54,7 +54,7 @@ EOF;
 		debug('proposal to update', $proposal);
 
 		if ($e->content->accountId != $proposal->accountId) {
-			throw new Exceptions('Forbidden operation. Account must match.');
+			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		$sql = <<<EOF
 UPDATE {$cfg->prefix}proposal

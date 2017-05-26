@@ -1,14 +1,14 @@
 <?php
 
 define("BASE_DIR", __DIR__);
-require_once(BASE_DIR . "/class/Account.php");
+require_once(BASE_DIR . "/class/User.php");
 
 error_reporting(E_ALL | E_STRICT);
 require(BASE_DIR . '/include/lib/UploadHandler.php');
 
 class MyUploadHandler extends UploadHandler {
 	protected function get_user_id() {
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		return $account->getPictureDir();
 	}
 }
@@ -28,8 +28,8 @@ $options = array(
 );
 
 try {
-	if (Account::isConnected()) {
-		$account = Account::getConnected();
+	if (User::isConnected()) {
+		$account = User::getConnected();
 		$options['max_file_size'] = $account->getRemainingMaxFileSize();
 		$upload_handler = new MyUploadHandler($options);
 		debug('output', $upload_handler);

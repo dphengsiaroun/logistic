@@ -5,7 +5,7 @@ require_once(BASE_DIR . "/class/RestResource.php");
 class Truck extends RestResource {
 
 	public function __construct() {
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		if (!property_exists($account->content, 'trucks')) {
 			$account->content->trucks = new stdClass();
 			$account->save();
@@ -13,7 +13,7 @@ class Truck extends RestResource {
 	}
 
 	public function create() {
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		$request = getRequest();
 
 		$request->login = $account->content->login;
@@ -33,7 +33,7 @@ class Truck extends RestResource {
 	public function listAll() {
 		$request = getRequest();
 		debug('$request', $request);
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		return $account->content->trucks;
 	}
 
@@ -52,7 +52,7 @@ class Truck extends RestResource {
 	public function delete($id) {
 		$request = new stdClass();
 		$request->id = $id;
-		$account = Account::getConnected();
+		$account = User::getConnected();
 		unset($account->content->trucks->{$id});
 		$account->save();
 		return $account->content->trucks;

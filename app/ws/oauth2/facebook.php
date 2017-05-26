@@ -1,7 +1,7 @@
 <?php
 
 define("BASE_DIR", dirname(__DIR__));
-require_once(BASE_DIR . "/class/Account.php");
+require_once(BASE_DIR . "/class/User.php");
 
 $url = getAppUrl();
 
@@ -47,7 +47,7 @@ try {
     // We got an access token, let's now get the owner details
     $ownerDetails = $provider->getResourceOwner($token);
     debug('ownerDetails', $ownerDetails);
-    Account::syncFromFacebook($ownerDetails);
+    User::syncFromFacebook($ownerDetails);
 
     header('Location: ' . $url);
     exit;

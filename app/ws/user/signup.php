@@ -1,18 +1,18 @@
 <?php
 
 	define("BASE_DIR", dirname(__DIR__));
-	require_once(BASE_DIR . "/class/Account.php");
+	require_once(BASE_DIR . "/class/User.php");
 
 	$request = getRequest();
 	debug("signup start");
 
 	$result = [];
 	try {
-		if (Account::exists($request->email)) {
+		if (User::exists($request->email)) {
 			throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
 		}
 
-		$account = Account::create($request);
+		$account = User::create($request);
 
 		$result['status'] = 'ok';
 		$result['account'] = $account;
