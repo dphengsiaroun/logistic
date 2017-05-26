@@ -8,10 +8,10 @@
 
 	$result = [];
 	try {
-		$account = User::signin($request->email, $request->password);
+		$user = User::signin($request->email, $request->password);
 
 		$result['status'] = 'ok';
-		$result['account'] = $account;
+		$result['user'] = $user;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

@@ -91,7 +91,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.current = response.data.account;
+			service.current = response.data.user;
 			$rootScope.isConnected = true;
 			$state.go('user:signupSuccess');
 		}).catch(function(error) {
@@ -123,7 +123,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.current = response.data.account;
+			service.current = response.data.user;
 			$rootScope.isConnected = true;
 			service.goToStateAfterConnect();
 		}).catch(function(error) {
@@ -151,7 +151,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.current = response.data.account;
+			service.current = response.data.user;
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -197,7 +197,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			$rootScope.isConnected = true;
-			service.current = response.data.account;
+			service.current = response.data.user;
 		}).finally(function() {
 			service.isConnectedStatusKnown = true;
 		}).catch(function(error) {
@@ -254,7 +254,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.current = response.data.account;
+			service.current = response.data.user;
 			$state.go('user:updated');
 		}).catch(function(error) {
 			service.error = error;
@@ -313,7 +313,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.current = response.data.account;
+			service.current = response.data.user;
 			$state.go('user:updatedPassword');
 		}).catch(function(error) {
 			console.error('error', error);
@@ -342,7 +342,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.current = response.data.account;
+			service.current = response.data.user;
 			$state.go('user:forgottenPassword:mailsent');
 		}).catch(function(error) {
 			console.error('error', error);

@@ -12,10 +12,10 @@
 			throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
 		}
 
-		$account = User::create($request);
+		$user = User::create($request);
 
 		$result['status'] = 'ok';
-		$result['account'] = $account;
+		$result['user'] = $user;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

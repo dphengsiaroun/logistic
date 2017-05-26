@@ -10,8 +10,8 @@
 	$result = [];
 	try {
 		if (User::exists($request->email)) {
-			$account = User::retrieveFromEmail($request->email);
-			sendmail($account, $request->type);
+			$user = User::retrieveFromEmail($request->email);
+			sendmail($user, $request->type);
 		}
 
 		$result['status'] = 'ok';

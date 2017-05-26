@@ -6,12 +6,12 @@
     $request = getRequest();
 	$result = [];
 	try {
-		$account = User::getConnected();
-		$account->email = $request->email;
-		$account->content = $request->content;
-		$account->save();
+		$user = User::getConnected();
+		$user->email = $request->email;
+		$user->content = $request->content;
+		$user->save();
 		$result['status'] = 'ok';
-		$result['account'] = $account;
+		$result['user'] = $user;
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = $e->getMessage();

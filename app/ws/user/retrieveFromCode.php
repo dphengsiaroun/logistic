@@ -8,10 +8,10 @@
 
 	$result = [];
 	try {
-		$account = User::retrieveFromCode($request->id, $request->code);
+		$user = User::retrieveFromCode($request->id, $request->code);
 
 		$result['status'] = 'ok';
-		$result['account'] = $account;
+		$result['user'] = $user;
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

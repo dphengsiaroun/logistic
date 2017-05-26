@@ -4,13 +4,13 @@
 	require_once(BASE_DIR . "/class/User.php");
 
     $request = getRequest();
-	debug("delete account", $request);
+	debug("delete user", $request);
 
 	$result = [];
 	try {
 
-		$account = User::getConnected();
-		$account->delete();
+		$user = User::getConnected();
+		$user->delete();
 		$result['status'] = 'ok';
 
 	} catch (Exception $e) {

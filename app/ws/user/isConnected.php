@@ -7,9 +7,9 @@
 
 	$result = [];
 	try {
-		$account = User::getConnected();
+		$user = User::getConnected();
 		$result['status'] = 'ok';
-		$result['account'] = $account;
+		$result['user'] = $user;
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = $e->getMessage();
