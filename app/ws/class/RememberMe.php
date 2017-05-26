@@ -9,14 +9,14 @@
 				$user->content->tokens = array();
 				$user->save();
 			}
-			$this->account = $user;
+			$this->user = $user;
 		}
 
 		public function connect() {
 			$token = $this->addToken();
 			debug('token', $token);
 			setcookie('rememberMe', $token->code,  $token->expirationTime, '/');
-			setcookie('userId', '' . $this->account->id,  $token->expirationTime, '/');
+			setcookie('userId', '' . $this->user->id,  $token->expirationTime, '/');
 		}
 
 		public function disconnect() {
@@ -28,14 +28,14 @@
 
 		public function addToken() {
 			$now = time();
-			$code = hash('sha256', $this->account->id . SECRET . $this->account->password . $now);
+			$code = hash('sha256', $this->user->id . SECRET . $this->user->password . $now);
 			$expirationTime =  $now + (7 * 24 * 3600);
 
 			$token = new stdClass();
 			$token->code = $code;
 			$token->expirationTime = $expirationTime;
-			$this->account->content->tokens[] = $token;
-			$this->account->save();
+			$this->user->content->tokens[] = $token;
+			$this->user->save();
 			return $token;
 		}
 
@@ -43,8 +43,8 @@
 			if (!isset($_COOKIE['rememberMe'])) {
 				return;
 			}
-			$this->account->content->tokens = array_filter($this->account->content->tokens, array($this, 'filter'));
-			$this->account->save();
+			$this->user->content->tokens = array_filter($this->user->content->tokens, array($this, 'filter'));
+			$this->user->save();
 		}
 
 		public function filter($token) {
@@ -61,7 +61,7 @@
 			if (!isset($_COOKIE['rememberMe'])) {
 				return false;
 			}
-			foreach ($this->account->content->tokens as $token) {
+			foreach ($this->user->content->tokens as $token) {
 				if ($token->code == $_COOKIE['rememberMe'] && $token->expirationTime > time()) {
 					return true;
 				}
