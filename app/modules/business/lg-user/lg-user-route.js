@@ -100,30 +100,6 @@ app.config(['$stateProvider', function($stateProvider) {
 		},
 		needsUser: true
 	});
-	$stateProvider.state({
-		name: 'user:forgottenPassword',
-		url: '/forgotten-password',
-		component: 'lgUserForgottenPasswordRoute'
-	});
-	$stateProvider.state({
-		name: 'user:forgottenPassword:mailsent',
-		url: '/forgotten-password-mailsent',
-		component: 'lgMessage',
-		resolve: {
-			service: function(user) {
-				return {
-					state: 'home',
-					label: 'Accueil',
-					message: 'Un lien de réactivation a été envoyé sur le mail ' + user.forgottenPasswordData.email
-				};
-			}
-		}
-	});
-	$stateProvider.state({
-		name: 'user:chooseNewPassword',
-		url: '/choose-new-password',
-		component: 'lgUserChooseNewPasswordRoute'
-	});
 
 	$stateProvider.state({
 		name: 'user:hasAccount',
@@ -152,9 +128,6 @@ var signupSuccessUrl = require('./tmpl/signup_success.html');
 var profileUrl = require('./tmpl/profile.html');
 var updatePasswordUrl = require('./tmpl/update-password.html');
 var initiatePasswordUrl = require('./tmpl/initiate-password.html');
-var forgottenPasswordUrl = require('./tmpl/forgotten-password.html');
-var chooseNewPasswordUrl = require('./tmpl/choose-new-password.html');
-
 
 app.component('lgUserSignupRoute', {
 	templateUrl: signupUrl,
@@ -179,15 +152,3 @@ app.component('lgUserInitiatePasswordRoute', {
 	templateUrl: initiatePasswordUrl,
 	controller: 'UserUpdateCtrl'
 });
-
-app.component('lgUserForgottenPasswordRoute', {
-	templateUrl: forgottenPasswordUrl,
-	controller: 'UserCtrl'
-});
-
-app.component('lgUserChooseNewPasswordRoute', {
-	templateUrl: chooseNewPasswordUrl,
-	controller: 'UserChooseNewPasswordCtrl'
-});
-
-

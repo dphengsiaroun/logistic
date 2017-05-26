@@ -24,6 +24,7 @@ var lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
 var lgConfig = require('./modules/business/lg-config/lg-config.js');
 var lgConnection = require('./modules/business/lg-connection/lg-connection.js');
 var lgLoader = require('./modules/business/lg-loader/lg-loader.js');
+var lgPassword = require('./modules/business/lg-password/lg-password.js');
 var lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
 var lgTruck = require('./modules/business/lg-truck/lg-truck.js');
 
@@ -73,6 +74,7 @@ var app = angular.module('mainApp', [
 	lgConfig,
 	lgConnection,
 	lgLoader,
+	lgPassword,
 	lgProposal,
 	lgTruck,
 

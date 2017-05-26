@@ -357,7 +357,7 @@ EOF;
 		}
 
 		public function getReactivationUrl() {
-			return getAppUrl() . '#/choose-new-password?id=' . $this->id . '&code=' . $this->content->forgottenPasswordCode;
+			return getAppUrl() . 'choose-new-password?id=' . $this->id . '&code=' . $this->content->forgottenPasswordCode;
 		}
 
 		public static function signout() {

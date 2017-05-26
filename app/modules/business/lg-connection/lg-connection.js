@@ -11,7 +11,7 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 	'ngInject';
 	const service = this;
 	service.createConnectionData = {
-		email: 'email@email.com',
+		email: 'dphengsiaroun@outlook.fr',
 		password: 'test'
 	};
 

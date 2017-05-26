@@ -18,7 +18,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	var service = this;
 
 	this.signupData = {
-		email: 'email@email.com',
+		email: 'dphengsiaroun@outlook.fr',
 		password: 'test',
 		content: {
 			lastname: 'Debbah',
@@ -55,32 +55,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 			service.current = response.data.user;
 			$rootScope.isConnected = true;
 			$state.go('user:signupSuccess');
-		}).catch(function(error) {
-			service.error = error;
-		});
-	};
-
-	this.retrieveFromCode = function(id, code) {
-		console.log('sign in with code');
-		console.log('code', code);
-		console.log('id', id);
-		$http({
-			url: makeUrl('retrieveFromCode'),
-			method: 'POST',
-			data: {
-				code: code,
-				id: id
-			},
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				$state.go('error');
-				return;
-			}
-			service.error = undefined;
-			service.current = response.data.user;
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -139,10 +113,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 		newPassword: 'test'
 	};
 
-	this.forgottenPasswordData = {
-		newPassword: 'test'
-	};
-
 	this.updatePassword = function(data) {
 		console.log('user->updatePassword', arguments);
 		var SHA256 = new Hashes.SHA256;
@@ -172,36 +142,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 			service.error = error;
 		});
 	};
-
-	this.forgottenPasswordData = {
-		email: 'dphengsiaroun@gmail.com',
-		type: 'forgotten-password'
-	};
-
-	this.forgottenPassword = function(data) {
-		console.log('user->forgottenPasswordData');
-
-		// TODO: include recaptcha data
-		$http({
-			url: makeUrl('sendmail'),
-			method: 'POST',
-			data: data,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
-			}
-			service.error = undefined;
-			service.current = response.data.user;
-			$state.go('user:forgottenPassword:mailsent');
-		}).catch(function(error) {
-			console.error('error', error);
-			service.error = error;
-		});
-	};
-
 });
 
 var initCtrl = function(ctrl, $scope, $injector) {
@@ -232,13 +172,3 @@ app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $in
 app.controller('UserUpdateCtrl', ['$scope', '$injector', function UserUpdateCtrl($scope, $injector) {
 	initCtrl(this, $scope, $injector);
 }]);
-
-app.controller('UserChooseNewPasswordCtrl', function UserChooseNewPasswordCtrl($scope, $injector) {
-	initCtrl(this, $scope, $injector);
-	var $location = $injector.get('$location');
-	var code = $location.search().code;
-	var id = $location.search().id;
-	this.user.retrieveFromCode(id, code);
-	this.user.forgottenPasswordData.id = id;
-	this.user.forgottenPasswordData.code = code;
-});

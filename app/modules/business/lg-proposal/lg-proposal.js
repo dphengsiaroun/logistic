@@ -13,7 +13,7 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 	service.initCreateData = function() {
 		service.createData = {
 			name: 'Toto',
-			email: 'email@email.com',
+			email: 'dphengsiaroun@outlook.fr',
 			titleAd: '',
 			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
 		};

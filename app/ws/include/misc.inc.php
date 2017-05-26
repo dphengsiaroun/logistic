@@ -96,13 +96,9 @@
 
 	function getAppUrl() {
 		global $cfg;
-		$result = '';
-		if (isset($_SERVER['HTTP_REFERER'])) {
-			$result = $_SERVER['HTTP_REFERER'];
-		}
-		if ($result == '') {
-			$result = $cfg->appUrl;
-		}
+	
+		$result = $cfg->appUrl;
+
         return $result;
     }
 
