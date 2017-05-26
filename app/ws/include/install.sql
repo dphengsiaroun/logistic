@@ -21,6 +21,15 @@ CREATE TABLE `<?php echo $context->prefix; ?>account` (
 	UNIQUE `i_email` (`email`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `<?php echo $context->prefix; ?>user` (
+	`id` INT(16) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`email` VARCHAR(255) NOT NULL ,
+	`password` VARCHAR(255) NOT NULL ,
+	`content` LONGTEXT NOT NULL ,
+	PRIMARY KEY (`id`),
+	UNIQUE `i_email` (`email`)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `<?php echo $context->prefix; ?>carrier` (
   `id` INT(16) UNSIGNED NOT NULL AUTO_INCREMENT,
   `content` longtext NOT NULL,

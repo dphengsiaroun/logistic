@@ -21,15 +21,6 @@ var homeUrl = require('./tmpl/home.html');
 
 app.component('lgHomeRoute', {
     templateUrl: homeUrl,
-    controller: function LgHomeCtrl($window, user) {
-        'ngInject';
-        console.log('LgHomeCtrl', arguments);
-        user.waitForCheckConnection('LgHomeCtrl').then(function() {
-            user.goToStateAfterConnect();
-        }).catch(function() {
-            console.log('No user connected.');
-        });
-    }
 });
 
 app.service('context', function Context() {

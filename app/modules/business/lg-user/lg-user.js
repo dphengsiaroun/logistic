@@ -13,7 +13,7 @@ var makeUrl = function(str) {
 	return 'ws/user/' + str + '.php';
 };
 
-app.service('user', function User($http, $rootScope, $q, $state) {
+app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	'ngInject';
 	var service = this;
 
