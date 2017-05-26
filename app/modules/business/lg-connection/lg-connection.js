@@ -115,4 +115,24 @@ app.service('connection', function Connection($http, $rootScope, $q, $state, use
 
 	$rootScope.$on('$viewContentLoaded', refreshState);
 
+	service.delete = function() {
+		console.log('sign out');
+		$http({
+			url: 'ws/connections/12',
+			method: 'DELETE'
+		}).then(function(response) {
+			console.log('response', response);
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return;
+			}
+			service.error = undefined;
+			user.current = undefined;
+			$rootScope.isConnected = false;
+			$state.go('home');
+		}).catch(function(error) {
+			service.error = error;
+		});
+	};
+
 });

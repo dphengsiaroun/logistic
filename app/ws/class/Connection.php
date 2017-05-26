@@ -24,6 +24,16 @@
 			return $result;
 		}
 
+		public function delete($id) {
+			$request = new stdClass();
+			$request->id = $id;
+			$user = User::getConnected();
+			$request->userId = $user->id;
+			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
+			Event::synchronize();
+			User::signout();
+		}
+
 		
 
 	}

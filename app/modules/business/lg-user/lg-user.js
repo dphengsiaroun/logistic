@@ -114,26 +114,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 		});
 	};
 
-	this.signout = function() {
-		console.log('sign out');
-		$http({
-			url: makeUrl('signout'),
-			method: 'GET'
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				return;
-			}
-			service.error = undefined;
-			service.current = undefined;
-			$rootScope.isConnected = false;
-			$state.go('home');
-		}).catch(function(error) {
-			service.error = error;
-		});
-	};
-
 	this.updateData = {
 		content: {}
 	};

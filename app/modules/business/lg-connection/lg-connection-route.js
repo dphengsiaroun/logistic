@@ -10,6 +10,24 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgConnectionSigninRoute'
 	});
 
+	$stateProvider.state({
+		name: 'connection:delete',
+		url: '/signout',
+		component: 'lgPrompt',
+		resolve: {
+			service: ['$injector', function($injector) {
+				var $rootScope = $injector.get('$rootScope');
+				var connection = $injector.get('connection');
+				return {
+					questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
+					doNo: $rootScope.back,
+					doYes: connection.delete
+				};
+			}]
+		},
+		needsUser: true
+	});
+
 }]);
 
 const connectionCreateUrl = require('./tmpl/connection-create.html');

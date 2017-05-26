@@ -15,23 +15,6 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgUserSignupSuccessRoute'
 	});
 	$stateProvider.state({
-		name: 'user:signout',
-		url: '/signout',
-		component: 'lgPrompt',
-		resolve: {
-			service: ['$injector', function($injector) {
-				var $rootScope = $injector.get('$rootScope');
-				var user = $injector.get('user');
-				return {
-					questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
-					doNo: $rootScope.back,
-					doYes: user.signout
-				};
-			}]
-		},
-		needsUser: true
-	});
-	$stateProvider.state({
 		name: 'user:retrieve',
 		url: '/profile',
 		component: 'lgUserRetrieveRoute',
