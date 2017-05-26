@@ -7,7 +7,7 @@ const app = angular.module(module.exports, [lgUser]);
 
 require('./lg-connection-route.js');
 
-app.service('connection', function Connection($http, $rootScope, $q, $state, user) {
+app.service('connection', function Connection($http, $rootScope, $injector, $q, $state, user) {
 	'ngInject';
 	const service = this;
 	service.createConnectionData = {
@@ -38,7 +38,7 @@ app.service('connection', function Connection($http, $rootScope, $q, $state, use
 			service.error = undefined;
 			user.current = response.data.connection.user;
 			$rootScope.isConnected = true;
-			user.goToStateAfterConnect();
+			service.goToStateAfterConnect();
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -137,6 +137,30 @@ app.service('connection', function Connection($http, $rootScope, $q, $state, use
 
 	service.setAfterConnectAction = function(obj) {
 		localStorage.setItem('afterConnect', angular.toJson(obj));
+	};
+
+	service.goToStateAfterConnect = function() {
+		console.log('goToStateAfterConnect', arguments);
+		var json = localStorage.getItem('afterConnect');
+		localStorage.removeItem('afterConnect');
+		if (json === null) {
+			if ($state.$current.name === 'home') {
+				return;
+			}
+			$state.go('home');
+			return;
+		}
+		var obj = angular.fromJson(json);
+		console.log('obj', obj);
+		if (obj.fn && obj.service) {
+			var service = $injector.get(obj.service);
+			if (obj.fn in service) {
+				console.log('about to apply obj.fn', obj.fn);
+				service[obj.fn].apply(null, obj.args);
+			}
+		}
+		console.log('after connect, go to', obj.state);
+		$state.go(obj.state);
 	};
 
 });

@@ -17,30 +17,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	'ngInject';
 	var service = this;
 
-	this.goToStateAfterConnect = function() {
-		console.log('goToStateAfterConnect', arguments);
-		var json = localStorage.getItem('afterConnect');
-		localStorage.removeItem('afterConnect');
-		if (json === null) {
-			if ($state.$current.name === 'home') {
-				return;
-			}
-			$state.go('home');
-			return;
-		}
-		var obj = angular.fromJson(json);
-		console.log('obj', obj);
-		if (obj.fn && obj.service) {
-			var service = $injector.get(obj.service);
-			if (obj.fn in service) {
-				console.log('about to apply obj.fn', obj.fn);
-				service[obj.fn].apply(null, obj.args);
-			}
-		}
-		console.log('after connect, go to', obj.state);
-		$state.go(obj.state);
-	};
-
 	this.signupData = {
 		email: 'email@email.com',
 		password: 'test',
@@ -230,6 +206,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 
 var initCtrl = function(ctrl, $scope, $injector) {
 	ctrl.user = $injector.get('user');
+	ctrl.connection = $injector.get('connection');
 	ctrl.user.error = undefined;
 	$scope.$watch('$ctrl.user.signupData.content.login', function() {
 		console.log('ctrl.user', ctrl.user);
