@@ -5,36 +5,36 @@ require_once(BASE_DIR . "/class/RestResource.php");
 class Truck extends RestResource {
 
 	public function __construct() {
-		$account = User::getConnected();
-		if (!property_exists($account->content, 'trucks')) {
-			$account->content->trucks = new stdClass();
-			$account->save();
+		$user = User::getConnected();
+		if (!property_exists($user->content, 'trucks')) {
+			$user->content->trucks = new stdClass();
+			$user->save();
 		}
 	}
 
 	public function create() {
-		$account = User::getConnected();
+		$user = User::getConnected();
 		$request = getRequest();
 
-		$request->login = $account->content->login;
+		$request->login = $user->content->login;
 		$request->created_t = time();
-		Image::manageSession($account, $request);
+		Image::manageSession($user, $request);
 		debug('request', $request);
 		if (!property_exists($request, 'name')) {
 			throw new Exception(ERROR_MISSING_TRUCK_NAME_MSG, ERROR_MISSING_TRUCK_NAME_CODE);
 		}
 		$name = str2spinal($request->name);
 		$request->id = $name;
-		$account->content->trucks->{$name} = $request;
-		$account->save();
-		return $account->content->trucks->{$name};
+		$user->content->trucks->{$name} = $request;
+		$user->save();
+		return $user->content->trucks->{$name};
 	}
 
 	public function listAll() {
 		$request = getRequest();
 		debug('$request', $request);
-		$account = User::getConnected();
-		return $account->content->trucks;
+		$user = User::getConnected();
+		return $user->content->trucks;
 	}
 
 	public function retrieve($id) {
@@ -52,9 +52,9 @@ class Truck extends RestResource {
 	public function delete($id) {
 		$request = new stdClass();
 		$request->id = $id;
-		$account = User::getConnected();
-		unset($account->content->trucks->{$id});
-		$account->save();
-		return $account->content->trucks;
+		$user = User::getConnected();
+		unset($user->content->trucks->{$id});
+		$user->save();
+		return $user->content->trucks;
 	}
 }

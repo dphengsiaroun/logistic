@@ -2,9 +2,9 @@
 
 require BASE_DIR . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
-function sendmail($account, $type) {
+function sendmail($user, $type) {
 	global $cfg;
-	debug('sending mail', $account);
+	debug('sending mail', $user);
 
 	$mail = new PHPMailer;
 
@@ -19,7 +19,7 @@ function sendmail($account, $type) {
 	$mail->Password = $cfg->smtpServerPassword; // SMTP password
 	
 	$mail->setFrom($cfg->smtpServerFrom, $cfg->appName);
-	$mail->addAddress($account->email, ucfirst($account->content->firstname) . ' ' . strtoupper($account->content->lastname));     // Add a recipient
+	$mail->addAddress($user->email, ucfirst($user->content->firstname) . ' ' . strtoupper($user->content->lastname));     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
 	$mail->addReplyTo('no-reply@no-reply.com', 'Ne pas répondre');
 	//$mail->addCC('cc@example.com');
@@ -30,8 +30,8 @@ function sendmail($account, $type) {
 	$mail->isHTML(true); // Set email format to HTML
 	if ($type == 'forgotten-password') {
 		$mail->Subject = 'Logistic - Mot de passe oublié';
-		$account->createForgottenPasswordCode();
-		$mail->Body    = getTemplate(BASE_DIR . '/mail/forgotten-password.html', $account);
+		$user->createForgottenPasswordCode();
+		$mail->Body    = getTemplate(BASE_DIR . '/mail/forgotten-password.html', $user);
 		$mail->AltBody = html2txt($mail->Body);
 	} else {
 		$mail->Subject = 'Here is the subject';

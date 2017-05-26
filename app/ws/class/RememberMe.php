@@ -4,12 +4,12 @@
 
 	class RememberMe {
 
-		public function __construct($account) {
-			if (!property_exists($account->content, 'tokens')) {
-				$account->content->tokens = array();
-				$account->save();
+		public function __construct($user) {
+			if (!property_exists($user->content, 'tokens')) {
+				$user->content->tokens = array();
+				$user->save();
 			}
-			$this->account = $account;
+			$this->account = $user;
 		}
 
 		public function connect() {

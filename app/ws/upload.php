@@ -8,8 +8,8 @@ require(BASE_DIR . '/include/lib/UploadHandler.php');
 
 class MyUploadHandler extends UploadHandler {
 	protected function get_user_id() {
-		$account = User::getConnected();
-		return $account->getPictureDir();
+		$user = User::getConnected();
+		return $user->getPictureDir();
 	}
 }
 
@@ -29,11 +29,11 @@ $options = array(
 
 try {
 	if (User::isConnected()) {
-		$account = User::getConnected();
-		$options['max_file_size'] = $account->getRemainingMaxFileSize();
+		$user = User::getConnected();
+		$options['max_file_size'] = $user->getRemainingMaxFileSize();
 		$upload_handler = new MyUploadHandler($options);
 		debug('output', $upload_handler);
-		$account->reportLoadedPicture();
+		$user->reportLoadedPicture();
 		debug('done');
 	} else {
 		$options['max_file_size'] = MAX_PICTURE_SIZE_PER_ANONYMOUS_SESSION;

@@ -2,7 +2,7 @@
 
 	class Image {
 
-		public static function manageSession($account, $request) {
+		public static function manageSession($user, $request) {
 			// TODO: Gérer le probleme de la localisation de l'image qui pourrait être en session'
 			debug('manageSession $request', $request);
 			if (!property_exists($request, 'userNotConnected')) {
@@ -23,7 +23,7 @@
 			debug('manageSession $session', $session);
 			$sessionDirectory = $session;
 			debug('manageSession $sessionDirectory', $sessionDirectory);
-			$imageDirectory = 'acct_' . $account->id . '_ad' . $request->imageId;
+			$imageDirectory = 'acct_' . $user->id . '_ad' . $request->imageId;
 			debug('manageSession $imageDirectory', $imageDirectory);
 			$status = @rename(UPLOAD_DIR . $sessionDirectory, UPLOAD_DIR . $imageDirectory);
 			debug('manageSession rename', $status);

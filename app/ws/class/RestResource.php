@@ -11,11 +11,11 @@
 		}
 
 		public function create() {
-			$account = User::getConnected();
+			$user = User::getConnected();
 			$request = getRequest();
-			$request->userId = $account->id;
-			$request->login = $account->content->login;
-			Image::manageSession($account, $request);
+			$request->userId = $user->id;
+			$request->login = $user->content->login;
+			Image::manageSession($user, $request);
 			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
 			Event::synchronize();
 			$result = $this->retrieve($e->id);
@@ -85,17 +85,17 @@ EOF;
 		public function delete($id) {
 			$request = new stdClass();
 			$request->id = $id;
-			$account = User::getConnected();
-			$request->userId = $account->id;
+			$user = User::getConnected();
+			$request->userId = $user->id;
 			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
 			Event::synchronize();
 		}
 
 		public function update($id) {
 			$request = getRequest();
-			$account = User::getConnected();
+			$user = User::getConnected();
 			$request->id = $id;
-			$request->userId = $account->id;
+			$request->userId = $user->id;
 			$e = Event::insert('/' . strtolower($this->getName()) . '/update', $request);
 			Event::synchronize();
 			$result = $this->retrieve($request->id);

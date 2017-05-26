@@ -81,7 +81,7 @@
 		return $result;
 	}
 
-	function getTemplate($file, $account = NULL, $context = NULL) {
+	function getTemplate($file, $user = NULL, $context = NULL) {
 		ob_start();
 		require($file);
 		$result = ob_get_contents();

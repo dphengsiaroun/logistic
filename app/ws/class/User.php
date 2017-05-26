@@ -33,18 +33,18 @@ EOF;
 				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
 			}
 			$id = $db->lastInsertId();
-			$account = new User($id);
-			$account->connect();
-			return $account;
+			$user = new User($id);
+			$user->connect();
+			return $user;
 		}
 
 		public static function getConnected() {
 			if (isset($_COOKIE['userId'])) {
-				$account = new User($_COOKIE['userId']);
-				if (!$account->getRememberMe()->checkToken()) {
+				$user = new User($_COOKIE['userId']);
+				if (!$user->getRememberMe()->checkToken()) {
 					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}
-				return $account;
+				return $user;
 			}
 			throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 		}
@@ -244,10 +244,10 @@ EOF;
 				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
 			}
 			$id = $st->fetch()['id'];
-			$account = new User($id);
-			$account->connect();
+			$user = new User($id);
+			$user->connect();
 
-			return $account;
+			return $user;
 		}
 
 		public function connect() {
@@ -306,8 +306,8 @@ EOF;
 		public static function syncFromGoogle($ownerDetails) {
 			$email = $ownerDetails->getEmail();
 			try {
-				$account = self::retrieveFromEmail($email);
-				$account->connect();
+				$user = self::retrieveFromEmail($email);
+				$user->connect();
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -326,8 +326,8 @@ EOF;
 		public static function syncFromFacebook($ownerDetails) {
 			$email = $ownerDetails->getEmail();
 			try {
-				$account = self::retrieveFromEmail($email);
-				$account->connect();
+				$user = self::retrieveFromEmail($email);
+				$user->connect();
 			} catch (Exception $e) {
 				// Create the account
 				$request = new stdClass();
@@ -362,8 +362,8 @@ EOF;
 
 		public static function signout() {
 			try {
-				$account = self::getConnected();
-				$account->getRememberMe()->disconnect();
+				$user = self::getConnected();
+				$user->getRememberMe()->disconnect();
 			} catch (Exception $e) {}
 		}
 
