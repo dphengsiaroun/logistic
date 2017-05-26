@@ -12,7 +12,7 @@
 		public function __construct($id) {
 			$this->id = $id;
 			$this->retrieve();
-			debug('my account', $this);
+			debug('my user', $this);
 		}
 
 		public static function create($request) {
@@ -81,7 +81,7 @@ EOF;
 			$this->email = $array['email'];
 			$this->password = $array['password'];
 			$this->content = json_decode($array['content']);
-			debug('account retrieved');
+			debug('user retrieved');
 		}
 
 		public function reportLoadedPicture() {
@@ -174,10 +174,10 @@ EOF;
 			if ($st->execute(array(
 				':id' => $this->id,
 			)) === FALSE) {
-				throw new Exception('Cannot delete account : '.sprint_r($db->errorInfo()));
+				throw new Exception('Cannot delete user : '.sprint_r($db->errorInfo()));
 			}
 			self::signout();
-			debug("delete account ok");
+			debug("delete user ok");
 		}
 
 		public static function exists($email) {
@@ -309,7 +309,7 @@ EOF;
 				$user = self::retrieveFromEmail($email);
 				$user->connect();
 			} catch (Exception $e) {
-				// Create the account
+				// Create the user
 				$request = new stdClass();
 				$request->email = $email;
 				$request->password = '';
@@ -329,7 +329,7 @@ EOF;
 				$user = self::retrieveFromEmail($email);
 				$user->connect();
 			} catch (Exception $e) {
-				// Create the account
+				// Create the user
 				$request = new stdClass();
 				$request->email = $email;
 				$request->password = '';
