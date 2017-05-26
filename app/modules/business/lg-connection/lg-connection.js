@@ -3,14 +3,9 @@
 module.exports = 'lg-connection';
 
 const lgUser = require('../lg-user/lg-user.js');
-
 const app = angular.module(module.exports, [lgUser]);
 
 require('./lg-connection-route.js');
-
-var makeUrl = function(str) {
-	return 'ws/user/' + str + '.php';
-};
 
 app.service('connection', function Connection($http, $rootScope, user) {
 	'ngInject';
@@ -41,7 +36,7 @@ app.service('connection', function Connection($http, $rootScope, user) {
 				return;
 			}
 			service.error = undefined;
-			user.current = response.data.connection;
+			user.current = response.data.connection.user;
 			$rootScope.isConnected = true;
 			user.goToStateAfterConnect();
 		}).catch(function(error) {

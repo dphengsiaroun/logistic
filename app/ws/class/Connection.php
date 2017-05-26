@@ -8,7 +8,9 @@
 		public function create() {
 			$request = getRequest();
 			$user = User::signin($request->email, $request->password);
-			return $user;
+			$result = new Connection();
+			$result->user = $user;
+			return $result;
 		}
 
 	}
