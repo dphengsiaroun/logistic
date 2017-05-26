@@ -11,7 +11,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function(user) {
 				'ngInject';
-				var login = user.account.content.login;
+				var login = user.current.content.login;
 				console.log('login', login);
 				var state = 'carrier:list({login: \'' + login + '\'})';
 				console.log('state', state);

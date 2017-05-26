@@ -4,12 +4,12 @@
 	</head-left>
 	<head-left ng-hide="$root.isBackPresent">
 	</head-left>
-	<head-center ng-show="!$ctrl.user.account">
+	<head-center ng-show="!$ctrl.user.current">
 		<a ng-click="$ctrl.off()" ui-sref="home"><img-svg src="/img/logo.svg"></img-svg></a>
 	</head-center>
-	<head-center class="connected" ng-show="$ctrl.user.account">
+	<head-center class="connected" ng-show="$ctrl.user.current">
 		<a ng-click="$ctrl.off()" ui-sref="home"><img-svg src="/img/logo.svg"></img-svg><br/>
-			{{$ctrl.user.account.content.firstname}} {{$ctrl.user.account.content.lastname | uppercase }}
+			{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}
 		</a>
 	</head-center>
 	<head-right>
@@ -18,25 +18,25 @@
 </my-head>
 
 <lg-menu-content class="lg-menu-content">
-	<div ng-hide="$ctrl.user.account">
+	<div ng-hide="$ctrl.user.current">
 		<a ng-click="$ctrl.toggle();" ui-sref="user:signin"><i class="fa fa-sign-in" aria-hidden="true"></i> <p>Se connecter</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a>
 	</div>
-	<div ng-show="$ctrl.user.account">
-		<a ng-click="$ctrl.toggle();" ui-sref="user:proposals({login: $ctrl.user.account.content.login})">
+	<div ng-show="$ctrl.user.current">
+		<a ng-click="$ctrl.toggle();" ui-sref="user:proposals({login: $ctrl.user.current.content.login})">
 			<i class="fa fa-tag" aria-hidden="true"></i>
 			<span class="notification">{{$ctrl.myProposals.length}}</span>
 			<p>Mes propositions</p>
 		</a>
 		<a ng-click="$ctrl.toggle();" href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="notification">1</span><p>Mes engagements</p></a>
-		<a ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.user.account.content.login})">
+		<a ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.user.current.content.login})">
 			<i class="fa fa-bullhorn" aria-hidden="true"></i>
 			<span ng-show="$ctrl.myCarriers.length + $ctrl.myLoaders.length >= 1" class="notification">
 				{{$ctrl.myCarriers.length + $ctrl.myLoaders.length}}
 			</span>
 			<p>Mes annonces</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user" aria-hidden="true"></i> <p>Mon profil</p></a>
-		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.account.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
+		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.current.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
 		<br/><br/>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:signout" class="btn-logout" ><i class="fa fa-sign-out" aria-hidden="true"></i> <p>Se déconnecter</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a>

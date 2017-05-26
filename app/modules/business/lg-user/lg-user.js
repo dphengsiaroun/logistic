@@ -91,7 +91,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.account = response.data.account;
+			service.current = response.data.account;
 			$rootScope.isConnected = true;
 			$state.go('user:signupSuccess');
 		}).catch(function(error) {
@@ -123,7 +123,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.account = response.data.account;
+			service.current = response.data.account;
 			$rootScope.isConnected = true;
 			service.goToStateAfterConnect();
 		}).catch(function(error) {
@@ -151,7 +151,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.account = response.data.account;
+			service.current = response.data.account;
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -169,7 +169,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.account = undefined;
+			service.current = undefined;
 			$rootScope.isConnected = false;
 			$state.go('home');
 		}).catch(function(error) {
@@ -189,7 +189,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				service.account = undefined;
+				service.current = undefined;
 				$rootScope.isConnected = false;
 				if ($state.$current.needsUser) {
 					$state.go('home');
@@ -197,7 +197,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			$rootScope.isConnected = true;
-			service.account = response.data.account;
+			service.current = response.data.account;
 		}).finally(function() {
 			service.isConnectedStatusKnown = true;
 		}).catch(function(error) {
@@ -254,7 +254,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.account = response.data.account;
+			service.current = response.data.account;
 			$state.go('user:updated');
 		}).catch(function(error) {
 			service.error = error;
@@ -262,13 +262,13 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	};
 
 	this.delete = function() {
-		console.log('user->delete', service.account);
+		console.log('user->delete', service.current);
 
 		return $http({
 			url: makeUrl('delete'),
 			method: 'POST',
 			data: {
-				id: service.account.id
+				id: service.current.id
 			},
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
@@ -276,7 +276,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 			if (response.data.status === 'ko') {
 				return $q.reject(response);
 			}
-			service.account = undefined;
+			service.current = undefined;
 			$rootScope.isConnected = false;
 			$state.go('user:deleted');
 		});
@@ -313,7 +313,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.account = response.data.account;
+			service.current = response.data.account;
 			$state.go('user:updatedPassword');
 		}).catch(function(error) {
 			console.error('error', error);
@@ -342,7 +342,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return;
 			}
 			service.error = undefined;
-			service.account = response.data.account;
+			service.current = response.data.account;
 			$state.go('user:forgottenPassword:mailsent');
 		}).catch(function(error) {
 			console.error('error', error);
@@ -365,9 +365,9 @@ var initCtrl = function(ctrl, $scope, $injector) {
 		console.log('ctrl.user.updateData.content.login', ctrl.user.updateData.content.login);
 		ctrl.user.updateData.content.login = angular.lowercase(ctrl.user.updateData.content.login);
 	});
-	$scope.$watch('$ctrl.user.account', function() {
-		if (ctrl.user.account) {
-			ctrl.user.updateData = angular.copy(ctrl.user.account);
+	$scope.$watch('$ctrl.user.current', function() {
+		if (ctrl.user.current) {
+			ctrl.user.updateData = angular.copy(ctrl.user.current);
 		}
 	});
 };

@@ -24,7 +24,7 @@ app.service('loader', function Loader(user, $http, $state, $q) {
 	service.create = function() {
 		console.log('loader->create', service.createData);
 		var createData = service.createData;
-		if (user.account) {
+		if (user.current) {
 			$http({
 				url: 'ws/loaders',
 				method: 'POST',

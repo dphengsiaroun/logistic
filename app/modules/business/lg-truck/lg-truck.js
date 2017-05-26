@@ -19,9 +19,9 @@ app.service('truck', function Truck($q, $http, $state, user) {
 	service.create = function() {
 		console.log('truck->createTruck');
 		var createData = service.createData;
-		if (user.account) {
+		if (user.current) {
 			$http({
-				url: 'ws/users/' + user.account.content.login + '/trucks',
+				url: 'ws/users/' + user.current.content.login + '/trucks',
 				method: 'POST',
 				data: createData,
 				headers: {
@@ -65,7 +65,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 		console.log('truck->list');
 		return user.waitForCheckConnection().then(function() {
 			return $http({
-				url: 'ws/users/' + user.account.content.login + '/trucks',
+				url: 'ws/users/' + user.current.content.login + '/trucks',
 				method: 'GET'
 			});
 		}).then(function(response) {
@@ -118,7 +118,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 		console.log('updateTruck->update');
 		user.waitForCheckConnection().then(function() {
 			return $http({
-				url: 'ws/users/' + user.account.content.login + '/trucks/' + service.updateData.id,
+				url: 'ws/users/' + user.current.content.login + '/trucks/' + service.updateData.id,
 				method: 'PUT',
 				data: service.updateData,
 				headers: {
@@ -145,7 +145,7 @@ app.service('truck', function Truck($q, $http, $state, user) {
 		console.log('truck->delete');
 		return user.waitForCheckConnection().then(function() {
 			return $http({
-				url: 'ws/users/' + user.account.content.login + '/trucks/' + id,
+				url: 'ws/users/' + user.current.content.login + '/trucks/' + id,
 				method: 'DELETE',
 				data: {
 					id: id

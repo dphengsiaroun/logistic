@@ -55,7 +55,7 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, propo
 		ctrl.proposal.get($stateParams.id).then(function() {
 			return ctrl.user.waitForCheckConnection('ProposalCtrl');
 		}).then(function() {
-			ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.user.account.id);
+			ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.user.current.id);
 			console.log('ctrl.isEditable', ctrl.isEditable);
 		}).catch(function() {
 			ctrl.isEditable = false;
@@ -76,9 +76,9 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 		ctrl.proposal.get($stateParams.id).then(function() {
 			return ctrl.user.waitForCheckConnection('ProposalCreateCtrl');
 		}).then(function() {
-			ctrl.proposal.createData.name = ctrl.user.account.content.login;
-			ctrl.proposal.createData.email = ctrl.user.account.email;
-			ctrl.proposal.createData.proposalAccountId = ctrl.user.account.id;
+			ctrl.proposal.createData.name = ctrl.user.current.content.login;
+			ctrl.proposal.createData.email = ctrl.user.current.email;
+			ctrl.proposal.createData.proposalAccountId = ctrl.user.current.id;
 			ctrl.proposal.createData.adId = $stateParams.id;
 			ctrl.proposal.createData.titleAd = ctrl.loader.current.content.title;
 			ctrl.proposal.createData.adAccountId = ctrl.loader.current.content.userId;

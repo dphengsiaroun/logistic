@@ -11,7 +11,7 @@
 </section>
 <truck-list>
     <ad-block ng-repeat="truck in $ctrl.truck.trucks">
-        <a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.user.account.content.login })">
+        <a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.user.current.content.login })">
             <div>
                 <div class="img-fix">
                     <img-svg ng-show="truck.image === undefined" src="/img/truck-default.svg"></img-svg>

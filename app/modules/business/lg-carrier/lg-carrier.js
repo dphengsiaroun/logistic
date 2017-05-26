@@ -23,7 +23,7 @@ app.service('carrier', function Carrier(user, $http, $state, $q) {
 
 	service.create = function() {
 		console.log('carrier->create', service.createData);
-		if (user.account) {
+		if (user.current) {
 			$http({
 				url: 'ws/carriers',
 				method: 'POST',

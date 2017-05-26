@@ -24,7 +24,7 @@ app.service('proposal', function Proposal(user, $http, $state, $q) {
 	service.create = function() {
 		console.log('proposal->create', service.createData);
 		var createData = service.createData;
-		if (user.account) {
+		if (user.current) {
 			$http({
 				url: 'ws/proposals',
 				method: 'POST',

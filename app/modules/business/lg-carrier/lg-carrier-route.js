@@ -22,7 +22,7 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(user, carrier) {
                 'ngInject';
                 return user.waitForCheckConnection().then(function() {
-                    var login = user.account.content.login;
+                    var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'carrier:list({login: \'' + login + '\'})';
                     console.log('state', state);
@@ -66,7 +66,7 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(user, carrier) {
                 'ngInject';
                 return user.waitForCheckConnection().then(function() {
-                    var login = user.account.content.login;
+                    var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'carrier:list({login: \'' + login + '\'})';
                     console.log('state', state);
@@ -107,7 +107,7 @@ app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scop
         ctrl.carrier.get($stateParams.id).then(function() {
             return ctrl.user.waitForCheckConnection();
         }).then(function() {
-            ctrl.isEditable = (ctrl.carrier.current.content.userId === ctrl.user.account.id);
+            ctrl.isEditable = (ctrl.carrier.current.content.userId === ctrl.user.current.id);
             console.log('ctrl.isEditable', ctrl.isEditable);
         });
     };

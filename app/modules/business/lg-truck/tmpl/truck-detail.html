@@ -38,8 +38,8 @@
         </table>
     </description>
     <div>
-        <button ui-sref="truck:update({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})">Editer</button>
+        <button ui-sref="truck:update({login: $ctrl.user.current.content.login, id: $ctrl.truck.current.id})">Editer</button>
         <lg-hr>ou</lg-hr>
-        <a class="critical" ui-sref="truck:delete({login: $ctrl.user.account.content.login, id: $ctrl.truck.current.id})" class="critical">Supprimer ce véhicule</a>
+        <a class="critical" ui-sref="truck:delete({login: $ctrl.user.current.content.login, id: $ctrl.truck.current.id})" class="critical">Supprimer ce véhicule</a>
     </div>
 </recap>

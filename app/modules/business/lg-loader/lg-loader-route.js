@@ -26,7 +26,7 @@ app.config(['$stateProvider', function($stateProvider) {
         resolve: {
             service: function(user) {
                 'ngInject';
-                var login = user.account.content.login;
+                var login = user.current.content.login;
                 console.log('login', login);
                 var state = 'loader:list({login: \'' + login + '\'})';
                 console.log('state', state);
@@ -52,7 +52,7 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(user, loader) {
                 'ngInject';
                 return user.waitForCheckConnection('loader:updated').then(function() {
-                    var login = user.account.content.login;
+                    var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'loader:list({login: \'' + login + '\'})';
                     console.log('state', state);
@@ -96,7 +96,7 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(user, loader) {
                 'ngInject';
                 return user.waitForCheckConnection('loader:deleted').then(function() {
-                    var login = user.account.content.login;
+                    var login = user.current.content.login;
                     console.log('login', login);
                     var state = 'loader:list({login: \'' + login + '\'})';
                     console.log('state', state);
@@ -138,7 +138,7 @@ app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, u
         ctrl.loader.get($stateParams.id).then(function() {
             return ctrl.user.waitForCheckConnection('LoaderCtrl');
         }).then(function() {
-            ctrl.isEditable = (ctrl.loader.current.content.userId === ctrl.user.account.id);
+            ctrl.isEditable = (ctrl.loader.current.content.userId === ctrl.user.current.id);
             console.log('ctrl.isEditable', ctrl.isEditable);
         }).catch(function() {
             ctrl.isEditable = false;

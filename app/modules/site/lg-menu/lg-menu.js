@@ -71,21 +71,21 @@ app.component('lgMenu', {
 				return $timeout(function() { }, 1000);
 			}).then(function(carriers) {
 				return carrier.list({
-					userId: user.account.id
+					userId: user.current.id
 				});
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
 				ctrl.myCarriers = carriers;
 			}).then(function(loaders) {
 				return loader.list({
-					userId: user.account.id
+					userId: user.current.id
 				});
 			}).then(function(loaders) {
 				console.log('loaders', loaders);
 				ctrl.myLoaders = loaders;
 			}).then(function(proposals) {
 				return proposal.list({
-					userId: user.account.id
+					userId: user.current.id
 				});
 			}).then(function(proposals) {
 				console.log('proposals', proposals);

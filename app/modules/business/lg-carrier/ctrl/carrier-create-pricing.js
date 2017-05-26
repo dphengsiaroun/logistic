@@ -31,7 +31,7 @@ app.component('lgCarrierCreatePricingRoute', {
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {
-				$state.go('carrier:' + carrier.type, {login: user.account.content.login, id: carrier.current.id});
+				$state.go('carrier:' + carrier.type, {login: user.current.content.login, id: carrier.current.id});
 			}
 		};
 	}

@@ -120,8 +120,8 @@
         <button ui-sref="proposal:create({id: $ctrl.carrier.current.id})">Faire une proposition</button>
     </bottom>
     <div ng-show="$ctrl.isEditable">
-        <button ui-sref="carrier:update({login: $ctrl.user.account.content.login, id: $ctrl.carrier.current.id})">Editer</button>
+        <button ui-sref="carrier:update({login: $ctrl.user.current.content.login, id: $ctrl.carrier.current.id})">Editer</button>
         <lg-hr>ou</lg-hr>
-        <a class="critical" ui-sref="carrier:delete({login: $ctrl.user.account.content.login, id: $ctrl.carrier.current.id})" class="critical">Supprimer cette annonce</a>
+        <a class="critical" ui-sref="carrier:delete({login: $ctrl.user.current.content.login, id: $ctrl.carrier.current.id})" class="critical">Supprimer cette annonce</a>
     </div>
 </recap>

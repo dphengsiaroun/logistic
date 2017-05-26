@@ -1,6 +1,6 @@
 <title-icon><i class="fa fa-user-circle-o" aria-hidden="true"></i></title-icon>
 <title>Bienvenue</title>
-<subtitle>{{$ctrl.user.account.content.firstname}} {{$ctrl.user.account.content.lastname | uppercase }}</subtitle>
+<subtitle>{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}</subtitle>
 
 <form class="edit-profile" name="updateCtrl">
 	<input type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" />
@@ -27,8 +27,8 @@
 	<button ng-click="$ctrl.user.update();">Modifier</button>
 </div>
 <lg-hr>ou</lg-hr>
-<a ng-show="$ctrl.user.account.password !== ''" ui-sref="user:updatePassword">Modifier mot de passe</a>
-<a ng-hide="$ctrl.user.account.password !== ''" ui-sref="user:initiatePassword">Initialiser mot de passe</a>
+<a ng-show="$ctrl.user.current.password !== ''" ui-sref="user:updatePassword">Modifier mot de passe</a>
+<a ng-hide="$ctrl.user.current.password !== ''" ui-sref="user:initiatePassword">Initialiser mot de passe</a>
 <lg-hr>ou</lg-hr>
 <a ui-sref="user:confirmDelete" class="critical">Supprimer mon compte</a>
 </form>

@@ -24,7 +24,7 @@ app.component('lgUserProposalsRoute', {
 		ctrl.$onInit = function() {
 			user.waitForCheckConnection().then(function() {
 				return proposal.list({
-					userId: user.account.id
+					userId: user.current.id
 				});
 			}).then(function(proposals) {
 				console.log('proposals', proposals);
