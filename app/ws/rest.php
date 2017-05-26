@@ -10,6 +10,7 @@
 		'Loader',
 		'Truck',
 		'User',
+		'Connection',
 		'Proposal'
 	);
 

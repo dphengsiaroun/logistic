@@ -4,4 +4,5 @@ RewriteRule carriers rest.php
 RewriteRule loaders rest.php
 RewriteRule trucks rest.php
 RewriteRule users rest.php
+RewriteRule connections rest.php
 RewriteRule proposals rest.php

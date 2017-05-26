@@ -24,7 +24,7 @@ app.service('connection', function Connection($http, $rootScope, user) {
 		console.log('sign in');
 		var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 		$http({
-			url: makeUrl('signin'),
+			url: 'ws/connections',
 			method: 'POST',
 			data: {
 				email: service.createConnectionData.email,
@@ -41,7 +41,7 @@ app.service('connection', function Connection($http, $rootScope, user) {
 				return;
 			}
 			service.error = undefined;
-			user.current = response.data.user;
+			user.current = response.data.connection;
 			$rootScope.isConnected = true;
 			user.goToStateAfterConnect();
 		}).catch(function(error) {
