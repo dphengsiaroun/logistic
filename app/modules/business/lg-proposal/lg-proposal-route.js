@@ -6,7 +6,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
 	$stateProvider.state({
 		name: 'proposal:create',
-		url: '/create-proposal/{id}',
+		url: '/{type}/{id}/create-proposal',
 		component: 'lgProposalCreateRoute'
 	});
 	$stateProvider.state({
@@ -64,25 +64,26 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, propo
 	};
 });
 
-app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal, user, connection, loader, carrier) {
+app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
+	user, connection, loader, carrier) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.proposal = proposal;
 	ctrl.loader = loader;
 	ctrl.carrier = carrier;
 	ctrl.user = user;
-	console.log('arguments', arguments);
+	console.log('ProposalCreateCtrl', arguments);
 	this.$onInit = function() {
-		ctrl.proposal.get($stateParams.id).then(function() {
-			return connection.waitForCheckConnection('ProposalCreateCtrl');
-		}).then(function() {
+		console.log('ProposalCreateCtrl init', arguments);
+		connection.waitForCheckConnection('ProposalCreateCtrl').then(function() {
+			console.log('connection ok', $stateParams);
 			ctrl.proposal.createData.name = ctrl.user.current.content.login;
 			ctrl.proposal.createData.email = ctrl.user.current.email;
 			ctrl.proposal.createData.proposalAccountId = ctrl.user.current.id;
 			ctrl.proposal.createData.adId = $stateParams.id;
-			ctrl.proposal.createData.titleAd = ctrl.loader.current.content.title;
-			ctrl.proposal.createData.adAccountId = ctrl.loader.current.content.userId;
-			ctrl.proposal.createData.adType = 'loader';
+			ctrl.proposal.createData.titleAd = ctrl[$stateParams.type].current.content.title;
+			ctrl.proposal.createData.adAccountId = ctrl[$stateParams.type].current.content.userId;
+			ctrl.proposal.createData.adType = $stateParams.type;
 			console.log('ctrl.proposal.createData', ctrl.proposal.createData);
 		}).catch(function() {
 			console.error('you should not see this');
