@@ -107,7 +107,7 @@ app.controller('CarrierCtrl', ['$scope', '$injector', function CarrierCtrl($scop
         ctrl.carrier.get($stateParams.id).then(function() {
             return ctrl.user.waitForCheckConnection();
         }).then(function() {
-            ctrl.isEditable = (ctrl.carrier.current.content.accountId === ctrl.user.account.id);
+            ctrl.isEditable = (ctrl.carrier.current.content.userId === ctrl.user.account.id);
             console.log('ctrl.isEditable', ctrl.isEditable);
         });
     };

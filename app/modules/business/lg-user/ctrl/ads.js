@@ -26,14 +26,14 @@ app.component('lgUserAdsRoute', {
 		ctrl.$onInit = function() {
 			user.waitForCheckConnection().then(function() {
 				return carrier.list({
-					accountId: user.account.id
+					userId: user.account.id
 				});
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
 				ctrl.carriers = carriers;
 			}).then(function() {
 				return loader.list({
-					accountId: user.account.id
+					userId: user.account.id
 				});
 			}).then(function(loaders) {
 				console.log('loaders', loaders);

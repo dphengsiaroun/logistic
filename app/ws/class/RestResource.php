@@ -13,7 +13,7 @@
 		public function create() {
 			$account = User::getConnected();
 			$request = getRequest();
-			$request->accountId = $account->id;
+			$request->userId = $account->id;
 			$request->login = $account->content->login;
 			Image::manageSession($account, $request);
 			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
@@ -45,7 +45,7 @@ EOF;
 			$array = $st->fetch();
 			$result = new static();
 			$result->id = $array['id'];
-			$result->accountId = $array['user_id'];
+			$result->userId = $array['user_id'];
 			$result->content = json_decode($array['content']);
 			debug($this->getName() . ' retrieved.');
 			return $result;
@@ -63,9 +63,9 @@ EOF;
 			debug('listAll', $request);
 			$array = array();
 
-			if (is_object($request) && property_exists($request, 'accountId')) {
+			if (is_object($request) && property_exists($request, 'userId')) {
 				$sql .= ' WHERE user_id = :user_id';
-				$array['user_id'] = $request->accountId;
+				$array['user_id'] = $request->userId;
 			}
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
@@ -86,7 +86,7 @@ EOF;
 			$request = new stdClass();
 			$request->id = $id;
 			$account = User::getConnected();
-			$request->accountId = $account->id;
+			$request->userId = $account->id;
 			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
 			Event::synchronize();
 		}
@@ -95,7 +95,7 @@ EOF;
 			$request = getRequest();
 			$account = User::getConnected();
 			$request->id = $id;
-			$request->accountId = $account->id;
+			$request->userId = $account->id;
 			$e = Event::insert('/' . strtolower($this->getName()) . '/update', $request);
 			Event::synchronize();
 			$result = $this->retrieve($request->id);

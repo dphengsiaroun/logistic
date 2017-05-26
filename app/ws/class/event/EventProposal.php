@@ -14,7 +14,7 @@ EOF;
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
 			':id' => $e->id,
-			':proposal_user_id' => $e->content->accountId,
+			':proposal_user_id' => $e->content->userId,
 			':ad_id' => $e->content->adId,
 			':ad_user_id' => $e->content->adAccountId,
 			':ad_type' => $e->content->adType,
@@ -30,7 +30,7 @@ EOF;
 		$obj = new Proposal();
 		$proposal = $obj->retrieve($e->content->id);
 
-		if ($e->content->accountId != $proposal->accountId) {
+		if ($e->content->userId != $proposal->userId) {
 			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		// On lance notre requête de vérification
@@ -53,7 +53,7 @@ EOF;
 		$proposal = $obj->retrieve($e->content->id);
 		debug('proposal to update', $proposal);
 
-		if ($e->content->accountId != $proposal->accountId) {
+		if ($e->content->userId != $proposal->userId) {
 			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		$sql = <<<EOF

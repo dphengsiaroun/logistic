@@ -138,7 +138,7 @@ app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, u
         ctrl.loader.get($stateParams.id).then(function() {
             return ctrl.user.waitForCheckConnection('LoaderCtrl');
         }).then(function() {
-            ctrl.isEditable = (ctrl.loader.current.content.accountId === ctrl.user.account.id);
+            ctrl.isEditable = (ctrl.loader.current.content.userId === ctrl.user.account.id);
             console.log('ctrl.isEditable', ctrl.isEditable);
         }).catch(function() {
             ctrl.isEditable = false;

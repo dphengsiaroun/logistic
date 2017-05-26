@@ -39,8 +39,8 @@ EOF;
 		}
 
 		public static function getConnected() {
-			if (isset($_COOKIE['accountId'])) {
-				$account = new User($_COOKIE['accountId']);
+			if (isset($_COOKIE['userId'])) {
+				$account = new User($_COOKIE['userId']);
 				if (!$account->getRememberMe()->checkToken()) {
 					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}

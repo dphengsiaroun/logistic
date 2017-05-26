@@ -16,12 +16,12 @@
 			$token = $this->addToken();
 			debug('token', $token);
 			setcookie('rememberMe', $token->code,  $token->expirationTime, '/');
-			setcookie('accountId', '' . $this->account->id,  $token->expirationTime, '/');
+			setcookie('userId', '' . $this->account->id,  $token->expirationTime, '/');
 		}
 
 		public function disconnect() {
 			$token = $this->removeToken();
-			setcookie('accountId', '', 0, '/');
+			setcookie('userId', '', 0, '/');
 			setcookie('rememberMe', '', 0, '/');
 			debug('COOKIE', $_COOKIE);
 		}

@@ -14,7 +14,7 @@ EOF;
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
 			':id' => $e->id,
-			':user_id' => $e->content->accountId,
+			':user_id' => $e->content->userId,
 			':content' => json_encode($e->content)
 		)) === FALSE) {
 			throw new Exception('Cannot insert event: '.sprint_r($db->errorInfo()));
@@ -27,7 +27,7 @@ EOF;
 
 		$carrier = $obj->retrieve($e->content->id);
 
-		if ($e->content->accountId != $carrier->accountId) {
+		if ($e->content->userId != $carrier->userId) {
 			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		// On lance notre requête de vérification
@@ -51,7 +51,7 @@ EOF;
 		$carrier = $obj->retrieve($e->content->id);
 		debug('carrier to update', $carrier);
 
-		if ($e->content->accountId != $carrier->accountId) {
+		if ($e->content->userId != $carrier->userId) {
 			throw new Exceptions('Forbidden operation. User must match.');
 		}
 		$sql = <<<EOF
