@@ -2,10 +2,9 @@
 	require_once(BASE_DIR . '/include/misc.inc.php');
 	require_once(BASE_DIR . '/include/database.inc.php');
 
-	require_once(BASE_DIR . '/class/event/EventLoader.php');
-	require_once(BASE_DIR . '/class/event/EventCarrier.php');
-	require_once(BASE_DIR . '/class/event/EventGeoloc.php');
-	require_once(BASE_DIR . '/class/event/EventProposal.php');
+	foreach (glob(BASE_DIR . '/class/event/Event*.php') as $filename) {	
+    	require_once($filename);
+	}
 
 	class Event {
 

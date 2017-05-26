@@ -11,8 +11,8 @@
 		}
 
 		public function create() {
-			$user = User::getConnected();
 			$request = getRequest();
+			$user = User::getConnected();
 			$request->userId = $user->id;
 			$request->login = $user->content->login;
 			Image::manageSession($user, $request);
