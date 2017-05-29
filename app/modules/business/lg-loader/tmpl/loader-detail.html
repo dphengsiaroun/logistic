@@ -100,11 +100,11 @@
     <div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
     <bottom ng-show="!$ctrl.isEditable">
         <button ui-sref="tel:+41 21 694 16 00">Appeler</button>
-        <button ui-sref="proposal:create({id: $ctrl.loader.current.id})">Faire une proposition</button>
+        <button ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</button>
     </bottom>
     <div ng-show="$ctrl.isEditable">
         <button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
         <lg-hr>ou</lg-hr>
-        <a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id, type: 'loader'})" class="critical">Supprimer cette annonce</a>
+        <a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
     </div>
 </recap>

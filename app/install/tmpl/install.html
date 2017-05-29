@@ -2,56 +2,65 @@
 
 <form name="installForm" ng-submit="install()">
 
-    <h2>Application</h2>
-    <label for="appName">Name</label><br/>
-    <input type="text" id="appName" ng-model="obj.appName" />
+	<h2><i class="fa fa-tablet" aria-hidden="true"></i>Application</h2>
+	<div>
+		<label for="appName">Name</label>
+		<input class="form-control" type="text" id="appName" ng-model="obj.appName" />
+	</div>
 
-    <h2>Database</h2>
-    <label for="hostname">Hostname</label><br/>
-    <input type="text" id="hostname" ng-model="obj.hostname" />
-    <label for="username">Username</label><br/>
-    <input type="text" id="username" ng-model="obj.username" />
-    <label for="password">Password</label><br/>
-    <input type="text" id="password" ng-model="obj.password" />
-    <label for="databaseName">Database name</label><br/>
-    <input type="text" id="databaseName" ng-model="obj.databaseName" />
-    <label for="prefix">Prefix for tables</label><br/>
-    <input type="text" id="prefix" ng-model="obj.prefix" />
+	<h2><i class="fa fa-database" aria-hidden="true"></i>Database</h2>
+	<div>
+		<label for="hostname">Hostname</label>
+		<input class="form-control" type="text" id="hostname" ng-model="obj.hostname" />
+		<label for="username">Username</label>
+		<input class="form-control" type="text" id="username" ng-model="obj.username" />
+		<label for="password">Password</label>
+		<input class="form-control" type="text" id="password" ng-model="obj.password" />
+		<label for="databaseName">Database name</label>
+		<input class="form-control" type="text" id="databaseName" ng-model="obj.databaseName" />
+		<label for="prefix">Prefix for tables</label>
+		<input class="form-control" type="text" id="prefix" ng-model="obj.prefix" />
+		<input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
+		<label for="dbCreation">Create the tables</label>
+	</div>
+
+	<h2><i class="fa fa-shield" aria-hidden="true"></i>OAuth2</h2>
+	<div>
+		<h3><i class="fa fa-google" aria-hidden="true"></i>Google</h3>
+		<label for="OAuth2.Google.ClientID">ClientID</label>
+		<input class="form-control" type="text" id="OAuth2.Google.ClientID" ng-model="obj.oauth2.google.clientID" />
+		<label for="OAuth2.Google.ClientSecret">Client Secret</label>
+		<input class="form-control" type="text" id="OAuth2.Google.ClientSecret" ng-model="obj.oauth2.google.clientSecret" />
+
+		<h3><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</h3>
+		<label for="OAuth2.Facebook.ClientID">ClientID</label>
+		<input class="form-control" type="text" id="OAuth2.Facebook.ClientID" ng-model="obj.oauth2.facebook.clientID" />
+		<label for="OAuth2.Facebook.ClientSecret">Client Secret</label>
+		<input class="form-control" type="text" id="OAuth2.Facebook.ClientSecret" ng-model="obj.oauth2.facebook.clientSecret" />
+	</div>
 
 
-    <input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
-    <label for="dbCreation">Create the tables</label><br/>
-
-    <h2>OAuth2</h2>
-    <h3>Google</h3>
-
-    <label for="OAuth2.Google.ClientID">ClientID</label><br/>
-    <input type="text" id="OAuth2.Google.ClientID" ng-model="obj.oauth2.google.clientID" />
-    <label for="OAuth2.Google.ClientSecret">Client Secret</label><br/>
-    <input type="text" id="OAuth2.Google.ClientSecret" ng-model="obj.oauth2.google.clientSecret" />
-
-    <h3>Facebook</h3>
-    <label for="OAuth2.Facebook.ClientID">ClientID</label><br/>
-    <input type="text" id="OAuth2.Facebook.ClientID" ng-model="obj.oauth2.facebook.clientID" />
-    <label for="OAuth2.Facebook.ClientSecret">Client Secret</label><br/>
-    <input type="text" id="OAuth2.Facebook.ClientSecret" ng-model="obj.oauth2.facebook.clientSecret" />
-
-    <h3>Mail</h3>
-    <label for="smtp.server.host">SMTP Server Host</label><br/>
-    <input type="text" id="smtp.server.host" ng-model="obj.smtp.host" />
-    <label for="smtp.server.port">SMTP Server Port</label><br/>
-    <input type="text" id="smtp.server.port" ng-model="obj.smtp.port" />
-    <label for="smtp.server.secure">SMTP Secure</label><br/>
-    <input type="text" id="smtp.server.secure" ng-model="obj.smtp.secure" />
-    <label for="smtp.server.username">SMTP Server Username</label><br/>
-    <input type="text" id="smtp.server.username" ng-model="obj.smtp.username" />
-    <label for="smtp.server.password">SMTP Server Password</label><br/>
-    <input type="text" id="smtp.server.password" ng-model="obj.smtp.password" />
-    <label for="smtp.server.from">SMTP Server From</label><br/>
-    <input type="text" id="smtp.server.from" ng-model="obj.smtp.from" />
-
-	<label for="routeGoogleAPIKey">Route Google API Key</label><br/>
-    <input type="text" id="routeGoogleAPIKey" ng-model="obj.routeGoogleAPIKey" />
-
-    <button type="installForm.$submit()">Install</button>
+	<h2><i class="fa fa-envelope" aria-hidden="true"></i>Mail</h2>
+	<div>
+		<label for="smtp.server.host">SMTP Server Host</label>
+		<input class="form-control" type="text" id="smtp.server.host" ng-model="obj.smtp.host" />
+		<label for="smtp.server.port">SMTP Server Port</label>
+		<input class="form-control" type="text" id="smtp.server.port" ng-model="obj.smtp.port" />
+		<label for="smtp.server.secure">SMTP Secure</label>
+		<input class="form-control" type="text" id="smtp.server.secure" ng-model="obj.smtp.secure" />
+		<label for="smtp.server.username">SMTP Server Username</label>
+		<input class="form-control" type="text" id="smtp.server.username" ng-model="obj.smtp.username" />
+		<label for="smtp.server.password">SMTP Server Password</label>
+		<input class="form-control" type="text" id="smtp.server.password" ng-model="obj.smtp.password" />
+		<label for="smtp.server.from">SMTP Server From</label>
+		<input class="form-control" type="text" id="smtp.server.from" ng-model="obj.smtp.from" />
+	</div>
+	<h2><i class="fa fa-google" aria-hidden="true"></i>Google API</h2>
+	<div>
+		<label for="routeGoogleAPIKey">Route Google API Key</label>
+		<input class="form-control" type="text" id="routeGoogleAPIKey" ng-model="obj.routeGoogleAPIKey" />
+	</div>
+	<div>
+        <button class="btn btn-primary" type="installForm.$submit()">Install</button>
+    </div>
 </form>

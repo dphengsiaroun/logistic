@@ -38,7 +38,7 @@ CREATE TABLE `<?php echo $context->prefix; ?>loader` (
 CREATE TABLE `<?php echo $context->prefix; ?>proposal` (
   `id` INT(16) UNSIGNED NOT NULL,
   `content` longtext NOT NULL,
-  `proposal_user_id` int(16) NOT NULL,
+  `user_id` int(16) NOT NULL,
   `ad_id` int(16) NOT NULL,
   `ad_user_id` int(16) NOT NULL,
   `ad_type` VARCHAR(40) NOT NULL ,

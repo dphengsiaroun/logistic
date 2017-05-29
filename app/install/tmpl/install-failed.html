@@ -1,6 +1,10 @@
-install-failed<br/>
-Reason: {{errorMsg}}
-
-<p><button ng-click="uninstall()">Uninstall</button></p>
-<p><a href="#/install">return to install</a></p>
+<div class="success-error">
+	<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+	<h3>Install failed</h3>
+    <p>Reason: {{errorMsg}}</p>
+</div>
+<div>
+	<button type="button" class="btn btn-danger" ng-click="uninstall()">Uninstall</button>
+	<a href="#/install" class="btn btn-link">Return to install</a>
+</div>
 

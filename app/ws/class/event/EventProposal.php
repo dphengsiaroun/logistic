@@ -6,15 +6,15 @@ class EventProposal {
 		global $db, $cfg;
 		debug('$e', $e);
 		$sql = <<<EOF
-INSERT INTO {$cfg->prefix}proposal (id, proposal_user_id, ad_id, ad_user_id, ad_type, content) VALUES
-(:id, :proposal_user_id, :ad_id, :ad_user_id, :ad_type, :content);
+INSERT INTO {$cfg->prefix}proposal (id, user_id, ad_id, ad_user_id, ad_type, content) VALUES
+(:id, :user_id, :ad_id, :ad_user_id, :ad_type, :content);
 EOF;
 
 		$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
 			':id' => $e->id,
-			':proposal_user_id' => $e->content->userId,
+			':user_id' => $e->content->userId,
 			':ad_id' => $e->content->adId,
 			':ad_user_id' => $e->content->adAccountId,
 			':ad_type' => $e->content->adType,
