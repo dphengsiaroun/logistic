@@ -1,0 +1,29 @@
+<div class="ad-title">
+	<left>
+		<i class="fa fa-tag" aria-hidden="true"></i>
+	</left>
+	<right>
+		<title>Proposition</title>
+		<subtitle>au chargeur</subtitle>
+	</right>
+</div>
+<formx class="ad" name="proposalCtrl">
+	<section>
+		<label>Nom</label>
+		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" />
+		<label>Email</label>
+		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.createData.email" />
+		<label>Titre de l'annonce</label>
+		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" />
+		<label>Message</label>
+		<textarea ng-model="$ctrl.proposal.createData.message"></textarea>
+	</section>
+</formx>
+<formx class="ad">
+	<section class="dark">
+		<lg-error error="$ctrl.proposal.error"></lg-error>
+		<button ng-click="$ctrl.proposal.create();">Envoyez votre proposition</button>
+	</section>
+</formx>
+
+

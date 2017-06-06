@@ -26,6 +26,16 @@ app.config(['$stateProvider', function($stateProvider) {
 		},
 		needsUser: true
 	});
+	$stateProvider.state({
+		name: 'proposal:retrieve',
+        url: '/proposal/{id}',
+		component: 'lgProposalRetrieveRoute'
+	});
+	$stateProvider.state({
+        name: 'proposal:update',
+        url: '/proposal/{id}/update',
+        component: 'lgProposalUpdateRoute'
+    });
 
 }]);
 
@@ -85,6 +95,7 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 			ctrl.proposal.createData.adAccountId = ctrl[$stateParams.type].current.content.userId;
 			ctrl.proposal.createData.adType = $stateParams.type;
 			console.log('ctrl.proposal.createData', ctrl.proposal.createData);
+			console.log('$stateParams', $stateParams);
 		}).catch(function() {
 			console.error('you should not see this');
 		});
@@ -111,8 +122,8 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateP
 
 var proposalCreateUrl = require('./tmpl/proposal-create.html');
 // var proposalListUrl = require('./tmpl/proposal-list.html');
-// var proposalDetailUrl = require('./tmpl/proposal-detail.html');
-// var proposalUpdateUrl = require('./tmpl/proposal-update.html');
+var proposalDetailUrl = require('./tmpl/proposal-detail.html');
+var proposalUpdateUrl = require('./tmpl/proposal-update.html');
 
 app.component('lgProposalCreateRoute', {
 	templateUrl: proposalCreateUrl,
@@ -124,12 +135,12 @@ app.component('lgProposalCreateRoute', {
 //     controller: 'ProposalListCtrl',
 // });
 
-// app.component('lgProposalRetrieveRoute', {
-//     templateUrl: proposalDetailUrl,
-//     controller: 'ProposalCtrl',
-// });
+app.component('lgProposalRetrieveRoute', {
+    templateUrl: proposalDetailUrl,
+    controller: 'ProposalCtrl',
+});
 
-// app.component('lgProposalUpdateRoute', {
-//     templateUrl: proposalUpdateUrl,
-//     controller: 'ProposalUpdateCtrl',
-// });
+app.component('lgProposalUpdateRoute', {
+    templateUrl: proposalUpdateUrl,
+    controller: 'ProposalUpdateCtrl',
+});

@@ -12,10 +12,10 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 	var service = this;
 	service.initCreateData = function() {
 		service.createData = {
-			name: 'Toto',
-			email: 'dphengsiaroun@outlook.fr',
-			titleAd: '',
-			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
+			// name: 'Toto',
+			// email: 'dphengsiaroun@outlook.fr',
+			// titleAd: '',
+			// message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
 		};
 	};
 	service.initCreateData();
