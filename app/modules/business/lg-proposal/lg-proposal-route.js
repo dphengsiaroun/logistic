@@ -37,6 +37,52 @@ app.config(['$stateProvider', function($stateProvider) {
         component: 'lgProposalUpdateRoute'
     });
 
+	$stateProvider.state({
+        name: 'proposal:delete',
+        url: '/proposal/{id}/delete',
+        component: 'lgConfirm',
+        resolve: {
+            service: function($rootScope, loader, $stateParams) {
+                'ngInject';
+                var result = {};
+                result.doCancel = function() {
+                    $rootScope.back();
+                };
+                result.doConfirm = function() {
+                    loader.delete($stateParams.id).catch(function(error) {
+                        result.error = error;
+                    });
+                };
+                result.confirmationMsg = 'Voulez-vous vraiment supprimer cette proposition&nbsp;?';
+                result.cancelMsg = 'Non, annuler';
+                result.confirmMsg = 'Oui, supprimer';
+                return result;
+            }
+        }
+    });
+    $stateProvider.state({
+        name: 'proposal:deleted',
+        url: '/deleted-proposal',
+        component: 'lgMessage',
+        resolve: {
+            service: function(connection, user, loader) {
+                'ngInject';
+                return connection.waitForCheckConnection('loader:deleted').then(function() {
+                    var login = user.current.content.login;
+                    console.log('login', login);
+                    var state = 'user:proposals({id: \'' + login + '\'})';
+                    console.log('state', state);
+                    return {
+                        state: state,
+                        label: 'Retour à mes propositions',
+                        message: 'Votre proposition a bien été supprimée.'
+                    };
+                });
+            }
+        }
+    });
+
+
 }]);
 
 app.controller('ProposalListCtrl', function ProposalListCtrl(proposal) {

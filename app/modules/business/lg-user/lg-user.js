@@ -54,7 +54,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 			service.error = undefined;
 			service.current = response.data.user;
 			$rootScope.isConnected = true;
-			$state.go('user:signupSuccess');
+			$state.go('user:create:success');
 		}).catch(function(error) {
 			service.error = error;
 		});
