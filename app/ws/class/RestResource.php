@@ -62,7 +62,7 @@ SELECT * FROM {$cfg->prefix}{$name}
 EOF;
 			debug('listAll', $request);
 			$array = array();
-
+			
 			if (is_object($request) && property_exists($request, 'userId')) {
 				$sql .= ' WHERE user_id = :user_id';
 				$array['user_id'] = $request->userId;
@@ -72,7 +72,6 @@ EOF;
 			if ($st->execute($array) === FALSE) {
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
-
 			$result = array();
 
 			while ($array = $st->fetch()) {
