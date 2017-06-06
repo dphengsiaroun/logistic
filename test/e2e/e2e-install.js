@@ -4,6 +4,13 @@ describe('Install', function() {
 		console.log('Test', arguments);
 	});
 
+	afterEach(function() {
+		browser.manage().logs().get('browser').then(function(browserLog) {
+			console.log(browser.log);
+			expect(browserLog.length).toEqual(0);
+		});
+	});
+
 	it('should uninstall', function() {
 		browser.get('http://localhost:8000/app/install');
 		element(by.css('button')).click();

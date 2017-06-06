@@ -4,6 +4,12 @@ describe('User CRUD', function() {
 		console.log('Test', arguments);
 	});
 
+	afterEach(function() {
+		browser.manage().logs().get('browser').then(function(browserLog) {
+			expect(browserLog.length).toEqual(0);
+		});
+	});
+
 	it('should create a user', function() {
 		browser.get('http://localhost:8000/app/');
 		element(by.css('menu-bar')).click();
