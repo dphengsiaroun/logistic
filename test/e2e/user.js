@@ -6,7 +6,7 @@ describe('User CRUD', function() {
 
 	it('should create a user', function() {
 		browser.get('http://localhost:8000/app/');
-		element.all(by.css('i.fa.fa-bars')).click();
+		element.all(by.css('menu-bar')).click();
 		element.all(by.linkText('Se connecter')).click();
 		element.all(by.linkText('Créer un nouveau compte')).click();
 		element.all(by.css('button')).click();
@@ -20,7 +20,7 @@ describe('User CRUD', function() {
 	it('should retrieve a user', function() {
 		browser.driver.navigate().refresh();
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
-		element.all(by.css('i.fa.fa-bars')).click();
+		element.all(by.css('menu-bar')).click();
 		var link = element(by.linkText('Mon profil'));
 		expect(link).toBeDefined();
 	});
