@@ -3,12 +3,12 @@
 <subtitle>{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}</subtitle>
 
 <form class="edit-profile" name="updateCtrl">
-	<input type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" />
-	<input type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" />
+	<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" />
+	<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" />
 	<br/>
-	<input type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space"
+	<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space"
 		ng-model="$ctrl.user.updateData.content.login" />
-	<input type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" /><br/>
+	<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" /><br/>
 	<lg-select ng-model="$ctrl.user.signupData.content.profile">
 		<lg-option value="loader" selected>Chargeur</lg-option>
 		<lg-option value="carrier" selected>Transporteur</lg-option>

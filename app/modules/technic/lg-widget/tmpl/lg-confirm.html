@@ -16,9 +16,9 @@ lg-confirm title {
 </style>
 <title ng-bind-html="$ctrl.service.confirmationMsg"></title>
 <div>
-	<button class="normal" ng-click="$ctrl.service.doCancel();">{{$ctrl.service.cancelMsg}}</button>
+	<button class="normal cancel" ng-click="$ctrl.service.doCancel();">{{$ctrl.service.cancelMsg}}</button>
 </div>
 <lg-error error="$ctrl.service.error"></lg-error>
 <div>
-	<button class="critical" ng-click="$ctrl.service.doConfirm();">{{$ctrl.service.confirmMsg}}</button>
+	<button class="critical confirm" ng-click="$ctrl.service.doConfirm();">{{$ctrl.service.confirmMsg}}</button>
 </div>
