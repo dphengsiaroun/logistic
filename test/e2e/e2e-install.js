@@ -6,7 +6,6 @@ describe('Install', function() {
 
 	afterEach(function() {
 		browser.manage().logs().get('browser').then(function(browserLog) {
-			console.log(browser.log);
 			expect(browserLog.length).toEqual(0);
 		});
 	});
@@ -14,12 +13,9 @@ describe('Install', function() {
 	it('should uninstall', function() {
 		browser.get('http://localhost:8000/app/install');
 		element(by.css('button')).click();
-
 		// browser.sleep(35000);
 		var message = element(by.css('h1'));
 		expect(message.getText()).toEqual('Installation');
-		// element.all(by.css('button')).click();
-		// expect(latestResult.getText()).toEqual('3');
 	});
 
 
