@@ -20,12 +20,12 @@
 </breadcrumb>
 <no-vehicle ng-hide="$ctrl.hasTruck">
 	<span>Ajouter un véhicule à votre flotte</span>
-	<button ui-sref="carrier:create:truck:create"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer</button>
+	<button id="pr-to-continue" ui-sref="carrier:create:truck:create"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer</button>
 </no-vehicle>
 <at-list-one-vehicle ng-show="$ctrl.hasTruck">
 	<span>Sélectionner ou ajouter<br/>un véhicule</span>
 	<list>
-		<item ng-click="$ctrl.selectTruck(truck)" ng-repeat="truck in $ctrl.truck.trucks">
+		<item id="pr-choose-truck" ng-click="$ctrl.selectTruck(truck)" ng-repeat="truck in $ctrl.truck.trucks">
 			<left>
 				<img ng-show="truck.image === undefined" src="img/truck-default.svg">
 				<img ng-show="truck.image.thumbnailUrl" ng-src="{{truck.image.thumbnailUrl}}">

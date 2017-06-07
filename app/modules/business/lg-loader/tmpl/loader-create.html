@@ -61,15 +61,15 @@
 				<img-svg src="/img/vrac.svg"></img-svg><span>Vrac</span></lg-option>
 		</lg-select>
 		<label>Type</label>
-		<input type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.createData.typeOfGoods" />
+		<input name="typeOfGoods" type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.createData.typeOfGoods" />
 
 	</section>
 	<section>
 		<big-label>Définir le chargement</big-label>
 		<label>Poids total</label>
-		<input type="choice" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.createData.weightInterval" />
+		<input name="weightIntervals" type="choice" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.createData.weightInterval" />
 		<label ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'">Poids unitaire (ex : poids d’une palette)</label>
-		<input type="number" ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
+		<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'" placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
 		<label>Dimensions en mètre (colis, palette)</label>
 		<dimension ng-click="$ctrl.editDimension()">
 			<div class="box no-zoom">
@@ -95,9 +95,9 @@
 		</div>
 
 		<label>Tarif souhaité en DZD (facultatif)</label>
-		<input type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.createData.priceWanted" />
+		<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.createData.priceWanted" />
 		<label>Titre de l'annonce</label>
-		<input type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.createData.title" />
+		<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.createData.title" />
 		<label>Commentaire</label>
 		<textarea ng-model="$ctrl.loader.createData.comments"></textarea>
 	</section>

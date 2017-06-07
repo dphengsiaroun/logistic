@@ -1,7 +1,7 @@
 describe('Install', function() {
 
 	beforeEach(function() {
-		console.log('Test', arguments);
+		console.log('Install', arguments);
 	});
 
 	afterEach(function() {
@@ -11,6 +11,7 @@ describe('Install', function() {
 	});
 
 	it('should uninstall', function() {
+		console.log('-> uninstall', arguments);
 		browser.get('http://localhost:8000/app/install');
 		element(by.css('button')).click();
 		// browser.sleep(35000);
@@ -21,6 +22,7 @@ describe('Install', function() {
 
 
 	it('should install', function() {
+		console.log('-> install', arguments);
 		element(by.xpath("//label[@for='dbCreation']")).click();
 		element(by.css('button')).click();
 		var message = element(by.css('h3'));
@@ -28,6 +30,7 @@ describe('Install', function() {
 	});
 
 	it('should go to website', function() {
+		console.log('-> go to website', arguments);
 		element(by.linkText('Go to website')).click();
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
 	});

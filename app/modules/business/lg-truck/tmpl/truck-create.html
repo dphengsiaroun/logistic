@@ -31,13 +31,13 @@
     </section>
     <section>
         <label>Immatriculation ou libellé du vehicule</label>
-        <input type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
+        <input name="vehicle-name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
         <label>Description succinte du modèle</label>
-        <input type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
+        <input name="vehicle-description" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
     </section>
     <section class="dark">
         <label>Ville d'origine</label>
-        <lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city"></lg-city>
+        <lg-city name="vehicle-city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city"></lg-city>
     </section>
     <section>
         <label>Année du vehicule</label>

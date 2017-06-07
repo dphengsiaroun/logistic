@@ -10,7 +10,7 @@
 <summary>
 	<div>
 		<steps>
-			<step ng-click="$root.goToState('carrier:create:truck:choose')" ng-class="$ctrl.carrierStepManager.getClass(1)">
+			<step id="pr-select-truck" ng-click="$root.goToState('carrier:create:truck:choose')" ng-class="$ctrl.carrierStepManager.getClass(1)">
 				<num-step>1</num-step>
 				<label ng-show="$ctrl.carrierStepManager.getStep() === 1">Choix du véhicule</label>
 				<label ng-hide="$ctrl.carrierStepManager.getStep() === 1">
@@ -32,7 +32,7 @@
 					<i ng-show="$ctrl.carrierStepManager.getStep() >= 1" class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>
 			</step>
-			<step ng-click="$root.goToState('carrier:create:availability')" ng-class="$ctrl.carrierStepManager.getClass(2)">
+			<step id="pr-select-availabilities" ng-click="$root.goToState('carrier:create:availability')" ng-class="$ctrl.carrierStepManager.getClass(2)">
 				<num-step>2</num-step>
 				<label ng-show="$ctrl.carrierStepManager.getStep() <= 2">Disponibilité</label>
 				<label ng-hide="$ctrl.carrierStepManager.getStep() <= 2">
@@ -66,7 +66,7 @@
 					<i ng-show="$ctrl.carrierStepManager.getStep() >= 2" class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>
 			</step>
-			<step ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.carrierStepManager.getClass(3)">
+			<step id="pr-select-price" ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.carrierStepManager.getClass(3)">
 				<num-step>3</num-step>
 				<label ng-show="$ctrl.carrierStepManager.getStep() <= 3">Prix</label>
 				<label ng-show="$ctrl.carrierStepManager.getStep() > 3">
@@ -84,7 +84,7 @@
 				</chevron>
 			</step>
 		</steps>
-		<button ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'" ng-click="$ctrl.carrier.create()">Mettre en ligne mon annonce</button>
-		<button ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'update'" ng-click="$ctrl.carrier.update()">Mettre en ligne mon annonce modifiée</button>
+		<button id="pr-create-carrier" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'" ng-click="$ctrl.carrier.create()">Mettre en ligne mon annonce</button>
+		<button id="pr-update-carrier" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'update'" ng-click="$ctrl.carrier.update()">Mettre en ligne mon annonce modifiée</button>
 	</div>
 </summary>

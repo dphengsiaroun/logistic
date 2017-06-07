@@ -21,19 +21,19 @@
 <formx class="ad" name="carrierCtrl">
 	<section ng-show="$ctrl.carrier.createData.availability === 'specificTrip'">
 		<label>Tarif souhaité pour le trajet en DZD (facultatif)</label>
-		<input type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted" />
+		<input id="pr-price-wanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted" />
 		<info-route ng-bind-html="$ctrl.carrier.createData.trip.infoRoute"></info-route>
 		<price-per-km>Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.createData.trip.distance | currency : 'DZD' : 0 }}</price-per-km>
 	</section>
 	<section ng-show="$ctrl.carrier.createData.availability === 'total'">
 		<label>Tarif souhaité en DZD/km (facultatif)</label>
-		<input type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm" />
+		<input id="pr-price-wanted-per-km" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm" />
 	</section>
 	<section class="dark">
 		<label>Commentaire (facultatif)</label>
-		<textarea ng-model="$ctrl.pricingData.comments"></textarea>
+		<textarea id="pr-comments" ng-model="$ctrl.pricingData.comments"></textarea>
 	</section>
 	<section>
-		<button ng-click="$ctrl.addPricing()">Valider</button>
+		<button id="pr-add-pricing" ng-click="$ctrl.addPricing()">Valider</button>
 	</section>
 </form>
