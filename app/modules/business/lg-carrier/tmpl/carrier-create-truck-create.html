@@ -52,7 +52,7 @@
 	</section>
 	<section class="dark">
 		<label>Année du vehicule</label>
-		<input id="pr-vehicle-year" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" />
+		<input name="birthyear" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" />
 		<label>Insérer une photo</label>
 		<lg-upload form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-upload>
 	</section>

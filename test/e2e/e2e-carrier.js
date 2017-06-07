@@ -12,9 +12,9 @@ describe('Carrier CRUD', function() {
 		});
 	});
 
-	it('should create carrier', function() {
+	it('should create carrier ad', function() {
 		browser.get('http://localhost:8000/app/');
-		element(by.id('pr-to-deposit-carrier')).click();
+		element(by.id('pr-create-carrier-ad-button')).click();
 		element(by.id('pr-select-truck')).click();
 		element(by.id('pr-to-continue')).click();
 		element(by.id('pr-vehicle-name')).sendKeys('132443-123-15');
@@ -22,8 +22,7 @@ describe('Carrier CRUD', function() {
 		utils.lgCitySelect('city', 'Abi Youcef');
 		utils.lgSelect('transportCategory', 'Camion');
 		utils.lgChoiceSelect('transportTruckType', 'Semi-remorque');
-		element(by.xpath('//formx[@class="ad"]//my-input[.="Ex : 2005"]')).click();
-		element(by.xpath('//formx[@class="ad"]//item[normalize-space(.)="2014"]')).click();
+		utils.lgChoiceSelect('birthyear', '2014');
 		element(by.id('pr-add-vehicle')).click();
 		console.log('-> truck created', arguments);
 		element(by.css('button.no')).click();
@@ -42,6 +41,15 @@ describe('Carrier CRUD', function() {
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
 	});
+
+	it('should retrieve carrier ad', function() {
+		browser.get('http://localhost:8000/app/');
+		element(by.id('pr-retrieve-carrier-ads-button')).click();
+		var adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+		var titleElt = adElt.element(by.css('title'));
+		expect(titleElt.getText()).toEqual('132443-123-15');
+	});
+
 
 	// it('should retrieve a user', function() {
 	// 	browser.driver.navigate().refresh();
