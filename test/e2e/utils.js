@@ -23,7 +23,6 @@ utils.lgUploadSelect = function(name, path) {
 	console.log('path', path);
 	element(by.css('lg-upload input[type="file"]')).sendKeys(path);
 	browser.sleep(1000);
-	// element(by.id('uploadButton')).click();
 };
 
 utils.isDirectoryExisting = function(p) {
