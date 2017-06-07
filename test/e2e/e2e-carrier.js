@@ -1,3 +1,5 @@
+const utils = require('./utils.js');
+
 describe('Carrier CRUD', function() {
 
 	beforeEach(function() {
@@ -17,8 +19,7 @@ describe('Carrier CRUD', function() {
 		element(by.id('pr-to-continue')).click();
 		element(by.id('pr-vehicle-name')).sendKeys('132443-123-15');
 		element(by.id('pr-vehicle-description')).sendKeys('Volvo');
-		element(by.id('pr-vehicle-city')).click();
-		element(by.xpath('//formx[@class="ad"]//span[.="Mostaganem, Algérie"]')).click();
+		utils.selectCity('city', 'Abi Youcef');
 		element(by.xpath('//formx[@class="ad"]//span[.="Camion"]')).click();
 		element(by.xpath('//formx[@class="ad"]//my-input[.="Ex : Benne, Bâché, etc."]')).click();
 		element(by.xpath('//formx[@class="ad"]//span[.="Semi-remorque"]')).click();

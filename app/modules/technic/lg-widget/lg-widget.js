@@ -118,6 +118,7 @@ app.component('lgCity', {
 	},
 	templateUrl: lgCityUrl,
 	bindings: {
+		name: '@',
 		title: '@',
 		placeholder: '@',
 		myModel: '=ngModel'
