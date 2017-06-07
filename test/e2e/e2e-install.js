@@ -1,3 +1,7 @@
+'use strict';
+
+const utils = require('./utils.js');
+
 describe('Install', function() {
 
 	beforeEach(function() {
@@ -17,9 +21,8 @@ describe('Install', function() {
 		// browser.sleep(35000);
 		var message = element(by.css('h1'));
 		expect(message.getText()).toEqual('Installation');
+		expect(utils.isDirectoryExisting('../../files/')).toBe(false);
 	});
-
-
 
 	it('should install', function() {
 		console.log('-> install', arguments);

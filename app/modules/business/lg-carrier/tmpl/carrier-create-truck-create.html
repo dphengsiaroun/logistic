@@ -21,9 +21,9 @@
 <formx class="ad" name="carrierCtrl">
 	<section class="dark">
 		<label>Immatriculation ou libellé du vehicule</label>
-		<input id="pr-vehicle-name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
+		<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
 		<label>Description succinte du modèle</label>
-		<input id="pr-vehicle-description" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
+		<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
 	</section>
 	<section>
 		<label>Ville d'origine</label>
@@ -58,6 +58,6 @@
 	</section>
 	<section>
 		<lg-error error="$ctrl.truck.error"></lg-error>
-		<button id="pr-add-vehicle" ng-click="$ctrl.truck.create()">Ajouter</button>
+		<button id="pr-add-vehicle-button" ng-click="$ctrl.truck.create()">Ajouter</button>
 	</section>
 </formx>

@@ -15,7 +15,7 @@
 <lg-hr ng-show="$ctrl.carriers.length > 0">Transporteurs</lg-hr>
 <carrier-list>
     <ad-block ng-repeat="ad in $ctrl.carriers" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
-        <header ng-show="ad.content.availability === 'specificTrip'">
+        <header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'specificTrip'">
             <title>{{ad.content.truck.name}}</title>
             <subtitle>
                 <created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
@@ -58,7 +58,7 @@
                 <rate>{{ad.content.pricing.priceWanted}} DZD</rate>
             </content-right>
         </content>
-        <header ng-show="ad.content.availability === 'total'">
+        <header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'total'">
             <title>{{ad.content.truck.name}}</title>
             <subtitle>
                 <created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>

@@ -29,12 +29,13 @@
 			<p>Mes propositions</p>
 		</a>
 		<a ng-click="$ctrl.toggle();" href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="notification">1</span><p>Mes engagements</p></a>
-		<a ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.user.current.content.login})">
+		<a id="pr-my-ads-link" ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.user.current.content.login})">
 			<i class="fa fa-bullhorn" aria-hidden="true"></i>
 			<span ng-show="$ctrl.myCarriers.length + $ctrl.myLoaders.length >= 1" class="notification">
 				{{$ctrl.myCarriers.length + $ctrl.myLoaders.length}}
 			</span>
-			<p>Mes annonces</p></a>
+			<p>Mes annonces</p>
+		</a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user" aria-hidden="true"></i> <p>Mon profil</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.current.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
 		<br/><br/>

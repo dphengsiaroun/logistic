@@ -27,13 +27,13 @@
 	</section>
 	<section ng-show="$ctrl.carrier.createData.availability === 'total'">
 		<label>Tarif souhaité en DZD/km (facultatif)</label>
-		<input id="pr-price-wanted-per-km" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm" />
+		<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm" />
 	</section>
 	<section class="dark">
 		<label>Commentaire (facultatif)</label>
 		<textarea id="pr-comments" ng-model="$ctrl.pricingData.comments"></textarea>
 	</section>
 	<section>
-		<button id="pr-add-pricing" ng-click="$ctrl.addPricing()">Valider</button>
+		<button id="pr-add-pricing-button" ng-click="$ctrl.addPricing()">Valider</button>
 	</section>
 </form>

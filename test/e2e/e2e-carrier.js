@@ -1,9 +1,11 @@
 const utils = require('./utils.js');
+const data = require('./data.js');
+var truck = data.trucks[0];
 
 describe('Carrier CRUD', function() {
 
 	beforeEach(function() {
-		console.log('Create Loader', arguments);
+		console.log('Carrier ad CRUD', arguments);
 	});
 
 	afterEach(function() {
@@ -13,66 +15,71 @@ describe('Carrier CRUD', function() {
 	});
 
 	it('should create carrier ad', function() {
+		console.log('-> create a carrier ad', arguments);
 		browser.get('http://localhost:8000/app/');
 		element(by.id('pr-create-carrier-ad-button')).click();
-		element(by.id('pr-select-truck')).click();
-		element(by.id('pr-to-continue')).click();
-		element(by.id('pr-vehicle-name')).sendKeys('132443-123-15');
-		element(by.id('pr-vehicle-description')).sendKeys('Volvo');
-		utils.lgCitySelect('city', 'Abi Youcef');
-		utils.lgSelect('transportCategory', 'Camion');
-		utils.lgChoiceSelect('transportTruckType', 'Semi-remorque');
-		utils.lgChoiceSelect('birthyear', '2014');
-		element(by.id('pr-add-vehicle')).click();
+		element(by.id('pr-select-truck-link')).click();
+		element(by.id('pr-continue-button')).click();
+		element(by.name('name')).sendKeys(truck.name);
+		element(by.name('model')).sendKeys(truck.model);
+		utils.lgCitySelect('city', truck.city);
+		utils.lgSelect('transportCategory', truck.transportCategory);
+		utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
+		utils.lgChoiceSelect('birthyear', truck.birthyear);
+		element(by.id('pr-add-vehicle-button')).click();
 		console.log('-> truck created', arguments);
 		element(by.css('button.no')).click();
 		element(by.css('button')).click();
 		console.log('-> user created', arguments);
 		element(by.css('button')).click();
-		console.log('-> to continue', arguments);
 		element(by.css('button.ok')).click();
-		element(by.id('pr-choose-truck')).click();
+		element(by.id('pr-choose-truck-link')).click();
 		element(by.id('pr-select-availabilities')).click();
 		element(by.id('pr-availability-total')).click();
 		element(by.id('pr-select-price')).click();
-		element(by.id('pr-price-wanted-per-km')).sendKeys('50');
-		element(by.id('pr-add-pricing')).click();
-		element(by.id('pr-create-carrier')).click();
+		element(by.name('priceWantedPerKm')).sendKeys(data.carrierAd.priceWantedPerKm);
+		element(by.id('pr-add-pricing-button')).click();
+		element(by.id('pr-create-carrier-button-confirm')).click();
 		element(by.css('button.ok')).click();
+		console.log('-> Carrier ad created', arguments);
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
 	});
 
 	it('should retrieve carrier ad', function() {
+		console.log('-> retrieve a carrier ad', arguments);
 		browser.get('http://localhost:8000/app/');
 		element(by.id('pr-retrieve-carrier-ads-button')).click();
 		var adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
 		var titleElt = adElt.element(by.css('title'));
-		expect(titleElt.getText()).toEqual('132443-123-15');
+		expect(titleElt.getText()).toEqual(truck.name);
 	});
 
+	it('should update carrier ad', function() {
+		console.log('-> update a carrier ad', arguments);
+		browser.get('http://localhost:8000/app/');
+		element(by.css('menu-bar')).click();
+		element(by.id('pr-my-ads-link')).click();
+		var adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+		adElt.element(by.css('title')).click();
+		element(by.id('pr-edit-button')).click();
+		element(by.id('pr-select-price')).click();
+		element(by.name('priceWantedPerKm')).clear().sendKeys('80');
+		element(by.id('pr-add-pricing-button')).click();
+		element(by.id('pr-update-carrier-button-confirm')).click();
+		element(by.css('button.ok')).click();
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+	});
 
-	// it('should retrieve a user', function() {
-	// 	browser.driver.navigate().refresh();
-	// 	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
-	// 	element(by.css('menu-bar')).click();
-	// 	var link = element(by.linkText('Mon profil'));
-	// 	expect(link).toBeDefined();
-	// });
-
-	// it('should update a user', function() {
-	// 	element(by.linkText('Mon profil')).click();
-	// 	element(by.css('[name=lastname]')).clear().sendKeys('Phengsiaroun');
-	// 	element(by.css('button')).click();
-	// 	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/updated-profile');
-	// 	element(by.css('button')).click();
-	// 	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
-	// });
-
-	// it('should delete a user', function() {
-	// 	element(by.css('menu-bar')).click();
-	// 	element(by.linkText('Mon profil')).click();
-	// 	element(by.linkText('Supprimer mon compte')).click();
-	// 	element.all(by.css('button.confirm')).click();
-	// 	element.all(by.css('button.ok')).click();
-	// });
+	it('should delete a user', function() {
+		console.log('-> delete a carrier ad', arguments);
+		browser.get('http://localhost:8000/app/');
+		element(by.css('menu-bar')).click();
+		element(by.id('pr-my-ads-link')).click();
+		var adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+		adElt.element(by.css('title')).click();
+		element(by.linkText('Supprimer cette annonce')).click();
+		element(by.css('button.confirm')).click();
+		element(by.css('button.ok')).click();
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+	});
 });
