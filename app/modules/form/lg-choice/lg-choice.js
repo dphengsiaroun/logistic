@@ -30,8 +30,14 @@ app.directive('input', ['$injector', function($injector) {
 				console.log('options');
 				optionsAttr = 'options="' + attr.options + '" ';
 			}
+			var nameAttr = '';
+			if (attr.name) {
+				console.log('name');
+				nameAttr = 'name="' + attr.name + '" ';
+			}
 			var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
 				'<lg-choice ' +
+				nameAttr +
 				'placeholder="\'' + attr.placeholder + '\'" ' +
 				'choices="' + attr.choices + '" ' +
 				'title="\'' + attr.title + '\'" ' +
@@ -190,6 +196,7 @@ app.component('lgChoice', {
 		};
 	},
 	bindings: {
+		name: '@',
 		title: '<',
 		options: '<',
 		choices: '<',

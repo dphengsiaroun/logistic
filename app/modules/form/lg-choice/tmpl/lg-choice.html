@@ -1,4 +1,4 @@
-<my-input ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
+<my-input name="{{$ctrl.name}}" ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
 <icon lg-bind-html-compile="$ctrl.getIcon($ctrl.currentValue)"></icon>
 <overlay ng-show="$ctrl.showLgChoice">
 	<fixed>

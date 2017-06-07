@@ -19,10 +19,9 @@ describe('Carrier CRUD', function() {
 		element(by.id('pr-to-continue')).click();
 		element(by.id('pr-vehicle-name')).sendKeys('132443-123-15');
 		element(by.id('pr-vehicle-description')).sendKeys('Volvo');
-		utils.selectCity('city', 'Abi Youcef');
-		element(by.xpath('//formx[@class="ad"]//span[.="Camion"]')).click();
-		element(by.xpath('//formx[@class="ad"]//my-input[.="Ex : Benne, Bâché, etc."]')).click();
-		element(by.xpath('//formx[@class="ad"]//span[.="Semi-remorque"]')).click();
+		utils.lgCitySelect('city', 'Abi Youcef');
+		utils.lgSelect('transportCategory', 'Camion');
+		utils.lgChoiceSelect('transportTruckType', 'Semi-remorque');
 		element(by.xpath('//formx[@class="ad"]//my-input[.="Ex : 2005"]')).click();
 		element(by.xpath('//formx[@class="ad"]//item[normalize-space(.)="2014"]')).click();
 		element(by.id('pr-add-vehicle')).click();
