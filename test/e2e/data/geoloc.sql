@@ -1,35 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
---
--- Client :  localhost:8889
--- Généré le :  Jeu 08 Juin 2017 à 16:02
--- Version du serveur :  5.6.33
--- Version de PHP :  7.0.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
---
--- Base de données :  `logistic`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `xx_geoloc`
---
-
-CREATE TABLE `xx_geoloc` (
-  `id` int(16) UNSIGNED NOT NULL,
-  `type` varchar(255) NOT NULL,
-  `key` varchar(1024) NOT NULL,
-  `content` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `xx_geoloc`
---
 
 INSERT INTO `xx_geoloc` (`id`, `type`, `key`, `content`) VALUES
 (1, 'city', 'Abi+Youcef+Tizi+Ouzou+Algérie', '{"place_id":"173856628","licence":"Data \\u00a9 OpenStreetMap contributors, ODbL 1.0. http:\\/\\/www.openstreetmap.org\\/copyright","osm_type":"relation","osm_id":"4279944","boundingbox":["36.4861828","36.5620121","4.3113954","4.357678"],"lat":"36.52429225","lon":"4.34427039749823","display_name":"Abi Youcef, Da\\u00efra A\\u00efn El Hammam, Tizi Ouzou, \\u2d4d\\u2d63\\u2d63\\u2d30\\u2d62\\u2d3b\\u2d54 \\u0627\\u0644\\u062c\\u0632\\u0627\\u0626\\u0631","class":"boundary","type":"administrative","importance":0.577147308297,"icon":"http:\\/\\/nominatim.openstreetmap.org\\/images\\/mapicons\\/poi_boundary_administrative.p.20.png"}'),
@@ -47,14 +15,3 @@ INSERT INTO `xx_geoloc` (`id`, `type`, `key`, `content`) VALUES
 (13, 'city', 'Adrar+Adrar+Algérie', '{"place_id":"173699970","licence":"Data \\u00a9 OpenStreetMap contributors, ODbL 1.0. http:\\/\\/www.openstreetmap.org\\/copyright","osm_type":"relation","osm_id":"4171602","boundingbox":["27.767485","28.16506","-0.3336882","-0.04751"],"lat":"27.8733807","lon":"-0.2874884","display_name":"Adrar, Da\\u00efra d\'Adrar, Adrar, \\u2d4d\\u2d63\\u2d63\\u2d30\\u2d62\\u2d3b\\u2d54 \\u0627\\u0644\\u062c\\u0632\\u0627\\u0626\\u0631","class":"boundary","type":"administrative","importance":0.571139325579,"icon":"http:\\/\\/nominatim.openstreetmap.org\\/images\\/mapicons\\/poi_boundary_administrative.p.20.png"}'),
 (14, 'route', '4.56454914765421,36.7333674;-0.2874884,27.8733807', '{"duration":69170,"distance":1469973}'),
 (15, 'route', '0.244465008589314,36.07915875;4.34427039749823,36.52429225', '{"duration":23397,"distance":483640}');
-
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `xx_geoloc`
---
-ALTER TABLE `xx_geoloc`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `type_key` (`key`(255),`type`);
