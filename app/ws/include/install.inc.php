@@ -25,6 +25,7 @@
 			$result['appName'] = $cfg->appName;
 
 			$result['hostname'] = $cfg->host;
+			$result['port'] = $cfg->port;
 			$result['username'] = $cfg->user;
 			$result['password'] = $cfg->mdp;
 			$result['databaseName'] = $cfg->bdd;
@@ -76,6 +77,7 @@
 	\$cfg->appName = '$request->appName';
 
 	\$cfg->host = '$request->hostname';
+	\$cfg->port = '$request->port';
 	\$cfg->user = '$request->username';
 	\$cfg->mdp = '$request->password';
 	\$cfg->bdd = '$request->databaseName';
