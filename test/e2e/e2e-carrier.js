@@ -1,5 +1,5 @@
 const utils = require('./utils.js');
-const data = require('./data.js');
+const data = require('./data/data.js');
 var truck = data.trucks[0];
 
 describe('Carrier CRUD', function() {

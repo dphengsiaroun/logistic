@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('./utils.js');
-const data = require('./data.js');
+const data = require('./data/data.js');
 var truck = data.trucks[1];
 
 describe('Truck CRUD', function() {

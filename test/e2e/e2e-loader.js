@@ -1,5 +1,5 @@
 const utils = require('./utils.js');
-const data = require('./data.js');
+const data = require('./data/data.js');
 var loaderAd = data.loaderAd;
 
 describe('Loader CRUD', function() {
