@@ -31,6 +31,7 @@ describe('Truck CRUD', function() {
 		utils.lgSelect('transportCategory', truck.transportCategory);
 		utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
 		utils.lgChoiceSelect('birthyear', truck.birthyear);
+		console.log('truck.imageId', truck.imageId);
 		utils.lgUploadSelect('imageId', truck.imageId);
 		element(by.id('pr-add-vehicle-button')).click();
 		element(by.css('button.ok')).click();

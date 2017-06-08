@@ -6,6 +6,9 @@ describe('User CRUD', function() {
 
 	afterEach(function() {
 		browser.manage().logs().get('browser').then(function(browserLog) {
+			if (browserLog.length > 0) {
+				console.log('browserLog', browserLog);
+			}
 			expect(browserLog.length).toEqual(0);
 		});
 	});

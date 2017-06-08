@@ -21,8 +21,8 @@ utils.lgChoiceSelect = function(name, choice) {
 	element(by.xpath(`//lg-choice//span[.="${choice}"]`)).click();
 };
 
-utils.lgUploadSelect = function(name, path) {
-	element(by.css('lg-upload input[type="file"]')).sendKeys(path);
+utils.lgUploadSelect = function(name, p) {
+	element(by.css('lg-upload input[type="file"]')).sendKeys(p);
 	browser.sleep(1000);
 };
 
