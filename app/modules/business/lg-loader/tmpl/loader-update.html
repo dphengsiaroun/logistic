@@ -10,7 +10,7 @@
 <formx class="ad" name="loaderCtrl">
 	<section>
 		<big-label>Transport</big-label>
-		<lg-select ng-model="$ctrl.loader.updateData.transportCategory">
+		<lg-select name="transportCategory" ng-model="$ctrl.loader.updateData.transportCategory">
 			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
 			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
@@ -18,23 +18,23 @@
 
 		<div ng-show="$ctrl.loader.updateData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
-			<input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.loader.updateData.transportTruckType" />
+			<input name="transportTruckTypes" type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.loader.updateData.transportTruckType" />
 		</div>
 		<div ng-show="$ctrl.loader.updateData.transportCategory === 'Bateau'">
 			<label>Type de bateau</label>
-			<input type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.loader.updateData.transportBoatType" />
+			<input name="transportBoatTypes" type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.loader.updateData.transportBoatType" />
 		</div>
 		<div ng-show="$ctrl.loader.updateData.transportCategory === 'Avion'">
 			<label>Type d'avion</label>
-			<input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.loader.updateData.transportPlaneType" />
+			<input name="transportPlaneTypes" type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.loader.updateData.transportPlaneType" />
 		</div>
 	</section>
 	<section class="dark">
 		<big-label>Trajet</big-label>
 		<label>Départ</label>
-		<lg-city title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.departureCity"></lg-city>
+		<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.departureCity"></lg-city>
 		<label>Arrivée</label>
-		<lg-city title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.arrivalCity"></lg-city>
+		<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.arrivalCity"></lg-city>
 		<info ng-bind-html="$ctrl.loader.updateData.infoRoute"></info>
 	</section>
 	<section>
@@ -50,7 +50,7 @@
 	</section>
 	<section class="dark">
 		<big-label>Marchandises</big-label>
-		<lg-select class="conditioning" ng-model="$ctrl.loader.updateData.conditioning">
+		<lg-select name="conditioning" class="conditioning" ng-model="$ctrl.loader.updateData.conditioning">
 			<lg-option value="Indifférent">
 				<img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
 			<lg-option value="Colis">
@@ -61,14 +61,14 @@
 				<img-svg src="/img/vrac.svg"></img-svg><span>Vrac</span></lg-option>
 		</lg-select>
 		<label>Type</label>
-		<input type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.updateData.typeOfGoods" />
+		<input name="typeOfGoods" type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.updateData.typeOfGoods" />
 	</section>
 	<section>
 		<big-label>Chargement</big-label>
 		<label>Poids</label>
-		<input type="choice" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.updateData.weightInterval" />
+		<input name="weightIntervals" type="choice" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.updateData.weightInterval" />
 		<label>Poids précis si connu (en kg)</label>
-		<input type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" />
+		<input name="preciseWeight" type="number" placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" />
 		<label>Dimensions en mètre</label>
 		<dimension ng-click="$ctrl.editDimension()">
 			<div class="box no-zoom">
@@ -90,9 +90,9 @@
 	<section class="dark">
 		<big-label>Prix</big-label>
 		<label>Tarif souhaité en DZD (facultatif)</label>
-		<input type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.updateData.priceWanted" />
+		<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.updateData.priceWanted" />
 		<label>Titre de l'annonce</label>
-		<input type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.updateData.title" />
+		<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.updateData.title" />
 		<label>Commentaire</label>
 		<textarea ng-model="$ctrl.loader.updateData.comments"></textarea>
 	</section>
@@ -100,7 +100,7 @@
 <formx class="ad">
 	<section>
 		<lg-error error="$ctrl.loader.error"></lg-error>
-		<button ng-click="$ctrl.loader.update();">Mettre à jour</button>
+		<button id="pr-update-loader-button-confirm" ng-click="$ctrl.loader.update();">Mettre à jour</button>
 	</section>
 </formx>
 

@@ -28,6 +28,20 @@ data.carrierAd = {
 	priceWantedPerKm: '50'
 };
 
+data.loaderAd = {
+	transportCategory: 'Camion',
+	transportTruckType: 'Semi-remorque',
+    departureCity: 'Abi Youcef',
+    arrivalCity: 'Abalessa',
+    conditioning: 'Colis',
+    typeOfGoods: 'Classique',
+    weightIntervals: 'De 20 à 50 kg',
+    preciseWeight: '100',
+	imageId: path.resolve(__dirname, './img/palette.jpg'),
+    priceWanted: '3200',
+    title: 'Chargement de palette'
+};
+
 data.users = [{
 		lastname: 'Debbah',
 		firstname: 'Mérouane',
@@ -38,7 +52,7 @@ data.users = [{
 		city: 'Torcy',
 		zipcode: '77200',
 		country: 'France',
-        password: 'test'
+		password: 'test'
 
 	},
 	{
@@ -51,6 +65,6 @@ data.users = [{
 		city: 'Torcy',
 		zipcode: '77200',
 		country: 'France',
-        password: 'test'
+		password: 'test'
 	}
 ];

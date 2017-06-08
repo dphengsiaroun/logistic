@@ -16,6 +16,8 @@
 		removeDatabase();
 		// Try to remove the ini file
 		removeConfigIniFile();
+		// Try to remove the ini file
+		removeLogFiles();
 		// Try to remove images directory
 		deleteDirectory(UPLOAD_DIR);
 

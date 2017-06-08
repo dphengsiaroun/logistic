@@ -70,7 +70,7 @@ describe('Carrier CRUD', function() {
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
 	});
 
-	it('should delete a user', function() {
+	it('should delete a carrier ad', function() {
 		console.log('-> delete a carrier ad', arguments);
 		browser.get('http://localhost:8000/app/');
 		element(by.css('menu-bar')).click();

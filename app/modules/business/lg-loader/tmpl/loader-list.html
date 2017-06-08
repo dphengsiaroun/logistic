@@ -11,7 +11,7 @@
 </section>
 <loader-list>
     <ad-block ng-repeat="ad in $ctrl.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
-        <header>
+        <header ad-id="{{ad.id}}">
             <title>{{ad.content.title}}</title>
             <subtitle>
                 <created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>

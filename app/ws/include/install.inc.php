@@ -162,6 +162,10 @@ EOF;
 		unlink(CONFIG_INI);
 	}
 
+	function removeLogFiles() {
+		unlink(TRACE_LOG);
+	}
+
 	function deleteDirectory($dirname) {
          if (is_dir($dirname))
            $dir_handle = opendir($dirname);

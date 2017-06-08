@@ -6,8 +6,10 @@ var utils = {};
 module.exports = utils;
 
 utils.lgCitySelect = function(name, city) {
-	element(by.css(`lg-city[name=${name}]`)).click();
-	element(by.xpath(`//lg-city//b[.="${city}"]`)).click();
+	const lgCityElt = element(by.css(`lg-city[name=${name}]`));
+	lgCityElt.click();
+	element(by.xpath(`//lg-city[@name='${name}']//b[.="${city}"]`)).click();
+	console.log(name, city);
 };
 
 utils.lgSelect = function(name, value) {
@@ -20,7 +22,6 @@ utils.lgChoiceSelect = function(name, choice) {
 };
 
 utils.lgUploadSelect = function(name, path) {
-	console.log('path', path);
 	element(by.css('lg-upload input[type="file"]')).sendKeys(path);
 	browser.sleep(1000);
 };

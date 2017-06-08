@@ -103,7 +103,7 @@
         <button ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</button>
     </bottom>
     <div ng-show="$ctrl.isEditable">
-        <button ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
+        <button id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
         <lg-hr>ou</lg-hr>
         <a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
     </div>
