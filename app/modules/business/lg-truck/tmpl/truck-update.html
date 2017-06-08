@@ -10,17 +10,17 @@
 <formx class="ad" name="truckCtrl">
     <section class="dark">
         <label>Immatriculation ou libellé du vehicule</label>
-        <input type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
+        <input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
         <label>Description succinte du modèle</label>
-        <input type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
+        <input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
     </section>
     <section>
         <label>Ville d'origine</label>
-        <lg-city title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.updateData.city"></lg-city>
+        <lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.updateData.city"></lg-city>
     </section>
     <section class="dark">
         <big-label>Transport</big-label><br/>
-        <lg-select ng-model="$ctrl.truck.updateData.transportCategory">
+        <lg-select name="transportCategory" ng-model="$ctrl.truck.updateData.transportCategory">
             <lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
             <lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
             <lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
@@ -28,25 +28,25 @@
 
         <div ng-show="$ctrl.truck.updateData.transportCategory === 'Camion'">
             <label>Type de camion</label>
-            <input type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.updateData.transportTruckType" />
+            <input name="transportTruckType" type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.updateData.transportTruckType" />
         </div>
         <div ng-show="$ctrl.truck.updateData.transportCategory === 'Bateau'">
             <label>Type de bateau</label>
-            <input type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.truck.updateData.transportBoatType" />
+            <input name="transportBoatType" type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.truck.updateData.transportBoatType" />
         </div>
         <div ng-show="$ctrl.truck.updateData.transportCategory === 'Avion'">
             <label>Type d'avion</label>
-            <input type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.updateData.transportPlaneType" />
+            <input name="transportPlaneType" type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.updateData.transportPlaneType" />
         </div>
     </section>
     <section class="dark">
         <label>Année du vehicule</label>
-        <input type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear" />
+        <input name="birthyear" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear" />
         <label>Insérer une photo</label>
         <lg-upload form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-upload>
     </section>
     <section class="dark">
         <lg-error error="$ctrl.truck.error"></lg-error>
-        <button ng-click="$ctrl.truck.update();">Mettre à jour</button>
+        <button id="pr-update-button-confirm" ng-click="$ctrl.truck.update();">Mettre à jour</button>
     </section>
 </formx>

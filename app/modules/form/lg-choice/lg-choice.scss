@@ -1,137 +1,131 @@
 @import '../../../css/color';
 lg-choice {
-    display: block;
-    position: relative;
-    top: 0px;
-    right: 0px;
-    width: 100%;
-    my-input {
-        display: block;
-        border: 1px solid $borderColor;
-        border-radius: 3px;
-        margin: 5px 0px;
-        padding-right: 40px;
-        color: $placeholderColor;
-        width: 100%;
-        background-color: white;
-    }
-    my-input.filled {
-        color: $inputColor;
-    }
-    .region {
-        font-size: 15px;
-        color: $selectedColor;
-    }
-    >icon {
-        position: absolute;
-        top: 7px;
-        right: 19px;
-        font-size: 30px;
-        i {
-            color: $selectedColor;
-        }
-        svg {
-            position: absolute;
-            width: 34px;
-            left: -35px;
-            top: 3px;
-            fill: $selectedColor;
-        }
-    }
+	display: block;
+	position: relative;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	my-input {
+		display: block;
+		border: 1px solid $borderColor;
+		border-radius: 3px;
+		margin: 5px 0px;
+		padding-right: 40px;
+		color: $placeholderColor;
+		width: 100%;
+		background-color: white;
+	}
+	my-input.filled {
+		color: $inputColor;
+	}
+	.region {
+		font-size: 15px;
+		color: $selectedColor;
+	}
+	>icon {
+		position: absolute;
+		top: 7px;
+		right: 19px;
+		font-size: 30px;
+		i {
+			color: $selectedColor;
+		}
+		svg {
+			position: absolute;
+			width: 34px;
+			left: -35px;
+			top: 3px;
+			fill: $selectedColor;
+		}
+	}
 }
 
 overlay {
-    display: block;
-    position: fixed;
-    z-index: 100;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    fixed {
-        display: block;
-        position: fixed;
-        z-index: 102;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        width: 100%;
-        height: 123px;
-        filter {
-            display: block;
-            width: 100%;
-            height: 64px;
-            padding: 5px 5px;
-            background-color: $littleLightGray;
-            form {
-                display: block;
-                width: 100%;
-                margin: 0px;
-                padding: 0px;
-                input {
-                    width: 100%;
-                    margin: 0px 0px;
-                    font-size: 17px;
-                    padding: 15px 10px;
-                    border-radius: 5px;
-                    border: 1px solid $borderColor;
-                }
-            }
-        }
-    }
-    fixed-list {
-        display: block;
-        position: fixed;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        z-index: 101;
-        width: 100%;
-        height: 100%;
-        padding: 123px 0px 0px;
-        background-color: white;
-        item {
-            display: block;
-            position: relative;
-            top: 0px;
-            left: 0px;
-            padding: 15px 35px;
-            font-size: 20px;
-            border-bottom: 1px solid $borderColor;
-            icon {
-                svg {
-                    position: absolute;
-                    width: 23px;
-                    left: 6px;
-                    fill: $selectedColor;
-                }
-                i {
-                    position: absolute;
-                    left: 8px;
-                    color: $selectedColor;
-                }
-                i.fa-balance-scale {
-                    left: 6px;
-                }
-                .fa-map-marker {
-                    left: 13px;
-                }
-                i.fa-check {
-                    left: 8px;
-                }
-            }
-        }
-        item.preselected {
-            background-color: $backgroundColor;
-            i {
-                color: $fontColor;
-            }
-        }
-    }
+	display: block;
+	position: fixed;
+	z-index: 100;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	fixed {
+		display: block;
+		position: fixed;
+		z-index: 102;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		width: 100%;
+		height: 123px;
+		filter {
+			display: block;
+			width: 100%;
+			height: 64px;
+			padding: 5px 5px;
+			background-color: $littleLightGray;
+			input {
+				width: 100%;
+				margin: 0px 0px;
+				font-size: 17px;
+				padding: 15px 10px;
+				border-radius: 5px;
+				border: 1px solid $borderColor;
+			}
+		}
+	}
+	fixed-list {
+		display: block;
+		position: fixed;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index: 101;
+		width: 100%;
+		height: 100%;
+		padding: 123px 0px 0px;
+		background-color: white;
+		item {
+			display: block;
+			position: relative;
+			top: 0px;
+			left: 0px;
+			padding: 15px 35px;
+			font-size: 20px;
+			border-bottom: 1px solid $borderColor;
+			icon {
+				svg {
+					position: absolute;
+					width: 23px;
+					left: 6px;
+					fill: $selectedColor;
+				}
+				i {
+					position: absolute;
+					left: 8px;
+					color: $selectedColor;
+				}
+				i.fa-balance-scale {
+					left: 6px;
+				}
+				.fa-map-marker {
+					left: 13px;
+				}
+				i.fa-check {
+					left: 8px;
+				}
+			}
+		}
+		item.preselected {
+			background-color: $backgroundColor;
+			i {
+				color: $fontColor;
+			}
+		}
+	}
 }

@@ -3,26 +3,26 @@
 	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
 	<form name="signupCtrl" ng-submit="$ctrl.user.signup();">
-		<input type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" />
-		<input type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" /><br/>
-		<input type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space"
+		<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" />
+		<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" /><br/>
+		<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space"
 			ng-model="$ctrl.user.signupData.content.login" />
-		<input type="text" placeholder="Email" ng-model="$ctrl.user.signupData.email" /><br/>
-		<lg-select ng-model="$ctrl.user.signupData.content.profile">
+		<input name="email" type="text" placeholder="Email" ng-model="$ctrl.user.signupData.email" /><br/>
+		<lg-select name="profile" ng-model="$ctrl.user.signupData.content.profile">
 			<lg-option value="loader" selected>Chargeur</lg-option>
 			<lg-option value="carrier" selected>Transporteur</lg-option>
 			<lg-option value="both" selected>Les deux</lg-option>
 		</lg-select>
 		<br/>
-		<input type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" />
-		<input type="text" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode" />
-		<input type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" />
-		<input type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
+		<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" />
+		<input name="zipcode" type="text" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode" />
+		<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" />
+		<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
 		/>
-		<input type="text" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" /><br/>
+		<input name="phone" type="text" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" /><br/>
 		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" />
 		<br/>
 		<lg-error error="$ctrl.user.error"></lg-error>
-		<button>Créer le compte</button>
+		<button id="pr-create-user-button" >Créer le compte</button>
 	</form>
 </sign-form>
