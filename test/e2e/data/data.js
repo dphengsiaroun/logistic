@@ -32,7 +32,7 @@ data.loaderAd = {
 	transportCategory: 'Camion',
 	transportTruckType: 'Semi-remorque',
     departureCity: 'Abi Youcef',
-    arrivalCity: 'Abalessa',
+    arrivalCity: 'Abdelmalek Ramdane',
     conditioning: 'Colis',
     typeOfGoods: 'Classique',
     weightIntervals: 'De 20 à 50 kg',
