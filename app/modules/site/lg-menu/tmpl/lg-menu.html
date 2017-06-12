@@ -5,10 +5,10 @@
 	<head-left ng-hide="$root.isBackPresent">
 	</head-left>
 	<head-center ng-show="!$ctrl.user.current">
-		<a ng-click="$ctrl.off()" ui-sref="home"><img-svg src="/img/logo.svg"></img-svg></a>
+		<a ng-click="$ctrl.off()" ui-sref="home"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGOROUTE</span></a>
 	</head-center>
 	<head-center class="connected" ng-show="$ctrl.user.current">
-		<a ng-click="$ctrl.off()" ui-sref="home"><img-svg src="/img/logo.svg"></img-svg><br/>
+		<a ng-click="$ctrl.off()" ui-sref="home"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGOROUTE</span><br/>
 			{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}
 		</a>
 	</head-center>

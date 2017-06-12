@@ -5,6 +5,9 @@ lg-home-route {
 	margin: 0px;
 	padding: 20px 0px 30px;
 	logo {
+		display: block;
+		text-align: center;
+		margin-bottom: 25px;
 		img-svg {
 			display: block;
 			text-align: center;
@@ -13,6 +16,9 @@ lg-home-route {
 				height: 65px;
 				fill: $fontColor;
 			}
+		}
+		img {
+			width: 35%;
 		}
 		title {
 			font-size: 55px;
