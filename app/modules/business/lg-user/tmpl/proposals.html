@@ -10,13 +10,23 @@
     </div>
 </section>
 <lg-hr ng-show="$ctrl.carriers.length > 0">Propositions</lg-hr>
-<loader-list>
+<proposal-list>
     <ad-block ng-repeat="ad in $ctrl.proposals" ng-click="$root.goToState('proposal:retrieve({ id: '+ ad.id +'})')">
-        <header>
-            <title>{{ad.content.titleAd}}</title>
-            <subtitle>
-                <created>Envoyé le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-            </subtitle>
-        </header>
+        <a href="">
+            <div>
+                <div class="img-fix">
+                   <img ng-show="ad.content.adType === 'loader'" src="img/loader-default.svg" />
+                   <img ng-show="ad.content.adType === 'carrier'" src="img/truck-default.svg" />
+                </div>
+                <div class="details">
+                    <h2>{{ad.content.titleAd}}</h2>
+                    <div>
+                        <div class="detail-left">
+                            <span>Envoyé le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
     </ad-block>
-</loader-list>
+</proposal-list>
