@@ -118,6 +118,12 @@ EOF;
 				case '/proposal/create':
 					EventProposal::create($this);
 					break;
+				case '/proposal/update':
+					EventProposal::update($this);
+					break;
+				case '/proposal/delete':
+					EventProposal::delete($this);
+					break;
 			}
 
 			debug('Event propagated.');
