@@ -25,7 +25,8 @@ data.trucks = [{
 ];
 
 data.carrierAd = {
-	priceWantedPerKm: '50'
+	priceWantedPerKm: '50',
+	imageId: path.resolve(__dirname, './img/semi-remorque.jpg'),
 };
 
 data.loaderAd = {
@@ -58,7 +59,7 @@ data.users = [{
 	{
 		lastname: 'Phengsiaroun',
 		firstname: 'Dany',
-		login: 'Meme',
+		login: 'Dany',
 		email: 'dphengsiaroun@outlook.fr2',
 		profile: 'carrier',
 		street: '10 rue de Paris',

@@ -35,8 +35,8 @@ describe('Loader CRUD', function() {
 		element(by.id('pr-button-create-loader-ad')).click();
 		element(by.css('button.no')).click();
 		element(by.id('pr-create-user-button')).click();
-		console.log('-> user created', arguments);
 		element(by.css('button')).click();
+		console.log('-> user created', arguments);
 		element(by.css('button.ok')).click();
 		console.log('-> Loader ad created', arguments);
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');

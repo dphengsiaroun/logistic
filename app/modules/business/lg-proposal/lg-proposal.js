@@ -15,7 +15,7 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 			// name: 'Toto',
 			// email: 'dphengsiaroun@outlook.fr',
 			// titleAd: '',
-			// message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
+			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
 		};
 	};
 	service.initCreateData();

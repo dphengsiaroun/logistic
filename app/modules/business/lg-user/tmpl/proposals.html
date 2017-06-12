@@ -1,12 +1,15 @@
-<div class="ad-title">
-	<left>
-		<i class="fa fa-tag" aria-hidden="true"></i>
-	</left>
-	<right>
-		<subtitle>Mes propositions</subtitle>
-	</right>
-</div>
-
+<section class="filter">
+    <div class="qty-ad">
+		<span ng-show="$ctrl.proposals.length === 0">Aucune proposition en cours.</span>
+        <span ng-show="$ctrl.proposals.length > 1">{{$ctrl.proposals.length}} propositions envoyées</span>
+        <span ng-show="$ctrl.proposals.length === 1">{{$ctrl.proposals.length}} proposition envoyé</span>
+    </div>
+    <div>
+        <i class="fa fa-filter" aria-hidden="true"></i>
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+    </div>
+</section>
+<lg-hr ng-show="$ctrl.carriers.length > 0">Propositions</lg-hr>
 <loader-list>
     <ad-block ng-repeat="ad in $ctrl.proposals" ng-click="$root.goToState('proposal:retrieve({ id: '+ ad.id +'})')">
         <header>

@@ -4,27 +4,29 @@
 	</left>
 	<right>
 		<title>Proposition</title>
-		<subtitle>au {{$ctrl.proposal.current.ad_type}}</subtitle>
+		<subtitle ng-show="$ctrl.proposal.current.ad_type === 'loader'">au chargeur</subtitle>
+		<subtitle ng-show="$ctrl.proposal.current.ad_type === 'carrier'">au transporteur</subtitle>
 	</right>
 </div>
-<formx class="ad" name="proposalCtrl">
-	<section>
-		<label>Nom</label>
-		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.current.content.name" />
-		<label>Email</label>
-		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.current.content.email" />
-		<label>Titre de l'annonce</label>
-		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.current.content.titleAd" />
-		<label>Message</label>
-		<textarea ng-model="$ctrl.proposal.current.content.message"></textarea>
-	</section>
-</formx>
-<formx class="ad">
-	<section class="dark">
-		<lg-error error="$ctrl.proposal.error"></lg-error>
-		<button ng-click="$ctrl.proposal.update();">Mettre à jour</button>
-	</section>
-</formx>
-<a class="critical" ui-sref="proposal:delete({id: $ctrl.proposal.current.id})" class="critical">Supprimer cette proposition</a>
-
-
+<recap>
+	<h1>{{$ctrl.proposal.current.content.titleAd}}</h1>
+	<info>
+		<p>Envoyé le {{$ctrl.proposal.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
+	</info>
+	<description>
+		<lg-hr>Détail de la proposition</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Message</th>
+					<td>{{$ctrl.proposal.current.content.message}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</description>
+	<div>
+		<button id="pr-update-button" ui-sref="proposal:update({id: $ctrl.proposal.current.id})">Editer</button>
+		<lg-hr>ou</lg-hr>
+		<a class="critical" ui-sref="proposal:delete({id: $ctrl.proposal.current.id})" class="critical">Supprimer cette proposition</a>
+	</div>
+</recap>

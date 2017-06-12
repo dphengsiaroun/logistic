@@ -4,7 +4,8 @@
 	</left>
 	<right>
 		<title>Proposition</title>
-		<subtitle>au chargeur</subtitle>
+		<subtitle ng-show="$ctrl.proposal.createData.adType === 'loader'">au chargeur</subtitle>
+		<subtitle ng-show="$ctrl.proposal.createData.adType === 'carrier'">au transporteur</subtitle>
 	</right>
 </div>
 <formx class="ad" name="proposalCtrl">

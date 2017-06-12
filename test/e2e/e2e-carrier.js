@@ -1,6 +1,7 @@
 const utils = require('./utils.js');
 const data = require('./data/data.js');
 var truck = data.trucks[0];
+var carrierAd = data.carrierAd;
 
 describe('Carrier CRUD', function() {
 
@@ -29,12 +30,13 @@ describe('Carrier CRUD', function() {
 		utils.lgSelect('transportCategory', truck.transportCategory);
 		utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
 		utils.lgChoiceSelect('birthyear', truck.birthyear);
+		utils.lgUploadSelect('imageId', carrierAd.imageId);
 		element(by.id('pr-add-vehicle-button')).click();
 		console.log('-> truck created', arguments);
 		element(by.css('button.no')).click();
 		element(by.css('button')).click();
-		console.log('-> user created', arguments);
 		element(by.css('button')).click();
+		console.log('-> user created', arguments);
 		element(by.css('button.ok')).click();
 		element(by.id('pr-choose-truck-link')).click();
 		element(by.id('pr-select-availabilities')).click();

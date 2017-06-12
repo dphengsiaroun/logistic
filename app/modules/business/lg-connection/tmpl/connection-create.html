@@ -7,7 +7,7 @@
 		<input type="text" placeholder="email, n°tel, identifiant" ng-model="$ctrl.connection.createConnectionData.email" required/>
 		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.connection.createConnectionData.password" required/>
 		<lg-error error="$ctrl.connection.error"></lg-error>
-		<button ng-click="$ctrl.connection.create()" ng-disabled="formCtrl.$invalid">Se connecter</button>
+		<button id="pr-button-connect-user" ng-click="$ctrl.connection.create()" ng-disabled="formCtrl.$invalid">Se connecter</button>
 	</form>
 
 	<lg-hr>ou</lg-hr>

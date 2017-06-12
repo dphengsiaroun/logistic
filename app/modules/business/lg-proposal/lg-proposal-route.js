@@ -85,20 +85,6 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('ProposalListCtrl', function ProposalListCtrl(proposal) {
-	'ngInject';
-	var ctrl = this;
-	ctrl.proposal = proposal;
-	ctrl.$onInit = function() {
-		proposal.list().then(function(proposals) {
-			console.log('proposals', proposals);
-			ctrl.proposals = proposals;
-		}).catch(function(error) {
-			console.error('error', error);
-		});
-	};
-});
-
 app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, proposal, user, connection) {
 	'ngInject';
 	var ctrl = this;
@@ -137,7 +123,11 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 			ctrl.proposal.createData.email = ctrl.user.current.email;
 			ctrl.proposal.createData.proposalAccountId = ctrl.user.current.id;
 			ctrl.proposal.createData.adId = $stateParams.id;
-			ctrl.proposal.createData.titleAd = ctrl[$stateParams.type].current.content.title;
+			if ($stateParams.type === 'loader') {
+				ctrl.proposal.createData.titleAd = ctrl[$stateParams.type].current.content.title;
+			} else {
+				ctrl.proposal.createData.titleAd = ctrl[$stateParams.type].current.content.truck.name;
+			}
 			ctrl.proposal.createData.adAccountId = ctrl[$stateParams.type].current.content.userId;
 			ctrl.proposal.createData.adType = $stateParams.type;
 			console.log('ctrl.proposal.createData', ctrl.proposal.createData);
@@ -167,7 +157,6 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateP
 });
 
 var proposalCreateUrl = require('./tmpl/proposal-create.html');
-// var proposalListUrl = require('./tmpl/proposal-list.html');
 var proposalDetailUrl = require('./tmpl/proposal-detail.html');
 var proposalUpdateUrl = require('./tmpl/proposal-update.html');
 
@@ -175,11 +164,6 @@ app.component('lgProposalCreateRoute', {
 	templateUrl: proposalCreateUrl,
 	controller: 'ProposalCreateCtrl',
 });
-
-// app.component('lgProposalListRoute', {
-//     templateUrl: proposalListUrl,
-//     controller: 'ProposalListCtrl',
-// });
 
 app.component('lgProposalRetrieveRoute', {
     templateUrl: proposalDetailUrl,
