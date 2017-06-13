@@ -4,7 +4,7 @@
 	width: 100%;
 	padding: 10px 0px;
 	background-color: $breadcrumbColor;
-	border-bottom: 1px solid $darkBorderColor;
+	// border-bottom: 1px solid $darkBorderColor;
 	left {
 		display: table-cell;
 		width: 100px;
@@ -25,7 +25,7 @@
 		.fa {
 			color: #223c5d;
 			text-align: center;
-			font-size: 50px;
+			font-size: 43px;
 		}
 	}
 	right {
@@ -37,11 +37,11 @@
 			display: block;
 			text-align: center;
 			font-weight: bold;
-			font-size: 25px;
+			font-size: 20px;
 		}
 		subtitle {
 			font-weight: bold;
-			font-size: 17px;
+			font-size: 14px;
 			padding: 0px 0px;
 		}
 	}

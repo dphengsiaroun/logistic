@@ -71,6 +71,7 @@ app.component('lgMenu', {
 		ctrl.refreshNotifications = function() {
 			ctrl.myCarriers = [];
 			ctrl.myLoaders = [];
+			ctrl.myProposals = [];
 			connection.waitForCheckConnection().then(function() {
 				return $timeout(function() {}, 1000);
 			}).then(function(carriers) {

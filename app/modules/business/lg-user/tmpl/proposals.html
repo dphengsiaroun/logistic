@@ -11,22 +11,22 @@
 </section>
 <lg-hr ng-show="$ctrl.carriers.length > 0">Propositions</lg-hr>
 <proposal-list>
-    <ad-block ng-repeat="ad in $ctrl.proposals" ng-click="$root.goToState('proposal:retrieve({ id: '+ ad.id +'})')">
-        <a href="">
+    <ad-block ng-repeat="proposal in $ctrl.proposals" ng-click="$root.goToState('proposal:retrieve({ id: '+ proposal.id +'})')">
+        <span>
             <div>
                 <div class="img-fix">
-                   <img ng-show="ad.content.adType === 'loader'" src="img/loader-default.svg" />
-                   <img ng-show="ad.content.adType === 'carrier'" src="img/truck-default.svg" />
+                   <img ng-show="proposal.content.adType === 'loader'" src="img/loader-default.svg" />
+                   <img ng-show="proposal.content.adType === 'carrier'" src="img/truck-default.svg" />
                 </div>
                 <div class="details">
-                    <h2>{{ad.content.titleAd}}</h2>
+                    <h2>{{proposal.content.titleAd}}</h2>
                     <div>
                         <div class="detail-left">
-                            <span>Envoyé le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</span>
+                            <span>Envoyé le {{proposal.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </a>
+        </span>
     </ad-block>
 </proposal-list>
