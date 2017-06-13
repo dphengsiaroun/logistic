@@ -5,7 +5,7 @@
 	define('SUGGESTED_CONFIG_PHP', BASE_DIR . '/include/suggested.config.php');
 
 
-	define('TRACE_LOG', BASE_DIR . '/_trace.log');
+	define('TRACE_LOG', BASE_DIR . '/logs/_trace.log');
 
 
 	// define('TRACE_LEVEL', Monolog\Logger::WARNING);

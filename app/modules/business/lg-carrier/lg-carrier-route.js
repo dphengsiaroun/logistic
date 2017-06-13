@@ -110,6 +110,9 @@ app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection
         }).then(function() {
             ctrl.isEditable = (ctrl.carrier.current.content.userId === ctrl.user.current.id);
             console.log('ctrl.isEditable', ctrl.isEditable);
+        }).catch(function() {
+            ctrl.isEditable = false;
+            console.log('ctrl.isEditable', ctrl.isEditable);
         });
     };
 });
