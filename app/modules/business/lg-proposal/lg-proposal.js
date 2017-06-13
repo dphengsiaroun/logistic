@@ -12,9 +12,6 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 	var service = this;
 	service.initCreateData = function() {
 		service.createData = {
-			// name: 'Toto',
-			// email: 'dphengsiaroun@outlook.fr',
-			// titleAd: '',
 			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
 		};
 	};
@@ -97,9 +94,7 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 			service.proposals = proposals;
 			service.proposalMap = makeMap(proposals);
 			service.current = service.proposalMap[id];
-			
 		});
-		console.log('service.current', service.current);
 		service.current = service.proposalMap[id];
 		return $q.resolve();
 	};
