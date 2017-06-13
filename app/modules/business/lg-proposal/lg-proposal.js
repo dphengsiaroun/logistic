@@ -29,7 +29,9 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 				url: 'ws/proposals',
 				method: 'POST',
 				data: createData,
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
 			}).then(function(response) {
 				console.log('response', response);
 				if (response.data.status === 'ko') {
@@ -64,8 +66,7 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 		service.create();
 	};
 
-	service.listData = {
-	};
+	service.listData = {};
 
 	service.list = function(data) {
 		console.log('proposal->list');
@@ -73,6 +74,9 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 			url: 'ws/proposals',
 			method: 'GET',
 			params: data,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
@@ -88,17 +92,17 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 	};
 
 	service.get = function(id) {
-		if (service.proposals === undefined) {
-			return service.list().then(function(proposals) {
-				service.proposals = proposals;
-				service.proposalMap = makeMap(proposals);
-				service.current = service.proposalMap[id];
-			});
-		}
+		console.log('service.proposals', service.proposals);
+		return this.list().then(function(proposals) {
+			service.proposals = proposals;
+			service.proposalMap = makeMap(proposals);
+			service.current = service.proposalMap[id];
+			
+		});
+		console.log('service.current', service.current);
 		service.current = service.proposalMap[id];
 		return $q.resolve();
 	};
-
 	service.updateData = {};
 
 	service.update = function() {
@@ -107,7 +111,9 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 			url: 'ws/proposals/' + service.updateData.id,
 			method: 'PUT',
 			data: service.updateData,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
@@ -132,7 +138,9 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 			data: {
 				id: id
 			},
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {

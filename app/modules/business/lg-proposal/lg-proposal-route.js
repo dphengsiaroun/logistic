@@ -107,25 +107,23 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-app.controller('ProposalCtrl', function ProposalCtrl($scope, $stateParams, proposal, user, connection) {
+app.controller('ProposalCtrl', function ProposalCtrl($scope, $injector, connection) {
 	'ngInject';
-	var ctrl = this;
-	ctrl.proposal = proposal;
-	ctrl.user = user;
-	ctrl.isEditable = false;
-	console.log('ctrl.proposal', ctrl.proposal);
-	console.log('$stateParams', $stateParams);
-	ctrl.$onInit = function() {
-		ctrl.proposal.get($stateParams.id).then(function() {
-			return connection.waitForCheckConnection('ProposalCtrl');
-		}).then(function() {
-			ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.user.current.id);
-			console.log('ctrl.isEditable', ctrl.isEditable);
-		}).catch(function() {
-			ctrl.isEditable = false;
-			console.log('ctrl.isEditable', ctrl.isEditable);
-		});
-	};
+    var ctrl = this;
+    ctrl.proposal = $injector.get('proposal');
+    ctrl.user = $injector.get('user');
+    ctrl.isEditable = false;
+    var $stateParams = $injector.get('$stateParams');
+    console.log('ctrl.proposal', ctrl.proposal);
+    console.log('$stateParams', $stateParams);
+    ctrl.$onInit = function() {
+        ctrl.proposal.get($stateParams.id).then(function() {
+            return connection.waitForCheckConnection();
+        }).then(function() {
+            ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.user.current.id);
+            console.log('ctrl.isEditable', ctrl.isEditable);
+        });
+    };
 });
 
 app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
