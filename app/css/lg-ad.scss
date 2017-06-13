@@ -3,8 +3,7 @@
 	display: table;
 	width: 100%;
 	padding: 10px 0px;
-	background-color: $breadcrumbColor;
-	// border-bottom: 1px solid $darkBorderColor;
+	background-color: $breadcrumbColor; // border-bottom: 1px solid $darkBorderColor;
 	left {
 		display: table-cell;
 		width: 100px;
@@ -149,6 +148,7 @@ img-ad {
 		width: 100%;
 	}
 }
+
 .filter.loader {
 	background-color: $loaderColor;
 }
@@ -250,14 +250,24 @@ bottom {
 	width: 100%;
 	button {
 		display: table-cell;
-		width: 50%;
 		margin: 0px;
 		padding: 5px;
-		vertical-align: top;
+		vertical-align: middle;
 		border-radius: 0px;
 	}
 	button:nth-child(2) {
 		background: $veryLightGreen;
+	}
+	a {
+		display: table-cell;
+		width: 50%;
+		margin: 0px;
+		padding: 5px;
+		vertical-align: middle;
+		border-radius: 0px;
+		text-align: center;
+		background: #8bc63f;
+		color: white;
 	}
 }
 
