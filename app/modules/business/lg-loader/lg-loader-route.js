@@ -124,6 +124,7 @@ app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
 			console.error('error', error);
 		});
     };
+
 });
 
 app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, user, connection) {

@@ -10,7 +10,7 @@
     </div>
 </section>
 <loader-list>
-    <ad-block ng-repeat="ad in $ctrl.loaders" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
+    <ad-block ng-repeat="ad in $ctrl.loaders | orderBy:'ad.content.created_t':true" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
         <header ad-id="{{ad.id}}">
             <title>{{ad.content.title}}</title>
             <subtitle>

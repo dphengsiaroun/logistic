@@ -62,11 +62,15 @@ SELECT * FROM {$cfg->prefix}{$name}
 EOF;
 			debug('listAll', $request);
 			$array = array();
+
+			debug('is_object($request)'. is_object($request));
 			
 			if (is_object($request) && property_exists($request, 'userId')) {
+				debug('userId provided');
 				$sql .= ' WHERE user_id = :user_id';
 				$array['user_id'] = $request->userId;
 			}
+			debug('sql', $sql);
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute($array) === FALSE) {

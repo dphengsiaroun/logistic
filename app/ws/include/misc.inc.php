@@ -78,6 +78,7 @@
 		$qs = $_SERVER['QUERY_STRING'];
 		$result = array();
 		parse_str($qs, $result);
+		$result = (object) $result;
 		return $result;
 	}
 
