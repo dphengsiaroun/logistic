@@ -10,7 +10,7 @@ app.service('password', function Password($injector, $http, $rootScope, $q, $sta
 	'ngInject';
 	var service = this;
 
-	this.retrieveFromCode = function(id, code) {
+	service.retrieveFromCode = function(id, code) {
 		console.log('sign in with code');
 		console.log('code', code);
 		console.log('id', id);
@@ -38,12 +38,12 @@ app.service('password', function Password($injector, $http, $rootScope, $q, $sta
 	};
 
 
-	this.forgottenPasswordData = {
+	service.forgottenPasswordData = {
 		email: 'dphengsiaroun@outlook.fr',
 		type: 'forgotten-password'
 	};
 
-	this.forgottenPassword = function(data) {
+	service.forgottenPassword = function(data) {
 		console.log('user->forgottenPasswordData');
 
 		// TODO: include recaptcha data

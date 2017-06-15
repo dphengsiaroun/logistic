@@ -53,7 +53,6 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 			service.initCreateData();
 			$state.go('user:hasAccount');
 		}
-
 	};
 
 	service.createAfterConnect = function() {

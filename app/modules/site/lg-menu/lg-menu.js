@@ -57,12 +57,12 @@ app.component('lgMenu', {
 		$timeout, user, carrier, loader, proposal, connection) {
 
 		'ngInject';
-		this.user = user;
-		this.carrier = carrier;
-		this.loader = loader;
-		this.proposal = proposal;
-		console.log('LgMenuCtrl', arguments);
 		var ctrl = this;
+		ctrl.user = user;
+		ctrl.carrier = carrier;
+		ctrl.loader = loader;
+		ctrl.proposal = proposal;
+		console.log('LgMenuCtrl', arguments);
 
 		ctrl.myCarriers = [];
 		ctrl.myLoaders = [];
@@ -72,6 +72,7 @@ app.component('lgMenu', {
 			ctrl.myCarriers = [];
 			ctrl.myLoaders = [];
 			ctrl.myProposals = [];
+			console.log('user.current.id', user.current.id);
 			connection.waitForCheckConnection().then(function() {
 				return $timeout(function() {}, 1000);
 			}).then(function(carriers) {
@@ -81,7 +82,6 @@ app.component('lgMenu', {
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
 				ctrl.myCarriers = carriers;
-				console.log('ctrl.myCarriers', ctrl.myCarriers);
 			}).then(function(loaders) {
 				return loader.list({
 					userId: user.current.id
@@ -96,9 +96,9 @@ app.component('lgMenu', {
 				});
 			}).then(function(proposals) {
 				console.log('proposals', proposals);
-				ctrl.myProposals = proposals;
+				ctrl.myProposals.list = proposals;
 				console.log('ctrl.myProposals', ctrl.myProposals);
-				
+
 			}).catch(function(error) {
 				console.error('error', error);
 			});
