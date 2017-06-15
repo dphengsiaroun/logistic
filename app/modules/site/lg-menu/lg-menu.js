@@ -81,6 +81,7 @@ app.component('lgMenu', {
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
 				ctrl.myCarriers = carriers;
+				console.log('ctrl.myCarriers', ctrl.myCarriers);
 			}).then(function(loaders) {
 				return loader.list({
 					userId: user.current.id
@@ -88,6 +89,7 @@ app.component('lgMenu', {
 			}).then(function(loaders) {
 				console.log('loaders', loaders);
 				ctrl.myLoaders = loaders;
+				console.log('ctrl.myLoaders', ctrl.myLoaders);
 			}).then(function(proposals) {
 				return proposal.list({
 					userId: user.current.id
@@ -95,6 +97,8 @@ app.component('lgMenu', {
 			}).then(function(proposals) {
 				console.log('proposals', proposals);
 				ctrl.myProposals = proposals;
+				console.log('ctrl.myProposals', ctrl.myProposals);
+				
 			}).catch(function(error) {
 				console.error('error', error);
 			});
