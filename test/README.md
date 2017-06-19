@@ -1,14 +1,15 @@
-# Logistic
+# Protractor with Logistic 
 
 Ce document pour but de vous expliquer l'utilisation de protractor sur ce projet.
 Les différents tests automatisés sont les suivants :
 - test de l'installation de l'application
-- test de création d'une annonce transporteur ou chargeur + création d'un compte
+- test de création d'une annonce transporteur ou chargeur + création d'un utilisateur
 - test de création d'un utilisateur
 - test de création d'un véhicule
 
 Tous ces tests ont été repertoriés dans le dossier `test` à la racine du projet.
-Le fichier de configuration nommé `protractor.conf.js` s'y trouve également
+Le fichier de configuration nommé `protractor.conf.js` s'y trouve également.
+Dans le fichier de conf, vous pouvez activer ou désactiver les tests selon vos besoins dans la `specs`.
 
 # Installation
 
