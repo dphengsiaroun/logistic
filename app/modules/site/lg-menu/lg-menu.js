@@ -69,10 +69,10 @@ app.component('lgMenu', {
 		ctrl.myProposals = [];
 		console.log('user', user);
 		ctrl.refreshNotifications = function() {
+			console.log('refreshNotifications');
 			ctrl.myCarriers = [];
 			ctrl.myLoaders = [];
 			ctrl.myProposals = [];
-			console.log('user.current.id', user.current.id);
 			connection.waitForCheckConnection().then(function() {
 				return $timeout(function() {}, 1000);
 			}).then(function(carriers) {
@@ -82,6 +82,7 @@ app.component('lgMenu', {
 			}).then(function(carriers) {
 				console.log('carriers', carriers);
 				ctrl.myCarriers = carriers;
+				console.log('ctrl.myCarriers', ctrl.myCarriers);
 			}).then(function(loaders) {
 				return loader.list({
 					userId: user.current.id
@@ -90,15 +91,6 @@ app.component('lgMenu', {
 				console.log('loaders', loaders);
 				ctrl.myLoaders = loaders;
 				console.log('ctrl.myLoaders', ctrl.myLoaders);
-			}).then(function(proposals) {
-				return proposal.list({
-					userId: user.current.id
-				});
-			}).then(function(proposals) {
-				console.log('proposals', proposals);
-				ctrl.myProposals.list = proposals;
-				console.log('ctrl.myProposals', ctrl.myProposals);
-
 			}).catch(function(error) {
 				console.error('error', error);
 			});

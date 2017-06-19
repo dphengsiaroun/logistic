@@ -8,52 +8,61 @@ module.exports = {
 		'install.prod': './app/install/install.js'
 	},
 	output: {
-		path: './app/wpk',
+		path: path.resolve(__dirname, './app/wpk'),
 		filename: '[name].js'
 	},
 	plugins: [
-		new ExtractTextPlugin('[name].css')
+		new ExtractTextPlugin('[name].css'),
+		// comment this if you do not need jQuery.
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery',
+			'window.jQuery': 'jquery'
+		})
 	],
 	module: {
-		loaders: [{
+		rules: [{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'ng-annotate!babel'
+				use: [
+					'ng-annotate',
+					'babel'
+				]
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract(['css?sourceMap'])
+				use: ExtractTextPlugin.extract(['css?sourceMap'])
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap'])
+				use: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap'])
 			},
 			// css-loader use file-loader and url-loader to require the fonts.
 			{
 				test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url?limit=10000&mimetype=application/font-woff'
+				use: 'url?limit=10000&mimetype=application/font-woff'
 			},
 			{
 				test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url?limit=10000&mimetype=application/octet-stream'
+				use: 'url?limit=10000&mimetype=application/octet-stream'
 			},
 			{
 				test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'file'
+				use: 'file'
 			},
 			{
 				test: /fontawesome-webfont\.svg(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url?limit=10000&mimetype=image/svg+xml'
+				use: 'url?limit=10000&mimetype=image/svg+xml'
 			},
 			// managing angular templates into javascript file.
 			{
 				test: /\.html$/,
-				loader: 'ngtemplate?relativeTo=app!html?attrs=img-svg:src&root=' + path.resolve('./app')
+				use: 'ngtemplate?relativeTo=app!html?attrs=img-svg:src&root=' + path.resolve('./app')
 			},
 			{
 				test: /\.svg/,
 				exclude: /fontawesome-webfont/,
-				loader: 'ngtemplate?relativeTo=app!html?attrs=false'
+				use: 'ngtemplate?relativeTo=app!html?attrs=false'
 			}
 		]
 	},
@@ -61,6 +70,7 @@ module.exports = {
 	setupProd: function() {
 		// console.log('setupProd', this);
 		this.plugins.push(new webpack.optimize.UglifyJsPlugin({
+			sourceMap: true,
 			compress: {
 				warnings: false,
 			},
