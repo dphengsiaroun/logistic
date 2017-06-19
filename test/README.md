@@ -11,6 +11,8 @@ Tous ces tests ont été repertoriés dans le dossier `test` à la racine du pro
 Le fichier de configuration nommé `protractor.conf.js` s'y trouve également.
 Dans le fichier de conf, vous pouvez activer ou désactiver les tests selon vos besoins dans la `specs`.
 
+Ces tests nécessite le navigateur chrome car il a été defini dans la conf.
+
 # Installation
 
 Tout d'abord, saisissez les commandes suivantes dans l'ordre afin d'installer le projet.
