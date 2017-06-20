@@ -8,69 +8,97 @@ module.exports = {
 		'install.prod': './app/install/install.js'
 	},
 	output: {
-		path: './app/wpk',
+		path: path.resolve(__dirname, './app/wpk'),
 		filename: '[name].js'
 	},
-	plugins: [
-		new ExtractTextPlugin('[name].css')
-	],
 	module: {
-		loaders: [{
+		rules: [{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'ng-annotate!babel'
+				use: [{
+					loader: 'ng-annotate-loader',
+				}, {
+					loader: 'babel-loader',
+				}]
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract(['css?sourceMap'])
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: 'css-loader?minimize&sourceMap'
+				})
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap'])
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: 'css-loader?minimize&sourceMap!sass-loader?sourceMap'
+				})
 			},
 			// css-loader use file-loader and url-loader to require the fonts.
 			{
 				test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url?limit=10000&mimetype=application/font-woff'
+				use: 'url-loader?limit=10000&mimetype=application/font-woff'
 			},
 			{
 				test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url?limit=10000&mimetype=application/octet-stream'
+				use: 'url-loader?limit=10000&mimetype=application/octet-stream'
 			},
 			{
 				test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'file'
+				use: 'file-loader'
 			},
 			{
 				test: /fontawesome-webfont\.svg(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url?limit=10000&mimetype=image/svg+xml'
+				use: 'url-loader?limit=10000&mimetype=image/svg+xml'
 			},
 			// managing angular templates into javascript file.
 			{
 				test: /\.html$/,
-				loader: 'ngtemplate?relativeTo=app!html?attrs=img-svg:src&root=' + path.resolve('./app')
+				use: [{
+					loader: 'ngtemplate-loader',
+					options: {
+						relativeTo: 'app'
+					}
+				}, {
+					loader: 'html-loader',
+					options: {
+						attrs: 'img-svg:src',
+						root: path.resolve('./app')
+					}
+				}]
 			},
 			{
 				test: /\.svg/,
 				exclude: /fontawesome-webfont/,
-				loader: 'ngtemplate?relativeTo=app!html?attrs=false'
+				use: [{
+					loader: 'ngtemplate-loader',
+					options: {
+						relativeTo: 'app'
+					}
+				}, {
+					loader: 'html-loader',
+					options: {
+						attrs: false
+					}
+				}]
 			}
 		]
 	},
-	devtool: 'source-map',
-	setupProd: function() {
-		// console.log('setupProd', this);
-		this.plugins.push(new webpack.optimize.UglifyJsPlugin({
+	plugins: [
+		new ExtractTextPlugin('[name].css'),
+		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false,
 			},
 			output: {
 				comments: false,
 			}
-		}));
-	},
+		})
+	],
+	devtool: 'source-map',
 	resolve: {
-		extensions: ['', '.js'],
+		extensions: ['.js'],
 		alias: {
 			'load-image': 'blueimp-load-image/js/load-image.js',
 			'load-image-meta': 'blueimp-load-image/js/load-image-meta.js',
