@@ -6,7 +6,6 @@ const runSequence = require('run-sequence');
 const del = require('del');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
-webpackConfig.setupProd();
 const eslint = require('gulp-eslint');
 const fs = require('fs');
 const rp = require('request-promise');
@@ -95,6 +94,15 @@ gulp.task('html:index', function() {
 gulp.task('html', ['html:install', 'html:index']);
 
 gulp.task('webpack', function(callback) {
+	webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+		compress: {
+			warnings: false,
+		},
+		output: {
+			comments: false,
+		},
+		sourceMap: true
+	}));
 	webpack(webpackConfig, function(err, stats) {
 		if (err) {
 			throw new gutil.PluginError('webpack', err);
