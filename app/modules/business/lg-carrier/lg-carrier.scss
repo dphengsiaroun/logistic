@@ -215,8 +215,10 @@ trajet {
 }
 
 carrier-list {
-	width: 100%;
 	display: block;
+	position: relative;
+	top: 54px;
+	width: 100%;
 	padding: 0px 5px;
 	ad-block {
 		display: block;

@@ -36,6 +36,7 @@ var lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
 var lgNum = require('./modules/form/lg-num/lg-num.js');
 var lgSlider = require('./modules/form/lg-slider/lg-slider.js');
 var lgUpload = require('./modules/form/lg-upload/lg-upload.js');
+var lgFilter = require('./modules/form/lg-filter/lg-filter.js');
 
 var lgMenu = require('./modules/site/lg-menu/lg-menu.js');
 var lgRoute = require('./modules/site/lg-route/lg-route.js');
@@ -86,6 +87,7 @@ var app = angular.module('mainApp', [
 	lgNum,
 	lgSlider,
 	lgUpload,
+	lgFilter,
 
 	lgMenu,
 	lgRoute,

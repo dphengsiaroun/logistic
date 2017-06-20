@@ -76,9 +76,11 @@
 }
 
 truck-list {
-	width: 100%;
     display: block;
-    padding: 0px 3px;
+    position: relative;
+    top: 56px;
+	width: 100%;
+    padding: 0px 5px;
     ad-block {
         width: 100%;
         font-size: 0px;

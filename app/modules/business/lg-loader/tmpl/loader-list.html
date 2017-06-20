@@ -1,14 +1,4 @@
-<section class="filter loader">
-    <div class="qty-ad">
-		<span ng-show="$ctrl.loaders.length === 0" ng-init="$ctrl.loaders">Aucune annonce de chargement</span>
-        <span ng-show="$ctrl.loaders.length > 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonces de chargement</span>
-        <span ng-show="$ctrl.loaders.length === 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonce de chargement</span>
-    </div>
-    <div>
-        <i class="fa fa-filter" aria-hidden="true"></i>
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-    </div>
-</section>
+<lg-filter></lg-filter>
 <loader-list>
     <ad-block ng-repeat="ad in $ctrl.loaders | orderBy:'ad.content.created_t':true" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
         <header ad-id="{{ad.id}}">
