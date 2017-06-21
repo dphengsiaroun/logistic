@@ -4,9 +4,6 @@
         <span ng-show="$ctrl.truck.trucks.length > 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicules dans votre flotte</span>
         <span ng-show="$ctrl.truck.trucks.length === 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicule dans votre flotte</span>
     </div>
-    <div>
-        <i class="fa fa-sort" aria-hidden="true"></i>
-    </div>
 </section>
 <truck-list>
     <ad-block ng-repeat="truck in $ctrl.truck.trucks">

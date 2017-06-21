@@ -119,9 +119,10 @@
 	background-color: $breadcrumbColor;
 	padding: 15px 0px 15px 15px;
 	text-align: center;
-	div {
+	div, a {
 		display: table-cell;
 		width: 15%;
+		vertical-align: middle;
 		i {
 			font-size: 22px;
 		}
