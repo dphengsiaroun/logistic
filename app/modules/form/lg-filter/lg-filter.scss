@@ -32,7 +32,7 @@ lg-filter {
 	.lg-filter-content {
 		display: none;
 		position: fixed;
-		overflow-y: auto;
+		overflow-y: scroll;
 		height: 100%;
 		width: 100%;
 		top: 112px;

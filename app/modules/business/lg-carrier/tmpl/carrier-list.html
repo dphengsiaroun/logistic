@@ -6,8 +6,11 @@
 	</div>
 	<div>
 		<i class="fa fa-filter" aria-hidden="true"></i>
-		<i class="fa fa-calendar" aria-hidden="true"></i>
 	</div>
+	<div>
+		<i class="fa fa-sort" aria-hidden="true"></i>
+	</div>
+
 </section>
 <carrier-list>
 	<ad-block ng-repeat="ad in $ctrl.carriers | orderBy:'ad.content.created_t':true" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
