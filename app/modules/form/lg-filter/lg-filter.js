@@ -21,7 +21,6 @@ app.service('filter', function Filter($http, $state, $q, connection, user) {
 	service.create = function() {
 		console.log('filter->create', service.createData);
 		var createData = service.createData;
-		if (user.current) {
 			$http({
 				url: 'ws/filters',
 				method: 'POST',
@@ -41,25 +40,6 @@ app.service('filter', function Filter($http, $state, $q, connection, user) {
 			}).catch(function(error) {
 				console.error('error', error);
 			});
-		} else {
-			createData.userNotConnected = true;
-			localStorage.setItem('filter', angular.toJson(createData));
-			connection.setAfterConnectAction({
-				state: 'filter:created',
-				service: 'filter',
-				fn: 'createAfterConnect',
-				args: []
-			});
-			service.initCreateData();
-			$state.go('user:hasAccount');
-		}
-	};
-
-	service.createAfterConnect = function() {
-		service.createData = angular.fromJson(localStorage.getItem('filter'));
-		localStorage.removeItem('filter');
-		console.log('filter->createAfterConnect', service.createData);
-		service.create();
 	};
 
 	service.listData = {};

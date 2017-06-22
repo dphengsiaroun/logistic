@@ -67,20 +67,19 @@ app.component('lgMenu', {
 		ctrl.myCarriers = [];
 		ctrl.myLoaders = [];
 		ctrl.myProposals = [];
-		console.log('user', user);
+
 		ctrl.refreshNotifications = function() {
 			console.log('refreshNotifications');
 			ctrl.myCarriers = [];
 			ctrl.myLoaders = [];
 			ctrl.myProposals = [];
 			connection.waitForCheckConnection().then(function() {
-				return $timeout(function() {}, 1000);
+				return $timeout(function() {}, 2000);
 			}).then(function(carriers) {
 				return carrier.list({
 					userId: user.current.id
 				});
 			}).then(function(carriers) {
-				console.log('carriers', carriers);
 				ctrl.myCarriers = carriers;
 				console.log('ctrl.myCarriers', ctrl.myCarriers);
 			}).then(function(loaders) {
@@ -88,14 +87,19 @@ app.component('lgMenu', {
 					userId: user.current.id
 				});
 			}).then(function(loaders) {
-				console.log('loaders', loaders);
 				ctrl.myLoaders = loaders;
 				console.log('ctrl.myLoaders', ctrl.myLoaders);
+			}).then(function(proposals) {
+				return proposal.list({
+					userId: user.current.id
+				});
+			}).then(function(proposals) {
+				ctrl.myProposals = proposals;
+				console.log('ctrl.myProposals', ctrl.myProposals);
 			}).catch(function(error) {
 				console.error('error', error);
 			});
 		};
-
 		ctrl.isMenuOn = false;
 
 		ctrl.toggle = function() {
@@ -106,7 +110,7 @@ app.component('lgMenu', {
 			console.log('2 ctrl.isMenuOn', ctrl.isMenuOn);
 			if (ctrl.isMenuOn) {
 				ctrl.lgMenuContentElt.css('display', 'block');
-				// ctrl.refreshNotifications();
+				ctrl.refreshNotifications();
 			} else {
 				console.log('off', arguments);
 				ctrl.isMenuOn = false;
