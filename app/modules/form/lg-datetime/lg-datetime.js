@@ -150,7 +150,6 @@ app.component('lgDatetime', {
 				console.log('LgDatetimeCtrl $onChanges : start is after selectedDate');
 				ctrl.update(undefined);
 			}
-
 		};
 
 		$scope.$watch('$ctrl.selectedDate', function() {

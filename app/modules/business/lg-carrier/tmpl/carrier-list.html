@@ -20,7 +20,7 @@
 				<by>Par {{ad.content.login | ucfirst}}</by>
 			</subtitle>
 			<subtitle>
-				<date>{{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
+				<date>Départ le {{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.trip.distance}}km - {{ad.content.trip.minDuration | duration}}</distance>
 			</subtitle>
 			<places>
