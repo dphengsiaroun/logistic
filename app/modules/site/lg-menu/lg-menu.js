@@ -110,7 +110,9 @@ app.component('lgMenu', {
 			console.log('2 ctrl.isMenuOn', ctrl.isMenuOn);
 			if (ctrl.isMenuOn) {
 				ctrl.lgMenuContentElt.css('display', 'block');
-				ctrl.refreshNotifications();
+				if (ctrl.user.current) {
+					ctrl.refreshNotifications();
+				}
 			} else {
 				console.log('off', arguments);
 				ctrl.isMenuOn = false;

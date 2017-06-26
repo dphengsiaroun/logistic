@@ -15,7 +15,6 @@ app.config(['$stateProvider', function($stateProvider) {
         url: '/list-filter',
         component: 'lgFilterListRoute',
     });
-
 }]);
 
 app.controller('FilterCtrl', function FilterCtrl($scope, user, filter) {

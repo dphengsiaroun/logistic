@@ -21,45 +21,25 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 	service.create = function() {
 		console.log('proposal->create', service.createData);
 		var createData = service.createData;
-		if (user.current) {
-			$http({
-				url: 'ws/proposals',
-				method: 'POST',
-				data: createData,
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				}
-			}).then(function(response) {
-				console.log('response', response);
-				if (response.data.status === 'ko') {
-					service.error = response;
-					return;
-				}
-				service.error = undefined;
-				service.initCreateData();
-				$state.go('proposal:created');
-			}).catch(function(error) {
-				console.error('error', error);
-			});
-		} else {
-			createData.userNotConnected = true;
-			localStorage.setItem('proposal', angular.toJson(createData));
-			connection.setAfterConnectAction({
-				state: 'proposal:created',
-				service: 'proposal',
-				fn: 'createAfterConnect',
-				args: []
-			});
+		$http({
+			url: 'ws/proposals',
+			method: 'POST',
+			data: createData,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		}).then(function(response) {
+			console.log('response', response);
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return;
+			}
+			service.error = undefined;
 			service.initCreateData();
-			$state.go('user:hasAccount');
-		}
-	};
-
-	service.createAfterConnect = function() {
-		service.createData = angular.fromJson(localStorage.getItem('proposal'));
-		localStorage.removeItem('proposal');
-		console.log('proposal->createAfterConnect', service.createData);
-		service.create();
+			$state.go('proposal:created');
+		}).catch(function(error) {
+			console.error('error', error);
+		});
 	};
 
 	service.listData = {};

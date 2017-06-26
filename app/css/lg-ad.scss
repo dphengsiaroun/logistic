@@ -253,14 +253,14 @@ bottom {
 		vertical-align: middle;
 		border-radius: 0px;
 	}
-	button:nth-child(2) {
+	button:nth-child(2), button:nth-child(3) {
 		background: $veryLightGreen;
 	}
 	a {
 		display: table-cell;
 		width: 50%;
 		margin: 0px;
-		padding: 5px;
+		padding: 15px;
 		vertical-align: middle;
 		border-radius: 0px;
 		text-align: center;
