@@ -9,13 +9,16 @@
 	</right>
 </div>
 <formx class="ad" name="proposalCtrl">
+	<img-ad>
+		<img ng-show="$ctrl.proposal.createData.imageUrl" src="{{$ctrl.proposal.createData.imageUrl}}">
+	</img-ad>
 	<section>
+		<label>Titre de l'annonce</label>
+		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" />
 		<label>Nom</label>
 		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" />
 		<label>Email</label>
 		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.createData.email" />
-		<label>Titre de l'annonce</label>
-		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" />
 		<label>Message</label>
 		<textarea ng-model="$ctrl.proposal.createData.message"></textarea>
 	</section>
@@ -26,5 +29,3 @@
 		<button ng-click="$ctrl.proposal.create();">Envoyez votre proposition</button>
 	</section>
 </formx>
-
-
