@@ -44,6 +44,12 @@ module.exports = function(config) {
 						}]
 					},
 					{
+						enforce: 'post',
+						test: /\.js$/,
+						loader: 'istanbul-instrumenter-loader',
+						exclude: /(node_modules)/,
+					},
+					{
 						test: /\.s?css$/,
 						use: 'null-loader'
 					},
@@ -59,13 +65,24 @@ module.exports = function(config) {
 		webpackMiddleware: {
 			// webpack-dev-middleware configuration
 			// i. e.
-			stats: 'errors-only'
+			stats: 'errors-only',
+			noInfo: true
+		},
+
+		coverageIstanbulReporter: {
+			// reports: ['text-summary'],
+			fixWebpackSourcePaths: true
 		},
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['progress'],
+		reporters: ['progress', 'coverage'],
+
+		coverageReporter: {
+			type: 'html',
+			dir: 'coverage/'
+		},
 
 
 		// web server port
