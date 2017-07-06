@@ -51,7 +51,9 @@
 	"scripts": {
 		"pree2e": "webdriver-manager update",
 		"e2e": "protractor",
-		"e2e-install": "protractor test/e2e/cfg/install.js"
+		"e2e-install": "protractor test/e2e/cfg/install.js",
+		"e2e-user": "protractor test/e2e/cfg/user-crud.js",
+		"e2e-truck": "protractor test/e2e/cfg/truck-crud.js"
 	},
 	"dependencies": {
 		"angular": "1.6.1",

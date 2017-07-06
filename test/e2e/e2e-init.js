@@ -2,7 +2,7 @@
 
 const utils = require('./utils.js');
 const data = require('./data/data.js');
-var user = data.users[1];
+var user = data.users[0];
 
 describe('Init', function() {
 
