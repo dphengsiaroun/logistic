@@ -53,7 +53,8 @@ data.users = [{
 		city: 'Torcy',
 		zipcode: '77200',
 		country: 'France',
-		password: 'test'
+		password: 'test',
+		phone: '0654342214'
 
 	},
 	{
@@ -66,6 +67,7 @@ data.users = [{
 		city: 'Torcy',
 		zipcode: '77200',
 		country: 'France',
-		password: 'test'
+		password: 'test',
+		phone: '0754342214'
 	}
 ];

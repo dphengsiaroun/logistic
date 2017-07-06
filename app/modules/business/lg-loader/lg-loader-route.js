@@ -109,7 +109,6 @@ app.config(['$stateProvider', function($stateProvider) {
             }
         }
     });
-
 }]);
 
 app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
@@ -152,6 +151,7 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
     $scope, $element, $http, $q, $window, $filter, loader, user, geoloc) {
     'ngInject';
     var ctrl = this;
+    ctrl.user = user;
     ctrl.loader = loader;
     $scope.$watchGroup(['$ctrl.loader.createData.dimension.height', '$ctrl.loader.createData.dimension.depth',
         '$ctrl.loader.createData.dimension.width'

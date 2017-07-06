@@ -99,7 +99,7 @@
 	<br/>
 	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
 	<bottom ng-show="!$ctrl.isEditable">
-		<a href="tel:+41 21 694 16 00">Appeler</a>
+		<a href="tel:{{$ctrl.loader.current.content.phone}}">Appeler</a>
 		<button ng-show="$ctrl.user.current" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</button>
 	</bottom>
 	<div ng-show="$ctrl.isEditable">

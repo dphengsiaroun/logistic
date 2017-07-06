@@ -15,6 +15,7 @@
 			$user = User::getConnected();
 			$request->userId = $user->id;
 			$request->login = $user->content->login;
+			$request->phone = $user->content->phone;
 			Image::manageSession($user, $request);
 			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
 			Event::synchronize();
