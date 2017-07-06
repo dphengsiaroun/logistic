@@ -163,6 +163,7 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
             ctrl.loader.createData.dimension.depth * ctrl.loader.createData.dimension.width;
         ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
         console.log('ctrl.loader.createData.volume', ctrl.loader.createData.volume);
+        ctrl.loader.createData.phone = ctrl.user.current.content.phone;
     });
 
     geoloc.updateInfoRoute($scope, '$ctrl.loader.createData');

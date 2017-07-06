@@ -48,11 +48,12 @@ app.service('carrierStepManager', function CarrierStepManager(carrier) {
 var carrierCreateUrl = require('../tmpl/carrier-create.html');
 app.component('lgCarrierCreateRoute', {
 	templateUrl: carrierCreateUrl,
-	controller: function LgCarrierCreateRouteCtrl(carrier, carrierStepManager) {
+	controller: function LgCarrierCreateRouteCtrl(user, carrier, carrierStepManager) {
 		'ngInject';
 		var ctrl = this;
 		ctrl.carrier = carrier;
 		ctrl.carrierStepManager = carrierStepManager;
+		carrier.createData.phone = user.current.content.phone;
 		carrier.type = 'create';
 	}
 });
