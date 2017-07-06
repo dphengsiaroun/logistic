@@ -34,11 +34,17 @@ app.service('carrierStepManager', function CarrierStepManager(carrier) {
 		var currentStep = this.getStep();
 		console.log('currentStep', currentStep);
 		if (step > currentStep) {
-			return {disabled: true};
+			return {
+				disabled: true
+			};
 		} else if (step === currentStep) {
-			return {active: true};
+			return {
+				active: true
+			};
 		} else {
-			return {done: true};
+			return {
+				done: true
+			};
 		}
 	};
 
@@ -53,7 +59,10 @@ app.component('lgCarrierCreateRoute', {
 		var ctrl = this;
 		ctrl.carrier = carrier;
 		ctrl.carrierStepManager = carrierStepManager;
-		carrier.createData.phone = user.current.content.phone;
+		if (user.current) {
+			carrier.createData.phone = user.current.content.phone;
+		}
+
 		carrier.type = 'create';
 	}
 });
@@ -70,4 +79,3 @@ app.component('lgCarrierUpdateRoute', {
 		carrier.type = 'update';
 	}
 });
-
