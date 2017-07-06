@@ -1,4 +1,4 @@
-// const utils = require('./utils.js');
+const utils = require('./utils.js');
 const data = require('./data/data.js');
 const user = data.users[0];
 
@@ -26,16 +26,24 @@ describe('User CRUD', function() {
 		// We fill the form
 		element(by.css('[name=lastname]')).clear().sendKeys(user.lastname);
 		element(by.css('[name=firstname]')).clear().sendKeys(user.firstname);
-		// element(by.css('[name=login]')).clear().sendKeys(user.login);
-		// element(by.css('[name=email]')).clear().sendKeys(user.email);
-		// element(by.css('lg-option[value="both"]')).click();
+		element(by.css('[name=login]')).clear().sendKeys(user.login);
+		element(by.css('[name=email]')).clear().sendKeys(user.email);
+		element(by.css(`lg-option[value="${user.profile}"]`)).click();
+		element(by.css('[name=street]')).clear().sendKeys(user.street);
+		element(by.css('[name=zipcode]')).clear().sendKeys(user.zipcode);
+		element(by.css('[name=city]')).clear().sendKeys(user.city);
+		utils.lgChoiceSelect('country', user.country);
+		element(by.css('[name=phone]')).clear().sendKeys(user.phone);
+		element(by.css('[name=password-crypted]')).clear().sendKeys(user.password);
 
-		// element(by.css('button')).click();
+		// browser.sleep(20000);
+
+		element(by.css('button')).click();
 		// // browser.sleep(35000);
-		// var message = element(by.css('h2'));
-		// expect(message.getText()).toEqual('Votre compte est créé.');
-		// element(by.css('button')).click();
-		// expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
+		var message = element(by.css('h2'));
+		expect(message.getText()).toEqual('Votre compte est créé.');
+		element(by.css('button')).click();
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
 	});
 
 	// it('should retrieve a user', function() {

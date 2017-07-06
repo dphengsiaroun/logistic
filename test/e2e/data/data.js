@@ -46,7 +46,7 @@ data.loaderAd = {
 data.users = [{
 		lastname: 'Debbah',
 		firstname: 'Mérouane',
-		login: 'Meme',
+		login: 'Toto',
 		email: 'dphengsiaroun@outlook.fr',
 		profile: 'both',
 		street: '99 rue de Paris',

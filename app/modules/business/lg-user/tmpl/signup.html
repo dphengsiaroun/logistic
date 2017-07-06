@@ -20,7 +20,7 @@
 		<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
 		/>
 		<input name="phone" type="text" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" /><br/>
-		<input type="eyepassword" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" />
+		<input type="eyepassword" name="password" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" />
 		<br/>
 		<lg-error error="$ctrl.user.error"></lg-error>
 		<button id="pr-create-user-button" >Créer le compte</button>

@@ -16,7 +16,7 @@ app.directive('input', ['$injector', function($injector) {
 
 			var elt = angular.element('<!-- input type="eyepassword" ng-model="' + attr.ngModel + '" -->' +
 				'<lg-eyepassword password="' + attr.ngModel +
-				'" placeholder="\'' + attr.placeholder + '\'"></lg-eyepassword>');
+				'" placeholder="' + attr.placeholder + '" name="' + attr.name + '"></lg-eyepassword>');
 			element.after(elt);
 			element.attr('style', 'display: none !important');
 			$compile(elt)(scope);
@@ -44,6 +44,7 @@ app.component('lgEyepassword', {
 	},
 	bindings: {
 		password: '=',
-		placeholder: '=',
+		placeholder: '@',
+		name: '@',
 	}
 });

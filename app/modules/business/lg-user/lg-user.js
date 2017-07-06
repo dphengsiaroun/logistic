@@ -18,6 +18,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	var service = this;
 
 	this.signupData = {
+		content: {}
 	};
 
 	this.signup = function() {
