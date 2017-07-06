@@ -18,6 +18,7 @@ var makeUrl = function(str) {
 app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	'ngInject';
 	var service = this;
+	var user = this;
 
 	this.signupData = {
 		content: {}
@@ -42,7 +43,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 			}
 			service.error = undefined;
 			service.current = response.data.user;
-			$rootScope.isConnected = true;
+			user.isConnected = true;
 			$state.go('user:create:success');
 		}).catch(function(error) {
 			service.error = error;
@@ -92,7 +93,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 				return $q.reject(response);
 			}
 			service.current = undefined;
-			$rootScope.isConnected = false;
+			user.isConnected = false;
 			$state.go('user:deleted');
 		});
 	};

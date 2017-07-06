@@ -5,7 +5,6 @@ import '../../app/modules/business/lg-user/lg-user.js';
 describe('lg-user', function() {
 	let user;
 	let $httpBackend;
-	let $rootScope;
 	let $state;
 	beforeEach(function() {
 		angular.mock.module('lg-user');
@@ -13,7 +12,6 @@ describe('lg-user', function() {
 
 			user = $injector.get('user');
 			$httpBackend = $injector.get('$httpBackend');
-			$rootScope = $injector.get('$rootScope');
 			$state = $injector.get('$state');
 		});
 	});
@@ -90,7 +88,7 @@ describe('lg-user', function() {
 
 				}
 			});
-			expect($rootScope.isConnected).toEqual(true);
+			expect(user.isConnected).toEqual(true);
 			expect($state.current.name).toEqual('user:create:success');
 		});
 	});
