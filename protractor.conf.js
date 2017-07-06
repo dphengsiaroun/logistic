@@ -1,6 +1,6 @@
 exports.config = {
   framework: 'jasmine',
-  
+
   specs: [
     './test/e2e/e2e-install.js',
     // './test/e2e/e2e-geoloc-sstub.js',
