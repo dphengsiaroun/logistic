@@ -1,6 +1,4 @@
-'use strict';
-
-var app = angular.module('lg-carrier');
+const app = angular.module('lg-carrier');
 
 app.config(function($stateProvider) {
 	'ngInject';
@@ -12,12 +10,12 @@ app.config(function($stateProvider) {
 });
 
 
-var lgCarrierCreatePricingUrl = require('../tmpl/carrier-create-pricing.html');
+const lgCarrierCreatePricingUrl = require('../tmpl/carrier-create-pricing.html');
 app.component('lgCarrierCreatePricingRoute', {
 	templateUrl: lgCarrierCreatePricingUrl,
 	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {
 		'ngInject';
-		var ctrl = this;
+		const ctrl = this;
 		if (carrier.type === 'create') {
 			ctrl.pricingData = {};
 		} else {

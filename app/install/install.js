@@ -1,5 +1,3 @@
-'use strict';
-
 require('angular');
 require('angular-route');
 require('font-awesome/css/font-awesome.css');

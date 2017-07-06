@@ -1,4 +1,4 @@
-'use strict';
+
 
 require('./lg-user.scss');
 module.exports = 'lg-user';

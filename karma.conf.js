@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Wed Jul 05 2017 16:07:31 GMT+0200 (CEST)
+// Generated on Thu Jul 06 2017 16:23:43 GMT+0200 (CEST)
 
 module.exports = function(config) {
 	config.set({
@@ -10,16 +10,11 @@ module.exports = function(config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['jasmine', 'browserify'],
+		frameworks: ['jasmine'],
 
 
 		// list of files / patterns to load in the browser
-		files: [
-			'node_modules/angular/angular.js',
-			'node_modules/angular-mocks/angular-mocks.js',
-			'app/*.js',
-			'test/unit/*.js',
-		],
+		files: [{ pattern: 'test/unit/**/*.js', watched: false }, ],
 
 
 		// list of files to exclude
@@ -29,9 +24,22 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'test/unit/*.js': ['browserify']
+			'test/unit/**/*.js': ['webpack'],
 		},
 
+    webpack: {
+      // karma watches the test entry points
+      // (you don't need to specify the entry option)
+      // webpack watches dependencies
+
+      // webpack configuration
+    },
+
+    webpackMiddleware: {
+      // webpack-dev-middleware configuration
+      // i. e.
+      stats: 'errors-only'
+    },
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
