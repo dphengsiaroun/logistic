@@ -117,7 +117,7 @@
     <div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
     <bottom ng-show="!$ctrl.isEditable">
         <a href="tel:{{$ctrl.carrier.current.content.phone}}">Appeler</a>
-        <a ng-show="$ctrl.user.current" ui-sref="proposal:create({id: $ctrl.carrier.current.id, type: 'carrier'})">Faire une proposition</a>
+        <a ui-sref="proposal:create({id: $ctrl.carrier.current.id, type: 'carrier'})">Faire une proposition</a>
     </bottom>
     <div ng-show="$ctrl.isEditable">
         <button id="pr-edit-button" ui-sref="carrier:update({login: $ctrl.user.current.content.login, id: $ctrl.carrier.current.id})">Editer</button>

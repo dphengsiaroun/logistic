@@ -9,8 +9,10 @@
 	</right>
 </div>
 <img-ad>
-    <img ng-show="$ctrl.proposal.current.ad_type === 'loader'" src="img/loader-default.svg">
-    <img ng-show="$ctrl.proposal.current.ad_type === 'carrier'" src="img/truck-default.svg">
+    <img ng-show="$ctrl.proposal.current.ad_type === 'loader' && !$ctrl.proposal.current.content.imageUrl" src="img/loader-default.svg">
+    <img ng-show="$ctrl.proposal.current.ad_type === 'loader' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
+    <img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && !$ctrl.proposal.current.content.imageUrl" src="img/truck-default.svg">
+    <img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
 </img-ad>
 <recap>
 	<h1>{{$ctrl.proposal.current.content.titleAd}}</h1>
