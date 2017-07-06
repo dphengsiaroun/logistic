@@ -100,7 +100,7 @@
 	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
 	<bottom ng-show="!$ctrl.isEditable">
 		<a href="tel:{{$ctrl.loader.current.content.phone}}">Appeler</a>
-		<button ng-show="$ctrl.user.current" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</button>
+		<a ng-show="$ctrl.user.current" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</a>
 	</bottom>
 	<div ng-show="$ctrl.isEditable">
 		<button id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>

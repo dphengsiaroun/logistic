@@ -246,21 +246,14 @@ bottom {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	button {
-		display: table-cell;
-		margin: 0px;
-		padding: 5px;
-		vertical-align: middle;
-		border-radius: 0px;
-	}
-	button:nth-child(2), button:nth-child(3) {
+	a:nth-child(2), button:nth-child(3) {
 		background: $veryLightGreen;
 	}
 	a {
 		display: table-cell;
 		width: 50%;
 		margin: 0px;
-		padding: 15px;
+		padding: 15px 0px;
 		vertical-align: middle;
 		border-radius: 0px;
 		text-align: center;
