@@ -1,6 +1,4 @@
-const cfg = require('../../../protractor.conf.js');
-console.log('cfg', cfg);
-const config = cfg.config;
+const {config} = require('../../../protractor.conf.js');
 config.specs = [
 	'../e2e-install.js',
 	'../e2e-user.js',

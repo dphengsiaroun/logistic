@@ -5,6 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const cfgUtils = require('../../cfg/utils.js');
 var devEnv = cfgUtils.getEnv('dev');
+const consolidate = require('consolidate');
+const ejs = require('ejs');
+consolidate.requires.ejs = ejs;
 
 describe('Geoloc STUB', function() {
 
@@ -20,18 +23,26 @@ describe('Geoloc STUB', function() {
 
 		connection.connect();
 
-		var sql = fs.readFileSync(path.resolve(__dirname, './data/geoloc.sql'), 'utf8').toString();
-
-		connection.query(sql, function(error, results, fields) {
-			if (error) throw error;
-			// `results` is an array with one element for every statement in the query:
-			connection.query('SELECT COUNT(*) AS count FROM xx_geoloc', function(error, results, fields) {
+		consolidate.ejs(path.resolve(__dirname, './data/geoloc.sql'), devEnv.ws).then(function(sql) {
+			connection.query(sql, function(error, results, fields) {
 				if (error) throw error;
-				connection.end();
-				expect(results[0].count).toEqual(15);
-				done();
+				// `results` is an array with one element for every statement in the query:
+				const query = `
+SELECT
+	COUNT(*) AS count 
+FROM
+	${devEnv.ws.prefix}geoloc
+`;
+				connection.query(query,
+					function(error, results, fields) {
+						if (error) throw error;
+						connection.end();
+						expect(results[0].count).toEqual(15);
+						done();
+					});
 			});
 		});
+
 	});
 
 });
