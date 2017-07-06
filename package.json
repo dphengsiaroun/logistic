@@ -55,7 +55,8 @@
 		"e2e-user": "protractor test/e2e/cfg/user-crud.js",
 		"e2e-truck": "protractor test/e2e/cfg/truck-crud.js",
 		"e2e-loader": "protractor test/e2e/cfg/loader-crud.js",
-		"e2e-carrier": "protractor test/e2e/cfg/carrier-crud.js"
+		"e2e-carrier": "protractor test/e2e/cfg/carrier-crud.js",
+		"e2e-proposal": "protractor test/e2e/cfg/proposal-crud.js"
 	},
 	"dependencies": {
 		"angular": "1.6.1",

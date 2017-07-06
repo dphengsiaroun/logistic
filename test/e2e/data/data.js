@@ -71,3 +71,13 @@ data.users = [{
 		phone: '0754342214'
 	}
 ];
+
+data.proposals = [{
+		
+
+	},
+	{
+		
+	}
+];
+

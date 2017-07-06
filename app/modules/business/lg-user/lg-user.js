@@ -18,20 +18,6 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	var service = this;
 
 	this.signupData = {
-		email: 'dphengsiaroun@outlook.fr',
-		password: 'test',
-		content: {
-			lastname: 'Debbah',
-			firstname: 'Mérouane',
-			login: 'Meme',
-			address: {
-				street: '99 rue de Paris',
-				city: 'Torcy',
-				zipcode: '77200',
-				country: 'France'
-			},
-			profile: 'both'
-		}
 	};
 
 	this.signup = function() {
