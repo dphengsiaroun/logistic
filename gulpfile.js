@@ -222,9 +222,9 @@ gulp.task('config', function(callback) {
 		console.log('./app/ws/include/suggested.config.php saved.');
 		return consolidate.ejs('./cfg/svg.tmpl', svg);
 	}).then(function(str) {
-		return fs.writeFileAsync('./app/lg-widget/tmpl/lg-image.html', str);
+		return fs.writeFileAsync('./app/modules/technic/lg-widget/tmpl/lg-image.html', str);
 	}).then(function() {
-		console.log('./app/lg-widget/tmpl/lg-image.html saved.');
+		console.log('./app/modules/technic/lg-widget/tmpl/lg-image.html saved.');
 		callback();
 	}).catch(function(error) {
 		console.error('error', error);
