@@ -27,19 +27,40 @@ module.exports = function(config) {
 			'test/unit/**/*.js': ['webpack'],
 		},
 
-    webpack: {
-      // karma watches the test entry points
-      // (you don't need to specify the entry option)
-      // webpack watches dependencies
+		webpack: {
+			// karma watches the test entry points
+			// (you don't need to specify the entry option)
+			// webpack watches dependencies
 
-      // webpack configuration
-    },
+			// webpack configuration
+			module: {
+				rules: [{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						use: [{
+							loader: 'ng-annotate-loader',
+						}, {
+							loader: 'babel-loader',
+						}]
+					},
+					{
+						test: /\.s?css$/,
+						use: 'null-loader'
+					},
+					// managing angular templates into javascript file.
+					{
+						test: /\.html$/,
+						use: 'null-loader'
+					},
+				]
+			},
+		},
 
-    webpackMiddleware: {
-      // webpack-dev-middleware configuration
-      // i. e.
-      stats: 'errors-only'
-    },
+		webpackMiddleware: {
+			// webpack-dev-middleware configuration
+			// i. e.
+			stats: 'errors-only'
+		},
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'

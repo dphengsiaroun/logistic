@@ -1,9 +1,11 @@
 
 
-require('./lg-user.scss');
+import './lg-user.scss';
+import 'angular-ui-router';
+window.Hashes = require('jshashes');
 module.exports = 'lg-user';
 
-var app = angular.module(module.exports, []);
+var app = angular.module(module.exports, ['ui.router']);
 require('./lg-user-route.js');
 require('./ctrl/ads.js');
 require('./ctrl/proposals.js');

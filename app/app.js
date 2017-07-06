@@ -5,7 +5,6 @@ require('./css/create-ad.scss');
 require('./css/lg-ad.scss');
 require('./css/style.scss');
 
-window.Hashes = require('jshashes');
 var $ = require('jquery');
 window.jQuery = $;
 window.$ = $;
