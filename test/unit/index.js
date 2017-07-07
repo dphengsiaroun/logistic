@@ -1,3 +1,5 @@
 import 'angular';
 import 'angular-mocks';
-import './karma-lg-user.js';
+
+const testsContext = require.context('.', true, /karma-.*\.js/);
+testsContext.keys().forEach(testsContext);
