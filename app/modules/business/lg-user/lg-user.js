@@ -3,9 +3,10 @@
 import './lg-user.scss';
 import 'angular-ui-router';
 window.Hashes = require('jshashes');
+require('../../technic/lg-widget/lg-widget.js');
 module.exports = 'lg-user';
 
-var app = angular.module(module.exports, ['ui.router']);
+var app = angular.module(module.exports, ['ui.router', 'lg-widget']);
 require('./lg-user-route.js');
 require('./ctrl/ads.js');
 require('./ctrl/proposals.js');
@@ -133,32 +134,3 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 		});
 	};
 });
-
-var initCtrl = function(ctrl, $scope, $injector) {
-	ctrl.user = $injector.get('user');
-	ctrl.connection = $injector.get('connection');
-	ctrl.user.error = undefined;
-	$scope.$watch('$ctrl.user.signupData.content.login', function() {
-		console.log('ctrl.user', ctrl.user);
-		console.log('ctrl.user.signupData.content.login', ctrl.user.signupData.content.login);
-		ctrl.user.signupData.content.login = angular.lowercase(ctrl.user.signupData.content.login);
-	});
-	$scope.$watch('$ctrl.user.updateData.content.login', function() {
-		console.log('ctrl.user', ctrl.user);
-		console.log('ctrl.user.updateData.content.login', ctrl.user.updateData.content.login);
-		ctrl.user.updateData.content.login = angular.lowercase(ctrl.user.updateData.content.login);
-	});
-	$scope.$watch('$ctrl.user.current', function() {
-		if (ctrl.user.current) {
-			ctrl.user.updateData = angular.copy(ctrl.user.current);
-		}
-	});
-};
-
-app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
-	initCtrl(this, $scope, $injector);
-}]);
-
-app.controller('UserUpdateCtrl', ['$scope', '$injector', function UserUpdateCtrl($scope, $injector) {
-	initCtrl(this, $scope, $injector);
-}]);

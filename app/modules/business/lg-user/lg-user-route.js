@@ -123,6 +123,31 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
+function initCtrl(ctrl, $scope, $injector) {
+	ctrl.user = $injector.get('user');
+	ctrl.connection = $injector.get('connection');
+	ctrl.user.error = undefined;
+	$scope.$watch('$ctrl.user.signupData.content.login', function() {
+		console.log('ctrl.user', ctrl.user);
+		console.log('ctrl.user.signupData.content.login', ctrl.user.signupData.content.login);
+		ctrl.user.signupData.content.login = angular.lowercase(ctrl.user.signupData.content.login);
+	});
+	$scope.$watch('$ctrl.user.updateData.content.login', function() {
+		console.log('ctrl.user', ctrl.user);
+		console.log('ctrl.user.updateData.content.login', ctrl.user.updateData.content.login);
+		ctrl.user.updateData.content.login = angular.lowercase(ctrl.user.updateData.content.login);
+	});
+	$scope.$watch('$ctrl.user.current', function() {
+		if (ctrl.user.current) {
+			ctrl.user.updateData = angular.copy(ctrl.user.current);
+		}
+	});
+};
+
+app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
+	initCtrl(this, $scope, $injector);
+}]);
+
 var signupUrl = require('./tmpl/signup.html');
 var signupSuccessUrl = require('./tmpl/signup_success.html');
 var profileUrl = require('./tmpl/profile.html');
@@ -145,10 +170,10 @@ app.component('lgUserRetrieveRoute', {
 
 app.component('lgUserUpdatePasswordRoute', {
 	templateUrl: updatePasswordUrl,
-	controller: 'UserUpdateCtrl'
+	controller: 'UserCtrl'
 });
 
 app.component('lgUserInitiatePasswordRoute', {
 	templateUrl: initiatePasswordUrl,
-	controller: 'UserUpdateCtrl'
+	controller: 'UserCtrl'
 });
