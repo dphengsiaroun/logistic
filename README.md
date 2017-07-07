@@ -5,6 +5,12 @@ This is a web project for a fret ad system.
 It is written with AngularJS, Webpack, Karma, Protractor, Istanbul for the front-end.
 For the back-end, PHP, MySQL and Apache are used.
 
+# Prerequisites
+
+1. Install XAMPP (https://www.apachefriends.org/fr/index.html). XAMPP is a PHP, MySQL, Apache stack.
+2. Install Composer (https://getcomposer.org/). For info: Composer is used to install php dependancies as npm does.
+
+
 # Installation
 
 ## Clone the project
