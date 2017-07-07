@@ -69,7 +69,7 @@ $ gulp config
 
 ## Start the servers
 
-1. Start the XAMPP server (both: Apache and MySQL)
+1. Start the XAMPP server (both Apache and MySQL)
 2. Start the express server: `npm start`
 
 ## Install the database
