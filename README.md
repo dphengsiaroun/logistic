@@ -53,25 +53,65 @@ Customize the newly created **environments.js** file.
 You will find the value documented in the file.
 
 
-# Mise en production
+## Run the config
 
-## Paramètrage
+```
+$ cd logistic
+$ gulp config
+```
 
-Créer le fichier `cfg/environment.js` à partir du fichier `cfg/environment.js.tmpl` avec vos paramètres.
+## Start the servers
 
-TODO: Documenter le fichier `cfg/environment.js`
+1. Start the XAMPP server
+2. Start the express server: `npm start`
 
-## Fabrication du livrable 
+## Install the database
+
+1. Open a web browser on `http://localhost:8000/app/install`.
+2. Check the form and click on the install button.
+3. The installation should be successfull, go to the website.
+4. It should be working.
+
+# Deployment to production environment
+
+## Settings
+
+Review the `cfg/environment.js` file and check the deployment parameters.
+See the documentation directly inside the file.
+
+```
+$ cd logistic
+$ gulp config
+```
+
+## Build
 
 ```
 $ gulp rebuild
 ```
-## Déploiement
+
+
+## Deployment
+
 ```
 $ gulp deploy
 ```
 
+### Note 
+
+If you need to undeploy, just run `gulp undeploy`.
+
+
+## Install the database
+
+1. Open a web browser on `http://<www.your-target-site.com>/install`.
+2. Check the form and click on the install button.
+3. The installation should be successfull, go to the website.
+4. It should be working.
+
+
 # Authors
 
+- Maite THOMIAS
 - Dany PHENGSIAROUN
 - Jean-Louis GUENEGO
