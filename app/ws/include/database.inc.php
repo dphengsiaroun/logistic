@@ -3,7 +3,7 @@
 	include_once(CONFIG_INI);
 
 	try {
-		$db = new PDO("mysql:host={$cfg->host};port={$cfg->port};dbname={$cfg->bdd}",
+		$db = new PDO("mysql:host={$cfg->host};port={$cfg->port};dbname={$cfg->database}",
 			$cfg->user,
 			$cfg->password,
 			array(

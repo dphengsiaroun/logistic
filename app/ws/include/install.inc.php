@@ -28,7 +28,7 @@
 			$result['port'] = $cfg->port;
 			$result['username'] = $cfg->user;
 			$result['password'] = $cfg->password;
-			$result['databaseName'] = $cfg->bdd;
+			$result['databaseName'] = $cfg->database;
 			$result['prefix'] = $cfg->prefix;
 
 			$result['oauth2']['google']['clientID'] = $cfg->oauth2GoogleClientId;
@@ -56,8 +56,8 @@
 
 	function isDatabaseExisting() {
 		global $cfg, $db;
-		$bdd = $cfg->bdd;
-		$sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$bdd'";
+		$database = $cfg->database;
+		$sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$database'";
 		$sqlResult = $db->query($sql);
 
 		// Si le résultat est différent de 0 alors on récupère les données
@@ -80,7 +80,7 @@
 	\$cfg->port = '$request->port';
 	\$cfg->user = '$request->username';
 	\$cfg->password = '$request->password';
-	\$cfg->bdd = '$request->databaseName';
+	\$cfg->database = '$request->databaseName';
 	\$cfg->prefix = '$request->prefix';
 
 	\$cfg->oauth2GoogleClientId = '{$request->oauth2->google->clientID}';
@@ -143,7 +143,7 @@ EOF;
 		$sql = <<<EOF
 SELECT CONCAT( 'DROP TABLE ', GROUP_CONCAT(table_name) , ';' )
     AS statement FROM information_schema.tables
-    WHERE table_schema = '{$cfg->bdd}' AND table_name LIKE '{$cfg->prefix}%';
+    WHERE table_schema = '{$cfg->database}' AND table_name LIKE '{$cfg->prefix}%';
 EOF;
 		$st = $db->prepare($sql,
 			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));

@@ -18,7 +18,7 @@ describe('Geoloc STUB', function() {
 			port: devEnv.ws.port,
 			user: devEnv.ws.user,
 			password: devEnv.ws.password,
-			database: devEnv.ws.bdd
+			database: devEnv.ws.database
 		});
 
 		connection.connect();

@@ -11,7 +11,7 @@
 	debug("start", $cfg->host);
 	debug("start", $cfg->user);
 	debug("start", $cfg->password);
-	debug("start", $cfg->bdd);
+	debug("start", $cfg->database);
 	$result = array(
 		"status" => "ok"
 	);
