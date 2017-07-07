@@ -1,6 +1,8 @@
 // Karma configuration
 // Generated on Thu Jul 06 2017 16:23:43 GMT+0200 (CEST)
 
+const webpackKarmaConfig = require('./webpack.karma.config.js');
+
 module.exports = function(config) {
 	config.set({
 
@@ -10,11 +12,13 @@ module.exports = function(config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['jasmine'],
+		frameworks: ['jasmine', 'source-map-support'],
 
 
 		// list of files / patterns to load in the browser
-		files: [{ pattern: 'test/unit/**/*.js', watched: false }, ],
+		files: [
+			'test/unit/**/*.js',
+		],
 
 
 		// list of files to exclude
@@ -27,52 +31,7 @@ module.exports = function(config) {
 			'test/unit/**/*.js': ['webpack'],
 		},
 
-		webpack: {
-			// karma watches the test entry points
-			// (you don't need to specify the entry option)
-			// webpack watches dependencies
-
-			// webpack configuration
-			module: {
-				rules: [{
-						test: /\.js$/,
-						exclude: /node_modules/,
-						use: [{
-							loader: 'ng-annotate-loader',
-						}, {
-							loader: 'babel-loader',
-						}]
-					},
-					{
-						enforce: 'post',
-						test: /\.js$/,
-						loader: 'istanbul-instrumenter-loader',
-						exclude: /(node_modules)/,
-					},
-					{
-						test: /\.s?css$/,
-						use: 'null-loader'
-					},
-					// managing angular templates into javascript file.
-					{
-						test: /\.html$/,
-						use: 'null-loader'
-					},
-				]
-			},
-		},
-
-		webpackMiddleware: {
-			// webpack-dev-middleware configuration
-			// i. e.
-			stats: 'errors-only',
-			noInfo: true
-		},
-
-		coverageIstanbulReporter: {
-			// reports: ['text-summary'],
-			fixWebpackSourcePaths: true
-		},
+		webpack: webpackKarmaConfig,
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
@@ -80,8 +39,11 @@ module.exports = function(config) {
 		reporters: ['progress', 'coverage'],
 
 		coverageReporter: {
-			type: 'html',
-			dir: 'coverage/'
+			reporters: [{
+				type: 'json',
+				dir: 'coverage/json',
+				subdir: '.'
+			}]
 		},
 
 
@@ -99,17 +61,17 @@ module.exports = function(config) {
 
 
 		// enable / disable watching file and executing tests whenever any file changes
-		autoWatch: true,
+		autoWatch: false,
 
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['Chrome'],
+		browsers: ['PhantomJS'],
 
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
-		singleRun: false,
+		singleRun: true,
 
 		// Concurrency level
 		// how many browser should be started simultaneous
