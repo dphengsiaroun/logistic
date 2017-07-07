@@ -27,7 +27,7 @@
 			$result['hostname'] = $cfg->host;
 			$result['port'] = $cfg->port;
 			$result['username'] = $cfg->user;
-			$result['password'] = $cfg->mdp;
+			$result['password'] = $cfg->password;
 			$result['databaseName'] = $cfg->bdd;
 			$result['prefix'] = $cfg->prefix;
 
@@ -79,7 +79,7 @@
 	\$cfg->host = '$request->hostname';
 	\$cfg->port = '$request->port';
 	\$cfg->user = '$request->username';
-	\$cfg->mdp = '$request->password';
+	\$cfg->password = '$request->password';
 	\$cfg->bdd = '$request->databaseName';
 	\$cfg->prefix = '$request->prefix';
 

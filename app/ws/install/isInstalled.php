@@ -10,7 +10,7 @@
 	debug("start");
 	debug("start", $cfg->host);
 	debug("start", $cfg->user);
-	debug("start", $cfg->mdp);
+	debug("start", $cfg->password);
 	debug("start", $cfg->bdd);
 	$result = array(
 		"status" => "ok"
