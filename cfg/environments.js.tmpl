@@ -17,6 +17,61 @@ module.exports = {
 			ws: {
 				// All the config parameters the web services requires.
 				appName: 'My Beautiful App',
+				// The mySQL database parameter (see your webhoster, OVH, Gandi, ...)
+				host: 'xxxxx',
+				// The default MySQL port is 3306
+				port: 'xxxxx',
+				// Check the config of your database to get the proper user name
+				user: 'xxxxx',
+				// the MySQL password (sometimes it is an empty string)
+				password: 'xxxxx',
+				// The MySQL database name to use
+				database: 'xxxxx',
+				// All the tables in the database will be prefixed by the following
+				// Most of the time it will be 'lg_'
+				prefix: 'lg_',
+
+				// For the social login buttons we need to be registered on Google and Facebook.
+				// Check with Google and Facebook how to do.
+				oauth2GoogleClientId: 'xxxxx',
+				oauth2GoogleClientSecret: 'xxxxx',
+
+				oauth2FacebookClientId: 'xxxxx',
+				oauth2FacebookClientSecret: 'xxxxx',
+
+				// The website can send mail.
+				// You need to configure an smtp server
+
+				smtpServerHost: 'xxxxx',
+				smtpServerPort: 'xxxxx',
+				smtpSecure: 'tls',
+				smtpServerUsername: 'xxxxx',
+				smtpServerPassword: 'xxxxx',
+				smtpServerFrom: 'xxxxx',
+
+				// The website use the Google Map API so we need to register a Google key.
+				routeGoogleAPIKey: 'xxxxx',
+			},
+
+			// The development URL of the website.
+			// Example: http://localhost:8000/app/
+			url: 'xxxxx'
+
+		},
+		// If you need to have other settings just add an other
+		// key with all your production parameters.
+		myOtherDeployment: {
+			ftp: {
+				// ftp host/user/password/remotePath of the 
+				// location where to deploy.
+				host: 'ftp.my-target-site.com',
+				user: 'mylogin',
+				pass: 'mypassword',
+				remotePath: 'my/dir',
+			},
+			ws: {
+				// All the config parameters the web services requires.
+				appName: 'My Beautiful App',
 				// The mySQL database parameter
 				host: 'xxxxx',
 				// The default MySQL port is 3306
@@ -25,123 +80,130 @@ module.exports = {
 				user: 'xxxxx',
 				// the MySQL password (sometimes it is an empty string)
 				password: 'xxxxx',
-				// The data base to use
+				// The MySQL database name to use
 				database: 'xxxxx',
 				// All the tables in the database will be prefixed by the following
+				// Most of the time it will be 'lg_'
 				prefix: 'lg_',
 
+				// For the social login buttons we need to be registered on Google and Facebook.
+				// Check with Google and Facebook how to do.
 				oauth2GoogleClientId: 'xxxxx',
 				oauth2GoogleClientSecret: 'xxxxx',
 
 				oauth2FacebookClientId: 'xxxxx',
 				oauth2FacebookClientSecret: 'xxxxx',
 
+				// The website can send mail.
+				// You need to configure an smtp server
+
 				smtpServerHost: 'xxxxx',
 				smtpServerPort: 'xxxxx',
-				smtpSecure: 'xxxxx',
+				smtpSecure: 'tls',
 				smtpServerUsername: 'xxxxx',
 				smtpServerPassword: 'xxxxx',
 				smtpServerFrom: 'xxxxx',
 
+				// The website use the Google Map API so we need to register a Google key.
 				routeGoogleAPIKey: 'xxxxx',
 			},
-			url: 'xxxxx'
 
-		},
-		jlgc2: {
-			ftp: {
-				host: 'xxxxx',
-				user: 'xxxxx',
-				pass: 'xxxxx',
-				remotePath: 'xxxxx',
-			},
-			ws: {
-				appName: 'xxxxx',
-				host: 'xxxxx',
-				port: 'xxxxx',
-				user: 'xxxxx',
-				password: 'xxxxx',
-				database: 'xxxxx',
-				prefix: 'xxxxx',
-
-				oauth2GoogleClientId: 'xxxxx',
-				oauth2GoogleClientSecret: 'xxxxx',
-
-				oauth2FacebookClientId: 'xxxxx',
-				oauth2FacebookClientSecret: 'xxxxx',
-
-				smtpServerHost: 'xxxxx',
-				smtpServerPort: 'xxxxx',
-				smtpSecure: 'xxxxx',
-				smtpServerUsername: 'xxxxx',
-				smtpServerPassword: 'xxxxx',
-				smtpServerFrom: 'xxxxx',
-
-				routeGoogleAPIKey: 'xxxxx',
-			},
+			// The development URL of the website.
+			// Example: http://localhost:8000/app/
 			url: 'xxxxx'
 
 		},
 	},
+	// Config for development or local installation
 	dev: {
-		default: 'jlgdev',
+		// default: put the key of the default development settings.
+		default: 'myDefaultDev',
 		// dev platform with express
-		jlgdev: {
-			proxyUrl: 'xxxxx',
+		myDefaultDev: {
+			// The proxy URL is the adress of the XAMPP Apache server project alias URL.
+			// most of the time it should be http://localhost/logistic/app/ws/
+			proxyUrl: 'http://localhost/logistic/app/ws/',
 			ws: {
-				appName: 'xxxxx',
-				host: 'xxxxx',
-				port: 'xxxxx',
-				user: 'xxxxx',
-				password: 'xxxxx',
-				database: 'xxxxx',
-				prefix: 'xxxxx',
+				// All the config parameters the web services requires.
+				appName: 'My Beautiful App',
+				// The mySQL database parameter
+				host: 'localhost',
+				// The default MySQL port is 3306
+				port: '3306',
+				// Check the config of your database to get the proper user name
+				user: 'root',
+				// the MySQL password (sometimes it is an empty string)
+				password: '',
+				// The MySQL database name to use
+				database: 'logistic',
+				// All the tables in the database will be prefixed by the following
+				// Most of the time it will be 'lg_'
+				prefix: 'lg_',
 
+				// For the social login buttons we need to be registered on Google and Facebook.
+				// Check with Google and Facebook how to do.
 				oauth2GoogleClientId: 'xxxxx',
 				oauth2GoogleClientSecret: 'xxxxx',
 
 				oauth2FacebookClientId: 'xxxxx',
 				oauth2FacebookClientSecret: 'xxxxx',
 
+				// The website can send mail.
+				// You need to configure an smtp server
+
 				smtpServerHost: 'xxxxx',
 				smtpServerPort: 'xxxxx',
-				smtpSecure: 'xxxxx',
+				smtpSecure: 'tls',
 				smtpServerUsername: 'xxxxx',
 				smtpServerPassword: 'xxxxx',
 				smtpServerFrom: 'xxxxx',
 
+				// The website use the Google Map API so we need to register a Google key.
 				routeGoogleAPIKey: 'xxxxx',
 			}
 		},
-		jlgdev2: {
-			proxyUrl: 'xxxxx',
+		myOtherDev: {
+			// The proxy URL is the adress of the XAMPP Apache server project alias URL.
+			// most of the time it should be http://localhost/logistic/app/ws/
+			proxyUrl: 'http://localhost/logistic/app/ws/',
 			ws: {
-				appName: 'xxxxx',
-				host: 'xxxxx',
-				port: 'xxxxx',
-				user: 'xxxxx',
-				password: 'xxxxx',
-				database: 'xxxxx',
-				prefix: 'xxxxx',
+				// All the config parameters the web services requires.
+				appName: 'My Beautiful App',
+				// The mySQL database parameter
+				host: 'localhost',
+				// The default MySQL port is 3306
+				port: '3306',
+				// Check the config of your database to get the proper user name
+				user: 'root',
+				// the MySQL password (sometimes it is an empty string)
+				password: '',
+				// The MySQL database name to use
+				database: 'logistic',
+				// All the tables in the database will be prefixed by the following
+				// Most of the time it will be 'lg_'
+				prefix: 'lg_',
 
+				// For the social login buttons we need to be registered on Google and Facebook.
+				// Check with Google and Facebook how to do.
 				oauth2GoogleClientId: 'xxxxx',
 				oauth2GoogleClientSecret: 'xxxxx',
 
 				oauth2FacebookClientId: 'xxxxx',
 				oauth2FacebookClientSecret: 'xxxxx',
 
+				// The website can send mail.
+				// You need to configure an smtp server
+
 				smtpServerHost: 'xxxxx',
 				smtpServerPort: 'xxxxx',
-				smtpSecure: 'xxxxx',
+				smtpSecure: 'tls',
 				smtpServerUsername: 'xxxxx',
 				smtpServerPassword: 'xxxxx',
 				smtpServerFrom: 'xxxxx',
 
+				// The website use the Google Map API so we need to register a Google key.
 				routeGoogleAPIKey: 'xxxxx',
 			}
 		},
 	},
-
-
 };
-
