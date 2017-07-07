@@ -117,6 +117,11 @@ If you need to undeploy, just run `gulp undeploy`.
 4. It should be working.
 
 
+# Test
+
+Refer to the `package.json` file to see test commands.
+
+
 # Authors
 
 - Maite THOMIAS
