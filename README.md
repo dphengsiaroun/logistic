@@ -9,7 +9,8 @@ For the back-end, PHP, MySQL and Apache are used.
 
 1. Install XAMPP (https://www.apachefriends.org/fr/index.html). XAMPP is a PHP, MySQL, Apache stack.
 2. Install Composer (https://getcomposer.org/). For info: Composer is used to install php dependancies as npm does.
-3. Install Node (>8.1.0) (https://nodejs.org/en/). 
+3. Install Node (>8.1.0) (https://nodejs.org/en/).
+4. Install in global mode gulp (`npm install -g gulp-cli`)
 
 
 # Installation
