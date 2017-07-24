@@ -4,6 +4,7 @@ var truck = data.trucks[0];
 var loaderAd = data.loaderAd;
 var carrierAd = data.carrierAd;
 var user = data.users[1];
+var user1 = data.users[0];
 
 describe('Create ADS', function() {
 
@@ -63,10 +64,22 @@ describe('Create ADS', function() {
 		element(by.id('pr-add-vehicle-button')).click();
 		console.log('-> truck created', arguments);
 		element(by.css('button.no')).click();
+		element(by.name('lastname')).clear().sendKeys(user1.lastname);
+        element(by.name('firstname')).clear().sendKeys(user1.firstname);
+        element(by.name('login')).clear().sendKeys(user1.login);
+        element(by.name('email')).clear().sendKeys(user1.email);
+		utils.lgSelect('profile', user1.profile);
+        element(by.name('street')).clear().sendKeys(user1.street);
+        element(by.name('zipcode')).clear().sendKeys(user1.zipcode);
+        element(by.name('city')).clear().sendKeys(user1.city);
+        utils.lgChoiceSelect('country', user1.country);
+		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user1.password);
+		browser.sleep(5000);
+        element(by.id('pr-create-user-button')).click();
 		element(by.css('button')).click();
-		element(by.css('button')).click();
-		console.log('-> user created', arguments);
 		element(by.css('button.ok')).click();
+		// browser.sleep(5000);
+		console.log('-> user created', arguments);
 		element(by.id('pr-choose-truck-link')).click();
 		element(by.id('pr-select-availabilities')).click();
 		element(by.id('pr-availability-total')).click();
@@ -74,7 +87,7 @@ describe('Create ADS', function() {
 		element(by.name('priceWantedPerKm')).sendKeys(data.carrierAd.priceWantedPerKm);
 		element(by.id('pr-add-pricing-button')).click();
 		element(by.id('pr-create-carrier-button-confirm')).click();
-		element(by.css('button.ok')).click();
+		element(by.css('button')).click();
 		console.log('-> Carrier ad created', arguments);
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
 	});

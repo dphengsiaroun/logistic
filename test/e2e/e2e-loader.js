@@ -1,6 +1,7 @@
 const utils = require('./utils.js');
 const data = require('./data/data.js');
 var loaderAd = data.loaderAd;
+var user = data.users[0];
 
 describe('Loader CRUD', function() {
 
@@ -34,7 +35,18 @@ describe('Loader CRUD', function() {
 		element(by.name('title')).sendKeys(loaderAd.title);
 		element(by.id('pr-button-create-loader-ad')).click();
 		element(by.css('button.no')).click();
-		element(by.id('pr-create-user-button')).click();
+		element(by.name('lastname')).clear().sendKeys(user.lastname);
+        element(by.name('firstname')).clear().sendKeys(user.firstname);
+        element(by.name('login')).clear().sendKeys(user.login);
+        element(by.name('email')).clear().sendKeys(user.email);
+		utils.lgSelect('profile', user.profile);
+        element(by.name('street')).clear().sendKeys(user.street);
+        element(by.name('zipcode')).clear().sendKeys(user.zipcode);
+        element(by.name('city')).clear().sendKeys(user.city);
+        utils.lgChoiceSelect('country', user.country);
+		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
+		browser.sleep(5000);
+        element(by.id('pr-create-user-button')).click();
 		element(by.css('button')).click();
 		console.log('-> user created', arguments);
 		element(by.css('button.ok')).click();
