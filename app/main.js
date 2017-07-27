@@ -4,6 +4,7 @@ require('font-awesome/css/font-awesome.css');
 require('./css/create-ad.scss');
 require('./css/lg-ad.scss');
 require('./css/style.scss');
+require('./css/overlay.scss');
 
 var $ = require('jquery');
 window.jQuery = $;
@@ -30,10 +31,10 @@ var lgChoice = require('./modules/form/lg-choice/lg-choice.js');
 var lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
 var lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
 var lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
+var lgFilter = require('./modules/form/lg-filter/lg-filter.js');
 var lgNum = require('./modules/form/lg-num/lg-num.js');
 var lgSlider = require('./modules/form/lg-slider/lg-slider.js');
 var lgUpload = require('./modules/form/lg-upload/lg-upload.js');
-var lgFilter = require('./modules/form/lg-filter/lg-filter.js');
 
 var lgMenu = require('./modules/site/lg-menu/lg-menu.js');
 var lgRoute = require('./modules/site/lg-route/lg-route.js');
@@ -61,7 +62,7 @@ window.makeMap = function(array) {
 	return map;
 };
 
-const app = angular.module('mainApp', [
+const app = angular.module('main', [
 	'ngTouch',
 	'ngSanitize',
 	'vcRecaptcha',
@@ -81,10 +82,10 @@ const app = angular.module('mainApp', [
 	lgDatetime,
 	lgDimension,
 	lgEyePassword,
+	lgFilter,
 	lgNum,
 	lgSlider,
 	lgUpload,
-	lgFilter,
 
 	lgMenu,
 	lgRoute,
