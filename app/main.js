@@ -4,6 +4,7 @@ require('font-awesome/css/font-awesome.css');
 require('./css/create-ad.scss');
 require('./css/lg-ad.scss');
 require('./css/style.scss');
+require('./css/overlay.scss');
 
 const $ = require('jquery');
 window.jQuery = $;
@@ -17,35 +18,35 @@ require('angular-ui-router');
 require('angular-ui-mask');
 require('angular-recaptcha');
 
-const lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
-const lgConfig = require('./modules/business/lg-config/lg-config.js');
-const lgConnection = require('./modules/business/lg-connection/lg-connection.js');
-const lgLoader = require('./modules/business/lg-loader/lg-loader.js');
-const lgPassword = require('./modules/business/lg-password/lg-password.js');
-const lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
-const lgTruck = require('./modules/business/lg-truck/lg-truck.js');
+var lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
+var lgConfig = require('./modules/business/lg-config/lg-config.js');
+var lgConnection = require('./modules/business/lg-connection/lg-connection.js');
+var lgLoader = require('./modules/business/lg-loader/lg-loader.js');
+var lgPassword = require('./modules/business/lg-password/lg-password.js');
+var lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
+var lgTruck = require('./modules/business/lg-truck/lg-truck.js');
 
-const lgCalendar = require('./modules/form/lg-calendar/lg-calendar.js');
-const lgChoice = require('./modules/form/lg-choice/lg-choice.js');
-const lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
-const lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
-const lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
-const lgNum = require('./modules/form/lg-num/lg-num.js');
-const lgSlider = require('./modules/form/lg-slider/lg-slider.js');
-const lgUpload = require('./modules/form/lg-upload/lg-upload.js');
-const lgFilter = require('./modules/form/lg-filter/lg-filter.js');
+var lgCalendar = require('./modules/form/lg-calendar/lg-calendar.js');
+var lgChoice = require('./modules/form/lg-choice/lg-choice.js');
+var lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
+var lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
+var lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
+var lgFilter = require('./modules/form/lg-filter/lg-filter.js');
+var lgNum = require('./modules/form/lg-num/lg-num.js');
+var lgSlider = require('./modules/form/lg-slider/lg-slider.js');
+var lgUpload = require('./modules/form/lg-upload/lg-upload.js');
 
-const lgMenu = require('./modules/site/lg-menu/lg-menu.js');
-const lgRoute = require('./modules/site/lg-route/lg-route.js');
+var lgMenu = require('./modules/site/lg-menu/lg-menu.js');
+var lgRoute = require('./modules/site/lg-route/lg-route.js');
 
-const lgDebug = require('./modules/technic/lg-debug/lg-debug.js');
-const lgError = require('./modules/technic/lg-error/lg-error.js');
-const lgGeoloc = require('./modules/technic/lg-geoloc/lg-geoloc.js');
-const lgHttp = require('./modules/technic/lg-http/lg-http.js');
-const lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
-const lgTest = require('./modules/technic/lg-test/lg-test.js');
-const lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
-const lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
+var lgDebug = require('./modules/technic/lg-debug/lg-debug.js');
+var lgError = require('./modules/technic/lg-error/lg-error.js');
+var lgGeoloc = require('./modules/technic/lg-geoloc/lg-geoloc.js');
+var lgHttp = require('./modules/technic/lg-http/lg-http.js');
+var lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
+var lgTest = require('./modules/technic/lg-test/lg-test.js');
+var lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
+var lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
 
 window.values = function(obj) {
 	return Object.keys(obj).map(function(key) {
@@ -61,7 +62,7 @@ window.makeMap = function(array) {
 	return map;
 };
 
-const app = angular.module('mainApp', [
+const app = angular.module('main', [
 	'ngTouch',
 	'ngSanitize',
 	'vcRecaptcha',
@@ -81,10 +82,10 @@ const app = angular.module('mainApp', [
 	lgDatetime,
 	lgDimension,
 	lgEyePassword,
+	lgFilter,
 	lgNum,
 	lgSlider,
 	lgUpload,
-	lgFilter,
 
 	lgMenu,
 	lgRoute,
