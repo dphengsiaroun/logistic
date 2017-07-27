@@ -33,7 +33,8 @@ $ composer install
 
 ## Configure Apache (XAMPP)
 
-1. Add at the end of the **httpd.conf** file the following: `Include "conf/alias/*"`.
+1. Add at the end of the `httpd.conf` file the following: `Include "conf/alias/*"`.
+On a XAMPP windows default install `httpd.conf` is located  under `C:\xampp\apache\conf`
 2. Create the **alias** directory under the XAMPP Apache conf directory. Example Windows: **C:\xampp\apache\conf\alias**.
 3. Insert the following file in the **conf/alias** directory: 
 

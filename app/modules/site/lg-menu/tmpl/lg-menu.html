@@ -9,7 +9,7 @@
 	</head-center>
 	<head-center class="connected" ng-show="$ctrl.user.current">
 		<a ng-click="$ctrl.off()" ui-sref="home"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGoroute</span><br/>
-			{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}
+			<span ng-show="$ctrl.user.current" class="user-identity">{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}</span>
 		</a>
 	</head-center>
 	<head-right>

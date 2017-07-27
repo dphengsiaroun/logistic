@@ -55,11 +55,15 @@ my-head {
 		}
 	}
 	head-center.connected {
-        a {
-            span {
-                padding: 21px;
-            }
-        }
+		a {
+			span {
+				padding: 21px;
+				&.user-identity {
+					padding: 5px;
+					font-size: 13px;
+				}
+			}
+		}
 		img-svg {
 			svg {
 				width: 50px;
@@ -74,7 +78,8 @@ my-head {
 		width: 50px;
 		vertical-align: top;
 		padding: 14px 10px;
-		menu-bar.fa, i.fa {
+		menu-bar.fa,
+		i.fa {
 			color: white;
 			font-size: 30px;
 		}
