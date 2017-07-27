@@ -30,3 +30,14 @@ utils.isDirectoryExisting = function(p) {
 	const absPath = path.resolve(__dirname, p);
 	return fs.existsSync(absPath);
 };
+
+utils.logout = function() {
+	browser.get('http://localhost:8000/app/');
+	element(by.css('logo')).click();
+	element(by.css('menu-bar.fa.fa-bars')).click();
+	element(by.linkText('Se déconnecter')).click();
+	element(by.css('button.yes')).click();
+
+	const userIdentity = element(by.css('.user-identity')).getText();
+	expect(userIdentity).toEqual('');
+};
