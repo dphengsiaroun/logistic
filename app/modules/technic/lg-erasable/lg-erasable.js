@@ -2,30 +2,36 @@ module.exports = 'lg-erasable';
 
 const app = angular.module(module.exports, []);
 
-app.directive('lgErasable', () => {
+app.directive('lgErasable', function($compile) {
 	'ngInject';
 	return {
 		restrict: 'A',
-		controller: function LgErasableCtrl($scope, $element, $compile) {
-			'ngInject';
-			console.log('LgErasableCtrl', arguments);
-			const ctrl = this;
-
-			$scope.lgErasableCtrl = ctrl;
+		require: '?ngModel',
+		scope: {},
+		controller: function() {
+			console.log('lgErasable ctrl', arguments);
+		},
+		link: function(scope, element, attrs, ctrl) {
+			console.log('lgErasable link', arguments);
 
 			const elt = angular.element(`<div 
 				class="erase" 
-				ng-click="lgErasableCtrl.erase()">
+				ng-click="erase()">
 					<i class="fa fa-times-circle erasable" aria-hidden="true"></i>
 				</div>`);
-			$element.after(elt);
-			$compile(elt)($scope);
-			
-			ctrl.erase = () => {
-				console.log('ctrl.erase');
+			element.after(elt);
+			$compile(elt)(scope);
+
+			scope.erase = () => {
+				console.log('ctrl.erase', ctrl);
+				if (ctrl) {
+					ctrl.$setViewValue('');
+					ctrl.$render();
+
+				}
 			};
 
-			
+
 		}
 	};
 });
