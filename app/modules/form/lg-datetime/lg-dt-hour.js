@@ -22,11 +22,30 @@ app.component('lgDtHour', {
 
 		ctrl.hourRange = hourRange;
 
+		let isScrolling = false;
+
+		function onScroll() {
+			if (isUpdating === true) {
+				console.log('onScroll set isUpdating to false');
+				isUpdating = false;
+				return;
+			}
+			console.log('onScroll', arguments);
+			if (isScrolling === false) {
+				isScrolling = true;
+				setTimeout(function() {
+					ctrl.swipe();
+					$scope.$apply();
+					isScrolling = false;
+				}, 100);
+			}
+		}
+
 		ctrl.update = function(hour, $index) {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;
 			console.log('width', width);
-			const pos = (0 + $index * 1.3) * width/10;
+			const pos = (0 + $index * 1.3) * width / 10;
 			console.log('pos', pos);
 			hourElt[0].scrollLeft = pos;
 			ctrl.lgDatetime.setHours(hour);
@@ -63,12 +82,12 @@ app.component('lgDtHour', {
 				ctrl.hourRange = hourRange;
 			}
 			if (ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours) === -1) {
-				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+				const $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
 				$timeout(function() {
 					ctrl.update(ctrl.hourRange[0], $index);
 				}, 0);
 			} else {
-				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+				const $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
 				$timeout(function() {
 					ctrl.update(ctrl.lgDatetime.selectedHours, $index);
 				}, 0);
@@ -77,31 +96,12 @@ app.component('lgDtHour', {
 
 		ctrl.swipe = function() {
 			console.log('swipe', arguments);
-			const pos = hourElt[0].scrollLeft/width;
+			const pos = hourElt[0].scrollLeft / width;
 			console.log('pos', pos);
-			const $index = Math.round(((pos-0) * 99/(12.9875-0)));
+			const $index = Math.round(((pos - 0) * 99 / (12.9875 - 0)));
 			console.log('$index', $index);
 			const hour = ctrl.hourRange[$index];
 			ctrl.update(hour, $index);
-		};
-
-		let isScrolling = false;
-
-		var onScroll = function() {
-			if (isUpdating === true) {
-				console.log('onScroll set isUpdating to false');
-				isUpdating = false;
-				return;
-			}
-			console.log('onScroll', arguments);
-			if (isScrolling === false) {
-				isScrolling = true;
-				setTimeout(function() {
-					ctrl.swipe();
-					$scope.$apply();
-					isScrolling = false;
-				}, 100);
-			}
 		};
 
 	},
@@ -109,4 +109,3 @@ app.component('lgDtHour', {
 		hours: '<'
 	}
 });
-
