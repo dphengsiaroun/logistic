@@ -51,7 +51,7 @@
 		"serve-index": "1.8.0",
 		"style-loader": "0.13.1",
 		"url-loader": "0.5.7",
-		"webpack": "^2.3.3",
+		"webpack": "^3.4.1",
 		"webpack-dev-middleware": "^1.10.1",
 		"yargs": "6.6.0"
 	},
