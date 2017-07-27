@@ -4,26 +4,20 @@
 <overlay ng-show="$ctrl.isEditing">
 	<fixed>
 		<my-head>
-			<head-left ng-show="$ctrl.defaultsOptions.place" ng-click="$ctrl.geoloc()">
-				<i class="fa fa-location-arrow" aria-hidden="true"></i>
-			</head-left>
-			<head-left ng-hide="$ctrl.defaultsOptions.place">
-			</head-left>
+			<head-left></head-left>
 			<head-center>
 				<p>Filtre</p>
 			</head-center>
-			<head-right ng-hide="$ctrl.isMandatory" ng-click="$ctrl.stop()" class="menu">
+			<head-right ng-click="$ctrl.cancel()" class="menu">
 				<i class="fa fa-times" aria-hidden="true"></i>
-			</head-right>
-			<head-right ng-show="$ctrl.isMandatory" class="menu">
 			</head-right>
 		</my-head>
 		<filter>
-			<form ng-submit="$ctrl.closeInput()" action="">
+			<form>
 				<label><span>Recherche par mots-clés</span>
-					<input type="text" placeholder="Recherche par mots-clés" ng-model="$ctrl.myInput" lg-erasable />					
+					<input type="text" placeholder="Recherche par mots-clés" ng-model="$ctrl.filter" lg-erasable />					
 				</label>
-				<button ng-click="ctrl.submit()">Valider</button>
+				<button ng-click="$ctrl.submit()">Valider</button>
 			</form>
 		</filter>
 	</fixed>

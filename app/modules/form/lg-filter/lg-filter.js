@@ -21,19 +21,18 @@ app.component('lgFilter', {
 			ctrl.isEditing = true;
 		};
 
-		ctrl.stop = () => {
-			console.log('ctrl.stop');
+		ctrl.cancel = () => {
+			console.log('ctrl.cancel');
 			ctrl.isEditing = false;
 		};
 
 		ctrl.submit = () => {
-			ctrl.myFilter = function() {
-				
-			};
+			console.log('ctrl.submit');
+			ctrl.isEditing = false;
 		};
 
 	},
 	bindings: {
-
+		filter: '='
 	}
 });
