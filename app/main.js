@@ -26,7 +26,6 @@ const lgPassword = require('./modules/business/lg-password/lg-password.js');
 const lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
 const lgTruck = require('./modules/business/lg-truck/lg-truck.js');
 
-const lgCalendar = require('./modules/form/lg-calendar/lg-calendar.js');
 const lgChoice = require('./modules/form/lg-choice/lg-choice.js');
 const lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
 const lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
@@ -77,7 +76,6 @@ const app = angular.module('main', [
 	lgProposal,
 	lgTruck,
 
-	lgCalendar,
 	lgChoice,
 	lgDatetime,
 	lgDimension,
