@@ -25,17 +25,16 @@ lg-filter {
 					border-radius: 3px;
 					border: 1px solid $borderColor;
 				}
-				i.fa {
+				div.erase {
 					display: block;
-					position: relative;
-					bottom: 38px;
-					left: 90%;
-					font-size: 25px;
-					color: $littleGray;
+					position: absolute;
+					top: 94%;
+					left: 88%;
+					i.fa {
+						font-size: 25px;
+						color: $littleGray;
+					}
 				}
-			}
-			button {
-				margin: 15px 0;
 			}
 		}
 	}
