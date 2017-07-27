@@ -34,7 +34,8 @@ describe('Create ADS', function() {
 		utils.lgSelect('profile', user.profile);
         element(by.name('street')).clear().sendKeys(user.street);
         element(by.name('zipcode')).clear().sendKeys(user.zipcode);
-        element(by.name('city')).clear().sendKeys(user.city);
+		element(by.name('city')).clear().sendKeys(user.city);
+		element(by.name('phone')).clear().sendKeys(user.phone);
         utils.lgChoiceSelect('country', user.country);
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 		browser.sleep(5000);
@@ -72,6 +73,7 @@ describe('Create ADS', function() {
         element(by.name('street')).clear().sendKeys(user1.street);
         element(by.name('zipcode')).clear().sendKeys(user1.zipcode);
         element(by.name('city')).clear().sendKeys(user1.city);
+        element(by.name('phone')).clear().sendKeys(user1.phone);
         utils.lgChoiceSelect('country', user1.country);
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user1.password);
 		browser.sleep(5000);
