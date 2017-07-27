@@ -28,7 +28,7 @@ app.component('lgFilter', {
 
 		ctrl.submit = () => {
 			ctrl.myFilter = function() {
-
+				
 			};
 		};
 

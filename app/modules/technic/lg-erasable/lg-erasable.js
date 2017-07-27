@@ -29,7 +29,6 @@ app.directive('lgErasable', function($compile) {
 				if (ctrl) {
 					ctrl.$setViewValue('');
 					ctrl.$render();
-
 				}
 			};
 
