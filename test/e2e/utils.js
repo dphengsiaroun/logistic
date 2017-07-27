@@ -69,9 +69,9 @@ utils.retrieveTruck = function() {
 	element(by.css('menu-bar')).click();
 	element(by.linkText('Mes véhicules')).click();
 	element(by.css('img')).click();
-	expect(browser.getCurrentUrl()).toEqual(`
-	http://localhost:8000/app/${user.login.toLowerCase()}/truck/${truck.name}
-	`);
+	expect(browser.getCurrentUrl()).toEqual(
+		`http://localhost:8000/app/${user.login.toLowerCase()}/truck/${truck.name}`
+	);
 };
 
 utils.updateTruck = function() {
