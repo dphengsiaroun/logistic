@@ -17,16 +17,17 @@ app.component('lgFilter', {
 		ctrl.isEditing = false;
 
 		ctrl.edit = () => {
-			console.log('edit');
+			console.log('ctrl.edit');
 			ctrl.isEditing = true;
 		};
 
 		ctrl.stop = () => {
+			console.log('ctrl.stop');
 			ctrl.isEditing = false;
 		};
 
 		ctrl.submit = () => {
-			
+
 		};
 
 	},
