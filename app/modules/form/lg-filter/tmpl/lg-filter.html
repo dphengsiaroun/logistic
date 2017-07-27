@@ -1,6 +1,7 @@
-<my-input name="{{$ctrl.name}}" ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
-<icon lg-bind-html-compile="$ctrl.getIcon($ctrl.currentValue)"></icon>
-<overlay ng-show="$ctrl.showLgChoice">
+<div ng-click="$ctrl.edit()">
+	<i class="fa fa-filter" aria-hidden="true"></i>
+</div>
+<overlay ng-show="$ctrl.isEditing">
 	<fixed>
 		<my-head>
 			<head-left ng-show="$ctrl.defaultsOptions.place" ng-click="$ctrl.geoloc()">
