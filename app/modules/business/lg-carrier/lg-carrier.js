@@ -1,7 +1,7 @@
 require('./lg-carrier.scss');
 module.exports = 'lg-carrier';
 
-var app = angular.module(module.exports, ['ui.router']);
+const app = angular.module(module.exports, ['ui.router']);
 require('./lg-carrier-route.js');
 require('./lg-carrier-create-route.js');
 

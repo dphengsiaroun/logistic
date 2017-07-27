@@ -1,6 +1,6 @@
 module.exports = 'lg-config';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 app.run(function($rootScope, $http) {
 	'ngInject';

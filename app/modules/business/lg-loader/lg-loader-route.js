@@ -1,4 +1,4 @@
-var app = angular.module('lg-loader');
+const app = angular.module('lg-loader');
 
 app.config(['$stateProvider', function($stateProvider) {
 

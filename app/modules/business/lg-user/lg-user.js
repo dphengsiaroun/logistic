@@ -6,7 +6,7 @@ window.Hashes = require('jshashes');
 require('../../technic/lg-widget/lg-widget.js');
 module.exports = 'lg-user';
 
-var app = angular.module(module.exports, ['ui.router', 'lg-widget']);
+const app = angular.module(module.exports, ['ui.router', 'lg-widget']);
 require('./lg-user-route.js');
 require('./ctrl/ads.js');
 require('./ctrl/proposals.js');

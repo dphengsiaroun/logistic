@@ -10,7 +10,7 @@ var alreadyInstalledUrl = require('./tmpl/already-installed.html');
 var installFailedUrl = require('./tmpl/install-failed.html');
 
 
-var app = angular.module('mainApp', ['ngRoute']);
+const app = angular.module('mainApp', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider) {
 
