@@ -2,7 +2,7 @@
 
 const utils = require('./utils.js');
 const data = require('./data/data.js');
-var user = data.users[0];
+const user = data.users[0];
 
 describe('Init', function() {
 
@@ -36,7 +36,7 @@ describe('Init', function() {
         utils.lgChoiceSelect('country', user.country);
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
         element(by.id('pr-create-user-button')).click();
-		var message = element(by.css('h2'));
+		const message = element(by.css('h2'));
 		expect(message.getText()).toEqual('Votre compte est créé.');
 		element(by.css('button')).click();
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');

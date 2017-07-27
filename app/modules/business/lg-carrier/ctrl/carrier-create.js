@@ -29,7 +29,7 @@ app.service('carrierStepManager', function CarrierStepManager(carrier) {
 		return 4;
 	};
 	this.getClass = function(step) {
-		var currentStep = this.getStep();
+		const currentStep = this.getStep();
 		console.log('currentStep', currentStep);
 		if (step > currentStep) {
 			return {
@@ -49,12 +49,12 @@ app.service('carrierStepManager', function CarrierStepManager(carrier) {
 });
 
 
-var carrierCreateUrl = require('../tmpl/carrier-create.html');
+const carrierCreateUrl = require('../tmpl/carrier-create.html');
 app.component('lgCarrierCreateRoute', {
 	templateUrl: carrierCreateUrl,
 	controller: function LgCarrierCreateRouteCtrl(user, carrier, carrierStepManager) {
 		'ngInject';
-		var ctrl = this;
+		const ctrl = this;
 		ctrl.carrier = carrier;
 		ctrl.carrierStepManager = carrierStepManager;
 		if (user.current) {
@@ -69,7 +69,7 @@ app.component('lgCarrierUpdateRoute', {
 	templateUrl: carrierCreateUrl,
 	controller: function LgCarrierUpdateRouteCtrl(user, carrier, carrierStepManager) {
 		'ngInject';
-		var ctrl = this;
+		const ctrl = this;
 		ctrl.carrier = carrier;
 		ctrl.carrierStepManager = carrierStepManager;
 		carrier.createData = carrier.current.content;

@@ -13,7 +13,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgMessage',
 		resolve: {
 			service: function() {
-				var state = 'home';
+				const state = 'home';
 				console.log('state', state);
 				return {
 					state: state,
@@ -43,9 +43,9 @@ app.config(['$stateProvider', function($stateProvider) {
 			service: function(user, truck, connection) {
 				'ngInject';
 				return connection.waitForCheckConnection().then(function() {
-					var login = user.current.content.login;
+					const login = user.current.content.login;
 					console.log('login', login);
-					var state = 'user:proposals({login: \'' + login + '\'})';
+					const state = 'user:proposals({login: \'' + login + '\'})';
 					console.log('state', state);
 					return {
 						state: state,
@@ -64,7 +64,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function($rootScope, proposal, $stateParams) {
 				'ngInject';
-				var result = {};
+				const result = {};
 				result.doCancel = function() {
 					$rootScope.back();
 				};
@@ -88,9 +88,9 @@ app.config(['$stateProvider', function($stateProvider) {
 			service: function(connection, user, proposal) {
 				'ngInject';
 				return connection.waitForCheckConnection('proposal:deleted').then(function() {
-					var login = user.current.content.login;
+					const login = user.current.content.login;
 					console.log('login', login);
-					var state = 'user:proposals({login: \'' + login + '\'})';
+					const state = 'user:proposals({login: \'' + login + '\'})';
 					console.log('state', state);
 					return {
 						state: state,
@@ -107,11 +107,11 @@ app.config(['$stateProvider', function($stateProvider) {
 
 app.controller('ProposalCtrl', function ProposalCtrl($scope, $injector, connection) {
 	'ngInject';
-	var ctrl = this;
+	const ctrl = this;
 	ctrl.proposal = $injector.get('proposal');
 	ctrl.user = $injector.get('user');
 	ctrl.isEditable = false;
-	var $stateParams = $injector.get('$stateParams');
+	const $stateParams = $injector.get('$stateParams');
 	console.log('ctrl.proposal', ctrl.proposal);
 	console.log('$stateParams', $stateParams);
 	ctrl.$onInit = function() {
@@ -127,7 +127,7 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $injector, connecti
 app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 	user, connection, loader, carrier) {
 	'ngInject';
-	var ctrl = this;
+	const ctrl = this;
 	ctrl.proposal = proposal;
 	ctrl.loader = loader;
 	ctrl.carrier = carrier;
@@ -165,7 +165,7 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 
 app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateParams, proposal, user, connection) {
 	'ngInject';
-	var ctrl = this;
+	const ctrl = this;
 	ctrl.proposal = proposal;
 	ctrl.user = user;
 	this.$onInit = function() {
@@ -181,9 +181,9 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateP
 	};
 });
 
-var proposalCreateUrl = require('./tmpl/proposal-create.html');
-var proposalDetailUrl = require('./tmpl/proposal-detail.html');
-var proposalUpdateUrl = require('./tmpl/proposal-update.html');
+const proposalCreateUrl = require('./tmpl/proposal-create.html');
+const proposalDetailUrl = require('./tmpl/proposal-detail.html');
+const proposalUpdateUrl = require('./tmpl/proposal-update.html');
 
 app.component('lgProposalCreateRoute', {
 	templateUrl: proposalCreateUrl,

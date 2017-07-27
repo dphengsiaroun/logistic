@@ -20,7 +20,7 @@ app.config(function($stateProvider) {
 		templateUrl: testSliderUrl,
 		controller: function TestSliderCtrl($scope) {
 			'ngInject';
-			var ctrl = this;
+			const ctrl = this;
 			this.width = 100;
 			this.height = 150;
 			this.depth = 500;
@@ -59,9 +59,9 @@ app.config(function($stateProvider) {
 	});
 });
 
-var testNumUrl = require('./tmpl/test-num.html');
-var test2Url = require('./tmpl/test2.html');
-var testCalendarUrl = require('./tmpl/test-calendar.html');
+const testNumUrl = require('./tmpl/test-num.html');
+const test2Url = require('./tmpl/test2.html');
+const testCalendarUrl = require('./tmpl/test-calendar.html');
 
 app.component('lgTestNumRoute', {
 	templateUrl: testNumUrl

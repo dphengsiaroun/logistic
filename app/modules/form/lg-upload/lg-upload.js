@@ -19,8 +19,8 @@ app.config(['$httpProvider', 'fileUploadProvider', function($httpProvider, fileU
 }]);
 
 app.controller('FileDestroyController', ['$scope', '$http', function($scope, $http) {
-	var file = $scope.file;
-	var state;
+	const file = $scope.file;
+	let state;
 	if (file.url) {
 		file.$state = function() {
 			return state;
@@ -33,7 +33,7 @@ app.controller('FileDestroyController', ['$scope', '$http', function($scope, $ht
 	}
 }]);
 
-var lgUploadUrl = require('./tmpl/lg-upload.html');
+const lgUploadUrl = require('./tmpl/lg-upload.html');
 
 app.component('lgUpload', {
 	templateUrl: lgUploadUrl,
@@ -43,7 +43,7 @@ app.component('lgUpload', {
 	require: {ngModel: 'ngModel'},
 	controller: function($scope, $http) {
 		console.log('DemoFileUploadController', arguments);
-		var ctrl = this;
+		const ctrl = this;
 
 		ctrl.$onInit = function() {
 			console.log('ctrl.formData', ctrl.formData);
@@ -60,7 +60,7 @@ app.component('lgUpload', {
 
 		$scope.$on('fileuploaddone', function(data) {
 			console.log('on fileuploaddone', arguments);
-			var scope = data.targetScope;
+			const scope = data.targetScope;
 			console.log('scope', scope);
 			scope.refresh();
 		});
@@ -72,7 +72,7 @@ app.component('lgUpload', {
 
 app.controller('LgUploadInitCtrl', function($scope, $http, lgPicture) {
 	'ngInject';
-	var formData = $scope.$parent.$ctrl.formData;
+	const formData = $scope.$parent.$ctrl.formData;
 	console.log('formData XXX', formData);
 	$http.get(url + '?suffix=' + formData.suffix).then(function(response) {
 		console.log('$http get return', response);

@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-var data = {};
+const data = {};
 module.exports = data;
 
 data.trucks = [{

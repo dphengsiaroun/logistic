@@ -1,8 +1,8 @@
 const utils = require('./utils.js');
 const data = require('./data/data.js');
-var truck = data.trucks[0];
-var carrierAd = data.carrierAd;
-var user = data.users[0];
+const truck = data.trucks[0];
+const carrierAd = data.carrierAd;
+const user = data.users[0];
 
 describe('Carrier CRUD', function() {
 
@@ -66,8 +66,8 @@ describe('Carrier CRUD', function() {
 		console.log('-> retrieve a carrier ad', arguments);
 		browser.get('http://localhost:8000/app/');
 		element(by.id('pr-retrieve-carrier-ads-button')).click();
-		var adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
-		var titleElt = adElt.element(by.css('title'));
+		const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+		const titleElt = adElt.element(by.css('title'));
 		expect(titleElt.getText()).toEqual(truck.name);
 	});
 
@@ -76,7 +76,7 @@ describe('Carrier CRUD', function() {
 		browser.get('http://localhost:8000/app/');
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
-		var adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+		const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
 		adElt.element(by.css('title')).click();
 		element(by.id('pr-edit-button')).click();
 		element(by.id('pr-select-price')).click();
@@ -92,7 +92,7 @@ describe('Carrier CRUD', function() {
 		browser.get('http://localhost:8000/app/');
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
-		var adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+		const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
 		adElt.element(by.css('title')).click();
 		element(by.linkText('Supprimer cette annonce')).click();
 		element(by.css('button.confirm')).click();

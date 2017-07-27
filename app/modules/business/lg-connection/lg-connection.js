@@ -8,7 +8,7 @@ require('./lg-connection-route.js');
 app.service('connection', function Connection($http, $rootScope, $injector, $q, $state, user) {
 	'ngInject';
 	const service = this;
-	user.isConnected = false;
+	user.isConnected = undefined;
 	service.createConnectionData = {
 		email: 'dphengsiaroun@outlook.fr',
 		password: 'test'
@@ -16,7 +16,7 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 
 	service.create = function() {
 		console.log('sign in');
-		var SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
+		const SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 		$http({
 			url: 'ws/connections',
 			method: 'POST',
@@ -44,8 +44,6 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 	};
 
 	service.isConnectedStatusKnown = false;
-
-	user.isConnected = undefined;
 
 	service.isConnected = function() {
 		console.log('is connected?', arguments);
@@ -89,7 +87,7 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 				reject();
 				return;
 			}
-			var deregister = $rootScope.$watch('isConnected', function() {
+			const deregister = $rootScope.$watch('isConnected', function() {
 				if (user.isConnected === true) {
 					console.log('user.isConnected resolve', user.isConnected);
 					deregister();
@@ -103,14 +101,14 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 		});
 	};
 
-	var refreshState = function() {
+	function refreshState() {
 		service.waitForCheckConnection('needsUser').catch(function() {
 			if ($state.$current.needsUser) {
 				console.log('go to connection create because needsUser');
 				$state.go('connection:create');
 			}
 		});
-	};
+	}
 
 	$rootScope.$on('$viewContentLoaded', refreshState);
 
@@ -140,7 +138,7 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 
 	service.goToStateAfterConnect = function() {
 		console.log('goToStateAfterConnect', arguments);
-		var json = localStorage.getItem('afterConnect');
+		const json = localStorage.getItem('afterConnect');
 		localStorage.removeItem('afterConnect');
 		if (json === null) {
 			if ($state.$current.name === 'home') {
@@ -149,10 +147,10 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 			$state.go('home');
 			return;
 		}
-		var obj = angular.fromJson(json);
+		const obj = angular.fromJson(json);
 		console.log('obj', obj);
 		if (obj.fn && obj.service) {
-			var service = $injector.get(obj.service);
+			const service = $injector.get(obj.service);
 			if (obj.fn in service) {
 				console.log('about to apply obj.fn', obj.fn);
 				service[obj.fn].apply(null, obj.args);

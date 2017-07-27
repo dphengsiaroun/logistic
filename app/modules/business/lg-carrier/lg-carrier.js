@@ -8,7 +8,7 @@ require('./lg-carrier-create-route.js');
 app.service('carrier', function Carrier($http, $state, $q, connection, user) {
 	'ngInject';
 
-	var service = this;
+	const service = this;
 
 	service.initCreateData = function() {
 		service.createData = {
@@ -85,11 +85,9 @@ app.service('carrier', function Carrier($http, $state, $q, connection, user) {
 		console.log('service.carriers', service.carriers);
 		return this.list().then(function(carriers) {
 			service.carriers = carriers;
-			service.carrierMap = makeMap(carriers);
+			service.carrierMap = window.makeMap(carriers);
 			service.current = service.carrierMap[id];
 		});
-		service.current = service.carrierMap[id];
-		return $q.resolve();
 	};
 
 	service.updateData = {};

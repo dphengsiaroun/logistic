@@ -14,8 +14,8 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgPrompt',
 		resolve: {
 			service: ['$injector', function($injector) {
-				var $rootScope = $injector.get('$rootScope');
-				var connection = $injector.get('connection');
+				const $rootScope = $injector.get('$rootScope');
+				const connection = $injector.get('connection');
 				return {
 					questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
 					doNo: $rootScope.back,

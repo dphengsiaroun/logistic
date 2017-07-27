@@ -6,7 +6,7 @@ require('./lg-password-route.js');
 
 app.service('password', function Password($injector, $http, $rootScope, $q, $state) {
 	'ngInject';
-	var service = this;
+	const service = this;
 
 	service.retrieveFromCode = function(id, code) {
 		console.log('sign in with code');

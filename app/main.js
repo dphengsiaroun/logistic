@@ -6,7 +6,7 @@ require('./css/lg-ad.scss');
 require('./css/style.scss');
 require('./css/overlay.scss');
 
-var $ = require('jquery');
+const $ = require('jquery');
 window.jQuery = $;
 window.$ = $;
 
@@ -18,35 +18,34 @@ require('angular-ui-router');
 require('angular-ui-mask');
 require('angular-recaptcha');
 
-var lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
-var lgConfig = require('./modules/business/lg-config/lg-config.js');
-var lgConnection = require('./modules/business/lg-connection/lg-connection.js');
-var lgLoader = require('./modules/business/lg-loader/lg-loader.js');
-var lgPassword = require('./modules/business/lg-password/lg-password.js');
-var lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
-var lgTruck = require('./modules/business/lg-truck/lg-truck.js');
+const lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
+const lgConfig = require('./modules/business/lg-config/lg-config.js');
+const lgConnection = require('./modules/business/lg-connection/lg-connection.js');
+const lgLoader = require('./modules/business/lg-loader/lg-loader.js');
+const lgPassword = require('./modules/business/lg-password/lg-password.js');
+const lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
+const lgTruck = require('./modules/business/lg-truck/lg-truck.js');
 
-var lgCalendar = require('./modules/form/lg-calendar/lg-calendar.js');
-var lgChoice = require('./modules/form/lg-choice/lg-choice.js');
-var lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
-var lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
-var lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
-var lgFilter = require('./modules/form/lg-filter/lg-filter.js');
-var lgNum = require('./modules/form/lg-num/lg-num.js');
-var lgSlider = require('./modules/form/lg-slider/lg-slider.js');
-var lgUpload = require('./modules/form/lg-upload/lg-upload.js');
+const lgChoice = require('./modules/form/lg-choice/lg-choice.js');
+const lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
+const lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
+const lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
+const lgFilter = require('./modules/form/lg-filter/lg-filter.js');
+const lgNum = require('./modules/form/lg-num/lg-num.js');
+const lgSlider = require('./modules/form/lg-slider/lg-slider.js');
+const lgUpload = require('./modules/form/lg-upload/lg-upload.js');
 
-var lgMenu = require('./modules/site/lg-menu/lg-menu.js');
-var lgRoute = require('./modules/site/lg-route/lg-route.js');
+const lgMenu = require('./modules/site/lg-menu/lg-menu.js');
+const lgRoute = require('./modules/site/lg-route/lg-route.js');
 
-var lgDebug = require('./modules/technic/lg-debug/lg-debug.js');
-var lgError = require('./modules/technic/lg-error/lg-error.js');
-var lgGeoloc = require('./modules/technic/lg-geoloc/lg-geoloc.js');
-var lgHttp = require('./modules/technic/lg-http/lg-http.js');
-var lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
-var lgTest = require('./modules/technic/lg-test/lg-test.js');
-var lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
-var lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
+const lgDebug = require('./modules/technic/lg-debug/lg-debug.js');
+const lgError = require('./modules/technic/lg-error/lg-error.js');
+const lgGeoloc = require('./modules/technic/lg-geoloc/lg-geoloc.js');
+const lgHttp = require('./modules/technic/lg-http/lg-http.js');
+const lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
+const lgTest = require('./modules/technic/lg-test/lg-test.js');
+const lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
+const lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
 
 window.values = function(obj) {
 	return Object.keys(obj).map(function(key) {
@@ -55,7 +54,7 @@ window.values = function(obj) {
 };
 
 window.makeMap = function(array) {
-	var map = {};
+	const map = {};
 	array.forEach(function(n) {
 		map[n.id] = n;
 	});
@@ -77,7 +76,6 @@ const app = angular.module('main', [
 	lgProposal,
 	lgTruck,
 
-	lgCalendar,
 	lgChoice,
 	lgDatetime,
 	lgDimension,
@@ -130,9 +128,9 @@ app.run(function($rootScope, $window, $state, $parse) {
 
 	$rootScope.goToState = function(state) {
 		console.log('goToState', arguments);
-		var array = state.split(/[()]/);
-		var to = array[0];
-		var params = $parse(array[1])({});
+		const array = state.split(/[()]/);
+		const to = array[0];
+		const params = $parse(array[1])({});
 		console.log('goto', to, params);
 		$state.go(to, params);
 	};

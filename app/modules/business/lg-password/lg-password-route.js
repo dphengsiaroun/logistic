@@ -30,8 +30,8 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-var forgottenPasswordUrl = require('./tmpl/forgotten-password.html');
-var chooseNewPasswordUrl = require('./tmpl/choose-new-password.html');
+const forgottenPasswordUrl = require('./tmpl/forgotten-password.html');
+const chooseNewPasswordUrl = require('./tmpl/choose-new-password.html');
 
 app.component('lgUserForgottenPasswordRoute', {
 	templateUrl: forgottenPasswordUrl,
@@ -52,8 +52,8 @@ app.controller('PasswordCtrl', function PasswordCtrl(password, user) {
 app.controller('UserChooseNewPasswordCtrl', function UserChooseNewPasswordCtrl($location, password, user) {
 	this.password = password;
 	this.user = user;
-	var code = $location.search().code;
-	var id = $location.search().id;
+	const code = $location.search().code;
+	const id = $location.search().id;
 	password.retrieveFromCode(id, code);
 	password.forgottenPasswordData.id = id;
 	password.forgottenPasswordData.code = code;

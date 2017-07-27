@@ -10,7 +10,7 @@ app.run(function($rootScope, $http) {
 	$rootScope.config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
 	$rootScope.config.countries = ['Algérie', 'France', 'Maroc'];
 	$rootScope.config.conditioningTypes = ['Colis', 'Palette', 'Vrac', 'Indifférent'];
-	var year = (new Date()).getFullYear();
+	const year = (new Date()).getFullYear();
 	$rootScope.config.years = [...Array(19).keys()].map((n, i) => year - i);
 	$rootScope.config.years.push('avant ' + (year - 18));
 	console.log('$rootScope.config.years', $rootScope.config.years);

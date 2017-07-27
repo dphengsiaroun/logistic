@@ -4,12 +4,12 @@ const app = angular.module(module.exports, []);
 
 app.service('lgBackDetector', function LgBackDetector($rootScope, $location, $transitions, $window) {
 	'ngInject';
-	var service = this;
+	const service = this;
 	service.last = undefined;
 	$transitions.onStart({}, function(trans) {
-		var from = trans.$from();
+		const from = trans.$from();
 		console.log('lgBackDetector from', from);
-		var to = trans.$to();
+		const to = trans.$to();
 		console.log('lgBackDetector to', to);
 		if (to === service.last) {
 			service.isBack = true;

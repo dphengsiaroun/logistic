@@ -22,16 +22,16 @@ describe('Install', function() {
 		browser.get('http://localhost:8000/app/install');
 		element(by.css('button')).click();
 		// browser.sleep(35000);
-		var message = element(by.css('h1'));
+		const message = element(by.css('h1'));
 		expect(message.getText()).toEqual('Installation');
 		expect(utils.isDirectoryExisting('../../files/')).toBe(false);
 	});
 
 	it('should install', function() {
 		console.log('-> install', arguments);
-		element(by.xpath("//label[@for='dbCreation']")).click();
+		element(by.xpath('//label[@for=\'dbCreation\']')).click();
 		element(by.css('button')).click();
-		var message = element(by.css('h3'));
+		const message = element(by.css('h3'));
 		expect(message.getText()).toEqual('Successfully installed');
 	});
 

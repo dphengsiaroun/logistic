@@ -40,7 +40,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		resolve: {
 			service: function($state, user) {
 				'ngInject';
-				var result = {};
+				const result = {};
 				result.doCancel = function() {
 					$state.go('user:retrieve');
 				};
@@ -140,17 +140,17 @@ function initCtrl(ctrl, $scope, $injector) {
 			ctrl.user.updateData = angular.copy(ctrl.user.current);
 		}
 	});
-};
+}
 
 app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
 	initCtrl(this, $scope, $injector);
 }]);
 
-var signupUrl = require('./tmpl/signup.html');
-var signupSuccessUrl = require('./tmpl/signup_success.html');
-var profileUrl = require('./tmpl/profile.html');
-var updatePasswordUrl = require('./tmpl/update-password.html');
-var initiatePasswordUrl = require('./tmpl/initiate-password.html');
+const signupUrl = require('./tmpl/signup.html');
+const signupSuccessUrl = require('./tmpl/signup_success.html');
+const profileUrl = require('./tmpl/profile.html');
+const updatePasswordUrl = require('./tmpl/update-password.html');
+const initiatePasswordUrl = require('./tmpl/initiate-password.html');
 
 app.component('lgUserCreateRoute', {
 	templateUrl: signupUrl,

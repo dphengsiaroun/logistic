@@ -24,9 +24,9 @@ app.config(['$stateProvider', function($stateProvider) {
         resolve: {
             service: function(user) {
                 'ngInject';
-                var login = user.current.content.login;
+                const login = user.current.content.login;
                 console.log('login', login);
-                var state = 'loader:list({login: \'' + login + '\'})';
+                const state = 'loader:list({login: \'' + login + '\'})';
                 console.log('state', state);
                 return {
                     state: state,
@@ -50,9 +50,9 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(connection, user, loader) {
                 'ngInject';
                 return connection.waitForCheckConnection('loader:updated').then(function() {
-                    var login = user.current.content.login;
+                    const login = user.current.content.login;
                     console.log('login', login);
-                    var state = 'loader:list({login: \'' + login + '\'})';
+                    const state = 'loader:list({login: \'' + login + '\'})';
                     console.log('state', state);
                     return {
                         state: state,
@@ -70,7 +70,7 @@ app.config(['$stateProvider', function($stateProvider) {
         resolve: {
             service: function($rootScope, loader, $stateParams) {
                 'ngInject';
-                var result = {};
+                const result = {};
                 result.doCancel = function() {
                     $rootScope.back();
                 };
@@ -94,9 +94,9 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(connection, user, loader) {
                 'ngInject';
                 return connection.waitForCheckConnection('loader:deleted').then(function() {
-                    var login = user.current.content.login;
+                    const login = user.current.content.login;
                     console.log('login', login);
-                    var state = 'loader:list({login: \'' + login + '\'})';
+                    const state = 'loader:list({login: \'' + login + '\'})';
                     console.log('state', state);
                     return {
                         state: state,
@@ -111,7 +111,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
 app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
 	'ngInject';
-	var ctrl = this;
+	const ctrl = this;
     ctrl.loader = loader;
     ctrl.$onInit = function() {
         loader.list().then(function(loaders) {
@@ -126,7 +126,7 @@ app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
 
 app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, user, connection) {
 	'ngInject';
-    var ctrl = this;
+    const ctrl = this;
     ctrl.loader = loader;
     ctrl.user = user;
     ctrl.isEditable = false;
@@ -148,7 +148,7 @@ app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, u
 app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
     $scope, $element, $http, $q, $window, $filter, loader, user, geoloc) {
     'ngInject';
-    var ctrl = this;
+    const ctrl = this;
     ctrl.user = user;
     ctrl.loader = loader;
     $scope.$watchGroup(['$ctrl.loader.createData.dimension.height', '$ctrl.loader.createData.dimension.depth',
@@ -171,9 +171,9 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
 
     ctrl.editDimension = function() {
         console.log('editDimension', arguments);
-        var dimensionElt = $element.find('lg-dimension');
+        const dimensionElt = $element.find('lg-dimension');
         console.log('dimensionElt', dimensionElt);
-        var dimensionCtrl = dimensionElt.controller('lgDimension');
+        const dimensionCtrl = dimensionElt.controller('lgDimension');
         console.log('dimensionCtrl', dimensionCtrl);
         dimensionCtrl.start();
     };
@@ -195,7 +195,7 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
 
 app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams, connection) {
     'ngInject';
-    var ctrl = this;
+    const ctrl = this;
     ctrl.loader = loader;
     ctrl.user = user;
     this.$onInit = function() {
@@ -211,10 +211,10 @@ app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, use
     };
 });
 
-var loaderCreateUrl = require('./tmpl/loader-create.html');
-var loaderListUrl = require('./tmpl/loader-list.html');
-var loaderDetailUrl = require('./tmpl/loader-detail.html');
-var loaderUpdateUrl = require('./tmpl/loader-update.html');
+const loaderCreateUrl = require('./tmpl/loader-create.html');
+const loaderListUrl = require('./tmpl/loader-list.html');
+const loaderDetailUrl = require('./tmpl/loader-detail.html');
+const loaderUpdateUrl = require('./tmpl/loader-update.html');
 
 app.component('lgLoaderCreateRoute', {
     templateUrl: loaderCreateUrl,

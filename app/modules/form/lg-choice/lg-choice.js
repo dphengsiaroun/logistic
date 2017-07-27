@@ -1,16 +1,16 @@
-var lgGeoloc = require('../../technic/lg-geoloc/lg-geoloc.js');
+const lgGeoloc = require('../../technic/lg-geoloc/lg-geoloc.js');
 
 require('./lg-choice.scss');
 module.exports = 'lg-choice';
 
-var removeDiacritic = function(str) {
+const removeDiacritic = function(str) {
 	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
 const app = angular.module(module.exports, ['lg-misc', lgGeoloc]);
 
 app.directive('input', ['$injector', function($injector) {
-	var $compile = $injector.get('$compile');
+	const $compile = $injector.get('$compile');
 	return {
 		restrict: 'E',
 		require: '?ngModel',
@@ -18,22 +18,22 @@ app.directive('input', ['$injector', function($injector) {
 			if (attr.type !== 'choice') {
 				return;
 			}
-			var requiredAttr = '';
+			let requiredAttr = '';
 			if (element.prop('required')) {
 				console.log('required');
 				requiredAttr = ' is-mandatory="true" ';
 			}
-			var optionsAttr = '';
+			let optionsAttr = '';
 			if (attr.options) {
 				console.log('options');
 				optionsAttr = 'options="' + attr.options + '" ';
 			}
-			var nameAttr = '';
+			let nameAttr = '';
 			if (attr.name) {
 				console.log('name');
 				nameAttr = 'name="' + attr.name + '" ';
 			}
-			var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
+			const elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
 				'<lg-choice ' +
 				nameAttr +
 				'placeholder="\'' + attr.placeholder + '\'" ' +
@@ -51,7 +51,7 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
-var lgChoiceUrl = require('./tmpl/lg-choice.html');
+const lgChoiceUrl = require('./tmpl/lg-choice.html');
 
 app.component('lgChoice', {
 	require: {
@@ -60,8 +60,8 @@ app.component('lgChoice', {
 	templateUrl: lgChoiceUrl,
 	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll, geoloc) {
 		'ngInject';
-		var ctrl = this;
-		var fixedListElt = $element.find('fixed-list');
+		const ctrl = this;
+		const fixedListElt = $element.find('fixed-list');
 
 		ctrl.showLgChoice = false;
 		ctrl.defaultsOptions = {
@@ -153,15 +153,20 @@ app.component('lgChoice', {
 		};
 
 		ctrl.$onInit = function() {
-			var ngModel = ctrl.ngModel;
+			const ngModel = ctrl.ngModel;
 			angular.extend(ctrl.defaultsOptions, ctrl.options);
 
 			ctrl.setNormalMode();
 
+			function checkValidity(value) {
+				const isOutOfChoice = false;
+				ngModel.$setValidity('outOfChoice', isOutOfChoice);
+			}
+
 			ngModel.$render = function() {
-				var choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
+				const choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
 				ctrl.currentValue = ctrl.getLabel(choice) || ctrl.placeholder;
-				var elt = $element.find('my-input');
+				const elt = $element.find('my-input');
 				if (choice !== undefined) {
 					console.log('filled');
 					elt.addClass('filled');
@@ -173,10 +178,6 @@ app.component('lgChoice', {
 				checkValidity(1);
 			};
 			console.log('ngModel', ngModel);
-			var checkValidity = function(value) {
-				var isOutOfChoice = false;
-				ngModel.$setValidity('outOfChoice', isOutOfChoice);
-			};
 
 			ctrl.myFilter = function(value, index, array) {
 				if (ngModel.$modelValue !== undefined && ngModel.$modelValue === value) {
@@ -185,7 +186,7 @@ app.component('lgChoice', {
 				if (ctrl.myInput === undefined) {
 					return true;
 				}
-				var label = ctrl.getLabelToFilter(value);
+				const label = ctrl.getLabelToFilter(value);
 				if (removeDiacritic(label.toLowerCase()).indexOf(removeDiacritic(ctrl.myInput.toLowerCase())) !== -1) {
 					return true;
 				}
@@ -202,4 +203,3 @@ app.component('lgChoice', {
 		isMandatory: '<',
 	}
 });
-

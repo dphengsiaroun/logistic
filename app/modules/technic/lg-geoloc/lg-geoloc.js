@@ -4,7 +4,7 @@ const app = angular.module(module.exports, []);
 
 app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $filter) {
 	'ngInject';
-	var service = this;
+	const service = this;
 	this.countryMap = {
 		'RADP': 'Algérie',
 	};
@@ -19,7 +19,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 	};
 
 	this.getCityObj = function() {
-		var result = {};
+		const result = {};
 		result.city = service.address.city || service.address.town;
 		result.region = service.address.state;
 		result.country = service.mapCountry(service.address.country);
@@ -55,7 +55,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 				}).then(function(response) {
 					console.log('response', response);
 					service.address = response.data.address;
-					var cityObj = service.getCityObj();
+					const cityObj = service.getCityObj();
 					if ($rootScope.config.cities.indexOf(cityObj) === -1) {
 						$rootScope.config.cities.push(cityObj);
 					}
@@ -74,7 +74,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 			watchStr + '.departureCity',
 			watchStr + '.arrivalCity'],
 		function() {
-			var data = $parse(watchStr)(scope);
+			const data = $parse(watchStr)(scope);
 			if (!(data.departureCity && data.arrivalCity)) {
 				data.infoRoute = '';
 				return;
@@ -94,7 +94,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 				}
 				data.minDuration = response.data.route.duration;
 				data.distance = Math.round(response.data.route.distance / 1000);
-				var durationStr = $filter('duration')(data.minDuration);
+				const durationStr = $filter('duration')(data.minDuration);
 				data.infoRoute = 'Distance : <b>' + data.distance +
 					'km</b> - Durée min. : <b>' + durationStr + '</b>';
 			}).catch(function(error) {

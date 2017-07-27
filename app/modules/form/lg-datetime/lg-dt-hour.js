@@ -14,80 +14,17 @@ app.component('lgDtHour', {
 	},
 	templateUrl: lgDtHourUrl,
 	controller: function LgDtHourCtrl($scope, $element, $window, $timeout) {
-		var ctrl = this;
-		var hourElt;
-		var isUpdating = false;
-		var width = screen.width;
-		var hourRange = makeRange(0, 23);
+		const ctrl = this;
+		let hourElt;
+		let isUpdating = false;
+		const width = screen.width;
+		const hourRange = makeRange(0, 23);
 
 		ctrl.hourRange = hourRange;
 
-		ctrl.update = function(hour, $index) {
-			console.log('LgDtHourCtrl update', arguments);
-			isUpdating = true;
-			console.log('width', width);
-			var pos = (0 + $index * 1.3) * width/10;
-			console.log('pos', pos);
-			hourElt[0].scrollLeft = pos;
-			ctrl.lgDatetime.setHours(hour);
-		};
+		let isScrolling = false;
 
-		ctrl.$onInit = function() {
-			console.log('LgDtHourCtrl $onInit', arguments);
-			hourElt = $element.find('hours');
-			hourElt[0].onscroll = onScroll;
-			ctrl.lgDatetime.lgDtHour = ctrl;
-		};
-
-		$scope.$watch('$ctrl.lgDatetime.state', function() {
-			console.log('LgDtHourCtrl $watch', arguments);
-			var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
-			$timeout(function() {
-				ctrl.update(ctrl.lgDatetime.selectedHours, $index);
-			}, 0);
-		});
-
-		$scope.$watch('$ctrl.lgDatetime.selectedDate', function() {
-			console.log('LgDtHourCtrl $watch $ctrl.lgDatetime.selectedDate', arguments);
-			var opts = ctrl.lgDatetime.opts;
-			if (ctrl.lgDatetime.selectedDate === undefined) {
-				return;
-			}
-			if (ctrl.lgDatetime.selectedDate.toDateString() === opts.start.toDateString()) {
-				if (opts.after) {
-					ctrl.hourRange = makeRange(opts.start.getHours(), 23);
-				} else {
-					ctrl.hourRange = makeRange((opts.start.getHours() + 1) % 24, 23);
-				}
-			} else {
-				ctrl.hourRange = hourRange;
-			}
-			if (ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours) === -1) {
-				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
-				$timeout(function() {
-					ctrl.update(ctrl.hourRange[0], $index);
-				}, 0);
-			} else {
-				var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
-				$timeout(function() {
-					ctrl.update(ctrl.lgDatetime.selectedHours, $index);
-				}, 0);
-			}
-		});
-
-		ctrl.swipe = function() {
-			console.log('swipe', arguments);
-			var pos = hourElt[0].scrollLeft/width;
-			console.log('pos', pos);
-			var $index = Math.round(((pos-0) * 99/(12.9875-0)));
-			console.log('$index', $index);
-			var hour = ctrl.hourRange[$index];
-			ctrl.update(hour, $index);
-		};
-
-		var isScrolling = false;
-
-		var onScroll = function() {
+		function onScroll() {
 			if (isUpdating === true) {
 				console.log('onScroll set isUpdating to false');
 				isUpdating = false;
@@ -102,6 +39,69 @@ app.component('lgDtHour', {
 					isScrolling = false;
 				}, 100);
 			}
+		}
+
+		ctrl.update = function(hour, $index) {
+			console.log('LgDtHourCtrl update', arguments);
+			isUpdating = true;
+			console.log('width', width);
+			const pos = (0 + $index * 1.3) * width / 10;
+			console.log('pos', pos);
+			hourElt[0].scrollLeft = pos;
+			ctrl.lgDatetime.setHours(hour);
+		};
+
+		ctrl.$onInit = function() {
+			console.log('LgDtHourCtrl $onInit', arguments);
+			hourElt = $element.find('hours');
+			hourElt[0].onscroll = onScroll;
+			ctrl.lgDatetime.lgDtHour = ctrl;
+		};
+
+		$scope.$watch('$ctrl.lgDatetime.state', function() {
+			console.log('LgDtHourCtrl $watch', arguments);
+			const $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+			$timeout(function() {
+				ctrl.update(ctrl.lgDatetime.selectedHours, $index);
+			}, 0);
+		});
+
+		$scope.$watch('$ctrl.lgDatetime.selectedDate', function() {
+			console.log('LgDtHourCtrl $watch $ctrl.lgDatetime.selectedDate', arguments);
+			const opts = ctrl.lgDatetime.opts;
+			if (ctrl.lgDatetime.selectedDate === undefined) {
+				return;
+			}
+			if (ctrl.lgDatetime.selectedDate.toDateString() === opts.start.toDateString()) {
+				if (opts.after) {
+					ctrl.hourRange = makeRange(opts.start.getHours(), 23);
+				} else {
+					ctrl.hourRange = makeRange((opts.start.getHours() + 1) % 24, 23);
+				}
+			} else {
+				ctrl.hourRange = hourRange;
+			}
+			if (ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours) === -1) {
+				const $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+				$timeout(function() {
+					ctrl.update(ctrl.hourRange[0], $index);
+				}, 0);
+			} else {
+				const $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+				$timeout(function() {
+					ctrl.update(ctrl.lgDatetime.selectedHours, $index);
+				}, 0);
+			}
+		});
+
+		ctrl.swipe = function() {
+			console.log('swipe', arguments);
+			const pos = hourElt[0].scrollLeft / width;
+			console.log('pos', pos);
+			const $index = Math.round(((pos - 0) * 99 / (12.9875 - 0)));
+			console.log('$index', $index);
+			const hour = ctrl.hourRange[$index];
+			ctrl.update(hour, $index);
 		};
 
 	},
@@ -109,4 +109,3 @@ app.component('lgDtHour', {
 		hours: '<'
 	}
 });
-

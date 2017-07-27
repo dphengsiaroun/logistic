@@ -6,7 +6,7 @@ require('./lg-datetime.scss');
 require('./lg-dt-month.js');
 require('./lg-dt-hour.js');
 
-var lgDatetimeUrl = require('./tmpl/lg-datetime.html');
+const lgDatetimeUrl = require('./tmpl/lg-datetime.html');
 
 app.component('lgDatetime', {
 	require: {
@@ -16,7 +16,7 @@ app.component('lgDatetime', {
 	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
 		'ngInject';
 		console.log('lgDatetimeCtrl');
-		var ctrl = this;
+		const ctrl = this;
 		ctrl.format = 'EEEE dd LLLL - H:mm';
 
 		ctrl.lgDtHour = undefined;
@@ -58,7 +58,7 @@ app.component('lgDatetime', {
 			console.log('compute');
 			ctrl.months = [];
 			for (let i = 0; i < ctrl.opts.monthNbr; i++) {
-				var date = new Date(ctrl.opts.start);
+				const date = new Date(ctrl.opts.start);
 				date.setDate(1);
 				date.setMonth(date.getMonth() + i);
 				ctrl.months.push(date);
@@ -69,7 +69,7 @@ app.component('lgDatetime', {
 		ctrl.setDate = function(year, month, day) {
 			console.log('setDate', arguments);
 			console.log('year', year);
-			var date = new Date(year, month, day, ctrl.selectedHours);
+			const date = new Date(year, month, day, ctrl.selectedHours);
 			console.log('date', date);
 			ctrl.update(date);
 		};
@@ -80,7 +80,7 @@ app.component('lgDatetime', {
 				return;
 			}
 			ctrl.selectedHours = hour;
-			var date = ctrl.ngModel.$viewValue;
+			let date = ctrl.ngModel.$viewValue;
 			console.log('date', date);
 			if (!date) {
 				return;
@@ -97,6 +97,11 @@ app.component('lgDatetime', {
 			ctrl.selectedHours = ctrl.opts.defaultHour;
 		};
 
+		function checkValidity(value) {
+			const isOutOfChoice = false;
+			ctrl.ngModel.$setValidity('outOfChoice', isOutOfChoice);
+		}
+
 		ctrl.$onInit = function() {
 			console.log('lgCalendarWrapper ctrl $onInit', ctrl);
 			console.log('this.ngModel', ctrl.ngModel);
@@ -106,12 +111,12 @@ app.component('lgDatetime', {
 			ctrl.ngModel.$render = function() {
 				console.log('ctrl.ngModel.$render', arguments);
 
-				var datetime = undefined;
+				let datetime;
 				if (ctrl.ngModel.$viewValue !== undefined) {
 					datetime = $filter('date')(ctrl.ngModel.$viewValue, ctrl.format);
 				}
-				var html = datetime || ctrl.placeholder;
-				var elt = $element.find('my-input');
+				const html = datetime || ctrl.placeholder;
+				const elt = $element.find('my-input');
 				if (datetime !== undefined) {
 					console.log('filled');
 					elt.addClass('filled');
@@ -123,16 +128,12 @@ app.component('lgDatetime', {
 				elt.html(html);
 				checkValidity(1);
 			};
-
-			var checkValidity = function(value) {
-				var isOutOfChoice = false;
-				ctrl.ngModel.$setValidity('outOfChoice', isOutOfChoice);
-			};
+			
 		};
 
 		ctrl.$onChanges = function(changesObj) {
 			console.log('LgDatetimeCtrl $onChanges', changesObj);
-			var offset = ctrl.offset || 0;
+			let offset = ctrl.offset || 0;
 			offset = Math.ceil(offset / 3600) * 3600;
 			if (changesObj.after) {
 				ctrl.opts.after = changesObj.after.currentValue instanceof Date;
@@ -155,9 +156,9 @@ app.component('lgDatetime', {
 				ctrl.retroactionMsg = '&nbsp;<br/>&nbsp;';
 				return;
 			}
-			var durationStr = '';
+			let durationStr = '';
 			if (ctrl.opts.after) {
-				var duration = (ctrl.selectedDate - ctrl.after) / 1000;
+				const duration = (ctrl.selectedDate - ctrl.after) / 1000;
 				durationStr = '<br/>Durée&nbsp;:&nbsp;' + $filter('duration')(duration);
 			}
 			ctrl.retroactionMsg = $filter('date')(ctrl.selectedDate, ctrl.format) + durationStr;

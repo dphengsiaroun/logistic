@@ -4,7 +4,7 @@ const app = angular.module(module.exports, []);
 
 app.filter('message', function() {
 	return function(error) {
-		var cfg = {
+		const cfg = {
 			'-1': 'Oups ! Erreur technique PHP.',
 			'0': 'Oups ! Erreur technique.',
 			'1': 'Login/Mot de passe incorrect.',
