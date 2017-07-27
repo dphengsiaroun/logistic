@@ -97,6 +97,11 @@ app.component('lgDatetime', {
 			ctrl.selectedHours = ctrl.opts.defaultHour;
 		};
 
+		function checkValidity(value) {
+			const isOutOfChoice = false;
+			ctrl.ngModel.$setValidity('outOfChoice', isOutOfChoice);
+		}
+
 		ctrl.$onInit = function() {
 			console.log('lgCalendarWrapper ctrl $onInit', ctrl);
 			console.log('this.ngModel', ctrl.ngModel);
@@ -123,11 +128,7 @@ app.component('lgDatetime', {
 				elt.html(html);
 				checkValidity(1);
 			};
-
-			var checkValidity = function(value) {
-				const isOutOfChoice = false;
-				ctrl.ngModel.$setValidity('outOfChoice', isOutOfChoice);
-			};
+			
 		};
 
 		ctrl.$onChanges = function(changesObj) {
