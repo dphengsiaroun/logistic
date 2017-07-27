@@ -10,9 +10,9 @@ app.config(function($stateProvider) {
 });
 
 
-const lgCarrierCreatePricingUrl = require('../tmpl/carrier-create-pricing.html');
+const lgCarrierCreatePricingHtml = require('../tmpl/carrier-create-pricing.html');
 app.component('lgCarrierCreatePricingRoute', {
-	templateUrl: lgCarrierCreatePricingUrl,
+	template: lgCarrierCreatePricingHtml,
 	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {
 		'ngInject';
 		const ctrl = this;

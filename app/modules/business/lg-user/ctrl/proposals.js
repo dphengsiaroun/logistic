@@ -9,9 +9,9 @@ app.config(function($stateProvider) {
 	});
 });
 
-const proposalsUrl = require('../tmpl/proposals.html');
+const proposalsHtml = require('../tmpl/proposals.html');
 app.component('lgUserProposalsRoute', {
-	templateUrl: proposalsUrl,
+	template: proposalsHtml,
 	controller: function LgUserProposalsRouteCtrl($state, $stateParams, user, connection, proposal) {
 		'ngInject';
 		const ctrl = this;

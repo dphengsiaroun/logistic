@@ -12,13 +12,13 @@ function getDays(date) {
 
 const app = angular.module('lg-datetime');
 
-const lgDtMonthUrl = require('./tmpl/lg-dt-month.html');
+const lgDtMonthHtml = require('./tmpl/lg-dt-month.html');
 
 app.component('lgDtMonth', {
 	require: {
 		lgDatetime: '^^lgDatetime'
 	},
-	templateUrl: lgDtMonthUrl,
+	template: lgDtMonthHtml,
 	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
 		const ctrl = this;
 		console.log('lgMonth ctrl', ctrl, arguments);

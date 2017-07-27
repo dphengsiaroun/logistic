@@ -9,9 +9,9 @@ app.config(function($stateProvider) {
 	});
 });
 
-const adsUrl = require('../tmpl/ads.html');
+const adsHtml = require('../tmpl/ads.html');
 app.component('lgUserAdsRoute', {
-	templateUrl: adsUrl,
+	template: adsHtml,
 	controller: function LgUserAdsRouteCtrl($state, $stateParams, user, connection, carrier, loader) {
 		'ngInject';
 		const ctrl = this;

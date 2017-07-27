@@ -115,15 +115,15 @@ app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection
     };
 });
 
-const carrierListUrl = require('./tmpl/carrier-list.html');
-const carrierDetailUrl = require('./tmpl/carrier-detail.html');
+const carrierListHtml = require('./tmpl/carrier-list.html');
+const carrierDetailHtml = require('./tmpl/carrier-detail.html');
 
 app.component('lgCarrierListRoute', {
-    templateUrl: carrierListUrl,
+    template: carrierListHtml,
     controller: 'CarrierListCtrl',
 });
 
 app.component('lgCarrierRetrieveRoute', {
-    templateUrl: carrierDetailUrl,
+    template: carrierDetailHtml,
     controller: 'CarrierCtrl',
 });

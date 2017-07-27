@@ -51,13 +51,13 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
-const lgChoiceUrl = require('./tmpl/lg-choice.html');
+const lgChoiceHtml = require('./tmpl/lg-choice.html');
 
 app.component('lgChoice', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgChoiceUrl,
+	template: lgChoiceHtml,
 	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll, geoloc) {
 		'ngInject';
 		const ctrl = this;

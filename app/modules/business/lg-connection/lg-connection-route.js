@@ -28,7 +28,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-const connectionCreateUrl = require('./tmpl/connection-create.html');
+const connectionCreateHtml = require('./tmpl/connection-create.html');
 
 class ConnectionCtrl {
 	/* @ngInject */
@@ -39,7 +39,7 @@ class ConnectionCtrl {
 }
 
 app.component('lgConnectionSigninRoute', {
-	templateUrl: connectionCreateUrl,
+	template: connectionCreateHtml,
 	controller: ConnectionCtrl
 });
 

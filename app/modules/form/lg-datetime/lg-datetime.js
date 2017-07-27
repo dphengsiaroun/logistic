@@ -6,13 +6,13 @@ require('./lg-datetime.scss');
 require('./lg-dt-month.js');
 require('./lg-dt-hour.js');
 
-const lgDatetimeUrl = require('./tmpl/lg-datetime.html');
+const lgDatetimeHtml = require('./tmpl/lg-datetime.html');
 
 app.component('lgDatetime', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgDatetimeUrl,
+	template: lgDatetimeHtml,
 	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
 		'ngInject';
 		console.log('lgDatetimeCtrl');

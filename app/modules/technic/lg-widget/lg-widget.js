@@ -5,34 +5,34 @@ const app = angular.module(module.exports, []);
 require('./lg-widget.scss');
 require('./lg-hr.js');
 
-const lgPromptUrl = require('./tmpl/lg-prompt.html');
-const lgConfirmUrl = require('./tmpl/lg-confirm.html');
-const lgMessageUrl = require('./tmpl/lg-message.html');
-const lgFooterUrl = require('./tmpl/lg-footer.html');
+const lgPromptHtml = require('./tmpl/lg-prompt.html');
+const lgConfirmHtml = require('./tmpl/lg-confirm.html');
+const lgMessageHtml = require('./tmpl/lg-message.html');
+const lgFooterHtml = require('./tmpl/lg-footer.html');
 
 app.component('lgPrompt', {
-	templateUrl: lgPromptUrl,
+	template: lgPromptHtml,
 	bindings: {
 		service: '<'
 	}
 });
 
 app.component('lgConfirm', {
-	templateUrl: lgConfirmUrl,
+	template: lgConfirmHtml,
 	bindings: {
 		service: '<'
 	}
 });
 
 app.component('lgMessage', {
-	templateUrl: lgMessageUrl,
+	template: lgMessageHtml,
 	bindings: {
 		service: '<'
 	}
 });
 
 app.component('lgFooter', {
-	templateUrl: lgFooterUrl
+	template: lgFooterHtml
 });
 
 app.service('lgPicture', function LgPicture() {
@@ -43,10 +43,10 @@ app.service('lgPicture', function LgPicture() {
 	};
 });
 
-const lgShowPictureUrl = require('./tmpl/lg-show-picture.html');
+const lgShowPictureHtml = require('./tmpl/lg-show-picture.html');
 
 app.component('lgShowPicture', {
-	templateUrl: lgShowPictureUrl,
+	template: lgShowPictureHtml,
 	controller: function LgShowPictureCtrl($element, lgPicture) {
 		lgPicture.ctrl = this;
 
@@ -61,10 +61,10 @@ app.component('lgShowPicture', {
 	}
 });
 
-const lgFaviconUrl = require('./tmpl/lg-favicon.html');
+const lgFaviconHtml = require('./tmpl/lg-favicon.html');
 
 app.component('lgFavicon', {
-	templateUrl: lgFaviconUrl
+	template: lgFaviconHtml
 });
 
 app.component('lgSelect', {
@@ -107,13 +107,13 @@ app.component('lgSelect', {
 	}
 });
 
-const lgCityUrl = require('./tmpl/lg-city.html');
+const lgCityHtml = require('./tmpl/lg-city.html');
 
 app.component('lgCity', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgCityUrl,
+	template: lgCityHtml,
 	bindings: {
 		name: '@',
 		title: '@',
@@ -151,13 +151,13 @@ app.component('imgSvg', {
 	}
 });
 
-const lgSocialLoginUrl = require('./tmpl/lg-social-login.html');
+const lgSocialLoginHtml = require('./tmpl/lg-social-login.html');
 app.component('lgSocialLogin', {
-	templateUrl: lgSocialLoginUrl
+	template: lgSocialLoginHtml
 });
 
 require('./css/lg-breadcrumb.scss');
-const lgBreadcrumbUrl = require('./tmpl/lg-breadcrumb.html');
+const lgBreadcrumbHtml = require('./tmpl/lg-breadcrumb.html');
 app.component('lgBreadcrumb', {
-	templateUrl: lgBreadcrumbUrl
+	template: lgBreadcrumbHtml
 });

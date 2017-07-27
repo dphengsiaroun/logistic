@@ -5,9 +5,9 @@ module.exports = 'lg-widget';
 
 const app = angular.module(module.exports);
 
-const lgHrUrl = require('./tmpl/lg-hr.html');
+const lgHrHtml = require('./tmpl/lg-hr.html');
 
 app.component('lgHr', {
 	transclude: true,
-	templateUrl: lgHrUrl,
+	template: lgHrHtml,
 });

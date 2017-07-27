@@ -4,10 +4,10 @@ module.exports = 'lg-slider';
 
 const app = angular.module(module.exports, []);
 
-const lgSliderUrl = require('./tmpl/lg-slider.html');
+const lgSliderHtml = require('./tmpl/lg-slider.html');
 
 app.component('lgSlider', {
-	templateUrl: lgSliderUrl,
+	template: lgSliderHtml,
 	bindings: {
 		min: '<',
 		max: '<',
