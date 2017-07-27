@@ -92,11 +92,9 @@ app.service('loader', function Loader($http, $state, $q, connection, user) {
 	service.get = function(id) {
 		return service.list().then(function(loaders) {
 			service.loaders = loaders;
-			service.loaderMap = makeMap(loaders);
+			service.loaderMap = window.makeMap(loaders);
 			service.current = service.loaderMap[id];
 		});
-		service.current = service.loaderMap[id];
-		return $q.resolve();
 	};
 
 	service.updateData = {};
