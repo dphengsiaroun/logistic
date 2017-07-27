@@ -1,5 +1,7 @@
 module.exports = 'lg-erasable';
 
+import './lg-erasable.scss';
+
 const app = angular.module(module.exports, []);
 
 app.directive('lgErasable', function($compile) {
