@@ -41,35 +41,16 @@ describe('Truck CRUD', function() {
 
 	it('should retrieve truck', function() {
 		console.log('-> retrieve a truck', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.css('menu-bar')).click();
-		element(by.linkText('Mes véhicules')).click();
-		element(by.css('img')).click();
-		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck/${truck.name}`);
+		utils.retrieveTruck();
 	});
 
 	it('should update a truck', function() {
 		console.log('-> update a truck', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.css('menu-bar')).click();
-		element(by.linkText('Mes véhicules')).click();
-		element(by.css('img')).click();
-		element(by.id('pr-update-button')).click();
-		element(by.name('model')).clear().sendKeys('Renault');
-		element(by.id('pr-update-button-confirm')).click();
-		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
+		utils.updateTruck();
 	});
 
 	it('should delete a truck', function() {
 		console.log('-> delete truck', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.css('menu-bar')).click();
-		element(by.linkText('Mes véhicules')).click();
-		element(by.css('img')).click();
-		element(by.linkText('Supprimer ce véhicule')).click();
-		element(by.css('button.confirm')).click();
-		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
+		utils.deleteTruck();
 	});
 });

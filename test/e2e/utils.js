@@ -2,7 +2,10 @@
 
 const path = require('path');
 const fs = require('fs');
+const data = require('./data/data.js');
 const utils = {};
+const truck = data.trucks[1];
+const user = data.users[0];
 module.exports = utils;
 
 utils.lgCitySelect = function(name, city) {
@@ -59,4 +62,37 @@ utils.createLoaderAd = function(loaderAd) {
 	element(by.id('pr-button-create-loader-ad')).click();
 	element(by.css('button.ok')).click();
 	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');
+};
+
+utils.retrieveTruck = function() {
+	browser.get('http://localhost:8000/app/');
+	element(by.css('menu-bar')).click();
+	element(by.linkText('Mes véhicules')).click();
+	element(by.css('img')).click();
+	expect(browser.getCurrentUrl()).toEqual(`
+	http://localhost:8000/app/${user.login.toLowerCase()}/truck/${truck.name}
+	`);
+};
+
+utils.updateTruck = function() {
+	browser.get('http://localhost:8000/app/');
+	element(by.css('menu-bar')).click();
+	element(by.linkText('Mes véhicules')).click();
+	element(by.css('img')).click();
+	element(by.id('pr-update-button')).click();
+	element(by.name('model')).clear().sendKeys('Renault');
+	element(by.id('pr-update-button-confirm')).click();
+	element(by.css('button.ok')).click();
+	expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
+};
+
+utils.deleteTruck = function() {
+	browser.get('http://localhost:8000/app/');
+	element(by.css('menu-bar')).click();
+	element(by.linkText('Mes véhicules')).click();
+	element(by.css('img')).click();
+	element(by.linkText('Supprimer ce véhicule')).click();
+	element(by.css('button.confirm')).click();
+	element(by.css('button.ok')).click();
+	expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
 };
