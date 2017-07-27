@@ -1,7 +1,6 @@
 'use strict';
 
 const mysql = require('mysql');
-const fs = require('fs');
 const path = require('path');
 const cfgUtils = require('../../cfg/utils.js');
 const devEnv = cfgUtils.getEnv('dev');
