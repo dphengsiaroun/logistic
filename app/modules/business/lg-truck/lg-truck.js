@@ -75,7 +75,7 @@ app.service('truck', function Truck($q, $http, $state, user, connection) {
 			service.error = undefined;
 			service.truckMap = response.data.trucks;
 			console.log('service.truckMap', service.truckMap);
-			service.trucks = values(service.truckMap);
+			service.trucks = window.values(service.truckMap);
 			console.log('service.trucks', service.trucks);
 		}).catch(function(error) {
 			service.error = error;
