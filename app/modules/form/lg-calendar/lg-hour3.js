@@ -10,7 +10,7 @@ app.component('lgHour3', {
 	},
 	templateUrl: lgHourUrl,
 	controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
-		var self = this;
+		const self = this;
 		// console.log('lgMonth ctrl', this, arguments);
 		this.$onInit = function() {
 			console.log('lgHour3 ctrl $onInit', this);
@@ -32,18 +32,18 @@ app.component('lgHour3', {
 		};
 
 		this.refresh = function() {
-			var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
+			const selectedElt = angular.element($element[0].getElementsByClassName('selected'));
 			selectedElt.removeClass('selected');
 			if (this.selectedHours === undefined) {
 				return;
 			}
-			var hour = this.selectedHours % 12;
+			let hour = this.selectedHours % 12;
 			if (hour === 0) {
 				hour = 12;
 			}
-			var ampm = (this.selectedHours > 12 || this.selectedHours === 0) ? 'pm' : 'am';
-			var myClass = 'h' + hour + ' ' + ampm;
-			var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
+			const ampm = (this.selectedHours > 12 || this.selectedHours === 0) ? 'pm' : 'am';
+			const myClass = 'h' + hour + ' ' + ampm;
+			const newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
 		};
 

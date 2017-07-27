@@ -7,7 +7,7 @@ require('./lg-loader-route.js');
 app.service('loader', function Loader($http, $state, $q, connection, user) {
 	'ngInject';
 
-	var service = this;
+	const service = this;
 	service.initCreateData = function() {
 		service.createData = {
 			typeOfGoods: 'Classique',
@@ -21,7 +21,7 @@ app.service('loader', function Loader($http, $state, $q, connection, user) {
 
 	service.create = function() {
 		console.log('loader->create', service.createData);
-		var createData = service.createData;
+		const createData = service.createData;
 		if (user.current) {
 			$http({
 				url: 'ws/loaders',

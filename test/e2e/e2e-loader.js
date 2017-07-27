@@ -1,7 +1,7 @@
 const utils = require('./utils.js');
 const data = require('./data/data.js');
-var loaderAd = data.loaderAd;
-var user = data.users[0];
+const loaderAd = data.loaderAd;
+const user = data.users[0];
 
 describe('Loader CRUD', function() {
 
@@ -58,8 +58,8 @@ describe('Loader CRUD', function() {
 		console.log('-> retrieve a loader ad', arguments);
 		browser.get('http://localhost:8000/app/');
 		element(by.id('pr-retrieve-loader-ads-button')).click();
-		var adElt = element(by.css('loader-list ad-block header[ad-id="1"]'));
-		var titleElt = adElt.element(by.css('title'));
+		const adElt = element(by.css('loader-list ad-block header[ad-id="1"]'));
+		const titleElt = adElt.element(by.css('title'));
 		expect(titleElt.getText()).toEqual(loaderAd.title);
 	});
 
@@ -68,7 +68,7 @@ describe('Loader CRUD', function() {
 		browser.get('http://localhost:8000/app/');
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
-		var adElt = element(by.css('loader-list ad-block header[ad-id="1"]'));
+		const adElt = element(by.css('loader-list ad-block header[ad-id="1"]'));
 		adElt.element(by.css('title')).click();
 		element(by.id('pr-edit-button')).click();
 		element(by.name('priceWanted')).clear().sendKeys('5000');
@@ -82,7 +82,7 @@ describe('Loader CRUD', function() {
 		browser.get('http://localhost:8000/app/');
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
-		var adElt = element(by.css('loader-list ad-block header[ad-id="1"]'));
+		const adElt = element(by.css('loader-list ad-block header[ad-id="1"]'));
 		adElt.element(by.css('title')).click();
 		element(by.linkText('Supprimer cette annonce')).click();
 		element(by.css('button.confirm')).click();

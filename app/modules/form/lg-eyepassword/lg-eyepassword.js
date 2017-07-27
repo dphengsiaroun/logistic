@@ -3,7 +3,7 @@ require('./lg-eyepassword.css');
 const app = angular.module(module.exports, []);
 
 app.directive('input', ['$injector', function($injector) {
-	var $compile = $injector.get('$compile');
+	const $compile = $injector.get('$compile');
 	return {
 		restrict: 'E',
 		require: '?ngModel',
@@ -13,7 +13,7 @@ app.directive('input', ['$injector', function($injector) {
 			}
 			console.log('input type="eyepassword"', arguments);
 
-			var elt = angular.element('<!-- input type="eyepassword" ng-model="' + attr.ngModel + '" -->' +
+			const elt = angular.element('<!-- input type="eyepassword" ng-model="' + attr.ngModel + '" -->' +
 				'<lg-eyepassword password="' + attr.ngModel +
 				'" placeholder="' + attr.placeholder + '" name="' + attr.name + '"></lg-eyepassword>');
 			element.after(elt);
@@ -25,7 +25,7 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
-var lgEyePasswordUrl = require('./tmpl/lg-eyepassword.html');
+const lgEyePasswordUrl = require('./tmpl/lg-eyepassword.html');
 
 app.component('lgEyepassword', {
 	templateUrl: lgEyePasswordUrl,

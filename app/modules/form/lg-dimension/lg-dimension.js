@@ -14,15 +14,15 @@ app.component('lgDimension', {
 	controller: function LgDimensionCtrl($element, $document, $filter, lgScroll) {
 		'ngInject';
 		console.log('LgDimensionCtrl');
-		var ctrl = this;
+		const ctrl = this;
 		ctrl.coef = 0.429;
-		var settingsElt = $element.find('settings');
-		var width = screen.width;
+		const settingsElt = $element.find('settings');
+		const width = screen.width;
 		console.log('LgDimensionCtrl width', width);
-		var top = 59 + (106 / 320) * width + 55 + 20;
+		const top = 59 + (106 / 320) * width + 55 + 20;
 		settingsElt.css('top', top + 'px');
 
-		var fixedElt = $element.find('lg-edit');
+		const fixedElt = $element.find('lg-edit');
 		fixedElt.on('touchmove', function(e) {
 			e.preventDefault();
 		});
@@ -35,7 +35,7 @@ app.component('lgDimension', {
 		};
 
 		ctrl.stop = function() {
-			var dimension = {
+			const dimension = {
 				width: ctrl.width / 100,
 				height: ctrl.height / 100,
 				depth: ctrl.depth / 100,

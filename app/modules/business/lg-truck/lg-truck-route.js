@@ -27,9 +27,9 @@ app.config(['$stateProvider', function($stateProvider) {
         resolve: {
             service: function(user, context) {
                 'ngInject';
-                var login = user.current.content.login;
+                const login = user.current.content.login;
                 console.log('login XXXXXX', login);
-                var state = context.pop();
+                let state = context.pop();
                 if (state === undefined) {
                     state = 'truck:list({login: \'' + login + '\'})';
                 }
@@ -56,9 +56,9 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(user, truck, connection) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
-                    var login = user.current.content.login;
+                    const login = user.current.content.login;
                     console.log('login', login);
-                    var state = 'truck:list({login: \'' + login + '\'})';
+                    const state = 'truck:list({login: \'' + login + '\'})';
                     console.log('state', state);
                     return {
                         state: state,
@@ -76,7 +76,7 @@ app.config(['$stateProvider', function($stateProvider) {
         resolve: {
             service: function($rootScope, truck, $stateParams) {
                 'ngInject';
-                var result = {};
+                const result = {};
                 result.doCancel = function() {
                     $rootScope.back();
                 };
@@ -100,9 +100,9 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(user, truck, connection) {
                 'ngInject';
                 return connection.waitForCheckConnection('truck:deleted').then(function() {
-                    var login = user.current.content.login;
+                    const login = user.current.content.login;
                     console.log('login', login);
-                    var state = 'truck:list({login: \'' + login + '\'})';
+                    const state = 'truck:list({login: \'' + login + '\'})';
                     console.log('state', state);
                     return {
                         state: state,
@@ -118,7 +118,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
 app.controller('TruckListCtrl', function TruckCtrl($scope, user, truck) {
 	'ngInject';
-	var ctrl = this;
+	const ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
     this.$onInit = function() {
@@ -128,7 +128,7 @@ app.controller('TruckListCtrl', function TruckCtrl($scope, user, truck) {
 
 app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
     'ngInject';
-    var ctrl = this;
+    const ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
     ctrl.$onInit = function() {
@@ -138,14 +138,14 @@ app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
 
 app.controller('TruckCreateCtrl', function TruckCtrl($scope, user, truck) {
     'ngInject';
-	var ctrl = this;
+	const ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
 });
 
 app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams, truck, user, connection) {
     'ngInject';
-    var ctrl = this;
+    const ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
 
@@ -162,10 +162,10 @@ app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams,
     };
 });
 
-var truckCreateUrl = require('./tmpl/truck-create.html');
-var truckListUrl = require('./tmpl/truck-list.html');
-var truckDetailUrl = require('./tmpl/truck-detail.html');
-var truckUpdateUrl = require('./tmpl/truck-update.html');
+const truckCreateUrl = require('./tmpl/truck-create.html');
+const truckListUrl = require('./tmpl/truck-list.html');
+const truckDetailUrl = require('./tmpl/truck-detail.html');
+const truckUpdateUrl = require('./tmpl/truck-update.html');
 
 app.component('lgTruckCreateRoute', {
     templateUrl: truckCreateUrl,

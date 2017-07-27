@@ -11,7 +11,7 @@ app.component('lgHour', {
 	},
 	templateUrl: lgHourUrl,
 	controller: function LgMonthCtrl($scope, $element, $locale, $compile) {
-		var self = this;
+		const self = this;
 		id++;
 		this.id = id;
 		// console.log('lgMonth ctrl', this, arguments);
@@ -38,8 +38,8 @@ app.component('lgHour', {
 			this.style = '';
 
 			for (let i = 1; i <= 12; i++) {
-				var top = this.y - this.radius*Math.cos(i*6.28/12);
-				var left = this.x + this.radius*Math.sin(i*6.28/12);
+				const top = this.y - this.radius*Math.cos(i*6.28/12);
+				const left = this.x + this.radius*Math.sin(i*6.28/12);
 				this.style += '.id-' + this.id + '.hour-' + i + ' { top: ' + top + 'px; left: ' + left + 'px;}\n';
 			}
 		};
@@ -50,7 +50,7 @@ app.component('lgHour', {
 		};
 
 		this.compute24Hour = function(hour) {
-			var h = hour;
+			let h = hour;
 			if (this.isAm === false) {
 				if (h === 12) {
 					h = 0;
@@ -65,15 +65,15 @@ app.component('lgHour', {
 
 		this.setAmPm = function(isAm) {
 			this.isAm = isAm;
-			var hour = this.selectedHours % 12;
-			var h = this.compute24Hour(hour);
+			const hour = this.selectedHours % 12;
+			const h = this.compute24Hour(hour);
 			console.log('h', h);
 			this.action.apply(null, [h]);
 			this.refresh();
 		};
 
 		this.update = function(hour) {
-			var h = this.compute24Hour(hour);
+			const h = this.compute24Hour(hour);
 			console.log('h', h);
 			this.action.apply(null, [h]);
 			this.refresh();
@@ -83,18 +83,18 @@ app.component('lgHour', {
 		};
 
 		this.refresh = function() {
-			var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
+			const selectedElt = angular.element($element[0].getElementsByClassName('selected'));
 			selectedElt.removeClass('selected');
 			if (this.selectedHours === undefined) {
 				return;
 			}
-			var hour = this.selectedHours % 12;
+			let hour = this.selectedHours % 12;
 			if (hour === 0) {
 				hour = 12;
 			}
-			var ampm = (this.selectedHours > 12 || this.selectedHours === 0) ? 'pm' : 'am';
-			var myClass = 'hour-' + hour + ' ' + ampm;
-			var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
+			const ampm = (this.selectedHours > 12 || this.selectedHours === 0) ? 'pm' : 'am';
+			const myClass = 'hour-' + hour + ' ' + ampm;
+			const newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
 		};
 

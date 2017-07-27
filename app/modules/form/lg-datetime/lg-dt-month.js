@@ -1,11 +1,11 @@
 function addDays(date, days) {
-	var result = new Date(date);
+	const result = new Date(date);
 	result.setDate(result.getDate() + days);
 	return result;
 }
 
 function getDays(date) {
-	var d = new Date(date);
+	const d = new Date(date);
 	d.setHours(12);
 	return Math.floor(d / 8.64e7);
 }
@@ -20,7 +20,7 @@ app.component('lgDtMonth', {
 	},
 	templateUrl: lgDtMonthUrl,
 	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
-		var ctrl = this;
+		const ctrl = this;
 		console.log('lgMonth ctrl', ctrl, arguments);
 		ctrl.$onInit = function() {
 			console.log('lgMonth ctrl $onInit', ctrl);
@@ -42,17 +42,17 @@ app.component('lgDtMonth', {
 
 		ctrl.build = function() {
 			console.log('lg-month build', arguments);
-			var date = new Date(ctrl.monthDate);
+			const date = new Date(ctrl.monthDate);
 			ctrl.year = date.getFullYear();
 			ctrl.month = date.getMonth();
 			ctrl.monthName = $locale.DATETIME_FORMATS.MONTH[ctrl.month];
-			var firstDayDate = new Date(ctrl.year, ctrl.month, 1);
-			var day = firstDayDate.getDay();
+			const firstDayDate = new Date(ctrl.year, ctrl.month, 1);
+			let day = firstDayDate.getDay();
 			if (day === 0) {
 				day += 7;
 			}
-			var lastMonday = addDays(firstDayDate, -day + 1);
-			var dayDate = lastMonday;
+			const lastMonday = addDays(firstDayDate, -day + 1);
+			let dayDate = lastMonday;
 
 			ctrl.isSelected = function(d) {
 				if (ctrl.selectedDate === undefined) {
@@ -60,30 +60,30 @@ app.component('lgDtMonth', {
 					return false;
 				}
 				// console.log('selected date', ctrl.selectedDate);
-				var result = d.getFullYear() === ctrl.selectedDate.getFullYear() &&
+				const result = d.getFullYear() === ctrl.selectedDate.getFullYear() &&
 					d.getMonth() === ctrl.selectedDate.getMonth() &&
 					d.getDate() === ctrl.selectedDate.getDate();
 				return result;
 			};
 
 			ctrl.isForbidden = function(d) {
-				var now = ctrl.lgDatetime.opts.start;
-				var nowAtMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+				const now = ctrl.lgDatetime.opts.start;
+				const nowAtMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
 				if (d <= nowAtMidnight) {
 					return true;
 				}
 				return false;
 			};
 
-			var elt = $element.find('tbody');
-			var html = '';
+			const elt = $element.find('tbody');
+			let html = '';
 			for (let j = 0; j < 5; j++) {
 				html += '<tr>';
 				for (let k = 0; k < 7; k++) {
-					var dayOfMonth = dayDate.getDate();
-					var actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
-					var myClass = '';
-					var ngClick = '';
+					const dayOfMonth = dayDate.getDate();
+					const actionArgs = dayDate.getFullYear() + ', ' + dayDate.getMonth() + ', ' + dayOfMonth;
+					let myClass = '';
+					let ngClick = '';
 
 					if (ctrl.isForbidden(dayDate)) {
 						myClass += ' disabled';
@@ -114,15 +114,15 @@ app.component('lgDtMonth', {
 
 		ctrl.refresh = function() {
 			// ctrl part needs a real jquery
-			var elt = $element.find('tbody');
-			var selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
+			const elt = $element.find('tbody');
+			const selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
 			selectedElt.removeClass('selected');
 
 			if (ctrl.selectedDate === undefined) {
 				return;
 			}
-			var myClass = 'd' + getDays(ctrl.selectedDate);
-			var newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
+			const myClass = 'd' + getDays(ctrl.selectedDate);
+			const newSelectedElt = angular.element(elt[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
 
 			if (ctrl.lgDatetime.opts.after) {
@@ -132,8 +132,8 @@ app.component('lgDtMonth', {
 
 
 		ctrl.printDays = function($element) {
-			var elt = $element.find('tr');
-			var html = '';
+			const elt = $element.find('tr');
+			let html = '';
 			for (let k = 1; k < 8; k++) {
 				html += '<td>' + $locale.DATETIME_FORMATS.SHORTDAY[k % 7].substr(0, 2) + '</td>';
 			}
@@ -141,8 +141,8 @@ app.component('lgDtMonth', {
 		};
 
 		ctrl.refreshInterval = function() {
-			var elt = $element.find('tbody');
-			var e = angular.element(elt[0].getElementsByClassName('interval'));
+			const elt = $element.find('tbody');
+			let e = angular.element(elt[0].getElementsByClassName('interval'));
 			e.removeClass('interval');
 			e = angular.element(elt[0].getElementsByClassName('interval-start'));
 			e.removeClass('interval-start');
@@ -150,11 +150,11 @@ app.component('lgDtMonth', {
 			if (ctrl.selectedDate === undefined) {
 				return;
 			}
-			var start = getDays(ctrl.lgDatetime.opts.start);
-			var end = getDays(ctrl.selectedDate);
+			const start = getDays(ctrl.lgDatetime.opts.start);
+			const end = getDays(ctrl.selectedDate);
 			for (let i = start; i <= end; i++) {
-				var myClass = 'd' + i;
-				var dayElt = angular.element(elt[0].getElementsByClassName(myClass));
+				const myClass = 'd' + i;
+				const dayElt = angular.element(elt[0].getElementsByClassName(myClass));
 				if (i === start) {
 					dayElt.addClass('interval-start');
 				} else {

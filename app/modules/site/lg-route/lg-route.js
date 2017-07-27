@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 });
 
-var homeUrl = require('./tmpl/home.html');
+const homeUrl = require('./tmpl/home.html');
 
 app.component('lgHomeRoute', {
     templateUrl: homeUrl,

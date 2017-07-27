@@ -14,11 +14,11 @@ app.component('lgDtHour', {
 	},
 	templateUrl: lgDtHourUrl,
 	controller: function LgDtHourCtrl($scope, $element, $window, $timeout) {
-		var ctrl = this;
-		var hourElt;
-		var isUpdating = false;
-		var width = screen.width;
-		var hourRange = makeRange(0, 23);
+		const ctrl = this;
+		let hourElt;
+		let isUpdating = false;
+		const width = screen.width;
+		const hourRange = makeRange(0, 23);
 
 		ctrl.hourRange = hourRange;
 
@@ -26,7 +26,7 @@ app.component('lgDtHour', {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;
 			console.log('width', width);
-			var pos = (0 + $index * 1.3) * width/10;
+			const pos = (0 + $index * 1.3) * width/10;
 			console.log('pos', pos);
 			hourElt[0].scrollLeft = pos;
 			ctrl.lgDatetime.setHours(hour);
@@ -41,7 +41,7 @@ app.component('lgDtHour', {
 
 		$scope.$watch('$ctrl.lgDatetime.state', function() {
 			console.log('LgDtHourCtrl $watch', arguments);
-			var $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
+			const $index = ctrl.hourRange.indexOf(ctrl.lgDatetime.selectedHours);
 			$timeout(function() {
 				ctrl.update(ctrl.lgDatetime.selectedHours, $index);
 			}, 0);
@@ -49,7 +49,7 @@ app.component('lgDtHour', {
 
 		$scope.$watch('$ctrl.lgDatetime.selectedDate', function() {
 			console.log('LgDtHourCtrl $watch $ctrl.lgDatetime.selectedDate', arguments);
-			var opts = ctrl.lgDatetime.opts;
+			const opts = ctrl.lgDatetime.opts;
 			if (ctrl.lgDatetime.selectedDate === undefined) {
 				return;
 			}
@@ -77,15 +77,15 @@ app.component('lgDtHour', {
 
 		ctrl.swipe = function() {
 			console.log('swipe', arguments);
-			var pos = hourElt[0].scrollLeft/width;
+			const pos = hourElt[0].scrollLeft/width;
 			console.log('pos', pos);
-			var $index = Math.round(((pos-0) * 99/(12.9875-0)));
+			const $index = Math.round(((pos-0) * 99/(12.9875-0)));
 			console.log('$index', $index);
-			var hour = ctrl.hourRange[$index];
+			const hour = ctrl.hourRange[$index];
 			ctrl.update(hour, $index);
 		};
 
-		var isScrolling = false;
+		let isScrolling = false;
 
 		var onScroll = function() {
 			if (isUpdating === true) {

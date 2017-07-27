@@ -20,7 +20,7 @@ describe('Truck CRUD', function() {
 		element.all(by.css('button.confirm')).click();
 		element.all(by.css('button.ok')).click();
 		console.log('-> user deleted');
-		element(by.id("pr-retrieve-loader-ads-button")).click();
+		element(by.id('pr-retrieve-loader-ads-button')).click();
 
 		// const nbAds = element(by.id('noAds')).getText();
 		// expect(nbAds).toEqual('Aucune annonce de transporteur');

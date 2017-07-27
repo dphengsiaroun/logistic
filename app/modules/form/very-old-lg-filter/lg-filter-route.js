@@ -17,7 +17,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
 app.controller('FilterCtrl', function FilterCtrl($scope, user, filter) {
     'ngInject';
-	var ctrl = this;
+	const ctrl = this;
     ctrl.filter = filter;
     ctrl.user = user;
 	console.log('FilterCtrl', arguments);
@@ -25,7 +25,7 @@ app.controller('FilterCtrl', function FilterCtrl($scope, user, filter) {
 
 app.controller('FilterListCtrl', function FilterCtrl($scope, user, filter, loader) {
 	'ngInject';
-	var ctrl = this;
+	const ctrl = this;
     ctrl.filter = filter;
 	ctrl.loader = loader;
     ctrl.user = user;
@@ -34,8 +34,8 @@ app.controller('FilterListCtrl', function FilterCtrl($scope, user, filter, loade
     };
 });
 
-var filterCreateUrl = require('./tmpl/filter-create.html');
-var filterListUrl = require('./tmpl/filter-list.html');
+const filterCreateUrl = require('./tmpl/filter-create.html');
+const filterListUrl = require('./tmpl/filter-list.html');
 
 app.component('lgFilterCreateRoute', {
 	templateUrl: filterCreateUrl,

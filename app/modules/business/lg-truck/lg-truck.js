@@ -6,7 +6,7 @@ require('./lg-truck-route.js');
 
 app.service('truck', function Truck($q, $http, $state, user, connection) {
 	'ngInject';
-	var service = this;
+	const service = this;
 	service.initCreateData = function() {
 		service.createData = {
 			imageId: new Date().getTime()
@@ -16,7 +16,7 @@ app.service('truck', function Truck($q, $http, $state, user, connection) {
 
 	service.create = function() {
 		console.log('truck->createTruck');
-		var createData = service.createData;
+		const createData = service.createData;
 		if (user.current) {
 			$http({
 				url: 'ws/users/' + user.current.content.login + '/trucks',
@@ -101,7 +101,7 @@ app.service('truck', function Truck($q, $http, $state, user, connection) {
 		return connection.waitForCheckConnection().then(function() {
 			return service.list();
 		}).then(function() {
-			for (var p in service.truckMap) {
+			for (const p in service.truckMap) {
 				if (service.truckMap.hasOwnProperty(p)) {
 					return $q.resolve();
 				}

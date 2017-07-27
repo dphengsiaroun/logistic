@@ -1,12 +1,12 @@
 // gulp deploy --target=jlgc2
-var yargs = require('yargs');
+const yargs = require('yargs');
 
-var utils = {};
+const utils = {};
 
 utils.getEnv = function(type) {
-	var env = require('./environments.js')[type];
+	let env = require('./environments.js')[type];
 
-	var target = env.default;
+	let target = env.default;
 	if ('target' in yargs.argv) {
 		target = yargs.argv.target;
 	}

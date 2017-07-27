@@ -40,7 +40,7 @@ describe('User CRUD', function() {
 
 		element(by.css('button')).click();
 		// // browser.sleep(35000);
-		var message = element(by.css('h2'));
+		const message = element(by.css('h2'));
 		expect(message.getText()).toEqual('Votre compte est créé.');
 		element(by.css('button')).click();
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
@@ -51,7 +51,7 @@ describe('User CRUD', function() {
 		browser.driver.navigate().refresh();
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
 		element(by.css('menu-bar')).click();
-		var link = element(by.linkText('Mon profil'));
+		const link = element(by.linkText('Mon profil'));
 		expect(link).toBeDefined();
 	});
 

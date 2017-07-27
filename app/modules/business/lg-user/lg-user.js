@@ -12,14 +12,14 @@ require('./ctrl/ads.js');
 require('./ctrl/proposals.js');
 
 
-var makeUrl = function(str) {
+const makeUrl = function(str) {
 	return 'ws/user/' + str + '.php';
 };
 
 app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 	'ngInject';
-	var service = this;
-	var user = this;
+	const service = this;
+	const user = this;
 
 	this.signupData = {
 		content: {}
@@ -27,8 +27,8 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 
 	this.signup = function() {
 		console.log('sign up');
-		var SHA256 = new Hashes.SHA256;
-		var data = angular.copy(service.signupData);
+		const SHA256 = new Hashes.SHA256;
+		const data = angular.copy(service.signupData);
 		data.password = SHA256.hex(service.signupData.password);
 
 		$http({
@@ -106,8 +106,8 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 
 	this.updatePassword = function(data) {
 		console.log('user->updatePassword', arguments);
-		var SHA256 = new Hashes.SHA256;
-		var hashedData = angular.copy(data);
+		const SHA256 = new Hashes.SHA256;
+		const hashedData = angular.copy(data);
 		if (hashedData.oldPassword) {
 			hashedData.oldPassword = SHA256.hex(hashedData.oldPassword);
 		}

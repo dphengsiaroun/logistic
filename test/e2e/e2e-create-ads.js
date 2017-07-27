@@ -39,7 +39,7 @@ describe('Create ADS', function() {
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 		browser.sleep(5000);
         element(by.id('pr-create-user-button')).click();
-		var message = element(by.css('h2'));
+		const message = element(by.css('h2'));
 		expect(message.getText()).toEqual('Votre compte est créé.');
 		element(by.css('button')).click();
 		element(by.css('menu-bar')).click();

@@ -7,7 +7,7 @@ require('./lg-proposal-route.js');
 app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 	'ngInject';
 
-	var service = this;
+	const service = this;
 	service.initCreateData = function() {
 		service.createData = {
 			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
@@ -18,7 +18,7 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 
 	service.create = function() {
 		console.log('proposal->create', service.createData);
-		var createData = service.createData;
+		const createData = service.createData;
 		if (user.current) {
 			$http({
 				url: 'ws/proposals',

@@ -13,8 +13,8 @@ app.directive('input', function($compile) {
 				return;
 			}
 			console.log('input type="num"', arguments);
-			var myClass = ('vertical' in attrs) ? 'class="vertical"' : '';
-			var elt = angular.element('<!-- input type="num" ng-model="' + attrs.ngModel + '" -->' +
+			const myClass = ('vertical' in attrs) ? 'class="vertical"' : '';
+			const elt = angular.element('<!-- input type="num" ng-model="' + attrs.ngModel + '" -->' +
 				'<lg-num ' + myClass + ' ng-model="' + attrs.ngModel +
 				'" options="' + attrs.options +
 				'" placeholder="\'' + attrs.placeholder + '\'"></lg-num>');
@@ -26,8 +26,8 @@ app.directive('input', function($compile) {
 
 });
 
-var lgNumVerticalUrl = require('./tmpl/lg-num-vertical.html');
-var lgNumUrl = require('./tmpl/lg-num.html');
+const lgNumVerticalUrl = require('./tmpl/lg-num-vertical.html');
+const lgNumUrl = require('./tmpl/lg-num.html');
 
 app.component('lgNum', {
 	require: {
@@ -46,21 +46,21 @@ app.component('lgNum', {
 		'ngInject';
 		console.log('lgNum controller', arguments, this);
 		console.log('lgNum controller', arguments, this.ngModel);
-		var ctrl = this;
-		var ngModelCtrl;
-		var elt = $element.find('my-input');
-		var plusElt = $element.find('plus');
-		var minusElt = $element.find('minus');
+		const ctrl = this;
+		let ngModelCtrl;
+		const elt = $element.find('my-input');
+		const plusElt = $element.find('plus');
+		const minusElt = $element.find('minus');
 		this.myOptions = {
 			format: 3,
 			step: 1
 		};
 
-		var timeout = undefined;
-		var interval = undefined;
-		var interval2 = undefined;
+		let timeout;
+		let interval;
+		let interval2;
 
-		var touchstart = function(callback) {
+		const touchstart = function(callback) {
 			return function() {
 				console.log('touchstart', arguments);
 				callback();
@@ -83,7 +83,7 @@ app.component('lgNum', {
 			};
 		};
 
-		var touchend = function() {
+		const touchend = function() {
 			console.log('touchend', arguments);
 			elt.removeClass('editing');
 			if (timeout !== undefined) {
@@ -126,7 +126,7 @@ app.component('lgNum', {
 
 			ngModelCtrl.$render = function() {
 				console.log('ngModelCtrl.$render', arguments, this);
-				var valueStr = ctrl.placeholder;
+				let valueStr = ctrl.placeholder;
 				if (ngModelCtrl.$viewValue !== undefined) {
 					valueStr = $filter('number')(ngModelCtrl.$viewValue, ctrl.myOptions.format);
 					elt.addClass('filled');

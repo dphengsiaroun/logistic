@@ -43,7 +43,7 @@ app.service('lgPicture', function LgPicture() {
 	};
 });
 
-var lgShowPictureUrl = require('./tmpl/lg-show-picture.html');
+const lgShowPictureUrl = require('./tmpl/lg-show-picture.html');
 
 app.component('lgShowPicture', {
 	templateUrl: lgShowPictureUrl,
@@ -61,7 +61,7 @@ app.component('lgShowPicture', {
 	}
 });
 
-var lgFaviconUrl = require('./tmpl/lg-favicon.html');
+const lgFaviconUrl = require('./tmpl/lg-favicon.html');
 
 app.component('lgFavicon', {
 	templateUrl: lgFaviconUrl
@@ -74,8 +74,8 @@ app.component('lgSelect', {
 	controller: function LgSelectCtrl($scope, $element, $compile) {
 		'ngInject';
 		console.log('LgSelectCtrl', arguments);
-		var ctrl = this;
-		var isInit = true;
+		const ctrl = this;
+		let isInit = true;
 		ctrl.update = function(value) {
 			console.log('lgSelect update', arguments);
 			ctrl.ngModel.$setViewValue(value);
@@ -85,18 +85,18 @@ app.component('lgSelect', {
 		ctrl.$onInit = function() {
 			ctrl.ngModel.$render = function() {
 				console.log('lgSelect $render', arguments);
-				var value = ctrl.ngModel.$viewValue;
+				const value = ctrl.ngModel.$viewValue;
 				console.log('lgSelect value', value);
-				var elts = $element.find('lg-option');
+				const elts = $element.find('lg-option');
 				console.log('lgSelect elts', elts);
 				elts.removeAttr('selected');
-				var elt = angular.element($element[0].querySelector('lg-option[value=' + value + ']'));
+				const elt = angular.element($element[0].querySelector('lg-option[value=' + value + ']'));
 				elt.attr('selected', '');
 				if (isInit) {
-					var optionElts = $element.find('lg-option');
+					const optionElts = $element.find('lg-option');
 					for (let i = 0; i < optionElts.length; i++) {
-						var e = angular.element(optionElts[i]);
-						var val = e.attr('value');
+						const e = angular.element(optionElts[i]);
+						const val = e.attr('value');
 						e.attr('ng-click', '$ctrl.update(\'' + val + '\')');
 					}
 					$compile($element.contents())($scope);
@@ -107,7 +107,7 @@ app.component('lgSelect', {
 	}
 });
 
-var lgCityUrl = require('./tmpl/lg-city.html');
+const lgCityUrl = require('./tmpl/lg-city.html');
 
 app.component('lgCity', {
 	require: {
@@ -128,7 +128,7 @@ app.directive('lgBindHtmlCompile', function($compile) {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 			scope.$watch(function() {
-				var html = scope.$eval(attrs.lgBindHtmlCompile);
+				const html = scope.$eval(attrs.lgBindHtmlCompile);
 				return html;
 			}, function(value) {
 				element.html(value);
@@ -143,7 +143,7 @@ require('./tmpl/lg-image.html');
 app.component('imgSvg', {
 	controller: function ImgSvgCtrl($scope, $element, $attrs, $templateCache, $compile) {
 		'ngInject';
-		var svg = $templateCache.get($attrs.src);
+		const svg = $templateCache.get($attrs.src);
 		$element.html(svg);
 		if ('compile' in $attrs) {
 			$compile($element.contents())($scope.$parent);
@@ -151,13 +151,13 @@ app.component('imgSvg', {
 	}
 });
 
-var lgSocialLoginUrl = require('./tmpl/lg-social-login.html');
+const lgSocialLoginUrl = require('./tmpl/lg-social-login.html');
 app.component('lgSocialLogin', {
 	templateUrl: lgSocialLoginUrl
 });
 
 require('./css/lg-breadcrumb.scss');
-var lgBreadcrumbUrl = require('./tmpl/lg-breadcrumb.html');
+const lgBreadcrumbUrl = require('./tmpl/lg-breadcrumb.html');
 app.component('lgBreadcrumb', {
 	templateUrl: lgBreadcrumbUrl
 });

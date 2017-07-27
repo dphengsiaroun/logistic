@@ -9,7 +9,7 @@ require('./lg-hour2.js');
 require('./lg-hour3.js');
 
 app.directive('input', ['$injector', function($injector) {
-	var $compile = $injector.get('$compile');
+	const $compile = $injector.get('$compile');
 	return {
 		restrict: 'E',
 		require: '?ngModel',
@@ -17,8 +17,8 @@ app.directive('input', ['$injector', function($injector) {
 			if (attr.type !== 'lgDate') {
 				return;
 			}
-			var title = attr.title || attr.placeholder;
-			var elt = angular.element('<!-- input type="lgDate" ng-model="' + attr.ngModel + '" -->' +
+			const title = attr.title || attr.placeholder;
+			const elt = angular.element('<!-- input type="lgDate" ng-model="' + attr.ngModel + '" -->' +
 				'<lg-calendar-wrapper ' +
 				'placeholder="\'' + attr.placeholder + '\'" ' +
 				'title="\'' + title + '\'" ' +
@@ -34,7 +34,7 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
-var lgCalendarWrapperUrl = require('./tmpl/lg-calendar-wrapper.html');
+const lgCalendarWrapperUrl = require('./tmpl/lg-calendar-wrapper.html');
 
 app.component('lgCalendarWrapper', {
 	require: {
@@ -42,10 +42,10 @@ app.component('lgCalendarWrapper', {
 	},
 	templateUrl: lgCalendarWrapperUrl,
 	controller: function lgCalendarWrapperCtrl($scope, $element, $injector) {
-		var lgScroll = $injector.get('lgScroll');
-		var $filter = $injector.get('$filter');
-		var self = this;
-		var ngModelCtrl;
+		const lgScroll = $injector.get('lgScroll');
+		const $filter = $injector.get('$filter');
+		const self = this;
+		let ngModelCtrl;
 		this.format = 'EEEE dd LLLL';
 
 		this.state = 'outsideState';
@@ -115,7 +115,7 @@ app.component('lgCalendarWrapper', {
 			}
 			this.months = [];
 			for (let i = 0; i < this.myOptions.monthNbr; i++) {
-				var date = new Date(this.myOptions.start);
+				const date = new Date(this.myOptions.start);
 				date.setMonth(date.getMonth() + i);
 				this.months.push(date);
 				// console.log('this.months', this.months);
@@ -126,7 +126,7 @@ app.component('lgCalendarWrapper', {
 		this.setDate = function(year, month, day) {
 			console.log('setDate', arguments);
 			console.log('year', year);
-			var date = new Date(year, month, day, self.myOptions.defaultHour);
+			const date = new Date(year, month, day, self.myOptions.defaultHour);
 			console.log('date', date);
 			self.update(date);
 			self.selectedHours = date.getHours();
@@ -134,7 +134,7 @@ app.component('lgCalendarWrapper', {
 
 		this.setHours = function(hour) {
 			console.log('setHours', arguments);
-			var date = ngModelCtrl.$viewValue;
+			const date = ngModelCtrl.$viewValue;
 			date.setHours(hour);
 			self.selectedHours = date.getHours();
 			console.log('ngModelCtrl.$setViewValue', ngModelCtrl.$viewValue);
@@ -153,12 +153,12 @@ app.component('lgCalendarWrapper', {
 			ngModelCtrl.$render = function() {
 				console.log('ngModelCtrl.$render', arguments);
 
-				var datetime = undefined;
+				let datetime;
 				if (ngModelCtrl.$viewValue !== undefined) {
 					datetime = $filter('date')(ngModelCtrl.$viewValue, 'EEEE dd LLLL - HH:mm');
 				}
-				var html = datetime || self.placeholder;
-				var elt = $element.find('my-input');
+				const html = datetime || self.placeholder;
+				const elt = $element.find('my-input');
 				if (datetime !== undefined) {
 					console.log('filled');
 					elt.addClass('filled');
@@ -172,7 +172,7 @@ app.component('lgCalendarWrapper', {
 			};
 
 			var checkValidity = function(value) {
-				var isOutOfChoice = false;
+				const isOutOfChoice = false;
 				ngModelCtrl.$setValidity('outOfChoice', isOutOfChoice);
 			};
 		};

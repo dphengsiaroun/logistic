@@ -6,7 +6,7 @@ require('./lg-misc.scss');
 
 app.service('lgMisc', ['$injector', function LgMisc($injector) {
     this.isWebService = function(url) {
-		var result = url.match(/ws\//);
+		const result = url.match(/ws\//);
         return result;
     };
 }]);
@@ -21,7 +21,7 @@ app.service('lgSequence', function LgSequence() {
 
 app.service('lgScroll', function LgScroll($window, $document) {
     'ngInject';
-    var body = $document.find('body').eq(0);
+    const body = $document.find('body').eq(0);
     this.lastSaved = 0;
     this.save = function() {
         this.lastSaved = $window.scrollY;
@@ -37,9 +37,9 @@ app.service('lgScroll', function LgScroll($window, $document) {
 app.filter('duration', function duration($filter) {
     'ngInject';
     return function(duration) {
-        var result = '';
-        var minuteFormat = 'mm';
-        var hourFormat = ' et \'H\'h\'';
+        let result = '';
+        let minuteFormat = 'mm';
+        let hourFormat = ' et \'H\'h\'';
         if (duration % (60 * 60) === 0) {
             minuteFormat = '';
             if (duration % (24 * 60 * 60) === 0) {
@@ -59,9 +59,9 @@ app.filter('duration', function duration($filter) {
 app.filter('distance', function() {
     'ngInject';
     return function(number) {
-        var integer = Math.floor(number);
-        var decimal = Math.round((number - integer) * 100);
-        var decimalStr = '' + decimal;
+        const integer = Math.floor(number);
+        const decimal = Math.round((number - integer) * 100);
+        let decimalStr = '' + decimal;
         if (decimal < 10) {
             decimalStr = '0' + decimal;
         }
@@ -104,7 +104,7 @@ app.filter('googlemap', function($rootScope) {
         if (!content || !content.departureCity || !content.arrivalCity) {
             return '';
         }
-        var result = 'https://www.google.com/maps/dir/' +
+        let result = 'https://www.google.com/maps/dir/' +
             content.departureCity.city + '+' +
             content.departureCity.region + '+' +
             content.departureCity.country +

@@ -5,7 +5,7 @@ const app = angular.module(module.exports, []);
 app.config(['$provide', function($provide) {
 	console.log('lg-debug config', arguments);
 	$provide.decorator('$rootScope', ['$delegate', function($delegate) {
-		var emit = $delegate.$emit;
+		const emit = $delegate.$emit;
 
 		$delegate.$emit = function() {
 			console.log.apply(console, arguments);
@@ -16,7 +16,7 @@ app.config(['$provide', function($provide) {
 	}]);
 }]);
 
-var counter = 0;
+let counter = 0;
 
 app.run(function($rootScope) {
 	'ngInject';

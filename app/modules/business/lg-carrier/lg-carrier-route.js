@@ -20,9 +20,9 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(connection, user, carrier) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
-                    var login = user.current.content.login;
+                    const login = user.current.content.login;
                     console.log('login', login);
-                    var state = 'carrier:list({login: \'' + login + '\'})';
+                    const state = 'carrier:list({login: \'' + login + '\'})';
                     console.log('state', state);
                     return {
                         state: state,
@@ -40,7 +40,7 @@ app.config(['$stateProvider', function($stateProvider) {
         resolve: {
             service: function($rootScope, carrier, $stateParams) {
                 'ngInject';
-                var result = {};
+                const result = {};
                 result.doCancel = function() {
                     $rootScope.back();
                 };
@@ -64,9 +64,9 @@ app.config(['$stateProvider', function($stateProvider) {
             service: function(connection, user, carrier) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
-                    var login = user.current.content.login;
+                    const login = user.current.content.login;
                     console.log('login', login);
-                    var state = 'carrier:list({login: \'' + login + '\'})';
+                    const state = 'carrier:list({login: \'' + login + '\'})';
                     console.log('state', state);
                     return {
                         state: state,
@@ -81,7 +81,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
 app.controller('CarrierListCtrl', function CarrierListCtrl(carrier) {
 	'ngInject';
-	var ctrl = this;
+	const ctrl = this;
     ctrl.carrier = carrier;
     ctrl.$onInit = function() {
         carrier.list().then(function(carriers) {
@@ -95,11 +95,11 @@ app.controller('CarrierListCtrl', function CarrierListCtrl(carrier) {
 
 app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection) {
 	'ngInject';
-    var ctrl = this;
+    const ctrl = this;
     ctrl.carrier = $injector.get('carrier');
     ctrl.user = $injector.get('user');
     ctrl.isEditable = false;
-    var $stateParams = $injector.get('$stateParams');
+    const $stateParams = $injector.get('$stateParams');
     console.log('ctrl.carrier', ctrl.carrier);
     console.log('$stateParams', $stateParams);
     ctrl.$onInit = function() {
@@ -115,8 +115,8 @@ app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection
     };
 });
 
-var carrierListUrl = require('./tmpl/carrier-list.html');
-var carrierDetailUrl = require('./tmpl/carrier-detail.html');
+const carrierListUrl = require('./tmpl/carrier-list.html');
+const carrierDetailUrl = require('./tmpl/carrier-detail.html');
 
 app.component('lgCarrierListRoute', {
     templateUrl: carrierListUrl,

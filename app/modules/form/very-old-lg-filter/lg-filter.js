@@ -7,7 +7,7 @@ require('./lg-filter-route.js');
 app.service('filter', function Filter($http, $state, $q, connection, user) {
 	'ngInject';
 
-	var service = this;
+	const service = this;
 	service.initCreateData = function() {
 		service.createData = {
 			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
@@ -18,7 +18,7 @@ app.service('filter', function Filter($http, $state, $q, connection, user) {
 
 	service.create = function() {
 		console.log('filter->create', service.createData);
-		var createData = service.createData;
+		const createData = service.createData;
 			$http({
 				url: 'ws/filters',
 				method: 'POST',

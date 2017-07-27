@@ -10,10 +10,10 @@ app.config(function($httpProvider, $provide) {
 
 		return {
 			response: function(response) {
-				var url = response.config.url;
+				const url = response.config.url;
 
 				if (lgMisc.isWebService(url) && typeof response.data === 'string') {
-					var str = response.data;
+					const str = response.data;
 					response.data = {
 						status: 'ko',
 						errorCode: '-1',

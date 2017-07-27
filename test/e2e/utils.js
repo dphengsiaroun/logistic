@@ -3,7 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const data = require('./data/data.js');
-var utils = {};
+const utils = {};
 module.exports = utils;
 
 utils.lgCitySelect = function(name, city) {

@@ -8,7 +8,7 @@ require('./lg-carrier-create-route.js');
 app.service('carrier', function Carrier($http, $state, $q, connection, user) {
 	'ngInject';
 
-	var service = this;
+	const service = this;
 
 	service.initCreateData = function() {
 		service.createData = {

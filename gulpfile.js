@@ -17,7 +17,7 @@ const glob = require('glob');
 
 const Promise = require('bluebird');
 Promise.promisifyAll(fs);
-var globAsync = Promise.promisify(glob);
+const globAsync = Promise.promisify(glob);
 
 const cfgUtils = require('./cfg/utils.js');
 require('./gulp/eslint.js')(gulp);
@@ -118,7 +118,7 @@ gulp.task('rebuild', function() {
 });
 
 gulp.task('deploy:config', function(callback) {
-	var deployEnv = cfgUtils.getEnv('deploy');
+	const deployEnv = cfgUtils.getEnv('deploy');
 	consolidate.ejs('./cfg/config.ws.tmpl', deployEnv.ws).then(function(str) {
 		return fs.writeFileAsync('./dist/ws/include/suggested.config.php', str);
 	}).then(function(str) {
@@ -130,7 +130,7 @@ gulp.task('deploy:config', function(callback) {
 });
 
 gulp.task('deploy:unzip', function(callback) {
-	var deployEnv = cfgUtils.getEnv('deploy');
+	const deployEnv = cfgUtils.getEnv('deploy');
 	rp(deployEnv.url + 'unzip.php')
 		.then(function(htmlString) {
 			console.log('htmlString', htmlString);
@@ -149,7 +149,7 @@ gulp.task('deploy:zip', function(callback) {
 });
 
 gulp.task('deploy:ftp', function() {
-	var deployEnv = cfgUtils.getEnv('deploy');
+	const deployEnv = cfgUtils.getEnv('deploy');
 	console.log('env', deployEnv);
 	console.log('env.ftp', deployEnv.ftp);
 	return gulp.src(path.ftp)
@@ -162,7 +162,7 @@ gulp.task('deploy', ['clean:zip'], function() {
 });
 
 gulp.task('undeploy:ftp', function() {
-	var deployEnv = cfgUtils.getEnv('deploy');
+	const deployEnv = cfgUtils.getEnv('deploy');
 	console.log('env.ftp', deployEnv.ftp);
 	return gulp.src(path.undeploy)
 		.pipe(ftp(deployEnv.ftp))
@@ -170,7 +170,7 @@ gulp.task('undeploy:ftp', function() {
 });
 
 gulp.task('undeploy:remove', function(callback) {
-	var deployEnv = cfgUtils.getEnv('deploy');
+	const deployEnv = cfgUtils.getEnv('deploy');
 	rp(deployEnv.url + 'remove.php')
 		.then(function(htmlString) {
 			console.log('htmlString', htmlString);
@@ -187,8 +187,8 @@ gulp.task('undeploy', function() {
 });
 
 gulp.task('config', function(callback) {
-	var devEnv = cfgUtils.getEnv('dev');
-	var svg;
+	const devEnv = cfgUtils.getEnv('dev');
+	let svg;
 	globAsync('app/img/**/*.svg').then(function(files) {
 		svg = { svgs: files.map((f) => f.replace(/^app/, '')) };
 		return consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws);

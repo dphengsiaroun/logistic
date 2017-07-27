@@ -1,9 +1,9 @@
 require('./lg-hour2.scss');
 
 const app = angular.module('lg-calendar');
-var id = 0;
+let id = 0;
 
-var lgHour2Url = require('./tmpl/lg-hour2.html');
+const lgHour2Url = require('./tmpl/lg-hour2.html');
 
 app.component('lgHour2', {
 	require: {
@@ -12,12 +12,12 @@ app.component('lgHour2', {
 	templateUrl: lgHour2Url,
 	controller: function LgMonth2Ctrl($scope, $element, $locale, $compile) {
 		'ngInject';
-		var self = this;
+		const self = this;
 		id++;
 		this.id = id;
 
 		this.getRange = function(start, stop) {
-			var result = [];
+			const result = [];
 			for (let i = start; i <= stop; i++) {
 				result.push(i);
 			}
@@ -36,8 +36,8 @@ app.component('lgHour2', {
 		this.refreshStyle = function() {
 			this.style = '';
 			for (let i = 0; i < 24; i++) {
-				var top = this.y + this.radius*Math.cos(i*6.28/24);
-				var left = this.x - this.radius*Math.sin(i*6.28/24);
+				const top = this.y + this.radius*Math.cos(i*6.28/24);
+				const left = this.x - this.radius*Math.sin(i*6.28/24);
 				this.style += '.i-' + this.id + '.h-' + i + ' { top: ' + top + 'px; left: ' + left + 'px;}\n';
 			}
 		};
@@ -57,13 +57,13 @@ app.component('lgHour2', {
 		};
 
 		this.refresh = function() {
-			var selectedElt = angular.element($element[0].getElementsByClassName('selected'));
+			const selectedElt = angular.element($element[0].getElementsByClassName('selected'));
 			selectedElt.removeClass('selected');
 			if (this.selectedHours === undefined) {
 				return;
 			}
-			var myClass = 'h-' + this.selectedHours;
-			var newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
+			const myClass = 'h-' + this.selectedHours;
+			const newSelectedElt = angular.element($element[0].getElementsByClassName(myClass));
 			newSelectedElt.addClass('selected');
 		};
 
