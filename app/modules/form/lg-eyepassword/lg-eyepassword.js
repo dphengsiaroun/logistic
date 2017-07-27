@@ -1,7 +1,6 @@
-'use strict';
 module.exports = 'lg-eyepassword';
 require('./lg-eyepassword.css');
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 app.directive('input', ['$injector', function($injector) {
 	var $compile = $injector.get('$compile');

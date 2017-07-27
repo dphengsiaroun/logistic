@@ -1,12 +1,10 @@
-'use strict';
-
 require('./lg-dimension.scss');
 
 module.exports = 'lg-dimension';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
-var lgDimensionUrl = require('./tmpl/lg-dimension.html');
+const lgDimensionUrl = require('./tmpl/lg-dimension.html');
 
 app.component('lgDimension', {
 	require: {

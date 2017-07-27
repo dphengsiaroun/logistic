@@ -1,9 +1,7 @@
-'use strict';
-
 require('./lg-password.scss');
 module.exports = 'lg-password';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 require('./lg-password-route.js');
 
 app.service('password', function Password($injector, $http, $rootScope, $q, $state) {

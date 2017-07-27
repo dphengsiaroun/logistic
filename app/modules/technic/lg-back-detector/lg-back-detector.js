@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = 'lg-back-detector';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 app.service('lgBackDetector', function LgBackDetector($rootScope, $location, $transitions, $window) {
 	'ngInject';

@@ -1,81 +1,205 @@
-'use strict';
+var lgGeoloc = require('../../technic/lg-geoloc/lg-geoloc.js');
 
-require('./lg-filter.scss');
-module.exports = 'lg-filter';
+require('./lg-choice.scss');
+module.exports = 'lg-choice';
 
-var app = angular.module(module.exports, ['ui.router']);
-require('./lg-filter-route.js');
+var removeDiacritic = function(str) {
+	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+};
 
-app.service('filter', function Filter($http, $state, $q, connection, user) {
-	'ngInject';
+var app = angular.module(module.exports, ['lg-misc', lgGeoloc]);
 
-	var service = this;
-	service.initCreateData = function() {
-		service.createData = {
-			message: 'Bonjour, j\'aimerais vous faire une offre contactez-moi. Merci.',
-		};
+app.directive('input', ['$injector', function($injector) {
+	var $compile = $injector.get('$compile');
+	return {
+		restrict: 'E',
+		require: '?ngModel',
+		link: function(scope, element, attr, ctrl) {
+			if (attr.type !== 'choice') {
+				return;
+			}
+			var requiredAttr = '';
+			if (element.prop('required')) {
+				console.log('required');
+				requiredAttr = ' is-mandatory="true" ';
+			}
+			var optionsAttr = '';
+			if (attr.options) {
+				console.log('options');
+				optionsAttr = 'options="' + attr.options + '" ';
+			}
+			var nameAttr = '';
+			if (attr.name) {
+				console.log('name');
+				nameAttr = 'name="' + attr.name + '" ';
+			}
+			var elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
+				'<lg-choice ' +
+				nameAttr +
+				'placeholder="\'' + attr.placeholder + '\'" ' +
+				'choices="' + attr.choices + '" ' +
+				'title="\'' + attr.title + '\'" ' +
+				'ng-model="' + attr.ngModel + '" ' +
+				requiredAttr +
+				optionsAttr +
+				'></lg-choice>');
+			element.after(elt);
+			element.attr('style', 'display: none !important');
+			$compile(elt)(scope);
+		}
 	};
-	service.initCreateData();
 
+}]);
 
-	service.create = function() {
-		console.log('filter->create', service.createData);
-		var createData = service.createData;
-			$http({
-				url: 'ws/filters',
-				method: 'POST',
-				data: createData,
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				}
-			}).then(function(response) {
-				console.log('response', response);
-				if (response.data.status === 'ko') {
-					service.error = response;
-					return;
-				}
-				service.error = undefined;
-				service.initCreateData();
-				$state.go('filter:created');
+var lgChoiceUrl = require('./tmpl/lg-choice.html');
+
+app.component('lgChoice', {
+	require: {
+		ngModel: 'ngModel',
+	},
+	templateUrl: lgChoiceUrl,
+	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll, geoloc) {
+		'ngInject';
+		var ctrl = this;
+		var fixedListElt = $element.find('fixed-list');
+
+		ctrl.showLgChoice = false;
+		ctrl.defaultsOptions = {
+			place: false
+		};
+
+		ctrl.closeInput = function() {
+			console.log('closeInput');
+			$element.find('input')[0].blur();
+		};
+
+		ctrl.scrollTopList = function() {
+			fixedListElt[0].scrollTop = 0;
+		};
+
+		ctrl.start = function() {
+			console.log('start');
+			lgScroll.save();
+			ctrl.showLgChoice = true;
+			ctrl.setNormalMode();
+		};
+
+		ctrl.stop = function() {
+			lgScroll.restore();
+			ctrl.showLgChoice = false;
+			ctrl.closeInput();
+		};
+
+		ctrl.update = function(choice) {
+			console.log('update', arguments);
+			ctrl.stop();
+
+			ctrl.ngModel.$setViewValue(choice);
+			ctrl.ngModel.$render();
+			// because we have no blur event, then we must set the touched ourselves.
+			ctrl.ngModel.$setTouched();
+		};
+
+		ctrl.isProximityMode = false;
+
+		ctrl.setProximityMode = function() {
+			ctrl.isProximityMode = true;
+			geoloc.guessCity().then(function(displayCity) {
+				ctrl.myChoices = [displayCity];
 			}).catch(function(error) {
 				console.error('error', error);
 			});
-	};
+		};
 
-	service.listData = {};
+		ctrl.setNormalMode = function() {
+			ctrl.isProximityMode = false;
+			ctrl.myChoices = ctrl.choices;
+		};
 
-	service.list = function(data) {
-		console.log('filter->list');
-		return $http({
-			url: 'ws/filters',
-			method: 'GET',
-			params: data,
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
+		ctrl.geoloc = function() {
+			if (ctrl.isProximityMode) {
+				ctrl.setNormalMode();
+				return;
 			}
-		}).then(function(response) {
-			console.log('response', response);
-			if (response.data.status === 'ko') {
-				service.error = response;
-				return $q.reject(response);
+			ctrl.setProximityMode();
+		};
+
+		ctrl.getLabel = function(label) {
+			if (label === undefined) {
+				return '';
 			}
-			service.error = undefined;
-			return response.data.filters;
-		}).catch(function(error) {
-			service.error = error;
-			return $q.reject(error);
-		});
-	};
+			if (ctrl.defaultsOptions.label) {
+				return ctrl.defaultsOptions.label.apply(null, arguments);
+			}
+			return label;
+		};
 
-	service.get = function(id) {
-		console.log('service.filters', service.filters);
-		return this.list().then(function(filters) {
-			service.filters = filters;
-			service.filterMap = makeMap(filters);
-			service.current = service.filterMap[id];
-		});
-		service.current = service.filterMap[id];
-		return $q.resolve();
-	};
+		ctrl.getIcon = function() {
+			if (ctrl.defaultsOptions.icon) {
+				// console.log('ctrl.getIcon', ctrl.defaultsOptions.icon.apply(null, arguments));
+				return ctrl.defaultsOptions.icon.apply(null, arguments);
+			}
+			return '';
+		};
 
+		ctrl.getLabelToFilter = function(label) {
+			if (label === undefined) {
+				return '';
+			}
+			if (ctrl.defaultsOptions.labelToFilter) {
+				return ctrl.defaultsOptions.labelToFilter.apply(null, arguments);
+			}
+			return label;
+		};
+
+		ctrl.$onInit = function() {
+			var ngModel = ctrl.ngModel;
+			angular.extend(ctrl.defaultsOptions, ctrl.options);
+
+			ctrl.setNormalMode();
+
+			ngModel.$render = function() {
+				var choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
+				ctrl.currentValue = ctrl.getLabel(choice) || ctrl.placeholder;
+				var elt = $element.find('my-input');
+				if (choice !== undefined) {
+					console.log('filled');
+					elt.addClass('filled');
+				} else {
+					console.log('not filled');
+					elt.removeClass('filled');
+
+				}
+				checkValidity(1);
+			};
+			console.log('ngModel', ngModel);
+			var checkValidity = function(value) {
+				var isOutOfChoice = false;
+				ngModel.$setValidity('outOfChoice', isOutOfChoice);
+			};
+
+			ctrl.myFilter = function(value, index, array) {
+				if (ngModel.$modelValue !== undefined && ngModel.$modelValue === value) {
+					return false;
+				}
+				if (ctrl.myInput === undefined) {
+					return true;
+				}
+				var label = ctrl.getLabelToFilter(value);
+				if (removeDiacritic(label.toLowerCase()).indexOf(removeDiacritic(ctrl.myInput.toLowerCase())) !== -1) {
+					return true;
+				}
+				return false;
+			};
+		};
+	},
+	bindings: {
+		name: '@',
+		title: '<',
+		options: '<',
+		choices: '<',
+		placeholder: '<',
+		isMandatory: '<',
+	}
 });
+

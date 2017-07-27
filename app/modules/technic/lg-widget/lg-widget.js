@@ -1,17 +1,14 @@
-'use strict';
-
-
 module.exports = 'lg-widget';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 require('./lg-widget.scss');
 require('./lg-hr.js');
 
-var lgPromptUrl = require('./tmpl/lg-prompt.html');
-var lgConfirmUrl = require('./tmpl/lg-confirm.html');
-var lgMessageUrl = require('./tmpl/lg-message.html');
-var lgFooterUrl = require('./tmpl/lg-footer.html');
+const lgPromptUrl = require('./tmpl/lg-prompt.html');
+const lgConfirmUrl = require('./tmpl/lg-confirm.html');
+const lgMessageUrl = require('./tmpl/lg-message.html');
+const lgFooterUrl = require('./tmpl/lg-footer.html');
 
 app.component('lgPrompt', {
 	templateUrl: lgPromptUrl,

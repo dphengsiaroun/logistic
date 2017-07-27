@@ -1,12 +1,10 @@
-'use strict';
-
 require('./lg-slider.scss');
 
 module.exports = 'lg-slider';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
-var lgSliderUrl = require('./tmpl/lg-slider.html');
+const lgSliderUrl = require('./tmpl/lg-slider.html');
 
 app.component('lgSlider', {
 	templateUrl: lgSliderUrl,

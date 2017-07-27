@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = 'lg-datetime';
 
-var app = angular.module(module.exports, ['lg-misc']);
+const app = angular.module(module.exports, ['lg-misc']);
 
 require('./lg-datetime.scss');
 require('./lg-dt-month.js');

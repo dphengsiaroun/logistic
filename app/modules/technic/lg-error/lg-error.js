@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = 'lg-error';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 app.filter('message', function() {
 	return function(error) {

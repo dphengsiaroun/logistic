@@ -1,5 +1,3 @@
-'use strict';
-
 var lgGeoloc = require('../../technic/lg-geoloc/lg-geoloc.js');
 
 require('./lg-choice.scss');

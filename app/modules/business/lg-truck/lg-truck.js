@@ -1,9 +1,7 @@
-'use strict';
-
 require('./lg-truck.scss');
 module.exports = 'lg-truck';
 
-var app = angular.module(module.exports, ['ui.router']);
+const app = angular.module(module.exports, ['ui.router']);
 require('./lg-truck-route.js');
 
 app.service('truck', function Truck($q, $http, $state, user, connection) {

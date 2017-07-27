@@ -1,5 +1,3 @@
-'use strict';
-
 require('./lg-carrier.scss');
 module.exports = 'lg-carrier';
 

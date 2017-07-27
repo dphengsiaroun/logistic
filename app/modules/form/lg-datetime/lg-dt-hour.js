@@ -1,8 +1,6 @@
-'use strict';
+const app = angular.module('lg-datetime');
 
-var app = angular.module('lg-datetime');
-
-var lgDtHourUrl = require('./tmpl/lg-dt-hour.html');
+const lgDtHourUrl = require('./tmpl/lg-dt-hour.html');
 
 function makeRange(start, end) {
 	return Array.apply(null, Array(end - start + 1)).map(function(n, i) {

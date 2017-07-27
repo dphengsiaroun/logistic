@@ -1,14 +1,12 @@
-'use strict';
-
 function addDays(date, days) {
 	var result = new Date(date);
 	result.setDate(result.getDate() + days);
 	return result;
 }
 
-var app = angular.module('lg-calendar');
+const app = angular.module('lg-calendar');
 
-var lgMonthUrl = require('./tmpl/lg-month.html');
+const lgMonthUrl = require('./tmpl/lg-month.html');
 
 app.component('lgMonth', {
 	require: {

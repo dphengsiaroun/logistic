@@ -1,9 +1,7 @@
-'use strict';
-
 require('./css/lg-home-route.scss');
 module.exports = 'lg-route';
 
-var app = angular.module(module.exports, ['ui.router']);
+const app = angular.module(module.exports, ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('');

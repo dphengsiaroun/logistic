@@ -1,5 +1,3 @@
-'use strict';
-
 const app = angular.module('lg-connection');
 
 app.config(['$stateProvider', function($stateProvider) {

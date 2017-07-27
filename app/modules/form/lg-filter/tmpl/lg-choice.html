@@ -1,0 +1,34 @@
+<my-input name="{{$ctrl.name}}" ng-click="$ctrl.start()" ng-bind-html="$ctrl.currentValue"></my-input>
+<icon lg-bind-html-compile="$ctrl.getIcon($ctrl.currentValue)"></icon>
+<overlay ng-show="$ctrl.showLgChoice">
+	<fixed>
+		<my-head>
+			<head-left ng-show="$ctrl.defaultsOptions.place" ng-click="$ctrl.geoloc()">
+				<i class="fa fa-location-arrow" aria-hidden="true"></i>
+			</head-left>
+			<head-left ng-hide="$ctrl.defaultsOptions.place">
+			</head-left>
+			<head-center>
+				<p>{{$ctrl.title}}</p>
+			</head-center>
+			<head-right ng-hide="$ctrl.isMandatory" ng-click="$ctrl.stop()" class="menu">
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</head-right>
+			<head-right ng-show="$ctrl.isMandatory" class="menu">
+			</head-right>
+		</my-head>
+		<filter>
+			<form ng-submit="$ctrl.closeInput()" action="">
+				<input type="text" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.myInput" ng-change="$ctrl.scrollTopList()" />
+			</form>
+		</filter>
+	</fixed>
+	<fixed-list>
+		<item class="preselected" ng-click="$ctrl.stop()" ng-show="$ctrl.ngModel.$modelValue !== '' && $ctrl.ngModel.$modelValue !== undefined">
+			<icon><i class="fa fa-check" aria-hidden="true"></i></icon><span ng-bind-html="$ctrl.getLabel($ctrl.ngModel.$modelValue)"></span>
+		</item>
+		<item ng-click="$ctrl.update(choice)" ng-repeat="choice in $ctrl.myChoices | filter: $ctrl.myFilter | limitTo:20">
+			<icon lg-bind-html-compile="$ctrl.getIcon(choice)"></icon><span ng-bind-html="$ctrl.getLabel(choice)"></span>
+		</item>
+	</fixed-list>
+</overlay>

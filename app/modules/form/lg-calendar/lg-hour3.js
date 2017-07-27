@@ -1,10 +1,8 @@
-'use strict';
-
 require('./lg-hour3.scss');
 
-var app = angular.module('lg-calendar');
+const app = angular.module('lg-calendar');
 
-var lgHourUrl = require('./tmpl/lg-hour3.html');
+const lgHourUrl = require('./tmpl/lg-hour3.html');
 
 app.component('lgHour3', {
 	require: {

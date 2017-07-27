@@ -12,50 +12,50 @@
 	</a>
 </section>
 <loader-list>
-    <ad-block ng-repeat="ad in $ctrl.loaders | orderBy:'ad.content.created_t':true" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
-        <header ad-id="{{ad.id}}">
-            <title>{{ad.content.title}}</title>
-            <subtitle>
-                <created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-                <by>Par {{ad.content.login | ucfirst}}</by>
-            </subtitle>
-            <subtitle>
-                <date>Chargement le {{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
-                <distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
-            </subtitle>
-            <places>
-                <from>
-                    <labels>
-                        De :
-                    </labels>
-                    <values>
-                        <city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.departureCity.city}}</city>
-                        <region>{{ad.content.departureCity.region}}</region>
-                    </values>
-                </from>
-                <to>
-                    <labels>
-                        A :
-                    </labels>
-                    <values>
-                        <city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.arrivalCity.city}}</city>
-                        <region>{{ad.content.arrivalCity.region}}</region>
-                    </values>
-                </to>
-            </places>
-        </header>
-        <content>
-            <content-left>
-                <img ng-show="ad.content.image === undefined" src="img/loader-default.svg">
-                <img ng-show="ad.content.image.thumbnailUrl" ng-src="{{ad.content.image.thumbnailUrl}}">
-            </content-left>
-            <content-right>
-                <conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>
-                <transport-category>{{ad.content.transportCategory}} - {{ad.content.transportTruckType}}</transport-category>
-                <rate-km>0.4 DZD/km</rate-km>
+	<ad-block ng-repeat="ad in $ctrl.loaders | orderBy:'ad.content.created_t':true" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
+		<header ad-id="{{ad.id}}">
+			<title>{{ad.content.title}}</title>
+			<subtitle>
+				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
+				<by>Par {{ad.content.login | ucfirst}}</by>
+			</subtitle>
+			<subtitle>
+				<date>Chargement le {{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
+				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
+			</subtitle>
+			<places>
+				<from>
+					<labels>
+						De :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.departureCity.city}}</city>
+						<region>{{ad.content.departureCity.region}}</region>
+					</values>
+				</from>
+				<to>
+					<labels>
+						A :
+					</labels>
+					<values>
+						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.arrivalCity.city}}</city>
+						<region>{{ad.content.arrivalCity.region}}</region>
+					</values>
+				</to>
+			</places>
+		</header>
+		<content>
+			<content-left>
+				<img ng-show="ad.content.image === undefined" src="img/loader-default.svg">
+				<img ng-show="ad.content.image.thumbnailUrl" ng-src="{{ad.content.image.thumbnailUrl}}">
+			</content-left>
+			<content-right>
+				<conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>
+				<transport-category>{{ad.content.transportCategory}} - {{ad.content.transportTruckType}}</transport-category>
+				<rate-km>0.4 DZD/km</rate-km>
 				<span>Rémunération proposée</span>
-                <rate>{{ad.content.priceWanted}} DZD</rate>
-            </content-right>
-        </content>
-    </ad-block>
+				<rate>{{ad.content.priceWanted}} DZD</rate>
+			</content-right>
+		</content>
+	</ad-block>
 </loader-list>

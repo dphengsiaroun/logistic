@@ -1,13 +1,11 @@
-'use strict';
-
 require('./lg-test.scss');
 module.exports = 'lg-test';
 
-var app = angular.module(module.exports, ['ui.router']);
+const app = angular.module(module.exports, ['ui.router']);
 
-var testsUrl = require('./tmpl/tests.html');
-var testDatetimeUrl = require('./tmpl/test-datetime.html');
-var testSliderUrl = require('./tmpl/test-slider.html');
+const testsUrl = require('./tmpl/tests.html');
+const testDatetimeUrl = require('./tmpl/test-datetime.html');
+const testSliderUrl = require('./tmpl/test-slider.html');
 
 app.config(function($stateProvider) {
 

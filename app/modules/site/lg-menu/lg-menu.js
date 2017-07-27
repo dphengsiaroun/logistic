@@ -1,5 +1,3 @@
-'use strict';
-
 require('./lg-menu.scss');
 module.exports = 'lg-menu';
 
@@ -13,9 +11,9 @@ window.mobilecheck = function() {
 	return check;
 };
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
-var lgMenuUrl = require('./tmpl/lg-menu.html');
+const lgMenuUrl = require('./tmpl/lg-menu.html');
 
 app.run(function($transitions, $rootScope, $window, carrier, lgBackDetector) {
 	'ngInject';

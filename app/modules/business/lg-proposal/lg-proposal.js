@@ -1,9 +1,7 @@
-'use strict';
-
 require('./lg-proposal.scss');
 module.exports = 'lg-proposal';
 
-var app = angular.module(module.exports, ['ui.router']);
+const app = angular.module(module.exports, ['ui.router']);
 require('./lg-proposal-route.js');
 
 app.service('proposal', function Proposal($http, $state, $q, connection, user) {

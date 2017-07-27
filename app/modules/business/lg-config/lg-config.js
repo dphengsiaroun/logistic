@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = 'lg-config';
 
 var app = angular.module(module.exports, []);

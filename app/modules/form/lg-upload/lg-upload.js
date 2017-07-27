@@ -1,5 +1,3 @@
-'use strict';
-
 require('./lg-upload.scss');
 require('blueimp-file-upload/js/vendor/jquery.ui.widget.js');
 require('blueimp-file-upload/js/jquery.iframe-transport.js');
@@ -9,9 +7,9 @@ require('blueimp-file-upload/js/jquery.fileupload-validate.js');
 require('blueimp-file-upload/js/jquery.fileupload-angular.js');
 module.exports = 'lg-upload';
 
-var url = './ws/upload.php';
+const url = './ws/upload.php';
 
-var app = angular.module(module.exports, ['blueimp.fileupload']);
+const app = angular.module(module.exports, ['blueimp.fileupload']);
 
 app.config(['$httpProvider', 'fileUploadProvider', function($httpProvider, fileUploadProvider) {
 	// delete $httpProvider.defaults.headers.common['X-Requested-With'];

@@ -1,5 +1,3 @@
-'use strict';
-
 require('./lg-filter.scss');
 module.exports = 'lg-filter';
 
@@ -13,9 +11,9 @@ window.mobilecheck = function() {
 	return check;
 };
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
-var lgFilterUrl = require('./tmpl/lg-filter.html');
+const lgFilterUrl = require('./tmpl/lg-filter.html');
 
 app.component('lgFilter', {
 	templateUrl: lgFilterUrl,

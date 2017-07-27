@@ -1,5 +1,3 @@
-'use strict';
-
 function addDays(date, days) {
 	var result = new Date(date);
 	result.setDate(result.getDate() + days);
@@ -10,11 +8,11 @@ function getDays(date) {
 	var d = new Date(date);
 	d.setHours(12);
 	return Math.floor(d / 8.64e7);
-};
+}
 
-var app = angular.module('lg-datetime');
+const app = angular.module('lg-datetime');
 
-var lgDtMonthUrl = require('./tmpl/lg-dt-month.html');
+const lgDtMonthUrl = require('./tmpl/lg-dt-month.html');
 
 app.component('lgDtMonth', {
 	require: {

@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = 'lg-connection';
 
 const lgUser = require('../lg-user/lg-user.js');
