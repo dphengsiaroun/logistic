@@ -89,11 +89,9 @@ app.service('proposal', function Proposal($http, $state, $q, connection, user) {
 		console.log('service.proposals', service.proposals);
 		return this.list().then(function(proposals) {
 			service.proposals = proposals;
-			service.proposalMap = makeMap(proposals);
+			service.proposalMap = window.makeMap(proposals);
 			service.current = service.proposalMap[id];
 		});
-		service.current = service.proposalMap[id];
-		return $q.resolve();
 	};
 	service.updateData = {};
 

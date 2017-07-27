@@ -8,7 +8,7 @@ require('./lg-connection-route.js');
 app.service('connection', function Connection($http, $rootScope, $injector, $q, $state, user) {
 	'ngInject';
 	const service = this;
-	user.isConnected = false;
+	user.isConnected = undefined;
 	service.createConnectionData = {
 		email: 'dphengsiaroun@outlook.fr',
 		password: 'test'
@@ -44,8 +44,6 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 	};
 
 	service.isConnectedStatusKnown = false;
-
-	user.isConnected = undefined;
 
 	service.isConnected = function() {
 		console.log('is connected?', arguments);
@@ -89,7 +87,7 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 				reject();
 				return;
 			}
-			var deregister = $rootScope.$watch('isConnected', function() {
+			const deregister = $rootScope.$watch('isConnected', function() {
 				if (user.isConnected === true) {
 					console.log('user.isConnected resolve', user.isConnected);
 					deregister();
@@ -103,14 +101,14 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 		});
 	};
 
-	const refreshState = function() {
+	function refreshState() {
 		service.waitForCheckConnection('needsUser').catch(function() {
 			if ($state.$current.needsUser) {
 				console.log('go to connection create because needsUser');
 				$state.go('connection:create');
 			}
 		});
-	};
+	}
 
 	$rootScope.$on('$viewContentLoaded', refreshState);
 
