@@ -9,12 +9,12 @@ app.config(function($stateProvider) {
 	});
 });
 
-var lgCarrierCreateAvailabilityUrl = require('../tmpl/carrier-create-availability.html');
+const lgCarrierCreateAvailabilityUrl = require('../tmpl/carrier-create-availability.html');
 app.component('lgCarrierCreateAvailabilityRoute', {
 	templateUrl: lgCarrierCreateAvailabilityUrl,
 	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, user, carrier) {
 		'ngInject';
-		var ctrl = this;
+		const ctrl = this;
 		ctrl.select = function(str) {
 			carrier.createData.availability = str;
 			if (str === 'total') {

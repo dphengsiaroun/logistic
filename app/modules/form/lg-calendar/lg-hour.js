@@ -3,7 +3,7 @@ require('./lg-hour.scss');
 const app = angular.module('lg-calendar');
 
 const lgHourUrl = require('./tmpl/lg-hour.html');
-var id = 0;
+let id = 0;
 
 app.component('lgHour', {
 	require: {
@@ -45,7 +45,7 @@ app.component('lgHour', {
 		};
 
 		this.formatHour = function() {
-			var hour = this.selectedHours < 10 ? '0'+this.selectedHours : this.selectedHours;
+			const hour = this.selectedHours < 10 ? '0'+this.selectedHours : this.selectedHours;
 			return hour + ':00';
 		};
 

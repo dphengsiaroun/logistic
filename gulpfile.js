@@ -1,12 +1,10 @@
 const gulp = require('gulp');
-const gulpIf = require('gulp-if');
 const replace = require('gulp-replace');
 const rename = require('gulp-rename');
 const runSequence = require('run-sequence');
 const del = require('del');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
-const eslint = require('gulp-eslint');
 const fs = require('fs');
 const rp = require('request-promise');
 const consolidate = require('consolidate');
@@ -15,7 +13,6 @@ consolidate.requires.ejs = ejs;
 const gutil = require('gulp-util');
 const ftp = require('gulp-ftp');
 const zip = require('gulp-zip');
-const debug = require('gulp-debug');
 const glob = require('glob');
 
 const Promise = require('bluebird');
@@ -23,6 +20,7 @@ Promise.promisifyAll(fs);
 var globAsync = Promise.promisify(glob);
 
 const cfgUtils = require('./cfg/utils.js');
+require('./gulp/eslint.js')(gulp);
 
 
 gulp.task('default', ['rebuild']);
@@ -39,11 +37,10 @@ const path = {
 	htaccessWs: ['app/ws/.htaccess'],
 	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*',
 		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl',
-		'!app/img/**/*.svg', 'app/*.html', '!app/index.html'],
+		'!app/img/**/*.svg', 'app/*.html', '!app/index.html'
+	],
 	ftp: ['dist.zip', 'utils/unzip.php'],
 	undeploy: 'utils/remove.php',
-	lint: ['**/*.js', '!node_modules/**/*', '!app/ws/**/*', '!**/*.min.js', '!**/*.prod.js',
-		'!app/wpk/**/*', '!dist/**/*']
 };
 
 
@@ -63,30 +60,30 @@ gulp.task('clean:wpk', function() {
 gulp.task('clean', ['clean:dist', 'clean:zip', 'clean:wpk']);
 
 gulp.task('resources', function() {
-	return gulp.src(path.resources, {base: path.base})
+	return gulp.src(path.resources, { base: path.base })
 		.pipe(gulp.dest(path.dist));
 });
 
 gulp.task('htaccess', ['htaccess:app', 'htaccess:ws']);
 
 gulp.task('htaccess:app', function() {
-	return gulp.src(path.htaccess, {base: path.base})
+	return gulp.src(path.htaccess, { base: path.base })
 		.pipe(rename('.htaccess'))
 		.pipe(gulp.dest(path.dist));
 });
 
 gulp.task('htaccess:ws', function() {
-	return gulp.src(path.htaccessWs, {base: path.base})
+	return gulp.src(path.htaccessWs, { base: path.base })
 		.pipe(gulp.dest(path.dist));
 });
 
 gulp.task('html:install', function() {
-	return gulp.src(path.installHtml, {base: path.base})
+	return gulp.src(path.installHtml, { base: path.base })
 		.pipe(gulp.dest(path.dist));
 });
 
 gulp.task('html:index', function() {
-	return gulp.src(path.indexHtml, {base: path.base})
+	return gulp.src(path.indexHtml, { base: path.base })
 		.pipe(replace(/\/app\//, '/dist/'))
 		.pipe(gulp.dest(path.dist));
 });
@@ -120,27 +117,6 @@ gulp.task('rebuild', function() {
 	runSequence('clean', 'build');
 });
 
-gulp.task('lint', function() {
-	return gulp.src(path.lint)
-		.pipe(debug())
-		.pipe(eslint())
-		.pipe(eslint.formatEach())
-		.pipe(eslint.failAfterError());
-});
-
-function isFixed(file) {
-	return file.eslint != null && file.eslint.fixed;
-}
-
-gulp.task('lint-fix', function() {
-	return gulp.src(path.lint)
-		.pipe(eslint({
-			fix: true
-		}))
-		.pipe(eslint.formatEach())
-		.pipe(gulpIf(isFixed, gulp.dest('.')));
-});
-
 gulp.task('deploy:config', function(callback) {
 	var deployEnv = cfgUtils.getEnv('deploy');
 	consolidate.ejs('./cfg/config.ws.tmpl', deployEnv.ws).then(function(str) {
@@ -167,7 +143,7 @@ gulp.task('deploy:unzip', function(callback) {
 });
 
 gulp.task('deploy:zip', function(callback) {
-	return gulp.src(path.zipSrc, {base: 'dist'})
+	return gulp.src(path.zipSrc, { base: 'dist' })
 		.pipe(zip(path.zip))
 		.pipe(gulp.dest('.'));
 });
@@ -214,7 +190,7 @@ gulp.task('config', function(callback) {
 	var devEnv = cfgUtils.getEnv('dev');
 	var svg;
 	globAsync('app/img/**/*.svg').then(function(files) {
-		svg = {svgs: files.map((f) => f.replace(/^app/, ''))};
+		svg = { svgs: files.map((f) => f.replace(/^app/, '')) };
 		return consolidate.ejs('./cfg/config.ws.tmpl', devEnv.ws);
 	}).then(function(str) {
 		return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
@@ -231,5 +207,3 @@ gulp.task('config', function(callback) {
 	});
 
 });
-
-
