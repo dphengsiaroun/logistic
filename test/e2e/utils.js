@@ -2,6 +2,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const data = require('./data/data.js');
 var utils = {};
 module.exports = utils;
 
@@ -40,4 +41,23 @@ utils.logout = function() {
 
 	const userIdentity = element(by.css('.user-identity')).getText();
 	expect(userIdentity).toEqual('');
+};
+
+utils.createLoaderAd = function(loaderAd) {
+	browser.get('http://localhost:8000/app/');
+	element(by.id('pr-create-loader-ad-button')).click();
+	utils.lgSelect('transportCategory', loaderAd.transportCategory);
+	utils.lgChoiceSelect('transportTruckType', loaderAd.transportTruckType);
+	utils.lgCitySelect('departureCity', loaderAd.departureCity);
+	utils.lgCitySelect('arrivalCity', loaderAd.arrivalCity);
+	utils.lgSelect('conditioning', loaderAd.conditioning);
+	utils.lgChoiceSelect('typeOfGoods', loaderAd.typeOfGoods);
+	utils.lgChoiceSelect('weightIntervals', loaderAd.weightIntervals);
+	element(by.name('preciseWeight')).sendKeys(loaderAd.preciseWeight);
+	utils.lgUploadSelect('imageId', loaderAd.imageId);
+	element(by.name('priceWanted')).sendKeys(loaderAd.priceWanted);
+	element(by.name('title')).sendKeys(loaderAd.title);
+	element(by.id('pr-button-create-loader-ad')).click();
+	element(by.css('button.ok')).click();
+	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');
 };
