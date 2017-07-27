@@ -4,13 +4,13 @@ module.exports = 'lg-dimension';
 
 const app = angular.module(module.exports, []);
 
-const lgDimensionUrl = require('./tmpl/lg-dimension.html');
+const lgDimensionHtml = require('./tmpl/lg-dimension.html');
 
 app.component('lgDimension', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	template: lgDimensionUrl,
+	template: lgDimensionHtml,
 	controller: function LgDimensionCtrl($element, $document, $filter, lgScroll) {
 		'ngInject';
 		console.log('LgDimensionCtrl');

@@ -26,8 +26,8 @@ app.directive('input', function($compile) {
 
 });
 
-const lgNumVerticalUrl = require('./tmpl/lg-num-vertical.html');
-const lgNumUrl = require('./tmpl/lg-num.html');
+const lgNumVerticalHtml = require('./tmpl/lg-num-vertical.html');
+const lgNumHtml = require('./tmpl/lg-num.html');
 
 app.component('lgNum', {
 	require: {
@@ -38,9 +38,9 @@ app.component('lgNum', {
 		console.log('lgNum template', arguments, this);
 		if ($attrs.class === 'vertical') {
 			console.log('lgNum vertical');
-			return lgNumVerticalUrl;
+			return lgNumVerticalHtml;
 		}
-		return lgNumUrl;
+		return lgNumHtml;
 	},
 	controller: function($element, $filter, $interval, $timeout) {
 		'ngInject';

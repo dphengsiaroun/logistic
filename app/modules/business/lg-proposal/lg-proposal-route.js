@@ -181,21 +181,21 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateP
 	};
 });
 
-const proposalCreateUrl = require('./tmpl/proposal-create.html');
-const proposalDetailUrl = require('./tmpl/proposal-detail.html');
-const proposalUpdateUrl = require('./tmpl/proposal-update.html');
+const proposalCreateHtml = require('./tmpl/proposal-create.html');
+const proposalDetailHtml = require('./tmpl/proposal-detail.html');
+const proposalUpdateHtml = require('./tmpl/proposal-update.html');
 
 app.component('lgProposalCreateRoute', {
-	template: proposalCreateUrl,
+	template: proposalCreateHtml,
 	controller: 'ProposalCreateCtrl',
 });
 
 app.component('lgProposalRetrieveRoute', {
-	template: proposalDetailUrl,
+	template: proposalDetailHtml,
 	controller: 'ProposalCtrl',
 });
 
 app.component('lgProposalUpdateRoute', {
-	template: proposalUpdateUrl,
+	template: proposalUpdateHtml,
 	controller: 'ProposalUpdateCtrl',
 });

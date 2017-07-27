@@ -30,16 +30,16 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-const forgottenPasswordUrl = require('./tmpl/forgotten-password.html');
-const chooseNewPasswordUrl = require('./tmpl/choose-new-password.html');
+const forgottenPasswordHtml = require('./tmpl/forgotten-password.html');
+const chooseNewPasswordHtml = require('./tmpl/choose-new-password.html');
 
 app.component('lgUserForgottenPasswordRoute', {
-	template: forgottenPasswordUrl,
+	template: forgottenPasswordHtml,
 	controller: 'PasswordCtrl'
 });
 
 app.component('lgUserChooseNewPasswordRoute', {
-	template: chooseNewPasswordUrl,
+	template: chooseNewPasswordHtml,
 	controller: 'UserChooseNewPasswordCtrl'
 });
 

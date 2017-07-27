@@ -3,21 +3,21 @@ module.exports = 'lg-test';
 
 const app = angular.module(module.exports, ['ui.router']);
 
-const testsUrl = require('./tmpl/tests.html');
-const testDatetimeUrl = require('./tmpl/test-datetime.html');
-const testSliderUrl = require('./tmpl/test-slider.html');
+const testsHtml = require('./tmpl/tests.html');
+const testDatetimeHtml = require('./tmpl/test-datetime.html');
+const testSliderHtml = require('./tmpl/test-slider.html');
 
 app.config(function($stateProvider) {
 
 	$stateProvider.state({
 		name: 'tests',
 		url: '/tests',
-		template: testsUrl
+		template: testsHtml
 	});
 	$stateProvider.state({
 		name: 'test:slider',
 		url: '/test-slider',
-		template: testSliderUrl,
+		template: testSliderHtml,
 		controller: function TestSliderCtrl($scope) {
 			'ngInject';
 			const ctrl = this;
@@ -40,7 +40,7 @@ app.config(function($stateProvider) {
 	$stateProvider.state({
 		name: 'test:datetime',
 		url: '/test-datetime',
-		template: testDatetimeUrl
+		template: testDatetimeHtml
 	});
 	$stateProvider.state({
 		name: 'test:calendar',
@@ -59,19 +59,19 @@ app.config(function($stateProvider) {
 	});
 });
 
-const testNumUrl = require('./tmpl/test-num.html');
-const test2Url = require('./tmpl/test2.html');
-const testCalendarUrl = require('./tmpl/test-calendar.html');
+const testNumHtml = require('./tmpl/test-num.html');
+const test2Html = require('./tmpl/test2.html');
+const testCalendarHtml = require('./tmpl/test-calendar.html');
 
 app.component('lgTestNumRoute', {
-	template: testNumUrl
+	template: testNumHtml
 });
 
 app.component('lgTest2Route', {
-	template: test2Url
+	template: test2Html
 });
 
 app.component('lgTestCalendarRoute', {
-	template: testCalendarUrl
+	template: testCalendarHtml
 });
 

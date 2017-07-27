@@ -162,27 +162,27 @@ app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams,
     };
 });
 
-const truckCreateUrl = require('./tmpl/truck-create.html');
-const truckListUrl = require('./tmpl/truck-list.html');
-const truckDetailUrl = require('./tmpl/truck-detail.html');
-const truckUpdateUrl = require('./tmpl/truck-update.html');
+const truckCreateHtml = require('./tmpl/truck-create.html');
+const truckListHtml = require('./tmpl/truck-list.html');
+const truckDetailHtml = require('./tmpl/truck-detail.html');
+const truckUpdateHtml = require('./tmpl/truck-update.html');
 
 app.component('lgTruckCreateRoute', {
-    template: truckCreateUrl,
+    template: truckCreateHtml,
     controller: 'TruckCreateCtrl',
 });
 
 app.component('lgTruckListRoute', {
-    template: truckListUrl,
+    template: truckListHtml,
     controller: 'TruckListCtrl',
 });
 
 app.component('lgTruckRetrieveRoute', {
-    template: truckDetailUrl,
+    template: truckDetailHtml,
     controller: 'TruckCtrl',
 });
 
 app.component('lgTruckUpdateRoute', {
-    template: truckUpdateUrl,
+    template: truckUpdateHtml,
     controller: 'TruckUpdateCtrl',
 });

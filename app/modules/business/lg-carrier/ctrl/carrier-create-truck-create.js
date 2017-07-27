@@ -10,9 +10,9 @@ app.config(function($stateProvider) {
 });
 
 
-const lgCarrierCreateTruckCreateUrl = require('../tmpl/carrier-create-truck-create.html');
+const lgCarrierCreateTruckCreateHtml = require('../tmpl/carrier-create-truck-create.html');
 app.component('lgCarrierCreateTruckCreateRoute', {
-	template: lgCarrierCreateTruckCreateUrl,
+	template: lgCarrierCreateTruckCreateHtml,
 	controller: function LgCarrierCreateTruckCreateRouteCtrl(truck, context) {
 		'ngInject';
 		const ctrl = this;

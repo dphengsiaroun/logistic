@@ -146,32 +146,32 @@ app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $in
 	initCtrl(this, $scope, $injector);
 }]);
 
-const signupUrl = require('./tmpl/signup.html');
-const signupSuccessUrl = require('./tmpl/signup_success.html');
-const profileUrl = require('./tmpl/profile.html');
-const updatePasswordUrl = require('./tmpl/update-password.html');
-const initiatePasswordUrl = require('./tmpl/initiate-password.html');
+const signupHtml = require('./tmpl/signup.html');
+const signupSuccessHtml = require('./tmpl/signup_success.html');
+const profileHtml = require('./tmpl/profile.html');
+const updatePasswordHtml = require('./tmpl/update-password.html');
+const initiatePasswordHtml = require('./tmpl/initiate-password.html');
 
 app.component('lgUserCreateRoute', {
-	template: signupUrl,
+	template: signupHtml,
 	controller: 'UserCtrl'
 });
 app.component('lgUserSignupSuccessRoute', {
-	template: signupSuccessUrl,
+	template: signupSuccessHtml,
 	controller: 'UserCtrl'
 });
 
 app.component('lgUserRetrieveRoute', {
-	template: profileUrl,
+	template: profileHtml,
 	controller: 'UserCtrl'
 });
 
 app.component('lgUserUpdatePasswordRoute', {
-	template: updatePasswordUrl,
+	template: updatePasswordHtml,
 	controller: 'UserCtrl'
 });
 
 app.component('lgUserInitiatePasswordRoute', {
-	template: initiatePasswordUrl,
+	template: initiatePasswordHtml,
 	controller: 'UserCtrl'
 });

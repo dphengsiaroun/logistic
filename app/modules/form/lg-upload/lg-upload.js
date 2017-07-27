@@ -33,10 +33,10 @@ app.controller('FileDestroyController', ['$scope', '$http', function($scope, $ht
 	}
 }]);
 
-const lgUploadUrl = require('./tmpl/lg-upload.html');
+const lgUploadHtml = require('./tmpl/lg-upload.html');
 
 app.component('lgUpload', {
-	template: lgUploadUrl,
+	template: lgUploadHtml,
 	bindings: {
 		formData: '='
 	},

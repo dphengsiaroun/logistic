@@ -211,27 +211,27 @@ app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, use
     };
 });
 
-const loaderCreateUrl = require('./tmpl/loader-create.html');
-const loaderListUrl = require('./tmpl/loader-list.html');
-const loaderDetailUrl = require('./tmpl/loader-detail.html');
-const loaderUpdateUrl = require('./tmpl/loader-update.html');
+const loaderCreateHtml = require('./tmpl/loader-create.html');
+const loaderListHtml = require('./tmpl/loader-list.html');
+const loaderDetailHtml = require('./tmpl/loader-detail.html');
+const loaderUpdateHtml = require('./tmpl/loader-update.html');
 
 app.component('lgLoaderCreateRoute', {
-    template: loaderCreateUrl,
+    template: loaderCreateHtml,
     controller: 'LoaderCreateCtrl',
 });
 
 app.component('lgLoaderListRoute', {
-    template: loaderListUrl,
+    template: loaderListHtml,
     controller: 'LoaderListCtrl',
 });
 
 app.component('lgLoaderRetrieveRoute', {
-    template: loaderDetailUrl,
+    template: loaderDetailHtml,
     controller: 'LoaderCtrl',
 });
 
 app.component('lgLoaderUpdateRoute', {
-    template: loaderUpdateUrl,
+    template: loaderUpdateHtml,
     controller: 'LoaderUpdateCtrl',
 });

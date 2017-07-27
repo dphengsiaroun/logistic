@@ -6,10 +6,10 @@ import '../../technic/lg-erasable/lg-erasable.js';
 const app = angular.module(module.exports, ['lg-erasable']);
 
 
-const lgFilterUrl = require('./tmpl/lg-filter.html');
+const lgFilterHtml = require('./tmpl/lg-filter.html');
 
 app.component('lgFilter', {
-	template: lgFilterUrl,
+	template: lgFilterHtml,
 	controller: function LgFilterCtrl() {
 		'ngInject';
 		const ctrl = this;

@@ -25,10 +25,10 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
-const lgEyePasswordUrl = require('./tmpl/lg-eyepassword.html');
+const lgEyePasswordHtml = require('./tmpl/lg-eyepassword.html');
 
 app.component('lgEyepassword', {
-	template: lgEyePasswordUrl,
+	template: lgEyePasswordHtml,
 	controller: function() {
 		console.log('lgEyepassword controller', arguments, this);
 		this.show = false;

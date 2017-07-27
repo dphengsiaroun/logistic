@@ -13,7 +13,7 @@ window.mobilecheck = function() {
 
 const app = angular.module(module.exports, []);
 
-const lgMenuUrl = require('./tmpl/lg-menu.html');
+const lgMenuHtml = require('./tmpl/lg-menu.html');
 
 app.run(function($transitions, $rootScope, $window, carrier, lgBackDetector) {
 	'ngInject';
@@ -50,7 +50,7 @@ app.run(function($transitions, $rootScope, $window, carrier, lgBackDetector) {
 });
 
 app.component('lgMenu', {
-	template: lgMenuUrl,
+	template: lgMenuHtml,
 	controller: function LgMenuCtrl($element, $scope, $state, $rootScope,
 		$timeout, user, carrier, loader, proposal, connection) {
 
