@@ -5,7 +5,8 @@ module.exports = {
 		sourceType: 'module',
 	},
 	rules: {
-		'no-var': 0,
+		'no-var': 'error',
+		'prefer-const': 'error',
 		'no-console': 0,
 		'prefer-rest-params': 0,
 		'max-len': ['error', 120],

@@ -17,26 +17,26 @@ app.component('lgSlider', {
 	controller: function LgSliderCtrl($scope, $element, $attrs, $document) {
 		'ngInject';
 		console.log('LgSliderCtrl', arguments);
-		var isHorizontal = ('horizontal' in $attrs);
+		const isHorizontal = ('horizontal' in $attrs);
 		console.log('isHorizontal', isHorizontal);
-		var ctrl = this;
-		var cursor = $element.find('cursor');
-		var line = $element.find('line');
-		var startX = 0;
-		var startY = 0;
-		var x = 0;
-		var y = 0;
+		const ctrl = this;
+		const cursor = $element.find('cursor');
+		const line = $element.find('line');
+		let startX = 0;
+		let startY = 0;
+		let x = 0;
+		let y = 0;
 		if (!isHorizontal) {
-			var parentHeight = $element.parent().height();
+			const parentHeight = $element.parent().height();
 			$element.css('height', (parentHeight - 70) + 'px');
 		}
 
-		var maxHeight = line.height();
-		var maxWidth = line.width();
+		const maxHeight = line.height();
+		const maxWidth = line.width();
 		console.log('maxWidth', maxWidth);
 
-		var setCursorAtBeginning = function() {
-			var val = ctrl.value;
+		const setCursorAtBeginning = function() {
+			let val = ctrl.value;
 			console.log('setCursorAtBeginning val', val);
 			if (!val || val < ctrl.min) {
 				ctrl.value = ctrl.min;
@@ -73,10 +73,10 @@ app.component('lgSlider', {
 			});
 			if (ctrl.min === undefined) {
 				ctrl.min = 0;
-			};
+			}
 			if (ctrl.max === undefined) {
 				ctrl.max = 100;
-			};
+			}
 
 
 		};
@@ -86,7 +86,7 @@ app.component('lgSlider', {
 			ctrl.value = val;
 		};
 
-		var start = function(e) {
+		const start = function(e) {
 			if (isHorizontal) {
 				startX = e.pageX - x;
 			} else {
@@ -94,8 +94,8 @@ app.component('lgSlider', {
 			}
 		};
 
-		var move = function(e) {
-			var val;
+		const move = function(e) {
+			let val;
 			if (isHorizontal) {
 				x = e.pageX - startX;
 				x = (x < 0) ? 0 : x;
@@ -103,7 +103,7 @@ app.component('lgSlider', {
 				cursor.css({
 					left: x + 'px',
 				});
-				val = Math.round((ctrl.max - ctrl.min) * (( + x) / maxWidth) + ctrl.min);
+				val = Math.round((ctrl.max - ctrl.min) * ((+x) / maxWidth) + ctrl.min);
 			} else {
 				y = e.pageY - startY;
 				y = (y < 0) ? 0 : y;
@@ -119,24 +119,25 @@ app.component('lgSlider', {
 			$scope.$parent.$digest();
 		};
 
+		const touchmove = function(event) {
+			event.preventDefault();
+			const touch = event.changedTouches[0];
+			move(touch);
+		};
 
-		var touchstart = function(event) {
+		const touchstart = function(event) {
 			console.log('touchstart', arguments);
 			event.preventDefault();
-			var touch = event.changedTouches[0];
+			const touch = event.changedTouches[0];
 			console.log('touch', touch);
 			start(touch);
 		};
-		var touchend = function(event) {
+		const touchend = function(event) {
 			console.log('touchend', arguments);
 			touchmove(event);
 		};
-		var touchmove = function(event) {
-			event.preventDefault();
-			var touch = event.changedTouches[0];
-			move(touch);
-		};
-		var touchcancel = function(event) {
+
+		const touchcancel = function(event) {
 			console.log('touchcancel', arguments);
 		};
 		cursor.on('touchstart', touchstart);
@@ -144,7 +145,20 @@ app.component('lgSlider', {
 		cursor.on('touchmove', touchmove);
 		cursor.on('touchcancel', touchcancel);
 
-		var mousedown = function(event) {
+		const mousemove = function(event) {
+			// console.log('mousemove', arguments);
+			event.preventDefault();
+			move(event);
+		};
+
+		const mouseup = function(event) {
+			console.log('mouseup', arguments);
+			event.preventDefault();
+			$document.off('mousemove');
+			$document.off('mouseup');
+		};
+
+		const mousedown = function(event) {
 			console.log('mousedown', arguments);
 			event.preventDefault();
 			start(event);
@@ -152,21 +166,7 @@ app.component('lgSlider', {
 			$document.on('mouseup', mouseup);
 		};
 
-		var mousemove = function(event) {
-			// console.log('mousemove', arguments);
-			event.preventDefault();
-			move(event);
-		};
-
-		var mouseup = function(event) {
-			console.log('mouseup', arguments);
-			event.preventDefault();
-			$document.off('mousemove');
-			$document.off('mouseup');
-		};
-
 		cursor.on('mousedown', mousedown);
 
 	}
 });
-
