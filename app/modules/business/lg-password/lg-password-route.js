@@ -34,12 +34,12 @@ const forgottenPasswordUrl = require('./tmpl/forgotten-password.html');
 const chooseNewPasswordUrl = require('./tmpl/choose-new-password.html');
 
 app.component('lgUserForgottenPasswordRoute', {
-	templateUrl: forgottenPasswordUrl,
+	template: forgottenPasswordUrl,
 	controller: 'PasswordCtrl'
 });
 
 app.component('lgUserChooseNewPasswordRoute', {
-	templateUrl: chooseNewPasswordUrl,
+	template: chooseNewPasswordUrl,
 	controller: 'UserChooseNewPasswordCtrl'
 });
 

@@ -9,5 +9,5 @@ const lgHrUrl = require('./tmpl/lg-hr.html');
 
 app.component('lgHr', {
 	transclude: true,
-	templateUrl: lgHrUrl,
+	template: lgHrUrl,
 });

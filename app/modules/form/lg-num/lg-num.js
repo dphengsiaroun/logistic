@@ -33,9 +33,9 @@ app.component('lgNum', {
 	require: {
 		ngModel: 'ngModel'
 	},
-	templateUrl: function($attrs) {
+	template: function($attrs) {
 		'ngInject';
-		console.log('lgNum templateUrl', arguments, this);
+		console.log('lgNum template', arguments, this);
 		if ($attrs.class === 'vertical') {
 			console.log('lgNum vertical');
 			return lgNumVerticalUrl;

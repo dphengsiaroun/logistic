@@ -12,7 +12,7 @@ app.config(function($stateProvider) {
 
 const carrierCreateTruckChooseUrl = require('../tmpl/carrier-create-truck-choose.html');
 app.component('lgCarrierCreateTruckChooseRoute', {
-	templateUrl: carrierCreateTruckChooseUrl,
+	template: carrierCreateTruckChooseUrl,
 	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, user, truck, carrier) {
 		'ngInject';
 		const ctrl = this;

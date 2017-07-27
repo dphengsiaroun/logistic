@@ -39,7 +39,7 @@ class ConnectionCtrl {
 }
 
 app.component('lgConnectionSigninRoute', {
-	templateUrl: connectionCreateUrl,
+	template: connectionCreateUrl,
 	controller: ConnectionCtrl
 });
 

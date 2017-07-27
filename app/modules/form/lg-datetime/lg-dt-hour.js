@@ -12,7 +12,7 @@ app.component('lgDtHour', {
 	require: {
 		lgDatetime: '^^lgDatetime'
 	},
-	templateUrl: lgDtHourUrl,
+	template: lgDtHourUrl,
 	controller: function LgDtHourCtrl($scope, $element, $window, $timeout) {
 		const ctrl = this;
 		let hourElt;

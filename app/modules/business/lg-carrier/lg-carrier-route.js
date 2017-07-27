@@ -119,11 +119,11 @@ const carrierListUrl = require('./tmpl/carrier-list.html');
 const carrierDetailUrl = require('./tmpl/carrier-detail.html');
 
 app.component('lgCarrierListRoute', {
-    templateUrl: carrierListUrl,
+    template: carrierListUrl,
     controller: 'CarrierListCtrl',
 });
 
 app.component('lgCarrierRetrieveRoute', {
-    templateUrl: carrierDetailUrl,
+    template: carrierDetailUrl,
     controller: 'CarrierCtrl',
 });

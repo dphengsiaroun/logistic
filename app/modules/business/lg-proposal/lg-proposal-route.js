@@ -186,16 +186,16 @@ const proposalDetailUrl = require('./tmpl/proposal-detail.html');
 const proposalUpdateUrl = require('./tmpl/proposal-update.html');
 
 app.component('lgProposalCreateRoute', {
-	templateUrl: proposalCreateUrl,
+	template: proposalCreateUrl,
 	controller: 'ProposalCreateCtrl',
 });
 
 app.component('lgProposalRetrieveRoute', {
-	templateUrl: proposalDetailUrl,
+	template: proposalDetailUrl,
 	controller: 'ProposalCtrl',
 });
 
 app.component('lgProposalUpdateRoute', {
-	templateUrl: proposalUpdateUrl,
+	template: proposalUpdateUrl,
 	controller: 'ProposalUpdateCtrl',
 });

@@ -12,7 +12,7 @@ app.component('lgDatetime', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgDatetimeUrl,
+	template: lgDatetimeUrl,
 	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
 		'ngInject';
 		console.log('lgDatetimeCtrl');

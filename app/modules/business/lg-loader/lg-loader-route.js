@@ -217,21 +217,21 @@ const loaderDetailUrl = require('./tmpl/loader-detail.html');
 const loaderUpdateUrl = require('./tmpl/loader-update.html');
 
 app.component('lgLoaderCreateRoute', {
-    templateUrl: loaderCreateUrl,
+    template: loaderCreateUrl,
     controller: 'LoaderCreateCtrl',
 });
 
 app.component('lgLoaderListRoute', {
-    templateUrl: loaderListUrl,
+    template: loaderListUrl,
     controller: 'LoaderListCtrl',
 });
 
 app.component('lgLoaderRetrieveRoute', {
-    templateUrl: loaderDetailUrl,
+    template: loaderDetailUrl,
     controller: 'LoaderCtrl',
 });
 
 app.component('lgLoaderUpdateRoute', {
-    templateUrl: loaderUpdateUrl,
+    template: loaderUpdateUrl,
     controller: 'LoaderUpdateCtrl',
 });

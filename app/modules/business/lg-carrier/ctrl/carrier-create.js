@@ -51,7 +51,7 @@ app.service('carrierStepManager', function CarrierStepManager(carrier) {
 
 const carrierCreateUrl = require('../tmpl/carrier-create.html');
 app.component('lgCarrierCreateRoute', {
-	templateUrl: carrierCreateUrl,
+	template: carrierCreateUrl,
 	controller: function LgCarrierCreateRouteCtrl(user, carrier, carrierStepManager) {
 		'ngInject';
 		const ctrl = this;
@@ -66,7 +66,7 @@ app.component('lgCarrierCreateRoute', {
 });
 
 app.component('lgCarrierUpdateRoute', {
-	templateUrl: carrierCreateUrl,
+	template: carrierCreateUrl,
 	controller: function LgCarrierUpdateRouteCtrl(user, carrier, carrierStepManager) {
 		'ngInject';
 		const ctrl = this;

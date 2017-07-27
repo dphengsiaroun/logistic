@@ -50,7 +50,7 @@ app.run(function($transitions, $rootScope, $window, carrier, lgBackDetector) {
 });
 
 app.component('lgMenu', {
-	templateUrl: lgMenuUrl,
+	template: lgMenuUrl,
 	controller: function LgMenuCtrl($element, $scope, $state, $rootScope,
 		$timeout, user, carrier, loader, proposal, connection) {
 

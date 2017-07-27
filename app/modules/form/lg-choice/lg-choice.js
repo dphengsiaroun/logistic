@@ -57,7 +57,7 @@ app.component('lgChoice', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgChoiceUrl,
+	template: lgChoiceUrl,
 	controller: function LgChoiceWrapperCtrl($scope, $element, $window, $http, $rootScope, lgScroll, geoloc) {
 		'ngInject';
 		const ctrl = this;

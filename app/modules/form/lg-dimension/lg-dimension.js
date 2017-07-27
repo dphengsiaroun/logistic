@@ -10,7 +10,7 @@ app.component('lgDimension', {
 	require: {
 		ngModel: 'ngModel',
 	},
-	templateUrl: lgDimensionUrl,
+	template: lgDimensionUrl,
 	controller: function LgDimensionCtrl($element, $document, $filter, lgScroll) {
 		'ngInject';
 		console.log('LgDimensionCtrl');

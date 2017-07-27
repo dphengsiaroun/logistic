@@ -12,7 +12,7 @@ app.config(function($stateProvider) {
 
 const lgCarrierCreatePricingUrl = require('../tmpl/carrier-create-pricing.html');
 app.component('lgCarrierCreatePricingRoute', {
-	templateUrl: lgCarrierCreatePricingUrl,
+	template: lgCarrierCreatePricingUrl,
 	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {
 		'ngInject';
 		const ctrl = this;

@@ -12,12 +12,12 @@ app.config(function($stateProvider) {
 	$stateProvider.state({
 		name: 'tests',
 		url: '/tests',
-		templateUrl: testsUrl
+		template: testsUrl
 	});
 	$stateProvider.state({
 		name: 'test:slider',
 		url: '/test-slider',
-		templateUrl: testSliderUrl,
+		template: testSliderUrl,
 		controller: function TestSliderCtrl($scope) {
 			'ngInject';
 			const ctrl = this;
@@ -40,7 +40,7 @@ app.config(function($stateProvider) {
 	$stateProvider.state({
 		name: 'test:datetime',
 		url: '/test-datetime',
-		templateUrl: testDatetimeUrl
+		template: testDatetimeUrl
 	});
 	$stateProvider.state({
 		name: 'test:calendar',
@@ -64,14 +64,14 @@ const test2Url = require('./tmpl/test2.html');
 const testCalendarUrl = require('./tmpl/test-calendar.html');
 
 app.component('lgTestNumRoute', {
-	templateUrl: testNumUrl
+	template: testNumUrl
 });
 
 app.component('lgTest2Route', {
-	templateUrl: test2Url
+	template: test2Url
 });
 
 app.component('lgTestCalendarRoute', {
-	templateUrl: testCalendarUrl
+	template: testCalendarUrl
 });
 

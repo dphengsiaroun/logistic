@@ -56,11 +56,6 @@ module.exports = {
 			{
 				test: /\.html$/,
 				use: [{
-					loader: 'ngtemplate-loader',
-					options: {
-						relativeTo: 'app'
-					}
-				}, {
 					loader: 'html-loader',
 					options: {
 						attrs: 'img-svg:src',

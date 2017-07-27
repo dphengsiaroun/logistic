@@ -12,7 +12,7 @@ app.config(function($stateProvider) {
 
 const lgCarrierCreateTripCreateUrl = require('../tmpl/carrier-create-trip-create.html');
 app.component('lgCarrierCreateTripCreateRoute', {
-	templateUrl: lgCarrierCreateTripCreateUrl,
+	template: lgCarrierCreateTripCreateUrl,
 	controller: function LgCarrierCreateTripCreateRouteCtrl($scope, $state, user, carrier, geoloc) {
 		'ngInject';
 		const ctrl = this;

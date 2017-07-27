@@ -16,20 +16,20 @@ app.config(['$routeProvider', function($routeProvider) {
 
 	$routeProvider
 		.when('/', {
-			templateUrl: homeUrl,
+			template: homeUrl,
 			controller: 'HomeCtrl'
 		})
 		.when('/install', {
-			templateUrl: installUrl
+			template: installUrl
 		})
 		.when('/already-installed', {
-			templateUrl: alreadyInstalledUrl
+			template: alreadyInstalledUrl
 		})
 		.when('/successfully-installed', {
-			templateUrl: successfullyInstalledUrl
+			template: successfullyInstalledUrl
 		})
 		.when('/install-failed', {
-			templateUrl: installFailedUrl
+			template: installFailedUrl
 		})
 		.otherwise({
 			redirectTo: '/'

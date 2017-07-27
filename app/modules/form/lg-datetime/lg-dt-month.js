@@ -18,7 +18,7 @@ app.component('lgDtMonth', {
 	require: {
 		lgDatetime: '^^lgDatetime'
 	},
-	templateUrl: lgDtMonthUrl,
+	template: lgDtMonthUrl,
 	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
 		const ctrl = this;
 		console.log('lgMonth ctrl', ctrl, arguments);

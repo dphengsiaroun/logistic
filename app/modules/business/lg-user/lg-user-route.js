@@ -153,25 +153,25 @@ const updatePasswordUrl = require('./tmpl/update-password.html');
 const initiatePasswordUrl = require('./tmpl/initiate-password.html');
 
 app.component('lgUserCreateRoute', {
-	templateUrl: signupUrl,
+	template: signupUrl,
 	controller: 'UserCtrl'
 });
 app.component('lgUserSignupSuccessRoute', {
-	templateUrl: signupSuccessUrl,
+	template: signupSuccessUrl,
 	controller: 'UserCtrl'
 });
 
 app.component('lgUserRetrieveRoute', {
-	templateUrl: profileUrl,
+	template: profileUrl,
 	controller: 'UserCtrl'
 });
 
 app.component('lgUserUpdatePasswordRoute', {
-	templateUrl: updatePasswordUrl,
+	template: updatePasswordUrl,
 	controller: 'UserCtrl'
 });
 
 app.component('lgUserInitiatePasswordRoute', {
-	templateUrl: initiatePasswordUrl,
+	template: initiatePasswordUrl,
 	controller: 'UserCtrl'
 });

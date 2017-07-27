@@ -168,21 +168,21 @@ const truckDetailUrl = require('./tmpl/truck-detail.html');
 const truckUpdateUrl = require('./tmpl/truck-update.html');
 
 app.component('lgTruckCreateRoute', {
-    templateUrl: truckCreateUrl,
+    template: truckCreateUrl,
     controller: 'TruckCreateCtrl',
 });
 
 app.component('lgTruckListRoute', {
-    templateUrl: truckListUrl,
+    template: truckListUrl,
     controller: 'TruckListCtrl',
 });
 
 app.component('lgTruckRetrieveRoute', {
-    templateUrl: truckDetailUrl,
+    template: truckDetailUrl,
     controller: 'TruckCtrl',
 });
 
 app.component('lgTruckUpdateRoute', {
-    templateUrl: truckUpdateUrl,
+    template: truckUpdateUrl,
     controller: 'TruckUpdateCtrl',
 });
