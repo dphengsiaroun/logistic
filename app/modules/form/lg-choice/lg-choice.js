@@ -158,6 +158,11 @@ app.component('lgChoice', {
 
 			ctrl.setNormalMode();
 
+			function checkValidity(value) {
+				const isOutOfChoice = false;
+				ngModel.$setValidity('outOfChoice', isOutOfChoice);
+			}
+
 			ngModel.$render = function() {
 				const choice = (ngModel.$viewValue === '') ? undefined : ngModel.$viewValue;
 				ctrl.currentValue = ctrl.getLabel(choice) || ctrl.placeholder;
@@ -173,10 +178,6 @@ app.component('lgChoice', {
 				checkValidity(1);
 			};
 			console.log('ngModel', ngModel);
-			var checkValidity = function(value) {
-				const isOutOfChoice = false;
-				ngModel.$setValidity('outOfChoice', isOutOfChoice);
-			};
 
 			ctrl.myFilter = function(value, index, array) {
 				if (ngModel.$modelValue !== undefined && ngModel.$modelValue === value) {
@@ -202,4 +203,3 @@ app.component('lgChoice', {
 		isMandatory: '<',
 	}
 });
-
