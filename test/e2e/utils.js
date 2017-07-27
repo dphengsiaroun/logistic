@@ -2,7 +2,6 @@
 
 const path = require('path');
 const fs = require('fs');
-const data = require('./data/data.js');
 const utils = {};
 module.exports = utils;
 
