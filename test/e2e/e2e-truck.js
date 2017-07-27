@@ -22,35 +22,21 @@ describe('Truck CRUD', function() {
 
 	it('should create a truck', function() {
 		console.log('-> create a truck', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.css('menu-bar')).click();
-		element(by.linkText('Mes véhicules')).click();
-		element(by.id('pr-create-truck-button')).click();
-		element(by.name('name')).sendKeys(truck.name);
-		element(by.name('model')).sendKeys(truck.model);
-		utils.lgCitySelect('city', truck.city);
-		utils.lgSelect('transportCategory', truck.transportCategory);
-		utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
-		utils.lgChoiceSelect('birthyear', truck.birthyear);
-		console.log('truck.imageId', truck.imageId);
-		utils.lgUploadSelect('imageId', truck.imageId);
-		element(by.id('pr-add-vehicle-button')).click();
-		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
+		utils.user.truck.create(truck);
 	});
 
 	it('should retrieve truck', function() {
 		console.log('-> retrieve a truck', arguments);
-		utils.retrieveTruck();
+		utils.user.truck.retrieve(user, truck);
 	});
 
 	it('should update a truck', function() {
 		console.log('-> update a truck', arguments);
-		utils.updateTruck();
+		utils.user.truck.update(user, truck);
 	});
 
 	it('should delete a truck', function() {
 		console.log('-> delete truck', arguments);
-		utils.deleteTruck();
+		utils.user.truck.delete(user, truck);
 	});
 });

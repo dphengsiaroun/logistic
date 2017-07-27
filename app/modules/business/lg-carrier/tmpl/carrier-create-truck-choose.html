@@ -25,7 +25,7 @@
 <at-list-one-vehicle ng-show="$ctrl.hasTruck">
 	<span>Sélectionner ou ajouter<br/>un véhicule</span>
 	<list>
-		<item id="pr-choose-truck-link" ng-click="$ctrl.selectTruck(truck)" ng-repeat="truck in $ctrl.truck.trucks">
+		<item id="{{'truck-' + truck.id}}" ng-click="$ctrl.selectTruck(truck)" ng-repeat="truck in $ctrl.truck.trucks">
 			<left>
 				<img ng-show="truck.image === undefined" src="img/truck-default.svg">
 				<img ng-show="truck.image.thumbnailUrl" ng-src="{{truck.image.thumbnailUrl}}">

@@ -19,31 +19,7 @@ describe('User CRUD', function() {
 
 	it('should create a user', function() {
 		console.log('-> create a user', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.css('menu-bar')).click();
-		element(by.linkText('Se connecter')).click();
-		element(by.linkText('Créer un nouveau compte')).click();
-		// We fill the form
-		element(by.css('[name=lastname]')).clear().sendKeys(user.lastname);
-		element(by.css('[name=firstname]')).clear().sendKeys(user.firstname);
-		element(by.css('[name=login]')).clear().sendKeys(user.login);
-		element(by.css('[name=email]')).clear().sendKeys(user.email);
-		element(by.css(`lg-option[value="${user.profile}"]`)).click();
-		element(by.css('[name=street]')).clear().sendKeys(user.street);
-		element(by.css('[name=zipcode]')).clear().sendKeys(user.zipcode);
-		element(by.css('[name=city]')).clear().sendKeys(user.city);
-		utils.lgChoiceSelect('country', user.country);
-		element(by.css('[name=phone]')).clear().sendKeys(user.phone);
-		element(by.css('[name=password-crypted]')).clear().sendKeys(user.password);
-
-		// browser.sleep(20000);
-
-		element(by.css('button')).click();
-		// // browser.sleep(35000);
-		const message = element(by.css('h2'));
-		expect(message.getText()).toEqual('Votre compte est créé.');
-		element(by.css('button')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
+		utils.user.create(user);
 	});
 
 	it('should retrieve a user', function() {
