@@ -1,9 +1,7 @@
-'use strict';
-
 require('./lg-loader.scss');
 module.exports = 'lg-loader';
 
-var app = angular.module(module.exports, ['ui.router']);
+const app = angular.module(module.exports, ['ui.router']);
 require('./lg-loader-route.js');
 
 app.service('loader', function Loader($http, $state, $q, connection, user) {

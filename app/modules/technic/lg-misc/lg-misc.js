@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = 'lg-misc';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 require('./lg-misc.scss');
 

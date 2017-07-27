@@ -1,6 +1,4 @@
-'use strict';
-
-var app = angular.module('lg-user');
+const app = angular.module('lg-user');
 
 app.config(['$stateProvider', function($stateProvider) {
 

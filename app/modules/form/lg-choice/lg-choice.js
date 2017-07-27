@@ -1,5 +1,3 @@
-'use strict';
-
 var lgGeoloc = require('../../technic/lg-geoloc/lg-geoloc.js');
 
 require('./lg-choice.scss');
@@ -9,7 +7,7 @@ var removeDiacritic = function(str) {
 	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
-var app = angular.module(module.exports, ['lg-misc', lgGeoloc]);
+const app = angular.module(module.exports, ['lg-misc', lgGeoloc]);
 
 app.directive('input', ['$injector', function($injector) {
 	var $compile = $injector.get('$compile');

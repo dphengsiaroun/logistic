@@ -1,6 +1,4 @@
-'use strict';
-
-var app = angular.module('lg-filter');
+const app = angular.module('lg-filter');
 
 app.config(['$stateProvider', function($stateProvider) {
 

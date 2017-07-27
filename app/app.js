@@ -61,7 +61,7 @@ window.makeMap = function(array) {
 	return map;
 };
 
-var app = angular.module('mainApp', [
+const app = angular.module('mainApp', [
 	'ngTouch',
 	'ngSanitize',
 	'vcRecaptcha',

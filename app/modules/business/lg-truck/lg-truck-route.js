@@ -1,6 +1,4 @@
-'use strict';
-
-var app = angular.module('lg-truck');
+const app = angular.module('lg-truck');
 
 app.config(['$stateProvider', function($stateProvider) {
 

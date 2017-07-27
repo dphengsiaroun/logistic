@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = 'lg-http';
 
-var app = angular.module(module.exports, ['lg-misc']);
+const app = angular.module(module.exports, ['lg-misc']);
 
 app.config(function($httpProvider, $provide) {
 	'ngInject';

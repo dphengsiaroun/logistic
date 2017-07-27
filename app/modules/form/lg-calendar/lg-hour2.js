@@ -1,8 +1,6 @@
-'use strict';
-
 require('./lg-hour2.scss');
 
-var app = angular.module('lg-calendar');
+const app = angular.module('lg-calendar');
 var id = 0;
 
 var lgHour2Url = require('./tmpl/lg-hour2.html');

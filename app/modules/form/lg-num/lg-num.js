@@ -1,10 +1,8 @@
-'use strict';
-
 require('./lg-num.scss');
 require('./lg-num-vertical.scss');
 module.exports = 'lg-num';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 app.directive('input', function($compile) {
 	return {

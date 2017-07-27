@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = 'lg-debug';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 app.config(['$provide', function($provide) {
 	console.log('lg-debug config', arguments);

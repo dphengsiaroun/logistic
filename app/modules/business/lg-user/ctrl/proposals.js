@@ -1,4 +1,4 @@
-var app = angular.module('lg-user');
+const app = angular.module('lg-user');
 
 app.config(function($stateProvider) {
 	'ngInject';

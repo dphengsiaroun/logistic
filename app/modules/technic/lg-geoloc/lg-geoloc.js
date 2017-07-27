@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = 'lg-geoloc';
 
-var app = angular.module(module.exports, []);
+const app = angular.module(module.exports, []);
 
 app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $filter) {
 	'ngInject';

@@ -1,9 +1,6 @@
-'use strict';
-
-
 module.exports = 'lg-calendar';
 
-var app = angular.module(module.exports, ['lg-misc']);
+const app = angular.module(module.exports, ['lg-misc']);
 
 require('./lg-calendar.scss');
 require('./lg-month.js');
