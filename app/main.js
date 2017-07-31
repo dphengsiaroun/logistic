@@ -1,22 +1,7 @@
-require('angular/angular-csp.css');
-require('font-awesome/css/font-awesome.css');
-
 require('./css/create-ad.scss');
 require('./css/lg-ad.scss');
 require('./css/style.scss');
 require('./css/overlay.scss');
-
-const $ = require('jquery');
-window.jQuery = $;
-window.$ = $;
-
-require('angular');
-require('angular-touch');
-require('angular-i18n/angular-locale_fr-dz.js');
-require('angular-sanitize');
-require('angular-ui-router');
-require('angular-ui-mask');
-require('angular-recaptcha');
 
 const lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
 const lgConfig = require('./modules/business/lg-config/lg-config.js');
@@ -48,20 +33,6 @@ const lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
 const lgTest = require('./modules/technic/lg-test/lg-test.js');
 const lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
 const lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
-
-window.values = function(obj) {
-	return Object.keys(obj).map(function(key) {
-		return obj[key];
-	});
-};
-
-window.makeMap = function(array) {
-	const map = {};
-	array.forEach(function(n) {
-		map[n.id] = n;
-	});
-	return map;
-};
 
 const app = angular.module('main', [
 	'ngTouch',

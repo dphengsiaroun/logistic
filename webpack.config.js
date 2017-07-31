@@ -4,7 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: {
-		'app.prod': './app/main.js',
+		bundle: './app/main.js',
+		vendors: './app/vendors.js',
 		'install.prod': './app/install/install.js'
 	},
 	output: {
@@ -83,6 +84,9 @@ module.exports = {
 	plugins: [
 		new ExtractTextPlugin('[name].css'),
 		new webpack.optimize.ModuleConcatenationPlugin(),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: ['bundle', 'vendors']
+		}),
 		// new webpack.optimize.UglifyJsPlugin({
 		// 	compress: {
 		// 		warnings: false,
