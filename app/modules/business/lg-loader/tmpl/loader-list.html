@@ -5,12 +5,10 @@
 		<span ng-show="$ctrl.loaders.length === 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonce de transporteur</span>
 	</div>
 	<lg-filter></lg-filter>
-	<a>
-		<i class="fa fa-sort" aria-hidden="true"></i>
-	</a>
+	<lg-orderby order="$ctrl.order"></lg-orderby>
 </section>
 <loader-list>
-	<ad-block ng-repeat="ad in $ctrl.loaders | orderBy:'ad.content.created_t':true" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
+	<ad-block ng-repeat="ad in $ctrl.loaders | orderBy:'ad.content.created_t':$ctrl.order | filter: $ctrl.filter" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}">
 			<title>{{ad.content.title}}</title>
 			<subtitle>

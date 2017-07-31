@@ -111,7 +111,8 @@ app.config(['$stateProvider', function($stateProvider) {
 
 app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
 	'ngInject';
-	const ctrl = this;
+    const ctrl = this;
+    ctrl.order = true;
     ctrl.loader = loader;
     ctrl.$onInit = function() {
         loader.list().then(function(loaders) {

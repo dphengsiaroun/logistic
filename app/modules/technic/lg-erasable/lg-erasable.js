@@ -31,8 +31,6 @@ app.directive('lgErasable', function($compile) {
 					ctrl.$render();
 				}
 			};
-
-
 		}
 	};
 });

@@ -1,0 +1,11 @@
+@import '../../../css/color';
+lg-orderby {
+	display: block;
+	position: relative;
+	.fa {
+		position: absolute;
+		&[disabled] {
+			color: $disabledColor;
+		}
+	}
+}
