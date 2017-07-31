@@ -49,12 +49,6 @@ describe('Create ADS', function() {
 	it('should logout', function() {
 		console.log('-> logout', arguments);
 		utils.logout();
-	});
-
-	it('should create a second user', function() {
-		console.log('-> create a second user', arguments);
-		utils.user.create(data.users[1]);
-	});
-	
+	});	
 	
 });

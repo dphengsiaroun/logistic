@@ -4,10 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const data = require('./data/data.js');
 const utils = {};
-const truck = data.trucks[1];
 const user = data.users[0];
-const carrierAd = data.carrierAd[0];
-const loaderAd = data.loaderAd[0];
 module.exports = utils;
 
 utils.lgCitySelect = function(name, city) {
@@ -149,7 +146,6 @@ utils.user.loaderAd.create = function(loaderAd) {
 	element(by.name('title')).sendKeys(loaderAd.title);
 	element(by.id('pr-button-create-loader-ad')).click();
 	element(by.css('button.ok')).click();
-	browser.sleep(5000);
 	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');
 };
 

@@ -5,20 +5,20 @@ const data = {};
 module.exports = data;
 
 data.trucks = [{
-	name: '132443-123-15',
+	name: '110000-111-15',
 	model: 'Volvo',
 	city: 'Abi Youcef',
 	transportCategory: 'Camion',
-	transportTruckType: 'Semi-remorque',
+	transportTruckType: 'Citerne',
 	birthyear: '2014',
 	imageId: path.resolve(__dirname, './img/camion-citerne.jpg')
 }, {
-	name: '132443-123-15',
-	model: 'Volvo',
+	name: '120000-222-16',
+	model: 'Renault',
 	city: 'Abi Youcef',
 	transportCategory: 'Camion',
 	transportTruckType: 'Semi-remorque',
-	birthyear: '2014',
+	birthyear: '2010',
 	imageId: path.resolve(__dirname, './img/semi-remorque.jpg')
 }];
 

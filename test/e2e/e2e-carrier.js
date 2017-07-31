@@ -62,41 +62,41 @@ describe('Carrier CRUD', function() {
 		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
 	});
 
-	it('should retrieve carrier ad', function() {
-		console.log('-> retrieve a carrier ad', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.id('pr-retrieve-carrier-ads-button')).click();
-		const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
-		const titleElt = adElt.element(by.css('title'));
-		expect(titleElt.getText()).toEqual(truck.name);
-	});
+	// it('should retrieve carrier ad', function() {
+	// 	console.log('-> retrieve a carrier ad', arguments);
+	// 	browser.get('http://localhost:8000/app/');
+	// 	element(by.id('pr-retrieve-carrier-ads-button')).click();
+	// 	const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+	// 	const titleElt = adElt.element(by.css('title'));
+	// 	expect(titleElt.getText()).toEqual(truck.name);
+	// });
 
-	it('should update carrier ad', function() {
-		console.log('-> update a carrier ad', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.css('menu-bar')).click();
-		element(by.id('pr-my-ads-link')).click();
-		const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
-		adElt.element(by.css('title')).click();
-		element(by.id('pr-edit-button')).click();
-		element(by.id('pr-select-price')).click();
-		element(by.name('priceWantedPerKm')).clear().sendKeys('80');
-		element(by.id('pr-add-pricing-button')).click();
-		element(by.id('pr-update-carrier-button-confirm')).click();
-		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
-	});
+	// it('should update carrier ad', function() {
+	// 	console.log('-> update a carrier ad', arguments);
+	// 	browser.get('http://localhost:8000/app/');
+	// 	element(by.css('menu-bar')).click();
+	// 	element(by.id('pr-my-ads-link')).click();
+	// 	const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+	// 	adElt.element(by.css('title')).click();
+	// 	element(by.id('pr-edit-button')).click();
+	// 	element(by.id('pr-select-price')).click();
+	// 	element(by.name('priceWantedPerKm')).clear().sendKeys('80');
+	// 	element(by.id('pr-add-pricing-button')).click();
+	// 	element(by.id('pr-update-carrier-button-confirm')).click();
+	// 	element(by.css('button.ok')).click();
+	// 	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+	// });
 
-	it('should delete a carrier ad', function() {
-		console.log('-> delete a carrier ad', arguments);
-		browser.get('http://localhost:8000/app/');
-		element(by.css('menu-bar')).click();
-		element(by.id('pr-my-ads-link')).click();
-		const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
-		adElt.element(by.css('title')).click();
-		element(by.linkText('Supprimer cette annonce')).click();
-		element(by.css('button.confirm')).click();
-		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
-	});
+	// it('should delete a carrier ad', function() {
+	// 	console.log('-> delete a carrier ad', arguments);
+	// 	browser.get('http://localhost:8000/app/');
+	// 	element(by.css('menu-bar')).click();
+	// 	element(by.id('pr-my-ads-link')).click();
+	// 	const adElt = element(by.css('carrier-list ad-block header[ad-id="1"]'));
+	// 	adElt.element(by.css('title')).click();
+	// 	element(by.linkText('Supprimer cette annonce')).click();
+	// 	element(by.css('button.confirm')).click();
+	// 	element(by.css('button.ok')).click();
+	// 	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+	// });
 });
