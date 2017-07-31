@@ -109,15 +109,16 @@ app.config(['$stateProvider', function($stateProvider) {
     });
 }]);
 
-app.controller('LoaderListCtrl', function LoaderListCtrl(loader) {
+app.controller('LoaderListCtrl', function LoaderListCtrl($scope, loader, lgFilterList) {
 	'ngInject';
     const ctrl = this;
     ctrl.order = true;
     ctrl.loader = loader;
     ctrl.$onInit = function() {
-        loader.list().then(function(loaders) {
-			console.log('loaders', loaders);
-			ctrl.loaders = loaders;
+        loader.list().then(function(list) {
+			console.log('list', list);
+            ctrl.list = list;
+            lgFilterList.setup($scope, '$ctrl', ctrl);
 		}).catch(function(error) {
 			console.error('error', error);
 		});

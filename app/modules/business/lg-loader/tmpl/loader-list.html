@@ -1,14 +1,18 @@
 <section class="filter">
 	<div class="qty-ad">
-		<span ng-show="$ctrl.loaders.length === 0" ng-init="$ctrl.loaders">Aucune annonce de transporteur</span>
-		<span ng-show="$ctrl.loaders.length > 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonces de transporteur</span>
-		<span ng-show="$ctrl.loaders.length === 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonce de transporteur</span>
+		<span id="noAds" ng-show="$ctrl.filteredlist.length === 0" ng-init="$ctrl.list">Aucune annonce de chargeur</span>
+		<span ng-show="$ctrl.filteredlist.length === 1" ng-init="$ctrl.list">1 annonce de chargeur</span>
+		<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de chargeur</span>		
+		<br/>
+		<span ng-show="$ctrl.removedByFilterLength === 0" class="total-filter"></span>
+		<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrées</span>
+		<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filter">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
 	</div>
 	<lg-filter filter="$ctrl.filter"></lg-filter>
 	<lg-orderby order="$ctrl.order"></lg-orderby>
 </section>
 <loader-list>
-	<ad-block ng-repeat="ad in $ctrl.loaders | orderBy:'ad.content.created_t':$ctrl.order | filter: $ctrl.filter" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
+	<ad-block ng-repeat="ad in $ctrl.filteredlist" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}">
 			<title>{{ad.content.title}}</title>
 			<subtitle>
