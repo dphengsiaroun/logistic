@@ -60,7 +60,8 @@ module.exports = {
 					loader: 'html-loader',
 					options: {
 						attrs: 'img-svg:src',
-						root: path.resolve('./app')
+						root: path.resolve('./app'),
+						// minimize: true
 					}
 				}]
 			},
@@ -75,7 +76,8 @@ module.exports = {
 				}, {
 					loader: 'html-loader',
 					options: {
-						attrs: false
+						attrs: false,
+						// minimize: true
 					}
 				}]
 			}
@@ -90,6 +92,7 @@ module.exports = {
 		// new webpack.optimize.UglifyJsPlugin({
 		// 	compress: {
 		// 		warnings: false,
+		//		drop_console: true
 		// 	},
 		// 	output: {
 		// 		comments: false,

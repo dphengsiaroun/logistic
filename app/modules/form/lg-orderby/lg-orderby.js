@@ -10,11 +10,9 @@ app.component('lgOrderby', {
 	template: lgOrderbyHtml,
 	controller: function lgOrderby() {
 		'ngInject';
-		const ctrl = this;
 		console.log('orderby ctrl');
-
 	},
 	bindings: {
-		order: '='
+		order: '=',
 	}
 });
