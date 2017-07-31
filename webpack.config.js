@@ -6,7 +6,7 @@ module.exports = {
 	entry: {
 		bundle: './app/main.js',
 		vendors: './app/vendors.js',
-		'install.prod': './app/install/install.js'
+		install: './app/install/install.js'
 	},
 	output: {
 		path: path.resolve(__dirname, './app/wpk'),
@@ -87,7 +87,7 @@ module.exports = {
 		new ExtractTextPlugin('[name].css'),
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new webpack.optimize.CommonsChunkPlugin({
-			name: ['bundle', 'vendors']
+			name: ['vendors']
 		}),
 		// new webpack.optimize.UglifyJsPlugin({
 		// 	compress: {
