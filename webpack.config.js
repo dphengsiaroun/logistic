@@ -61,7 +61,7 @@ module.exports = {
 					options: {
 						attrs: 'img-svg:src',
 						root: path.resolve('./app'),
-						// minimize: true
+						minimize: true
 					}
 				}]
 			},
@@ -77,7 +77,7 @@ module.exports = {
 					loader: 'html-loader',
 					options: {
 						attrs: false,
-						// minimize: true
+						minimize: true
 					}
 				}]
 			}
