@@ -1,16 +1,17 @@
 <section class="filter">
 	<div class="qty-ad">
-		<span id="noAds" ng-show="$ctrl.carriers.length === 0" ng-init="$ctrl.carriers">Aucune annonce de transporteur</span>
-		<span ng-show="$ctrl.carriers.length > 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonces de transporteur</span>
-		<span ng-show="$ctrl.carriers.length === 1" ng-init="$ctrl.carriers">{{$ctrl.carriers.length}} annonce de transporteur</span>
+		<span id="noAds" ng-show="$ctrl.filteredlist.length === 0" ng-init="$ctrl.list">Aucune annonce de transporteur</span>
+		<span ng-show="$ctrl.filteredlist.length === 1" ng-init="$ctrl.list">1 annonce de transporteur</span>
+		<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de transporteur</span>		
+		<br/>
+		<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrées</span>
+		<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filter">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
 	</div>
 	<lg-filter filter="$ctrl.filter"></lg-filter>
-	<a>
-		<i class="fa fa-sort" aria-hidden="true"></i>
-	</a>
+	<lg-orderby order="$ctrl.order"></lg-orderby>
 </section>
 <carrier-list>
-	<ad-block ng-repeat="ad in $ctrl.carriers | orderBy:'ad.content.created_t':true | filter: $ctrl.filter" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
+	<ad-block ng-repeat="ad in $ctrl.filteredlist" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'specificTrip'">
 			<title>{{ad.content.truck.name}}</title>
 			<subtitle>

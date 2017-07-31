@@ -41,6 +41,7 @@ const lgRoute = require('./modules/site/lg-route/lg-route.js');
 
 const lgDebug = require('./modules/technic/lg-debug/lg-debug.js');
 const lgError = require('./modules/technic/lg-error/lg-error.js');
+const lgFilterList = require('./modules/technic/lg-filter-list/lg-filter-list.js');
 const lgGeoloc = require('./modules/technic/lg-geoloc/lg-geoloc.js');
 const lgHttp = require('./modules/technic/lg-http/lg-http.js');
 const lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
@@ -92,6 +93,7 @@ const app = angular.module('main', [
 
 	lgDebug,
 	lgError,
+	lgFilterList,
 	lgGeoloc,
 	lgHttp,
 	lgMisc,

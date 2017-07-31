@@ -26,7 +26,7 @@ data.carrierAd = [{
 	truck: data.trucks[0],
 	priceWantedPerKm: '50',
 }, {
-	truck: data.trucks[0],
+	truck: data.trucks[1],
 	priceWantedPerKm: '90',
 }];
 

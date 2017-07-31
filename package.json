@@ -67,6 +67,7 @@
 		"e2e-loader": "protractor test/e2e/cfg/loader-crud.js",
 		"e2e-carrier": "protractor test/e2e/cfg/carrier-crud.js",
 		"e2e-proposal": "protractor test/e2e/cfg/proposal-crud.js",
+		"e2e-orderby": "protractor test/e2e/cfg/orderby.js",
 		"e2e-connection": "protractor test/e2e/cfg/connection-crud.js",
 		"e2e-check-ads-deletion": "protractor test/e2e/cfg/check-ads-deletion.js"
 	},
