@@ -44,16 +44,16 @@ data.loaderAd = [{
 	title: 'Chargement de palette'
 }, {
 	transportCategory: 'Camion',
-	transportTruckType: 'Bétaillère',
+	transportTruckType: 'Porte voiture',
 	departureCity: 'Abi Youcef',
 	arrivalCity: 'Abdelmalek Ramdane',
-	conditioning: 'Indifférent',
-	typeOfGoods: 'Animaux',
-	weightIntervals: 'De 20 à 50 kg',
-	preciseWeight: '100',
-	imageId: path.resolve(__dirname, './img/palette.jpg'),
-	priceWanted: '15000',
-	title: 'Chargement de vaches'
+	conditioning: 'Colis',
+	typeOfGoods: 'Massif',
+	weightIntervals: 'De 1 à 5 tonnes',
+	preciseWeight: '1500',
+	imageId: path.resolve(__dirname, './img/voiture.jpg'),
+	priceWanted: '28000',
+	title: 'Chargement de voiture'
 }];
 
 data.users = [{

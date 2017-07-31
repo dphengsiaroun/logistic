@@ -5,7 +5,7 @@ const data = require('./data/data.js');
 const truck = data.trucks[1];
 const user = data.users[0];
 
-describe('Truck CRUD', function() {
+describe('Proposal CRUD', function() {
 
 	beforeEach(function() {
 		console.log('Proposal CRUD', arguments);
