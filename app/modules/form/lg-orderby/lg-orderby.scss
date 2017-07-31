@@ -1,15 +1,18 @@
 @import '../../../css/color';
 lg-orderby {
 	display: table-cell;
-	position: relative;
 	width: 15%;
 	vertical-align: middle;
-	.fa {
-		position: absolute;
-		top: 9px;
-		left: 20px;
-		&[disabled] {
-			color: $disabledColor;
+	>div {
+		display: block;
+		position: relative;
+		>.fa {
+			position: absolute;
+			top: -10px;
+			left: 20px;
+			&[disabled] {
+				color: $disabledColor;
+			}
 		}
 	}
 }
