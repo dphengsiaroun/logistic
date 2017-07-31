@@ -4,7 +4,7 @@
 		<span ng-show="$ctrl.loaders.length > 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonces de transporteur</span>
 		<span ng-show="$ctrl.loaders.length === 1" ng-init="$ctrl.loaders">{{$ctrl.loaders.length}} annonce de transporteur</span>
 	</div>
-	<lg-filter></lg-filter>
+	<lg-filter filter="$ctrl.filter"></lg-filter>
 	<lg-orderby order="$ctrl.order"></lg-orderby>
 </section>
 <loader-list>
