@@ -19,6 +19,16 @@ app.directive('input', ['$injector', function($injector) {
 			element.after(elt);
 			element.attr('style', 'display: none !important');
 			$compile(elt)(scope);
+			scope.$watch(attr.ngModel, function() {
+				if (!ctrl) {
+					return;
+				}
+				ctrl.$setDirty();
+				if (ctrl.$$parentForm[attr.name + '-crypted'].$touched ||
+					ctrl.$$parentForm[attr.name + '-clear'].$touched) {
+					ctrl.$setTouched();
+				}
+			});
 		}
 	};
 
