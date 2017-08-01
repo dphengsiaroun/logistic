@@ -3,26 +3,84 @@
 	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
 	<form name="signupCtrl" ng-submit="$ctrl.user.signup();">
-		<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" />
-		<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" /><br/>
-		<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space"
-			ng-model="$ctrl.user.signupData.content.login" />
-		<input name="email" type="text" placeholder="Email" ng-model="$ctrl.user.signupData.email" /><br/>
-		<lg-select name="profile" ng-model="$ctrl.user.signupData.content.profile">
+		<div>
+			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" required />
+			<i ng-show="isOk(signupCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.lastname)">
+				<span ng-show="signupCtrl.lastname.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<div>
+			<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" required />
+			<i ng-show="isOk(signupCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.firstname)">
+				<span ng-show="signupCtrl.firstname.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<div>
+			<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" required />
+			<i ng-show="isOk(signupCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.login)">
+				<span ng-show="signupCtrl.login.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<div>
+			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.signupData.email" required />
+			<i ng-show="isOk(signupCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
+			<i ng-show="isError(signupCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.email)">
+				<span ng-show="signupCtrl.email.$error.required">Champs requis</span>
+				<span ng-show="signupCtrl.email.$error.email">Cet email n'est pas valide.</span>
+			</div>
+		</div>
+		<br/>
+		<span class="profile">Veuillez choisir votre profil</span>
+		<lg-select name="profile" ng-model="$ctrl.user.signupData.content.profile" required>
 			<lg-option value="loader" selected>Chargeur</lg-option>
 			<lg-option value="carrier" selected>Transporteur</lg-option>
 			<lg-option value="both" selected>Les deux</lg-option>
 		</lg-select>
 		<br/>
-		<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" />
-		<input name="zipcode" type="text" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode" />
-		<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" />
-		<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
-		/>
-		<input name="phone" type="text" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" /><br/>
-		<input type="eyepassword" name="password" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" />
+		<div>
+			<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" required />
+			<i ng-show="isOk(signupCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.street)">
+				<span ng-show="signupCtrl.street.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<div>
+			<input name="zipcode" type="number" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode" required />
+			<i ng-show="isOk(signupCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.zipcode)">
+				<span ng-show="signupCtrl.zipcode.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<div>
+			<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" required />
+			<i ng-show="isOk(signupCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.city)">
+				<span ng-show="signupCtrl.city.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<div>
+			<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country" required />
+			<i ng-show="isOk(signupCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.country)">
+				<span ng-show="signupCtrl.country.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<div>
+			<input name="phone" type="number" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" required />
+			<i ng-show="isOk(signupCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
+			<div ng-show="isError(signupCtrl.phone)">
+				<span ng-show="signupCtrl.phone.$error.required">Champs requis</span>
+			</div>
+		</div>
+		<br/>
+		<input type="eyepassword" name="password" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" required />
+		<span class="password" ng-show="isError(signupCtrl.password)">Veuillez saisir un mot de passe</span>
 		<br/>
 		<lg-error error="$ctrl.user.error"></lg-error>
-		<button id="pr-create-user-button" >Créer le compte</button>
+		<button ng-disabled="signupCtrl.$invalid" id="pr-create-user-button">Créer le compte</button>
 	</form>
 </sign-form>

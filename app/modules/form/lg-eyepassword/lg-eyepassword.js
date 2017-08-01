@@ -1,5 +1,5 @@
 module.exports = 'lg-eyepassword';
-require('./lg-eyepassword.css');
+require('./lg-eyepassword.scss');
 const app = angular.module(module.exports, []);
 
 app.directive('input', ['$injector', function($injector) {
@@ -19,7 +19,6 @@ app.directive('input', ['$injector', function($injector) {
 			element.after(elt);
 			element.attr('style', 'display: none !important');
 			$compile(elt)(scope);
-
 		}
 	};
 
@@ -39,7 +38,6 @@ app.component('lgEyepassword', {
 			console.log('lgEyepassword toggle', arguments, this);
 			this.show = !this.show;
 		};
-
 	},
 	bindings: {
 		password: '=',
