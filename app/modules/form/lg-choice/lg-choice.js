@@ -159,8 +159,8 @@ app.component('lgChoice', {
 			ctrl.setNormalMode();
 
 			function checkValidity(value) {
-				const isOutOfChoice = false;
-				ngModel.$setValidity('outOfChoice', isOutOfChoice);
+				const isOutOfChoice = true;
+				// ngModel.$setValidity('outOfChoice', isOutOfChoice);
 			}
 
 			ngModel.$render = function() {
