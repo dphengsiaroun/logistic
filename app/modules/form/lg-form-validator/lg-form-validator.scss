@@ -1,0 +1,20 @@
+@import '../../../css/color';
+
+error-message {
+	display: block;
+	margin: 0px 0 20px;
+	font-size: 13px;
+	span {
+		color: $errorColor;
+		font-weight: bold;
+	}
+}
+
+form {
+	div {
+		.ng-dirty.ng-invalid.ng-touched {
+			background-color: hsl(0, 100%, 97%);
+			border-color: hsl(0, 100%, 80%);
+		}
+	}
+}

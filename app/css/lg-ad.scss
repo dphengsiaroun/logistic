@@ -278,13 +278,3 @@ lg-select.conditioning svg {
 	color: $disabledColor;
 }
 
-error-message {
-	display: block;
-	margin: 0px 0 20px;
-	font-size: 13px;
-	span {
-		color: $errorColor;
-		font-weight: bold;
-
-	}
-}

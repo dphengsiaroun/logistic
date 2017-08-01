@@ -31,10 +31,6 @@ sign-form {
 		div {
 			display: block;
 			position: relative;
-			.ng-dirty.ng-invalid.ng-touched {
-				background-color: hsl(0, 100%, 97%);
-				border-color: hsl(0, 100%, 80%);
-			}
 			.fa {
 				display: block;
 				position: absolute;

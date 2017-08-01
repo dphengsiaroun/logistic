@@ -142,15 +142,11 @@ function initCtrl(ctrl, $scope, $injector) {
 	});
 }
 
-app.controller('UserCtrl', ['$scope', '$injector', function UserCtrl($scope, $injector) {
+app.controller('UserCtrl', function UserCtrl($scope, $injector, formValidator) {
+	'ngInject';
 	initCtrl(this, $scope, $injector);
-	$scope.isError = function(field) {
-		return field.$invalid && field.$touched && field.$dirty;
-	};
-	$scope.isOk = function(field) {
-		return field.$valid && field.$touched && field.$dirty;
-	};
-}]);
+	this.fv = formValidator;
+});
 
 const signupHtml = require('./tmpl/signup.html');
 const signupSuccessHtml = require('./tmpl/signup_success.html');

@@ -9,10 +9,7 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 	'ngInject';
 	const service = this;
 	user.isConnected = undefined;
-	service.createConnectionData = {
-		email: 'dphengsiaroun@outlook.fr',
-		password: 'test'
-	};
+	service.createConnectionData = {};
 
 	service.create = function() {
 		console.log('sign in');

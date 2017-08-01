@@ -16,6 +16,7 @@ const lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
 const lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
 const lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
 const lgFilter = require('./modules/form/lg-filter/lg-filter.js');
+const lgFormValidator = require('./modules/form/lg-form-validator/lg-form-validator.js');
 const lgOrderby = require('./modules/form/lg-orderby/lg-orderby.js');
 const lgNum = require('./modules/form/lg-num/lg-num.js');
 const lgSlider = require('./modules/form/lg-slider/lg-slider.js');
@@ -54,6 +55,7 @@ const app = angular.module('main', [
 	lgDimension,
 	lgEyePassword,
 	lgFilter,
+	lgFormValidator,
 	lgOrderby,
 	lgNum,
 	lgSlider,
