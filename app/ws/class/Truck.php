@@ -8,7 +8,7 @@ class Truck extends RestResource {
 		$user = User::getConnected();
 		if (!property_exists($user->content, 'trucks')) {
 			$user->content->trucks = new stdClass();
-			$user->save();
+			$user->update();
 		}
 	}
 
@@ -26,7 +26,7 @@ class Truck extends RestResource {
 		$name = str2spinal($request->name);
 		$request->id = $name;
 		$user->content->trucks->{$name} = $request;
-		$user->save();
+		$user->update();
 		return $user->content->trucks->{$name};
 	}
 
@@ -54,7 +54,7 @@ class Truck extends RestResource {
 		$request->id = $id;
 		$user = User::getConnected();
 		unset($user->content->trucks->{$id});
-		$user->save();
+		$user->update();
 		return $user->content->trucks;
 	}
 }

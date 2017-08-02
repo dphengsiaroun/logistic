@@ -17,15 +17,20 @@
 			debug('create user insert event done');
 			Event::synchronize();
 			debug('create user synchronized done', $e->id);
-			$result = $this->retrieve($e->id);
-			debug('create user finished');
-			return $result;
+			$user = new User();
+			$user->retrieve($e->id);
+			$user->connect();
+			return $user;
 		}
 
 		public static function getConnected() {
+			debug('getConnected start');
 			if (isset($_COOKIE['userId'])) {
+				debug('cookie found', $_COOKIE['userId']);
 				$user = new User();
+				debug('new User');
 				$user->retrieve($_COOKIE['userId']);
+				debug('User', $user);
 				if (!$user->getRememberMe()->checkToken()) {
 					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}
@@ -83,7 +88,7 @@ EOF;
 				debug('adding picture 2');
 				$this->content->loaded->{$pictureDir} = $size;
 
-				$this->save();
+				$this->update();
 			} else if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
 				if (isset($this->content->loaded)) {
 					debug('$this->content->loaded', $this->content->loaded);
@@ -91,7 +96,7 @@ EOF;
 						unset($this->content->loaded->{$pictureDir});
 					}
 				}
-				$this->save();
+				$this->update();
 			}
 
 			debug('loadPicture', $this);
@@ -126,7 +131,7 @@ EOF;
 			return 'acct_' . $this->id . $suffix;
 		}
 
-		public function save() {
+		public function update() {
 			global $db, $cfg;
 
 			$sql = <<<EOF
@@ -240,13 +245,16 @@ EOF;
 		}
 
 		public function connect() {
-			debug('connect');
+			debug('connect', $this);
 			$this->lastToken = $this->getRememberMe()->connect();
-
+			debug('end connect');
 		}
 
 		public function getRememberMe() {
-			return new RememberMe($this);
+			debug('getRememberMe');
+			$result = new RememberMe($this);
+			debug('getRememberMe done');
+			return $result;
 		}
 
 		public static function retrieveFromCode($id, $code) {
@@ -344,7 +352,7 @@ EOF;
 			debug('expireTime', $expireTime);
 			$this->content->forgottenPasswordCode = hash('sha256', $this->id + SECRET + time()) . '_' . $expireTime;
 			debug('forgottenPasswordCode', $this->content->forgottenPasswordCode);
-			$this->save();
+			$this->update();
 		}
 
 		public function getReactivationUrl() {

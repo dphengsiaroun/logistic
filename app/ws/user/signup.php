@@ -13,7 +13,7 @@
 		}
 		debug("user create start");
 		$user = new User();
-		$user->create();
+		$user = $user->create();
 
 		$result['status'] = 'ok';
 		$result['user'] = $user;

@@ -33,6 +33,7 @@ describe('User CRUD', function() {
 
 	it('should update a user', function() {
 		console.log('-> update a user', arguments);
+		browser.sleep(10000);
 		element(by.linkText('Mon profil')).click();
 		element(by.css('[name=lastname]')).clear().sendKeys('Phengsiaroun');
 		element(by.css('button')).click();

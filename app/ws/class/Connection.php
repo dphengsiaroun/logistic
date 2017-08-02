@@ -7,7 +7,9 @@
 
 		public function create() {
 			$request = getRequest();
+			debug('connection start', $request);
 			$user = User::signin($request->email, $request->password);
+			debug('connection about to insert event', $user);
 			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
 			Event::synchronize();
 			$result = new static();

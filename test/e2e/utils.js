@@ -50,7 +50,7 @@ utils.user.create = function(user) {
 	element(by.name('phone')).clear().sendKeys(user.phone);
 	utils.lgChoiceSelect('country', user.country);
 	element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
-	browser.sleep(15000);
+	// browser.sleep(5000);
 	element(by.id('pr-create-user-button')).click();
 	const message = element(by.css('h2'));
 	expect(message.getText()).toEqual('Votre compte est créé.');

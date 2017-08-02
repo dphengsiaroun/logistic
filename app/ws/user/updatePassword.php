@@ -19,7 +19,7 @@
 		}
 
 		$user->password = $request->newPassword;
-		$user->save();
+		$user->update();
 
 		$result['status'] = 'ok';
 		$result['user'] = $user;

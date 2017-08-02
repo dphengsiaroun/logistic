@@ -7,7 +7,7 @@
 		public function __construct($user) {
 			if (!property_exists($user->content, 'tokens')) {
 				$user->content->tokens = array();
-				$user->save();
+				$user->update();
 			}
 			$this->user = $user;
 		}
@@ -36,7 +36,7 @@
 			$token->code = $code;
 			$token->expirationTime = $expirationTime;
 			$this->user->content->tokens[] = $token;
-			$this->user->save();
+			$this->user->update();
 			return $token;
 		}
 
@@ -45,7 +45,7 @@
 				return;
 			}
 			$this->user->content->tokens = array_filter($this->user->content->tokens, array($this, 'filter'));
-			$this->user->save();
+			$this->user->update();
 		}
 
 		public function filter($token) {
