@@ -15,7 +15,7 @@
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(truckCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(truckCtrl.name)">
-					<span ng-show="truckCtrl.name.$error.required">Champs requis</span>
+					<span ng-show="truckCtrl.name.$error.required">Immatriculation ou libellé du vehicule obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -25,7 +25,7 @@
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(truckCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(truckCtrl.model)">
-					<span ng-show="truckCtrl.model.$error.required">Champs requis</span>
+					<span ng-show="truckCtrl.model.$error.required">Description succinte du modèle obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -56,13 +56,13 @@
 		</div>
 	</section>
 	<section>
-		<label>Année du vehicule</label>
+		<label>Année du véhicule</label>
 		<div>
 			<input name="birthyear" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" required />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(truckCtrl.birthyear)" class="fa fa-check" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(truckCtrl.birthyear)">
-					<span ng-show="truckCtrl.birthyear.$error.required">Champs requis</span>
+					<span ng-show="truckCtrl.birthyear.$error.required">L'année du véhicule est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>

@@ -8,24 +8,25 @@
 		<subtitle ng-show="$ctrl.proposal.createData.adType === 'carrier'">au transporteur</subtitle>
 	</right>
 </div>
-<formx class="ad" name="proposalCtrl">
+<form class="ad" name="proposalCtrl">
 	<img-ad>
 		<img ng-show="$ctrl.proposal.createData.imageUrl" src="{{$ctrl.proposal.createData.imageUrl}}">
 	</img-ad>
 	<section>
 		<label>Titre de l'annonce</label>
-		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" />
+		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" required />
+		
 		<label>Nom</label>
-		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" />
+		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" required />
+
 		<label>Email</label>
-		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.createData.email" />
+		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.createData.email" required />
+		
 		<label>Message</label>
-		<textarea ng-model="$ctrl.proposal.createData.message"></textarea>
+		<textarea ng-model="$ctrl.proposal.createData.message" required></textarea>
 	</section>
-</formx>
-<formx class="ad">
 	<section class="dark">
 		<lg-error error="$ctrl.proposal.error"></lg-error>
-		<button id="confirm-create-proposal" ng-click="$ctrl.proposal.create();">Envoyez votre proposition</button>
+		<button ng-disabled="proposalCtrl.$invalid" id="confirm-create-proposal" ng-click="$ctrl.proposal.create();">Envoyez votre proposition</button>
 	</section>
-</formx>
+</form>

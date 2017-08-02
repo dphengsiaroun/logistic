@@ -148,11 +148,12 @@ app.controller('LoaderCtrl', function LoaderCtrl($scope, $stateParams, loader, u
 });
 
 app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
-    $scope, $element, $http, $q, $window, $filter, loader, user, geoloc) {
+    $scope, $element, $http, $q, $window, $filter, loader, user, geoloc, formValidator) {
     'ngInject';
     const ctrl = this;
     ctrl.user = user;
     ctrl.loader = loader;
+    ctrl.fv = formValidator;
     $scope.$watchGroup(['$ctrl.loader.createData.dimension.height', '$ctrl.loader.createData.dimension.depth',
         '$ctrl.loader.createData.dimension.width'
     ], function() {
@@ -195,11 +196,12 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
     );
 });
 
-app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams, connection) {
+app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams, connection, formValidator) {
     'ngInject';
     const ctrl = this;
     ctrl.loader = loader;
     ctrl.user = user;
+    ctrl.fv = formValidator;
     this.$onInit = function() {
         this.loader.get($stateParams.id).then(function() {
             return connection.waitForCheckConnection('LoaderUpdateCtrl');
