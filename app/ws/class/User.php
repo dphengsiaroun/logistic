@@ -16,7 +16,8 @@
 			debug('my user', $this);
 		}
 
-		public static function create($request) {
+		public static function create() {
+			$request = getRequest();
 			debug('create user');
 			$e = Event::insert('/user/create', $request);
 			debug('create user insert event done');
