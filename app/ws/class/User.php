@@ -10,27 +10,22 @@
 
 	class User {
 
-		public function __construct($id) {
-			$this->id = $id;
-			$this->retrieve();
-			debug('my user', $this);
-		}
-
-		public static function create() {
+		public function create() {
 			$request = getRequest();
 			debug('create user');
 			$e = Event::insert('/user/create', $request);
 			debug('create user insert event done');
 			Event::synchronize();
 			debug('create user synchronized done', $e->id);
-			$result = new User($e->id);
+			$result = $this->retrieve($e->id);
 			debug('create user finished');
 			return $result;
 		}
 
 		public static function getConnected() {
 			if (isset($_COOKIE['userId'])) {
-				$user = new User($_COOKIE['userId']);
+				$user = new User();
+				$user->retrieve($_COOKIE['userId']);
 				if (!$user->getRememberMe()->checkToken()) {
 					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}
@@ -48,9 +43,10 @@
 			return true;
 		}
 
-		protected function retrieve() {
+		protected function retrieve($id) {
 			global $db, $cfg;
 			// On lance notre requête de vérification
+			$this->id = $id;
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}user WHERE id=:id
 EOF;
@@ -207,7 +203,9 @@ EOF;
 				throw new Exception('User not found for email = ' . $email);
 			}
 			$id = $st->fetch()['id'];
-			return new User($id);
+			$user = new User();
+			$user->retrieve($id);
+			return $user;
 		}
 
 		public static function signin($email, $password) {
@@ -234,7 +232,8 @@ EOF;
 				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
 			}
 			$id = $st->fetch()['id'];
-			$user = new User($id);
+			$user = new User();
+			$user->retrieve($id);
 			$user->connect();
 
 			return $user;
@@ -275,7 +274,9 @@ EOF;
 			}
 			self::checkForgottenPasswordCode($code);
 			$id = $st->fetch()['id'];
-			return new User($id);
+			$user = new User();
+			$user->retrieve($id);
+			return $user;
 		}
 
 		public static function checkForgottenPasswordCode($code) {
