@@ -4,6 +4,7 @@
 	require_once(BASE_DIR . "/include/misc.inc.php");
 	require_once(BASE_DIR . "/include/database.inc.php");
 	require_once(BASE_DIR . "/class/RememberMe.php");
+	require_once(BASE_DIR . "/class/Event.php");
 
 	debug('cookie', $_COOKIE);
 
@@ -16,26 +17,14 @@
 		}
 
 		public static function create($request) {
-			global $db, $cfg;
-
-			$sql = <<<EOF
-INSERT INTO {$cfg->prefix}user (email, password, content) VALUES
-	(:email, :password, :content);
-EOF;
-
-			$st = $db->prepare($sql,
-						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':email' => $request->email,
-				':password' => $request->password,
-				':content' => json_encode($request->content)
-			)) === FALSE) {
-				throw new Exception('Table creation: '.sprint_r($db->errorInfo()));
-			}
-			$id = $db->lastInsertId();
-			$user = new User($id);
-			$user->connect();
-			return $user;
+			debug('create user');
+			$e = Event::insert('/user/create', $request);
+			debug('create user insert event done');
+			Event::synchronize();
+			debug('create user synchronized done', $e->id);
+			$result = new User($e->id);
+			debug('create user finished');
+			return $result;
 		}
 
 		public static function getConnected() {

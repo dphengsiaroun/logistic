@@ -11,7 +11,7 @@
 		if (User::exists($request->email)) {
 			throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
 		}
-
+		debug("user create start");
 		$user = User::create($request);
 
 		$result['status'] = 'ok';

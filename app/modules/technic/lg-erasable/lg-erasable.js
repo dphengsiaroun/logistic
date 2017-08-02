@@ -26,7 +26,7 @@ app.directive('lgErasable', function($compile) {
 			$compile(elt)(scope);
 
 			scope.isNotEmpty = () => {
-				console.log('ctrl.isNotEmpty', ctrl);
+				// console.log('ctrl.isNotEmpty', ctrl);
 				if (ctrl) {
 					console.log('$modelValue', ctrl.$modelValue);
 

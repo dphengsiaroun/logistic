@@ -16,7 +16,9 @@
 
 		public static function insert($type, $content) {
 			global $db, $cfg;
+			debug('event insert', $content);
 			$content = (object) $content;
+			debug('content', $content);
 			$content->created_t = time();
 
 			$sql = <<<EOF
@@ -91,6 +93,9 @@ EOF;
 			global $db, $cfg;
 
 			switch ($this->type) {
+				case '/user/create':
+					EventUser::create($this);
+					break;
 				case '/loader/create':
 					EventLoader::create($this);
 					break;
