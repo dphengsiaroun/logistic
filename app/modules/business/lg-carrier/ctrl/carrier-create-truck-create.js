@@ -13,10 +13,11 @@ app.config(function($stateProvider) {
 const lgCarrierCreateTruckCreateHtml = require('../tmpl/carrier-create-truck-create.html');
 app.component('lgCarrierCreateTruckCreateRoute', {
 	template: lgCarrierCreateTruckCreateHtml,
-	controller: function LgCarrierCreateTruckCreateRouteCtrl(truck, context) {
+	controller: function LgCarrierCreateTruckCreateRouteCtrl(truck, context, formValidator) {
 		'ngInject';
 		const ctrl = this;
 		ctrl.truck = truck;
+		ctrl.fv = formValidator;
 		context.push('carrier:create:truck:choose');
 	}
 });

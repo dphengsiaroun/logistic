@@ -136,11 +136,12 @@ app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
     };
 });
 
-app.controller('TruckCreateCtrl', function TruckCtrl($scope, user, truck) {
+app.controller('TruckCreateCtrl', function TruckCtrl($scope, user, truck, formValidator) {
     'ngInject';
 	const ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
+    ctrl.fv = formValidator;
 });
 
 app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams, truck, user, connection) {

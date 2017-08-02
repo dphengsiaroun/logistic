@@ -3,32 +3,104 @@
 <subtitle>{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}</subtitle>
 
 <form class="edit-profile" name="updateCtrl">
-	<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" />
-	<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" />
+	<div>
+		<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.lastname)">
+				<span ng-show="updateCtrl.lastname.$error.required">Le nom est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
+	<div>
+		<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.firstname)">
+				<span ng-show="updateCtrl.firstname.$error.required">Le prénom est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
+	<div>
+		<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space" ng-model="$ctrl.user.updateData.content.login" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.login)">
+				<span ng-show="updateCtrl.login.$error.required">Le pseudo est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
+	<div>
+		<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
+			<i ng-show="$ctrl.fv.isError(updateCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.email)">
+				<span ng-show="updateCtrl.email.$error.required">L'email est obligatoire.</span>
+				<span ng-show="updateCtrl.email.$error.email">Cet email n'est pas valide.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
 	<br/>
-	<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space"
-		ng-model="$ctrl.user.updateData.content.login" />
-	<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" /><br/>
-	<lg-select ng-model="$ctrl.user.signupData.content.profile">
+	<lg-select name="profile" ng-model="$ctrl.user.updateData.content.profile" required>
 		<lg-option value="loader" selected>Chargeur</lg-option>
 		<lg-option value="carrier" selected>Transporteur</lg-option>
 		<lg-option value="both" selected>Les deux</lg-option>
 	</lg-select>
 	<br/>
-	<input type="text" name="street" placeholder="Adresse" ng-model="$ctrl.user.updateData.content.address.street" />
-	<input type="text" name="zipcode" placeholder="Code postal" ng-model="$ctrl.user.updateData.content.address.zipcode" />
-	<input type="text" name="city" placeholder="Ville" ng-model="$ctrl.user.updateData.content.address.city" />
-	<input type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.updateData.content.address.country"
-	/>
-	<input type="text" placeholder="Téléphone" ng-model="$ctrl.user.updateData.content.phone" />
+	<div>
+		<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.updateData.content.address.street" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.street)">
+				<span ng-show="updateCtrl.street.$error.required">L'adresse est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
+	<div>
+		<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.updateData.content.address.zipcode" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.zipcode)">
+				<span ng-show="updateCtrl.zipcode.$error.required">Le code postal est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
+	<div>
+		<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.updateData.content.address.city" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.city)">
+				<span ng-show="updateCtrl.city.$error.required">La ville est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
+	<div>
+		<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.updateData.content.address.country" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.country)">
+				<span ng-show="updateCtrl.country.$error.required">Le pays est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
+	<div>
+		<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.updateData.content.phone" required />
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(updateCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(updateCtrl.phone)">
+				<span ng-show="updateCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
+	</div>
 	<br/>
-<lg-error error="$ctrl.user.error"></lg-error>
-<div class="bouton">
-	<button ng-click="$ctrl.user.update();">Modifier</button>
-</div>
-<lg-hr>ou</lg-hr>
-<a ng-show="$ctrl.user.current.password !== ''" ui-sref="user:updatePassword">Modifier mot de passe</a>
-<a ng-hide="$ctrl.user.current.password !== ''" ui-sref="user:initiatePassword">Initialiser mot de passe</a>
-<lg-hr>ou</lg-hr>
-<a ui-sref="user:confirmDelete" class="critical">Supprimer mon compte</a>
+	<lg-error error="$ctrl.user.error"></lg-error>
+	<div class="bouton">
+		<button ng-disabled="updateCtrl.$invalid" ng-click="$ctrl.user.update();">Modifier</button>
+	</div>
+	<lg-hr>ou</lg-hr>
+	<a ng-show="$ctrl.user.current.password !== ''" ui-sref="user:updatePassword">Modifier mot de passe</a>
+	<a ng-hide="$ctrl.user.current.password !== ''" ui-sref="user:initiatePassword">Initialiser mot de passe</a>
+	<lg-hr>ou</lg-hr>
+	<a ui-sref="user:confirmDelete" class="critical">Supprimer mon compte</a>
 </form>

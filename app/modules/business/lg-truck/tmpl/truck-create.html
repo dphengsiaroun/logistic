@@ -1,52 +1,76 @@
 <div class="ad-title">
-    <left>
-        <img-svg src="/img/frontal-truck.svg"></img-svg>
-    </left>
-    <right>
-        <title>Mes véhicules</title>
-        <subtitle>Ajouter un véhicule</subtitle>
-    </right>
+	<left>
+		<img-svg src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Mes véhicules</title>
+		<subtitle>Ajouter un véhicule</subtitle>
+	</right>
 </div>
-<formx class="ad" name="truckCtrl">
-    <section>
-        <label>Immatriculation ou libellé du vehicule</label>
-        <input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
-        <label>Description succinte du modèle</label>
-        <input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
-    </section>
-    <section class="dark">
-        <label>Ville d'origine</label>
-        <lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city"></lg-city>
-    </section>
-    <section class="dark">
-        <big-label>Transport</big-label>
-        <lg-select name="transportCategory" ng-model="$ctrl.truck.createData.transportCategory">
-            <lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
-            <lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
-            <lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
-        </lg-select>
-
-        <div ng-show="$ctrl.truck.createData.transportCategory === 'Camion'">
-            <label>Type de camion</label>
-            <input name="transportTruckType" type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType" />
-        </div>
-        <div ng-show="$ctrl.truck.createData.transportCategory === 'Bateau'">
-            <label>Type de bateau</label>
-            <input name="transportBoatType" type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.truck.createData.transportBoatType" />
-        </div>
-        <div ng-show="$ctrl.truck.createData.transportCategory === 'Avion'">
-            <label>Type d'avion</label>
-            <input name="transportPlaneType" type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.createData.transportPlaneType" />
-        </div>
-    </section>
-    <section>
-        <label>Année du vehicule</label>
-        <input name="birthyear" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" />
-        <label>Insérer une photo</label>
-        <lg-upload form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-upload>
-    </section>
-    <section class="dark">
-        <lg-error error="$ctrl.truck.error"></lg-error>
-        <button id="pr-add-vehicle-button" ng-click="$ctrl.truck.create();">Ajouter ce véhicule à ma flotte</button>
-    </section>
-</formx>
+<form class="ad" name="truckCtrl">
+	<section>
+		<label>Immatriculation ou libellé du vehicule</label>
+		<div>
+			<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required/>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(truckCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(truckCtrl.name)">
+					<span ng-show="truckCtrl.name.$error.required">Champs requis</span>
+				</error-message>
+			</message-form-validator>
+		</div>
+		<label>Description succinte du modèle</label>
+		<div>
+			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required/>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(truckCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(truckCtrl.model)">
+					<span ng-show="truckCtrl.model.$error.required">Champs requis</span>
+				</error-message>
+			</message-form-validator>
+		</div>
+	</section>
+	<section class="dark">
+		<label>Ville d'origine</label>
+		<lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city" required></lg-city>
+	</section>
+	<section class="dark">
+		<big-label>Transport</big-label>
+		<lg-select name="transportCategory" ng-model="$ctrl.truck.createData.transportCategory" required>
+			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
+			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
+			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
+		</lg-select>
+		<div ng-show="$ctrl.truck.createData.transportCategory === 'Camion'">
+			<label>Type de camion</label>
+			<input name="transportTruckType" type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType"
+			/>
+		</div>
+		<div ng-show="$ctrl.truck.createData.transportCategory === 'Bateau'">
+			<label>Type de bateau</label>
+			<input name="transportBoatType" type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.truck.createData.transportBoatType" />
+		</div>
+		<div ng-show="$ctrl.truck.createData.transportCategory === 'Avion'">
+			<label>Type d'avion</label>
+			<input name="transportPlaneType" type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.createData.transportPlaneType" />
+		</div>
+	</section>
+	<section>
+		<label>Année du vehicule</label>
+		<div>
+			<input name="birthyear" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" required />
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(truckCtrl.birthyear)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(truckCtrl.birthyear)">
+					<span ng-show="truckCtrl.birthyear.$error.required">Champs requis</span>
+				</error-message>
+			</message-form-validator>
+		</div>
+		<label>Insérer une photo</label>
+		<lg-upload form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-upload>
+	</section>
+	<section class="dark">
+		<lg-error error="$ctrl.truck.error"></lg-error>
+		<button ng-disabled="truckCtrl.$invalid" id="pr-add-vehicle-button" ng-click="$ctrl.truck.create();">Ajouter ce véhicule à ma flotte</button>
+	</section>
+</form>

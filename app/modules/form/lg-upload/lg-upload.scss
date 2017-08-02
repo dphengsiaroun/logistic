@@ -21,7 +21,7 @@ lg-upload {
             margin: 0px;
             padding: 0px;
         }
-        i,
+        i.fa,
         span {
             color: $littleGray;
             vertical-align: middle;
@@ -68,8 +68,9 @@ lg-upload {
         width: auto;
         height: auto;
         font-size: 16px;
-        i {
+        i.fa {
             color: white;
+            line-height: 0px;
         }
     }
     button[cancel] {

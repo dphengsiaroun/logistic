@@ -98,7 +98,7 @@ app.component('lgDatetime', {
 		};
 
 		function checkValidity(value) {
-			const isOutOfChoice = false;
+			const isOutOfChoice = true;
 			ctrl.ngModel.$setValidity('outOfChoice', isOutOfChoice);
 		}
 
