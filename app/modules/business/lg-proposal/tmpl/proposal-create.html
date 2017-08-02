@@ -14,16 +14,47 @@
 	</img-ad>
 	<section>
 		<label>Titre de l'annonce</label>
-		<input type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" required />
-		
+		<div>
+			<input type="text" name="titleAd" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" required />
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(proposalCtrl.titleAd)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.titleAd)">
+					<span ng-show="proposalCtrl.titleAd.$error.required">Le titre de l'annonce est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
+
 		<label>Nom</label>
-		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" required />
+		<div>
+			<input type="text" name="name" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" required />
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(proposalCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.name)">
+					<span ng-show="proposalCtrl.name.$error.required">Le nom est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
 
 		<label>Email</label>
-		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.createData.email" required />
-		
+		<div>
+			<input type="text" name="email" placeholder="Email" ng-model="$ctrl.proposal.createData.email" required />
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(proposalCtrl.email)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.email)">
+					<span ng-show="proposalCtrl.email.$error.required">L'email est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
+
 		<label>Message</label>
-		<textarea ng-model="$ctrl.proposal.createData.message" required></textarea>
+		<div>
+			<textarea name="message" ng-model="$ctrl.proposal.createData.message" required></textarea>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.message)">
+					<span ng-show="proposalCtrl.message.$error.required">Le message est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.proposal.error"></lg-error>

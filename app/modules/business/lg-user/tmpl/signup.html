@@ -64,6 +64,7 @@
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.zipcode)">
 					<span ng-show="signupCtrl.zipcode.$error.required">Le code postal est obligatoire.</span>
+					<span ng-show="signupCtrl.zipcode.$error.pattern">Saisie incorrect, chiffres de 0 à 9 uniquement.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -91,6 +92,7 @@
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.phone)">
 					<span ng-show="signupCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
+					<span ng-show="signupCtrl.phone.$error.pattern">Saisie incorrect, chiffres de 0 à 9 uniquement.</span>
 				</error-message>
 			</message-form-validator>
 		</div>

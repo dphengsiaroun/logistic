@@ -125,13 +125,14 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $injector, connecti
 });
 
 app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
-	user, connection, loader, carrier) {
+	user, connection, loader, carrier, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.proposal = proposal;
 	ctrl.loader = loader;
 	ctrl.carrier = carrier;
 	ctrl.user = user;
+	ctrl.fv = formValidator;
 	console.log('ProposalCreateCtrl', arguments);
 	this.$onInit = function() {
 		console.log('ProposalCreateCtrl init', arguments);
@@ -163,11 +164,13 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 	};
 });
 
-app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateParams, proposal, user, connection) {
+app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateParams, 
+	proposal, user, connection, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.proposal = proposal;
 	ctrl.user = user;
+	ctrl.fv = formValidator;	
 	this.$onInit = function() {
 		ctrl.proposal.get($stateParams.id).then(function() {
 			return connection.waitForCheckConnection('ProposalUpdateCtrl');

@@ -9,29 +9,58 @@
 	</right>
 </div>
 <img-ad>
-    <img ng-show="$ctrl.proposal.current.ad_type === 'loader' && !$ctrl.proposal.current.content.imageUrl" src="img/loader-default.svg">
-    <img ng-show="$ctrl.proposal.current.ad_type === 'loader' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
-    <img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && !$ctrl.proposal.current.content.imageUrl" src="img/truck-default.svg">
-    <img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
+	<img ng-show="$ctrl.proposal.current.ad_type === 'loader' && !$ctrl.proposal.current.content.imageUrl" src="img/loader-default.svg">
+	<img ng-show="$ctrl.proposal.current.ad_type === 'loader' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
+	<img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && !$ctrl.proposal.current.content.imageUrl" src="img/truck-default.svg">
+	<img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
 </img-ad>
 <form class="ad" name="proposalCtrl">
 	<section>
-		<label>Nom</label>
-		<input type="text" placeholder="Nom" ng-model="$ctrl.proposal.updateData.name" required />
-		
-		<label>Email</label>
-		<input type="text" placeholder="Email" ng-model="$ctrl.proposal.updateData.email" required />
-
 		<label>Titre de l'annonce</label>
-		<input name="title-ad-proposal" type="text" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.updateData.titleAd" required />
+		<div>
+			<input type="text" name="titleAd" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.updateData.titleAd" required />
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(proposalCtrl.titleAd)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.titleAd)">
+					<span ng-show="proposalCtrl.titleAd.$error.required">Le titre de l'annonce est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
+
+		<label>Nom</label>
+		<div>
+			<input type="text" name="name" placeholder="Nom" ng-model="$ctrl.proposal.updateData.name" required />
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(proposalCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.name)">
+					<span ng-show="proposalCtrl.name.$error.required">Le nom est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
+
+		<label>Email</label>
+		<div>
+			<input type="text" name="email" placeholder="Email" ng-model="$ctrl.proposal.updateData.email" required />
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(proposalCtrl.email)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.email)">
+					<span ng-show="proposalCtrl.email.$error.required">L'email est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
 
 		<label>Message</label>
-		<textarea ng-model="$ctrl.proposal.updateData.message" required></textarea>
+		<div>
+			<textarea name="message" ng-model="$ctrl.proposal.updateData.message" required></textarea>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(proposalCtrl.message)">
+					<span ng-show="proposalCtrl.message.$error.required">Le message est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</div>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.proposal.error"></lg-error>
 		<button ng-disabled="proposalCtrl.$invalid" id="pr-update-proposal-button-confirm" ng-click="$ctrl.proposal.update();">Mettre à jour</button>
 	</section>
 </form>
-
-
