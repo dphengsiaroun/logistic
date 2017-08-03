@@ -5,10 +5,11 @@
 	require_once(BASE_DIR . "/include/database.inc.php");
 	require_once(BASE_DIR . "/class/RememberMe.php");
 	require_once(BASE_DIR . "/class/Event.php");
+	require_once(BASE_DIR . "/class/RestResource.php");
 
 	debug('cookie', $_COOKIE);
 
-	class User {
+	class User extends RestResource {
 
 		public function create() {
 			$request = getRequest();
@@ -48,7 +49,7 @@
 			return true;
 		}
 
-		protected function retrieve($id) {
+		public function retrieve($id) {
 			global $db, $cfg;
 			// On lance notre requête de vérification
 			$this->id = $id;
@@ -73,6 +74,7 @@ EOF;
 			$this->password = $array['password'];
 			$this->content = json_decode($array['content']);
 			debug('user retrieved');
+			return $this;
 		}
 
 		public function reportLoadedPicture() {

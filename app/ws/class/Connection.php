@@ -19,11 +19,10 @@
 		}
 
 		public function retrieve($id) {
-			$result = new static();
 			$user = User::getConnected();
-			$result->id = $id;
-			$result->user = $user;
-			return $result;
+			$this->id = $id;
+			$this->user = $user;
+			return $this;
 		}
 
 		public function delete($id) {
