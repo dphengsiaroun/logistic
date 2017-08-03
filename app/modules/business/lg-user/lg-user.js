@@ -82,11 +82,8 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 		console.log('user->delete', service.current);
 
 		return $http({
-			url: makeUrl('delete'),
-			method: 'POST',
-			data: {
-				id: service.current.id
-			},
+			url: 'ws/users/' + service.current.id,
+			method: 'DELETE',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
 			console.log('response', response);
