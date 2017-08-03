@@ -43,7 +43,7 @@ describe('Proposal CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/proposal/6');
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/proposal/8');
 	});
 
 	it('should update a proposal', function() {
@@ -53,11 +53,12 @@ describe('Proposal CRUD', function() {
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
 		element(by.id('pr-update-button')).click();
-		element(by.name('title-ad-proposal')).clear().sendKeys('Chargement de 50 voitures');
+		browser.sleep(5000);
+		element(by.name('titleAd')).clear().sendKeys('Chargement de 50 voitures');
+		browser.sleep(5000);		
 		element(by.id('pr-update-proposal-button-confirm')).click();
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/proposals`);
-
 	});
 
 	it('should delete a proposal', function() {

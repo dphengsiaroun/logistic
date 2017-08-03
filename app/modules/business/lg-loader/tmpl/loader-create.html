@@ -40,11 +40,10 @@
 	<section>
 		<big-label>Horaires</big-label>
 		<label>Date et heure de chargement</label>
-		<lg-datetime title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime" options="{defaultHour: 14}" required>
+		<lg-datetime title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime" options="{defaultHour: 14}">
 		</lg-datetime>
 		<label>Date et heure de livraison</label>
-		<lg-datetime title="Date et heure de livraison" placeholder="Date et heure de livraison" ng-model="$ctrl.loader.createData.arrivalDatetime" options="{defaultHour: 14}" after="$ctrl.loader.createData.departureDatetime" offset="$ctrl.loader.createData.minDuration"
-		    required>
+		<lg-datetime title="Date et heure de livraison" placeholder="Date et heure de livraison" ng-model="$ctrl.loader.createData.arrivalDatetime" options="{defaultHour: 14}" after="$ctrl.loader.createData.departureDatetime" offset="$ctrl.loader.createData.minDuration">
 		</lg-datetime>
 		<info ng-bind-html="$ctrl.loader.createData.infoDuration"></info>
 		<br/>

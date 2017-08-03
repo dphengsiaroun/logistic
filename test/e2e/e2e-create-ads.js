@@ -31,6 +31,11 @@ describe('Create ADS', function() {
 		utils.user.carrierAd.create(data.carrierAd[0]);
 	});
 
+	it('should create a truck', function() {
+		console.log('-> create a truck', arguments);
+		utils.user.truck.create(data.trucks[1]);
+	});
+
 	it('should create a second Carrier ad', function() {
 		console.log('-> create a Carrier ad', arguments);
 		utils.user.carrierAd.create(data.carrierAd[1]);
