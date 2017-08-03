@@ -131,25 +131,23 @@ EOF;
 			return 'acct_' . $this->id . $suffix;
 		}
 
-		public function update() {
-			global $db, $cfg;
+		public function update($id = NULL) {
 
-			$sql = <<<EOF
-UPDATE {$cfg->prefix}user
-SET email = :email, password = :password, content = :content
-WHERE id = :id
-EOF;
-
-			$st = $db->prepare($sql,
-				array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':email' => $this->email,
-				':password' => $this->password,
-				':content' => json_encode($this->content),
-				':id' => $this->id
-			)) === FALSE) {
-				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			if ($id === NULL) {
+				debug('user update without id');
+				$request = $this;
+			} else {
+				debug('user update with id');
+				$request = getRequest();
+				$user = User::getConnected();
+				$request->id = $id;
 			}
+
+			$e = Event::insert('/user/update', $request);
+			Event::synchronize();
+			$this->retrieve($request->id);
+			debug('user update result', $this);
+			return $this;
 		}
 
 		public function delete($id) {

@@ -23,22 +23,43 @@ EOF;
 		debug('EventUser create done');
 	}
 
-		public function delete($e) {
-			global $db, $cfg;
-			debug('$e->id', $e);
-			$sql = <<<EOF
+	public function update($e) {
+		global $db, $cfg;
+
+		$sql = <<<EOF
+UPDATE {$cfg->prefix}user
+SET email = :email, password = :password, content = :content
+WHERE id = :id
+EOF;
+
+		$st = $db->prepare($sql,
+			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute(array(
+			':email' => $e->content->email,
+			':password' => $e->content->password,
+			':content' => json_encode($e->content->content),
+			':id' => $e->content->id
+		)) === FALSE) {
+			throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+		}
+	}
+
+	public function delete($e) {
+		global $db, $cfg;
+		debug('$e->id', $e);
+		$sql = <<<EOF
 DELETE FROM {$cfg->prefix}user
 WHERE id = :id;
 EOF;
 
-			$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':id' => $e->content->id,
-			)) === FALSE) {
-				throw new Exception('Cannot delete user : '.sprint_r($db->errorInfo()));
-			}
-			debug("delete user ok");
+		$st = $db->prepare($sql,
+				array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute(array(
+			':id' => $e->content->id,
+		)) === FALSE) {
+			throw new Exception('Cannot delete user : '.sprint_r($db->errorInfo()));
 		}
+		debug("delete user ok");
+	}
 }
 

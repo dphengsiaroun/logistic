@@ -85,15 +85,6 @@ EOF;
 			return $result;
 		}
 
-		public function delete($id) {
-			$request = new stdClass();
-			$request->id = $id;
-			$user = User::getConnected();
-			$request->userId = $user->id;
-			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
-			Event::synchronize();
-		}
-
 		public function update($id) {
 			$request = getRequest();
 			$user = User::getConnected();
@@ -103,6 +94,15 @@ EOF;
 			Event::synchronize();
 			$result = $this->retrieve($request->id);
 			return $result;
+		}
+
+		public function delete($id) {
+			$request = new stdClass();
+			$request->id = $id;
+			$user = User::getConnected();
+			$request->userId = $user->id;
+			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
+			Event::synchronize();
 		}
 	}
 

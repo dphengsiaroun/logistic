@@ -99,6 +99,9 @@ EOF;
 				case '/user/delete':
 					EventUser::delete($this);
 					break;
+				case '/user/update':
+					EventUser::update($this);
+					break;
 				case '/loader/create':
 					EventLoader::create($this);
 					break;

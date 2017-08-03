@@ -60,8 +60,8 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 		console.log('user->update');
 
 		$http({
-			url: makeUrl('update'),
-			method: 'POST',
+			url: 'ws/users/' + service.updateData.id,
+			method: 'PUT',
 			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
