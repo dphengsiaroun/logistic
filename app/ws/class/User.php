@@ -158,6 +158,7 @@ EOF;
 			$request->id = $user->id;
 			$e = Event::insert('/user/delete', $request);
 			Event::synchronize();
+			User::signout();
 		}
 
 		public static function exists($email) {
