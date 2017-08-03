@@ -9,9 +9,12 @@
 	$result = [];
 	try {
 
-		$user = User::getConnected();
-		$user->delete();
+		$user = new User();
+		debug('delete send');
+		$user = $user->delete();
+		
 		$result['status'] = 'ok';
+		debug('delete finished');
 
 	} catch (Exception $e) {
 		$result['status'] = 'ko';

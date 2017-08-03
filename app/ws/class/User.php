@@ -152,23 +152,12 @@ EOF;
 			}
 		}
 
-		public function delete() {
-			global $db, $cfg;
-
-			$sql = <<<EOF
-DELETE FROM {$cfg->prefix}user
-WHERE id = :id;
-EOF;
-
-			$st = $db->prepare($sql,
-					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':id' => $this->id,
-			)) === FALSE) {
-				throw new Exception('Cannot delete user : '.sprint_r($db->errorInfo()));
-			}
-			self::signout();
-			debug("delete user ok");
+		public function delete($id) {
+			$request = new stdClass();
+			$user = User::getConnected();
+			$request->id = $user->id;
+			$e = Event::insert('/user/delete', $request);
+			Event::synchronize();
 		}
 
 		public static function exists($email) {

@@ -25,22 +25,22 @@ describe('Selenium Test Case', function() {
 		// browser.sleep(3000);
 	});
 
-	// it('should create a connection with pseudo (login)', function() {
-	// 	utils.logout();
-	// 	console.log('-> login', arguments);
-	// 	browser.get('http://localhost:8000/app/');
-	// 	element(by.css('logo')).click();
-	// 	element(by.css('menu-bar.fa.fa-bars')).click();
-	// 	element(by.linkText('Se connecter')).click();
-	// 	element(by.name('login')).clear().sendKeys(user.login);
-	// 	element(by.name('password-crypted')).clear().sendKeys(user.password);
-	// 	element(by.id('pr-button-connect-user')).click();
+	it('should create a connection with pseudo (login)', function() {
+		utils.logout();
+		console.log('-> login', arguments);
+		browser.get('http://localhost:8000/app/');
+		element(by.css('logo')).click();
+		element(by.css('menu-bar.fa.fa-bars')).click();
+		element(by.linkText('Se connecter')).click();
+		element(by.name('login')).clear().sendKeys(user.login);
+		element(by.name('password-crypted')).clear().sendKeys(user.password);
+		element(by.id('pr-button-connect-user')).click();
 
-	// 	const userIdentity = element(by.css('.user-identity')).getText();
-	// 	expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
+		const userIdentity = element(by.css('.user-identity')).getText();
+		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
 
-	// 	// browser.sleep(3000);
-	// });
+		// browser.sleep(3000);
+	});
 
 	it('should create a connection with phone (login)', function() {
 		utils.logout();

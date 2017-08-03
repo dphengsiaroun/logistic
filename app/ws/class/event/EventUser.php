@@ -22,5 +22,23 @@ EOF;
 		}
 		debug('EventUser create done');
 	}
+
+		public function delete($e) {
+			global $db, $cfg;
+			debug('$e->id', $e);
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}user
+WHERE id = :id;
+EOF;
+
+			$st = $db->prepare($sql,
+					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $e->content->id,
+			)) === FALSE) {
+				throw new Exception('Cannot delete user : '.sprint_r($db->errorInfo()));
+			}
+			debug("delete user ok");
+		}
 }
 

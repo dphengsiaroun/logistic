@@ -6,14 +6,17 @@
     $request = getRequest();
 	$result = [];
 	try {
+
 		debug('start update');
 		$user = User::getConnected();
 		debug('user to be updated', $user);
 		$user->email = $request->email;
 		$user->content = $request->content;
 		$user->update();
+		
 		$result['status'] = 'ok';
 		$result['user'] = $user;
+
 	} catch (Exception $e) {
 		$result['status'] = 'ko';
 		$result['errorMsg'] = $e->getMessage();
