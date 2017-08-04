@@ -6,8 +6,8 @@ class EventUser {
 		global $db, $cfg;
 		debug('EventUser create', $e);
 		$sql = <<<EOF
-INSERT INTO {$cfg->prefix}user (id, email, password, content) VALUES
-	(:id, :email, :password, :content);
+INSERT INTO {$cfg->prefix}user (id, email, login, password, content) VALUES
+	(:id, :email, :login, :password, :content);
 EOF;
 
 		$st = $db->prepare($sql,
@@ -15,6 +15,7 @@ EOF;
 		if ($st->execute(array(
 			':id' => $e->id,
 			':email' => $e->content->email,
+			':login' => $e->content->login,
 			':password' => $e->content->password,
 			':content' => json_encode($e->content->content)
 		)) === FALSE) {
@@ -28,7 +29,7 @@ EOF;
 
 		$sql = <<<EOF
 UPDATE {$cfg->prefix}user
-SET email = :email, password = :password, content = :content
+SET email = :email, login=:login, password = :password, content = :content
 WHERE id = :id
 EOF;
 
@@ -36,6 +37,7 @@ EOF;
 			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
 			':email' => $e->content->email,
+			':login' => $e->content->login,
 			':password' => $e->content->password,
 			':content' => json_encode($e->content->content),
 			':id' => $e->content->id

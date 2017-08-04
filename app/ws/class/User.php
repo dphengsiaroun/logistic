@@ -13,7 +13,15 @@
 
 		public function create() {
 			$request = getRequest();
-			debug('create user');
+			debug('create user', $request);
+			debug('existLogin start', $request);
+			if ($this->existLogin($request->login)) {
+				throw new Exception(ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG, ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG);
+				debug('existLogin');
+			}
+			if ($this->existEmail($request->email)) {
+				throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
+			}
 			$e = Event::insert('/user/create', $request);
 			debug('create user insert event done');
 			Event::synchronize();
@@ -22,6 +30,62 @@
 			$user->retrieve($e->id);
 			$user->connect();
 			return $user;
+		}
+
+		public function retrieve($id) {
+			global $db, $cfg;
+			// On lance notre requête de vérification
+			$this->id = $id;
+			$sql = <<<EOF
+SELECT * FROM {$cfg->prefix}user WHERE id=:id
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $this->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			if ($st->rowCount() == 0) {
+				throw new Exception('User not found for id = ' . $this->id);
+			}
+
+			$array = $st->fetch();
+			$this->email = $array['email'];
+			$this->login = $array['login'];
+			$this->password = $array['password'];
+			$this->content = json_decode($array['content']);
+			debug('user retrieved');
+			return $this;
+		}
+
+		public function update($id = NULL) {
+
+			if ($id === NULL) {
+				debug('user update without id');
+				$request = $this;
+			} else {
+				debug('user update with id');
+				$request = getRequest();
+				$user = User::getConnected();
+				$request->id = $id;
+			}
+			$e = Event::insert('/user/update', $request);
+			Event::synchronize();
+			$this->retrieve($request->id);
+			debug('user update result', $this);
+			return $this;
+		}
+
+		public function delete($id) {
+			$request = new stdClass();
+			$user = User::getConnected();
+			$request->id = $user->id;
+			$e = Event::insert('/user/delete', $request);
+			Event::synchronize();
+			User::signout();
 		}
 
 		public static function getConnected() {
@@ -47,34 +111,6 @@
 				return false;
 			}
 			return true;
-		}
-
-		public function retrieve($id) {
-			global $db, $cfg;
-			// On lance notre requête de vérification
-			$this->id = $id;
-			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}user WHERE id=:id
-EOF;
-
-			$st = $db->prepare($sql,
-						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':id' => $this->id
-			)) === FALSE) {
-				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
-			}
-
-			if ($st->rowCount() == 0) {
-				throw new Exception('User not found for id = ' . $this->id);
-			}
-
-			$array = $st->fetch();
-			$this->email = $array['email'];
-			$this->password = $array['password'];
-			$this->content = json_decode($array['content']);
-			debug('user retrieved');
-			return $this;
 		}
 
 		public function reportLoadedPicture() {
@@ -133,35 +169,7 @@ EOF;
 			return 'acct_' . $this->id . $suffix;
 		}
 
-		public function update($id = NULL) {
-
-			if ($id === NULL) {
-				debug('user update without id');
-				$request = $this;
-			} else {
-				debug('user update with id');
-				$request = getRequest();
-				$user = User::getConnected();
-				$request->id = $id;
-			}
-
-			$e = Event::insert('/user/update', $request);
-			Event::synchronize();
-			$this->retrieve($request->id);
-			debug('user update result', $this);
-			return $this;
-		}
-
-		public function delete($id) {
-			$request = new stdClass();
-			$user = User::getConnected();
-			$request->id = $user->id;
-			$e = Event::insert('/user/delete', $request);
-			Event::synchronize();
-			User::signout();
-		}
-
-		public static function exists($email) {
+		public static function existEmail($email) {
 			global $db, $cfg;
 
 			$sql = <<<EOF
@@ -178,6 +186,25 @@ EOF;
 
 			return $st->rowCount() == 1;
 		}
+
+		public static function existLogin($login) {
+			global $db, $cfg;
+
+			$sql = <<<EOF
+SELECT * FROM {$cfg->prefix}user WHERE login=:login;
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':login' => $login
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			return $st->rowCount() == 1;
+		}
+
 
 		public static function retrieveFromEmail($email) {
 			global $db, $cfg;
@@ -334,7 +361,6 @@ EOF;
 
 		public function createForgottenPasswordCode() {
 			debug('createForgottenPasswordCode');
-
 			$now = time();
 			debug('now', $now);
 			//$expireTime = $now + 5;

@@ -32,7 +32,7 @@ app.service('user', function User($injector, $http, $rootScope, $q, $state) {
 		data.password = SHA256.hex(service.signupData.password);
 
 		$http({
-			url: makeUrl('signup'),
+			url: 'ws/users',
 			method: 'POST',
 			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}

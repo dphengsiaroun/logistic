@@ -15,7 +15,6 @@ class Truck extends RestResource {
 	public function create() {
 		$user = User::getConnected();
 		$request = getRequest();
-
 		$request->login = $user->content->login;
 		$request->created_t = time();
 		Image::manageSession($user, $request);

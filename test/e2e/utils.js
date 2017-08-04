@@ -116,9 +116,7 @@ utils.user.carrierAd.create = function(carrierAd) {
 	browser.get('http://localhost:8000/app/');
 		element(by.id('pr-create-carrier-ad-button')).click();
 		element(by.id('pr-select-truck-link')).click();
-		browser.sleep(5000);
 		element(by.id('truck-' + carrierAd.truck.name)).click();
-		browser.sleep(5000);		
 		element(by.id('pr-select-availabilities')).click();
 		element(by.id('pr-availability-total')).click();
 		element(by.id('pr-select-price')).click();
