@@ -1,15 +1,15 @@
-require('./css/create-ad.scss');
-require('./css/lg-ad.scss');
-require('./css/style.scss');
-require('./css/overlay.scss');
+import './css/lg-ad.scss';
+import './css/create-ad.scss';
+import './css/style.scss';
+import './css/overlay.scss';
 
-const lgCarrier = require('./modules/business/lg-carrier/lg-carrier.js');
-const lgConfig = require('./modules/business/lg-config/lg-config.js');
-const lgConnection = require('./modules/business/lg-connection/lg-connection.js');
-const lgLoader = require('./modules/business/lg-loader/lg-loader.js');
-const lgPassword = require('./modules/business/lg-password/lg-password.js');
-const lgProposal = require('./modules/business/lg-proposal/lg-proposal.js');
-const lgTruck = require('./modules/business/lg-truck/lg-truck.js');
+import lgCarrier from './modules/business/lg-carrier/lg-carrier.js';
+import lgConfig from './modules/business/lg-config/lg-config.js';
+import lgConnection from './modules/business/lg-connection/lg-connection.js';
+import lgLoader from './modules/business/lg-loader/lg-loader.js';
+import lgPassword from './modules/business/lg-password/lg-password.js';
+import lgProposal from './modules/business/lg-proposal/lg-proposal.js';
+import lgTruck from './modules/business/lg-truck/lg-truck.js';
 
 const lgChoice = require('./modules/form/lg-choice/lg-choice.js');
 const lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');

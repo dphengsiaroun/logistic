@@ -1,11 +1,13 @@
-require('angular-route');
-require('./style.css');
+import './style.css';
 
-const homeUrl = require('./tmpl/home.html');
-const installUrl = require('./tmpl/install.html');
-const successfullyInstalledUrl = require('./tmpl/successfully-installed.html');
-const alreadyInstalledUrl = require('./tmpl/already-installed.html');
-const installFailedUrl = require('./tmpl/install-failed.html');
+import 'angular-route';
+
+
+import homeUrl from './tmpl/home.html';
+import installUrl from './tmpl/install.html';
+import successfullyInstalledUrl from './tmpl/successfully-installed.html';
+import alreadyInstalledUrl from './tmpl/already-installed.html';
+import installFailedUrl from './tmpl/install-failed.html';
 
 
 const app = angular.module('mainApp', ['ngRoute']);
