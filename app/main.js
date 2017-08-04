@@ -11,29 +11,29 @@ import lgPassword from './modules/business/lg-password/lg-password.js';
 import lgProposal from './modules/business/lg-proposal/lg-proposal.js';
 import lgTruck from './modules/business/lg-truck/lg-truck.js';
 
-const lgChoice = require('./modules/form/lg-choice/lg-choice.js');
-const lgDatetime = require('./modules/form/lg-datetime/lg-datetime.js');
-const lgDimension = require('./modules/form/lg-dimension/lg-dimension.js');
-const lgEyePassword = require('./modules/form/lg-eyepassword/lg-eyepassword.js');
-const lgFilter = require('./modules/form/lg-filter/lg-filter.js');
-const lgFormValidator = require('./modules/form/lg-form-validator/lg-form-validator.js');
-const lgOrderby = require('./modules/form/lg-orderby/lg-orderby.js');
-const lgNum = require('./modules/form/lg-num/lg-num.js');
-const lgSlider = require('./modules/form/lg-slider/lg-slider.js');
-const lgUpload = require('./modules/form/lg-upload/lg-upload.js');
+import lgChoice from './modules/form/lg-choice/lg-choice.js';
+import lgDatetime from './modules/form/lg-datetime/lg-datetime.js';
+import lgDimension from './modules/form/lg-dimension/lg-dimension.js';
+import lgEyePassword from './modules/form/lg-eyepassword/lg-eyepassword.js';
+import lgFilter from './modules/form/lg-filter/lg-filter.js';
+import lgFormValidator from './modules/form/lg-form-validator/lg-form-validator.js';
+import lgOrderby from './modules/form/lg-orderby/lg-orderby.js';
+import lgNum from './modules/form/lg-num/lg-num.js';
+import lgSlider from './modules/form/lg-slider/lg-slider.js';
+import lgUpload from './modules/form/lg-upload/lg-upload.js';
 
-const lgMenu = require('./modules/site/lg-menu/lg-menu.js');
-const lgRoute = require('./modules/site/lg-route/lg-route.js');
+import lgMenu from './modules/site/lg-menu/lg-menu.js';
+import lgRoute from './modules/site/lg-route/lg-route.js';
 
-const lgDebug = require('./modules/technic/lg-debug/lg-debug.js');
-const lgError = require('./modules/technic/lg-error/lg-error.js');
-const lgFilterList = require('./modules/technic/lg-filter-list/lg-filter-list.js');
-const lgGeoloc = require('./modules/technic/lg-geoloc/lg-geoloc.js');
-const lgHttp = require('./modules/technic/lg-http/lg-http.js');
-const lgMisc = require('./modules/technic/lg-misc/lg-misc.js');
-const lgTest = require('./modules/technic/lg-test/lg-test.js');
-const lgWidget = require('./modules/technic/lg-widget/lg-widget.js');
-const lgBackDetector = require('./modules/technic/lg-back-detector/lg-back-detector.js');
+import lgDebug from './modules/technic/lg-debug/lg-debug.js';
+import lgError from './modules/technic/lg-error/lg-error.js';
+import lgFilterList from './modules/technic/lg-filter-list/lg-filter-list.js';
+import lgGeoloc from './modules/technic/lg-geoloc/lg-geoloc.js';
+import lgHttp from './modules/technic/lg-http/lg-http.js';
+import lgMisc from './modules/technic/lg-misc/lg-misc.js';
+import lgTest from './modules/technic/lg-test/lg-test.js';
+import lgWidget from './modules/technic/lg-widget/lg-widget.js';
+import lgBackDetector from './modules/technic/lg-back-detector/lg-back-detector.js';
 
 const app = angular.module('main', [
 	'ngTouch',

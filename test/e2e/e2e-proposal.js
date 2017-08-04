@@ -28,9 +28,8 @@ describe('Proposal CRUD', function() {
 		console.log('-> create a proposal', arguments);
 		browser.get('http://localhost:8000/app/');
 		element(by.id('pr-retrieve-loader-ads-button')).click();
-		const adElt = element(by.css('loader-list ad-block header[ad-id="4"]'));
+		const adElt = element(by.css('loader-list ad-block'));
 		adElt.element(by.css('title')).click();
-		browser.sleep(5000);
 		element(by.id('create-proposal')).click();
 		element(by.id('confirm-create-proposal')).click();
 		element(by.css('button.ok')).click();
@@ -43,7 +42,7 @@ describe('Proposal CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/proposal/8');
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/proposal/20');
 	});
 
 	it('should update a proposal', function() {
@@ -53,9 +52,7 @@ describe('Proposal CRUD', function() {
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
 		element(by.id('pr-update-button')).click();
-		browser.sleep(5000);
 		element(by.name('titleAd')).clear().sendKeys('Chargement de 50 voitures');
-		browser.sleep(5000);		
 		element(by.id('pr-update-proposal-button-confirm')).click();
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/proposals`);
