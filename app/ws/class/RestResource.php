@@ -58,7 +58,7 @@ EOF;
 			$request = getUrlQueryString();
 
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}{$name}
+SELECT * FROM {$cfg->prefix}{$name} {$filter}
 EOF;
 			debug('listAll', $request);
 			$array = array();
@@ -68,7 +68,12 @@ EOF;
 			if (is_object($request) && property_exists($request, 'userId')) {
 				debug('userId provided');
 				$sql .= ' WHERE user_id = :user_id';
-				$array['user_id'] = $request->userId;
+				$array[':user_id'] = $request->userId;
+			}
+			if (is_object($request) && property_exists($request, 'login')) {
+				debug('login provided');
+				$sql .= ' WHERE login = :login';
+				$array[':login'] = $request->login;
 			}
 			debug('sql', $sql);
 			$st = $db->prepare($sql,

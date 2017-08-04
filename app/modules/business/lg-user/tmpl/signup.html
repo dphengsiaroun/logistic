@@ -22,11 +22,14 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" required />
+			<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder
+			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" ng-model-options="{ debounce: 300 }" ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkLogin($value)'}"
+			    required />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.login)">
 					<span ng-show="signupCtrl.login.$error.required">Le pseudo est obligatoire.</span>
+					<span ng-show="signupCtrl.login.$error.'already-taken'">Ce login est déjà pris.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -59,7 +62,8 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode" required />
+			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode"
+			    required />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.zipcode)">
@@ -78,7 +82,8 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country" required />
+			<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
+			    required />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.country)">
@@ -87,7 +92,8 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" required />
+			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" required
+			/>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.phone)">

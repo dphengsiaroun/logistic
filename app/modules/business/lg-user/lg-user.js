@@ -2,24 +2,29 @@
 
 import './lg-user.scss';
 import 'angular-ui-router';
+import 'angular-ui-validate';
+
 window.Hashes = require('jshashes');
 require('../../technic/lg-widget/lg-widget.js');
 module.exports = 'lg-user';
 
-const app = angular.module(module.exports, ['ui.router', 'lg-widget']);
+const app = angular.module(module.exports, ['ui.router', 'ui.validate', 'lg-widget']);
 require('./lg-user-route.js');
 require('./ctrl/ads.js');
 require('./ctrl/proposals.js');
+require('./service/lg-user-validator.js');
 
 
 const makeUrl = function(str) {
 	return 'ws/user/' + str + '.php';
 };
 
-app.service('user', function User($injector, $http, $rootScope, $q, $state) {
+app.service('user', function User($injector, $http, $rootScope, $q, $state, userValidator) {
 	'ngInject';
 	const service = this;
 	const user = this;
+
+	this.userValidator = userValidator;
 
 	this.signupData = {
 		content: {}

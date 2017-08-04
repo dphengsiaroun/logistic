@@ -22,6 +22,11 @@ app.config(function($httpProvider, $provide) {
 					console.error('data', response.data);
 					return $q.reject(response);
 				}
+
+				if (lgMisc.isWebService(url) && response.data.status === 'ko') {
+					console.error('data', response.data);
+					return $q.reject(response);
+				}
 				return response;
 			}
 		};
