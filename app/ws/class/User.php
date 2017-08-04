@@ -15,12 +15,11 @@
 			$request = getRequest();
 			debug('create user', $request);
 			debug('existLogin start', $request);
-			if ($this->existLogin($request->login)) {
-				throw new Exception(ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG, ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG);
-				debug('existLogin');
-			}
 			if ($this->existEmail($request->email)) {
 				throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
+			}
+			if ($this->existLogin($request->login)) {
+				throw new Exception(ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG, ERROR_BAD_LOGIN_ALREADY_EXISTS_CODE);
 			}
 			$e = Event::insert('/user/create', $request);
 			debug('create user insert event done');
