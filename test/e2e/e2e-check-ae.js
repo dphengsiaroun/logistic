@@ -19,7 +19,7 @@ describe('Already exist', function() {
 		});
 	});
 
-	it('should create a user', function() {
+	it('should create another user', function() {
 		console.log('-> create another user', arguments);
 		utils.logout();
 		element(by.css('menu-bar')).click();
@@ -28,27 +28,36 @@ describe('Already exist', function() {
 		element(by.name('lastname')).clear().sendKeys(user.lastname);
 		element(by.name('firstname')).clear().sendKeys(user.firstname);
 		element(by.name('login')).clear().sendKeys(user.login);
+		
 		element(by.name('email')).clear().sendKeys(user.email);
+
 		utils.lgSelect('profile', user.profile);
 		element(by.name('street')).clear().sendKeys(user.street);
 		element(by.name('zipcode')).clear().sendKeys(user.zipcode);
 		element(by.name('city')).clear().sendKeys(user.city);
 		element(by.name('phone')).clear().sendKeys(user.phone);
+
 		utils.lgChoiceSelect('country', user.country);
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
-		// browser.sleep(5000);
-		element(by.id('pr-create-user-button')).click();
-		let errorMessage = element(by.css('lg-error span'));
-		expect(errorMessage.getText()).toEqual('Ce login est déjà pris.');
-		
+		browser.sleep(3000);
+		const btn = element(by.id('pr-create-user-button'));
+		expect(btn.getAttribute('disabled')).toEqual('true');
+
+		expect(element(by.id('login-already-taken-error-msg')).isDisplayed()).toEqual(true);
+		expect(element(by.id('email-already-taken-error-msg')).isDisplayed()).toEqual(true);
+		expect(element(by.id('phone-already-taken-error-msg')).isDisplayed()).toEqual(true);
+
 		element(by.name('login')).clear().sendKeys(user.login + '2');
-		element(by.id('pr-create-user-button')).click();
-		errorMessage = element(by.css('lg-error span'));
-		expect(errorMessage.getText()).toEqual('Email déjà pris.');
+		browser.sleep(1000);
+		expect(btn.getAttribute('disabled')).toEqual('true');
 
 		element(by.name('email')).clear().sendKeys(user.email + '2');
-		element(by.id('pr-create-user-button')).click();
-		errorMessage = element(by.css('lg-error span'));
-		expect(errorMessage.getText()).toEqual('Téléphone déjà pris.');
+		browser.sleep(1000);
+		expect(btn.getAttribute('disabled')).toEqual('true');
+
+		element(by.name('phone')).clear().sendKeys(user.phone + '2000');
+		browser.sleep(1000);
+		expect(btn.getAttribute('disabled')).toEqual(null);
+
 	});
 });

@@ -75,6 +75,16 @@ EOF;
 				$sql .= ' WHERE login = :login';
 				$array[':login'] = $request->login;
 			}
+			if (is_object($request) && property_exists($request, 'phone')) {
+				debug('phone provided');
+				$sql .= ' WHERE phone = :phone';
+				$array[':phone'] = $request->phone;
+			}
+			if (is_object($request) && property_exists($request, 'email')) {
+				debug('email provided');
+				$sql .= ' WHERE email = :email';
+				$array[':email'] = $request->email;
+			}
 			debug('sql', $sql);
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));

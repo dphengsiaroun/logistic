@@ -16,6 +16,7 @@ utils.lgCitySelect = function(name, city) {
 
 utils.lgSelect = function(name, value) {
 	element(by.css(`[name=${name}] lg-option[value=${value}]`)).click();
+	element(by.css(`[name=${name}] lg-option[value=${value}]`)).click();
 };
 
 utils.lgChoiceSelect = function(name, choice) {

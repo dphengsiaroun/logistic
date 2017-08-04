@@ -22,34 +22,35 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder
-			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" ng-model-options="{ debounce: 300 }" ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkLogin($value)'}"
+			<input name="login" type="text" ui-mask2="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder
+			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" ng-model-options="{ debounce: 300 }" ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'login\', $value)'}"
 			    required />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.login)">
 					<span ng-show="signupCtrl.login.$error.required">Le pseudo est obligatoire.</span>
-					<span ng-show="signupCtrl.login.$error.'already-taken'">Ce login est déjà pris.</span>
+					<span id="login-already-taken-error-msg" ng-show="signupCtrl.login.$error['already-taken']">Ce login est déjà pris.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.signupData.email" required />
+			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.signupData.email" required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'email\', $value)'}" />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
 				<i ng-show="$ctrl.fv.isError(signupCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.email)">
 					<span ng-show="signupCtrl.email.$error.required">L'email est obligatoire.</span>
 					<span ng-show="signupCtrl.email.$error.email">Cet email n'est pas valide.</span>
+					<span id="email-already-taken-error-msg" ng-show="signupCtrl.email.$error['already-taken']">Ce mail est déjà pris.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
 		<br/>
 		<span class="profile">Veuillez choisir votre profil</span>
 		<lg-select name="profile" ng-model="$ctrl.user.signupData.content.profile" required>
-			<lg-option value="loader" selected>Chargeur</lg-option>
-			<lg-option value="carrier" selected>Transporteur</lg-option>
-			<lg-option value="both" selected>Les deux</lg-option>
+			<lg-option value="loader">Chargeur</lg-option>
+			<lg-option value="carrier">Transporteur</lg-option>
+			<lg-option value="both">Les deux</lg-option>
 		</lg-select>
 		<br/>
 		<div>
@@ -92,13 +93,14 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" required
+			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'phone\', $value)'}"
 			/>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.phone)">
 					<span ng-show="signupCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
 					<span ng-show="signupCtrl.phone.$error.pattern">Saisie incorrect, chiffres de 0 à 9 uniquement.</span>
+					<span id="phone-already-taken-error-msg" ng-show="signupCtrl.phone.$error['already-taken']">Ce numéro de téléphone est déjà pris.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
