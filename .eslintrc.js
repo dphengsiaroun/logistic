@@ -18,6 +18,7 @@ module.exports = {
 		'no-undef-init': 'error',
 		'semi': ['error', 'always'],
 		'quotes': ['error', 'single'],
+		'eqeqeq': ['error', 'always'],
 	},
 	env: {
 		browser: true,
@@ -36,6 +37,5 @@ module.exports = {
 		FastClick: true,
 		io: true,
 		Promise: true,
-		Hashes: true,
 	}
 };

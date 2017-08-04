@@ -196,7 +196,7 @@ app.controller('LoaderCreateCtrl', function LoaderCreateCtrl(
     );
 });
 
-app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($scope, loader, user, $stateParams, connection, formValidator) {
+app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($stateParams, loader, user, connection, formValidator) {
     'ngInject';
     const ctrl = this;
     ctrl.loader = loader;

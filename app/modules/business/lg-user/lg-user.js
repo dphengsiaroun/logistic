@@ -4,7 +4,9 @@ import './lg-user.scss';
 import 'angular-ui-router';
 import 'angular-ui-validate';
 
-window.Hashes = require('jshashes');
+import Hashes from 'jshashes';
+
+
 require('../../technic/lg-widget/lg-widget.js');
 module.exports = 'lg-user';
 
