@@ -32,14 +32,17 @@
 	define('ERROR_BAD_LOGIN_CODE', 1);
 	define('ERROR_BAD_LOGIN_MSG', 'login/password not found.');
 
-	define('ERROR_BAD_LOGIN_ALREADY_EXISTS_CODE', 2);
-	define('ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG', 'login already exists');
+	define('ERROR_LOGIN_ALREADY_EXISTS_CODE', 2);
+	define('ERROR_LOGIN_ALREADY_EXISTS_MSG', 'login already exists');
 
 	define('ERROR_MYSQL_CONNECT_CODE', 3);
 	define('ERROR_MYSQL_CONNECT_MSG', 'cannot connect to mysql (bad login password or database down)');
 
-	define('ERROR_EMAIL_ALREADY_TAKEN_CODE', 4);
-	define('ERROR_EMAIL_ALREADY_TAKEN_MSG', 'Email already taken');
+	define('ERROR_EMAIL_ALREADY_EXISTS_CODE', 4);
+	define('ERROR_EMAIL_ALREADY_EXISTS_MSG', 'Email already taken');
+
+	define('ERROR_PHONE_ALREADY_EXISTS_CODE', 41);
+	define('ERROR_PHONE_ALREADY_EXISTS_MSG', 'Phone already taken');
 
 	define('ERROR_NEED_AUTHENTICATION_CODE', 5);
 	define('ERROR_NEED_AUTHENTICATION_MSG', 'Need to be identified.');

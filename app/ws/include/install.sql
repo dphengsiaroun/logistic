@@ -16,6 +16,7 @@ CREATE TABLE `<?php echo $context->prefix; ?>user` (
 	`id` INT(16) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`email` VARCHAR(255) NOT NULL ,
 	`login` VARCHAR(255) NOT NULL ,
+	`phone` VARCHAR(255) NOT NULL ,
 	`password` VARCHAR(255) NOT NULL ,
 	`content` LONGTEXT NOT NULL ,
 	PRIMARY KEY (`id`),

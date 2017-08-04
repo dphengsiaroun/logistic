@@ -15,12 +15,7 @@
 			$request = getRequest();
 			debug('create user', $request);
 			debug('existLogin start', $request);
-			if ($this->existEmail($request->email)) {
-				throw new Exception(ERROR_EMAIL_ALREADY_TAKEN_MSG, ERROR_EMAIL_ALREADY_TAKEN_CODE);
-			}
-			if ($this->existLogin($request->login)) {
-				throw new Exception(ERROR_BAD_LOGIN_ALREADY_EXISTS_MSG, ERROR_BAD_LOGIN_ALREADY_EXISTS_CODE);
-			}
+			$this->checkAlreadyExists($request);
 			$e = Event::insert('/user/create', $request);
 			debug('create user insert event done');
 			Event::synchronize();
@@ -53,7 +48,6 @@ EOF;
 
 			$array = $st->fetch();
 			$this->email = $array['email'];
-			$this->login = $array['login'];
 			$this->password = $array['password'];
 			$this->content = json_decode($array['content']);
 			debug('user retrieved');
@@ -168,37 +162,46 @@ EOF;
 			return 'acct_' . $this->id . $suffix;
 		}
 
-		public static function existEmail($email) {
+		public static function checkAlreadyExists($request) {
 			global $db, $cfg;
+			debug('checkAlreadyExists start');
 
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}user WHERE email=:email;
+SELECT
+	login = :login AS login,
+    email = :email AS email,
+	phone = :phone AS phone
+FROM 
+	{$cfg->prefix}user 
+WHERE
+	(email=:email 
+	OR login=:login 
+	OR phone=:phone);
 EOF;
 
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
-				':email' => $email
+				':email' => $request->email,
+				':login' => $request->content->login,
+				':phone' => $request->content->phone
 			)) === FALSE) {
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
-
-			return $st->rowCount() == 1;
-		}
-
-		public static function existLogin($login) {
-			global $db, $cfg;
-
-			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}user WHERE login=:login;
-EOF;
-
-			$st = $db->prepare($sql,
-						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':login' => $login
-			)) === FALSE) {
-				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			if ($st->rowCount() > 0) {
+				debug('rowCount() > 0');
+				$line = $st->fetch();
+				debug('$line', $line);
+				if ($line['login'] == 1) {
+					throw new Exception(ERROR_LOGIN_ALREADY_EXISTS_MSG, ERROR_LOGIN_ALREADY_EXISTS_CODE);
+				}
+				if ($line['email'] == 1) {
+					throw new Exception(ERROR_EMAIL_ALREADY_EXISTS_MSG, ERROR_EMAIL_ALREADY_EXISTS_CODE);
+				}
+				if ($line['phone'] == 1) {
+					throw new Exception(ERROR_PHONE_ALREADY_EXISTS_MSG, ERROR_PHONE_ALREADY_EXISTS_CODE);
+				}
+				throw new Exception(ERROR_TECHNICAL_MSG, ERROR_TECHNICAL_CODE);
 			}
 
 			return $st->rowCount() == 1;

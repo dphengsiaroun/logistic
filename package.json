@@ -69,7 +69,8 @@
 		"e2e-proposal": "protractor test/e2e/cfg/proposal-crud.js",
 		"e2e-orderby": "protractor test/e2e/cfg/orderby.js",
 		"e2e-connection": "protractor test/e2e/cfg/connection-crud.js",
-		"e2e-check-ads-deletion": "protractor test/e2e/cfg/check-ads-deletion.js"
+		"e2e-check-ads-deletion": "protractor test/e2e/cfg/check-ads-deletion.js",
+		"e2e-check-ae": "protractor test/e2e/cfg/check-ae.js"
 	},
 	"dependencies": {
 		"angular": "1.6.1",
