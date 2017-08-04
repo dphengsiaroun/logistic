@@ -18,7 +18,7 @@ app.service('connection', function Connection($http, $rootScope, $injector, $q, 
 			url: 'ws/connections',
 			method: 'POST',
 			data: {
-				email: service.createConnectionData.email,
+				login: service.createConnectionData.login,
 				// permet de crypter le password
 				password: SHA256.hex(service.createConnectionData.password)
 			},

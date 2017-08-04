@@ -8,7 +8,7 @@
 		public function create() {
 			$request = getRequest();
 			debug('connection start', $request);
-			$user = User::signin($request->email, $request->password);
+			$user = self::signin($request->login, $request->password);
 			debug('connection about to insert event', $user);
 			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
 			Event::synchronize();
@@ -33,6 +33,37 @@
 			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
 			Event::synchronize();
 			User::signout();
+		}
+
+		public static function signin($login, $password) {
+			global $db, $cfg;
+			User::signout();
+			
+			$sql = <<<EOF
+SELECT id FROM {$cfg->prefix}user WHERE
+	(email = :login OR login = :login OR phone = :login) AND
+	password = :password;
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':login' => $login,
+				':password' => $password,
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+
+			if ($st->rowCount() == 0) {
+				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
+			}
+			$id = $st->fetch()['id'];
+			$user = new User();
+			$user->retrieve($id);
+			$user->connect();
+
+			return $user;
 		}
 
 		

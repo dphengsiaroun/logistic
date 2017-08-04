@@ -232,37 +232,6 @@ EOF;
 			return $user;
 		}
 
-		public static function signin($email, $password) {
-			global $db, $cfg;
-			self::signout();
-
-			$sql = <<<EOF
-SELECT id FROM {$cfg->prefix}user WHERE
-	email = :email AND
-	password = :password;
-EOF;
-
-			$st = $db->prepare($sql,
-						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':email' => $email,
-				':password' => $password,
-			)) === FALSE) {
-				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
-			}
-
-
-			if ($st->rowCount() == 0) {
-				throw new Exception(ERROR_BAD_LOGIN_MSG, ERROR_BAD_LOGIN_CODE);
-			}
-			$id = $st->fetch()['id'];
-			$user = new User();
-			$user->retrieve($id);
-			$user->connect();
-
-			return $user;
-		}
-
 		public function connect() {
 			debug('connect', $this);
 			$this->lastToken = $this->getRememberMe()->connect();
