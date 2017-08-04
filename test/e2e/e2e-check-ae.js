@@ -21,7 +21,7 @@ describe('Already exist', function() {
 
 	it('should create a user', function() {
 		console.log('-> create another user', arguments);
-		browser.get('http://localhost:8000/app/');
+		utils.logout();
 		element(by.css('menu-bar')).click();
 		element(by.linkText('Se connecter')).click();
 		element(by.linkText('Créer un nouveau compte')).click();
@@ -38,10 +38,17 @@ describe('Already exist', function() {
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 		// browser.sleep(5000);
 		element(by.id('pr-create-user-button')).click();
-		const message = element(by.css('h2'));
-		expect(message.getText()).toEqual('Votre compte est créé.');
-		element(by.css('button')).click();
-		const userIdentity = element(by.css('.user-identity')).getText();
-		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
+		let errorMessage = element(by.css('lg-error span'));
+		expect(errorMessage.getText()).toEqual('Ce login est déjà pris.');
+		
+		element(by.name('login')).clear().sendKeys(user.login + '2');
+		element(by.id('pr-create-user-button')).click();
+		errorMessage = element(by.css('lg-error span'));
+		expect(errorMessage.getText()).toEqual('Email déjà pris.');
+
+		element(by.name('email')).clear().sendKeys(user.email + '2');
+		element(by.id('pr-create-user-button')).click();
+		errorMessage = element(by.css('lg-error span'));
+		expect(errorMessage.getText()).toEqual('Téléphone déjà pris.');
 	});
 });
