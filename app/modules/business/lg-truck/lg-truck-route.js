@@ -163,10 +163,10 @@ app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams,
     };
 });
 
-const truckCreateHtml = require('./tmpl/truck-create.html');
-const truckListHtml = require('./tmpl/truck-list.html');
-const truckDetailHtml = require('./tmpl/truck-detail.html');
-const truckUpdateHtml = require('./tmpl/truck-update.html');
+import truckCreateHtml from './tmpl/truck-create.html';
+import truckListHtml from './tmpl/truck-list.html';
+import truckDetailHtml from './tmpl/truck-detail.html';
+import truckUpdateHtml from './tmpl/truck-update.html';
 
 app.component('lgTruckCreateRoute', {
     template: truckCreateHtml,

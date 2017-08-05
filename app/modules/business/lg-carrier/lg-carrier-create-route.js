@@ -26,9 +26,9 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-require('./ctrl/carrier-create.js');
-require('./ctrl/carrier-create-truck-choose.js');
-require('./ctrl/carrier-create-truck-create.js');
-require('./ctrl/carrier-create-availability.js');
-require('./ctrl/carrier-create-trip-create.js');
-require('./ctrl/carrier-create-pricing.js');
+import './ctrl/carrier-create.js';
+import './ctrl/carrier-create-truck-choose.js';
+import './ctrl/carrier-create-truck-create.js';
+import './ctrl/carrier-create-availability.js';
+import './ctrl/carrier-create-trip-create.js';
+import './ctrl/carrier-create-pricing.js';

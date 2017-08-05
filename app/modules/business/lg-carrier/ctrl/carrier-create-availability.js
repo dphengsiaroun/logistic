@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 	});
 });
 
-const lgCarrierCreateAvailabilityHtml = require('../tmpl/carrier-create-availability.html');
+import lgCarrierCreateAvailabilityHtml from '../tmpl/carrier-create-availability.html';
 app.component('lgCarrierCreateAvailabilityRoute', {
 	template: lgCarrierCreateAvailabilityHtml,
 	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, user, carrier) {

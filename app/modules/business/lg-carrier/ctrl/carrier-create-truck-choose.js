@@ -10,7 +10,7 @@ app.config(function($stateProvider) {
 });
 
 
-const carrierCreateTruckChooseHtml = require('../tmpl/carrier-create-truck-choose.html');
+import carrierCreateTruckChooseHtml from '../tmpl/carrier-create-truck-choose.html';
 app.component('lgCarrierCreateTruckChooseRoute', {
 	template: carrierCreateTruckChooseHtml,
 	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, user, truck, carrier) {

@@ -117,8 +117,8 @@ app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection
     };
 });
 
-const carrierListHtml = require('./tmpl/carrier-list.html');
-const carrierDetailHtml = require('./tmpl/carrier-detail.html');
+import carrierListHtml from './tmpl/carrier-list.html';
+import carrierDetailHtml from './tmpl/carrier-detail.html';
 
 app.component('lgCarrierListRoute', {
     template: carrierListHtml,

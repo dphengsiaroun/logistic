@@ -10,7 +10,7 @@ app.config(function($stateProvider) {
 });
 
 
-const lgCarrierCreateTruckCreateHtml = require('../tmpl/carrier-create-truck-create.html');
+import lgCarrierCreateTruckCreateHtml from '../tmpl/carrier-create-truck-create.html';
 app.component('lgCarrierCreateTruckCreateRoute', {
 	template: lgCarrierCreateTruckCreateHtml,
 	controller: function LgCarrierCreateTruckCreateRouteCtrl(truck, context, formValidator) {

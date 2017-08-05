@@ -10,7 +10,7 @@ app.config(function($stateProvider) {
 });
 
 
-const lgCarrierCreateTripCreateHtml = require('../tmpl/carrier-create-trip-create.html');
+import lgCarrierCreateTripCreateHtml from '../tmpl/carrier-create-trip-create.html';
 app.component('lgCarrierCreateTripCreateRoute', {
 	template: lgCarrierCreateTripCreateHtml,
 	controller: function LgCarrierCreateTripCreateRouteCtrl($scope, $state, user, carrier, geoloc) {

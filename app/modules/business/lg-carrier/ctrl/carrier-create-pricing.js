@@ -10,7 +10,7 @@ app.config(function($stateProvider) {
 });
 
 
-const lgCarrierCreatePricingHtml = require('../tmpl/carrier-create-pricing.html');
+import lgCarrierCreatePricingHtml from '../tmpl/carrier-create-pricing.html';
 app.component('lgCarrierCreatePricingRoute', {
 	template: lgCarrierCreatePricingHtml,
 	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {

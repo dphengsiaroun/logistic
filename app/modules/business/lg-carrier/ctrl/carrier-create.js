@@ -49,7 +49,7 @@ app.service('carrierStepManager', function CarrierStepManager(carrier) {
 });
 
 
-const carrierCreateHtml = require('../tmpl/carrier-create.html');
+import carrierCreateHtml from '../tmpl/carrier-create.html';
 app.component('lgCarrierCreateRoute', {
 	template: carrierCreateHtml,
 	controller: function LgCarrierCreateRouteCtrl(user, carrier, carrierStepManager) {
