@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 	});
 });
 
-const proposalsHtml = require('../tmpl/proposals.html');
+import proposalsHtml from '../tmpl/proposals.html';
 app.component('lgUserProposalsRoute', {
 	template: proposalsHtml,
 	controller: function LgUserProposalsRouteCtrl($state, $stateParams, user, connection, proposal) {

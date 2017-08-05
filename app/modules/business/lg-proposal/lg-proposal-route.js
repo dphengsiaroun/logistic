@@ -184,9 +184,9 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateP
 	};
 });
 
-const proposalCreateHtml = require('./tmpl/proposal-create.html');
-const proposalDetailHtml = require('./tmpl/proposal-detail.html');
-const proposalUpdateHtml = require('./tmpl/proposal-update.html');
+import proposalCreateHtml from './tmpl/proposal-create.html';
+import proposalDetailHtml from './tmpl/proposal-detail.html';
+import proposalUpdateHtml from './tmpl/proposal-update.html';
 
 app.component('lgProposalCreateRoute', {
 	template: proposalCreateHtml,
