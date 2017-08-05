@@ -28,7 +28,7 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-const connectionCreateHtml = require('./tmpl/connection-create.html');
+import connectionCreateHtml from './tmpl/connection-create.html';
 
 class ConnectionCtrl {
 	/* @ngInject */

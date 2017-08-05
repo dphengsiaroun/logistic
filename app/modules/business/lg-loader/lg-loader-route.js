@@ -215,10 +215,10 @@ app.controller('LoaderUpdateCtrl', function LoaderUpdateCtrl($stateParams, loade
     };
 });
 
-const loaderCreateHtml = require('./tmpl/loader-create.html');
-const loaderListHtml = require('./tmpl/loader-list.html');
-const loaderDetailHtml = require('./tmpl/loader-detail.html');
-const loaderUpdateHtml = require('./tmpl/loader-update.html');
+import loaderCreateHtml from './tmpl/loader-create.html';
+import loaderListHtml from './tmpl/loader-list.html';
+import loaderDetailHtml from './tmpl/loader-detail.html';
+import loaderUpdateHtml from './tmpl/loader-update.html';
 
 app.component('lgLoaderCreateRoute', {
     template: loaderCreateHtml,

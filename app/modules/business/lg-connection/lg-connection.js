@@ -2,7 +2,7 @@ import Hashes from 'jshashes';
 
 module.exports = 'lg-connection';
 
-const lgUser = require('../lg-user/lg-user.js');
+import lgUser from '../lg-user/lg-user.js';
 const app = angular.module(module.exports, [lgUser]);
 
 require('./lg-connection-route.js');

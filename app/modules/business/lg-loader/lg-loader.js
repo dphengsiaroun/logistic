@@ -1,4 +1,4 @@
-require('./lg-loader.scss');
+import './lg-loader.scss';
 module.exports = 'lg-loader';
 
 const app = angular.module(module.exports, ['ui.router']);
