@@ -1,7 +1,5 @@
-const app = angular.module('lg-connection');
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+	'ngInject';
 	$stateProvider.state({
 		name: 'connection:create',
 		url: '/signin',
@@ -26,7 +24,7 @@ app.config(['$stateProvider', function($stateProvider) {
 		needsUser: true
 	});
 
-}]);
+}
 
 import connectionCreateHtml from './tmpl/connection-create.html';
 
@@ -38,8 +36,8 @@ class ConnectionCtrl {
 	}
 }
 
-app.component('lgConnectionSigninRoute', {
+export const lgConnectionSigninRoute = {
 	template: connectionCreateHtml,
 	controller: ConnectionCtrl
-});
+};
 
