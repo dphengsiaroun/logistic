@@ -19,6 +19,7 @@ module.exports = {
 		'semi': ['error', 'always'],
 		'quotes': ['error', 'single'],
 		'eqeqeq': ['error', 'always'],
+		'max-lines': ["error", {max: 200, skipBlankLines: false}]
 	},
 	env: {
 		browser: true,
