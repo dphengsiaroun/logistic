@@ -1,8 +1,5 @@
-const app = angular.module('lg-loader');
-require('./ctrl/lg-loader-ctrl.js');
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+    'ngInject';
     $stateProvider.state({
         name: 'loader:list',
         url: '/ads/loaders',
@@ -108,29 +105,31 @@ app.config(['$stateProvider', function($stateProvider) {
             }
         }
     });
-}]);
+}
 
 import loaderCreateHtml from './tmpl/loader-create.html';
 import loaderListHtml from './tmpl/loader-list.html';
 import loaderDetailHtml from './tmpl/loader-detail.html';
 import loaderUpdateHtml from './tmpl/loader-update.html';
 
-app.component('lgLoaderCreateRoute', {
+import * as lib from './ctrl/lg-loader-ctrl.js';
+
+export const lgLoaderCreateRoute = {
     template: loaderCreateHtml,
-    controller: 'LoaderCreateCtrl',
-});
+    controller: lib.LoaderCreateCtrl,
+};
 
-app.component('lgLoaderListRoute', {
+export const lgLoaderListRoute = {
     template: loaderListHtml,
-    controller: 'LoaderListCtrl',
-});
+    controller: lib.LoaderListCtrl,
+};
 
-app.component('lgLoaderRetrieveRoute', {
+export const lgLoaderRetrieveRoute = {
     template: loaderDetailHtml,
-    controller: 'LoaderCtrl',
-});
+    controller: lib.LoaderCtrl,
+};
 
-app.component('lgLoaderUpdateRoute', {
+export const lgLoaderUpdateRoute = {
     template: loaderUpdateHtml,
-    controller: 'LoaderUpdateCtrl',
-});
+    controller: lib.LoaderUpdateCtrl,
+};
