@@ -1,17 +1,5 @@
-const app = angular.module('lg-carrier');
-
-app.config(function($stateProvider) {
-	'ngInject';
-	$stateProvider.state({
-		name: 'carrier:create:pricing',
-		url: '/carrier-create/pricing',
-		component: 'lgCarrierCreatePricingRoute',
-	});
-});
-
-
 import lgCarrierCreatePricingHtml from '../tmpl/carrier-create-pricing.html';
-app.component('lgCarrierCreatePricingRoute', {
+export const lgCarrierCreatePricingRoute = {
 	template: lgCarrierCreatePricingHtml,
 	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {
 		'ngInject';
@@ -33,4 +21,4 @@ app.component('lgCarrierCreatePricingRoute', {
 			}
 		};
 	}
-});
+};

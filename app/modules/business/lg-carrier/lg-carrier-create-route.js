@@ -1,7 +1,5 @@
-const app = angular.module('lg-carrier');
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+	'ngInject';
 	$stateProvider.state({
 		name: 'carrier:created',
 		url: '/created-carrier',
@@ -22,13 +20,30 @@ app.config(['$stateProvider', function($stateProvider) {
 		},
 		needsUser: true
 	});
+	$stateProvider.state({
+		name: 'carrier:create:availability',
+		url: '/carrier-create/availability',
+		component: 'lgCarrierCreateAvailabilityRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:create:pricing',
+		url: '/carrier-create/pricing',
+		component: 'lgCarrierCreatePricingRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:create:trip:create',
+		url: '/carrier-create/trip-create',
+		component: 'lgCarrierCreateTripCreateRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:create:truck:choose',
+		url: '/carrier-create/truck-choose',
+		component: 'lgCarrierCreateTruckChooseRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:create:truck:create',
+		url: '/carrier-create/truck-create',
+		component: 'lgCarrierCreateTruckCreateRoute',
+	});
+}
 
-
-}]);
-
-import './ctrl/carrier-create.js';
-import './ctrl/carrier-create-truck-choose.js';
-import './ctrl/carrier-create-truck-create.js';
-import './ctrl/carrier-create-availability.js';
-import './ctrl/carrier-create-trip-create.js';
-import './ctrl/carrier-create-pricing.js';

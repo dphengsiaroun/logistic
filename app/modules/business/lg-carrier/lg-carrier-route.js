@@ -1,7 +1,5 @@
-const app = angular.module('lg-carrier');
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+    'ngInject';
     $stateProvider.state({
         name: 'carrier:list',
         url: '/ads/carriers',
@@ -77,9 +75,9 @@ app.config(['$stateProvider', function($stateProvider) {
             }
         }
     });
-}]);
+}
 
-app.controller('CarrierListCtrl', function CarrierListCtrl($scope, carrier, lgFilterList) {
+function CarrierListCtrl($scope, carrier, lgFilterList) {
 	'ngInject';
 	const ctrl = this;
     ctrl.carrier = carrier;
@@ -93,9 +91,9 @@ app.controller('CarrierListCtrl', function CarrierListCtrl($scope, carrier, lgFi
 			console.error('error', error);
 		});
     };
-});
+}
 
-app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection) {
+function CarrierCtrl($scope, $injector, connection) {
 	'ngInject';
     const ctrl = this;
     ctrl.carrier = $injector.get('carrier');
@@ -115,17 +113,17 @@ app.controller('CarrierCtrl', function CarrierCtrl($scope, $injector, connection
             console.log('ctrl.isEditable', ctrl.isEditable);
         });
     };
-});
+}
 
 import carrierListHtml from './tmpl/carrier-list.html';
 import carrierDetailHtml from './tmpl/carrier-detail.html';
 
-app.component('lgCarrierListRoute', {
+export const lgCarrierListRoute = {
     template: carrierListHtml,
-    controller: 'CarrierListCtrl',
-});
+    controller: CarrierListCtrl,
+};
 
-app.component('lgCarrierRetrieveRoute', {
+export const lgCarrierRetrieveRoute = {
     template: carrierDetailHtml,
-    controller: 'CarrierCtrl',
-});
+    controller: CarrierCtrl,
+};

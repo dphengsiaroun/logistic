@@ -1,17 +1,5 @@
-const app = angular.module('lg-carrier');
-
-app.config(function($stateProvider) {
-	'ngInject';
-	$stateProvider.state({
-		name: 'carrier:create:trip:create',
-		url: '/carrier-create/trip-create',
-		component: 'lgCarrierCreateTripCreateRoute',
-	});
-});
-
-
 import lgCarrierCreateTripCreateHtml from '../tmpl/carrier-create-trip-create.html';
-app.component('lgCarrierCreateTripCreateRoute', {
+export const lgCarrierCreateTripCreateRoute = {
 	template: lgCarrierCreateTripCreateHtml,
 	controller: function LgCarrierCreateTripCreateRouteCtrl($scope, $state, user, carrier, geoloc) {
 		'ngInject';
@@ -35,4 +23,4 @@ app.component('lgCarrierCreateTripCreateRoute', {
 		geoloc.updateInfoRoute($scope, '$ctrl.tripData');
 
 	}
-});
+};

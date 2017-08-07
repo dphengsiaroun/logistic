@@ -1,16 +1,5 @@
-const app = angular.module('lg-carrier');
-
-app.config(function($stateProvider) {
-	'ngInject';
-	$stateProvider.state({
-		name: 'carrier:create:availability',
-		url: '/carrier-create/availability',
-		component: 'lgCarrierCreateAvailabilityRoute',
-	});
-});
-
 import lgCarrierCreateAvailabilityHtml from '../tmpl/carrier-create-availability.html';
-app.component('lgCarrierCreateAvailabilityRoute', {
+export const lgCarrierCreateAvailabilityRoute = {
 	template: lgCarrierCreateAvailabilityHtml,
 	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, user, carrier) {
 		'ngInject';
@@ -29,4 +18,4 @@ app.component('lgCarrierCreateAvailabilityRoute', {
 			}
 		};
 	}
-});
+};

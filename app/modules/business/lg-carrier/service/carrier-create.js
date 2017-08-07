@@ -1,6 +1,4 @@
-const app = angular.module('lg-carrier');
-
-app.config(function($stateProvider) {
+export function config($stateProvider) {
 	'ngInject';
 	$stateProvider.state({
 		name: 'carrier:create',
@@ -12,9 +10,9 @@ app.config(function($stateProvider) {
 		url: '/carrier/{id}/update',
 		component: 'lgCarrierUpdateRoute'
 	});
-});
+}
 
-app.service('carrierStepManager', function CarrierStepManager(carrier) {
+export function CarrierStepManager(carrier) {
 	'ngInject';
 	this.getStep = function() {
 		if (carrier.createData.truck === undefined) {
@@ -46,11 +44,11 @@ app.service('carrierStepManager', function CarrierStepManager(carrier) {
 		}
 	};
 
-});
+}
 
 
 import carrierCreateHtml from '../tmpl/carrier-create.html';
-app.component('lgCarrierCreateRoute', {
+export const lgCarrierCreateRoute = {
 	template: carrierCreateHtml,
 	controller: function LgCarrierCreateRouteCtrl(user, carrier, carrierStepManager) {
 		'ngInject';
@@ -63,9 +61,9 @@ app.component('lgCarrierCreateRoute', {
 
 		carrier.type = 'create';
 	}
-});
+};
 
-app.component('lgCarrierUpdateRoute', {
+export const lgCarrierUpdateRoute = {
 	template: carrierCreateHtml,
 	controller: function LgCarrierUpdateRouteCtrl(user, carrier, carrierStepManager) {
 		'ngInject';
@@ -76,4 +74,4 @@ app.component('lgCarrierUpdateRoute', {
 		carrier.createData.id = carrier.current.id;
 		carrier.type = 'update';
 	}
-});
+};

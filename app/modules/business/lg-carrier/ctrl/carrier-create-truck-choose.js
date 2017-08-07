@@ -1,17 +1,5 @@
-const app = angular.module('lg-carrier');
-
-app.config(function($stateProvider) {
-	'ngInject';
-	$stateProvider.state({
-		name: 'carrier:create:truck:choose',
-		url: '/carrier-create/truck-choose',
-		component: 'lgCarrierCreateTruckChooseRoute',
-	});
-});
-
-
 import carrierCreateTruckChooseHtml from '../tmpl/carrier-create-truck-choose.html';
-app.component('lgCarrierCreateTruckChooseRoute', {
+export const lgCarrierCreateTruckChooseRoute = {
 	template: carrierCreateTruckChooseHtml,
 	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, user, truck, carrier) {
 		'ngInject';
@@ -32,4 +20,4 @@ app.component('lgCarrierCreateTruckChooseRoute', {
 			}
 		};
 	}
-});
+};
