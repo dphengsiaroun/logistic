@@ -1,6 +1,6 @@
-const app = angular.module('lg-truck');
 
-app.controller('TruckListCtrl', function TruckListCtrl($scope, user, truck) {
+
+export function TruckListCtrl($scope, user, truck) {
 	'ngInject';
 	const ctrl = this;
     ctrl.truck = truck;
@@ -8,9 +8,9 @@ app.controller('TruckListCtrl', function TruckListCtrl($scope, user, truck) {
     this.$onInit = function() {
         this.truck.list();
     };
-});
+}
 
-app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
+export function TruckCtrl($stateParams, truck, user) {
     'ngInject';
     const ctrl = this;
     ctrl.truck = truck;
@@ -18,17 +18,17 @@ app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
     ctrl.$onInit = function() {
         ctrl.truck.get($stateParams.id);
     };
-});
+}
 
-app.controller('TruckCreateCtrl', function TruckCreateCtrl($scope, user, truck, formValidator) {
+export function TruckCreateCtrl($scope, user, truck, formValidator) {
     'ngInject';
 	const ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
     ctrl.fv = formValidator;
-});
+}
 
-app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams, truck, user, connection) {
+export function TruckUpdateCtrl($scope, $stateParams, truck, user, connection) {
     'ngInject';
     const ctrl = this;
     ctrl.truck = truck;
@@ -45,4 +45,4 @@ app.controller('TruckUpdateCtrl', function TruckUpdateCtrl($scope, $stateParams,
             console.error('you should not see this');
         });
     };
-});
+}

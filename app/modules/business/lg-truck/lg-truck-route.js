@@ -1,9 +1,5 @@
-const app = angular.module('lg-truck');
-require('./ctrl/lg-truck-ctrl.js');
-
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+    'ngInject';
     $stateProvider.state({
         name: 'truck:list',
         url: '/{login}/truck',
@@ -116,29 +112,30 @@ app.config(['$stateProvider', function($stateProvider) {
         }
     });
 
-}]);
+}
 
 import truckCreateHtml from './tmpl/truck-create.html';
 import truckListHtml from './tmpl/truck-list.html';
 import truckDetailHtml from './tmpl/truck-detail.html';
 import truckUpdateHtml from './tmpl/truck-update.html';
+import * as ctrlLib from './ctrl/lg-truck-ctrl.js';
 
-app.component('lgTruckCreateRoute', {
+export const lgTruckCreateRoute =  {
     template: truckCreateHtml,
-    controller: 'TruckCreateCtrl',
-});
+    controller: ctrlLib.TruckCreateCtrl,
+};
 
-app.component('lgTruckListRoute', {
+export const lgTruckListRoute = {
     template: truckListHtml,
-    controller: 'TruckListCtrl',
-});
+    controller: ctrlLib.TruckListCtrl,
+};
 
-app.component('lgTruckRetrieveRoute', {
+export const lgTruckRetrieveRoute = {
     template: truckDetailHtml,
-    controller: 'TruckCtrl',
-});
+    controller: ctrlLib.TruckCtrl,
+};
 
-app.component('lgTruckUpdateRoute', {
+export const lgTruckUpdateRoute = {
     template: truckUpdateHtml,
-    controller: 'TruckUpdateCtrl',
-});
+    controller: ctrlLib.TruckUpdateCtrl,
+};
