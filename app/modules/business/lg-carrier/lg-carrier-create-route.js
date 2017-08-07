@@ -45,5 +45,14 @@ export function config($stateProvider) {
 		url: '/carrier-create/truck-create',
 		component: 'lgCarrierCreateTruckCreateRoute',
 	});
+	$stateProvider.state({
+		name: 'carrier:create',
+		url: '/carrier-create',
+		component: 'lgCarrierCreateRoute',
+	});
+	$stateProvider.state({
+		name: 'carrier:update',
+		url: '/carrier/{id}/update',
+		component: 'lgCarrierUpdateRoute'
+	});
 }
-
