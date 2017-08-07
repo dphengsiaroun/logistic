@@ -1,6 +1,6 @@
 const app = angular.module('lg-truck');
 
-app.controller('TruckListCtrl', function TruckCtrl($scope, user, truck) {
+app.controller('TruckListCtrl', function TruckListCtrl($scope, user, truck) {
 	'ngInject';
 	const ctrl = this;
     ctrl.truck = truck;
@@ -20,7 +20,7 @@ app.controller('TruckCtrl', function TruckCtrl($stateParams, truck, user) {
     };
 });
 
-app.controller('TruckCreateCtrl', function TruckCtrl($scope, user, truck, formValidator) {
+app.controller('TruckCreateCtrl', function TruckCreateCtrl($scope, user, truck, formValidator) {
     'ngInject';
 	const ctrl = this;
     ctrl.truck = truck;
