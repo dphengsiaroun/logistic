@@ -1,10 +1,8 @@
 import * as lib from './ctrl/lg-user-ctrl.js';
 
-const app = angular.module('lg-user');
 
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+	'ngInject';
 	$stateProvider.state({
 		name: 'user:create',
 		url: '/signup',
@@ -122,35 +120,38 @@ app.config(['$stateProvider', function($stateProvider) {
 		},
 	});
 
-}]);
+}
 
 import signupHtml from './tmpl/signup.html';
 import signupSuccessHtml from './tmpl/signup_success.html';
 import profileHtml from './tmpl/profile.html';
 import updatePasswordHtml from './tmpl/update-password.html';
 import initiatePasswordHtml from './tmpl/initiate-password.html';
-app.controller('UserCtrl', lib.UserCtrl);
 
-app.component('lgUserCreateRoute', {
+
+export const lgUserCreateRoute =  {
 	template: signupHtml,
 	controller: lib.UserCtrl
-});
-app.component('lgUserSignupSuccessRoute', {
+};
+
+export const lgUserSignupSuccessRoute = {
 	template: signupSuccessHtml,
 	controller: lib.UserCtrl
-});
+};
 
-app.component('lgUserRetrieveRoute', {
+export const lgUserRetrieveRoute = {
 	template: profileHtml,
 	controller: lib.UserCtrl
-});
+};
 
-app.component('lgUserUpdatePasswordRoute', {
+export const lgUserUpdatePasswordRoute = {
 	template: updatePasswordHtml,
 	controller: lib.UserCtrl
-});
+};
 
-app.component('lgUserInitiatePasswordRoute', {
+export const lgUserInitiatePasswordRoute = {
 	template: initiatePasswordHtml,
 	controller: lib.UserCtrl
-});
+};
+
+export const UserCtrl = lib.UserCtrl;

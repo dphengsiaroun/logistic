@@ -1,16 +1,14 @@
-const app = angular.module('lg-user');
-
-app.config(function($stateProvider) {
+export function config($stateProvider) {
 	'ngInject';
 	$stateProvider.state({
 		name: 'user:ads',
 		url: '/{login}/ads',
 		component: 'lgUserAdsRoute'
 	});
-});
+}
 
 import adsHtml from '../tmpl/ads.html';
-app.component('lgUserAdsRoute', {
+export const lgUserAdsRoute = {
 	template: adsHtml,
 	controller: function LgUserAdsRouteCtrl($state, $stateParams, user, connection, carrier, loader) {
 		'ngInject';
@@ -41,4 +39,4 @@ app.component('lgUserAdsRoute', {
 			});
 		};
 	}
-});
+};

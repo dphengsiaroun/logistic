@@ -1,16 +1,14 @@
-const app = angular.module('lg-user');
-
-app.config(function($stateProvider) {
+export function config($stateProvider) {
 	'ngInject';
 	$stateProvider.state({
 		name: 'user:proposals',
 		url: '/{login}/proposals',
 		component: 'lgUserProposalsRoute'
 	});
-});
+}
 
 import proposalsHtml from '../tmpl/proposals.html';
-app.component('lgUserProposalsRoute', {
+export const lgUserProposalsRoute = {
 	template: proposalsHtml,
 	controller: function LgUserProposalsRouteCtrl($state, $stateParams, user, connection, proposal) {
 		'ngInject';
@@ -32,4 +30,4 @@ app.component('lgUserProposalsRoute', {
 			});
 		};
 	}
-});
+};
