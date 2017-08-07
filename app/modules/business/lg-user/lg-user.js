@@ -6,31 +6,27 @@ import 'angular-ui-validate';
 
 import '../../technic/lg-widget/lg-widget.js';
 
-import * as serviceLib from './lg-user-service.js';
+import * as serviceLib from './service/lg-user-service.js';
+import * as validatorLib from './service/lg-user-validator.js';
 import * as lib from './lg-user-route.js';
+
 import * as adsLib from './ctrl/ads.js';
 import * as proposalLib from './ctrl/proposals.js';
 
-
 module.exports = 'lg-user';
 
-const app = angular.module(module.exports, ['ui.router', 'ui.validate', 'lg-widget']);
-
-require('./service/lg-user-validator.js');
-
-app.service('user', serviceLib.User);
-
-app.config(lib.config);
-app.controller('UserCtrl', lib.UserCtrl);
-app.component('lgUserCreateRoute', lib.lgUserCreateRoute);
-app.component('lgUserSignupSuccessRoute', lib.lgUserSignupSuccessRoute);
-app.component('lgUserRetrieveRoute', lib.lgUserRetrieveRoute);
-app.component('lgUserUpdatePasswordRoute', lib.lgUserUpdatePasswordRoute);
-app.component('lgUserInitiatePasswordRoute', lib.lgUserInitiatePasswordRoute);
-
-app.config(adsLib.config);
-app.component('lgUserAdsRoute', adsLib.lgUserAdsRoute);
-
-app.config(proposalLib.config);
-app.component('lgUserProposalsRoute', proposalLib.lgUserProposalsRoute);
+angular.module(module.exports, ['ui.router', 'ui.validate', 'lg-widget'])
+	.service('user', serviceLib.User)
+	.service('userValidator', validatorLib.UserValidator)
+	.config(lib.config)
+	.controller('UserCtrl', lib.UserCtrl)
+	.component('lgUserCreateRoute', lib.lgUserCreateRoute)
+	.component('lgUserSignupSuccessRoute', lib.lgUserSignupSuccessRoute)
+	.component('lgUserRetrieveRoute', lib.lgUserRetrieveRoute)
+	.component('lgUserUpdatePasswordRoute', lib.lgUserUpdatePasswordRoute)
+	.component('lgUserInitiatePasswordRoute', lib.lgUserInitiatePasswordRoute)
+	.config(adsLib.config)
+	.component('lgUserAdsRoute', adsLib.lgUserAdsRoute)
+	.config(proposalLib.config)
+	.component('lgUserProposalsRoute', proposalLib.lgUserProposalsRoute);
 

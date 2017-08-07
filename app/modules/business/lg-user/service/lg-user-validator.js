@@ -1,6 +1,4 @@
-const app = angular.module('lg-user');
-
-app.service('userValidator', function UserValidator($q, $http) {
+export function UserValidator($q, $http) {
 	'ngInject';
 	// const service = this;
 
@@ -29,4 +27,4 @@ app.service('userValidator', function UserValidator($q, $http) {
 			}
 		});
 	};
-});
+}
