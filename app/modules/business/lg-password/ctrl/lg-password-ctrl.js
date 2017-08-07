@@ -1,4 +1,4 @@
-const app = angular.module('lg-user');
+const app = angular.module('lg-password');
 
 app.controller('PasswordCtrl', function PasswordCtrl(password, user) {
 	'ngInject';

@@ -1,4 +1,4 @@
-const app = angular.module('lg-user');
+const app = angular.module('lg-password');
 require('./ctrl/lg-password-ctrl.js');
 
 app.config(['$stateProvider', function($stateProvider) {
