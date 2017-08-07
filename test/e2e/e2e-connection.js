@@ -1,5 +1,5 @@
-const utils = require('./utils.js');
-const data = require('./data/data.js');
+import utils from './utils.js';
+import data from './data/data.js';
 const user = data.users[0];
 
 describe('Selenium Test Case', function() {
