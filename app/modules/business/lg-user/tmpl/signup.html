@@ -83,8 +83,8 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="country" type="choice" choices="$root.config.countries" title="Pays d\'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
-			    required />
+			<lg-choice name="country" choices="$root.config.countries" title="Pays d'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
+			    is-mandatory="true"></lg-choice>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.country)">

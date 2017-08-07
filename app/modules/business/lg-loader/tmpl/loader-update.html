@@ -18,32 +18,40 @@
 
 		<div ng-show="$ctrl.loader.updateData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
-			<input name="transportTruckTypes" type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.loader.updateData.transportTruckType" />
+			<lg-choice name="transportTruckTypes" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes"
+			    title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.loader.updateData.transportTruckType"></lg-choice>
 		</div>
 		<div ng-show="$ctrl.loader.updateData.transportCategory === 'Bateau'">
 			<label>Type de bateau</label>
-			<input name="transportBoatTypes" type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.loader.updateData.transportBoatType" />
+			<lg-choice name="transportBoatTypes" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
+			    ng-model="$ctrl.loader.updateData.transportBoatType"></lg-choice>
 		</div>
 		<div ng-show="$ctrl.loader.updateData.transportCategory === 'Avion'">
 			<label>Type d'avion</label>
-			<input name="transportPlaneTypes" type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.loader.updateData.transportPlaneType" />
+			<lg-choice name="transportPlaneTypes" choices="$root.config.transportPlaneTypes" title="Type d'avion" placeholder="Ex : Cargo, Passagers, etc."
+			    ng-model="$ctrl.loader.updateData.transportPlaneType"></lg-choice>
 		</div>
 	</section>
 	<section class="dark">
 		<big-label>Trajet</big-label>
 		<label>Départ</label>
-		<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.departureCity" required></lg-city>
+		<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.departureCity"
+		    required></lg-city>
 		<label>Arrivée</label>
-		<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.arrivalCity" required></lg-city>
+		<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.arrivalCity"
+		    required></lg-city>
 		<info ng-bind-html="$ctrl.loader.updateData.infoRoute"></info>
 	</section>
 	<section>
 		<big-label>Horaires</big-label>
 		<label>Date et heure de chargement</label>
-		<lg-datetime title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.updateData.departureDatetime" options="{defaultHour: 14}" required>
+		<lg-datetime title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.updateData.departureDatetime" options="{defaultHour: 14}"
+		    required>
 		</lg-datetime>
 		<label>Date et heure de livraison</label>
-		<lg-datetime title="Date et heure de livraison" placeholder="Date et heure de livraison" ng-model="$ctrl.loader.updateData.arrivalDatetime" options="{defaultHour: 14}" after="$ctrl.loader.updateData.departureDatetime" offset="$ctrl.loader.updateData.minDuration" required>
+		<lg-datetime title="Date et heure de livraison" placeholder="Date et heure de livraison" ng-model="$ctrl.loader.updateData.arrivalDatetime"
+		    options="{defaultHour: 14}" after="$ctrl.loader.updateData.departureDatetime" offset="$ctrl.loader.updateData.minDuration"
+		    required>
 		</lg-datetime>
 		<info ng-bind-html="$ctrl.loader.updateData.infoDuration"></info>
 		<br/>
@@ -61,16 +69,18 @@
 				<img-svg src="/img/vrac.svg"></img-svg><span>Vrac</span></lg-option>
 		</lg-select>
 		<label>Type</label>
-		<input name="typeOfGoods" type="choice" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise" placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.updateData.typeOfGoods" />
+		<lg-choice name="typeOfGoods" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise"
+		    placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.updateData.typeOfGoods"></lg-choice>
 	</section>
 	<section>
 		<big-label>Définir le chargement</big-label>
 		<label>Poids total</label>
-		<input name="weightIntervals" type="choice" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement" placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.updateData.weightInterval" required/>
+		<lg-choice name="weightIntervals" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement"
+		    placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.updateData.weightInterval" is-mandatory="true"></lg-choice>
 		<label ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'">Poids unitaire (ex : poids d’une palette)</label>
 		<div>
-			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'" placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" required
-			/>
+			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'"
+			    placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" required />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(loaderCtrl.preciseWeight)" class="fa fa-check" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(loaderCtrl.preciseWeight)">
@@ -97,15 +107,17 @@
 		<comment>Votre annonce sera davantage consultée si elle contient une photo.</comment>
 		<lg-upload form-data="{suffix: '_ad' + $ctrl.loader.updateData.imageId}" ng-model="$ctrl.loader.updateData.image"></lg-upload>
 	</section>
-		<section class="dark">
+	<section class="dark">
 		<big-label>Prix</big-label>
 		<div class="checkbox">
-			<input type="checkbox" id="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.updateData.negociate" /><label for="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'"> Négocier en direct</label>
+			<input type="checkbox" id="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.updateData.negociate"
+			/><label for="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'"> Négocier en direct</label>
 		</div>
 
 		<label>Tarif souhaité en DZD (facultatif)</label>
 		<div>
-			<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.updateData.priceWanted" required />
+			<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.updateData.priceWanted"
+			    required />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(loaderCtrl.priceWanted)" class="fa fa-check" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(loaderCtrl.priceWanted)">
@@ -116,7 +128,8 @@
 
 		<label>Titre de l'annonce</label>
 		<div>
-			<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.updateData.title" required />
+			<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.updateData.title" required
+			/>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(loaderCtrl.title)" class="fa fa-check" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(loaderCtrl.title)">
@@ -132,11 +145,11 @@
 		<lg-error error="$ctrl.loader.error"></lg-error>
 		<button id="pr-update-loader-button-confirm" ng-click="$ctrl.loader.update();">Mettre à jour</button>
 	</section>
-</formx>
+	</formx>
 
-<script>
-	$('.no-zoom').bind('touchend', function(e) {
-		e.preventDefault();
-	});
+	<script>
+		$('.no-zoom').bind('touchend', function(e) {
+			e.preventDefault();
+		});
 
-</script>
+	</script>

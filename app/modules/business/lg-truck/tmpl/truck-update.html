@@ -1,52 +1,56 @@
 <div class="ad-title">
-    <left>
-        <img-svg src="/img/frontal-truck.svg"></img-svg>
-    </left>
-    <right>
-        <title>Mes véhicules</title>
-        <subtitle>Modifier un véhicule</subtitle>
-    </right>
+	<left>
+		<img-svg src="/img/frontal-truck.svg"></img-svg>
+	</left>
+	<right>
+		<title>Mes véhicules</title>
+		<subtitle>Modifier un véhicule</subtitle>
+	</right>
 </div>
 <formx class="ad" name="truckCtrl">
-    <section class="dark">
-        <label>Immatriculation ou libellé du vehicule</label>
-        <input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
-        <label>Description succinte du modèle</label>
-        <input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
-    </section>
-    <section>
-        <label>Ville d'origine</label>
-        <lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.updateData.city"></lg-city>
-    </section>
-    <section class="dark">
-        <big-label>Transport</big-label><br/>
-        <lg-select name="transportCategory" ng-model="$ctrl.truck.updateData.transportCategory">
-            <lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
-            <lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
-            <lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
-        </lg-select>
+	<section class="dark">
+		<label>Immatriculation ou libellé du vehicule</label>
+		<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
+		<label>Description succinte du modèle</label>
+		<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
+	</section>
+	<section>
+		<label>Ville d'origine</label>
+		<lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.updateData.city"></lg-city>
+	</section>
+	<section class="dark">
+		<big-label>Transport</big-label><br/>
+		<lg-select name="transportCategory" ng-model="$ctrl.truck.updateData.transportCategory">
+			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
+			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
+			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
+		</lg-select>
 
-        <div ng-show="$ctrl.truck.updateData.transportCategory === 'Camion'">
-            <label>Type de camion</label>
-            <input name="transportTruckType" type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.updateData.transportTruckType" />
-        </div>
-        <div ng-show="$ctrl.truck.updateData.transportCategory === 'Bateau'">
-            <label>Type de bateau</label>
-            <input name="transportBoatType" type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.truck.updateData.transportBoatType" />
-        </div>
-        <div ng-show="$ctrl.truck.updateData.transportCategory === 'Avion'">
-            <label>Type d'avion</label>
-            <input name="transportPlaneType" type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.updateData.transportPlaneType" />
-        </div>
-    </section>
-    <section class="dark">
-        <label>Année du vehicule</label>
-        <input name="birthyear" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear" />
-        <label>Insérer une photo</label>
-        <lg-upload form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-upload>
-    </section>
-    <section class="dark">
-        <lg-error error="$ctrl.truck.error"></lg-error>
-        <button id="pr-update-button-confirm" ng-click="$ctrl.truck.update();">Mettre à jour</button>
-    </section>
+		<div ng-show="$ctrl.truck.updateData.transportCategory === 'Camion'">
+			<label>Type de camion</label>
+			<lg-choice name="transportTruckType" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes"
+			    title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.updateData.transportTruckType"></lg-choice>
+		</div>
+		<div ng-show="$ctrl.truck.updateData.transportCategory === 'Bateau'">
+			<label>Type de bateau</label>
+			<lg-choice name="transportBoatType" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
+			    ng-model="$ctrl.truck.updateData.transportBoatType"></lg-choice>
+		</div>
+		<div ng-show="$ctrl.truck.updateData.transportCategory === 'Avion'">
+			<label>Type d'avion</label>
+			<lg-choice name="transportPlaneType" choices="$root.config.transportPlaneTypes" title="Type d'avion" placeholder="Ex : Cargo, Passagers, etc."
+			    ng-model="$ctrl.truck.updateData.transportPlaneType"></lg-choice>
+		</div>
+	</section>
+	<section class="dark">
+		<label>Année du vehicule</label>
+		<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear"
+		    is-mandatory="true"></lg-choice>
+		<label>Insérer une photo</label>
+		<lg-upload form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-upload>
+	</section>
+	<section class="dark">
+		<lg-error error="$ctrl.truck.error"></lg-error>
+		<button id="pr-update-button-confirm" ng-click="$ctrl.truck.update();">Mettre à jour</button>
+	</section>
 </formx>

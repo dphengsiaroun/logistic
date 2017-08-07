@@ -43,22 +43,25 @@
 		</lg-select>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Camion'">
 			<label>Type de camion</label>
-			<input name="transportTruckType" type="choice" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes" title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType"
-			/>
+			<lg-choice name="transportTruckType" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes"
+			    title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType"></lg-choice>
 		</div>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Bateau'">
 			<label>Type de bateau</label>
-			<input name="transportBoatType" type="choice" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc." ng-model="$ctrl.truck.createData.transportBoatType" />
+			<lg-choice name="transportBoatType" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
+			    ng-model="$ctrl.truck.createData.transportBoatType"></lg-choice>
 		</div>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Avion'">
 			<label>Type d'avion</label>
-			<input name="transportPlaneType" type="choice" choices="$root.config.transportPlaneTypes" title="Type d\'avion" placeholder="Ex : Cargo, Passagers, etc." ng-model="$ctrl.truck.createData.transportPlaneType" />
+			<lg-choice name="transportPlaneType" choices="$root.config.transportPlaneTypes" title="Type d'avion" placeholder="Ex : Cargo, Passagers, etc."
+			    ng-model="$ctrl.truck.createData.transportPlaneType"></lg-choice>
 		</div>
 	</section>
 	<section>
 		<label>Année du véhicule</label>
 		<div>
-			<input name="birthyear" type="choice" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear" required />
+			<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear"
+			    is-mandatory="true"></lg-choice>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(truckCtrl.birthyear)" class="fa fa-check" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(truckCtrl.birthyear)">
