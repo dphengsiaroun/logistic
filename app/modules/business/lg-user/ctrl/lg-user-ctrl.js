@@ -1,5 +1,3 @@
-const app = angular.module('lg-user');
-
 function initCtrl(ctrl, $scope, $injector) {
 	ctrl.user = $injector.get('user');
 	ctrl.connection = $injector.get('connection');
@@ -21,8 +19,8 @@ function initCtrl(ctrl, $scope, $injector) {
 	});
 }
 
-app.controller('UserCtrl', function UserCtrl($scope, $injector, formValidator) {
+export function UserCtrl($scope, $injector, formValidator) {
 	'ngInject';
 	initCtrl(this, $scope, $injector);
 	this.fv = formValidator;
-});
+}

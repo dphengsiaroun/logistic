@@ -1,5 +1,7 @@
+import * as lib from './ctrl/lg-user-ctrl.js';
+
 const app = angular.module('lg-user');
-require('./ctrl/lg-user-ctrl.js');
+
 
 app.config(['$stateProvider', function($stateProvider) {
 
@@ -127,27 +129,28 @@ import signupSuccessHtml from './tmpl/signup_success.html';
 import profileHtml from './tmpl/profile.html';
 import updatePasswordHtml from './tmpl/update-password.html';
 import initiatePasswordHtml from './tmpl/initiate-password.html';
+app.controller('UserCtrl', lib.UserCtrl);
 
 app.component('lgUserCreateRoute', {
 	template: signupHtml,
-	controller: 'UserCtrl'
+	controller: lib.UserCtrl
 });
 app.component('lgUserSignupSuccessRoute', {
 	template: signupSuccessHtml,
-	controller: 'UserCtrl'
+	controller: lib.UserCtrl
 });
 
 app.component('lgUserRetrieveRoute', {
 	template: profileHtml,
-	controller: 'UserCtrl'
+	controller: lib.UserCtrl
 });
 
 app.component('lgUserUpdatePasswordRoute', {
 	template: updatePasswordHtml,
-	controller: 'UserCtrl'
+	controller: lib.UserCtrl
 });
 
 app.component('lgUserInitiatePasswordRoute', {
 	template: initiatePasswordHtml,
-	controller: 'UserCtrl'
+	controller: lib.UserCtrl
 });
