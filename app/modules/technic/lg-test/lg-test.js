@@ -1,11 +1,11 @@
-require('./lg-test.scss');
+import'./lg-test.scss';
 module.exports = 'lg-test';
 
 const app = angular.module(module.exports, ['ui.router']);
 
-const testsHtml = require('./tmpl/tests.html');
-const testDatetimeHtml = require('./tmpl/test-datetime.html');
-const testSliderHtml = require('./tmpl/test-slider.html');
+import testsHtml from './tmpl/tests.html';
+import testDatetimeHtml from './tmpl/test-datetime.html';
+import testSliderHtml from './tmpl/test-slider.html';
 
 app.config(function($stateProvider) {
 
@@ -59,9 +59,9 @@ app.config(function($stateProvider) {
 	});
 });
 
-const testNumHtml = require('./tmpl/test-num.html');
-const test2Html = require('./tmpl/test2.html');
-const testCalendarHtml = require('./tmpl/test-calendar.html');
+import testNumHtml from './tmpl/test-num.html';
+import test2Html from './tmpl/test2.html';
+import testCalendarHtml from './tmpl/test-calendar.html';
 
 app.component('lgTestNumRoute', {
 	template: testNumHtml

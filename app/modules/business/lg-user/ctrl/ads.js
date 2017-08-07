@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 	});
 });
 
-const adsHtml = require('../tmpl/ads.html');
+import adsHtml from '../tmpl/ads.html';
 app.component('lgUserAdsRoute', {
 	template: adsHtml,
 	controller: function LgUserAdsRouteCtrl($state, $stateParams, user, connection, carrier, loader) {

@@ -148,11 +148,11 @@ app.controller('UserCtrl', function UserCtrl($scope, $injector, formValidator) {
 	this.fv = formValidator;
 });
 
-const signupHtml = require('./tmpl/signup.html');
-const signupSuccessHtml = require('./tmpl/signup_success.html');
-const profileHtml = require('./tmpl/profile.html');
-const updatePasswordHtml = require('./tmpl/update-password.html');
-const initiatePasswordHtml = require('./tmpl/initiate-password.html');
+import signupHtml from './tmpl/signup.html';
+import signupSuccessHtml from './tmpl/signup_success.html';
+import profileHtml from './tmpl/profile.html';
+import updatePasswordHtml from './tmpl/update-password.html';
+import initiatePasswordHtml from './tmpl/initiate-password.html';
 
 app.component('lgUserCreateRoute', {
 	template: signupHtml,

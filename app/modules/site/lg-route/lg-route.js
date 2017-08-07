@@ -1,4 +1,4 @@
-require('./css/lg-home-route.scss');
+import './css/lg-home-route.scss';
 module.exports = 'lg-route';
 
 const app = angular.module(module.exports, ['ui.router']);
@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 });
 
-const homeHtml = require('./tmpl/home.html');
+import homeHtml from './tmpl/home.html';
 
 app.component('lgHomeRoute', {
     template: homeHtml,

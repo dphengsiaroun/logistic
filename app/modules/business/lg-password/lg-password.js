@@ -1,4 +1,4 @@
-require('./lg-password.scss');
+import './lg-password.scss';
 module.exports = 'lg-password';
 
 const app = angular.module(module.exports, []);

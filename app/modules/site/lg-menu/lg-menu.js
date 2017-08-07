@@ -1,4 +1,4 @@
-require('./lg-menu.scss');
+import './lg-menu.scss';
 module.exports = 'lg-menu';
 
 window.mobilecheck = function() {
@@ -13,7 +13,7 @@ window.mobilecheck = function() {
 
 const app = angular.module(module.exports, []);
 
-const lgMenuHtml = require('./tmpl/lg-menu.html');
+import lgMenuHtml from './tmpl/lg-menu.html';
 
 app.run(function($transitions, $rootScope, $window, carrier, lgBackDetector) {
 	'ngInject';

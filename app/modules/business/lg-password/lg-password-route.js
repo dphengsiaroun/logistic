@@ -30,8 +30,8 @@ app.config(['$stateProvider', function($stateProvider) {
 
 }]);
 
-const forgottenPasswordHtml = require('./tmpl/forgotten-password.html');
-const chooseNewPasswordHtml = require('./tmpl/choose-new-password.html');
+import forgottenPasswordHtml from './tmpl/forgotten-password.html';
+import chooseNewPasswordHtml from './tmpl/choose-new-password.html';
 
 app.component('lgUserForgottenPasswordRoute', {
 	template: forgottenPasswordHtml,
