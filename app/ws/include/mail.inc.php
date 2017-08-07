@@ -1,12 +1,23 @@
 <?php
 
-require BASE_DIR . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+require_once(BASE_DIR . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
+require_once(BASE_DIR . "/class/TestMail.php");
 
 function sendmail($user, $type) {
 	global $cfg;
 	debug('sending mail', $user);
 
-	$mail = new PHPMailer;
+	$mail = NULL;
+	debug('Test if protractor');
+	if (TestMail::isProtractor()) {
+		debug('It is protractor');
+		$mail = new TestMail();
+	} else {
+		debug('It is NOT protractor');
+		$mail = new PHPMailer;
+	}
+
+	
 
 	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 	$mail->CharSet = 'UTF-8';
@@ -45,5 +56,7 @@ function sendmail($user, $type) {
 	if (!$mail->send()) {
 		debug('Message could not be sent.');
 		debug('Mailer Error: ' . $mail->ErrorInfo);
-	}
+		return;
+	} 
+	debug('Message successfully sent.');
 }

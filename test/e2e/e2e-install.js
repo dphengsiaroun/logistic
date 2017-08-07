@@ -30,6 +30,7 @@ describe('Install', function() {
 	it('should install', function() {
 		console.log('-> install', arguments);
 		element(by.xpath('//label[@for=\'dbCreation\']')).click();
+		element(by.id('smtp.server.from')).clear().sendKeys('protractor@test.com');
 		element(by.css('button')).click();
 		const message = element(by.css('h3'));
 		expect(message.getText()).toEqual('Successfully installed');
