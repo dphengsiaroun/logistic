@@ -4,7 +4,7 @@ module.exports = 'lg-orderby';
 const app = angular.module(module.exports, []);
 
 
-const lgOrderbyHtml = require('./tmpl/lg-orderby.html');
+import lgOrderbyHtml from './tmpl/lg-orderby.html';
 
 app.component('lgOrderby', {
 	template: lgOrderbyHtml,

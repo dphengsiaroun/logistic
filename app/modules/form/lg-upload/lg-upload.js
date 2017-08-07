@@ -1,10 +1,10 @@
-require('./lg-upload.scss');
-require('blueimp-file-upload/js/vendor/jquery.ui.widget.js');
-require('blueimp-file-upload/js/jquery.iframe-transport.js');
-require('blueimp-file-upload/js/jquery.fileupload.js');
-require('blueimp-file-upload/js/jquery.fileupload-process.js');
-require('blueimp-file-upload/js/jquery.fileupload-validate.js');
-require('blueimp-file-upload/js/jquery.fileupload-angular.js');
+import './lg-upload.scss';
+import 'blueimp-file-upload/js/vendor/jquery.ui.widget.js';
+import 'blueimp-file-upload/js/jquery.iframe-transport.js';
+import 'blueimp-file-upload/js/jquery.fileupload.js';
+import 'blueimp-file-upload/js/jquery.fileupload-process.js';
+import 'blueimp-file-upload/js/jquery.fileupload-validate.js';
+import 'blueimp-file-upload/js/jquery.fileupload-angular.js';
 module.exports = 'lg-upload';
 
 const url = './ws/upload.php';
@@ -33,7 +33,7 @@ app.controller('FileDestroyController', ['$scope', '$http', function($scope, $ht
 	}
 }]);
 
-const lgUploadHtml = require('./tmpl/lg-upload.html');
+import lgUploadHtml from './tmpl/lg-upload.html';
 
 app.component('lgUpload', {
 	template: lgUploadHtml,

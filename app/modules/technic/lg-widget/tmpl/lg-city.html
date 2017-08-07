@@ -1,8 +1,7 @@
-<input
+<lg-choice
 	name="{{$ctrl.name}}"
-	type="choice" options="{place:true, label: $root.config.getCityLabel, labelToFilter: $root.config.getCityLabelToFilter, icon: $root.config.getCityIcon}" 
+	options="{place:true, label: $root.config.getCityLabel, labelToFilter: $root.config.getCityLabelToFilter, icon: $root.config.getCityIcon}" 
 	choices="$root.config.cities" 
 	title="{{$ctrl.title}}" 
 	placeholder="{{$ctrl.placeholder}}" 
-	ng-model="$ctrl.myModel"
-/>
+	ng-model="$ctrl.myModel"></lg-choice>

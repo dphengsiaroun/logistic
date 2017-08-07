@@ -1,14 +1,13 @@
 module.exports = 'lg-widget';
+import './lg-widget.scss';
 
 const app = angular.module(module.exports, []);
-
-require('./lg-widget.scss');
 require('./lg-hr.js');
 
-const lgPromptHtml = require('./tmpl/lg-prompt.html');
-const lgConfirmHtml = require('./tmpl/lg-confirm.html');
-const lgMessageHtml = require('./tmpl/lg-message.html');
-const lgFooterHtml = require('./tmpl/lg-footer.html');
+import lgPromptHtml from './tmpl/lg-prompt.html';
+import lgConfirmHtml from './tmpl/lg-confirm.html';
+import lgMessageHtml from './tmpl/lg-message.html';
+import lgFooterHtml from './tmpl/lg-footer.html';
 
 app.component('lgPrompt', {
 	template: lgPromptHtml,
@@ -43,7 +42,7 @@ app.service('lgPicture', function LgPicture() {
 	};
 });
 
-const lgShowPictureHtml = require('./tmpl/lg-show-picture.html');
+import lgShowPictureHtml from './tmpl/lg-show-picture.html';
 
 app.component('lgShowPicture', {
 	template: lgShowPictureHtml,
@@ -61,7 +60,7 @@ app.component('lgShowPicture', {
 	}
 });
 
-const lgFaviconHtml = require('./tmpl/lg-favicon.html');
+import lgFaviconHtml from './tmpl/lg-favicon.html';
 
 app.component('lgFavicon', {
 	template: lgFaviconHtml
@@ -107,7 +106,7 @@ app.component('lgSelect', {
 	}
 });
 
-const lgCityHtml = require('./tmpl/lg-city.html');
+import lgCityHtml from './tmpl/lg-city.html';
 
 app.component('lgCity', {
 	require: {
@@ -138,7 +137,7 @@ app.directive('lgBindHtmlCompile', function($compile) {
 	};
 });
 
-require('./tmpl/lg-image.html');
+import './tmpl/lg-image.html';
 
 app.component('imgSvg', {
 	controller: function ImgSvgCtrl($scope, $element, $attrs, $templateCache, $compile) {
@@ -151,13 +150,13 @@ app.component('imgSvg', {
 	}
 });
 
-const lgSocialLoginHtml = require('./tmpl/lg-social-login.html');
+import lgSocialLoginHtml from './tmpl/lg-social-login.html';
 app.component('lgSocialLogin', {
 	template: lgSocialLoginHtml
 });
 
-require('./css/lg-breadcrumb.scss');
-const lgBreadcrumbHtml = require('./tmpl/lg-breadcrumb.html');
+import './css/lg-breadcrumb.scss';
+import lgBreadcrumbHtml from './tmpl/lg-breadcrumb.html';
 app.component('lgBreadcrumb', {
 	template: lgBreadcrumbHtml
 });

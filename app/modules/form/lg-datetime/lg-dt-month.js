@@ -12,7 +12,7 @@ function getDays(date) {
 
 const app = angular.module('lg-datetime');
 
-const lgDtMonthHtml = require('./tmpl/lg-dt-month.html');
+import lgDtMonthHtml from './tmpl/lg-dt-month.html';
 
 app.component('lgDtMonth', {
 	require: {

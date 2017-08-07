@@ -162,6 +162,25 @@ EOF;
 			return 'acct_' . $this->id . $suffix;
 		}
 
+		public static function exists($email) {
+			global $db, $cfg;
+
+			$sql = <<<EOF
+SELECT * FROM {$cfg->prefix}user WHERE email=:email;
+EOF;
+			
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':email' => $email
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			return $st->rowCount() == 1;
+		}
+
+
 		public static function checkAlreadyExists($request) {
 			global $db, $cfg;
 			debug('checkAlreadyExists start');

@@ -1,12 +1,12 @@
+import './lg-datetime.scss';
 module.exports = 'lg-datetime';
 
 const app = angular.module(module.exports, ['lg-misc']);
 
-require('./lg-datetime.scss');
 require('./lg-dt-month.js');
 require('./lg-dt-hour.js');
 
-const lgDatetimeHtml = require('./tmpl/lg-datetime.html');
+import lgDatetimeHtml from './tmpl/lg-datetime.html';
 
 app.component('lgDatetime', {
 	require: {

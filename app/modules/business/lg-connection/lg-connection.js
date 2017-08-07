@@ -3,8 +3,8 @@ import Hashes from 'jshashes';
 module.exports = 'lg-connection';
 
 import lgUser from '../lg-user/lg-user.js';
-const app = angular.module(module.exports, [lgUser]);
 
+const app = angular.module(module.exports, [lgUser]);
 require('./lg-connection-route.js');
 
 app.service('connection', function Connection($http, $rootScope, $injector, $q, $state, user) {

@@ -1,6 +1,6 @@
-const lgGeoloc = require('../../technic/lg-geoloc/lg-geoloc.js');
+import lgGeoloc from '../../technic/lg-geoloc/lg-geoloc.js';
 
-require('./lg-choice.scss');
+import './lg-choice.scss';
 module.exports = 'lg-choice';
 
 const removeDiacritic = function(str) {
@@ -9,49 +9,7 @@ const removeDiacritic = function(str) {
 
 const app = angular.module(module.exports, ['lg-misc', lgGeoloc]);
 
-app.directive('input', ['$injector', function($injector) {
-	const $compile = $injector.get('$compile');
-	return {
-		restrict: 'E',
-		require: '?ngModel',
-		link: function(scope, element, attr, ctrl) {
-			if (attr.type !== 'choice') {
-				return;
-			}
-			let requiredAttr = '';
-			if (element.prop('required')) {
-				console.log('required');
-				requiredAttr = ' is-mandatory="true" ';
-			}
-			let optionsAttr = '';
-			if (attr.options) {
-				console.log('options');
-				optionsAttr = 'options="' + attr.options + '" ';
-			}
-			let nameAttr = '';
-			if (attr.name) {
-				console.log('name');
-				nameAttr = 'name="' + attr.name + '" ';
-			}
-			const elt = angular.element('<!-- input type="choice" ng-model="' + attr.ngModel + '" -->' +
-				'<lg-choice ' +
-				nameAttr +
-				'placeholder="' + attr.placeholder + '" ' +
-				'choices="' + attr.choices + '" ' +
-				'title="' + attr.title + '" ' +
-				'ng-model="' + attr.ngModel + '" ' +
-				requiredAttr +
-				optionsAttr +
-				'></lg-choice>');
-			element.after(elt);
-			element.attr('style', 'display: none !important');
-			$compile(elt)(scope);
-		}
-	};
-
-}]);
-
-const lgChoiceHtml = require('./tmpl/lg-choice.html');
+import lgChoiceHtml from './tmpl/lg-choice.html';
 
 app.component('lgChoice', {
 	require: {

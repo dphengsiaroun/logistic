@@ -1,5 +1,6 @@
 module.exports = 'lg-eyepassword';
-require('./lg-eyepassword.scss');
+import './lg-eyepassword.scss';
+
 const app = angular.module(module.exports, []);
 
 app.directive('input', ['$injector', function($injector) {
@@ -34,7 +35,7 @@ app.directive('input', ['$injector', function($injector) {
 
 }]);
 
-const lgEyePasswordHtml = require('./tmpl/lg-eyepassword.html');
+import lgEyePasswordHtml from './tmpl/lg-eyepassword.html';
 
 app.component('lgEyepassword', {
 	template: lgEyePasswordHtml,

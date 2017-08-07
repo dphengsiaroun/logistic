@@ -1,6 +1,6 @@
 const app = angular.module('lg-datetime');
 
-const lgDtHourHtml = require('./tmpl/lg-dt-hour.html');
+import lgDtHourHtml from './tmpl/lg-dt-hour.html';
 
 function makeRange(start, end) {
 	return Array.apply(null, Array(end - start + 1)).map(function(n, i) {

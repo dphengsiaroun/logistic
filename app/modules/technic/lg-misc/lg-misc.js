@@ -1,8 +1,9 @@
 module.exports = 'lg-misc';
+import './lg-misc.scss';
 
 const app = angular.module(module.exports, []);
 
-require('./lg-misc.scss');
+
 
 app.service('lgMisc', ['$injector', function LgMisc($injector) {
     this.isWebService = function(url) {

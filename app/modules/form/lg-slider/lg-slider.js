@@ -1,10 +1,10 @@
-require('./lg-slider.scss');
+import './lg-slider.scss';
 
 module.exports = 'lg-slider';
 
 const app = angular.module(module.exports, []);
 
-const lgSliderHtml = require('./tmpl/lg-slider.html');
+import lgSliderHtml from './tmpl/lg-slider.html';
 
 app.component('lgSlider', {
 	template: lgSliderHtml,

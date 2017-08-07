@@ -5,9 +5,8 @@ import 'angular-ui-router';
 import 'angular-ui-validate';
 
 import Hashes from 'jshashes';
+import '../../technic/lg-widget/lg-widget.js';
 
-
-require('../../technic/lg-widget/lg-widget.js');
 module.exports = 'lg-user';
 
 const app = angular.module(module.exports, ['ui.router', 'ui.validate', 'lg-widget']);

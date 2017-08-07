@@ -1,5 +1,5 @@
-require('./lg-num.scss');
-require('./lg-num-vertical.scss');
+import './lg-num.scss';
+import './lg-num-vertical.scss';
 module.exports = 'lg-num';
 
 const app = angular.module(module.exports, []);
@@ -26,8 +26,8 @@ app.directive('input', function($compile) {
 
 });
 
-const lgNumVerticalHtml = require('./tmpl/lg-num-vertical.html');
-const lgNumHtml = require('./tmpl/lg-num.html');
+import lgNumVerticalHtml from './tmpl/lg-num-vertical.html';
+import lgNumHtml from './tmpl/lg-num.html';
 
 app.component('lgNum', {
 	require: {

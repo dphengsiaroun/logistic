@@ -1,4 +1,4 @@
-require('./lg-filter.scss');
+import './lg-filter.scss';
 module.exports = 'lg-filter';
 
 import '../../technic/lg-erasable/lg-erasable.js';
@@ -6,7 +6,7 @@ import '../../technic/lg-erasable/lg-erasable.js';
 const app = angular.module(module.exports, ['lg-erasable']);
 
 
-const lgFilterHtml = require('./tmpl/lg-filter.html');
+import lgFilterHtml from './tmpl/lg-filter.html';
 
 app.component('lgFilter', {
 	template: lgFilterHtml,

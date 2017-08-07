@@ -1,10 +1,10 @@
-require('./lg-dimension.scss');
+import './lg-dimension.scss';
 
 module.exports = 'lg-dimension';
 
 const app = angular.module(module.exports, []);
 
-const lgDimensionHtml = require('./tmpl/lg-dimension.html');
+import lgDimensionHtml from './tmpl/lg-dimension.html';
 
 app.component('lgDimension', {
 	require: {
