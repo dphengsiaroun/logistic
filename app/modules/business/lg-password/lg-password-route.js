@@ -1,8 +1,5 @@
-const app = angular.module('lg-password');
-require('./ctrl/lg-password-ctrl.js');
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+	'ngInject';
 	$stateProvider.state({
 		name: 'password:forgottenPassword',
 		url: '/forgotten-password',
@@ -29,18 +26,20 @@ app.config(['$stateProvider', function($stateProvider) {
 		component: 'lgUserChooseNewPasswordRoute'
 	});
 
-}]);
+}
 
 import forgottenPasswordHtml from './tmpl/forgotten-password.html';
 import chooseNewPasswordHtml from './tmpl/choose-new-password.html';
 
-app.component('lgUserForgottenPasswordRoute', {
-	template: forgottenPasswordHtml,
-	controller: 'PasswordCtrl'
-});
+import * as lib from './ctrl/lg-password-ctrl.js';
 
-app.component('lgUserChooseNewPasswordRoute', {
+export const lgUserForgottenPasswordRoute = {
+	template: forgottenPasswordHtml,
+	controller: lib.PasswordCtrl
+};
+
+export const lgUserChooseNewPasswordRoute = {
 	template: chooseNewPasswordHtml,
-	controller: 'UserChooseNewPasswordCtrl'
-});
+	controller: lib.UserChooseNewPasswordCtrl
+};
 
