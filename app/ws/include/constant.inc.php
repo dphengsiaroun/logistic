@@ -6,6 +6,7 @@
 
 
 	define('TRACE_LOG', BASE_DIR . '/logs/_trace.log');
+	define('TEST_MAIL_FORGOTTEN_PASSWORD', BASE_DIR . '/logs/temp-mail-password.log');
 
 
 	// define('TRACE_LEVEL', Monolog\Logger::WARNING);
