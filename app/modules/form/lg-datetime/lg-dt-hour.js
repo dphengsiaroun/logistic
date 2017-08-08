@@ -1,5 +1,3 @@
-const app = angular.module('lg-datetime');
-
 import lgDtHourHtml from './tmpl/lg-dt-hour.html';
 
 function makeRange(start, end) {
@@ -8,7 +6,7 @@ function makeRange(start, end) {
 	});
 }
 
-app.component('lgDtHour', {
+export const lgDtHour = {
 	require: {
 		lgDatetime: '^^lgDatetime'
 	},
@@ -108,4 +106,4 @@ app.component('lgDtHour', {
 	bindings: {
 		hours: '<'
 	}
-});
+};

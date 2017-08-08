@@ -1,5 +1,5 @@
-require('angular/angular-csp.css');
-require('font-awesome/css/font-awesome.css');
+import 'angular/angular-csp.css';
+import 'font-awesome/css/font-awesome.css';
 
 const $ = require('jquery');
 window.jQuery = $;

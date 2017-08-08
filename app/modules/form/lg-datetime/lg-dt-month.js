@@ -10,11 +10,9 @@ function getDays(date) {
 	return Math.floor(d / 8.64e7);
 }
 
-const app = angular.module('lg-datetime');
-
 import lgDtMonthHtml from './tmpl/lg-dt-month.html';
 
-app.component('lgDtMonth', {
+export const lgDtMonth = {
 	require: {
 		lgDatetime: '^^lgDatetime'
 	},
@@ -168,4 +166,4 @@ app.component('lgDtMonth', {
 		action: '<',
 		selectedDate: '<'
 	}
-});
+};
