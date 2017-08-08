@@ -18,8 +18,8 @@ describe('Test Password', function() {
 		});
 	});
 
-	it('should create a new password', function() {
-		console.log('-> create a new password start', arguments);
+	it('should sent mail for a new password', function() {
+		console.log('-> Start', arguments);
 		if (fs.existsSync(data.passwordMailFile)) {
 			console.log('about to unlink', data.passwordMailFile);
 			fs.unlinkSync(data.passwordMailFile);
@@ -41,15 +41,40 @@ describe('Test Password', function() {
 	});
 
 	it('should create a new password', function() {
-		console.log('-> create a new password start', arguments);
+		console.log('-> Start', arguments);
 		const buffer = fs.readFileSync(data.passwordMailFile, 'utf-8');
 		const url = buffer.replace(/^[\s\S]*href="(.*?)"[\s\S]*$/g, '$1');
 		console.log('url', url);
 		browser.get(url);
 		// browser.sleep(5000);
-		
 		expect(element(by.css('subtitle')).getText()).toEqual('choisissez un nouveau mot de passe');
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password + '2');
-		element(by.css('button')).click();		
+		element(by.css('button')).click();
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/updated-password');
+		element(by.css('button')).click();
+	});
+
+	it('test connection with a new password', function() {
+		console.log('-> Start', arguments);
+		browser.get('http://localhost:8000/app/');
+		element(by.css('menu-bar')).click();		
+		element(by.linkText('Se connecter')).click();
+		element(by.name('login')).clear().sendKeys(user.email);
+		element(by.name('password-crypted')).clear().sendKeys(user.password + '2');
+		element(by.id('pr-button-connect-user')).click();
+		const userIdentity = element(by.css('.user-identity')).getText();
+		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
+	});
+
+	it('should change the password', function() {
+		console.log('-> Start', arguments);
+		browser.get('http://localhost:8000/app/');
+		element(by.css('menu-bar')).click();		
+		element(by.linkText('Mon profil')).click();
+		element(by.linkText('Modifier mot de passe')).click();
+		element(by.name('oldPassword-crypted')).clear().sendKeys(user.password + '2');
+		element(by.name('newPassword-crypted')).clear().sendKeys(user.password);
+		element(by.css('button')).click();
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/updated-password');
 	});
 });
