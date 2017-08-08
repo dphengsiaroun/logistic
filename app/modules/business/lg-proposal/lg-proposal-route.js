@@ -1,8 +1,5 @@
-const app = angular.module('lg-proposal');
-require('./ctrl/lg-proposal-ctrl.js');
-
-app.config(['$stateProvider', function($stateProvider) {
-
+export function config($stateProvider) {
+	'ngInject';
 	$stateProvider.state({
 		name: 'proposal:create',
 		url: '/{type}/{id}/create-proposal',
@@ -104,23 +101,25 @@ app.config(['$stateProvider', function($stateProvider) {
 	});
 
 
-}]);
+}
 
 import proposalCreateHtml from './tmpl/proposal-create.html';
 import proposalDetailHtml from './tmpl/proposal-detail.html';
 import proposalUpdateHtml from './tmpl/proposal-update.html';
 
-app.component('lgProposalCreateRoute', {
+import * as lib from './ctrl/lg-proposal-ctrl.js';
+
+export const lgProposalCreateRoute = {
 	template: proposalCreateHtml,
-	controller: 'ProposalCreateCtrl',
-});
+	controller: lib.ProposalCreateCtrl,
+};
 
-app.component('lgProposalRetrieveRoute', {
+export const lgProposalRetrieveRoute = {
 	template: proposalDetailHtml,
-	controller: 'ProposalCtrl',
-});
+	controller: lib.ProposalCtrl,
+};
 
-app.component('lgProposalUpdateRoute', {
+export const lgProposalUpdateRoute = {
 	template: proposalUpdateHtml,
-	controller: 'ProposalUpdateCtrl',
-});
+	controller: lib.ProposalUpdateCtrl,
+};

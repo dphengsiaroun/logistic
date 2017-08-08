@@ -1,6 +1,4 @@
-const app = angular.module('lg-proposal');
-
-app.controller('ProposalCtrl', function ProposalCtrl($scope, $injector, connection) {
+export function ProposalCtrl($scope, $injector, connection) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.proposal = $injector.get('proposal');
@@ -17,9 +15,9 @@ app.controller('ProposalCtrl', function ProposalCtrl($scope, $injector, connecti
 			console.log('ctrl.isEditable', ctrl.isEditable);
 		});
 	};
-});
+}
 
-app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
+export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 	user, connection, loader, carrier, formValidator) {
 	'ngInject';
 	const ctrl = this;
@@ -57,9 +55,9 @@ app.controller('ProposalCreateCtrl', function ProposalCreateCtrl($scope, $window
 			console.error('you should not see this');
 		});
 	};
-});
+}
 
-app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateParams, 
+export function ProposalUpdateCtrl($scope, $stateParams, 
 	proposal, user, connection, formValidator) {
 	'ngInject';
 	const ctrl = this;
@@ -77,4 +75,4 @@ app.controller('ProposalUpdateCtrl', function ProposalUpdateCtrl($scope, $stateP
 			console.error('you should not see this');
 		});
 	};
-});
+}
