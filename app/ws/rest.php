@@ -22,7 +22,7 @@
 	$url = preg_replace('/^.*\/ws\/(.*?)(?:\?.*?)?$/', '$1', $requestUri);
 	debug('url', $url);
 
-	// debug('$_SERVER', $_SERVER);
+	debug('$_SERVER', $_SERVER);
 
 	$array = preg_split('/\//', $url);
 
@@ -71,9 +71,14 @@
 		if ($method == 'PUT') {
 			$result[$resource] = $obj->update($id);
 			return;
+		} 
+		if ($method == 'PATCH') {
+			if (!method_exists($obj, 'patch')) {
+				throw new Exception(ERROR_NO_PATCH_METHOD_MSG, ERROR_NO_PATCH_METHOD_CODE);
+			}
+			$result[$resource] = $obj->patch($id);
+			return;
 		}
-		// } elseif ($method == 'PATCH') {
-
 		if ($method == 'DELETE') {
 			$obj->delete($id);
 			return;

@@ -68,3 +68,7 @@
 
 	define('ERROR_MISSING_PROPOSAL_NAME_CODE', 12);
 	define('ERROR_MISSING_PROPOSAL_NAME_MSG', 'Missing proposal name.');
+
+	define('ERROR_NO_PATCH_METHOD_CODE', 13);
+	define('ERROR_NO_PATCH_METHOD_MSG', 'No patch method supported for this resource.');
+

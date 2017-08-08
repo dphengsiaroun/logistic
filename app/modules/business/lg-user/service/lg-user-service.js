@@ -102,8 +102,8 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 			hashedData.newPassword = SHA256.hex(hashedData.newPassword);
 		}
 		$http({
-			url: makeUrl('updatePassword'),
-			method: 'POST',
+			url: 'ws/users/' + data.id,
+			method: 'PATCH',
 			data: hashedData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
