@@ -97,7 +97,6 @@ export function config($stateProvider) {
 				};
 			}
 		},
-		needsUser: true
 	});
 
 	$stateProvider.state({
