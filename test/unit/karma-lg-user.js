@@ -46,7 +46,7 @@ describe('lg-user', function() {
 
 				}
 			};
-			$httpBackend.when('POST', 'ws/user/signup.php').respond({
+			$httpBackend.when('POST', 'ws/users').respond({
 				user: {
 					email: 'dphengsiaroun@outlook.fr',
 					password: 'test',
@@ -66,7 +66,7 @@ describe('lg-user', function() {
 					}
 				}
 			});
-			user.signup();
+			user.create();
 			$httpBackend.flush();
 			expect(user.error).toEqual(undefined);
 			expect(user.current).toEqual({

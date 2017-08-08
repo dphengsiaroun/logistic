@@ -2,7 +2,7 @@
 <sign-form>
 	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
-	<form name="signupCtrl" ng-submit="$ctrl.user.signup();">
+	<form name="signupCtrl" ng-submit="$ctrl.user.create();">
 		<div>
 			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" required />
 			<message-form-validator>

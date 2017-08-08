@@ -15,7 +15,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 		content: {}
 	};
 
-	this.signup = function() {
+	this.create = function() {
 		console.log('sign up');
 		const SHA256 = new Hashes.SHA256;
 		const data = angular.copy(service.signupData);
