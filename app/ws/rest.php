@@ -77,6 +77,8 @@
 				throw new Exception(ERROR_NO_PATCH_METHOD_MSG, ERROR_NO_PATCH_METHOD_CODE);
 			}
 			$result[$resource] = $obj->patch($id);
+			debug('$result', $result);
+			debug('$resource', $resource);
 			return;
 		}
 		if ($method == 'DELETE') {
