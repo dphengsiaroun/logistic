@@ -34,7 +34,8 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.signupData.email" required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'email\', $value)'}" />
+			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.signupData.email" ng-model-options="{ debounce: 300 }"
+			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'email\', $value)'}" />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
 				<i ng-show="$ctrl.fv.isError(signupCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
@@ -93,8 +94,8 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'phone\', $value)'}"
-			/>
+			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" ng-model-options="{ debounce: 300 }"
+			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'phone\', $value)'}" />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(signupCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(signupCtrl.phone)">
