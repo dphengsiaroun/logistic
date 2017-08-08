@@ -91,3 +91,5 @@ data.proposals = [{
 
 	}
 ];
+
+data.passwordMailFile = path.resolve(__dirname, '../../../app/ws/logs/temp-mail-password.log');
