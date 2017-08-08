@@ -1,4 +1,5 @@
 import './lg-upload.scss';
+
 import 'blueimp-file-upload/js/vendor/jquery.ui.widget.js';
 import 'blueimp-file-upload/js/jquery.iframe-transport.js';
 import 'blueimp-file-upload/js/jquery.fileupload.js';

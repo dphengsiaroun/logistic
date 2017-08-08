@@ -1,17 +1,13 @@
 import 'angular/angular-csp.css';
 import 'font-awesome/css/font-awesome.css';
 
-const $ = require('jquery');
-window.jQuery = $;
-window.$ = $;
-
-require('angular');
-require('angular-touch');
-require('angular-i18n/angular-locale_fr-dz.js');
-require('angular-sanitize');
-require('angular-ui-router');
-require('angular-ui-mask');
-require('angular-recaptcha');
+import 'angular';
+import 'angular-touch';
+import 'angular-i18n/angular-locale_fr-dz.js';
+import 'angular-sanitize';
+import 'angular-ui-router';
+import 'angular-ui-mask';
+import 'angular-recaptcha';
 
 window.values = function(obj) {
 	return Object.keys(obj).map(function(key) {

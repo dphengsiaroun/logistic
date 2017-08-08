@@ -90,6 +90,17 @@ app.config(function($sceDelegateProvider) {
 	]);
 });
 
+
+// Fix the jQuery issue
+app.run(function($window) {
+	$window.jQuery = window.jQuery;
+	$window.$ = window.jQuery;
+});
+
+
+
+
+
 // permet de récuperer les valeurs en post sous format json
 app.run(function($rootScope, $window, $state, $parse) {
 	'ngInject';
