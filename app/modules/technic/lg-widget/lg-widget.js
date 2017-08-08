@@ -2,12 +2,18 @@ module.exports = 'lg-widget';
 import './lg-widget.scss';
 
 const app = angular.module(module.exports, []);
-require('./lg-hr.js');
 
 import lgPromptHtml from './tmpl/lg-prompt.html';
 import lgConfirmHtml from './tmpl/lg-confirm.html';
 import lgMessageHtml from './tmpl/lg-message.html';
 import lgFooterHtml from './tmpl/lg-footer.html';
+import lgHrHtml from './tmpl/lg-hr.html';
+
+app.component('lgHr', {
+	transclude: true,
+	template: lgHrHtml,
+});
+
 
 app.component('lgPrompt', {
 	template: lgPromptHtml,
