@@ -33,8 +33,11 @@
 </head>
 
 <body ng-cloak ng-controller="UserCtrl as userCtrl">
+	<lg-desktop></lg-desktop>
 	<lg-menu></lg-menu>
-	<ui-view></ui-view>
+	<lg-body>
+		<ui-view></ui-view>
+	</lg-body>
 	<lg-footer></lg-footer>
 
 	<script src="wpk/vendors.js"></script>

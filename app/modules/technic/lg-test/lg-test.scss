@@ -1,49 +1,49 @@
 @import '../../../css/color';
 tests {
-    width: 100%;
-    background-color: #ebebeb;
-    text-align: left;
-    a {
-        display: block;
-        background: white;
-        border-bottom: 1px solid #ebebeb;
-        padding: 10px;
-        width: 100%;
-        font-size: 23px;
-        position: relative;
-        .fa {
-            display: inline-block;
-            width: 15%;
-            font-size: 36px;
-            color: #223c5d;
-            height: 100%;
-        }
-        p {
-            display: inline-block;
-            vertical-align: top;
-            padding: 6px 11px;
-            font-size: 20px;
-        }
-    }
+	display: block;
+	background-color: #ebebeb;
+	text-align: left;
+	a {
+		display: block;
+		background: white;
+		border-bottom: 1px solid #ebebeb;
+		padding: 10px;
+		width: 100%;
+		font-size: 23px;
+		position: relative;
+		.fa {
+			display: inline-block;
+			width: 15%;
+			font-size: 36px;
+			color: #223c5d;
+			height: 100%;
+		}
+		p {
+			display: inline-block;
+			vertical-align: top;
+			padding: 6px 11px;
+			font-size: 20px;
+		}
+	}
 }
 
 fixed {
-    display: block;
-    position: fixed;
-    top: 59px;
-    left: 0px;
-    bottom: 0px;
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    test-slider {
-        display: block;
-        width: 100%;
+	display: block;
+	position: fixed;
+	top: 59px;
+	left: 0px;
+	bottom: 0px;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	test-slider {
+		display: block;
+		width: 100%;
 		height: 100%;
-        margin: 0px;
-        dimension {
-            display: table;
-            table-layout: fixed;
+		margin: 0px;
+		dimension {
+			display: table;
+			table-layout: fixed;
 			width: 100%;
 			background-color: $selectedColor;
 			label {
@@ -62,7 +62,7 @@ fixed {
 					color: white;
 				}
 			}
-        }
+		}
 		volume {
 			display: block;
 			width: 100%;
@@ -71,15 +71,15 @@ fixed {
 			background-color: $headerColor;
 			color: white;
 		}
-        settings {
-            display: block;
+		settings {
+			display: block;
 			position: fixed;
 			overflow-y: auto;
 			top: 255px;
 			bottom: 0px;
 			left: 0px;
 			width: 100%;
-            margin: 0px 0px;
+			margin: 0px 0px;
 			padding: 0px 0px;
 			my-table {
 				display: table;
@@ -94,31 +94,30 @@ fixed {
 					padding: 0px 0px;
 				}
 			}
-        }
-    }
-    test-slider2 {
-        display: table;
-        table-layout: fixed;
-        width: 100%;
-        padding: 0px 5px;
-        label {
-            display: table;
-            position: relative;
-            width: 100%;
-            span {
-                display: table-cell;
-                width: 70%;
-            }
-            input {
-                display: table-cell;
-                width: 100%;
-                font-size: 23px;
-                text-align: center;
-                padding: 0px 5px;
-                min-height: 0px;
-                margin: 5px 0px;
-            }
-        }
-    }
-
+		}
+	}
+	test-slider2 {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		padding: 0px 5px;
+		label {
+			display: table;
+			position: relative;
+			width: 100%;
+			span {
+				display: table-cell;
+				width: 70%;
+			}
+			input {
+				display: table-cell;
+				width: 100%;
+				font-size: 23px;
+				text-align: center;
+				padding: 0px 5px;
+				min-height: 0px;
+				margin: 5px 0px;
+			}
+		}
+	}
 }

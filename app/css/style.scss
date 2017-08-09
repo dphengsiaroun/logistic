@@ -1,32 +1,31 @@
 @import './color';
 @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('font/SourceSansPro.woff') format('woff');
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('font/SourceSansPro.woff') format('woff');
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    color: $fontColor;
-    font-family: 'Source Sans Pro', sans-serif;
-    // letter-spacing: -0.5px;
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	color: $fontColor;
+	font-family: 'Source Sans Pro', sans-serif; // letter-spacing: -0.5px;
 }
 
 svg {
-    fill: $fontColor;
+	fill: $fontColor;
 }
 
 body {
-    background: $backgroundColor;
+	background: $backgroundColor;
 }
 
 ui-view {
-    display: block;
+	display: block;
 	min-height: 500px;
-    padding: 58px 0px 0px;
+	padding: 58px 0px 0px;
 }
 
 h1,
@@ -35,172 +34,179 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
-    text-align: center;
+	margin: 0;
+	text-align: center;
 }
 
 h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+	font-size: 30px;
+	margin-bottom: 10px;
 }
 
 form {
-    padding: 0 5px;
+	padding: 0 5px;
 }
 
 input,
 my-input {
-    // Avoid safari to put its own settings
-    -webkit-appearance: none;
-    display: block;
-    font-size: 18px;
-    width: 100%;
-    margin: 5px 0px;
-    background: white;
-    box-shadow: none;
-    padding: 15px 10px;
-    border-radius: 3px;
-    border: 1px solid $borderColor;
+	// Avoid safari to put its own settings
+	-webkit-appearance: none;
+	display: block;
+	font-size: 18px;
+	width: 100%;
+	margin: 5px 0px;
+	background: white;
+	box-shadow: none;
+	padding: 15px 10px;
+	border-radius: 3px;
+	border: 1px solid $borderColor;
 }
 
 input[readonly],
 my-input[readonly] {
-    background-color: $littleLightGray;
+	background-color: $littleLightGray;
 }
 
 textarea {
-    -webkit-appearance: none;
-    display: block;
-    font-size: 18px;
-    width: 100%;
-    min-height: 100px;
-    margin: 5px 0px;
-    background: white;
-    box-shadow: none;
-    padding: 17px 10px;
-    border-radius: 3px;
-    border: 1px solid #ebebeb;
+	-webkit-appearance: none;
+	display: block;
+	font-size: 18px;
+	width: 100%;
+	min-height: 100px;
+	margin: 5px 0px;
+	background: white;
+	box-shadow: none;
+	padding: 17px 10px;
+	border-radius: 3px;
+	border: 1px solid #ebebeb;
 }
+
+
+
+
+
 
 
 /* placeholder */
 
 ::-webkit-input-placeholder {
-    /* Chrome */
-    color: $placeholderColor;
+	/* Chrome */
+	color: $placeholderColor;
 }
 
 :-ms-input-placeholder {
-    /* IE 10+ */
-    color: $placeholderColor;
+	/* IE 10+ */
+	color: $placeholderColor;
 }
 
 ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: $placeholderColor;
-    opacity: 1;
+	/* Firefox 19+ */
+	color: $placeholderColor;
+	opacity: 1;
 }
 
 :-moz-placeholder {
-    /* Firefox 4 - 18 */
-    color: $placeholderColor;
-    opacity: 1;
+	/* Firefox 4 - 18 */
+	color: $placeholderColor;
+	opacity: 1;
 }
 
 my-input {
-    color: $placeholderColor;
-    line-height: 18px;
+	color: $placeholderColor;
+	line-height: 18px;
 }
 
 my-input.filled {
-    color: black;
+	color: black;
 }
 
 label {
-    display: block;
-    font-weight: bold;
-    font-size: 17px;
+	display: block;
+	font-weight: bold;
+	font-size: 17px;
 }
 
 info {
-    display: block;
-    font-weight: normal;
-    font-size: 17px;
+	display: block;
+	font-weight: normal;
+	font-size: 17px;
 }
 
 comment {
-    display: block;
-    font-size: 15px;
-    margin-bottom: 20px;
+	display: block;
+	font-size: 15px;
+	margin-bottom: 20px;
 }
 
 a {
-    text-decoration: none;
-    color: $fontColor;
+	text-decoration: none;
+	color: $fontColor;
 }
 
 .clear {
-    clear: both;
+	clear: both;
 }
 
 lg-title,
 title {
-    display: block;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    padding: 30px 10px 10px;
+	display: block;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding: 30px 10px 10px;
 }
 
 title {
-    padding: 0px;
+	padding: 0px;
 }
 
 subtitle {
-    display: block;
-    font-size: 19px;
-    text-align: center;
-    padding: 0px 10px 10px;
+	display: block;
+	font-size: 19px;
+	text-align: center;
+	padding: 0px 10px 10px;
 }
 
 title-icon {
-    display: block;
-    font-size: 60px;
-    font-weight: bold;
-    text-align: center;
-    padding: 0px;
+	display: block;
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+	padding: 0px;
 }
 
 info-route {
 	display: block;
-    font-size: 15px;
+	font-size: 15px;
 }
 
 button {
-    width: 100%;
-    background: $buttonColor;
-    color: white;
-    height: 50px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
-    margin: 10px 0px;
+	width: 100%;
+	background: $buttonColor;
+	color: white;
+	height: 50px;
+	font-size: 16px;
+	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+	margin: 10px 0px;
 }
 
 button[disabled] {
-    background: $disabledButtonColor;
+	background: $disabledButtonColor;
 }
 
 button i {
-    color: white;
+	color: white;
 }
 
 button.critical {
-    background: $criticalButtonColor;
-    color: white;
+	background: $criticalButtonColor;
+	color: white;
 }
 
 .critical {
-    color: $criticalFontColor;
+	color: $criticalFontColor;
 }
+
+

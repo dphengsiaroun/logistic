@@ -22,6 +22,7 @@ import lgNum from './modules/form/lg-num/lg-num.js';
 import lgSlider from './modules/form/lg-slider/lg-slider.js';
 import lgUpload from './modules/form/lg-upload/lg-upload.js';
 
+import lgDesktop from './modules/site/lg-desktop/lg-desktop.js';
 import lgMenu from './modules/site/lg-menu/lg-menu.js';
 import lgRoute from './modules/site/lg-route/lg-route.js';
 
@@ -61,6 +62,7 @@ const app = angular.module('main', [
 	lgSlider,
 	lgUpload,
 
+	lgDesktop,
 	lgMenu,
 	lgRoute,
 

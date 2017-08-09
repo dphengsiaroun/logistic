@@ -28,7 +28,6 @@ lg-error span {
 lg-prompt {
 	display: block;
 	padding: 0px 10px;
-	width: 100%;
 	question {
 		display: block;
 		text-align: center;
@@ -53,6 +52,7 @@ lg-prompt {
 }
 
 lg-footer {
+	display: block;
 	p {
 		width: 100%;
 		padding: 15px;
@@ -158,20 +158,9 @@ lg-create-button {
 	}
 }
 
-add-ads {
-	display: table;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	button {
-		display: table-cell;
-		width: 100%;
-		height: 45px;
-		margin: 0px;
-		padding: 5px;
-		vertical-align: top;
-		border-radius: 0px;
+@media all and (min-width: 736px) and (max-width: 1920px) {
+	add-ads {
+		position: initial;
 	}
 }
 
@@ -196,5 +185,11 @@ lg-hr {
 		width: 100%;
 		top: 16px;
 		border: 1px solid $darkBorderColor;
+	}
+}
+
+@media all and (min-width: 736px) and (max-width: 1920px) {
+	lg-footer {
+		width: 322px;
 	}
 }
