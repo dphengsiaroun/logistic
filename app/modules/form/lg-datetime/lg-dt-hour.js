@@ -12,6 +12,7 @@ export const lgDtHour = {
 	},
 	template: lgDtHourHtml,
 	controller: function LgDtHourCtrl($scope, $element, $window, $timeout) {
+		'ngInject';
 		const ctrl = this;
 		let hourElt;
 		let isUpdating = false;
