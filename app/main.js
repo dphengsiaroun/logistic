@@ -36,7 +36,7 @@ import lgTest from './modules/technic/lg-test/lg-test.js';
 import lgWidget from './modules/technic/lg-widget/lg-widget.js';
 import lgBackDetector from './modules/technic/lg-back-detector/lg-back-detector.js';
 
-const app = angular.module('main', [
+angular.module('main', [
 	'ngTouch',
 	'ngSanitize',
 	'vcRecaptcha',
@@ -76,59 +76,3 @@ const app = angular.module('main', [
 	lgWidget,
 	lgBackDetector
 ]);
-
-app.config(function($touchProvider) {
-	'ngInject';
-	$touchProvider.ngClickOverrideEnabled(true);
-});
-
-app.config(function($sceDelegateProvider) {
-	'ngInject';
-	$sceDelegateProvider.resourceUrlWhitelist([
-		// Allow same origin resource loads.
-		'self',
-		// Allow loading from our assets domain.  Notice the difference between * and **.
-		'https://www.google.com/**'
-	]);
-});
-
-
-
-app.run(function($window) {
-	// Fix the jQuery issue
-	$window.jQuery = window.jQuery;
-	$window.$ = window.jQuery;
-});
-
-
-
-
-
-// permet de récuperer les valeurs en post sous format json
-app.run(function($rootScope, $window, $state, $parse) {
-	'ngInject';
-	$rootScope.back = function() {
-		console.log('back', arguments);
-		$window.history.back();
-	};
-
-	$rootScope.goto = function(url) {
-		console.log('goto', arguments);
-		$window.location.href = url;
-	};
-
-	$rootScope.goToState = function(state) {
-		console.log('goToState', arguments);
-		const array = state.split(/[()]/);
-		const to = array[0];
-		const params = $parse(array[1])({});
-		console.log('goto', to, params);
-		$state.go(to, params);
-	};
-
-	$rootScope.hello = function() {
-		// alert('hello');
-	};
-
-});
-

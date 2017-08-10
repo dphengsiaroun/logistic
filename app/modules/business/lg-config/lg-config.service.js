@@ -1,9 +1,39 @@
-export function LgConfig($rootScope, $http) {
+export function LgConfig($rootScope, $http, $window, $state, $parse) {
 	'ngInject';
 	const config = this;
 	config.init = () => {
 		$rootScope.config = config;
+
+		$rootScope.back = function() {
+			console.log('back', arguments);
+			$window.history.back();
+		};
+
+		$rootScope.goto = function(url) {
+			console.log('goto', arguments);
+			$window.location.href = url;
+		};
+
+		$rootScope.goToState = function(state) {
+			console.log('goToState', arguments);
+			const array = state.split(/[()]/);
+			const to = array[0];
+			const params = $parse(array[1])({});
+			console.log('goto', to, params);
+			$state.go(to, params);
+		};
+
+		$rootScope.hello = function() {
+			// alert('hello');
+		};
+
+		// Fix the jQuery issue
+		/* eslint-disable angular/window-service */
+		$window.jQuery = window.jQuery;
+		$window.$ = window.jQuery;
+		/* eslint-enable */
 	};
+
 	config.typeOfGoods = ['Classique', 'Dangereux', 'Animaux', 'Massif', 'Frigo'];
 	config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
 	config.countries = ['Algérie', 'France', 'Maroc'];
