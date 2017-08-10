@@ -1,4 +1,4 @@
-export function Loader($http, $state, $q, connection, user) {
+export function Loader($http, $state, $q, $window, connection, user) {
 	'ngInject';
 
 	const service = this;
@@ -86,7 +86,7 @@ export function Loader($http, $state, $q, connection, user) {
 	service.get = function(id) {
 		return service.list().then(function(loaders) {
 			service.loaders = loaders;
-			service.loaderMap = window.makeMap(loaders);
+			service.loaderMap = $window.makeMap(loaders);
 			service.current = service.loaderMap[id];
 		});
 	};

@@ -1,4 +1,4 @@
-export function Proposal($http, $state, $q, connection, user) {
+export function Proposal($http, $state, $q, $window, connection, user) {
 	'ngInject';
 
 	const service = this;
@@ -83,7 +83,7 @@ export function Proposal($http, $state, $q, connection, user) {
 		console.log('service.proposals', service.proposals);
 		return this.list().then(function(proposals) {
 			service.proposals = proposals;
-			service.proposalMap = window.makeMap(proposals);
+			service.proposalMap = $window.makeMap(proposals);
 			service.current = service.proposalMap[id];
 		});
 	};

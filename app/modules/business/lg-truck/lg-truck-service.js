@@ -1,5 +1,5 @@
 
-export function Truck($q, $http, $state, user, connection) {
+export function Truck($q, $http, $state, $window, user, connection) {
 	'ngInject';
 	const service = this;
 	service.initCreateData = function() {
@@ -70,7 +70,7 @@ export function Truck($q, $http, $state, user, connection) {
 			service.error = undefined;
 			service.truckMap = response.data.trucks;
 			console.log('service.truckMap', service.truckMap);
-			service.trucks = window.values(service.truckMap);
+			service.trucks = $window.values(service.truckMap);
 			console.log('service.trucks', service.trucks);
 		}).catch(function(error) {
 			service.error = error;
