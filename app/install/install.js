@@ -9,15 +9,13 @@ import successfullyInstalledUrl from './tmpl/successfully-installed.html';
 import alreadyInstalledUrl from './tmpl/already-installed.html';
 import installFailedUrl from './tmpl/install-failed.html';
 
-
-const app = angular.module('mainApp', ['ngRoute']);
-
-app.config(['$routeProvider', function($routeProvider) {
-
+function config($routeProvider) {
+	'ngInject';
 	$routeProvider
 		.when('/', {
 			template: homeUrl,
-			controller: 'HomeCtrl'
+			controller: 'HomeCtrl',
+			controllerAs: '$ctrl'
 		})
 		.when('/install', {
 			template: installUrl
@@ -34,14 +32,12 @@ app.config(['$routeProvider', function($routeProvider) {
 		.otherwise({
 			redirectTo: '/'
 		});
-}]);
+}
 
-app.run(['$injector', function($injector) {
+function Install($rootScope, $http, $location, $window) {
+	'ngInject';
 
-	const $rootScope = $injector.get('$rootScope');
-	const $http = $injector.get('$http');
-	const $location = $injector.get('$location');
-	const $window = $injector.get('$window');
+	this.init = () => {};
 
 	$rootScope.obj = {};
 
@@ -69,7 +65,7 @@ app.run(['$injector', function($injector) {
 			url: '../ws/install/install.php',
 			method: 'POST',
 			data: $rootScope.obj,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ok') {
@@ -116,12 +112,15 @@ app.run(['$injector', function($injector) {
 		});
 	};
 
-}]);
+}
 
-app.controller('HomeCtrl', ['$injector', function($injector) {
-	console.log('HomeCtrl', arguments);
-	const $rootScope = $injector.get('$rootScope');
-	$rootScope.isInstalled();
-}]);
-
-
+angular.module('install', ['ngRoute'])
+	.config(config)
+	.service('install', Install)
+	.run((install) => {
+		install.init();
+	})
+	.controller('HomeCtrl', function HomeCtrl($rootScope) {
+		console.log('HomeCtrl', arguments);
+		$rootScope.isInstalled();
+	});

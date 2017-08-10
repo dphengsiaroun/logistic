@@ -1,4 +1,4 @@
-export function Carrier($http, $state, $q, connection, user) {
+export function Carrier($http, $state, $q, $window, connection, user) {
 	'ngInject';
 
 	const service = this;
@@ -78,7 +78,7 @@ export function Carrier($http, $state, $q, connection, user) {
 		console.log('service.carriers', service.carriers);
 		return this.list().then(function(carriers) {
 			service.carriers = carriers;
-			service.carrierMap = window.makeMap(carriers);
+			service.carrierMap = $window.makeMap(carriers);
 			service.current = service.carrierMap[id];
 		});
 	};
