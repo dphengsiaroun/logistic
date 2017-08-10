@@ -11,15 +11,14 @@ export function config($stateProvider) {
 		url: '/signout',
 		component: 'lgPrompt',
 		resolve: {
-			service: ['$injector', function($injector) {
-				const $rootScope = $injector.get('$rootScope');
-				const connection = $injector.get('connection');
+			service: function($rootScope, connection) {
+				'ngInject';
 				return {
 					questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
 					doNo: $rootScope.back,
 					doYes: connection.delete
 				};
-			}]
+			}
 		},
 		needsUser: true
 	});

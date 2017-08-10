@@ -1,7 +1,7 @@
 import './lg-carrier.scss';
 module.exports = 'lg-carrier';
 
-import { Carrier } from './service/carrier.js';
+import { Carrier } from './carrier.service.js';
 import { CarrierStepManager } from './service/carrier-step-manager.js';
 
 import * as lib from './lg-carrier-route.js';

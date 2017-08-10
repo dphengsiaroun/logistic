@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['google', 'eslint:recommended'],
+	extends: ['google', 'eslint:recommended', 'plugin:angular/johnpapa'],
 	parserOptions: {
 		ecmaVersion: 6,
 		sourceType: 'module',

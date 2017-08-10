@@ -18,6 +18,7 @@ export const lgDtMonth = {
 	},
 	template: lgDtMonthHtml,
 	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
+		'ngInject';
 		const ctrl = this;
 		console.log('lgMonth ctrl', ctrl, arguments);
 		ctrl.$onInit = function() {

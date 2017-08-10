@@ -1,9 +1,5 @@
 import Hashes from 'jshashes';
 
-const makeUrl = function(str) {
-	return 'ws/user/' + str + '.php';
-};
-
 export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 	'ngInject';
 	const service = this;

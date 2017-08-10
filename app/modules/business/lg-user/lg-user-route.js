@@ -104,7 +104,7 @@ export function config($stateProvider) {
 		url: '/do-you-have-an-account',
 		component: 'lgPrompt',
 		resolve: {
-			service: function($state, user) {
+			service: function($state) {
 				'ngInject';
 				return {
 					questionMsg: 'Avez-vous déjà un compte chez nous&nbsp;?',
