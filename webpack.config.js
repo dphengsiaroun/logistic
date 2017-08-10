@@ -14,74 +14,71 @@ module.exports = {
 	},
 	module: {
 		rules: [{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: [{
-					loader: 'ng-annotate-loader',
-				}, {
-					loader: 'babel-loader',
-				}]
-			},
-			{
-				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader?minimize&sourceMap'
-				})
-			},
-			{
-				test: /\.scss$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader?minimize&sourceMap!sass-loader?sourceMap'
-				})
-			},
-			// css-loader use file-loader and url-loader to require the fonts.
-			{
-				test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-				use: 'url-loader?limit=10000&mimetype=application/font-woff'
-			},
-			{
-				test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-				use: 'url-loader?limit=10000&mimetype=application/octet-stream'
-			},
-			{
-				test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-				use: 'file-loader'
-			},
-			{
-				test: /fontawesome-webfont\.svg(\?v=\d+\.\d+\.\d+)?$/,
-				use: 'url-loader?limit=10000&mimetype=image/svg+xml'
-			},
-			// managing angular templates into javascript file.
-			{
-				test: /\.html$/,
-				use: [{
-					loader: 'html-loader',
-					options: {
-						attrs: 'img-svg:src',
-						root: path.resolve('./app'),
-						minimize: true
-					}
-				}]
-			},
-			{
-				test: /\.svg/,
-				exclude: /fontawesome-webfont/,
-				use: [{
-					loader: 'ngtemplate-loader',
-					options: {
-						relativeTo: 'app'
-					}
-				}, {
-					loader: 'html-loader',
-					options: {
-						attrs: false,
-						minimize: true
-					}
-				}]
-			}
-		]
+			test: /\.js$/,
+			exclude: /node_modules/,
+			use: [{
+				loader: 'ng-annotate-loader',
+			}, {
+				loader: 'babel-loader',
+			}]
+		}, {
+			test: /\.css$/,
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: 'css-loader?minimize&sourceMap'
+			})
+		}, {
+			test: /\.scss$/,
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: 'css-loader?minimize&sourceMap!sass-loader?sourceMap'
+			})
+		}, {
+			test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+			use: 'url-loader?limit=10000&mimetype=application/font-woff'
+		}, {
+			test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+			use: 'url-loader?limit=10000&mimetype=application/octet-stream'
+		}, {
+			test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+			use: 'file-loader'
+		}, {
+			test: /fontawesome-webfont\.svg(\?v=\d+\.\d+\.\d+)?$/,
+			use: 'url-loader?limit=10000&mimetype=image/svg+xml'
+		}, {
+			test: /\.html$/,
+			use: [{
+				loader: 'html-loader',
+				options: {
+					attrs: 'img-svg:src',
+					root: path.resolve('./app'),
+					minimize: true
+				}
+			}]
+		}, {
+			test: /\.svg/,
+			exclude: /fontawesome-webfont/,
+			use: [{
+				loader: 'ngtemplate-loader',
+				options: {
+					relativeTo: 'app'
+				}
+			}, {
+				loader: 'html-loader',
+				options: {
+					attrs: false,
+					minimize: true
+				}
+			}]
+		}, {
+			test: /\.(png|jpg)$/,
+			use: [{
+				loader: 'url-loader',
+				options: {
+					limit: 8192
+				}
+			}],
+		}]
 	},
 	plugins: [
 		new ExtractTextPlugin('[name].css'),
@@ -92,7 +89,7 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			'window.jQuery': 'jquery',
 			'window.$': 'jquery',
-        })
+		})
 		// new webpack.optimize.UglifyJsPlugin({
 		// 	compress: {
 		// 		warnings: false,
