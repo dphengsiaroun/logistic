@@ -32,11 +32,11 @@ export const lgDtHour = {
 			console.log('onScroll', arguments);
 			if (isScrolling === false) {
 				isScrolling = true;
-				setTimeout(function() {
+				$timeout(function() {
 					ctrl.swipe();
 					$scope.$apply();
 					isScrolling = false;
-				}, 100);
+				}, 100, false);
 			}
 		}
 
