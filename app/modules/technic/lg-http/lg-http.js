@@ -5,7 +5,7 @@ const app = angular.module(module.exports, ['lg-misc']);
 app.config(function($httpProvider, $provide) {
 	'ngInject';
 
-	$provide.factory('myPhpErrorInterceptor', function($q, lgMisc) {
+	$provide.factory('myPhpErrorInterceptor', function myPhpErrorInterceptorFactory($q, lgMisc) {
 		'ngInject';
 
 		return {

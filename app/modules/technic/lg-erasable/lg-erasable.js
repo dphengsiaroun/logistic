@@ -4,7 +4,7 @@ import './lg-erasable.scss';
 
 const app = angular.module(module.exports, []);
 
-app.directive('lgErasable', function($compile) {
+app.directive('lgErasable', function lgErasable($compile) {
 	'ngInject';
 	return {
 		restrict: 'A',

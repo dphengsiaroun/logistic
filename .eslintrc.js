@@ -23,6 +23,7 @@ module.exports = {
 		'angular/file-name': 0,
 		'angular/function-type': [2, "named"],
 		'angular/no-service-method': 0,
+		'angular/module-getter': 0,
 	},
 	env: {
 		browser: true,

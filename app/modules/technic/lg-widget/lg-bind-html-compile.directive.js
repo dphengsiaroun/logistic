@@ -12,4 +12,4 @@ export function lgBindHtmlCompile($compile) {
 			});
 		}
 	};
-};
+}

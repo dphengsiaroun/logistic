@@ -2,7 +2,7 @@ module.exports = 'lg-error';
 
 const app = angular.module(module.exports, []);
 
-app.filter('message', function() {
+app.filter('message', function messageFilter() {
 	return function(error) {
 		const cfg = {
 			'-1': 'Oups ! Erreur technique PHP.',
