@@ -5,7 +5,7 @@ import lgMenuHtml from './tmpl/lg-menu.html';
 export const lgMenu = {
 	template: lgMenuHtml,
 	controller: function LgMenuCtrl($element, $scope, $state, $rootScope,
-		$timeout, user, carrier, loader, proposal, connection) {
+		$timeout, $window, user, carrier, loader, proposal, connection) {
 
 		'ngInject';
 		const ctrl = this;
@@ -74,17 +74,17 @@ export const lgMenu = {
 
 		this.refresh = function() {
 			console.log('refresh', arguments);
-			ctrl.isSmallScreen = window.innerWidth < 768;
-			ctrl.isMobile = window.mobilecheck() || ctrl.isSmallScreen;
-			ctrl.isLandscape = window.innerWidth > window.innerHeight;
-			ctrl.innerHeight = window.innerHeight;
+			ctrl.isSmallScreen = $window.innerWidth < 768;
+			ctrl.isMobile = $window.mobilecheck() || ctrl.isSmallScreen;
+			ctrl.isLandscape = $window.innerWidth > $window.innerHeight;
+			ctrl.innerHeight = $window.innerHeight;
 			console.log('ctrl.isSmallScreen', ctrl.isSmallScreen);
 			console.log('ctrl.isMobile', ctrl.isMobile);
 			console.log('ctrl.isLandscape', ctrl.isLandscape);
 			console.log('ctrl.innerHeight', ctrl.innerHeight);
 		};
 
-		window.onresize = function(event) {
+		$window.onresize = function(event) {
 			ctrl.refresh();
 			$scope.$apply();
 		};

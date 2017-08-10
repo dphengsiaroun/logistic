@@ -93,8 +93,9 @@ app.config(function($sceDelegateProvider) {
 });
 
 
-// Fix the jQuery issue
+
 app.run(function($window) {
+	// Fix the jQuery issue
 	$window.jQuery = window.jQuery;
 	$window.$ = window.jQuery;
 });
