@@ -22,7 +22,7 @@ lg-desktop {
 			display: block;
 			width: 600px;
 			position: fixed;
-			top: 2%;
+			top: 16px;
 		}
 	}
 }
@@ -34,6 +34,9 @@ lg-mobile {
 }
 
 @media all and (min-width: 768px) {
+	body {
+		overflow: hidden;
+	}
 	lg-menu {
 		width: 325px;
 		height: 59px;
