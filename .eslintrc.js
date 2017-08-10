@@ -19,7 +19,10 @@ module.exports = {
 		'semi': ['error', 'always'],
 		'quotes': ['error', 'single'],
 		'eqeqeq': ['error', 'always'],
-		'max-lines': ["error", {max: 200, skipBlankLines: false}]
+		'max-lines': ["error", { max: 200, skipBlankLines: false }],
+		'angular/file-name': 0,
+		'angular/function-type': [2, "named"],
+		'angular/no-service-method': 0,
 	},
 	env: {
 		browser: true,
