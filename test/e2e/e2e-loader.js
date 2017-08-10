@@ -20,7 +20,7 @@ describe('Loader CRUD', function() {
 
 	it('should create a loader ad', function() {
 		console.log('-> create a loader ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.id('pr-create-loader-ad-button')).click();
 		utils.lgSelect('transportCategory', loaderAd.transportCategory);
 		utils.lgChoiceSelect('transportTruckType', loaderAd.transportTruckType);
@@ -63,12 +63,12 @@ describe('Loader CRUD', function() {
 		console.log('-> user created', arguments);
 		element(by.css('button.ok')).click();
 		console.log('-> Loader ad created', arguments);
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 
 	it('should retrieve loader ad', function() {
 		console.log('-> retrieve a loader ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.id('pr-retrieve-loader-ads-button')).click();
 		const adElt = element(by.css('loader-list ad-block'));
 		const titleElt = adElt.element(by.css('title'));
@@ -77,7 +77,7 @@ describe('Loader CRUD', function() {
 
 	it('should update loader ad', function() {
 		console.log('-> update a loader ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('loader-list ad-block'));
@@ -86,12 +86,12 @@ describe('Loader CRUD', function() {
 		element(by.name('priceWanted')).clear().sendKeys('5000');
 		element(by.id('pr-update-loader-button-confirm')).click();
 		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 
 	it('should delete a loader ad', function() {
 		console.log('-> delete a loader ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('loader-list ad-block'));
@@ -99,6 +99,6 @@ describe('Loader CRUD', function() {
 		element(by.linkText('Supprimer cette annonce')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 });

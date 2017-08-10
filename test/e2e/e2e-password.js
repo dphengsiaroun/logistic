@@ -32,7 +32,7 @@ describe('Test Password', function() {
 		// browser.sleep(5000);
 		element(by.css('[name=email]')).clear().sendKeys(user.email);
 		element(by.css('button')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/forgotten-password-mailsent');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'forgotten-password-mailsent');
 		console.log('data.passwordMailFile', data.passwordMailFile);
 		expect(browser.call(function() {
 			console.log('about to check if file exists');
@@ -50,13 +50,13 @@ describe('Test Password', function() {
 		expect(element(by.css('subtitle')).getText()).toEqual('choisissez un nouveau mot de passe');
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password + '2');
 		element(by.css('button')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/updated-password');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'updated-password');
 		element(by.css('button')).click();
 	});
 
 	it('test connection with a new password', function() {
 		console.log('-> Start', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();		
 		element(by.linkText('Se connecter')).click();
 		element(by.name('login')).clear().sendKeys(user.email);
@@ -68,13 +68,13 @@ describe('Test Password', function() {
 
 	it('should change the password', function() {
 		console.log('-> Start', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();		
 		element(by.linkText('Mon profil')).click();
 		element(by.linkText('Modifier mot de passe')).click();
 		element(by.name('oldPassword-crypted')).clear().sendKeys(user.password + '2');
 		element(by.name('newPassword-crypted')).clear().sendKeys(user.password);
 		element(by.css('button')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/updated-password');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'updated-password');
 	});
 });

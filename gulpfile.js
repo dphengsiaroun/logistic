@@ -94,6 +94,7 @@ gulp.task('webpack', function(callback) {
 	webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
 		compress: {
 			warnings: false,
+			drop_console: true
 		},
 		output: {
 			comments: false,

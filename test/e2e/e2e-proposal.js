@@ -26,28 +26,28 @@ describe('Proposal CRUD', function() {
 
 	it('should create a proposal', function() {
 		console.log('-> create a proposal', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.id('pr-retrieve-loader-ads-button')).click();
 		const adElt = element(by.css('loader-list ad-block'));
 		adElt.element(by.css('title')).click();
 		element(by.id('create-proposal')).click();
 		element(by.id('confirm-create-proposal')).click();
 		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + '');
 	});
 
 	it('should retrieve proposal', function() {
 		console.log('-> retrieve a proposal', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/proposal/20');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'proposal/20');
 	});
 
 	it('should update a proposal', function() {
 		console.log('-> update a proposal', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
@@ -55,18 +55,18 @@ describe('Proposal CRUD', function() {
 		element(by.name('titleAd')).clear().sendKeys('Chargement de 50 voitures');
 		element(by.id('pr-update-proposal-button-confirm')).click();
 		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/proposals`);
+		expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);
 	});
 
 	it('should delete a proposal', function() {
 		console.log('-> delete proposal', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
 		element(by.linkText('Supprimer cette proposition')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/proposals`);
+		expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);
 	});
 });

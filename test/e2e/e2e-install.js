@@ -1,6 +1,7 @@
 'use strict';
 
 const utils = require('./utils.js');
+const data = require('./data/data.js');
 
 describe('Install', function() {
 
@@ -19,7 +20,7 @@ describe('Install', function() {
 
 	it('should uninstall', function() {
 		console.log('-> uninstall', arguments);
-		browser.get('http://localhost:8000/app/install');
+		browser.get(data.mainUrl + 'install');
 		element(by.css('button')).click();
 		// browser.sleep(35000);
 		const message = element(by.css('h1'));
@@ -39,6 +40,6 @@ describe('Install', function() {
 	it('should go to website', function() {
 		console.log('-> go to website', arguments);
 		element(by.linkText('Go to website')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl);
 	});
 });

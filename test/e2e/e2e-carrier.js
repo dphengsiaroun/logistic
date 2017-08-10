@@ -21,7 +21,7 @@ describe('Carrier CRUD', function() {
 
 	it('should create carrier ad', function() {
 		console.log('-> create a carrier ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.id('pr-create-carrier-ad-button')).click();
 		element(by.id('pr-select-truck-link')).click();
 		element(by.id('pr-continue-button')).click();
@@ -60,12 +60,12 @@ describe('Carrier CRUD', function() {
 		element(by.id('pr-create-carrier-button-confirm')).click();
 		element(by.css('button.ok')).click();
 		console.log('-> Carrier ad created', arguments);
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 	});
 
 	it('should retrieve carrier ad', function() {
 		console.log('-> retrieve a carrier ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.id('pr-retrieve-carrier-ads-button')).click();
 		const adElt = element(by.css('carrier-list ad-block'));
 		const titleElt = adElt.element(by.css('title'));
@@ -74,7 +74,7 @@ describe('Carrier CRUD', function() {
 
 	it('should update carrier ad', function() {
 		console.log('-> update a carrier ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('carrier-list ad-block'));
@@ -85,12 +85,12 @@ describe('Carrier CRUD', function() {
 		element(by.id('pr-add-pricing-button')).click();
 		element(by.id('pr-update-carrier-button-confirm')).click();
 		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 	});
 
 	it('should delete a carrier ad', function() {
 		console.log('-> delete a carrier ad', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('carrier-list ad-block'));
@@ -98,6 +98,6 @@ describe('Carrier CRUD', function() {
 		element(by.linkText('Supprimer cette annonce')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 	});
 });

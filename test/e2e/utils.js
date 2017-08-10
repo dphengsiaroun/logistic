@@ -36,7 +36,7 @@ utils.isDirectoryExisting = function(p) {
 
 utils.user = {};
 utils.user.create = function(user) {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
 	element(by.linkText('Se connecter')).click();
 	element(by.linkText('Créer un nouveau compte')).click();
@@ -62,7 +62,7 @@ utils.user.create = function(user) {
 
 utils.user.truck = {};
 utils.user.truck.create = function(truck) {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
 	element(by.linkText('Mes véhicules')).click();
 	element(by.id('pr-create-truck-button')).click();
@@ -76,45 +76,45 @@ utils.user.truck.create = function(truck) {
 	utils.lgUploadSelect('imageId', truck.imageId);
 	element(by.id('pr-add-vehicle-button')).click();
 	element(by.css('button.ok')).click();
-	expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
+	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/truck`);
 };
 
 utils.user.truck.retrieve = function(user, truck) {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
 	element(by.linkText('Mes véhicules')).click();
-	element(by.css('img')).click();
+	element(by.css('truck-list img')).click();
 	expect(browser.getCurrentUrl()).toEqual(
-		`http://localhost:8000/app/${user.login.toLowerCase()}/truck/${truck.name}`
+		`${data.mainUrl}${user.login.toLowerCase()}/truck/${truck.name}`
 	);
 };
 
 utils.user.truck.update = function(user, truck) {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
 	element(by.linkText('Mes véhicules')).click();
-	element(by.css('img')).click();
+	element(by.css('truck-list img')).click();
 	element(by.id('pr-update-button')).click();
 	element(by.name('model')).clear().sendKeys('Renault');
 	element(by.id('pr-update-button-confirm')).click();
 	element(by.css('button.ok')).click();
-	expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
+	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/truck`);
 };
 
 utils.user.truck.delete = function(user, truck) {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
 	element(by.linkText('Mes véhicules')).click();
 	element(by.css('.img-fix')).click();
 	element(by.linkText('Supprimer ce véhicule')).click();
 	element(by.css('button.confirm')).click();
 	element(by.css('button.ok')).click();
-	expect(browser.getCurrentUrl()).toEqual(`http://localhost:8000/app/${user.login.toLowerCase()}/truck`);
+	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/truck`);
 };
 
 utils.user.carrierAd = {};
 utils.user.carrierAd.create = function(carrierAd) {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 		element(by.id('pr-create-carrier-ad-button')).click();
 		element(by.id('pr-select-truck-link')).click();
 		element(by.id('truck-' + carrierAd.truck.name)).click();
@@ -127,12 +127,12 @@ utils.user.carrierAd.create = function(carrierAd) {
 		element(by.id('pr-create-carrier-button-confirm')).click();
 		element(by.css('button')).click();
 		console.log('-> Carrier ad created', arguments);
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/carriers');
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 };
 
 utils.user.loaderAd = {};
 utils.user.loaderAd.create = function(loaderAd) {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 	element(by.id('pr-create-loader-ad-button')).click();
 	utils.lgSelect('transportCategory', loaderAd.transportCategory);
 	utils.lgChoiceSelect('transportTruckType', loaderAd.transportTruckType);
@@ -147,12 +147,12 @@ utils.user.loaderAd.create = function(loaderAd) {
 	element(by.name('title')).sendKeys(loaderAd.title);
 	element(by.id('pr-button-create-loader-ad')).click();
 	element(by.css('button.ok')).click();
-	expect(browser.getCurrentUrl()).toEqual('http://localhost:8000/app/ads/loaders');
+	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 };
 
 
 utils.logout = function() {
-	browser.get('http://localhost:8000/app/');
+	browser.get(data.mainUrl);
 	element(by.css('logo')).click();
 	element(by.css('menu-bar.fa.fa-bars')).click();
 	element(by.linkText('Se déconnecter')).click();

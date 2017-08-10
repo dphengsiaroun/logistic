@@ -11,7 +11,7 @@ describe('Selenium Test Case', function() {
 
 	it('should create a connection with an email (login)', function() {
 		console.log('-> login with an email', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('logo')).click();
 		element(by.css('menu-bar.fa.fa-bars')).click();
 		element(by.linkText('Se connecter')).click();
@@ -28,7 +28,7 @@ describe('Selenium Test Case', function() {
 	it('should create a connection with pseudo (login)', function() {
 		utils.logout();
 		console.log('-> login with pseudo', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('logo')).click();
 		element(by.css('menu-bar.fa.fa-bars')).click();
 		element(by.linkText('Se connecter')).click();
@@ -45,7 +45,7 @@ describe('Selenium Test Case', function() {
 	it('should create a connection with phone (login)', function() {
 		utils.logout();
 		console.log('-> login with phone', arguments);
-		browser.get('http://localhost:8000/app/');
+		browser.get(data.mainUrl);
 		element(by.css('logo')).click();
 		element(by.css('menu-bar.fa.fa-bars')).click();
 		element(by.linkText('Se connecter')).click();
