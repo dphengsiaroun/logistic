@@ -27,7 +27,8 @@ app.component('lgUpload', {
 		formData: '='
 	},
 	require: {ngModel: 'ngModel'},
-	controller: function LgUploadCtrl($scope, $http) {
+	controller: function LgUploadCtrl($scope, $http, $window) {
+		'ngInject';
 		console.log('DemoFileUploadController', arguments);
 		const ctrl = this;
 
@@ -36,7 +37,7 @@ app.component('lgUpload', {
 			$scope.options = {
 				url: url,
 				formData: ctrl.formData,
-				disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent),
+				disableImageResize: /Android(?!.*Chrome)|Opera/.test($window.navigator && navigator.userAgent),
 				imageMaxWidth: 1280,
 				imageMaxHeight: 960,
 				imageCrop: true // Force cropped images

@@ -3,8 +3,7 @@ import './lg-eyepassword.scss';
 
 const app = angular.module(module.exports, []);
 
-app.directive('input', ['$injector', function($injector) {
-	const $compile = $injector.get('$compile');
+app.directive('input', function inputDirective($compile) {
 	return {
 		restrict: 'E',
 		require: '?ngModel',
@@ -33,7 +32,7 @@ app.directive('input', ['$injector', function($injector) {
 		}
 	};
 
-}]);
+});
 
 import lgEyePasswordHtml from './tmpl/lg-eyepassword.html';
 

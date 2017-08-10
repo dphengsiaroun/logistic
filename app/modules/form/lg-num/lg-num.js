@@ -4,7 +4,7 @@ module.exports = 'lg-num';
 
 const app = angular.module(module.exports, []);
 
-app.directive('input', function($compile) {
+app.directive('input', function inputDirective($compile) {
 	return {
 		restrict: 'E',
 		require: '?ngModel',
