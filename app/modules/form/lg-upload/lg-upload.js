@@ -19,21 +19,6 @@ app.config(['$httpProvider', 'fileUploadProvider', function($httpProvider, fileU
 	fileUploadProvider.defaults.autoUpload = true;
 }]);
 
-app.controller('FileDestroyController', ['$scope', '$http', function($scope, $http) {
-	const file = $scope.file;
-	let state;
-	if (file.url) {
-		file.$state = function() {
-			return state;
-		};
-
-	} else if (!file.$cancel && !file._index) {
-		file.$cancel = function() {
-			$scope.clear(file);
-		};
-	}
-}]);
-
 import lgUploadHtml from './tmpl/lg-upload.html';
 
 app.component('lgUpload', {
@@ -42,7 +27,7 @@ app.component('lgUpload', {
 		formData: '='
 	},
 	require: {ngModel: 'ngModel'},
-	controller: function($scope, $http) {
+	controller: function LgUploadCtrl($scope, $http) {
 		console.log('DemoFileUploadController', arguments);
 		const ctrl = this;
 
@@ -65,24 +50,22 @@ app.component('lgUpload', {
 			console.log('scope', scope);
 			scope.refresh();
 		});
-
-		$scope.loadingFiles = true;
-
 	}
 });
 
-app.controller('LgUploadInitCtrl', function($scope, $http, lgPicture) {
+/* eslint-disable angular/controller-as */
+
+
+app.controller('LgUploadInitCtrl', function LgUploadInitCtrl($scope, $http, lgPicture) {
 	'ngInject';
 	const formData = $scope.$parent.$ctrl.formData;
 	console.log('formData XXX', formData);
 	$http.get(url + '?suffix=' + formData.suffix).then(function(response) {
 		console.log('$http get return', response);
-		$scope.loadingFiles = false;
 		$scope.queue = response.data.files || [];
 		$scope.refresh();
 	}).catch(function(error) {
 		console.log('$http get error', error);
-		$scope.loadingFiles = false;
 	});
 
 	$scope.refresh = function() {
@@ -127,3 +110,4 @@ app.controller('LgUploadInitCtrl', function($scope, $http, lgPicture) {
 	};
 });
 
+/* eslint-enable */
