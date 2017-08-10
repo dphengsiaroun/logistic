@@ -18,15 +18,46 @@ app.config(function($provide) {
 	});
 });
 
+let timer = 0;
+
+app.config(['$provide', function($provide) {
+	$provide.decorator('$browser', function lgDebugDecorator($delegate) {
+		const $$checkUrlChange = $delegate.$$checkUrlChange;
+		console.log('this', this);
+		console.log('$delegate', $delegate);
+
+
+		$delegate.$$checkUrlChange = function() {
+			console.log('%cdigest start', 'color: green');
+			timer = performance.now();
+			$$checkUrlChange.apply($delegate, arguments);
+		};
+
+		return $delegate;
+	});
+}]);
+
 let counter = 0;
 
-app.service('lgDebug', function LgDebug($rootScope) {
+app.service('lgDebug', function LgDebug($rootScope, $timeout) {
 	'ngInject';
 	this.start = () => {
 		console.log('lgDebug instantiate', counter);
-		$rootScope.$watch(function() {
-			console.log('$rootScope compilation', counter);
+
+		function postDigest(callback) {
+			const unregister = $rootScope.$watch(function() {
+				unregister();
+				$timeout(function() {
+					callback();
+					postDigest(callback);
+				}, 0, false);
+			});
+		}
+
+		postDigest(function() {
 			counter++;
+			const diff = performance.now() - timer;
+			console.log('%cCompilation %d, duration: %s', 'color: green', counter, diff.toFixed(3));
 		});
 	};
 });
