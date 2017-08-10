@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const replace = require('gulp-replace');
 const rename = require('gulp-rename');
 const runSequence = require('run-sequence');
-const del = require('del');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const fs = require('fs');
@@ -20,12 +19,9 @@ Promise.promisifyAll(fs);
 const globAsync = Promise.promisify(glob);
 
 const cfgUtils = require('./cfg/utils.js');
-require('./gulp/eslint.js')(gulp);
 
 
-gulp.task('default', ['rebuild']);
-
-const path = {
+const pathConfig = {
 	base: 'app',
 	dist: 'dist',
 	zipSrc: ['dist/**/*', 'dist/.htaccess', 'dist/ws/.htaccess', '!dist/**/*.map'],
@@ -44,48 +40,39 @@ const path = {
 };
 
 
-// Delete the dist directory
-gulp.task('clean:dist', function() {
-	return del([path.dist]);
-});
+require('./gulp/eslint.js')(gulp);
+require('./gulp/clean.js')(gulp, pathConfig);
 
-gulp.task('clean:zip', function() {
-	return del([path.zip]);
-});
 
-gulp.task('clean:wpk', function() {
-	return del([path.wpk]);
-});
-
-gulp.task('clean', ['clean:dist', 'clean:zip', 'clean:wpk']);
+gulp.task('default', ['rebuild']);
 
 gulp.task('resources', function() {
-	return gulp.src(path.resources, { base: path.base })
-		.pipe(gulp.dest(path.dist));
+	return gulp.src(pathConfig.resources, { base: pathConfig.base })
+		.pipe(gulp.dest(pathConfig.dist));
 });
 
 gulp.task('htaccess', ['htaccess:app', 'htaccess:ws']);
 
 gulp.task('htaccess:app', function() {
-	return gulp.src(path.htaccess, { base: path.base })
+	return gulp.src(pathConfig.htaccess, { base: pathConfig.base })
 		.pipe(rename('.htaccess'))
-		.pipe(gulp.dest(path.dist));
+		.pipe(gulp.dest(pathConfig.dist));
 });
 
 gulp.task('htaccess:ws', function() {
-	return gulp.src(path.htaccessWs, { base: path.base })
-		.pipe(gulp.dest(path.dist));
+	return gulp.src(pathConfig.htaccessWs, { base: pathConfig.base })
+		.pipe(gulp.dest(pathConfig.dist));
 });
 
 gulp.task('html:install', function() {
-	return gulp.src(path.installHtml, { base: path.base })
-		.pipe(gulp.dest(path.dist));
+	return gulp.src(pathConfig.installHtml, { base: pathConfig.base })
+		.pipe(gulp.dest(pathConfig.dist));
 });
 
 gulp.task('html:index', function() {
-	return gulp.src(path.indexHtml, { base: path.base })
+	return gulp.src(pathConfig.indexHtml, { base: pathConfig.base })
 		.pipe(replace(/\/app\//, '/dist/'))
-		.pipe(gulp.dest(path.dist));
+		.pipe(gulp.dest(pathConfig.dist));
 });
 
 gulp.task('html', ['html:install', 'html:index']);
@@ -144,8 +131,8 @@ gulp.task('deploy:unzip', function(callback) {
 });
 
 gulp.task('deploy:zip', function(callback) {
-	return gulp.src(path.zipSrc, { base: 'dist' })
-		.pipe(zip(path.zip))
+	return gulp.src(pathConfig.zipSrc, { base: 'dist' })
+		.pipe(zip(pathConfig.zip))
 		.pipe(gulp.dest('.'));
 });
 
@@ -153,7 +140,7 @@ gulp.task('deploy:ftp', function() {
 	const deployEnv = cfgUtils.getEnv('deploy');
 	console.log('env', deployEnv);
 	console.log('env.ftp', deployEnv.ftp);
-	return gulp.src(path.ftp)
+	return gulp.src(pathConfig.ftp)
 		.pipe(ftp(deployEnv.ftp))
 		.pipe(gutil.noop());
 });
@@ -165,7 +152,7 @@ gulp.task('deploy', ['clean:zip'], function() {
 gulp.task('undeploy:ftp', function() {
 	const deployEnv = cfgUtils.getEnv('deploy');
 	console.log('env.ftp', deployEnv.ftp);
-	return gulp.src(path.undeploy)
+	return gulp.src(pathConfig.undeploy)
 		.pipe(ftp(deployEnv.ftp))
 		.pipe(gutil.noop());
 });
