@@ -1,7 +1,14 @@
 import './css/lg-home-route.scss';
 module.exports = 'lg-route';
 
+import {LgRoute} from './lg-route.service.js';
+
 const app = angular.module(module.exports, ['ui.router']);
+
+app.service('lgRoute', LgRoute);
+app.run((lgRoute) => {
+    lgRoute.start();
+});
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
