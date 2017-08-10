@@ -18,7 +18,7 @@
 		</div>
 	</step>
 </breadcrumb>
-<form class="ad" name="carrierCtrl">
+<form class="ad" name="carrierCtrl" ng-submit="$ctrl.truck.create();">
 	<section>
 		<label>Immatriculation ou libellé du véhicule</label>
 		<div>
@@ -85,6 +85,6 @@
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>
-		<button ng-disabled="carrierCtrl.$invalid" id="pr-add-vehicle-button" ng-click="$ctrl.truck.create();">Ajouter ce véhicule à ma flotte</button>
+		<button ng-disabled="carrierCtrl.$invalid" id="pr-add-vehicle-button" ng-click="carrierCtrl.submit();">Ajouter ce véhicule à ma flotte</button>
 	</section>
 </form>
