@@ -37,7 +37,8 @@ lg-mobile {
 	body {
 		overflow: hidden;
 	}
-	lg-menu {
+	lg-menu,
+	{
 		width: 325px;
 		height: 59px;
 		top: 110px;
@@ -59,6 +60,78 @@ lg-mobile {
 		height: 517px;
 		top: 169px;
 		left: 139px;
+	}
+
+	lg-choice {
+		overlay, fixed, fixed-list {
+			width: 325px !important;
+			left: 139px !important;
+			top: 110px !important;			
+		}
+		overlay {
+			height: 517px !important;
+		}
+		fixed-list {
+			height: 576px !important;
+		}
+	}
+
+	lg-datetime-content {
+		my-head,
+		month-list,
+		lg-dt-hour,
+		retroaction-msg {
+			width: 325px !important;
+			left: 139px !important;
+		}
+		my-head {
+			top: 110px !important;
+		}
+		month-list {
+			height: 517px !important;
+			top: 169px !important;
+		}
+		lg-dt-hour,
+		retroaction-msg {
+			bottom: 113px !important;
+		}
+	}
+
+	lg-edit {
+		my-head {
+			width: 325px !important;
+			left: 139px !important;
+		}
+		my-head {
+			top: 110px !important;
+		}
+		my-body {
+			width: 325px !important;
+			left: 139px !important;
+			top: 169px !important;
+			height: 517px !important;
+		}
+		settings {
+			top: 370px !important;
+			left: 139px !important;
+			width: 325px !important;
+			height: 300px !important;
+		}
+	}
+
+
+
+
+	add-ads {
+		width: 325px !important;
+		left: 139px !important;
+		bottom: 113px !important;
+	}
+
+	bottom {
+		width: 325px;
+		left: 139px;
+		bottom: 113px;
 	}
 
 	lg-footer {

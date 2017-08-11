@@ -4,7 +4,7 @@ const path = require('path');
 const data = {};
 module.exports = data;
 
-data.mainUrl = 'http://localhost:8000/app/';
+data.mainUrl = 'http://localhost:8000/dist/';
 
 data.trucks = [{
 	name: '110000-111-15',
