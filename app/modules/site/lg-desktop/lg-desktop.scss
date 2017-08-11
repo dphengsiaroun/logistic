@@ -62,6 +62,7 @@ lg-mobile {
 		left: 139px;
 	}
 
+	/* lg-choice */
 	lg-choice {
 		overlay, fixed, fixed-list {
 			width: 325px !important;
@@ -76,6 +77,7 @@ lg-mobile {
 		}
 	}
 
+	/* lg-datetime */
 	lg-datetime-content {
 		my-head,
 		month-list,
@@ -97,6 +99,7 @@ lg-mobile {
 		}
 	}
 
+	/* lg-dimension */
 	lg-edit {
 		my-head {
 			width: 325px !important;
@@ -119,15 +122,14 @@ lg-mobile {
 		}
 	}
 
-
-
-
+	/* lg-truck */
 	add-ads {
 		width: 325px !important;
 		left: 139px !important;
 		bottom: 113px !important;
 	}
 
+	/* lg-proposal */
 	bottom {
 		width: 325px;
 		left: 139px;
