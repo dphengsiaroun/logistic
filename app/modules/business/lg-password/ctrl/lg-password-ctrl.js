@@ -5,6 +5,7 @@ export function PasswordCtrl(password, user) {
 }
 
 export function UserChooseNewPasswordCtrl($location, password, user) {
+	'ngInject';
 	this.password = password;
 	this.user = user;
 	const code = $location.search().code;

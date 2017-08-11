@@ -100,6 +100,28 @@ export function config($stateProvider) {
 		}
 	});
 
+	$stateProvider.state({
+		name: 'proposal:mailsent',
+		url: '/mail-sent',
+		component: 'lgMessage',
+		resolve: {
+			service: function(user, truck, connection) {
+				'ngInject';
+				return connection.waitForCheckConnection().then(function() {
+					const login = user.current.content.login;
+					console.log('login', login);
+					const state = 'user:proposals({login: \'' + login + '\'})';
+					console.log('state', state);
+					return {
+						state: state,
+						label: 'Revenir à la liste des propositions',
+						message: 'Votre proposition a bien été envoyée.'
+					};
+				});
+			}
+		}
+	});
+
 
 }
 

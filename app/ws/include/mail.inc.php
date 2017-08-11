@@ -3,7 +3,7 @@
 require_once(BASE_DIR . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
 require_once(BASE_DIR . "/class/TestMail.php");
 
-function sendmail($user, $type) {
+function sendmail($user, $type, $content = NULL) {
 	global $cfg;
 	debug('sending mail', $user);
 
@@ -43,6 +43,10 @@ function sendmail($user, $type) {
 		$mail->Subject = 'Logistic - Mot de passe oublié';
 		$user->createForgottenPasswordCode();
 		$mail->Body    = getTemplate(BASE_DIR . '/mail/forgotten-password.html', $user);
+		$mail->AltBody = html2txt($mail->Body);
+	} else if ($type == 'proposal-send') {
+		$mail->Subject = 'Nouvelle proposition';
+		$mail->Body    = getTemplate(BASE_DIR . '/mail/proposal-send.html', $user, $content);
 		$mail->AltBody = html2txt($mail->Body);
 	} else {
 		$mail->Subject = 'Here is the subject';

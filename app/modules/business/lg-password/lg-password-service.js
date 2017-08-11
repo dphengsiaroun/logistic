@@ -40,7 +40,7 @@ export function Password($injector, $http, $rootScope, $q, $state) {
 
 		// TODO: include recaptcha data
 		$http({
-			url: 'ws/user/sendmail.php',
+			url: 'ws/user/forgottenPassword.php',
 			method: 'POST',
 			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}

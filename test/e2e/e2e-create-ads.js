@@ -55,5 +55,15 @@ describe('Create ADS', function() {
 		console.log('-> logout', arguments);
 		utils.logout();
 	});	
+
+	it('should create a user for proposal', function() {
+		console.log('-> create a user for proposal', arguments);
+		utils.user.create(data.users[1]);
+	});
+
+	it('should logout a user', function() {
+		console.log('-> logout the user for proposal', arguments);
+		utils.logout();
+	});
 	
 });

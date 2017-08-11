@@ -115,19 +115,19 @@ utils.user.truck.delete = function(user, truck) {
 utils.user.carrierAd = {};
 utils.user.carrierAd.create = function(carrierAd) {
 	browser.get(data.mainUrl);
-		element(by.id('pr-create-carrier-ad-button')).click();
-		element(by.id('pr-select-truck-link')).click();
-		element(by.id('truck-' + carrierAd.truck.name)).click();
-		element(by.id('pr-select-availabilities')).click();
-		element(by.id('pr-availability-total')).click();
-		element(by.id('pr-select-price')).click();
-		// browser.sleep(5000);
-		element(by.name('priceWantedPerKm')).sendKeys(carrierAd.priceWantedPerKm);
-		element(by.id('pr-add-pricing-button')).click();
-		element(by.id('pr-create-carrier-button-confirm')).click();
-		element(by.css('button')).click();
-		console.log('-> Carrier ad created', arguments);
-		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
+	element(by.id('pr-create-carrier-ad-button')).click();
+	element(by.id('pr-select-truck-link')).click();
+	element(by.id('truck-' + carrierAd.truck.name)).click();
+	element(by.id('pr-select-availabilities')).click();
+	element(by.id('pr-availability-total')).click();
+	element(by.id('pr-select-price')).click();
+	// browser.sleep(5000);
+	element(by.name('priceWantedPerKm')).sendKeys(carrierAd.priceWantedPerKm);
+	element(by.id('pr-add-pricing-button')).click();
+	element(by.id('pr-create-carrier-button-confirm')).click();
+	element(by.css('button')).click();
+	console.log('-> Carrier ad created', arguments);
+	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 };
 
 utils.user.loaderAd = {};
@@ -162,4 +162,15 @@ utils.logout = function() {
 	expect(userIdentity).toEqual('');
 };
 
+utils.login = function(user) {
+	browser.get(data.mainUrl);
+	element(by.css('logo')).click();
+	element(by.css('menu-bar.fa.fa-bars')).click();
+	element(by.linkText('Se connecter')).click();
+	element(by.name('login')).clear().sendKeys(user.login);
+	element(by.name('password-crypted')).clear().sendKeys(user.password);
+	element(by.id('pr-button-connect-user')).click();
 
+	const userIdentity = element(by.css('.user-identity')).getText();
+	expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
+};
