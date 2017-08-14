@@ -80,12 +80,9 @@
 		<label ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'">Poids unitaire (ex : poids d’une palette)</label>
 		<div>
 			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'"
-			    placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" required />
+			    placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" />
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(loaderCtrl.preciseWeight)" class="fa fa-check" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(loaderCtrl.preciseWeight)">
-					<span ng-show="loaderCtrl.preciseWeight.$error.required">Le poids unitaire est obligatoire.</span>
-				</error-message>
 			</message-form-validator>
 		</div>
 
