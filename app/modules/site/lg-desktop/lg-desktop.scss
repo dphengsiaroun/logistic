@@ -64,10 +64,12 @@ lg-mobile {
 
 	/* lg-choice */
 	lg-choice {
-		overlay, fixed, fixed-list {
+		overlay,
+		fixed,
+		fixed-list {
 			width: 325px !important;
 			left: 139px !important;
-			top: 110px !important;			
+			top: 110px !important;
 		}
 		overlay {
 			height: 517px !important;
@@ -124,16 +126,18 @@ lg-mobile {
 
 	/* lg-truck */
 	add-ads {
+		position: absolute !important;
 		width: 325px !important;
-		left: 139px !important;
-		bottom: 113px !important;
+		left: 0px !important;
+		bottom: -14px !important;
 	}
 
 	/* lg-proposal */
 	bottom {
+		position: absolute;
 		width: 325px;
-		left: 139px;
-		bottom: 113px;
+		left: 0px;
+		bottom: -344px;
 	}
 
 	lg-footer {
