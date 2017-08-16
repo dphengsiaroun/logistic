@@ -15,7 +15,7 @@ import * as proposalLib from './ctrl/proposals.js';
 
 module.exports = 'lg-user';
 
-angular.module(module.exports, ['ui.router', 'ui.validate', 'lg-widget'])
+angular.module(module.exports, ['ui.router', 'ui.validate', 'lg-widget', 'lg-connection'])
 	.service('user', serviceLib.User)
 	.service('userValidator', validatorLib.UserValidator)
 	.config(lib.config)

@@ -30,7 +30,8 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 			}
 			service.error = undefined;
 			service.current = response.data.user;
-			user.isConnected = true;
+			const connection = $injector.get('connection');
+			connection.isConnected = true;
 			$state.go('user:create:success');
 		}).catch(function(error) {
 			service.error = error;
@@ -77,7 +78,8 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 				return $q.reject(response);
 			}
 			service.current = undefined;
-			user.isConnected = false;
+			const connection = $injector.get('connection');
+			connection.isConnected = false;
 			$state.go('user:deleted');
 		});
 	};

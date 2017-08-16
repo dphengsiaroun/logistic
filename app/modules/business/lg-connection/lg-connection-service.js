@@ -3,9 +3,9 @@ import Hashes from 'jshashes';
 export function Connection($http, $rootScope, $injector, $q, $state, user) {
 	'ngInject';
 	const service = this;
-	user.isConnected = undefined;
+	service.isConnected = undefined;
 	service.createConnectionData = {};
-	$rootScope.user = user;
+	$rootScope.connection = service;
 
 	service.create = function() {
 		console.log('sign in');
@@ -29,7 +29,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 			}
 			service.error = undefined;
 			user.current = response.data.connection.user;
-			user.isConnected = true;
+			service.isConnected = true;
 			service.goToStateAfterConnect();
 		}).catch(function(error) {
 			service.error = error;
@@ -38,7 +38,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 
 	service.isConnectedStatusKnown = false;
 
-	service.isConnected = function() {
+	service.check = function() {
 		console.log('is connected?', arguments);
 		if (service.isConnectedStatusKnown) {
 			return;
@@ -50,13 +50,13 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
 				service.current = undefined;
-				user.isConnected = false;
+				service.isConnected = false;
 				if ($state.$current.needsUser) {
 					$state.go('home');
 				}
 				return;
 			}
-			user.isConnected = true;
+			service.isConnected = true;
 			user.current = response.data.connection.user;
 		}).finally(function() {
 			service.isConnectedStatusKnown = true;
@@ -65,28 +65,28 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 		});
 	};
 
-	service.isConnected();
+	service.check();
 
 	service.waitForCheckConnection = function(reason) {
 		return $q(function(resolve, reject) {
 			console.log('waitForCheckConnection start with reason and state', reason, $state.$current.name);
-			console.log('user.isConnected', user.isConnected);
+			console.log('connection.isConnected', service.isConnected);
 			console.log('$state.$current.name', $state.$current.name);
-			if (user.isConnected === true) {
+			if (service.isConnected === true) {
 				resolve();
 				return;
 			}
-			if (user.isConnected === false) {
+			if (service.isConnected === false) {
 				reject();
 				return;
 			}
-			const deregister = $rootScope.$watch('user.isConnected', function() {
-				if (user.isConnected === true) {
-					console.log('user.isConnected resolve', user.isConnected);
+			const deregister = $rootScope.$watch('connection.isConnected', function() {
+				if (service.isConnected === true) {
+					console.log('connection.isConnected resolve', service.isConnected);
 					deregister();
 					resolve();
-				} else if (user.isConnected === false) {
-					console.log('user.isConnected reject', user.isConnected);
+				} else if (service.isConnected === false) {
+					console.log('connection.isConnected reject', service.isConnected);
 					deregister();
 					reject();
 				}
@@ -118,7 +118,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 			}
 			service.error = undefined;
 			user.current = undefined;
-			user.isConnected = false;
+			service.isConnected = false;
 			$state.go('home');
 		}).catch(function(error) {
 			service.error = error;

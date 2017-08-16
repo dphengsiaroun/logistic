@@ -2,6 +2,7 @@ import '../../app/modules/business/lg-user/lg-user.js';
 
 describe('lg-user', function() {
 	let user;
+	let connection;
 	let $httpBackend;
 	let $state;
 
@@ -10,6 +11,7 @@ describe('lg-user', function() {
 		inject(function($injector) {
 
 			user = $injector.get('user');
+			connection = $injector.get('connection');
 			$httpBackend = $injector.get('$httpBackend');
 			$state = $injector.get('$state');
 		});
@@ -87,12 +89,13 @@ describe('lg-user', function() {
 
 				}
 			});
-			expect(user.isConnected).toEqual(true);
+			expect(connection.isConnected).toEqual(true);
 			expect($state.current.name).toEqual('user:create:success');
 		});
 
 		it('should update a user', function() {
 			user.updateData = {
+				id: 12,
 				email: 'dphengsiaroun@outlook.fr',
 				password: 'test',
 				content: {
@@ -110,9 +113,10 @@ describe('lg-user', function() {
 
 				}
 			};
-			$httpBackend.when('POST', 'ws/user/update.php').respond({
+			$httpBackend.when('PUT', 'ws/users/12').respond({
 				status: 'ok',
 				user: {
+					id: 12,
 					email: 'dphengsiaroun@outlook.fr',
 					password: 'test',
 					content: {
@@ -134,6 +138,7 @@ describe('lg-user', function() {
 			user.update();
 			$httpBackend.flush();
 			expect(user.current).toEqual({
+				id: 12,
 				email: 'dphengsiaroun@outlook.fr',
 				password: 'test',
 				content: {
