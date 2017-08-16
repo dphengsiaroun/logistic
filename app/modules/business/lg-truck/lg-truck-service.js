@@ -56,7 +56,7 @@ export function Truck($q, $http, $state, $window, user, connection) {
 
 	service.list = function() {
 		console.log('truck->list');
-		return connection.waitForCheckConnection().then(function() {
+		return connection.waitForCheckConnection('TruckList').then(function() {
 			return $http({
 				url: 'ws/users/' + user.current.content.login + '/trucks',
 				method: 'GET'

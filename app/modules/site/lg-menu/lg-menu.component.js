@@ -78,10 +78,10 @@ export const lgMenu = {
 			ctrl.isMobile = $window.mobilecheck() || ctrl.isSmallScreen;
 			ctrl.isLandscape = $window.innerWidth > $window.innerHeight;
 			ctrl.innerHeight = $window.innerHeight;
-			console.log('ctrl.isSmallScreen', ctrl.isSmallScreen);
-			console.log('ctrl.isMobile', ctrl.isMobile);
-			console.log('ctrl.isLandscape', ctrl.isLandscape);
-			console.log('ctrl.innerHeight', ctrl.innerHeight);
+			// console.log('ctrl.isSmallScreen', ctrl.isSmallScreen);
+			// console.log('ctrl.isMobile', ctrl.isMobile);
+			// console.log('ctrl.isLandscape', ctrl.isLandscape);
+			// console.log('ctrl.innerHeight', ctrl.innerHeight);
 		};
 
 		$window.onresize = function(event) {

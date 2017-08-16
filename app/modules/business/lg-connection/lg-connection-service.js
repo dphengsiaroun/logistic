@@ -5,6 +5,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 	const service = this;
 	user.isConnected = undefined;
 	service.createConnectionData = {};
+	$rootScope.user = user;
 
 	service.create = function() {
 		console.log('sign in');
@@ -79,7 +80,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 				reject();
 				return;
 			}
-			const deregister = $rootScope.$watch('isConnected', function() {
+			const deregister = $rootScope.$watch('user.isConnected', function() {
 				if (user.isConnected === true) {
 					console.log('user.isConnected resolve', user.isConnected);
 					deregister();
