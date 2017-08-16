@@ -1,3 +1,4 @@
+import './lg-dt-hour.scss';
 import lgDtHourHtml from './tmpl/lg-dt-hour.html';
 
 function makeRange(start, end) {
@@ -11,7 +12,7 @@ export const lgDtHour = {
 		lgDatetime: '^^lgDatetime'
 	},
 	template: lgDtHourHtml,
-	controller: function LgDtHourCtrl($scope, $element, $window, $timeout) {
+	controller: function LgDtHourCtrl($scope, $element, $timeout, $window) {
 		'ngInject';
 		const ctrl = this;
 		let hourElt;
@@ -44,9 +45,14 @@ export const lgDtHour = {
 			console.log('LgDtHourCtrl update', arguments);
 			isUpdating = true;
 			console.log('width', width);
-			const pos = (0 + $index * 1.3) * width / 10;
+			let pos = (0 + $index * 1.3) * width / 44;
+			if ($window.mobilecheck()) {
+				pos = (0 + $index * 1.3) * width / 10;
+			}
+			console.log('hourElt[0].scrollLeft', hourElt[0].scrollLeft);
 			console.log('pos', pos);
 			hourElt[0].scrollLeft = pos;
+			console.log('hourElt[0].scrollLeft', hourElt[0].scrollLeft);			
 			ctrl.lgDatetime.setHours(hour);
 		};
 
