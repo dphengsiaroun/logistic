@@ -72,7 +72,6 @@ utils.user.truck.create = function(truck) {
 	utils.lgSelect('transportCategory', truck.transportCategory);
 	utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
 	utils.lgChoiceSelect('birthyear', truck.birthyear);
-	console.log('truck.imageId', truck.imageId);
 	utils.lgUploadSelect('imageId', truck.imageId);
 	element(by.id('pr-add-vehicle-button')).click();
 	element(by.css('button.ok')).click();
@@ -82,6 +81,7 @@ utils.user.truck.create = function(truck) {
 utils.user.truck.retrieve = function(user, truck) {
 	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
+	browser.sleep(5000);	
 	element(by.linkText('Mes véhicules')).click();
 	element(by.css('truck-list img')).click();
 	expect(browser.getCurrentUrl()).toEqual(
@@ -126,7 +126,6 @@ utils.user.carrierAd.create = function(carrierAd) {
 	element(by.id('pr-add-pricing-button')).click();
 	element(by.id('pr-create-carrier-button-confirm')).click();
 	element(by.css('button')).click();
-	console.log('-> Carrier ad created', arguments);
 	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 };
 

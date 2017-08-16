@@ -72,7 +72,8 @@
 		"e2e-connection": "protractor test/e2e/cfg/connection-crud.js",
 		"e2e-check-ads-deletion": "protractor test/e2e/cfg/check-ads-deletion.js",
 		"e2e-check-ae": "protractor test/e2e/cfg/check-ae.js",
-		"e2e-password": "protractor test/e2e/cfg/password.js"
+		"e2e-password": "protractor test/e2e/cfg/password.js",
+		"e2e-refresh": "protractor test/e2e/cfg/refresh.js"
 	},
 	"dependencies": {
 		"angular": "1.6.1",
