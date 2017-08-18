@@ -22,7 +22,9 @@ export function LgImageLoader($http) {
 		xhr.onload = function() {
 			if (xhr.status === 200) {
 				// File(s) uploaded.
-				console.log('Upload successful');
+                console.log('Upload successful', xhr.response);
+                const json = JSON.parse(xhr.response);
+                console.log('json', json);
 			} else {
 				console.error('Upload not successful');
 			}
