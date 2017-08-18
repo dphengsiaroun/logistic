@@ -74,7 +74,8 @@ angular.module(module.exports, ['ui.router'])
 		template: test2Html
 	})
 	.component('lgTestLoadImageRoute', {
-		template: testLoadImageHtml
+		template: testLoadImageHtml,
+		controller: function TestLoadImageCtrl() {}
 	})
 	.component('lgTestCalendarRoute', {
 		template: testCalendarHtml

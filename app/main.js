@@ -21,6 +21,7 @@ import lgOrderby from './modules/form/lg-orderby/lg-orderby.js';
 import lgNum from './modules/form/lg-num/lg-num.js';
 import lgSlider from './modules/form/lg-slider/lg-slider.js';
 import lgUpload from './modules/form/lg-upload/lg-upload.js';
+import lgLoadImage from './modules/form/lg-load-image/lg-load-image.js';
 
 import lgDesktop from './modules/site/lg-desktop/lg-desktop.js';
 import lgMenu from './modules/site/lg-menu/lg-menu.js';
@@ -61,6 +62,7 @@ angular.module('main', [
 	lgNum,
 	lgSlider,
 	lgUpload,
+	lgLoadImage,
 
 	lgDesktop,
 	lgMenu,
