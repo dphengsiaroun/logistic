@@ -27,6 +27,19 @@ export function LgImageLoader($http) {
 				console.error('Upload not successful');
 			}
 		};
+		console.log('xhr', xhr);
+		xhr.upload.addEventListener('progress', function(evt) {
+			if (evt.lengthComputable) {
+				let percentComplete = evt.loaded / evt.total;
+				percentComplete = parseInt(percentComplete * 100);
+				console.log(percentComplete);
+
+				if (percentComplete === 100) {
+					console.log('complete');
+				}
+
+			}
+		}, false);
 		xhr.open('POST', url, true);
 
 		xhr.send(formData);
