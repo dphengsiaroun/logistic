@@ -6,6 +6,9 @@ require_once(BASE_DIR . "/class/User.php");
 error_reporting(E_ALL | E_STRICT);
 require(BASE_DIR . '/include/lib/UploadHandler.php');
 
+debug('$_SERVER', $_SERVER);
+debug('$_FILES', $_FILES);
+
 class MyUploadHandler extends UploadHandler {
 	protected function get_user_id() {
 		$user = User::getConnected();

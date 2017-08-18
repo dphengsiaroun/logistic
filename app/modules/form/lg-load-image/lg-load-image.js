@@ -2,7 +2,7 @@ import './lg-load-image.scss';
 
 module.exports = 'lg-load-image';
 
-// const url = './ws/upload.php';
+import {LgImageLoader} from './lgImageLoader.service.js';
 
 const app = angular.module(module.exports, []);
 
@@ -11,13 +11,21 @@ import lgLoadImageHtml from './tmpl/lg-load-image.html';
 app.component('lgLoadImage', {
 	template: lgLoadImageHtml,
 	require: {ngModel: 'ngModel'},
-	controller: function LgLoadImageCtrl() {
+	controller: function LgLoadImageCtrl($element, lgImageLoader) {
 		'ngInject';
 		console.log('LgLoadImageCtrl', arguments);
 		const ctrl = this;
 
 		ctrl.$onInit = function() {
-			
+			const inputElt = $element.find('input');
+			console.log('inputElt', inputElt);
+			inputElt.on('change', function() {
+				console.log('change', arguments, this);
+				console.log('inputElt', inputElt);
+				lgImageLoader.send(inputElt);
+			});
 		};
 	}
 });
+
+app.service('lgImageLoader', LgImageLoader);
