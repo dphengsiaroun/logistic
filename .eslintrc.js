@@ -24,7 +24,8 @@ module.exports = {
 		'angular/function-type': [2, "named"],
 		'angular/no-service-method': 0,
 		'angular/module-getter': 0,
-		'angular/controller-name': [2,"/[A-Z].*Ctrl/"]
+		'angular/controller-name': [2,"/[A-Z].*Ctrl/"],
+		'angular/di-unused': 2
 	},
 	env: {
 		browser: true,

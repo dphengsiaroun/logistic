@@ -96,6 +96,7 @@ function CarrierListCtrl($scope, carrier, lgFilterList) {
 function CarrierCtrl($scope, $injector, connection) {
 	'ngInject';
     const ctrl = this;
+    ctrl.connection = connection;
     ctrl.carrier = $injector.get('carrier');
     ctrl.user = $injector.get('user');
     ctrl.isEditable = false;

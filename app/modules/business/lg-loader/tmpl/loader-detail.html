@@ -100,8 +100,8 @@
 	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
 	<bottom ng-show="!$ctrl.isEditable">
 		<a ng-show="$ctrl.loader.current.content.phone" href="tel:{{$ctrl.loader.current.content.phone}}">Appeler</a>
-		<a id="create-proposal-not-connected" ng-show="$ctrl.user.isConnected == false" ui-sref="connection:create">Faire une proposition</a>
-		<a id="create-proposal" ng-show="$ctrl.user.isConnected == true" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</a>
+		<a id="create-proposal-not-connected" ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Faire une proposition</a>
+		<a id="create-proposal" ng-show="$ctrl.connection.isConnected == true" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</a>
 	</bottom>
 	<div ng-show="$ctrl.isEditable">
 		<button id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>

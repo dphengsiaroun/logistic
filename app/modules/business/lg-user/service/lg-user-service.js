@@ -3,7 +3,6 @@ import Hashes from 'jshashes';
 export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 	'ngInject';
 	const service = this;
-	const user = this;
 
 	this.userValidator = userValidator;
 

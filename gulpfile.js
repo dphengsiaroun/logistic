@@ -6,6 +6,7 @@ const pathConfig = {
 	zipSrc: ['dist/**/*', 'dist/.htaccess', 'dist/ws/.htaccess', '!dist/**/*.map'],
 	zip: 'dist.zip',
 	wpk: 'app/wpk',
+	coverage: './coverage',
 	installHtml: ['app/install/index.html'],
 	indexHtml: 'app/index.html',
 	htaccess: ['app/.htaccess.tmpl'],

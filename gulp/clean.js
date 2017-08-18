@@ -14,5 +14,9 @@ module.exports = function(gulp, pathConfig) {
 		return del([pathConfig.wpk]);
 	});
 
-	gulp.task('clean', ['clean:dist', 'clean:zip', 'clean:wpk']);
+	gulp.task('clean:coverage', function() {
+		return del([pathConfig.coverage]);
+	});
+
+	gulp.task('clean', ['clean:dist', 'clean:zip', 'clean:wpk', 'clean:coverage']);
 };

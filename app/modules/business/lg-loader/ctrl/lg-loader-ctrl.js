@@ -20,6 +20,7 @@ export function LoaderCtrl($scope, $stateParams, loader, user, connection) {
 	const ctrl = this;
 	ctrl.loader = loader;
 	ctrl.user = user;
+	ctrl.connection = connection;
 	ctrl.isEditable = false;
 	console.log('ctrl.loader', ctrl.loader);
 	console.log('$stateParams', $stateParams);
@@ -36,10 +37,11 @@ export function LoaderCtrl($scope, $stateParams, loader, user, connection) {
 	};
 }
 export function LoaderCreateCtrl(
-	$scope, $element, $http, $q, $window, $filter, loader, user, geoloc, formValidator) {
+	$scope, $element, $http, $q, $window, $filter, loader, user, connection, geoloc, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.user = user;
+	ctrl.connection = connection;
 	ctrl.loader = loader;
 	ctrl.fv = formValidator;
 	$scope.$watchGroup(['$ctrl.loader.createData.dimension.height', '$ctrl.loader.createData.dimension.depth',

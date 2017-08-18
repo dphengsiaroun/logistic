@@ -36,11 +36,9 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 		});
 	};
 
-	service.isConnectedStatusKnown = false;
-
 	service.check = function() {
 		console.log('is connected?', arguments);
-		if (service.isConnectedStatusKnown) {
+		if (service.isConnected !== undefined) {
 			return;
 		}
 		$http({
@@ -58,8 +56,6 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 			}
 			service.isConnected = true;
 			user.current = response.data.connection.user;
-		}).finally(function() {
-			service.isConnectedStatusKnown = true;
 		}).catch(function(error) {
 			service.error = error;
 		});
