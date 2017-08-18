@@ -94,7 +94,7 @@ function volumeFilter() {
 	};
 }
 
-function googlemapFilter($rootScope) {
+function googlemapFilter() {
 	'ngInject';
 	return function(content) {
 		if (!content || !content.departureCity || !content.arrivalCity) {

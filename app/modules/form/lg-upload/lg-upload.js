@@ -12,12 +12,11 @@ const url = './ws/upload.php';
 
 const app = angular.module(module.exports, ['blueimp.fileupload']);
 
-app.config(['$httpProvider', 'fileUploadProvider', function($httpProvider, fileUploadProvider) {
-	// delete $httpProvider.defaults.headers.common['X-Requested-With'];
-	// fileUploadProvider.defaults.redirect = window.location.href.replace(/\/[^\/]*$/, '/cors/result.html?%s');
+app.config(function(fileUploadProvider) {
+	'ngInject';
 	console.log('fileUploadProvider.defaults', fileUploadProvider.defaults);
 	fileUploadProvider.defaults.autoUpload = true;
-}]);
+});
 
 import lgUploadHtml from './tmpl/lg-upload.html';
 
