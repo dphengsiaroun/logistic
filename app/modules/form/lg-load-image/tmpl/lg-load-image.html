@@ -1,1 +1,32 @@
-<input name="myFile" accept="image/*" type="file" />
+<lg-show-picture></lg-show-picture>
+<div>
+	<state ng-hide="$ctrl.file">
+		<my-input empty ng-hide="$ctrl.active">
+			<div>
+				<i class="fa fa-camera" aria-hidden="true"></i>
+				<span> Insérer une photo</span>
+			</div>
+			<input name="myFile" accept="image/*" type="file" />
+		</my-input>
+		<my-input active ng-show="$ctrl.active">
+			<span> Chargement...</span>
+			<button cancel ng-click="$ctrl.cancel()"><i class="fa fa-times" aria-hidden="true"></i> Annuler</button>
+		</my-input>
+		<progress-bar ng-show="$ctrl.active">
+			<lg-progress ng-style="{width: num + '%'}">
+			</lg-progress>
+			<remaining class="progress-extended">&nbsp;</remaining>
+		</progress-bar>
+	</state>
+	<state ng-show="$ctrl.file.thumbnailUrl">
+		<my-input loaded>
+			<img ng-click="$ctrl.showImage()" ng-src="{{$ctrl.file.thumbnailUrl}}" />
+			<button ng-show="$ctrl.file.$destroy" ng-click="$ctrl.file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</button>
+		</my-input>
+	</state>
+	<state ng-show="$ctrl.file.error">
+		<my-input>
+			<error-message ng-click="$ctrl.file.reset();"> {{$ctrl.file.error}}</error-message>
+		</my-input>
+	</state>
+</div>

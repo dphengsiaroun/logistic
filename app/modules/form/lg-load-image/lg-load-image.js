@@ -22,7 +22,7 @@ app.component('lgLoadImage', {
 			inputElt.on('change', function() {
 				console.log('change', arguments, this);
 				console.log('inputElt', inputElt);
-				lgImageLoader.send(inputElt);
+				lgImageLoader.send(inputElt, ctrl);
 			});
 		};
 	}

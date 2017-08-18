@@ -1,11 +1,13 @@
 const url = './ws/upload.php';
 
-export function LgImageLoader($http) {
+export function LgImageLoader($http, $rootScope) {
 	'ngInject';
-	this.send = function(inputElt) {
+	this.send = function(inputElt, ctrl) {
 		console.log('about to send');
 		const name = inputElt[0].files[0].name;
-		console.log('name', name);
+        console.log('name', name);
+        
+        ctrl.file = undefined;
 
 		const formData = new FormData();
 		const file = inputElt[0].files[0];
@@ -25,9 +27,12 @@ export function LgImageLoader($http) {
                 console.log('Upload successful', xhr.response);
                 const json = JSON.parse(xhr.response);
                 console.log('json', json);
+                ctrl.file = json.files[0];
 			} else {
+                ctrl.file = undefined;
 				console.error('Upload not successful');
-			}
+            }
+            $rootScope.$apply();
 		};
 		console.log('xhr', xhr);
 		xhr.upload.addEventListener('progress', function(evt) {
