@@ -6,7 +6,6 @@ import testDatetimeHtml from './tmpl/test-datetime.html';
 import testSliderHtml from './tmpl/test-slider.html';
 
 import testNumHtml from './tmpl/test-num.html';
-import test2Html from './tmpl/test2.html';
 import testCalendarHtml from './tmpl/test-calendar.html';
 import testLoadImageHtml from './tmpl/test-load-image.html';
 
@@ -57,11 +56,6 @@ angular.module(module.exports, ['ui.router'])
 			component: 'lgTestNumRoute'
 		});
 		$stateProvider.state({
-			name: 'test2',
-			url: '/test2',
-			component: 'lgTest2Route'
-		});
-		$stateProvider.state({
 			name: 'test:load-image',
 			url: '/test/load-image',
 			component: 'lgTestLoadImageRoute'
@@ -69,9 +63,6 @@ angular.module(module.exports, ['ui.router'])
 	})
 	.component('lgTestNumRoute', {
 		template: testNumHtml
-	})
-	.component('lgTest2Route', {
-		template: test2Html
 	})
 	.component('lgTestLoadImageRoute', {
 		template: testLoadImageHtml,

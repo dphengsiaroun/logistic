@@ -86,10 +86,6 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin({
 			name: ['vendors']
 		}),
-		new webpack.ProvidePlugin({
-			'window.jQuery': 'jquery',
-			'window.$': 'jquery',
-		})
 		// new webpack.optimize.UglifyJsPlugin({
 		// 	compress: {
 		// 		warnings: false,
@@ -103,13 +99,5 @@ module.exports = {
 	devtool: 'source-map',
 	resolve: {
 		extensions: ['.js'],
-		alias: {
-			jquery: 'jquery/src/jquery',
-			'load-image': 'blueimp-load-image/js/load-image.js',
-			'load-image-meta': 'blueimp-load-image/js/load-image-meta.js',
-			'load-image-exif': 'blueimp-load-image/js/load-image-exif.js',
-			'canvas-to-blob': 'blueimp-canvas-to-blob/js/canvas-to-blob.js',
-			'jquery-ui/ui/widget': 'blueimp-file-upload/js/vendor/jquery.ui.widget.js',
-		}
 	}
 };

@@ -27,12 +27,12 @@ app.component('lgSlider', {
 		let x = 0;
 		let y = 0;
 		if (!isHorizontal) {
-			const parentHeight = $element.parent().height();
+			const parentHeight = $element.parent()[0].offsetHeight;
 			$element.css('height', (parentHeight - 70) + 'px');
 		}
 
-		const maxHeight = line.height();
-		const maxWidth = line.width();
+		const maxHeight = line[0].offsetHeight;
+		const maxWidth = line[0].offsetWidth;
 		console.log('maxWidth', maxWidth);
 
 		const setCursorAtBeginning = function() {

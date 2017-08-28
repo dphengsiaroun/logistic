@@ -27,10 +27,6 @@ export function LgConfig($rootScope, $http, $window, $state, $parse) {
 			// alert('hello');
 		};
 
-		// Fix the jQuery issue
-		/* eslint-disable angular/window-service */
-		$window.jQuery = window.jQuery;
-		$window.$ = window.jQuery;
 		/* eslint-enable */
 
 		$window.values = function(obj) {

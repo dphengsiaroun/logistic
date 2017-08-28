@@ -33,8 +33,6 @@ module.exports = {
 		jasmine: true,
 	},
 	globals: {
-		jQuery: true,
-		$: true,
 		angular: true,
 		inject: true,
 		browser: true,

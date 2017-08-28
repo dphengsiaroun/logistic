@@ -112,7 +112,6 @@ export const lgDtMonth = {
 		};
 
 		ctrl.refresh = function() {
-			// ctrl part needs a real jquery
 			const elt = $element.find('tbody');
 			const selectedElt = angular.element(elt[0].getElementsByClassName('selected'));
 			selectedElt.removeClass('selected');
