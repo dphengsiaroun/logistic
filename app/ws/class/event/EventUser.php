@@ -5,7 +5,11 @@ class EventUser {
 	public static function create($e) {
 		global $db, $cfg;
 		debug('EventUser create', $e);
-		$sql = <<<EOF
+		// For test only account with login = tutu will fail.
+		if ($e->content->content->login === 'tutu') {
+			throw new Exception('Cannot create account with login = tutu');
+		}
+ 		$sql = <<<EOF
 INSERT INTO {$cfg->prefix}user (id, email, login, phone, password, content) VALUES
 	(:id, :email, :login, :phone, :password, :content);
 EOF;

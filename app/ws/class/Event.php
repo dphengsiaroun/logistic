@@ -92,52 +92,77 @@ EOF;
 		public function propagate() {
 			global $db, $cfg;
 
-			switch ($this->type) {
-				case '/user/create':
-					EventUser::create($this);
-					break;
-				case '/user/delete':
-					EventUser::delete($this);
-					break;
-				case '/user/update':
-					EventUser::update($this);
-					break;
-				case '/loader/create':
-					EventLoader::create($this);
-					break;
-				case '/loader/delete':
-					EventLoader::delete($this);
-					break;
-				case '/loader/update':
-					EventLoader::update($this);
-					break;
-				case '/carrier/create':
-					EventCarrier::create($this);
-					break;
-				case '/carrier/delete':
-					EventCarrier::delete($this);
-					break;
-				case '/carrier/update':
-					EventCarrier::update($this);
-					break;
-				case '/geoloc/city':
-					EventGeoloc::insertCity($this);
-					break;
-				case '/geoloc/route':
-					EventGeoloc::insertRoute($this);
-					break;
-				case '/proposal/create':
-					EventProposal::create($this);
-					break;
-				case '/proposal/update':
-					EventProposal::update($this);
-					break;
-				case '/proposal/delete':
-					EventProposal::delete($this);
-					break;
+			try {
+
+				switch ($this->type) {
+					case '/user/create':
+						EventUser::create($this);
+						break;
+					case '/user/delete':
+						EventUser::delete($this);
+						break;
+					case '/user/update':
+						EventUser::update($this);
+						break;
+					case '/loader/create':
+						EventLoader::create($this);
+						break;
+					case '/loader/delete':
+						EventLoader::delete($this);
+						break;
+					case '/loader/update':
+						EventLoader::update($this);
+						break;
+					case '/carrier/create':
+						EventCarrier::create($this);
+						break;
+					case '/carrier/delete':
+						EventCarrier::delete($this);
+						break;
+					case '/carrier/update':
+						EventCarrier::update($this);
+						break;
+					case '/geoloc/city':
+						EventGeoloc::insertCity($this);
+						break;
+					case '/geoloc/route':
+						EventGeoloc::insertRoute($this);
+						break;
+					case '/proposal/create':
+						EventProposal::create($this);
+						break;
+					case '/proposal/update':
+						EventProposal::update($this);
+						break;
+					case '/proposal/delete':
+						EventProposal::delete($this);
+						break;
+				}
+				debug('Event well propagated.');
+			} catch (Exception $e) {
+				debug('Event propagation error', $e);
+				$this->manageError();
 			}
 
-			debug('Event propagated.');
+			
+		}
+
+		public function manageError() {
+			global $db, $cfg;
+			
+			$sql = <<<EOF
+INSERT INTO {$cfg->prefix}event_error (id) VALUES (:id);
+EOF;
+
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $this->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
+			debug('Event in error managed.');
 		}
 
 		public function commit() {
