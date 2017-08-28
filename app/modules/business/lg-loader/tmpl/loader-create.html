@@ -7,7 +7,7 @@
 		<subtitle>Ajouter une annonce</subtitle>
 	</right>
 </div>
-<form class="ad" name="loaderCtrl">
+<form class="ad" name="loaderCtrl" ng-submit="$ctrl.loader.create()">
 	<section>
 		<big-label>Transport souhaité</big-label>
 		<lg-select name="transportCategory" ng-model="$ctrl.loader.createData.transportCategory" required>
@@ -141,7 +141,7 @@
 		<label>Attention</label>
 		<comment>En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</comment>
 		<lg-error error="$ctrl.loader.error"></lg-error>
-		<button ng-disabled="loaderCtrl.$invalid" id="pr-button-create-loader-ad" ng-click="$ctrl.loader.create()">Mettre en ligne votre annonce</button>
+		<button ng-disabled="loaderCtrl.$invalid" id="pr-button-create-loader-ad" ng-click="loaderCtrl.submit()">Mettre en ligne votre annonce</button>
 	</section>
 </form>
 

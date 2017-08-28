@@ -122,18 +122,3 @@ fixed {
 	}
 }
 
-@media all and (min-width: 768px) {
-	fixed {
-		width: 325px !important;
-		left: 139px !important;
-		top: 169px !important;
-		height: 517px !important;
-
-		settings {
-			top: 370px !important;
-			left: 139px !important;
-			width: 325px !important;
-			height: 300px !important;
-		}
-	}
-}
