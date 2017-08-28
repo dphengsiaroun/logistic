@@ -11,7 +11,7 @@ app.component('lgDimension', {
 		ngModel: 'ngModel',
 	},
 	template: lgDimensionHtml,
-	controller: function LgDimensionCtrl($element, $document, $filter, lgScroll) {
+	controller: function LgDimensionCtrl($scope, $element, $document, $filter, lgScroll) {
 		'ngInject';
 		console.log('LgDimensionCtrl');
 		const ctrl = this;
@@ -78,6 +78,15 @@ app.component('lgDimension', {
 				ctrl.depth = Math.round(ctrl.dimension.depth * 100);
 				ctrl.volumeStr = $filter('volume')(ctrl.dimension);
 			};
+			$scope.$watchGroup(['$ctrl.width', '$ctrl.height', '$ctrl.depth'], () => {
+				console.log('$ctrl.dimension watch');
+				const dimension = {
+					width: ctrl.width / 100,
+					height: ctrl.height / 100,
+					depth: ctrl.depth / 100,
+				};
+				ctrl.update(dimension);
+			}, true);
 		};
 	},
 	bindings: {
