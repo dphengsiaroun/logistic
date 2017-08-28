@@ -20,25 +20,7 @@ angular.module(module.exports, ['ui.router'])
 		$stateProvider.state({
 			name: 'test:slider',
 			url: '/test-slider',
-			template: testSliderHtml,
-			controller: function TestSliderCtrl($scope) {
-				'ngInject';
-				const ctrl = this;
-				this.width = 100;
-				this.height = 150;
-				this.depth = 500;
-
-				this.coef = 0.429;
-				this.tx = 341;
-				this.ty = 438;
-				this.scale = 1.07;
-
-				$scope.$watchGroup(['$ctrl.height', '$ctrl.depth', '$ctrl.width'], function() {
-					ctrl.volume = ctrl.height * ctrl.depth * ctrl.width / (100 * 100 * 100);
-					ctrl.volume = Number((ctrl.volume).toFixed(2));
-				}, true);
-			},
-			controllerAs: '$ctrl'
+			component: 'lgTestSliderRoute',
 		});
 		$stateProvider.state({
 			name: 'test:datetime',
@@ -67,6 +49,9 @@ angular.module(module.exports, ['ui.router'])
 	.component('lgTestLoadImageRoute', {
 		template: testLoadImageHtml,
 		controller: function TestLoadImageCtrl() {}
+	})
+	.component('lgTestSliderRoute', {
+		template: testSliderHtml
 	})
 	.component('lgTestCalendarRoute', {
 		template: testCalendarHtml
