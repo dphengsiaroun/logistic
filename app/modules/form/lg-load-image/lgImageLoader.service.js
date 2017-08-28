@@ -1,6 +1,6 @@
 const url = './ws/upload.php';
 
-export function LgImageLoader($http, $rootScope) {
+export function LgImageLoader($http, $rootScope, lgPicture) {
 	'ngInject';
 	this.send = function(inputElt, ctrl) {
 		console.log('about to send');
@@ -29,6 +29,18 @@ export function LgImageLoader($http, $rootScope) {
                 const json = JSON.parse(xhr.response);
                 console.log('json', json);
 				ctrl.file = json.files[0];
+
+				ctrl.file.$destroy = function() {
+					return $http({
+						url: ctrl.file.deleteUrl + '&suffix=' + formData.suffix,
+						method: ctrl.file.deleteType
+					}).then(function(response) {
+						console.log('response', response);
+					}).catch(function(error) {
+						console.error('error', error);
+					});
+				};
+
 			} else {
                 ctrl.file = undefined;
 				console.error('Upload not successful');
