@@ -10,11 +10,15 @@ CREATE TABLE `<?php echo $context->prefix; ?>event_id` (
   `id` INT(16) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `<?php echo $context->prefix; ?>event_error` (
-  `id` INT(16) UNSIGNED DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 INSERT INTO `<?php echo $context->prefix; ?>event_id` (id) VALUES (0);
+
+
+CREATE TABLE `<?php echo $context->prefix; ?>event_error` (
+  `id` INT(16) UNSIGNED NOT NULL,
+  `message` longtext NOT NULL,
+  `stacktrace` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `<?php echo $context->prefix; ?>user` (
 	`id` INT(16) UNSIGNED NOT NULL AUTO_INCREMENT,

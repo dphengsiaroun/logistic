@@ -139,25 +139,27 @@ EOF;
 						break;
 				}
 				debug('Event well propagated.');
-			} catch (Exception $e) {
-				debug('Event propagation error', $e);
-				$this->manageError();
+			} catch (Exception $exception) {
+				debug('Event propagation error', $exception);
+				$this->manageError($exception);
 			}
 
 			
 		}
 
-		public function manageError() {
+		public function manageError($exception) {
 			global $db, $cfg;
 			
 			$sql = <<<EOF
-INSERT INTO {$cfg->prefix}event_error (id) VALUES (:id);
+INSERT INTO {$cfg->prefix}event_error (id, message, stacktrace) VALUES (:id, :message, :stacktrace);
 EOF;
 
 			$st = $db->prepare($sql,
 						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 			if ($st->execute(array(
-				':id' => $this->id
+				':id' => $this->id,
+				':message' => $exception->getMessage(),
+				':stacktrace' => $exception->getTraceAsString()
 			)) === FALSE) {
 				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
 			}
