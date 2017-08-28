@@ -6,20 +6,25 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 	'ngInject';
 
 	function ImageLoader(ctrl) {
-		ctrl.file = undefined;
+
+		function removeFile() {
+			ctrl.file = undefined;
+			ctrl.ngModel.$setViewValue(undefined);
+		}
 
 		function setFile(file) {
 			ctrl.file = file;
+			ctrl.ngModel.$setViewValue(ctrl.file);
 			ctrl.file.$destroy = function() {
 				return $http({
 					url: ctrl.file.deleteUrl + '&suffix=' + ctrl.formData.suffix,
 					method: ctrl.file.deleteType
 				}).then(function(response) {
 					console.log('response', response);
-					ctrl.file = undefined;
+					removeFile();
 				}).catch(function(error) {
 					console.error('error', error);
-					ctrl.file = undefined;
+					removeFile();
 				});
 			};
 		}
@@ -29,9 +34,12 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 				console.log('$http get return', response);
 				if (response.data.files && response.data.files.length > 0) {
 					setFile(response.data.files[0]);
+				} else {
+					removeFile();
 				}
 			}).catch(function(error) {
 				console.log('$http get error', error);
+				removeFile();
 			});
 		};
 
@@ -40,7 +48,7 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 			const name = inputElt[0].files[0].name;
 			console.log('name', name);
 
-			ctrl.file = undefined;
+			removeFile();
 
 			const formData = new FormData();
 			const file = inputElt[0].files[0];
@@ -64,7 +72,7 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 					setFile(json.files[0]);
 
 				} else {
-					ctrl.file = undefined;
+					removeFile();
 					console.error('Upload not successful');
 				}
 				$rootScope.$apply();
