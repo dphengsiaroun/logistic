@@ -47,7 +47,7 @@
 		<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear"
 		    is-mandatory="true"></lg-choice>
 		<label>Insérer une photo</label>
-		<lg-upload form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-upload>
+		<lg-load-image form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-load-image>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>

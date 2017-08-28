@@ -25,19 +25,7 @@ describe('Loader CRUD', function() {
 		utils.lgSelect('transportCategory', loaderAd.transportCategory);
 		utils.lgChoiceSelect('transportTruckType', loaderAd.transportTruckType);
 		utils.lgCitySelect('departureCity', loaderAd.departureCity);
-		utils.lgCitySelect('arrivalCity', loaderAd.arrivalCity);
-		// element(by.css('i.fa.fa-calendar')).click();
-		// browser.sleep(5000);
-		// element(by.css('table tbody tr td span')).click();
-		// browser.sleep(5000);
-		// element(by.css('i.fa.fa-check')).click();
-		// browser.sleep(5000);
-		// element(by.css('i.fa.fa-calendar')).click();
-		// browser.sleep(5000);		
-		// element(by.linkText('18')).click();
-		// browser.sleep(5000);		
-		// element(by.css('i.fa.fa-check')).click();
-		// browser.sleep(5000);		
+		utils.lgCitySelect('arrivalCity', loaderAd.arrivalCity);	
 		utils.lgSelect('conditioning', loaderAd.conditioning);
 		utils.lgChoiceSelect('typeOfGoods', loaderAd.typeOfGoods);
 		utils.lgChoiceSelect('weightIntervals', loaderAd.weightIntervals);
@@ -60,9 +48,7 @@ describe('Loader CRUD', function() {
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 		element(by.id('pr-create-user-button')).click();
 		element(by.css('button')).click();
-		console.log('-> user created', arguments);
 		element(by.css('button.ok')).click();
-		console.log('-> Loader ad created', arguments);
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 

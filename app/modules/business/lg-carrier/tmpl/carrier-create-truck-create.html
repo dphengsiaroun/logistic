@@ -81,7 +81,7 @@
 			</message-form-validator>
 		</div>
 		<label>Insérer une photo</label>
-		<lg-upload form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-upload>
+		<lg-load-image form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-load-image>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>

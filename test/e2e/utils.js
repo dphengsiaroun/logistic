@@ -25,7 +25,7 @@ utils.lgChoiceSelect = function(name, choice) {
 };
 
 utils.lgUploadSelect = function(name, p) {
-	element(by.css('lg-upload input[type="file"]')).sendKeys(p);
+	element(by.css('lg-load-image input[type="file"]')).sendKeys(p);
 	browser.sleep(1000);
 };
 

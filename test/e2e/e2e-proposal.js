@@ -46,37 +46,37 @@ describe('Proposal CRUD', function() {
 		})).toEqual(true);
 	});
 
-	// it('should retrieve proposal', function() {
-	// 	console.log('-> retrieve a proposal', arguments);
-	// 	browser.get(data.mainUrl);
-	// 	element(by.css('menu-bar')).click();
-	// 	element(by.id('my-proposals')).click();
-	// 	element(by.css('div.details h2')).click();
-	// 	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'proposal/20');
-	// });
+	it('should retrieve proposal', function() {
+		console.log('-> retrieve a proposal', arguments);
+		browser.get(data.mainUrl);
+		element(by.css('menu-bar')).click();
+		element(by.id('my-proposals')).click();
+		element(by.css('div.details h2')).click();
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'proposal/24');
+	});
 
-	// it('should update a proposal', function() {
-	// 	console.log('-> update a proposal', arguments);
-	// 	browser.get(data.mainUrl);
-	// 	element(by.css('menu-bar')).click();
-	// 	element(by.id('my-proposals')).click();
-	// 	element(by.css('div.details h2')).click();
-	// 	element(by.id('pr-update-button')).click();
-	// 	element(by.name('titleAd')).clear().sendKeys('Chargement de 50 voitures');
-	// 	element(by.id('pr-update-proposal-button-confirm')).click();
-	// 	element(by.css('button.ok')).click();
-	// 	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);
-	// });
+	it('should update a proposal', function() {
+		console.log('-> update a proposal', arguments);
+		browser.get(data.mainUrl);
+		element(by.css('menu-bar')).click();
+		element(by.id('my-proposals')).click();
+		element(by.css('div.details h2')).click();
+		element(by.id('pr-update-button')).click();
+		element(by.name('titleAd')).clear().sendKeys('Chargement de 50 voitures');
+		element(by.id('pr-update-proposal-button-confirm')).click();
+		element(by.css('button.ok')).click();
+		expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);
+	});
 
-	// it('should delete a proposal', function() {
-	// 	console.log('-> delete proposal', arguments);
-	// 	browser.get(data.mainUrl);
-	// 	element(by.css('menu-bar')).click();
-	// 	element(by.id('my-proposals')).click();
-	// 	element(by.css('div.details h2')).click();
-	// 	element(by.linkText('Supprimer cette proposition')).click();
-	// 	element(by.css('button.confirm')).click();
-	// 	element(by.css('button.ok')).click();
-	// 	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);
-	// });
+	it('should delete a proposal', function() {
+		console.log('-> delete proposal', arguments);
+		browser.get(data.mainUrl);
+		element(by.css('menu-bar')).click();
+		element(by.id('my-proposals')).click();
+		element(by.css('div.details h2')).click();
+		element(by.linkText('Supprimer cette proposition')).click();
+		element(by.css('button.confirm')).click();
+		element(by.css('button.ok')).click();
+		expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);
+	});
 });
