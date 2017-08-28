@@ -24,10 +24,11 @@ export function LgImageLoader($http, $rootScope) {
 		xhr.onload = function() {
 			if (xhr.status === 200) {
 				// File(s) uploaded.
+				ctrl.active = false;
                 console.log('Upload successful', xhr.response);
                 const json = JSON.parse(xhr.response);
                 console.log('json', json);
-                ctrl.file = json.files[0];
+				ctrl.file = json.files[0];
 			} else {
                 ctrl.file = undefined;
 				console.error('Upload not successful');
@@ -44,11 +45,15 @@ export function LgImageLoader($http, $rootScope) {
 				if (percentComplete === 100) {
 					console.log('complete');
 				}
-
+				ctrl.progress = percentComplete;
+				$rootScope.$apply();
 			}
 		}, false);
 		xhr.open('POST', url, true);
 
 		xhr.send(formData);
+		ctrl.active = true;
+		$rootScope.$apply();
+
 	};
 }

@@ -13,7 +13,7 @@
 			<button cancel ng-click="$ctrl.cancel()"><i class="fa fa-times" aria-hidden="true"></i> Annuler</button>
 		</my-input>
 		<progress-bar ng-show="$ctrl.active">
-			<lg-progress ng-style="{width: num + '%'}">
+			<lg-progress ng-style="{width: $ctrl.progress + '%'}">
 			</lg-progress>
 			<remaining class="progress-extended">&nbsp;</remaining>
 		</progress-bar>

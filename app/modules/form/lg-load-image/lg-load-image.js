@@ -11,11 +11,12 @@ import lgLoadImageHtml from './tmpl/lg-load-image.html';
 app.component('lgLoadImage', {
 	template: lgLoadImageHtml,
 	require: {ngModel: 'ngModel'},
-	controller: function LgLoadImageCtrl($element, lgImageLoader) {
+	controller: function LgLoadImageCtrl($element, $scope, lgImageLoader) {
 		'ngInject';
 		console.log('LgLoadImageCtrl', arguments);
 		const ctrl = this;
-
+		ctrl.active = false;
+		ctrl.progress = 0;
 		ctrl.$onInit = function() {
 			const inputElt = $element.find('input');
 			console.log('inputElt', inputElt);
