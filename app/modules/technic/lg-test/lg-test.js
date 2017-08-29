@@ -6,7 +6,7 @@ import testDatetimeHtml from './tmpl/test-datetime.html';
 import testSliderHtml from './tmpl/test-slider.html';
 
 import testNumHtml from './tmpl/test-num.html';
-import testCalendarHtml from './tmpl/test-calendar.html';
+import { lgTestCalendarRoute } from './lg-test-calendar-route.component.js';
 import testLoadImageHtml from './tmpl/test-load-image.html';
 
 angular.module(module.exports, ['ui.router'])
@@ -53,6 +53,4 @@ angular.module(module.exports, ['ui.router'])
 	.component('lgTestSliderRoute', {
 		template: testSliderHtml
 	})
-	.component('lgTestCalendarRoute', {
-		template: testCalendarHtml
-	});
+	.component('lgTestCalendarRoute', lgTestCalendarRoute);
