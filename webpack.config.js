@@ -4,9 +4,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: {
-		bundle: './app/main.js',
+		bundle: './app/main.module.js',
 		vendors: './app/vendors.js',
-		install: './app/install/install.js'
+		install: './app/install/install.module.js'
 	},
 	output: {
 		path: path.resolve(__dirname, './app/wpk'),
