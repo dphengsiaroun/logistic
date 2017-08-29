@@ -7,7 +7,7 @@
 		<subtitle>Ajouter une annonce</subtitle>
 	</right>
 </div>
-<form class="ad" name="loaderCtrl" ng-submit="$ctrl.loader.create()">
+<form name="formCtrl" ng-submit="$ctrl.loader.create()" class="ad">
 	<section>
 		<big-label>Transport souhaité</big-label>
 		<lg-select name="transportCategory" ng-model="$ctrl.loader.createData.transportCategory" required>
@@ -80,7 +80,7 @@
 			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'"
 			    placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(loaderCtrl.preciseWeight)" class="fa fa-check" aria-hidden="true"></i>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.preciseWeight)" class="fa fa-check" aria-hidden="true"></i>
 			</message-form-validator>
 		</div>
 
@@ -114,9 +114,9 @@
 			<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.createData.priceWanted"
 			    required />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(loaderCtrl.priceWanted)" class="fa fa-check" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(loaderCtrl.priceWanted)">
-					<span ng-show="loaderCtrl.priceWanted.$error.required">Le tarif souhaité est obligatoire.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.priceWanted)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.priceWanted)">
+					<span ng-show="formCtrl.priceWanted.$error.required">Le tarif souhaité est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -126,9 +126,9 @@
 			<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.createData.title" required
 			/>
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(loaderCtrl.title)" class="fa fa-check" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(loaderCtrl.title)">
-					<span ng-show="loaderCtrl.title.$error.required">Le titre de l'annonce est obligatoire.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.title)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.title)">
+					<span ng-show="formCtrl.title.$error.required">Le titre de l'annonce est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -141,7 +141,7 @@
 		<label>Attention</label>
 		<comment>En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</comment>
 		<lg-error error="$ctrl.loader.error"></lg-error>
-		<button type="submit" ng-disabled="loaderCtrl.$invalid">Mettre en ligne votre annonce</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Mettre en ligne votre annonce</button>
 	</section>
 </form>
 

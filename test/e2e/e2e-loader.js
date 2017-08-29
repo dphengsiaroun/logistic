@@ -33,7 +33,7 @@ describe('Loader CRUD', function() {
 		utils.lgUploadSelect('imageId', loaderAd.imageId);
 		element(by.name('priceWanted')).sendKeys(loaderAd.priceWanted);
 		element(by.name('title')).sendKeys(loaderAd.title);
-		element(by.id('pr-button-create-loader-ad')).click();
+		utils.submitForm();
 		element(by.css('button.no')).click();
 		element(by.name('lastname')).clear().sendKeys(user.lastname);
 		element(by.name('firstname')).clear().sendKeys(user.firstname);
@@ -46,7 +46,7 @@ describe('Loader CRUD', function() {
 		utils.lgChoiceSelect('country', user.country);
 		element(by.name('phone')).clear().sendKeys(user.phone);
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
-		element(by.id('pr-create-user-button')).click();
+		utils.submitForm();
 		element(by.css('button')).click();
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
@@ -70,8 +70,11 @@ describe('Loader CRUD', function() {
 		adElt.element(by.css('title')).click();
 		element(by.id('pr-edit-button')).click();
 		element(by.name('priceWanted')).clear().sendKeys('5000');
-		element(by.id('pr-update-loader-button-confirm')).click();
+		browser.sleep(5000);
+		utils.submitForm();
+		browser.sleep(5000);
 		element(by.css('button.ok')).click();
+		browser.sleep(5000);
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 
