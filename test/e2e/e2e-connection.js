@@ -17,8 +17,7 @@ describe('Selenium Test Case', function() {
 		element(by.linkText('Se connecter')).click();
 		element(by.name('login')).clear().sendKeys(user.email);
 		element(by.name('password-crypted')).clear().sendKeys(user.password);
-		element(by.id('pr-button-connect-user')).click();
-
+		utils.submitForm();
 		const userIdentity = element(by.css('.user-identity')).getText();
 		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
 
@@ -34,8 +33,7 @@ describe('Selenium Test Case', function() {
 		element(by.linkText('Se connecter')).click();
 		element(by.name('login')).clear().sendKeys(user.login);
 		element(by.name('password-crypted')).clear().sendKeys(user.password);
-		element(by.id('pr-button-connect-user')).click();
-
+		utils.submitForm();		
 		const userIdentity = element(by.css('.user-identity')).getText();
 		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
 
@@ -51,8 +49,7 @@ describe('Selenium Test Case', function() {
 		element(by.linkText('Se connecter')).click();
 		element(by.name('login')).clear().sendKeys(user.phone);
 		element(by.name('password-crypted')).clear().sendKeys(user.password);
-		element(by.id('pr-button-connect-user')).click();
-
+		utils.submitForm();		
 		const userIdentity = element(by.css('.user-identity')).getText();
 		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
 
