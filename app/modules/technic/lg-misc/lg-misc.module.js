@@ -2,14 +2,7 @@ module.exports = 'lg-misc';
 import './lg-misc.scss';
 
 import { LgMisc } from './lg-misc.service.js';
-
-function LgSequence() {
-	this.current = 0;
-	this.next = function() {
-		this.current++;
-		return this.current;
-	};
-}
+import { LgSequence } from './lg-sequence.service.js';
 
 function LgScroll($window, $document) {
 	'ngInject';
