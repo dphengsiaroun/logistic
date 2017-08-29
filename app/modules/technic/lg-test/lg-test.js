@@ -4,12 +4,11 @@ module.exports = 'lg-test';
 import { lgTestSliderRoute } from './lg-test-slider-route.component.js';
 import { lgTestCalendarRoute } from './lg-test-calendar-route.component.js';
 import { lgTestLoadImageRoute } from './lg-test-load-image-route.component.js';
+import { lgTestNumRoute } from './lg-test-num-route.component.js';
 
 
 import testsHtml from './tmpl/tests.html';
 import testDatetimeHtml from './tmpl/test-datetime.html';
-
-import testNumHtml from './tmpl/test-num.html';
 
 angular.module(module.exports, ['ui.router'])
 	.config(function($stateProvider) {
@@ -45,9 +44,7 @@ angular.module(module.exports, ['ui.router'])
 			component: 'lgTestLoadImageRoute'
 		});
 	})
-	.component('lgTestNumRoute', {
-		template: testNumHtml
-	})
+	.component('lgTestNumRoute', lgTestNumRoute)
 	.component('lgTestLoadImageRoute', lgTestLoadImageRoute)
 	.component('lgTestSliderRoute', lgTestSliderRoute)
 	.component('lgTestCalendarRoute', lgTestCalendarRoute);
