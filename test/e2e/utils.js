@@ -123,8 +123,8 @@ utils.user.carrierAd.create = function(carrierAd) {
 	element(by.id('pr-select-price')).click();
 	// browser.sleep(5000);
 	element(by.name('priceWantedPerKm')).sendKeys(carrierAd.priceWantedPerKm);
-	element(by.id('pr-add-pricing-button')).click();
-	utils.submitForm();
+	utils.submitForm(); // Price form
+	element(by.id('pr-create-carrier-button')).click();
 	element(by.css('button')).click();
 	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 };

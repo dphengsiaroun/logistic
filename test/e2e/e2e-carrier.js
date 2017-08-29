@@ -57,7 +57,7 @@ describe('Carrier CRUD', function() {
 		element(by.id('pr-select-price')).click();
 		element(by.name('priceWantedPerKm')).sendKeys(carrierAd.priceWantedPerKm);
 		utils.submitForm();
-		element(by.id('pr-create-carrier-button-confirm')).click();
+		element(by.id('pr-create-carrier-button')).click();
 		element(by.css('button.ok')).click();
 		console.log('-> Carrier ad created', arguments);
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
@@ -83,7 +83,7 @@ describe('Carrier CRUD', function() {
 		element(by.id('pr-select-price')).click();
 		element(by.name('priceWantedPerKm')).clear().sendKeys('80');
 		utils.submitForm();
-		element(by.id('pr-update-carrier-button-confirm')).click();
+		element(by.id('pr-update-carrier-button')).click();
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 	});

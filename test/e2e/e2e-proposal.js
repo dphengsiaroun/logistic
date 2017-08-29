@@ -37,7 +37,7 @@ describe('Proposal CRUD', function() {
 		adElt.element(by.css('title')).click();
 		browser.sleep(5000);
 		element(by.id('create-proposal')).click();
-		element(by.id('confirm-create-proposal')).click();
+		utils.submitForm();
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + '');
 		expect(browser.call(function() {
@@ -63,7 +63,7 @@ describe('Proposal CRUD', function() {
 		element(by.css('div.details h2')).click();
 		element(by.id('pr-update-button')).click();
 		element(by.name('titleAd')).clear().sendKeys('Chargement de 50 voitures');
-		element(by.id('pr-update-proposal-button-confirm')).click();
+		utils.submitForm();		
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);
 	});
