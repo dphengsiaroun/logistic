@@ -93,10 +93,12 @@ export function LoaderUpdateCtrl($stateParams, loader, user, connection, formVal
 	ctrl.user = user;
 	ctrl.fv = formValidator;
 	this.$onInit = function() {
-		this.loader.get($stateParams.id).then(function() {
-			return connection.waitForCheckConnection('LoaderUpdateCtrl');
+		connection.waitForCheckConnection('LoaderUpdateCtrl').then(function() {
+			return ctrl.loader.get($stateParams.id);
 		}).then(function() {
+			console.log('Dany ctrl.loader.current.content', ctrl.loader.current.content);
 			ctrl.loader.updateData = angular.copy(ctrl.loader.current.content);
+			console.log('Dany ctrl.loader.updateData', ctrl.loader.updateData);
 			ctrl.loader.updateData.id = $stateParams.id;
 			console.log('ctrl.loader.updateData', ctrl.loader.updateData);
 		}).catch(function() {
