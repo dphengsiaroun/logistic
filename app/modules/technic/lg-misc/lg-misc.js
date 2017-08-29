@@ -1,13 +1,7 @@
 module.exports = 'lg-misc';
 import './lg-misc.scss';
 
-function LgMisc() {
-	'ngInject';
-	this.isWebService = function(url) {
-		const result = url.match(/ws\//);
-		return result;
-	};
-}
+import { LgMisc } from './lg-misc.service.js';
 
 function LgSequence() {
 	this.current = 0;
