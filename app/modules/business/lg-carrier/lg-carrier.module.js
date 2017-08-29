@@ -2,7 +2,7 @@ import './lg-carrier.scss';
 module.exports = 'lg-carrier';
 
 import { Carrier } from './carrier.service.js';
-import { CarrierStepManager } from './service/carrier-step-manager.js';
+import { CarrierStepManager } from './carrier-step-manager.service.js';
 
 import * as lib from './lg-carrier-route.js';
 import * as createLib from './lg-carrier-create-route.js';

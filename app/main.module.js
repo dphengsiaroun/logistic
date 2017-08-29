@@ -3,7 +3,7 @@ import './css/create-ad.scss';
 import './css/style.scss';
 import './css/overlay.scss';
 
-import lgCarrier from './modules/business/lg-carrier/lg-carrier.js';
+import lgCarrier from './modules/business/lg-carrier/lg-carrier.module.js';
 import lgConfig from './modules/business/lg-config/lg-config.js';
 import lgConnection from './modules/business/lg-connection/lg-connection.js';
 import lgLoader from './modules/business/lg-loader/lg-loader.js';
