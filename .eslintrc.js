@@ -20,11 +20,11 @@ module.exports = {
 		'quotes': ['error', 'single'],
 		'eqeqeq': ['error', 'always'],
 		'max-lines': ["error", { max: 200, skipBlankLines: false }],
-		'angular/file-name': 0,
+		'angular/file-name': [2, { typeSeparator: 'dot' }],
 		'angular/function-type': [2, "named"],
 		'angular/no-service-method': 0,
 		'angular/module-getter': 0,
-		'angular/controller-name': [2,"/[A-Z].*Ctrl/"],
+		'angular/controller-name': [2, "/[A-Z].*Ctrl/"],
 		'angular/di-unused': 2
 	},
 	env: {
