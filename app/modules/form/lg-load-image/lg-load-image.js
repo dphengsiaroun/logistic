@@ -12,7 +12,7 @@ app.component('lgLoadImage', {
 	template: lgLoadImageHtml,
 	require: {ngModel: 'ngModel'},
 	bindings: {
-		formData: '='
+		formData: '<'
 	},
 	controller: function LgLoadImageCtrl($element, $scope, lgImageLoader) {
 		'ngInject';

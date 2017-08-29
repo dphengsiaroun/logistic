@@ -8,11 +8,15 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 	function ImageLoader(ctrl) {
 
 		function removeFile() {
+			console.log('Dany Remove File');
 			ctrl.file = undefined;
 			ctrl.ngModel.$setViewValue(undefined);
 		}
 
 		function setFile(file) {
+			if (!file) {
+				throw new Error('ImageLoader: File is empty');
+			}
 			ctrl.file = file;
 			ctrl.ngModel.$setViewValue(ctrl.file);
 			ctrl.file.$destroy = function() {
@@ -31,7 +35,7 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 
 		this.init = function() {
 			$http.get(url + '?suffix=' + ctrl.formData.suffix).then(function(response) {
-				console.log('$http get return', response);
+				console.log('Dany $http get return', response);
 				if (response.data.files && response.data.files.length > 0) {
 					setFile(response.data.files[0]);
 				} else {
@@ -60,6 +64,9 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 
 			// Add the file to the request.
 			formData.append('files[]', file, file.name);
+			if (ctrl.formData && ctrl.formData.suffix) {
+				formData.append('suffix', ctrl.formData.suffix);				
+			}
 
 			const xhr = new XMLHttpRequest();
 			xhr.onload = function() {

@@ -8,9 +8,11 @@ require(BASE_DIR . '/include/lib/UploadHandler.php');
 
 debug('$_SERVER', $_SERVER);
 debug('$_FILES', $_FILES);
+debug('$_POST', $_POST);
 
 class MyUploadHandler extends UploadHandler {
 	protected function get_user_id() {
+		debug('get_user_id');
 		$user = User::getConnected();
 		return $user->getPictureDir();
 	}
@@ -18,6 +20,7 @@ class MyUploadHandler extends UploadHandler {
 
 class MySessionUploadHandler extends UploadHandler {
 	protected function get_user_id() {
+		debug('get_user_id session');		
 		return 'session_' . session_id();
 	}
 }

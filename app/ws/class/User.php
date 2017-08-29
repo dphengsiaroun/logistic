@@ -151,6 +151,7 @@ EOF;
 		}
 
 		public function getPictureDir() {
+			debug('getPictureDir start');
 			$suffix = '';
 			if (isset($_POST['suffix'])) {
 				debug('extract suffix from POST');
@@ -158,6 +159,8 @@ EOF;
 			} else if (isset($_GET['suffix'])) {
 				debug('extract suffix from GET');
 				$suffix = $_GET['suffix'];
+			} else {
+				debug('No suffix');
 			}
 			return 'acct_' . $this->id . $suffix;
 		}
