@@ -20,7 +20,7 @@ module.exports = {
 		'quotes': ['error', 'single'],
 		'eqeqeq': ['error', 'always'],
 		'max-lines': ["error", { max: 200, skipBlankLines: false }],
-		'angular/file-name': [2, { typeSeparator: 'dot' }],
+		'angular/file-name': [2, { typeSeparator: 'dot', nameStyle: 'dash' }],
 		'angular/function-type': [2, "named"],
 		'angular/no-service-method': 0,
 		'angular/module-getter': 0,
