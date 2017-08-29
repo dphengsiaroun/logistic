@@ -34,6 +34,6 @@
 		<textarea id="pr-comments" ng-model="$ctrl.pricingData.comments"></textarea>
 	</section>
 	<section>
-		<button type="submit" id="pr-add-pricing-button">Valider</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Valider</button>
 	</section>
 </form>

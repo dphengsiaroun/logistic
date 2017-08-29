@@ -7,7 +7,7 @@
 		<subtitle>Faire une proposition</subtitle>
 	</right>
 </div>
-<formx class="ad" name="carrier">
+<form name="formCtrl" class="ad">
 	<section>
 		<label>Nom</label>
 		<input type="text" placeholder="Nom" ng-model="$ctrl.carrier.createData.title" />
@@ -18,11 +18,9 @@
 		<label>Message</label>
 		<textarea ng-model="$ctrl.carrier.createData.comments"></textarea>
 	</section>
-</formx>
-<formx class="ad">
 	<section class="dark">
 		<button ui-sref="connection:create">Envoyez votre proposition</button>
 	</section>
-</formx>
+</form>
 
 

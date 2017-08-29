@@ -18,7 +18,7 @@
 		</div>
 	</step>
 </breadcrumb>
-<form class="ad" name="carrierCtrl">
+<form name="formCtrl" ng-submit="$ctrl.addTrip()" class="ad">
 	<section class="dark">
 		<big-label>Trajet</big-label>
 		<label>Départ</label>
@@ -59,6 +59,6 @@
 	</section>
 	<section>
 		<lg-error error="$ctrl.trip.error"></lg-error>
-		<button ng-disabled="carrierCtrl.$invalid" ng-click="$ctrl.addTrip()">Valider</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Valider</button>
 	</section>
 </form>
