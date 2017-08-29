@@ -7,7 +7,7 @@
 		<subtitle>Modifier un véhicule</subtitle>
 	</right>
 </div>
-<formx class="ad" name="truckCtrl">
+<form name="formCtrl" ng-submit="$ctrl.truck.update()" class="ad">
 	<section class="dark">
 		<label>Immatriculation ou libellé du vehicule</label>
 		<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
@@ -51,6 +51,6 @@
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>
-		<button id="pr-update-button-confirm" ng-click="$ctrl.truck.update();">Mettre à jour</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Mettre à jour</button>
 	</section>
-</formx>
+</form>

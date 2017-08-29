@@ -2,22 +2,22 @@
 <title>Bienvenue</title>
 <subtitle>{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}</subtitle>
 
-<form class="edit-profile" name="updateCtrl">
+<form name="formCtrl" ng-submit="$ctrl.user.update()" class="edit-profile">
 	<div>
 		<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" required />
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.lastname)">
-				<span ng-show="updateCtrl.lastname.$error.required">Le nom est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.lastname)">
+				<span ng-show="formCtrl.lastname.$error.required">Le nom est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
 	<div>
 		<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" required />
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.firstname)">
-				<span ng-show="updateCtrl.firstname.$error.required">Le prénom est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.firstname)">
+				<span ng-show="formCtrl.firstname.$error.required">Le prénom est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
@@ -25,20 +25,20 @@
 		<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder
 		    ui-mask-placeholder-char="space" ng-model="$ctrl.user.updateData.content.login" required />
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.login)">
-				<span ng-show="updateCtrl.login.$error.required">Le pseudo est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.login)">
+				<span ng-show="formCtrl.login.$error.required">Le pseudo est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
 	<div>
 		<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" required />
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
-			<i ng-show="$ctrl.fv.isError(updateCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.email)">
-				<span ng-show="updateCtrl.email.$error.required">L'email est obligatoire.</span>
-				<span ng-show="updateCtrl.email.$error.email">Cet email n'est pas valide.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
+			<i ng-show="$ctrl.fv.isError(formCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.email)">
+				<span ng-show="formCtrl.email.$error.required">L'email est obligatoire.</span>
+				<span ng-show="formCtrl.email.$error.email">Cet email n'est pas valide.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
@@ -52,9 +52,9 @@
 	<div>
 		<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.updateData.content.address.street" required />
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.street)">
-				<span ng-show="updateCtrl.street.$error.required">L'adresse est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.street)">
+				<span ng-show="formCtrl.street.$error.required">L'adresse est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
@@ -62,18 +62,18 @@
 		<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.updateData.content.address.zipcode"
 		    required />
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.zipcode)">
-				<span ng-show="updateCtrl.zipcode.$error.required">Le code postal est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.zipcode)">
+				<span ng-show="formCtrl.zipcode.$error.required">Le code postal est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
 	<div>
 		<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.updateData.content.address.city" required />
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.city)">
-				<span ng-show="updateCtrl.city.$error.required">La ville est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
+				<span ng-show="formCtrl.city.$error.required">La ville est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
@@ -81,9 +81,9 @@
 		<lg-choice name="country" choices="$root.config.countries" title="Pays d'origine" placeholder="Pays" ng-model="$ctrl.user.updateData.content.address.country"
 		    is-mandatory="true"></lg-choice>
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.country)">
-				<span ng-show="updateCtrl.country.$error.required">Le pays est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.country)">
+				<span ng-show="formCtrl.country.$error.required">Le pays est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
@@ -91,16 +91,16 @@
 		<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.updateData.content.phone" required
 		/>
 		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(updateCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(updateCtrl.phone)">
-				<span ng-show="updateCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.phone)">
+				<span ng-show="formCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
 	</div>
 	<br/>
 	<lg-error error="$ctrl.user.error"></lg-error>
 	<div class="bouton">
-		<button ng-disabled="updateCtrl.$invalid" ng-click="$ctrl.user.update();">Modifier</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Modifier</button>
 	</div>
 	<lg-hr>ou</lg-hr>
 	<a ng-show="$ctrl.user.current.password !== ''" ui-sref="user:updatePassword">Modifier mot de passe</a>

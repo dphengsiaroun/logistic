@@ -52,7 +52,7 @@ utils.user.create = function(user) {
 	utils.lgChoiceSelect('country', user.country);
 	element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 	// browser.sleep(5000);
-	element(by.id('pr-create-user-button')).click();
+	utils.submitForm();
 	const message = element(by.css('h2'));
 	expect(message.getText()).toEqual('Votre compte est créé.');
 	element(by.css('button')).click();
@@ -73,7 +73,7 @@ utils.user.truck.create = function(truck) {
 	utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
 	utils.lgChoiceSelect('birthyear', truck.birthyear);
 	utils.lgUploadSelect('imageId', truck.imageId);
-	element(by.id('pr-add-vehicle-button')).click();
+	utils.submitForm();
 	element(by.css('button.ok')).click();
 	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/truck`);
 };
@@ -96,7 +96,7 @@ utils.user.truck.update = function(user, truck) {
 	element(by.css('truck-list img')).click();
 	element(by.id('pr-update-button')).click();
 	element(by.name('model')).clear().sendKeys('Renault');
-	element(by.id('pr-update-button-confirm')).click();
+	utils.submitForm();
 	element(by.css('button.ok')).click();
 	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/truck`);
 };
@@ -124,7 +124,7 @@ utils.user.carrierAd.create = function(carrierAd) {
 	// browser.sleep(5000);
 	element(by.name('priceWantedPerKm')).sendKeys(carrierAd.priceWantedPerKm);
 	element(by.id('pr-add-pricing-button')).click();
-	element(by.id('pr-create-carrier-button-confirm')).click();
+	utils.submitForm();
 	element(by.css('button')).click();
 	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/carriers');
 };
@@ -144,7 +144,7 @@ utils.user.loaderAd.create = function(loaderAd) {
 	utils.lgUploadSelect('imageId', loaderAd.imageId);
 	element(by.name('priceWanted')).sendKeys(loaderAd.priceWanted);
 	element(by.name('title')).sendKeys(loaderAd.title);
-	element(by.id('pr-button-create-loader-ad')).click();
+	utils.submitForm();
 	element(by.css('button.ok')).click();
 	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 };
@@ -168,8 +168,11 @@ utils.login = function(user) {
 	element(by.linkText('Se connecter')).click();
 	element(by.name('login')).clear().sendKeys(user.login);
 	element(by.name('password-crypted')).clear().sendKeys(user.password);
-	element(by.id('pr-button-connect-user')).click();
-
+	utils.submitForm();
 	const userIdentity = element(by.css('.user-identity')).getText();
 	expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
+};
+
+utils.submitForm = function() {
+	element(by.css('form button[type=submit]')).click();
 };

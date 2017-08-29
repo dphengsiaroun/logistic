@@ -2,22 +2,22 @@
 <sign-form>
 	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
-	<form name="signupCtrl" ng-submit="$ctrl.user.create();">
+	<form name="formCtrl" ng-submit="$ctrl.user.create()">
 		<div>
 			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" required />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.lastname)">
-					<span ng-show="signupCtrl.lastname.$error.required">Le nom est obligatoire.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.lastname)">
+					<span ng-show="formCtrl.lastname.$error.required">Le nom est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
 		<div>
 			<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" required />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.firstname)">
-					<span ng-show="signupCtrl.firstname.$error.required">Le prénom est obligatoire.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.firstname)">
+					<span ng-show="formCtrl.firstname.$error.required">Le prénom est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -26,10 +26,10 @@
 			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" ng-model-options="{ debounce: 300 }" ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'login\', $value)'}"
 			    required />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.login)">
-					<span ng-show="signupCtrl.login.$error.required">Le pseudo est obligatoire.</span>
-					<span id="login-already-taken-error-msg" ng-show="signupCtrl.login.$error['already-taken']">Ce login est déjà pris.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.login)">
+					<span ng-show="formCtrl.login.$error.required">Le pseudo est obligatoire.</span>
+					<span id="login-already-taken-error-msg" ng-show="formCtrl.login.$error['already-taken']">Ce login est déjà pris.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -37,12 +37,12 @@
 			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.signupData.email" ng-model-options="{ debounce: 300 }"
 			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'email\', $value)'}" />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
-				<i ng-show="$ctrl.fv.isError(signupCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.email)">
-					<span ng-show="signupCtrl.email.$error.required">L'email est obligatoire.</span>
-					<span ng-show="signupCtrl.email.$error.email">Cet email n'est pas valide.</span>
-					<span id="email-already-taken-error-msg" ng-show="signupCtrl.email.$error['already-taken']">Ce mail est déjà pris.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
+				<i ng-show="$ctrl.fv.isError(formCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.email)">
+					<span ng-show="formCtrl.email.$error.required">L'email est obligatoire.</span>
+					<span ng-show="formCtrl.email.$error.email">Cet email n'est pas valide.</span>
+					<span id="email-already-taken-error-msg" ng-show="formCtrl.email.$error['already-taken']">Ce mail est déjà pris.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -57,9 +57,9 @@
 		<div>
 			<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" required />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.street)">
-					<span ng-show="signupCtrl.street.$error.required">L'adresse est obligatoire.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.street)">
+					<span ng-show="formCtrl.street.$error.required">L'adresse est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -67,19 +67,19 @@
 			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode"
 			    required />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.zipcode)">
-					<span ng-show="signupCtrl.zipcode.$error.required">Le code postal est obligatoire.</span>
-					<span ng-show="signupCtrl.zipcode.$error.pattern">Saisie incorrect, chiffres de 0 à 9 uniquement.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.zipcode)">
+					<span ng-show="formCtrl.zipcode.$error.required">Le code postal est obligatoire.</span>
+					<span ng-show="formCtrl.zipcode.$error.pattern">Saisie incorrect, chiffres de 0 à 9 uniquement.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
 		<div>
 			<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" required />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.city)">
-					<span ng-show="signupCtrl.city.$error.required">La ville est obligatoire.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
+					<span ng-show="formCtrl.city.$error.required">La ville est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -87,9 +87,9 @@
 			<lg-choice name="country" choices="$root.config.countries" title="Pays d'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
 			    is-mandatory="true"></lg-choice>
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.country)">
-					<span ng-show="signupCtrl.country.$error.required">Le pays est obligatoire.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.country)">
+					<span ng-show="formCtrl.country.$error.required">Le pays est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
@@ -97,21 +97,21 @@
 			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" ng-model-options="{ debounce: 300 }"
 			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'phone\', $value)'}" />
 			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(signupCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(signupCtrl.phone)">
-					<span ng-show="signupCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
-					<span ng-show="signupCtrl.phone.$error.pattern">Saisie incorrect, chiffres de 0 à 9 uniquement.</span>
-					<span id="phone-already-taken-error-msg" ng-show="signupCtrl.phone.$error['already-taken']">Ce numéro de téléphone est déjà pris.</span>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.phone)">
+					<span ng-show="formCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
+					<span ng-show="formCtrl.phone.$error.pattern">Saisie incorrect, chiffres de 0 à 9 uniquement.</span>
+					<span id="phone-already-taken-error-msg" ng-show="formCtrl.phone.$error['already-taken']">Ce numéro de téléphone est déjà pris.</span>
 				</error-message>
 			</message-form-validator>
 		</div>
 		<br/>
 		<input type="eyepassword" name="password" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" required />
-		<error-message ng-show="$ctrl.fv.isError(signupCtrl.password)">
-			<span ng-show="signupCtrl.password.$error.required">Le mot de passe est obligatoire.</span>
+		<error-message ng-show="$ctrl.fv.isError(formCtrl.password)">
+			<span ng-show="formCtrl.password.$error.required">Le mot de passe est obligatoire.</span>
 		</error-message>
 		<br/>
 		<lg-error error="$ctrl.user.error"></lg-error>
-		<button ng-disabled="signupCtrl.$invalid" id="pr-create-user-button">Créer le compte</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Créer le compte</button>
 	</form>
 </sign-form>

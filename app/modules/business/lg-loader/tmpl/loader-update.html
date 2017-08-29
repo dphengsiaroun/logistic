@@ -7,7 +7,7 @@
 		<subtitle>Modifier une annonce</subtitle>
 	</right>
 </div>
-<form class="ad" name="loaderCtrl">
+<form class="ad" name="formCtrl">
 	<section>
 		<big-label>Transport</big-label>
 		<lg-select name="transportCategory" ng-model="$ctrl.loader.updateData.transportCategory" required>
@@ -140,9 +140,9 @@
 	</section>
 	<section>
 		<lg-error error="$ctrl.loader.error"></lg-error>
-		<button id="pr-update-loader-button-confirm" ng-click="$ctrl.loader.update();">Mettre à jour</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Mettre à jour</button>
 	</section>
-	</formx>
+</form>
 
 	<script>
 		$('.no-zoom').bind('touchend', function(e) {

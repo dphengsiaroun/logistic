@@ -3,11 +3,11 @@
 	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
 
-	<form name="formCtrl">
+	<form name="formCtrl" ng-submit="$ctrl.connection.create()">
 		<input name="login" type="text" placeholder="email, n°tel, pseudo" ng-model="$ctrl.connection.createConnectionData.login" required/>
 		<input type="eyepassword" name="password" placeholder="Mot de passe" ng-model="$ctrl.connection.createConnectionData.password" required/>
 		<lg-error error="$ctrl.connection.error"></lg-error>
-		<button id="pr-button-connect-user" ng-click="$ctrl.connection.create()" ng-disabled="formCtrl.$invalid">Se connecter</button>
+		<button type="submit" ng-disabled="formCtrl.$invalid">Se connecter</button>
 	</form>
 
 	<lg-hr>ou</lg-hr>
