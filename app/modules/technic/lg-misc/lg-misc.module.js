@@ -3,43 +3,9 @@ import './lg-misc.scss';
 
 import { LgMisc } from './lg-misc.service.js';
 import { LgSequence } from './lg-sequence.service.js';
+import { LgScroll } from './lg-scroll.service.js';
+import { durationFilter } from './duration-filter.service.js';
 
-function LgScroll($window, $document) {
-	'ngInject';
-	const body = $document.find('body').eq(0);
-	this.lastSaved = 0;
-	this.save = function() {
-		this.lastSaved = $window.scrollY;
-		body.addClass('lg-scroll-noscroll');
-	};
-	this.restore = function() {
-		body.removeClass('lg-scroll-noscroll');
-		$window.scrollTo(0, this.lastSaved);
-
-	};
-}
-
-function durationFilter($filter) {
-	'ngInject';
-	return function(duration) {
-		let result = '';
-		let minuteFormat = 'mm';
-		let hourFormat = ' et \'H\'h\'';
-		if (duration % (60 * 60) === 0) {
-			minuteFormat = '';
-			if (duration % (24 * 60 * 60) === 0) {
-				hourFormat = '';
-			}
-		}
-		if (duration < 24 * 60 * 60) {
-			result = $filter('date')(duration * 1000, 'H\'h\'' + minuteFormat, 'UTC');
-		} else {
-
-			result = $filter('date')((duration - 24 * 60 * 60) * 1000, 'd\'j' + hourFormat + minuteFormat, 'UTC');
-		}
-		return result;
-	};
-}
 
 function distanceFilter() {
 	'ngInject';
