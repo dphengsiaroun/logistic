@@ -34,7 +34,11 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 		}
 
 		this.init = function() {
-			$http.get(url + '?suffix=' + ctrl.formData.suffix).then(function(response) {
+			let qs = '?';
+			if (ctrl.formData && ctrl.formData.suffix) {
+				qs = '?suffix=' + ctrl.formData.suffix;
+			}
+			$http.get(url + qs).then(function(response) {
 				console.log('Dany $http get return', response);
 				if (response.data.files && response.data.files.length > 0) {
 					setFile(response.data.files[0]);
