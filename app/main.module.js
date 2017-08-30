@@ -29,7 +29,7 @@ import lgRoute from './modules/site/lg-route/lg-route.js';
 import lgDebug from './modules/technic/lg-debug/lg-debug.js';
 import lgError from './modules/technic/lg-error/lg-error.js';
 import lgFilterList from './modules/technic/lg-filter-list/lg-filter-list.js';
-import lgGeoloc from './modules/technic/lg-geoloc/lg-geoloc.js';
+import lgGeoloc from './modules/technic/lg-geoloc/geoloc.service.js';
 import lgHttp from './modules/technic/lg-http/lg-http.js';
 import lgMisc from './modules/technic/lg-misc/lg-misc.module.js';
 import lgTest from './modules/technic/lg-test/lg-test.module.js';

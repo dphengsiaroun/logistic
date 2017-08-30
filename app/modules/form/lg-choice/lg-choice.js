@@ -1,4 +1,4 @@
-import lgGeoloc from '../../technic/lg-geoloc/lg-geoloc.js';
+import lgGeoloc from '../../technic/lg-geoloc/geoloc.service.js';
 
 import './lg-choice.scss';
 module.exports = 'lg-choice';
