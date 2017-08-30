@@ -2,38 +2,24 @@ import './css/lg-home-route.scss';
 module.exports = 'lg-route';
 
 import {LgRoute} from './lg-route.service.js';
+import {LgHomeRoute} from './lg-home-route.component.js';
+import {Context} from './context.service.js';
 
-const app = angular.module(module.exports, ['ui.router']);
+angular.module(module.exports, ['ui.router'])
+    .service('lgRoute', LgRoute)
+    .run((lgRoute) => {
+        lgRoute.start();
+    })
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+        $locationProvider.hashPrefix('');
+        $locationProvider.html5Mode(true);
+        $stateProvider.state({
+            name: 'home',
+            url: '/',
+            component: 'lgHomeRoute'
+        });
 
-app.service('lgRoute', LgRoute);
-app.run((lgRoute) => {
-    lgRoute.start();
-});
-
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-    $locationProvider.hashPrefix('');
-    $locationProvider.html5Mode(true);
-    $stateProvider.state({
-        name: 'home',
-        url: '/',
-        component: 'lgHomeRoute'
-    });
-
-    $urlRouterProvider.otherwise('/');
-});
-
-import homeHtml from './tmpl/home.html';
-
-app.component('lgHomeRoute', {
-    template: homeHtml,
-});
-
-app.service('context', function Context() {
-    this.stack = [];
-    this.push = function(n) {
-        this.stack.push(n);
-    };
-    this.pop = function() {
-        return this.stack.pop();
-    };
-});
+        $urlRouterProvider.otherwise('/');
+    })
+    .component('lgHomeRoute', LgHomeRoute)
+    .service('context', Context);
