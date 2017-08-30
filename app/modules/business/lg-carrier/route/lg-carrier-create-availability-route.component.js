@@ -1,4 +1,5 @@
 import lgCarrierCreateAvailabilityHtml from '../tmpl/carrier-create-availability.html';
+
 export const lgCarrierCreateAvailabilityRoute = {
 	template: lgCarrierCreateAvailabilityHtml,
 	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, user, carrier) {
@@ -10,7 +11,7 @@ export const lgCarrierCreateAvailabilityRoute = {
 				if (carrier.type === 'create') {
 					$state.go('carrier:create');
 				} else {
-					$state.go('carrier:' + carrier.type, {login: user.current.content.login, id: carrier.current.id});
+					$state.go('carrier:' + carrier.type, { login: user.current.content.login, id: carrier.current.id });
 				}
 			}
 			if (str === 'specificTrip') {

@@ -1,4 +1,5 @@
 import carrierCreateTruckChooseHtml from '../tmpl/carrier-create-truck-choose.html';
+
 export const lgCarrierCreateTruckChooseRoute = {
 	template: carrierCreateTruckChooseHtml,
 	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, user, truck, carrier) {

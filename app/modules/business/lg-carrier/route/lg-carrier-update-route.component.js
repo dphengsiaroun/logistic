@@ -1,4 +1,5 @@
 import carrierCreateHtml from '../tmpl/carrier-create.html';
+
 export const lgCarrierUpdateRoute = {
 	template: carrierCreateHtml,
 	controller: function LgCarrierUpdateRouteCtrl(user, carrier, carrierStepManager) {

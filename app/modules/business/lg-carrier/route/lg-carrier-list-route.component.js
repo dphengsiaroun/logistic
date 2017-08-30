@@ -14,7 +14,6 @@ function CarrierListCtrl($scope, carrier, lgFilterList) {
 	};
 }
 
-
 import carrierListHtml from '../tmpl/carrier-list.html';
 
 export const lgCarrierListRoute = {

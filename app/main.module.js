@@ -4,12 +4,12 @@ import './css/style.scss';
 import './css/overlay.scss';
 
 import lgCarrier from './modules/business/lg-carrier/lg-carrier.module.js';
-import lgConfig from './modules/business/lg-config/lg-config.js';
-import lgConnection from './modules/business/lg-connection/lg-connection.js';
-import lgLoader from './modules/business/lg-loader/lg-loader.js';
-import lgPassword from './modules/business/lg-password/lg-password.js';
-import lgProposal from './modules/business/lg-proposal/lg-proposal.js';
-import lgTruck from './modules/business/lg-truck/lg-truck.js';
+import lgConfig from './modules/business/lg-config/lg-config.module.js';
+import lgConnection from './modules/business/lg-connection/lg-connection.module.js';
+import lgLoader from './modules/business/lg-loader/lg-loader.module.js';
+import lgPassword from './modules/business/lg-password/lg-password.module.js';
+import lgProposal from './modules/business/lg-proposal/lg-proposal.module.js';
+import lgTruck from './modules/business/lg-truck/lg-truck.module.js';
 
 import lgChoice from './modules/form/lg-choice/lg-choice.component.js';
 import lgDatetime from './modules/form/lg-datetime/lg-datetime.js';

@@ -1,4 +1,5 @@
 import lgCarrierCreatePricingHtml from '../tmpl/carrier-create-pricing.html';
+
 export const lgCarrierCreatePricingRoute = {
 	template: lgCarrierCreatePricingHtml,
 	controller: function LgCarrierCreatePricingRouteCtrl($state, user, carrier) {

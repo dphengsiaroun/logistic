@@ -4,7 +4,7 @@ import * as lib from './lg-connection-route.js';
 
 module.exports = 'lg-connection';
 
-import lgUser from '../lg-user/lg-user.js';
+import lgUser from '../lg-user/lg-user.module.js';
 
 angular.module(module.exports, [lgUser])
 	.config(lib.config)
