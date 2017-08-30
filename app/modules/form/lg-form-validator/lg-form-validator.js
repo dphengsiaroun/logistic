@@ -1,13 +1,7 @@
 import './lg-form-validator.scss';
 module.exports = 'lg-form-validator';
 
-const app = angular.module(module.exports, []);
+import { FormValidator } from './form-validator.service.js';
 
-app.service('formValidator', function FormValidator() {
-	this.isError = function(field) {
-		return field.$invalid && field.$touched && field.$dirty;
-	};
-	this.isOk = function(field) {
-		return field.$valid && field.$touched && field.$dirty;
-	};
-});
+angular.module(module.exports, [])
+	.service('formValidator', FormValidator);
