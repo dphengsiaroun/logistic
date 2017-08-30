@@ -19,7 +19,7 @@ import lgFilter from './modules/form/lg-filter/lg-filter.js';
 import lgFormValidator from './modules/form/lg-form-validator/lg-form-validator.js';
 import lgOrderby from './modules/form/lg-orderby/lg-orderby.js';
 import lgNum from './modules/form/lg-num/lg-num.js';
-import lgSlider from './modules/form/lg-slider/lg-slider.js';
+import lgSlider from './modules/form/lg-slider/lg-slider.component.js';
 import lgLoadImage from './modules/form/lg-load-image/lg-load-image.js';
 
 import lgDesktop from './modules/site/lg-desktop/lg-desktop.component.js';
