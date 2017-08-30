@@ -2,7 +2,7 @@ import './lg-proposal.scss';
 module.exports = 'lg-proposal';
 
 import * as lib from './lg-proposal-route.js';
-import { Proposal } from './lg-proposal-service.js';
+import { Proposal } from './proposal.service.js';
 
 angular.module(module.exports, ['ui.router'])
 	.service('proposal', Proposal)
