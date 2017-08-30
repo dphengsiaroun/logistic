@@ -34,7 +34,7 @@ import lgHttp from './modules/technic/lg-http/lg-http.js';
 import lgMisc from './modules/technic/lg-misc/lg-misc.module.js';
 import lgTest from './modules/technic/lg-test/lg-test.module.js';
 import lgWidget from './modules/technic/lg-widget/lg-widget.js';
-import lgBackDetector from './modules/technic/lg-back-detector/lg-back-detector.js';
+import lgBackDetector from './modules/technic/lg-back-detector/lg-back-detector.service.js';
 
 angular.module('main', [
 	'ngTouch',
