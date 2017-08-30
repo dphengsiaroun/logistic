@@ -26,7 +26,7 @@ import lgDesktop from './modules/site/lg-desktop/lg-desktop.js';
 import lgMenu from './modules/site/lg-menu/lg-menu.js';
 import lgRoute from './modules/site/lg-route/lg-route.js';
 
-import lgDebug from './modules/technic/lg-debug/lg-debug.js';
+import lgDebug from './modules/technic/lg-debug/lg-debug.service.js';
 import lgError from './modules/technic/lg-error/lg-error.js';
 import lgFilterList from './modules/technic/lg-filter-list/lg-filter-list.service.js';
 import lgGeoloc from './modules/technic/lg-geoloc/geoloc.service.js';
