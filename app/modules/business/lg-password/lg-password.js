@@ -2,7 +2,7 @@ import './lg-password.scss';
 module.exports = 'lg-password';
 
 import * as lib from './lg-password-route.js';
-import { Password } from './lg-password-service.js';
+import { Password } from './password.service.js';
 
 
 angular.module(module.exports, [])

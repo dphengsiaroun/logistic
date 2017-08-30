@@ -1,4 +1,4 @@
-import { Connection } from './lg-connection-service.js';
+import { Connection } from './connection.service.js';
 import * as lib from './lg-connection-route.js';
 
 

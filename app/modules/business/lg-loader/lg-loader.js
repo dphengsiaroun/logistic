@@ -2,7 +2,7 @@ import './lg-loader.scss';
 module.exports = 'lg-loader';
 
 import * as lib from './lg-loader-route.js';
-import { Loader } from './lg-loader-service.js';
+import { Loader } from './loader.service.js';
 
 angular.module(module.exports, ['ui.router'])
 	.service('loader', Loader)
