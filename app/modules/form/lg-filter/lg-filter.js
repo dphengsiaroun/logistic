@@ -1,7 +1,7 @@
 import './lg-filter.scss';
 module.exports = 'lg-filter';
 
-import '../../technic/lg-erasable/lg-erasable.js';
+import '../../technic/lg-erasable/lg-erasable.directive.js';
 
 const app = angular.module(module.exports, ['lg-erasable']);
 
