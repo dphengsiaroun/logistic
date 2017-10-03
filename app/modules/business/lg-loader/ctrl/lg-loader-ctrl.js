@@ -12,7 +12,6 @@ export function LoaderListCtrl($scope, loader, lgFilterList) {
 			console.error('error', error);
 		});
 	};
-
 }
 
 export function LoaderCtrl($scope, $stateParams, loader, user, connection) {

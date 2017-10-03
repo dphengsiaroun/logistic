@@ -45,15 +45,15 @@ lg-mobile {
 		left: 139px;
 	}
 	lg-body {
-		display: block;
-		position: relative;
-		overflow-y: scroll;
-		overflow-x: hidden;
-		background: #f5f5f5;
-		width: 325px;
-		height: 576px;
-		top: 110px;
-		left: 139px;
+		// display: block;
+		// position: relative;
+		// overflow-y: scroll;
+		// overflow-x: hidden;
+		// background: #f5f5f5;
+		// width: 325px;
+		// height: 576px;
+		// top: 110px;
+		// left: 139px;
 	}
 	lg-menu-content {
 		width: 325px;
@@ -77,6 +77,24 @@ lg-mobile {
 		fixed-list {
 			height: 576px !important;
 		}
+	}
+
+	/* lg-user-ads-route */
+	lg-user-ads-route, lg-user-proposals-route, lg-user-retrieve-route, lg-home-route, lg-connection-signin-route {
+		display: block;
+		position: relative;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		background: #f5f5f5;
+		width: 325px;
+		height: 518px;
+		top: 110px;
+		left: 139px;
+	}
+
+	/* lg-user-retrieve-route */
+	lg-user-retrieve-route {
+		padding: 20px 0px;		
 	}
 
 	/* lg-datetime */

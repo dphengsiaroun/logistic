@@ -22,7 +22,6 @@ export function config($stateProvider) {
 		},
 		needsUser: true
 	});
-
 }
 
 import connectionCreateHtml from './tmpl/connection-create.html';

@@ -38,6 +38,7 @@
 		</a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user" aria-hidden="true"></i> <p>Mon profil</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.current.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
+		<a ng-click="$ctrl.toggle();" ui-sref="admin"><i class="fa fa-tachometer" aria-hidden="true"></i> <p>Administration</p></a>					
 		<br/><br/>
 		<a ng-click="$ctrl.toggle();" ui-sref="connection:delete" class="btn-logout" ><i class="fa fa-sign-out" aria-hidden="true"></i> <p>Se déconnecter</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a>
