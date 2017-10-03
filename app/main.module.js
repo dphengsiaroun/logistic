@@ -3,6 +3,8 @@ import './css/create-ad.scss';
 import './css/style.scss';
 import './css/overlay.scss';
 
+import lgAdmin from './modules/admin/lg-admin/lg-admin.module.js';
+
 import lgCarrier from './modules/business/lg-carrier/lg-carrier.module.js';
 import lgConfig from './modules/business/lg-config/lg-config.module.js';
 import lgConnection from './modules/business/lg-connection/lg-connection.module.js';
@@ -22,7 +24,6 @@ import lgNum from './modules/form/lg-num/lg-num.js';
 import lgSlider from './modules/form/lg-slider/lg-slider.component.js';
 import lgLoadImage from './modules/form/lg-load-image/lg-load-image.js';
 
-import lgAdmin from './modules/site/lg-admin/lg-admin.module.js';
 import lgDesktop from './modules/site/lg-desktop/lg-desktop.component.js';
 import lgMenu from './modules/site/lg-menu/lg-menu.js';
 import lgRoute from './modules/site/lg-route/lg-route.js';
@@ -44,6 +45,8 @@ angular.module('main', [
 	'ui.mask',
 	'ui.router',
 
+	lgAdmin,
+
 	lgCarrier,
 	lgConfig,
 	lgConnection,
@@ -63,7 +66,6 @@ angular.module('main', [
 	lgSlider,
 	lgLoadImage,
 
-	lgAdmin,
 	lgDesktop,
 	lgMenu,
 	lgRoute,
