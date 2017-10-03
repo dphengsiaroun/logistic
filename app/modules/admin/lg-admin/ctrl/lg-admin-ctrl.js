@@ -3,6 +3,6 @@ export function AdminCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.truck.get($stateParams.id);
+        ctrl.admin.get($stateParams.id);
     };
 }

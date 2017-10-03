@@ -80,7 +80,29 @@ lg-mobile {
 	}
 
 	/* lg-user-ads-route */
-	lg-user-ads-route, lg-user-proposals-route, lg-user-retrieve-route, lg-home-route, lg-connection-signin-route {
+	lg-user-ads-route,
+	lg-user-proposals-route,
+	lg-user-retrieve-route,
+	lg-home-route,
+	lg-connection-signin-route,
+	lg-carrier-create-route,
+	lg-loader-create-route,
+	lg-carrier-list-route,
+	lg-carrier-retrieve-route,
+	lg-carrier-create-truck-choose-route,
+	lg-carrier-create-availability-route,
+	lg-carrier-create-trip-create-route,
+	lg-carrier-create-pricing-route,
+	lg-carrier-update-route,
+	lg-loader-list-route,
+	lg-loader-retrieve-route,
+	lg-loader-update-route,
+	lg-truck-list-route,
+	lg-truck-retrieve-route,
+	lg-truck-update-route,
+	tests,
+	lg-prompt,
+	lg-message, {
 		display: block;
 		position: relative;
 		overflow-y: scroll;
@@ -94,7 +116,7 @@ lg-mobile {
 
 	/* lg-user-retrieve-route */
 	lg-user-retrieve-route {
-		padding: 20px 0px;		
+		padding: 20px 0px;
 	}
 
 	/* lg-datetime */
