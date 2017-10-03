@@ -3,7 +3,6 @@ export function AdminCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.admin.get($stateParams.id);
     };
 }
 
@@ -12,7 +11,6 @@ export function AdminUsersCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.admin.get($stateParams.id);
     };
 }
 
@@ -21,7 +19,6 @@ export function AdminLoadersCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.admin.get($stateParams.id);
     };
 }
 
@@ -30,7 +27,6 @@ export function AdminCarriersCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.admin.get($stateParams.id);
     };
 }
 
@@ -39,7 +35,6 @@ export function AdminTrucksCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.admin.get($stateParams.id);
     };
 }
 
@@ -48,6 +43,5 @@ export function AdminProposalsCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        ctrl.admin.get($stateParams.id);
     };
 }

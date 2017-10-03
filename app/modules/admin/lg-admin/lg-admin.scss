@@ -71,7 +71,9 @@ lg-admin-users-route, lg-admin-carriers-route, lg-admin-loaders-route, lg-admin-
 	z-index: 20;
 	section {
 		display: block;
-		min-height: 700px;
+		min-height: 750px;
+		position: relative;
+		top: 25px;
 		div.container {
 			display: block;
 			width: 80%;
