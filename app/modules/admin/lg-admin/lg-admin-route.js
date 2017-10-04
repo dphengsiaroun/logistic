@@ -38,6 +38,7 @@ export function config($stateProvider) {
     });
 }
 
+import adminNavHtml from './tmpl/lg-admin-nav.html';
 import adminHtml from './tmpl/lg-admin.html';
 import adminUsersHtml from './tmpl/lg-admin-users.html';
 import adminLoadersHtml from './tmpl/lg-admin-loaders.html';
@@ -45,6 +46,11 @@ import adminCarriersHtml from './tmpl/lg-admin-carriers.html';
 import adminTrucksHtml from './tmpl/lg-admin-trucks.html';
 import adminProposalsHtml from './tmpl/lg-admin-proposals.html';
 import * as ctrlLib from './ctrl/lg-admin-ctrl.js';
+
+export const lgAdminNavRoute = {
+	template: adminNavHtml,
+	controller: ctrlLib.AdminCtrl,
+};
 
 export const lgAdminRoute =  {
     template: adminHtml,
