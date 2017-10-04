@@ -81,14 +81,19 @@ lg-mobile {
 
 	/* lg-user-ads-route */
 	lg-user-ads-route,
+	lg-user-create-route,
+	lg-user-signup-success-route,
 	lg-user-proposals-route,
 	lg-user-retrieve-route,
+	lg-user-forgotten-password-route,
+	lg-user-update-password-route,
 	lg-home-route,
 	lg-connection-signin-route,
 	lg-carrier-create-route,
 	lg-loader-create-route,
 	lg-carrier-list-route,
 	lg-carrier-retrieve-route,
+	lg-carrier-create-truck-create-route,
 	lg-carrier-create-truck-choose-route,
 	lg-carrier-create-availability-route,
 	lg-carrier-create-trip-create-route,
@@ -97,12 +102,22 @@ lg-mobile {
 	lg-loader-list-route,
 	lg-loader-retrieve-route,
 	lg-loader-update-route,
+	lg-truck-create-route,
 	lg-truck-list-route,
 	lg-truck-retrieve-route,
 	lg-truck-update-route,
+	lg-proposal-create-route,
+	lg-proposal-retrieve-route,
+	lg-proposal-update-route,
 	tests,
+	lg-test-calendar-route,
+	lg-test-datetime-route,
+	lg-test-load-image,
+	lg-test-num,
+	lg-test-slider,
 	lg-prompt,
-	lg-message, {
+	lg-message,
+	lg-confirm {
 		display: block;
 		position: relative;
 		overflow-y: scroll;
@@ -112,6 +127,10 @@ lg-mobile {
 		height: 518px;
 		top: 110px;
 		left: 139px;
+	}
+
+	lg-user-forgotten-password-route form .email {
+		top: 41.5% !important;
 	}
 
 	/* lg-user-retrieve-route */

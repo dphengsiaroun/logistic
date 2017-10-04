@@ -13,6 +13,12 @@ export function config($stateProvider) {
         needsUser: true
     });
     $stateProvider.state({
+        name: 'admin:users:update',
+        url: '/admin/users/update',
+        component: 'lgAdminUsersUpdateRoute',
+        needsUser: true
+    });
+    $stateProvider.state({
         name: 'admin:loaders',
         url: '/admin/loaders',
         component: 'lgAdminLoadersRoute',
@@ -41,6 +47,7 @@ export function config($stateProvider) {
 import adminNavHtml from './tmpl/lg-admin-nav.html';
 import adminHtml from './tmpl/lg-admin.html';
 import adminUsersHtml from './tmpl/lg-admin-users.html';
+import adminUsersUpdateHtml from './tmpl/lg-admin-form-update.html';
 import adminLoadersHtml from './tmpl/lg-admin-loaders.html';
 import adminCarriersHtml from './tmpl/lg-admin-carriers.html';
 import adminTrucksHtml from './tmpl/lg-admin-trucks.html';
@@ -59,6 +66,11 @@ export const lgAdminRoute =  {
 
 export const lgAdminUsersRoute =  {
     template: adminUsersHtml,
+    controller: ctrlLib.AdminUsersCtrl,
+};
+
+export const lgAdminUsersUpdateRoute =  {
+    template: adminUsersUpdateHtml,
     controller: ctrlLib.AdminUsersCtrl,
 };
 
