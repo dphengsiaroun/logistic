@@ -109,7 +109,7 @@ lg-admin-proposals-route {
 		z-index: 25;
 		div.container {
 			display: block;
-			width: 80%;
+			width: 90%;
 			margin: 30px auto;
 			h2 {
 				font-size: 30px;
@@ -132,15 +132,23 @@ lg-admin-proposals-route {
 					th {
 						padding: 10px;
 						border-bottom: 2px solid #ddd;
+						font-size: 15px;
 					}
 				}
 				tbody {
-					th,
-					td {
-						padding: 8px;
-						line-height: 1.42857143;
-						vertical-align: top;
-						border-top: 1px solid #ddd;
+					tr {
+						th,
+						td {
+							vertical-align: middle !important;
+							padding: 8px;
+							text-align: center;
+							font-size: 14px;
+							vertical-align: top;
+							border-top: 1px solid #ddd;
+							img {
+								width: 100px;
+							}
+						}
 					}
 				}
 			}
