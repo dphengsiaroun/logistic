@@ -62,13 +62,21 @@ export function AdminTrucksCtrl($stateParams, user, truck) {
     };
 }
 
-export function AdminProposalsCtrl($stateParams, user, proposal) {
+export function AdminProposalsCtrl($stateParams, user, connection, proposal) {
     'ngInject';
     const ctrl = this;
     ctrl.user = user;
     ctrl.proposal = proposal;
     ctrl.$onInit = function() {
-        console.log('Admin proposal list', ctrl.proposal);
-        ctrl.proposal.list();    
+        connection.waitForCheckConnection().then(function() {
+            return proposal.list({
+                userId: user.current.id
+            });
+        }).then(function(proposals) {
+            console.log('Admin proposals', proposals);
+            ctrl.proposals = proposals;
+        }).catch(function(error) {
+            console.error('error', error);
+        });  
     };
 }
