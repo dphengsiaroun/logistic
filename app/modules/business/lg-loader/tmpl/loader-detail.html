@@ -2,6 +2,10 @@
 	<img ng-show="$ctrl.loader.current.content.image === undefined" src="img/loader-default.svg">
 	<img ng-show="$ctrl.loader.current.content.image.url" ng-src="{{$ctrl.loader.current.content.image.url}}">
 </img-ad>
+<div ng-show="$ctrl.isEditable">
+	<button id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
+	<a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
+</div>
 <recap>
 	<h1>{{$ctrl.loader.current.content.title}}</h1>
 	<span>Prix souhaité : {{$ctrl.loader.current.content.priceWanted}} DZD</span>

@@ -6,7 +6,8 @@ module.exports = {
 	entry: {
 		bundle: './app/main.module.js',
 		vendors: './app/vendors.js',
-		install: './app/install/install.module.js'
+		install: './app/install/install.module.js',
+		admin: './app/admin/admin.module.js'	
 	},
 	output: {
 		path: path.resolve(__dirname, './app/wpk'),

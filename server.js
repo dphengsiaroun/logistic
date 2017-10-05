@@ -13,6 +13,11 @@ const proxyUrl = env.proxyUrl;
 
 const app = express();
 
+// mobile console log
+// const multer = require('multer');
+// const mobileConsole = require('mobile-console-log/mobile-console-middleware.js');
+// app.post('/mobile-console-log', multer().fields([]), mobileConsole);
+// end Mobile console log
 
 // http proxy
 const apiProxy = httpProxy.createProxyServer();
