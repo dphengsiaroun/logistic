@@ -75,4 +75,8 @@ angular.module('main', [
 	lgTest,
 	lgWidget,
 	lgBackDetector
-]);
+]).config((lgConfigProvider) => {
+	lgConfigProvider.wsDir('ws/');
+}).run((lgConfig) =>{
+	lgConfig.init();
+});
