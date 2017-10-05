@@ -73,7 +73,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 				return;
 			}
 			if (service.isConnected === false) {
-				reject();
+				reject('No user connected');
 				return;
 			}
 			const deregister = $rootScope.$watch('connection.isConnected', function() {
@@ -84,7 +84,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 				} else if (service.isConnected === false) {
 					console.log('connection.isConnected reject', service.isConnected);
 					deregister();
-					reject();
+					reject('No user connected');
 				}
 			});
 		});
