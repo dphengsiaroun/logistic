@@ -3,8 +3,6 @@ import './css/create-ad.scss';
 import './css/style.scss';
 import './css/overlay.scss';
 
-import lgAdmin from './modules/admin/lg-admin/lg-admin.module.js';
-
 import lgCarrier from './modules/business/lg-carrier/lg-carrier.module.js';
 import lgConfig from './modules/business/lg-config/lg-config.module.js';
 import lgConnection from './modules/business/lg-connection/lg-connection.module.js';
@@ -44,8 +42,6 @@ angular.module('main', [
 	'vcRecaptcha',
 	'ui.mask',
 	'ui.router',
-
-	lgAdmin,
 
 	lgCarrier,
 	lgConfig,
