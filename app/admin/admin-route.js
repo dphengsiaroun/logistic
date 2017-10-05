@@ -1,5 +1,7 @@
-export function config($locationProvider, $stateProvider, $urlRouterProvider) {
+export function config($locationProvider, $stateProvider, $urlRouterProvider, lgConfigProvider) {
     'ngInject';
+
+    lgConfigProvider.wsDir('../ws/');
 
     $locationProvider.html5Mode(true);
     $stateProvider.state({

@@ -2,7 +2,7 @@ module.exports = 'lg-config';
 
 import { LgConfigProvider } from './lg-config.service.js';
 
-angular.module(module.exports, [])
+angular.module(module.exports, ['ngTouch'])
 	.provider('lgConfig', LgConfigProvider)
 	.config(function($sceDelegateProvider, $touchProvider) {
 		'ngInject';

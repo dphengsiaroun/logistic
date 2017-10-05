@@ -58,6 +58,9 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 
 	service.list = function(data) {
 		console.log('proposal->list');
+		if (data === undefined) {
+			data = {};
+		}
 		return $http({
 			url: lgConfig.wsDir() + 'proposals',
 			method: 'GET',

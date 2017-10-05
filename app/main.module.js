@@ -37,7 +37,6 @@ import lgWidget from './modules/technic/lg-widget/lg-widget.js';
 import lgBackDetector from './modules/technic/lg-back-detector/lg-back-detector.service.js';
 
 angular.module('main', [
-	'ngTouch',
 	'ngSanitize',
 	'vcRecaptcha',
 	'ui.mask',
