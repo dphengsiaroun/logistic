@@ -1,4 +1,4 @@
-export function Password($injector, $http, $rootScope, $q, $state) {
+export function Password($injector, $http, $rootScope, $q, $state, lgConfig) {
 	'ngInject';
 	const service = this;
 
@@ -7,7 +7,7 @@ export function Password($injector, $http, $rootScope, $q, $state) {
 		console.log('code', code);
 		console.log('id', id);
 		$http({
-			url: 'ws/user/retrieveFromCode.php',
+			url: lgConfig.wsDir() + 'user/retrieveFromCode.php',
 			method: 'POST',
 			data: {
 				code: code,
@@ -40,7 +40,7 @@ export function Password($injector, $http, $rootScope, $q, $state) {
 
 		// TODO: include recaptcha data
 		$http({
-			url: 'ws/user/forgottenPassword.php',
+			url: lgConfig.wsDir() + 'user/forgottenPassword.php',
 			method: 'POST',
 			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}

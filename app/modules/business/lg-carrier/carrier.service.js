@@ -1,4 +1,4 @@
-export function Carrier($http, $state, $q, $window, connection, user) {
+export function Carrier($http, $state, $q, $window, connection, user, lgConfig) {
 	'ngInject';
 
 	const service = this;
@@ -16,7 +16,7 @@ export function Carrier($http, $state, $q, $window, connection, user) {
 		console.log('carrier->create', service.createData);
 		if (user.current) {
 			$http({
-				url: 'ws/carriers',
+				url: lgConfig.wsDir() + 'carriers',
 				method: 'POST',
 				data: service.createData,
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -56,7 +56,7 @@ export function Carrier($http, $state, $q, $window, connection, user) {
 	service.list = function(data) {
 		console.log('carrier->list');
 		return $http({
-			url: 'ws/carriers',
+			url: lgConfig.wsDir() + 'carriers',
 			method: 'GET',
 			params: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -90,7 +90,7 @@ export function Carrier($http, $state, $q, $window, connection, user) {
 		service.initCreateData();
 		console.log('updateCarrier->update', service.updateData);
 		$http({
-			url: 'ws/carriers/' + service.updateData.id,
+			url: lgConfig.wsDir() + 'carriers/' + service.updateData.id,
 			method: 'PUT',
 			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -113,7 +113,7 @@ export function Carrier($http, $state, $q, $window, connection, user) {
 	service.delete = function(id) {
 		console.log('carrier->delete');
 		return $http({
-			url: 'ws/carriers/' + id,
+			url: lgConfig.wsDir() + 'carriers/' + id,
 			method: 'DELETE'
 		}).then(function(response) {
 			console.log('response', response);

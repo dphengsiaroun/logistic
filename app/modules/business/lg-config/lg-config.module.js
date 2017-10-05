@@ -15,5 +15,7 @@ angular.module(module.exports, [])
 		]);
 	})
 	.run((lgConfig) => {
+		lgConfig.wsDir('ws/');
 		lgConfig.init();
 	});
+

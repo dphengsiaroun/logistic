@@ -1,4 +1,4 @@
-export function Loader($http, $state, $q, $window, connection, user) {
+export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 	'ngInject';
 
 	const service = this;
@@ -18,7 +18,7 @@ export function Loader($http, $state, $q, $window, connection, user) {
 		const createData = service.createData;
 		if (user.current) {
 			$http({
-				url: 'ws/loaders',
+				url: lgConfig.wsDir() + 'loaders',
 				method: 'POST',
 				data: createData,
 				headers: {
@@ -63,7 +63,7 @@ export function Loader($http, $state, $q, $window, connection, user) {
 	service.list = function(data) {
 		console.log('loader->list');
 		return $http({
-			url: 'ws/loaders',
+			url: lgConfig.wsDir() + 'loaders',
 			method: 'GET',
 			params: data,
 			headers: {
@@ -96,7 +96,7 @@ export function Loader($http, $state, $q, $window, connection, user) {
 	service.update = function() {
 		console.log('updateLoader->update', service.updateData);
 		$http({
-			url: 'ws/loaders/' + service.updateData.id,
+			url: lgConfig.wsDir() + 'loaders/' + service.updateData.id,
 			method: 'PUT',
 			data: service.updateData,
 			headers: {
@@ -121,7 +121,7 @@ export function Loader($http, $state, $q, $window, connection, user) {
 	service.delete = function(id) {
 		console.log('loader->delete');
 		return $http({
-			url: 'ws/loaders/' + id,
+			url: lgConfig.wsDir() + 'loaders/' + id,
 			method: 'DELETE'
 		}).then(function(response) {
 			console.log('response', response);

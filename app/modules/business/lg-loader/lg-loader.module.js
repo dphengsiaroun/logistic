@@ -10,5 +10,4 @@ angular.module(module.exports, ['ui.router'])
 	.component('lgLoaderCreateRoute', lib.lgLoaderCreateRoute)
 	.component('lgLoaderListRoute', lib.lgLoaderListRoute)
 	.component('lgLoaderRetrieveRoute', lib.lgLoaderRetrieveRoute)
-	.component('lgLoaderUpdateRoute', lib.lgLoaderUpdateRoute)
-	;
+	.component('lgLoaderUpdateRoute', lib.lgLoaderUpdateRoute);

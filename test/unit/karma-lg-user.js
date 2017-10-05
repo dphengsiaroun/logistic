@@ -48,7 +48,7 @@ describe('lg-user', function() {
 
 				}
 			};
-			$httpBackend.when('POST', 'ws/users').respond({
+			$httpBackend.when('POST', lgConfig.wsDir() + 'users').respond({
 				user: {
 					email: 'dphengsiaroun@outlook.fr',
 					password: 'test',
@@ -113,7 +113,7 @@ describe('lg-user', function() {
 
 				}
 			};
-			$httpBackend.when('PUT', 'ws/users/12').respond({
+			$httpBackend.when('PUT', lgConfig.wsDir() + 'users/12').respond({
 				status: 'ok',
 				user: {
 					id: 12,

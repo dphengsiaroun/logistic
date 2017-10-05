@@ -58,7 +58,7 @@ EOF;
 			$request = getUrlQueryString();
 
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}{$name} {$filter}
+SELECT * FROM {$cfg->prefix}{$name}
 EOF;
 			debug('listAll', $request);
 			$array = array();

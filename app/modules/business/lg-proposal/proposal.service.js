@@ -1,4 +1,4 @@
-export function Proposal($http, $state, $q, $window, connection, user) {
+export function Proposal($http, $state, $q, $window, connection, user, lgConfig) {
 	'ngInject';
 
 	const service = this;
@@ -15,7 +15,7 @@ export function Proposal($http, $state, $q, $window, connection, user) {
 		const createData = service.createData;
 		if (user.current) {
 			$http({
-				url: 'ws/proposals',
+				url: lgConfig.wsDir() + 'proposals',
 				method: 'POST',
 				data: createData,
 				headers: {
@@ -59,7 +59,7 @@ export function Proposal($http, $state, $q, $window, connection, user) {
 	service.list = function(data) {
 		console.log('proposal->list');
 		return $http({
-			url: 'ws/proposals',
+			url: lgConfig.wsDir() + 'proposals',
 			method: 'GET',
 			params: data,
 			headers: {
@@ -92,7 +92,7 @@ export function Proposal($http, $state, $q, $window, connection, user) {
 	service.update = function() {
 		console.log('updateProposal->update', service.updateData);
 		$http({
-			url: 'ws/proposals/' + service.updateData.id,
+			url: lgConfig.wsDir() + 'proposals/' + service.updateData.id,
 			method: 'PUT',
 			data: service.updateData,
 			headers: {
@@ -117,7 +117,7 @@ export function Proposal($http, $state, $q, $window, connection, user) {
 	service.delete = function(id) {
 		console.log('proposal->delete');
 		return $http({
-			url: 'ws/proposals/' + id,
+			url: lgConfig.wsDir() + 'proposals/' + id,
 			method: 'DELETE',
 			data: {
 				id: id

@@ -2,7 +2,7 @@ module.exports = 'lg-geoloc';
 
 const app = angular.module(module.exports, []);
 
-app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $filter) {
+app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $filter, lgConfig) {
 	'ngInject';
 	const service = this;
 	this.countryMap = {
@@ -80,7 +80,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 				return;
 			}
 			$http({
-				url: 'ws/geoloc/route.php',
+				url: lgConfig.wsDir() + 'geoloc/route.php',
 				method: 'POST',
 				data: {
 					departure: data.departureCity,

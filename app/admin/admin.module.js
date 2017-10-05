@@ -1,14 +1,16 @@
 import './admin.scss';
 module.exports = 'admin';
 
+import lgConnection from '../modules/business/lg-connection/lg-connection.module.js';
+import lgProposal from '../modules/business/lg-proposal/lg-proposal.module.js';
+
 
 import * as lib from './admin-route.js';
-angular.module(module.exports, ['ui.router'])
+angular.module(module.exports, ['ui.router', lgConnection, lgProposal])
 	.config(lib.config)
 	.component('adminNavRoute', lib.adminNavRoute)
 	.component('adminRoute', lib.adminRoute)
 	.component('adminUsersRoute', lib.adminUsersRoute)
-	.component('adminUsersUpdateRoute', lib.adminUsersUpdateRoute)
 	.component('adminLoadersRoute', lib.adminLoadersRoute)
 	.component('adminCarriersRoute', lib.adminCarriersRoute)
 	.component('adminTrucksRoute', lib.adminTrucksRoute)

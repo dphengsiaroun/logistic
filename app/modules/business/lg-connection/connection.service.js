@@ -1,6 +1,6 @@
 import Hashes from 'jshashes';
 
-export function Connection($http, $rootScope, $injector, $q, $state, user) {
+export function Connection($http, $rootScope, $injector, $q, $state, user, lgConfig) {
 	'ngInject';
 	const service = this;
 	service.isConnected = undefined;
@@ -11,7 +11,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 		console.log('sign in');
 		const SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 		$http({
-			url: 'ws/connections',
+			url: lgConfig.wsDir() + 'connections',
 			method: 'POST',
 			data: {
 				login: service.createConnectionData.login,
@@ -42,7 +42,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 			return;
 		}
 		$http({
-			url: 'ws/connections/12',
+			url: lgConfig.wsDir() + 'connections/12',
 			method: 'GET'
 		}).then(function(response) {
 			console.log('response', response);
@@ -104,7 +104,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user) {
 	service.delete = function() {
 		console.log('sign out');
 		$http({
-			url: 'ws/connections/12',
+			url: lgConfig.wsDir() + 'connections/12',
 			method: 'DELETE'
 		}).then(function(response) {
 			console.log('response', response);

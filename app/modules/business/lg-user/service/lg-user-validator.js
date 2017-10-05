@@ -1,4 +1,4 @@
-export function UserValidator($q, $http) {
+export function UserValidator($q, $http, lgConfig) {
 	'ngInject';
 	// const service = this;
 
@@ -8,7 +8,7 @@ export function UserValidator($q, $http) {
 		const params = {};
 		params[fieldName] = value;
 		return $http({
-			url: 'ws/users',
+			url: lgConfig.wsDir() + 'users',
 			method: 'GET',
 			params,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

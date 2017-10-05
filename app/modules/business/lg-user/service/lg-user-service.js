@@ -1,6 +1,6 @@
 import Hashes from 'jshashes';
 
-export function User($injector, $http, $rootScope, $q, $state, userValidator) {
+export function User($injector, $http, $rootScope, $q, $state, userValidator, lgConfig) {
 	'ngInject';
 	const service = this;
 
@@ -17,7 +17,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 		data.password = SHA256.hex(service.signupData.password);
 
 		$http({
-			url: 'ws/users',
+			url: lgConfig.wsDir() + 'users',
 			method: 'POST',
 			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -46,7 +46,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 		console.log('user->update');
 
 		$http({
-			url: 'ws/users/' + service.updateData.id,
+			url: lgConfig.wsDir() + 'users/' + service.updateData.id,
 			method: 'PUT',
 			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -68,7 +68,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 		console.log('user->delete', service.current);
 
 		return $http({
-			url: 'ws/users/' + service.current.id,
+			url: lgConfig.wsDir() + 'users/' + service.current.id,
 			method: 'DELETE',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
@@ -99,7 +99,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator) {
 			hashedData.newPassword = SHA256.hex(hashedData.newPassword);
 		}
 		$http({
-			url: 'ws/users/' + data.id,
+			url: lgConfig.wsDir() + 'users/' + data.id,
 			method: 'PATCH',
 			data: hashedData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}

@@ -1,53 +1,49 @@
-export function config($stateProvider) {
+export function config($locationProvider, $stateProvider, $urlRouterProvider) {
     'ngInject';
+
+    $locationProvider.html5Mode(true);
     $stateProvider.state({
         name: 'admin',
-        url: '/admin',
+        url: '/',
         component: 'adminRoute',
-        needsUser: true
+        // needsUser: true
     });
     $stateProvider.state({
         name: 'admin:users',
-        url: '/admin/users',
+        url: '/users',
         component: 'adminUsersRoute',
-        needsUser: true
-    });
-    $stateProvider.state({
-        name: 'admin:users:update',
-        url: '/admin/users/update',
-        component: 'adminUsersUpdateRoute',
-        needsUser: true
+        // needsUser: true
     });
     $stateProvider.state({
         name: 'admin:loaders',
-        url: '/admin/loaders',
+        url: '/loaders',
         component: 'adminLoadersRoute',
-        needsUser: true
+        // needsUser: true
     });
     $stateProvider.state({
         name: 'admin:carriers',
-        url: '/admin/carriers',
+        url: '/carriers',
         component: 'adminCarriersRoute',
-        needsUser: true
+        // needsUser: true
     });
     $stateProvider.state({
         name: 'admin:trucks',
-        url: '/admin/trucks',
+        url: '/trucks',
         component: 'adminTrucksRoute',
-        needsUser: true
+        // needsUser: true
     });
     $stateProvider.state({
         name: 'admin:proposals',
-        url: '/admin/proposals',
+        url: '/proposals',
         component: 'adminProposalsRoute',
-        needsUser: true
+        // needsUser: true
     });
+    $urlRouterProvider.otherwise('/');
 }
 
 import adminNavHtml from './tmpl/admin-nav.html';
 import adminHtml from './tmpl/admin.html';
 import adminUsersHtml from './tmpl/admin-users.html';
-import adminUsersUpdateHtml from './tmpl/admin-form-update.html';
 import adminLoadersHtml from './tmpl/admin-loaders.html';
 import adminCarriersHtml from './tmpl/admin-carriers.html';
 import adminTrucksHtml from './tmpl/admin-trucks.html';
@@ -66,11 +62,6 @@ export const adminRoute =  {
 
 export const adminUsersRoute =  {
     template: adminUsersHtml,
-    controller: ctrlLib.AdminUsersCtrl,
-};
-
-export const adminUsersUpdateRoute =  {
-    template: adminUsersUpdateHtml,
     controller: ctrlLib.AdminUsersCtrl,
 };
 

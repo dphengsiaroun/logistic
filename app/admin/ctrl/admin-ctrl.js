@@ -69,9 +69,7 @@ export function AdminProposalsCtrl($stateParams, user, connection, proposal) {
     ctrl.proposal = proposal;
     ctrl.$onInit = function() {
         connection.waitForCheckConnection().then(function() {
-            return proposal.list({
-                userId: user.current.id
-            });
+            return proposal.list();
         }).then(function(proposals) {
             console.log('Admin proposals', proposals);
             ctrl.proposals = proposals;
