@@ -48,7 +48,6 @@ import adminHtml from './tmpl/admin.html';
 import adminUsersHtml from './tmpl/admin-users.html';
 import adminLoadersHtml from './tmpl/admin-loaders.html';
 import adminCarriersHtml from './tmpl/admin-carriers.html';
-import adminTrucksHtml from './tmpl/admin-trucks.html';
 import adminProposalsHtml from './tmpl/admin-proposals.html';
 import * as ctrlLib from './ctrl/admin-ctrl.js';
 
@@ -64,25 +63,20 @@ export const adminRoute =  {
 
 export const adminUsersRoute =  {
     template: adminUsersHtml,
-    controller: ctrlLib.AdminUsersCtrl,
+    controller: ctrlLib.AdminCtrl,
 };
 
 export const adminLoadersRoute =  {
     template: adminLoadersHtml,
-    controller: ctrlLib.AdminLoadersCtrl,
+    controller: ctrlLib.AdminCtrl,
 };
 
 export const adminCarriersRoute =  {
     template: adminCarriersHtml,
-    controller: ctrlLib.AdminCarriersCtrl,
-};
-
-export const adminTrucksRoute =  {
-    template: adminTrucksHtml,
-    controller: ctrlLib.AdminTrucksCtrl,
+    controller: ctrlLib.AdminCtrl,
 };
 
 export const adminProposalsRoute =  {
     template: adminProposalsHtml,
-    controller: ctrlLib.AdminProposalsCtrl,
+    controller: ctrlLib.AdminCtrl,
 };

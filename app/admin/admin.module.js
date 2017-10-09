@@ -13,5 +13,4 @@ angular.module(module.exports, ['ui.router', lgConnection, lgProposal, lgConfig]
 	.component('adminUsersRoute', lib.adminUsersRoute)
 	.component('adminLoadersRoute', lib.adminLoadersRoute)
 	.component('adminCarriersRoute', lib.adminCarriersRoute)
-	.component('adminTrucksRoute', lib.adminTrucksRoute)
 	.component('adminProposalsRoute', lib.adminProposalsRoute);

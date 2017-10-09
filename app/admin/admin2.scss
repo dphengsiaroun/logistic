@@ -1,0 +1,242 @@
+@import '../css/color';
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('../css/font/SourceSansPro.woff') format('woff');
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	color: $fontColor;
+	font-family: 'Source Sans Pro', sans-serif; // letter-spacing: -0.5px;
+}
+
+svg {
+	fill: $fontColor;
+}
+
+body {
+	background: $backgroundColor;
+}
+
+ui-view {
+	display: block;
+	min-height: 540px;
+	padding: 58px 0px 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	text-align: center;
+}
+
+h1 {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+form {
+	padding: 0 5px;
+}
+
+input,
+my-input {
+	// Avoid safari to put its own settings
+	-webkit-appearance: none;
+	display: block;
+	font-size: 18px;
+	width: 100%;
+	margin: 5px 0px;
+	background: white;
+	box-shadow: none;
+	padding: 15px 10px;
+	border-radius: 3px;
+	border: 1px solid $borderColor;
+}
+
+input[readonly],
+my-input[readonly] {
+	background-color: $littleLightGray;
+}
+
+textarea {
+	-webkit-appearance: none;
+	display: block;
+	font-size: 18px;
+	width: 100%;
+	min-height: 100px;
+	margin: 5px 0px;
+	background: white;
+	box-shadow: none;
+	padding: 17px 10px;
+	border-radius: 3px;
+	border: 1px solid #ebebeb;
+}
+
+admin-nav-route {
+	display: table;
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	z-index: 20;
+	nav {
+		display: table;
+		width: 100%;
+		min-height: 55px;
+		background-color: #223c5d;
+		div.nav-logo {
+			display: table-cell;
+			vertical-align: middle;
+			width: 50%;
+			img {
+				width: 70px;
+				margin: 20px 50px;
+			}
+			a {
+				margin-left: 50px;
+				color: white;
+				font-size: 23px;
+				font-weight: 500;
+				text-decoration: none;
+				span {
+					margin-left: 10px;
+					font-size: 18px;
+					color: white;
+				}
+			}
+		}
+		div.nav-bar {
+			display: table-cell;
+			vertical-align: middle;
+			width: 50%;
+			ul {
+				display: block;
+				width: 100%;
+				li {
+					display: table-cell;
+					vertical-align: middle;
+					a {
+						color: white;
+						padding: 14px 15px;
+						font-size: 15px;
+						text-decoration: none;
+					}
+					a:hover {
+						color: #8dc448;
+					}
+					i.fa {
+						font-size: 18px;
+						color: white;
+					}
+					i.fa:hover {
+						color: #8dc448;
+					}
+				}
+			}
+		}
+	}
+}
+
+admin-route {
+	section {
+		display: table;
+		width: 100%;
+		min-height: 750px;
+		position: relative;
+		background-color: #fff;
+		top: -3px;
+		z-index: 20;
+		.admin-message {
+			display: table-cell;
+			vertical-align: middle;
+			margin: 0 auto;
+			width: 80%;
+			text-align: center;
+			i.fa {
+				font-size: 70px;
+				margin-bottom: 20px;
+			}
+			span {
+				display: inline-block;
+				width: 100%;
+				font-size: 40px;
+				text-align: center;
+			}
+		}
+	}
+}
+
+admin-users-route,
+admin-users-update-route,
+admin-carriers-route,
+admin-loaders-route,
+admin-trucks-route,
+admin-proposals-route {
+	display: table;
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	z-index: 25;
+	section {
+		display: block;
+		min-height: 750px;
+		position: relative;
+		background-color: white;
+		top: 25px;
+		z-index: 25;
+		div.container {
+			display: block;
+			width: 90%;
+			margin: 30px auto;
+			h2 {
+				font-size: 30px;
+				padding: 60px 30px;
+				text-align: left;
+				i.fa {
+					margin-right: 25px;
+				}
+			}
+			table {
+				width: 100%;
+				max-width: 100%;
+				margin-bottom: 20px;
+				border-spacing: 0;
+				border-collapse: collapse;
+				tbody>tr:nth-of-type(odd) {
+					background-color: #f9f9f9;
+				}
+				thead {
+					th {
+						padding: 10px;
+						border-bottom: 2px solid #ddd;
+						font-size: 15px;
+					}
+				}
+				tbody {
+					tr {
+						th,
+						td {
+							vertical-align: middle !important;
+							padding: 8px;
+							text-align: center;
+							font-size: 14px;
+							vertical-align: top;
+							border-top: 1px solid #ddd;
+							img {
+								width: 100px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
