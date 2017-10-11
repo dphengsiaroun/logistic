@@ -2,10 +2,6 @@
 	<img ng-show="$ctrl.loader.current.content.image === undefined" src="img/loader-default.svg">
 	<img ng-show="$ctrl.loader.current.content.image.url" ng-src="{{$ctrl.loader.current.content.image.url}}">
 </img-ad>
-<div ng-show="$ctrl.isEditable">
-	<button id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
-	<a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
-</div>
 <recap>
 	<h1>{{$ctrl.loader.current.content.title}}</h1>
 	<span>Prix souhaité : {{$ctrl.loader.current.content.priceWanted}} DZD</span>
@@ -107,9 +103,8 @@
 		<a id="create-proposal-not-connected" ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Faire une proposition</a>
 		<a id="create-proposal" ng-show="$ctrl.connection.isConnected == true" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</a>
 	</bottom>
-	<div ng-show="$ctrl.isEditable">
-		<button id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
-		<lg-hr>ou</lg-hr>
-		<a class="critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})" class="critical">Supprimer cette annonce</a>
-	</div>
+	<bottom-edit ng-show="$ctrl.isEditable">
+		<a id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">Editer</button>
+		<a class="btn-critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})">Supprimer cette annonce</a>
+	</bottom-edit>
 </recap>

@@ -265,6 +265,33 @@ bottom {
 	}
 }
 
+bottom-edit {
+	display: table;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	a:nth-child(2),
+	a:nth-child(3) {
+		background: red;
+	}
+	a {
+		display: table-cell;
+		width: 50%;
+		margin: 0px;
+		padding: 15px 0px;
+		vertical-align: middle;
+		border-radius: 0px;
+		text-align: center;
+		background: #8bc63f;
+		color: white;
+		i.fa {
+			color: white;
+			margin-right: 5px;
+		}
+	}
+}
+
 lg-select.conditioning lg-option i.fa {
 	display: block;
 	font-size: 45px;

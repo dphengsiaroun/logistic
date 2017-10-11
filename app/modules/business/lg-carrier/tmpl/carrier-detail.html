@@ -120,9 +120,8 @@
 		<a id="create-proposal-not-connected" ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Faire une proposition</a>
 		<a id="create-proposal" ng-show="$ctrl.connection.isConnected == true" ui-sref="proposal:create({id: $ctrl.carrier.current.id, type: 'carrier'})">Faire une proposition</a>
 	</bottom>
-	<div ng-show="$ctrl.isEditable">
-		<button id="pr-edit-button" ui-sref="carrier:update({login: $ctrl.user.current.content.login, id: $ctrl.carrier.current.id})">Editer</button>
-		<lg-hr>ou</lg-hr>
-		<a class="critical" ui-sref="carrier:delete({login: $ctrl.user.current.content.login, id: $ctrl.carrier.current.id})" class="critical">Supprimer cette annonce</a>
-	</div>
+	<bottom-edit ng-show="$ctrl.isEditable">
+		<a id="pr-edit-button" ui-sref="carrier:update({login: $ctrl.user.current.content.login, id: $ctrl.carrier.current.id})">Editer</a>
+		<a class="btn-critical" ui-sref="carrier:delete({login: $ctrl.user.current.content.login, id: $ctrl.carrier.current.id})">Supprimer cette annonce</a>
+	</bottom-edit>
 </recap>

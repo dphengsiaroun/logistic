@@ -30,9 +30,8 @@
 			</tbody>
 		</table>
 	</description>
-	<div>
-		<button id="pr-update-button" ui-sref="proposal:update({id: $ctrl.proposal.current.id})">Editer</button>
-		<lg-hr>ou</lg-hr>
-		<a class="critical" ui-sref="proposal:delete({id: $ctrl.proposal.current.id})" class="critical">Supprimer cette proposition</a>
-	</div>
+	<bottom-edit>
+		<a id="pr-update-button" ui-sref="proposal:update({id: $ctrl.proposal.current.id})"><i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
+		<a class="btn-critical" ui-sref="proposal:delete({id: $ctrl.proposal.current.id})"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
+	</bottom-edit>
 </recap>

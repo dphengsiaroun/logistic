@@ -12,6 +12,7 @@
 	margin: 0px;
 	color: $fontColor;
 	font-family: 'Source Sans Pro', sans-serif; // letter-spacing: -0.5px;
+	-webkit-font-smoothing: antialiased;	
 }
 
 svg {
@@ -207,6 +208,11 @@ button.critical {
 
 .critical {
 	color: $criticalFontColor;
+}
+
+.btn-critical {
+	background: red;
+    color: #fff;
 }
 
 
