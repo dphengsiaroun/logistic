@@ -8,11 +8,105 @@
 			<div class="card">
 				<div class="header">
 					<h4 class="title">Utilisateurs</h4>
-					<p class="description">Total des utilisateurs</p>
+					<p class="description">Vue sur les 5 dernières Utilisateurs inscrits</p>
 				</div>
 				<div class="content">
-					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+					<div class="fresh-datatables">
+						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Nom</th>
+									<th>Prénom</th>
+									<th>Pseudo</th>
+									<th>Email</th>
+									<th>Adresse</th>
+									<th>CP</th>
+									<th>Ville</th>
+									<th>Pays</th>
+									<th>Téléphone</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Nom</th>
+									<th>Prénom</th>
+									<th>Pseudo</th>
+									<th>Email</th>
+									<th>Adresse</th>
+									<th>CP</th>
+									<th>Ville</th>
+									<th>Pays</th>
+									<th>Téléphone</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+								</tr>
+								<tr>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+								</tr>
+								<tr>
+									<td>Airi Satou</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>33</td>
+									<td>2008/11/28</td>
+									<td>Airi Satou</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>33</td>
+									<td>2008/11/28</td>
+								</tr>
+								<tr>
+									<td>Brielle Williamson</td>
+									<td>Integration Specialist</td>
+									<td>New York</td>
+									<td>61</td>
+									<td>2012/12/02</td>
+									<td>Brielle Williamson</td>
+									<td>Integration Specialist</td>
+									<td>New York</td>
+									<td>61</td>
+									<td>2012/12/02</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
+				<!-- end content-->
 				<div class="footer">
 					<div class="legend">
 						<i class="fa fa-circle text-info"></i> Open
@@ -25,15 +119,75 @@
 					</div>
 				</div>
 			</div>
-			<div class="middle"></div>
+		</div>
+		<div class="row-2">
 			<div class="card">
 				<div class="header">
 					<h4 class="title">Propositions</h4>
-					<p class="description">Total des propositions</p>
+					<p class="description">Vue sur les 5 dernières Propositions</p>
 				</div>
 				<div class="content">
-					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+					<div class="fresh-datatables">
+						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Image</th>
+									<th>Titre de l'annonce</th>
+									<th>Type d'annonce</th>
+									<th>Message</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Image</th>
+									<th>Titre de l'annonce</th>
+									<th>Type d'annonce</th>
+									<th>Message</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+								</tr>
+								<tr>
+									<td>Garrett Winters</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>63</td>
+									<td>2011/07/25</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+								</tr>
+								<tr>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+								</tr>
+								<tr>
+									<td>Airi Satou</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>33</td>
+									<td>2008/11/28</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
+				<!-- end content-->
 				<div class="footer">
 					<div class="legend">
 						<i class="fa fa-circle text-info"></i> Open
@@ -51,11 +205,91 @@
 			<div class="card">
 				<div class="header">
 					<h4 class="title">Annonces transporteurs</h4>
-					<p class="description">Total des annonces transporteurs</p>
+					<p class="description">Vue sur les 5 dernières annonces transporteurs</p>
 				</div>
 				<div class="content">
-					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+					<div class="fresh-datatables">
+						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Image</th>
+									<th>Titre</th>
+									<th>Ville d'origine</th>
+									<th>Disponibilité</th>
+									<th>Transport (catégorie)</th>
+									<th>Transport (type)</th>
+									<th>Prix</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Image</th>
+									<th>Titre</th>
+									<th>Ville d'origine</th>
+									<th>Disponibilité</th>
+									<th>Transport (catégorie)</th>
+									<th>Transport (type)</th>
+									<th>Prix</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+								</tr>
+								<tr>
+									<td>Garrett Winters</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>63</td>
+									<td>2011/07/25</td>
+									<td>Tokyo</td>
+									<td>63</td>
+									<td>2011/07/25</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+								</tr>
+								<tr>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+								</tr>
+								<tr>
+									<td>Airi Satou</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>33</td>
+									<td>2008/11/28</td>
+									<td>Tokyo</td>
+									<td>33</td>
+									<td>2008/11/28</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
+				<!-- end content-->
 				<div class="footer">
 					<div class="legend">
 						<i class="fa fa-circle text-info"></i> Open
@@ -68,15 +302,110 @@
 					</div>
 				</div>
 			</div>
-			<div class="middle"></div>
+		</div>
+		<div class="row-2">
 			<div class="card">
 				<div class="header">
 					<h4 class="title">Annonces Chargeurs</h4>
-					<p class="description">Total des annonces chargeurs</p>
+					<p class="description">Vue sur les 5 dernières annonces chargeurs</p>
 				</div>
 				<div class="content">
-					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+					<div class="fresh-datatables">
+						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Image</th>
+									<th>Titre</th>
+									<th>Départ</th>
+									<th>Arrivée</th>
+									<th>Conditionnement</th>
+									<th>Marchandise (type)</th>
+									<th>Transport (catégorie)</th>
+									<th>Transport (type)</th>
+									<th>Prix</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Image</th>
+									<th>Titre</th>
+									<th>Départ</th>
+									<th>Arrivée</th>
+									<th>Conditionnement</th>
+									<th>Marchandise (type)</th>
+									<th>Transport (catégorie)</th>
+									<th>Transport (type)</th>
+									<th>Prix</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr>
+									<td>Tiger Nixon</td>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+									<td>2011/04/25</td>
+								</tr>
+								<tr>
+									<td>Garrett Winters</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>63</td>
+									<td>2011/07/25</td>
+									<td>Garrett Winters</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>63</td>
+									<td>2011/07/25</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+								</tr>
+								<tr>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+								</tr>
+								<tr>
+									<td>Brielle Williamson</td>
+									<td>Integration Specialist</td>
+									<td>New York</td>
+									<td>61</td>
+									<td>2012/12/02</td>
+									<td>Brielle Williamson</td>
+									<td>Integration Specialist</td>
+									<td>New York</td>
+									<td>61</td>
+									<td>2012/12/02</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
+				<!-- end content-->
 				<div class="footer">
 					<div class="legend">
 						<i class="fa fa-circle text-info"></i> Open

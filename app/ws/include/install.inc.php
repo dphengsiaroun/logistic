@@ -76,6 +76,8 @@
 	\$cfg = new stdClass();
 	\$cfg->appName = '$request->appName';
 
+	\$cfg->appName = '$request->adminPassword';
+
 	\$cfg->host = '$request->hostname';
 	\$cfg->port = '$request->port';
 	\$cfg->user = '$request->username';

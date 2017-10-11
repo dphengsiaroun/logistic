@@ -21,7 +21,7 @@
 		</lg-dt-month>
 	</month-list>
 	<lg-dt-hour></lg-dt-hour>
-	<retroaction-msg><span ng-bind-html="$ctrl.retroactionMsg"></span></retroaction-msg>
+	<retroaction-msg ng-click="$ctrl.stop()"><span ng-bind-html="$ctrl.retroactionMsg"></span></retroaction-msg>
 </lg-datetime-content>
 <script>
 	$('lg-datetime').bind('touchend', function (e) {
