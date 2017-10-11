@@ -10,6 +10,7 @@ angular.module(module.exports, ['ui.router', lgConnection, lgProposal, lgConfig]
 	.config(lib.config)
 	.component('adminNavRoute', lib.adminNavRoute)
 	.component('adminRoute', lib.adminRoute)
+	.component('adminLoginRoute', lib.adminLoginRoute)
 	.component('adminUsersRoute', lib.adminUsersRoute)
 	.component('adminLoadersRoute', lib.adminLoadersRoute)
 	.component('adminCarriersRoute', lib.adminCarriersRoute)

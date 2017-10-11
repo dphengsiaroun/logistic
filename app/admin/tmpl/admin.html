@@ -1,95 +1,97 @@
-<!-- <admin-nav-route></admin-nav-route> -->
-<section>
-	<!-- <div class="admin-message">
-		<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-		<span>Bienvenue {{$ctrl.user.current.content.firstname}}, <br/>sur votre interface d'administration</span>
-		<p>Accédez à toutes les données depuis les liens ci-dessus.</p>
-	</div> -->
-	<h2><i class="fa fa-pie-chart" aria-hidden="true"></i> Tableau de bord</h2>
-	<div class="row-1">
-		<div class="card">
-			<div class="header">
-				<h4 class="title">Utilisateurs</h4>
-				<p class="category">Total des utilisateurs au 09 octobre 2017</p>
-			</div>
-			<div class="content">
-				<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
-			</div>
-			<div class="footer">
-				<div class="legend">
-					<i class="fa fa-circle text-info"></i> Open
-					<i class="fa fa-circle text-danger"></i> Bounce
-					<i class="fa fa-circle text-warning"></i> Unsubscribe
+<admin-nav-route></admin-nav-route>
+<admin-section>
+	<header>
+		<h2><i class="fa fa-pie-chart" aria-hidden="true"></i> Tableau de bord</h2>
+	</header>
+	<section>
+		<div class="row-1">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Utilisateurs</h4>
+					<p class="description">Total des utilisateurs</p>
 				</div>
-				<hr>
-				<div class="stats">
-					<i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+				<div class="content">
+					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
 				</div>
-			</div>
-		</div>
-		<div class="middle"></div>
-		<div class="card">
-			<div class="header">
-				<h4 class="title">Propositions</h4>
-				<p class="category">Total des propositions au 09 octobre 2017</p>
-			</div>
-			<div class="content">
-				<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
-			</div>
-			<div class="footer">
-				<div class="legend">
-					<i class="fa fa-circle text-info"></i> Open
-					<i class="fa fa-circle text-danger"></i> Bounce
-					<i class="fa fa-circle text-warning"></i> Unsubscribe
-				</div>
-				<hr>
-				<div class="stats">
-					<i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+				<div class="footer">
+					<div class="legend">
+						<i class="fa fa-circle text-info"></i> Open
+						<i class="fa fa-circle text-danger"></i> Bounce
+						<i class="fa fa-circle text-warning"></i> Unsubscribe
+					</div>
+					<hr>
+					<div class="stats">
+						<i class="fa fa-clock-o"></i> Mise à jour le 09-10-2017
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="row-2">
-		<div class="card">
-			<div class="header">
-				<h4 class="title">Annonces transporteurs</h4>
-				<p class="category">Total des annonces transporteurs au 09 octobre 2017</p>
-			</div>
-			<div class="content">
-				<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
-			</div>
-			<div class="footer">
-				<div class="legend">
-					<i class="fa fa-circle text-info"></i> Open
-					<i class="fa fa-circle text-danger"></i> Bounce
-					<i class="fa fa-circle text-warning"></i> Unsubscribe
+			<div class="middle"></div>
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Propositions</h4>
+					<p class="description">Total des propositions</p>
 				</div>
-				<hr>
-				<div class="stats">
-					<i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+				<div class="content">
+					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+				</div>
+				<div class="footer">
+					<div class="legend">
+						<i class="fa fa-circle text-info"></i> Open
+						<i class="fa fa-circle text-danger"></i> Bounce
+						<i class="fa fa-circle text-warning"></i> Unsubscribe
+					</div>
+					<hr>
+					<div class="stats">
+						<i class="fa fa-clock-o"></i> Mise à jour le 09-10-2017
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="middle"></div>		
-		<div class="card">
-			<div class="header">
-				<h4 class="title">Annonces Chargeurs</h4>
-				<p class="category">Total des annonces chargeurs au 09 octobre 2017</p>
-			</div>
-			<div class="content">
-				<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
-			</div>
-			<div class="footer">
-				<div class="legend">
-					<i class="fa fa-circle text-info"></i> Open
-					<i class="fa fa-circle text-danger"></i> Bounce
-					<i class="fa fa-circle text-warning"></i> Unsubscribe
+		<div class="row-2">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Annonces transporteurs</h4>
+					<p class="description">Total des annonces transporteurs</p>
 				</div>
-				<hr>
-				<div class="stats">
-					<i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+				<div class="content">
+					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+				</div>
+				<div class="footer">
+					<div class="legend">
+						<i class="fa fa-circle text-info"></i> Open
+						<i class="fa fa-circle text-danger"></i> Bounce
+						<i class="fa fa-circle text-warning"></i> Unsubscribe
+					</div>
+					<hr>
+					<div class="stats">
+						<i class="fa fa-clock-o"></i> Mise à jour le 09-10-2017
+					</div>
+				</div>
+			</div>
+			<div class="middle"></div>
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Annonces Chargeurs</h4>
+					<p class="description">Total des annonces chargeurs</p>
+				</div>
+				<div class="content">
+					<div id="chartEmail" class="ct-chart "><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-pie" style="width: 100%; height: 100%;"><g class="ct-series ct-series-c"><path d="M104,23.5A99,99,0,0,0,67.235,30.58L104,122.5Z" class="ct-slice-pie" value="6"></path></g><g class="ct-series ct-series-b"><path d="M67.556,30.452A99,99,0,0,0,36.482,194.904L104,122.5Z" class="ct-slice-pie" value="32"></path></g><g class="ct-series ct-series-a"><path d="M36.23,194.668A99,99,0,1,0,104,23.5L104,122.5Z" class="ct-slice-pie" value="62"></path></g><g><text dx="150.02393605146844" dy="140.72216535789156" text-anchor="middle" class="ct-label">62%</text><text dx="55.376781088929896" dy="113.22462492800669" text-anchor="middle" class="ct-label">32%</text><text dx="94.72462492800659" dy="73.87678108892992" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+				</div>
+				<div class="footer">
+					<div class="legend">
+						<i class="fa fa-circle text-info"></i> Open
+						<i class="fa fa-circle text-danger"></i> Bounce
+						<i class="fa fa-circle text-warning"></i> Unsubscribe
+					</div>
+					<hr>
+					<div class="stats">
+						<i class="fa fa-clock-o"></i> Mise à jour le 09-10-2017
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+	<footer>
+		<span><b>iGoroute ©</b>  Tous droits réservés. <a href="#">Mentions légales</a></span>
+	</footer>
+</admin-section>

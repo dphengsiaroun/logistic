@@ -11,6 +11,12 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         // needsUser: true
     });
     $stateProvider.state({
+        name: 'admin:login',
+        url: '/login',
+        component: 'adminLoginRoute',
+        // needsUser: true
+    });
+    $stateProvider.state({
         name: 'admin:users',
         url: '/users',
         component: 'adminUsersRoute',
@@ -46,6 +52,7 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
 import adminNavHtml from './tmpl/admin-nav.html';
 import adminHtml from './tmpl/admin.html';
 import adminUsersHtml from './tmpl/admin-users.html';
+import adminLoginHtml from './tmpl/admin-login.html';
 import adminLoadersHtml from './tmpl/admin-loaders.html';
 import adminCarriersHtml from './tmpl/admin-carriers.html';
 import adminProposalsHtml from './tmpl/admin-proposals.html';
@@ -59,6 +66,11 @@ export const adminNavRoute = {
 export const adminRoute =  {
     template: adminHtml,
     controller: ctrlLib.AdminCtrl,
+};
+
+export const adminLoginRoute =  {
+    template: adminLoginHtml,
+    controller: ctrlLib.AdminLoginCtrl,
 };
 
 export const adminUsersRoute =  {
