@@ -18,7 +18,6 @@ function recursiveRemoveDirectory($directory) {
 }
 
 recursiveRemoveDirectory(INSTALL_DIR);
-    echo "Successfully removed.\n";
 
 header("Status: 301 Moved Permanently", false, 301);
 header("Location: ../../");
