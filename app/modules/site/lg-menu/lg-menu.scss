@@ -93,7 +93,7 @@ my-head {
 			border-radius: 30px;
 			font-size: 13px;
 			color: white;
-			background-color: red;
+			background-color: $notificationColor;
 		}
 	}
 }
@@ -133,6 +133,7 @@ lg-menu-content {
 			left: 30px;
 			border-radius: 30px;
 			font-size: 13px;
+			color: white;
 			background-color: $notificationColor;
 		}
 		p {
