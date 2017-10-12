@@ -4,39 +4,49 @@ lg-home-route {
 	display: block;
 	margin: 0px;
 	padding: 20px 0px 30px;
-	logo {
-		display: block;
-		text-align: center;
-		margin-bottom: 25px;
-		img-svg {
+	header {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 15px;
+		>logo {
 			display: block;
+			width: 16%;
 			text-align: center;
-			svg {
-				width: 65px;
-				height: 65px;
-				fill: $fontColor;
+			img-svg {
+				display: block;
+				text-align: center;
+				svg {
+					width: 65px;
+					height: 65px;
+					fill: $fontColor;
+				}
+			}
+			img {
+				width: 100%;
+			}
+			title {
+				font-size: 55px;
 			}
 		}
-		img {
-			width: 45%;
-		}
-		title {
-			font-size: 55px;
+		>tagline {
+			display: block;
+			text-align: center;
+			font-weight: bold;
+			font-size: 17px;
+			margin: 0px 0px 0px 20px;
 		}
 	}
+	
 	h1 {
 		font-size: 20px;
-		text-align: left;
-		margin: 5px 13px;
+		text-align: center;
+		margin: 20px 13px 0px;
 		border-bottom: 1px solid $borderColor;
 		padding: 0px 0px 5px;
 	}
-	.tagline {
-		text-align: center;
-		font-size: 17px;
-		margin-top: 0px;
-		margin-bottom: 30px;
-	}
+	
 	.square-parent {
 		width: 100%;
 		font-size: 0px;
@@ -54,7 +64,7 @@ lg-home-route {
 				width: 100%;
 				height: 100%;
 				margin: 0px;
-				padding: 7px;
+				padding: 3px 7px;
 				a {
 					display: block;
 					width: 100%;
