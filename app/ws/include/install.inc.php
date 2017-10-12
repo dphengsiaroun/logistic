@@ -31,6 +31,9 @@
 			$result['databaseName'] = $cfg->database;
 			$result['prefix'] = $cfg->prefix;
 
+			$result['adminLogin'] = $cfg->adminLogin;
+			$result['adminPassword'] = $cfg->adminPassword;
+
 			$result['oauth2']['google']['clientID'] = $cfg->oauth2GoogleClientId;
 			$result['oauth2']['google']['clientSecret'] = $cfg->oauth2GoogleClientSecret;
 			$result['oauth2']['facebook']['clientID'] = $cfg->oauth2FacebookClientId;
@@ -76,14 +79,15 @@
 	\$cfg = new stdClass();
 	\$cfg->appName = '$request->appName';
 
-	\$cfg->appName = '$request->adminPassword';
-
 	\$cfg->host = '$request->hostname';
 	\$cfg->port = '$request->port';
 	\$cfg->user = '$request->username';
 	\$cfg->password = '$request->password';
 	\$cfg->database = '$request->databaseName';
 	\$cfg->prefix = '$request->prefix';
+
+	\$cfg->adminLogin = '$request->adminLogin';
+	\$cfg->adminPassword = '$request->adminPassword';
 
 	\$cfg->oauth2GoogleClientId = '{$request->oauth2->google->clientID}';
 	\$cfg->oauth2GoogleClientSecret = '{$request->oauth2->google->clientSecret}';
