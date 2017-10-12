@@ -14,13 +14,13 @@ export const LgLoadImage = {
 		ctrl.active = false;
 		ctrl.progress = 0;
 		ctrl.$onInit = function() {
-			const imageLoader = lgImageLoader.newInstance(ctrl);
-			imageLoader.init();
-			const inputElt = $element.find('input');
+			const imageLoader = lgImageLoader.newInstance(ctrl);			
+			$scope.$watch('$ctrl.formData', function() {
+				imageLoader.init();
+			}, true);
 			
+			const inputElt = $element.find('input');
 			inputElt.on('change', function() {
-				
-				
 				imageLoader.send(inputElt);
 			});
 		};
