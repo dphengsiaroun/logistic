@@ -74,7 +74,7 @@ describe('Proposal CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('my-proposals')).click();
 		element(by.css('div.details h2')).click();
-		element(by.linkText('Supprimer cette proposition')).click();
+		element(by.linkText('Supprimer')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/proposals`);

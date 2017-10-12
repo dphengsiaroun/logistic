@@ -72,6 +72,14 @@ export const lgMenu = {
 
 		};
 
+		ctrl.off = function() {
+			console.log('off', arguments);
+			if (ctrl.isMenuOn === true) {
+				ctrl.isMenuOn = false;
+				ctrl.lgMenuContentElt.css('display', 'none');
+			}
+		};
+
 		this.refresh = function() {
 			console.log('refresh', arguments);
 			ctrl.isSmallScreen = $window.innerWidth < 768;

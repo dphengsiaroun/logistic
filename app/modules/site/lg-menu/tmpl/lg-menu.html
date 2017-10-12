@@ -1,6 +1,6 @@
 <my-head>
 	<head-left ng-show="$root.isBackPresent">
-		<i ng-click="$ctrl.off(); $root.back();" class="fa fa-chevron-left" aria-hidden="true"></i>
+		<i ng-click="$root.back();" class="fa fa-chevron-left" aria-hidden="true"></i>
 	</head-left>
 	<head-left ng-hide="$root.isBackPresent">
 	</head-left>
@@ -14,6 +14,9 @@
 	</head-center>
 	<head-right>
 		<menu-bar ng-click="$ctrl.toggle();" class="fa fa-bars" aria-hidden="true"></menu-bar>
+		<span ng-show="$ctrl.myCarriers.length + $ctrl.myLoaders.length + $ctrl.myProposals.length >= 1" class="notification">
+				{{$ctrl.myCarriers.length + $ctrl.myLoaders.length + $ctrl.myProposals.length}}
+		</span>
 	</head-right>
 </my-head>
 
@@ -38,7 +41,6 @@
 		</a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user-o" aria-hidden="true"></i> <p>Mon profil</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.current.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
-		<a ng-click="$ctrl.toggle();" ui-sref="admin"><i class="fa fa-tachometer" aria-hidden="true"></i> <p>Administration</p></a>					
 		<br/><br/>
 		<a ng-click="$ctrl.toggle();" ui-sref="connection:delete" class="btn-logout" ><i class="fa fa-sign-out" aria-hidden="true"></i> <p>Se déconnecter</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a>

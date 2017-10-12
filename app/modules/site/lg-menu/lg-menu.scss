@@ -83,6 +83,18 @@ my-head {
 			color: white;
 			font-size: 30px;
 		}
+		.notification {
+			display: inline-block;
+			vertical-align: top;
+			padding: 2px 7px;
+			position: absolute;
+			right: 31px;
+			top: 27px;
+			border-radius: 30px;
+			font-size: 13px;
+			color: white;
+			background-color: red;
+		}
 	}
 }
 
