@@ -20,6 +20,9 @@ export function LgRoute($transitions, $rootScope, $window, carrier, lgBackDetect
 			if (to.component === 'lgMessage') {
 				$rootScope.isBackPresent = false;
 			}
+			if (to.component === 'lgHomeRoute') {
+				$rootScope.isBackPresent = false;
+			}
 
 			if (from.name.substr(0, 7) === 'carrier' && to.name.substr(0, 7) !== 'carrier') {
 				if (carrier.type === 'update') {
