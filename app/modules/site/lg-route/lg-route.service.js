@@ -1,4 +1,4 @@
-export function LgRoute($transitions, $rootScope, $window, carrier, lgBackDetector) {
+export function LgRoute($document, $transitions, $rootScope, $window, carrier, lgBackDetector) {
 	'ngInject';
 	this.start = () => {
 		$transitions.onStart({}, function(trans) {
@@ -32,6 +32,7 @@ export function LgRoute($transitions, $rootScope, $window, carrier, lgBackDetect
 			
 			if (lgBackDetector.isBack === false) {
 				$window.scrollTo(0, 0);
+				$document[0].querySelector('lg-body').scrollTop = 0;
 			}
 
 		});
