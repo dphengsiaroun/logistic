@@ -26,12 +26,12 @@ export function config($stateProvider) {
             service: function(user, context) {
                 'ngInject';
                 const login = user.current.content.login;
-                console.log('login XXXXXX', login);
+                
                 let state = context.pop();
                 if (state === undefined) {
                     state = 'truck:list({login: \'' + login + '\'})';
                 }
-                console.log('state', state);
+                
                 return {
                     state: state,
                     label: '<i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer',
@@ -55,9 +55,9 @@ export function config($stateProvider) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
                     const login = user.current.content.login;
-                    console.log('login', login);
+                    
                     const state = 'truck:list({login: \'' + login + '\'})';
-                    console.log('state', state);
+                    
                     return {
                         state: state,
                         label: 'Revenir à la liste des véhicules',
@@ -99,9 +99,9 @@ export function config($stateProvider) {
                 'ngInject';
                 return connection.waitForCheckConnection('truck:deleted').then(function() {
                     const login = user.current.content.login;
-                    console.log('login', login);
+                    
                     const state = 'truck:list({login: \'' + login + '\'})';
-                    console.log('state', state);
+                    
                     return {
                         state: state,
                         label: 'Revenir à la liste des véhicules',

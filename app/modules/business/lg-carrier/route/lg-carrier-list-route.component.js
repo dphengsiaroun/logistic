@@ -5,7 +5,7 @@ function CarrierListCtrl($scope, carrier, lgFilterList) {
 	ctrl.lgFilterList = lgFilterList;
 	ctrl.$onInit = function() {
 		carrier.list().then(function(list) {
-			console.log('list', list);
+			
 			ctrl.list = list;
 			lgFilterList.setup($scope, '$ctrl', ctrl);
 		}).catch(function(error) {

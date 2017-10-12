@@ -34,5 +34,5 @@ app.config(function($httpProvider, $provide) {
 
 	$httpProvider.interceptors.push('myPhpErrorInterceptor');
 
-	console.log('interceptors', $httpProvider.interceptors);
+	
 });

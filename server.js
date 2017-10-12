@@ -32,7 +32,7 @@ const compiler = webpack(webpackConfig);
 app.use('/app/wpk/', webpackDevMiddleware(compiler, {}));
 
 app.use(function(req, res, next) {
-	console.log('req.url', req.url);
+	
 	next();
 });
 
@@ -45,7 +45,7 @@ app.use(serveIndex('.', {
 }));
 
 app.use('/app/', function(req, res, next) {
-	console.log('Url rewriting: req.url', req.url);
+	
 	if (req.url.match(/app\/files/)) {
 		next();
 	}
@@ -53,7 +53,7 @@ app.use('/app/', function(req, res, next) {
 });
 
 app.use('/dist/', function(req, res, next) {
-	console.log('Url rewriting: req.url', req.url);
+	
 	if (req.url.match(/dist\/files/)) {
 		next();
 	}
@@ -62,10 +62,10 @@ app.use('/dist/', function(req, res, next) {
 
 
 app.use(function(req, res, next) {
-	console.log('404: Page not Found', req.url);
+	
 	next();
 });
 
 app.listen(port, function() {
-	console.log('server started on port ' + port);
+	
 });

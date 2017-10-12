@@ -15,7 +15,7 @@ export function AdminUsersCtrl($stateParams, user) {
     const ctrl = this;
     ctrl.user = user;
     ctrl.$onInit = function() {
-        console.log('Admin user list', ctrl.user);
+        
     };
 }
 
@@ -30,7 +30,7 @@ export function AdminLoadersCtrl($stateParams, user, connection, loader) {
                 userId: user.current.id
             });
         }).then(function(loaders) {
-            console.log('Admin loaders', loaders);
+            
             ctrl.loaders = loaders;
         }).catch(function(error) {
             console.error('error', error);
@@ -49,7 +49,7 @@ export function AdminCarriersCtrl($stateParams, user, connection, carrier) {
                 userId: user.current.id
             });
         }).then(function(carriers) {
-            console.log('Admin carriers', carriers);
+            
             ctrl.carriers = carriers;
         }).catch(function(error) {
             console.error('error', error);
@@ -63,7 +63,7 @@ export function AdminTrucksCtrl($stateParams, user, truck) {
     ctrl.user = user;
     ctrl.truck = truck;
     ctrl.$onInit = function() {
-        console.log('Admin truck list', ctrl.truck);
+        
         ctrl.truck.list();        
     };
 }
@@ -77,7 +77,7 @@ export function AdminProposalsCtrl($stateParams, user, connection, proposal) {
         connection.waitForCheckConnection().then(function() {
             return proposal.list();
         }).then(function(proposals) {
-            console.log('Admin proposals', proposals);
+            
             ctrl.proposals = proposals;
         }).catch(function(error) {
             console.error('error', error);

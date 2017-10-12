@@ -7,17 +7,17 @@ export const LgNum = {
 	},
 	template: function($attrs) {
 		'ngInject';
-		console.log('lgNum template', arguments, this);
+		
 		if ($attrs.class === 'vertical') {
-			console.log('lgNum vertical');
+			
 			return lgNumVerticalHtml;
 		}
 		return lgNumHtml;
 	},
 	controller: function($element, $filter, $interval, $timeout) {
 		'ngInject';
-		console.log('lgNum controller', arguments, this);
-		console.log('lgNum controller', arguments, this.ngModel);
+		
+		
 		const ctrl = this;
 		let ngModelCtrl;
 		const elt = $element.find('my-input');
@@ -34,7 +34,7 @@ export const LgNum = {
 
 		const touchstart = function(callback) {
 			return function() {
-				console.log('touchstart', arguments);
+				
 				callback();
 				timeout = $timeout(function() {
 					timeout = undefined;
@@ -56,7 +56,7 @@ export const LgNum = {
 		};
 
 		const touchend = function() {
-			console.log('touchend', arguments);
+			
 			elt.removeClass('editing');
 			if (timeout !== undefined) {
 				$timeout.cancel(timeout);
@@ -74,7 +74,7 @@ export const LgNum = {
 		};
 
 		this.build = function() {
-			console.log('build', arguments);
+			
 			plusElt.on('touchstart', touchstart(ctrl.plus));
 			plusElt.on('touchend', touchend);
 			plusElt.on('mouseup', touchend);
@@ -89,15 +89,15 @@ export const LgNum = {
 		};
 
 		this.$onInit = function() {
-			console.log('lgNum controller onInit', arguments, this);
-			console.log('lgNum controller onInit', arguments, this.ngModel);
+			
+			
 			ngModelCtrl = this.ngModel;
 			angular.extend(this.myOptions, this.options);
-			console.log('this.myOptions', this.myOptions);
-			console.log('this.options', this.options);
+			
+			
 
 			ngModelCtrl.$render = function() {
-				console.log('ngModelCtrl.$render', arguments, this);
+				
 				let valueStr = ctrl.placeholder;
 				if (ngModelCtrl.$viewValue !== undefined) {
 					valueStr = $filter('number')(ngModelCtrl.$viewValue, ctrl.myOptions.format);
@@ -111,7 +111,7 @@ export const LgNum = {
 			this.build();
 		};
 		this.plus = function() {
-			console.log('lgNum plus', arguments, this);
+			
 			if (ngModelCtrl.$viewValue === undefined) {
 				ngModelCtrl.$viewValue = 0;
 			}
@@ -120,7 +120,7 @@ export const LgNum = {
 			ngModelCtrl.$setTouched();
 		};
 		this.minus = function() {
-			console.log('lgNum minus', arguments, this);
+			
 			if (ngModelCtrl.$viewValue === undefined) {
 				ngModelCtrl.$viewValue = 0;
 			}

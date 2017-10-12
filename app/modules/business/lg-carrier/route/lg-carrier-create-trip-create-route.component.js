@@ -8,11 +8,11 @@ export const lgCarrierCreateTripCreateRoute = {
 			ctrl.tripData = {};
 		} else {
 			ctrl.tripData = carrier.createData.trip;
-			console.log('ctrl.tripData', ctrl.tripData);
+			
 		}
 		ctrl.addTrip = function() {
 			carrier.createData.trip = ctrl.tripData;
-			console.log('carrier', carrier);
+			
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {

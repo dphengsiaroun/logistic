@@ -7,7 +7,7 @@ export function inputDirective($compile) {
 			if (attrs.type !== 'num') {
 				return;
 			}
-			console.log('input type="num"', arguments);
+			
 			const myClass = ('vertical' in attrs) ? 'class="vertical"' : '';
 			const elt = angular.element('<!-- input type="num" ng-model="' + attrs.ngModel + '" -->' +
 				'<lg-num ' + myClass + ' ng-model="' + attrs.ngModel +

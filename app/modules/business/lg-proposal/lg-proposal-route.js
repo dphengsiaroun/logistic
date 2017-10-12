@@ -12,7 +12,7 @@ export function config($stateProvider) {
 		resolve: {
 			service: function() {
 				const state = 'home';
-				console.log('state', state);
+				
 				return {
 					state: state,
 					label: 'Retour à l\'accueil',
@@ -42,9 +42,9 @@ export function config($stateProvider) {
 				'ngInject';
 				return connection.waitForCheckConnection().then(function() {
 					const login = user.current.content.login;
-					console.log('login', login);
+					
 					const state = 'user:proposals({login: \'' + login + '\'})';
-					console.log('state', state);
+					
 					return {
 						state: state,
 						label: 'Revenir à la liste des propositions',
@@ -87,9 +87,9 @@ export function config($stateProvider) {
 				'ngInject';
 				return connection.waitForCheckConnection('proposal:deleted').then(function() {
 					const login = user.current.content.login;
-					console.log('login', login);
+					
 					const state = 'user:proposals({login: \'' + login + '\'})';
-					console.log('state', state);
+					
 					return {
 						state: state,
 						label: 'Voir mes propositions',
@@ -109,9 +109,9 @@ export function config($stateProvider) {
 				'ngInject';
 				return connection.waitForCheckConnection().then(function() {
 					const login = user.current.content.login;
-					console.log('login', login);
+					
 					const state = 'user:proposals({login: \'' + login + '\'})';
-					console.log('state', state);
+					
 					return {
 						state: state,
 						label: 'Revenir à la liste des propositions',

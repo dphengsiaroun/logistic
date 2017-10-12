@@ -8,7 +8,7 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 	function ImageLoader(ctrl) {
 
 		function removeFile() {
-			console.log('Dany Remove File');
+			
 			ctrl.file = undefined;
 			ctrl.ngModel.$setViewValue(undefined);
 		}
@@ -24,7 +24,7 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 					url: ctrl.file.deleteUrl + '&suffix=' + ctrl.formData.suffix,
 					method: ctrl.file.deleteType
 				}).then(function(response) {
-					console.log('response', response);
+					
 					removeFile();
 				}).catch(function(error) {
 					console.error('error', error);
@@ -39,22 +39,22 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 				qs = '?suffix=' + ctrl.formData.suffix;
 			}
 			$http.get(url + qs).then(function(response) {
-				console.log('Dany $http get return', response);
+				
 				if (response.data.files && response.data.files.length > 0) {
 					setFile(response.data.files[0]);
 				} else {
 					removeFile();
 				}
 			}).catch(function(error) {
-				console.log('$http get error', error);
+				
 				removeFile();
 			});
 		};
 
 		this.send = function(inputElt) {
-			console.log('about to send');
+			
 			const name = inputElt[0].files[0].name;
-			console.log('name', name);
+			
 
 			removeFile();
 
@@ -77,9 +77,9 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 				if (xhr.status === 200) {
 					// File(s) uploaded.
 					ctrl.active = false;
-					console.log('Upload successful', xhr.response);
+					
 					const json = JSON.parse(xhr.response);
-					console.log('json', json);
+					
 					setFile(json.files[0]);
 
 				} else {
@@ -88,15 +88,15 @@ export function LgImageLoader($http, $rootScope, lgPicture) {
 				}
 				$rootScope.$apply();
 			};
-			console.log('xhr', xhr);
+			
 			xhr.upload.addEventListener('progress', function(evt) {
 				if (evt.lengthComputable) {
 					let percentComplete = evt.loaded / evt.total;
 					percentComplete = parseInt(percentComplete * 100);
-					console.log(percentComplete);
+					
 
 					if (percentComplete === 100) {
-						console.log('complete');
+						
 					}
 					ctrl.progress = percentComplete;
 					$rootScope.$apply();

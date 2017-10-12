@@ -19,9 +19,9 @@ export function config($stateProvider) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
                     const login = user.current.content.login;
-                    console.log('login', login);
+                    
                     const state = 'carrier:list({login: \'' + login + '\'})';
-                    console.log('state', state);
+                    
                     return {
                         state: state,
                         label: 'Revenir à la liste des transports',
@@ -63,9 +63,9 @@ export function config($stateProvider) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
                     const login = user.current.content.login;
-                    console.log('login', login);
+                    
                     const state = 'carrier:list({login: \'' + login + '\'})';
-                    console.log('state', state);
+                    
                     return {
                         state: state,
                         label: 'Revenir à la liste des transports',

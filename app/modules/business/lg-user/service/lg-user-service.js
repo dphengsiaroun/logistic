@@ -11,7 +11,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 	};
 
 	this.create = function() {
-		console.log('sign up');
+		
 		const SHA256 = new Hashes.SHA256;
 		const data = angular.copy(service.signupData);
 		data.password = SHA256.hex(service.signupData.password);
@@ -22,7 +22,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
@@ -40,10 +40,10 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 	this.updateData = {
 		content: {}
 	};
-	console.log('this.updateData', this.updateData);
+	
 
 	this.update = function() {
-		console.log('user->update');
+		
 
 		$http({
 			url: lgConfig.wsDir() + 'users/' + service.updateData.id,
@@ -51,7 +51,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 			data: service.updateData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
@@ -65,14 +65,14 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 	};
 
 	this.delete = function() {
-		console.log('user->delete', service.current);
+		
 
 		return $http({
 			url: lgConfig.wsDir() + 'users/' + service.current.id,
 			method: 'DELETE',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				return $q.reject(response);
 			}
@@ -89,7 +89,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 	};
 
 	this.updatePassword = function(data) {
-		console.log('user->updatePassword', arguments);
+		
 		const SHA256 = new Hashes.SHA256;
 		const hashedData = angular.copy(data);
 		if (hashedData.oldPassword) {
@@ -104,7 +104,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 			data: hashedData,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;

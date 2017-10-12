@@ -7,7 +7,7 @@ export function inputDirective($compile) {
 			if (attr.type !== 'eyepassword') {
 				return;
 			}
-			console.log('input type="eyepassword"', arguments);
+			
 
 			const elt = angular.element('<!-- input type="eyepassword" ng-model="' + attr.ngModel + '" -->' +
 				'<lg-eyepassword password="' + attr.ngModel +

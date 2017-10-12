@@ -16,14 +16,14 @@ export const lgUserProposalsRoute = {
 		ctrl.user = user;
 		ctrl.proposal = proposal;
 		ctrl.proposals = [];
-		console.log('user', user);
+		
 		ctrl.$onInit = function() {
 			connection.waitForCheckConnection().then(function() {
 				return proposal.list({
 					userId: user.current.id
 				});
 			}).then(function(proposals) {
-				console.log('proposals', proposals);
+				
 				ctrl.proposals = proposals;
 			}).catch(function(error) {
 				console.error('error', error);

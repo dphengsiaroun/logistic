@@ -8,9 +8,9 @@ export function config($stateProvider) {
 			service: function(user) {
 				'ngInject';
 				const login = user.current.content.login;
-				console.log('login', login);
+				
 				const state = 'carrier:list({login: \'' + login + '\'})';
-				console.log('state', state);
+				
 				return {
 					state: state,
 					label: 'Voir les annonces de transport',

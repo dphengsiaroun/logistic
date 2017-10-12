@@ -14,7 +14,7 @@ export function CarrierStepManager(carrier) {
 	};
 	this.getClass = function(step) {
 		const currentStep = this.getStep();
-		console.log('currentStep', currentStep);
+		
 		if (step > currentStep) {
 			return {
 				disabled: true

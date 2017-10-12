@@ -5,14 +5,14 @@ export function ProposalCtrl($scope, $injector, connection) {
 	ctrl.user = $injector.get('user');
 	ctrl.isEditable = false;
 	const $stateParams = $injector.get('$stateParams');
-	console.log('ctrl.proposal', ctrl.proposal);
-	console.log('$stateParams', $stateParams);
+	
+	
 	ctrl.$onInit = function() {
 		ctrl.proposal.get($stateParams.id).then(function() {
 			return connection.waitForCheckConnection();
 		}).then(function() {
 			ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.user.current.id);
-			console.log('ctrl.isEditable', ctrl.isEditable);
+			
 		});
 	};
 }
@@ -26,11 +26,11 @@ export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 	ctrl.carrier = carrier;
 	ctrl.user = user;
 	ctrl.fv = formValidator;
-	console.log('ProposalCreateCtrl', arguments);
+	
 	this.$onInit = function() {
-		console.log('ProposalCreateCtrl init', arguments);
+		
 		connection.waitForCheckConnection('ProposalCreateCtrl').then(function() {
-			console.log('connection ok', $stateParams);
+			
 			ctrl.proposal.createData.name = ctrl.user.current.content.login;
 			ctrl.proposal.createData.email = ctrl.user.current.email;
 			ctrl.proposal.createData.proposalAccountId = ctrl.user.current.id;
@@ -49,8 +49,8 @@ export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 			}
 			ctrl.proposal.createData.adAccountId = ctrl[$stateParams.type].current.content.userId;
 			ctrl.proposal.createData.adType = $stateParams.type;
-			console.log('ctrl.proposal.createData', ctrl.proposal.createData);
-			console.log('ctrl.proposal.createData.adType', ctrl.proposal.createData.adType);
+			
+			
 		}).catch(function() {
 			console.error('you should not see this');
 		});
@@ -70,7 +70,7 @@ export function ProposalUpdateCtrl($scope, $stateParams,
 		}).then(function() {
 			ctrl.proposal.updateData = angular.copy(ctrl.proposal.current.content);
 			ctrl.proposal.updateData.id = $stateParams.id;
-			console.log('ctrl.proposal.updateData', ctrl.proposal.updateData);
+			
 		}).catch(function() {
 			console.error('you should not see this');
 		});

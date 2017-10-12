@@ -20,9 +20,9 @@ export const lgDtMonth = {
 	controller: function LgDtMonthCtrl($scope, $element, $locale, $compile) {
 		'ngInject';
 		const ctrl = this;
-		console.log('lgMonth ctrl', ctrl, arguments);
+		
 		ctrl.$onInit = function() {
-			console.log('lgMonth ctrl $onInit', ctrl);
+			
 			ctrl.printDays($element);
 
 			ctrl.build();
@@ -40,7 +40,7 @@ export const lgDtMonth = {
 		};
 
 		ctrl.build = function() {
-			console.log('lg-month build', arguments);
+			
 			const date = new Date(ctrl.monthDate);
 			ctrl.year = date.getFullYear();
 			ctrl.month = date.getMonth();
@@ -55,10 +55,10 @@ export const lgDtMonth = {
 
 			ctrl.isSelected = function(d) {
 				if (ctrl.selectedDate === undefined) {
-					// console.log('no selected date');
+					// 
 					return false;
 				}
-				// console.log('selected date', ctrl.selectedDate);
+				// 
 				const result = d.getFullYear() === ctrl.selectedDate.getFullYear() &&
 					d.getMonth() === ctrl.selectedDate.getMonth() &&
 					d.getDate() === ctrl.selectedDate.getDate();
@@ -102,7 +102,7 @@ export const lgDtMonth = {
 					dayDate = addDays(dayDate, 1);
 				}
 				if (j === 4 && dayDate.getMonth() === firstDayDate.getMonth()) {
-					// console.log('j===4 && ', dayDate.getMonth(), firstDayDate.getMonth());
+					// 
 					j--;
 				}
 				html += '</tr>';

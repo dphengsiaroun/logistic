@@ -9,7 +9,7 @@ app.component('lgDesktop', {
 	template: lgDesktopHtml,
 	controller: function LgDesktopCtrl($element) {
 		'ngInject';
-		console.log('LgDesktopCtrl', arguments, this);
+		
 
 	}
 });

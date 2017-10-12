@@ -13,12 +13,12 @@ app.component('lgDimension', {
 	template: lgDimensionHtml,
 	controller: function LgDimensionCtrl($scope, $element, $document, $filter, lgScroll) {
 		'ngInject';
-		console.log('LgDimensionCtrl');
+		
 		const ctrl = this;
 		ctrl.coef = 0.429;
 		const settingsElt = $element.find('settings');
 		const width = screen.width;
-		console.log('LgDimensionCtrl width', width);
+		
 		const top = 59 + (106 / 320) * width + 55 + 20;
 		settingsElt.css('top', top + 'px');
 
@@ -29,7 +29,7 @@ app.component('lgDimension', {
 
 
 		ctrl.start = function() {
-			console.log('start', arguments);
+			
 			ctrl.state = 'editState';
 			lgScroll.save();
 		};
@@ -59,7 +59,7 @@ app.component('lgDimension', {
 		};
 
 		ctrl.$onInit = function() {
-			console.log('LgDimensionCtrl');
+			
 
 
 			ctrl.ngModel.$render = function() {
@@ -79,7 +79,7 @@ app.component('lgDimension', {
 				ctrl.volumeStr = $filter('volume')(ctrl.dimension);
 			};
 			$scope.$watchGroup(['$ctrl.width', '$ctrl.height', '$ctrl.depth'], () => {
-				console.log('$ctrl.dimension watch');
+				
 				const dimension = {
 					width: ctrl.width / 100,
 					height: ctrl.height / 100,

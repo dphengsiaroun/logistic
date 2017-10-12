@@ -29,16 +29,16 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 	this.guessCity = function() {
 		return $q(function(resolve, reject) {
 			if (service.geopos && service.address) {
-				console.log('guessCity returns cache');
+				
 				return resolve(service.getDisplayCity());
 			}
 			if (!$window.navigator.geolocation) {
 				alert('Gps non supporté.');
 				return reject('window.navigator.geolocation undefined');
 			}
-			console.log('try to getCurrentPosition');
+			
 			$window.navigator.geolocation.getCurrentPosition(function(geopos) {
-				console.log('getCurrentPosition', arguments);
+				
 				service.geopos = geopos;
 				$http({
 					url: 'https://nominatim.openstreetmap.org/reverse',
@@ -53,7 +53,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 						addressdetails: 1
 					}
 				}).then(function(response) {
-					console.log('response', response);
+					
 					service.address = response.data.address;
 					const cityObj = service.getCityObj();
 					if ($rootScope.config.cities.indexOf(cityObj) === -1) {
@@ -88,7 +88,7 @@ app.service('geoloc', function Geoloc($q, $window, $http, $rootScope, $parse, $f
 				},
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function(response) {
-				console.log('response', response);
+				
 				if (response.data.status === 'ko') {
 					return $q.reject(response);
 				}

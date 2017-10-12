@@ -11,7 +11,7 @@ export const lgShowPicture = {
 			$element.css('display', 'block');
 		};
 		this.close = function() {
-			console.log('LgShowPictureCtrl.close', arguments);
+			
 			$element.css('display', 'none');
 		};
 	}

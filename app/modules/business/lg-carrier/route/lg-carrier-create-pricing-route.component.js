@@ -9,12 +9,12 @@ export const lgCarrierCreatePricingRoute = {
 			ctrl.pricingData = {};
 		} else {
 			ctrl.pricingData = carrier.createData.pricing;
-			console.log('ctrl.pricingData', ctrl.pricingData);
+			
 		}
 		ctrl.carrier = carrier;
 		ctrl.addPricing = function() {
 			carrier.createData.pricing = ctrl.pricingData;
-			console.log('carrier', carrier);
+			
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {

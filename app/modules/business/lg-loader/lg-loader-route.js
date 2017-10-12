@@ -23,9 +23,9 @@ export function config($stateProvider) {
             service: function(user) {
                 'ngInject';
                 const login = user.current.content.login;
-                console.log('login', login);
+                
                 const state = 'loader:list({login: \'' + login + '\'})';
-                console.log('state', state);
+                
                 return {
                     state: state,
                     label: 'Voir les annonces de chargements',
@@ -49,9 +49,9 @@ export function config($stateProvider) {
                 'ngInject';
                 return connection.waitForCheckConnection('loader:updated').then(function() {
                     const login = user.current.content.login;
-                    console.log('login', login);
+                    
                     const state = 'loader:list({login: \'' + login + '\'})';
-                    console.log('state', state);
+                    
                     return {
                         state: state,
                         label: 'Voir les annonces de chargements',
@@ -93,9 +93,9 @@ export function config($stateProvider) {
                 'ngInject';
                 return connection.waitForCheckConnection('loader:deleted').then(function() {
                     const login = user.current.content.login;
-                    console.log('login', login);
+                    
                     const state = 'loader:list({login: \'' + login + '\'})';
-                    console.log('state', state);
+                    
                     return {
                         state: state,
                         label: 'Voir les annonces de chargements',

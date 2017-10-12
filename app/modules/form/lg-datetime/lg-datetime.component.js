@@ -7,7 +7,7 @@ export const lgDatetime = {
 	template: lgDatetimeHtml,
 	controller: function LgDatetimeCtrl($scope, $element, $filter, $parse, lgScroll) {
 		'ngInject';
-		console.log('lgDatetimeCtrl');
+		
 		const ctrl = this;
 		ctrl.format = 'EEEE dd LLLL - H:mm';
 
@@ -47,7 +47,7 @@ export const lgDatetime = {
 		};
 
 		ctrl.compute = function() {
-			console.log('compute');
+			
 			ctrl.months = [];
 			for (let i = 0; i < ctrl.opts.monthNbr; i++) {
 				const date = new Date(ctrl.opts.start);
@@ -55,25 +55,25 @@ export const lgDatetime = {
 				date.setMonth(date.getMonth() + i);
 				ctrl.months.push(date);
 			}
-			console.log('ctrl.months', ctrl.months);
+			
 		};
 
 		ctrl.setDate = function(year, month, day) {
-			console.log('setDate', arguments);
-			console.log('year', year);
+			
+			
 			const date = new Date(year, month, day, ctrl.selectedHours);
-			console.log('date', date);
+			
 			ctrl.update(date);
 		};
 
 		ctrl.setHours = function(hour) {
-			console.log('setHours', arguments);
+			
 			if (ctrl.selectedHours === hour) {
 				return;
 			}
 			ctrl.selectedHours = hour;
 			let date = ctrl.ngModel.$viewValue;
-			console.log('date', date);
+			
 			if (!date) {
 				return;
 			}
@@ -84,7 +84,7 @@ export const lgDatetime = {
 
 		ctrl.initOptions = function() {
 			angular.extend(ctrl.opts, ctrl.options);
-			console.log('options', ctrl.options);
+			
 			ctrl.opts.start = new Date();
 			ctrl.selectedHours = ctrl.opts.defaultHour;
 		};
@@ -95,13 +95,13 @@ export const lgDatetime = {
 		}
 
 		ctrl.$onInit = function() {
-			console.log('lgCalendarWrapper ctrl $onInit', ctrl);
-			console.log('this.ngModel', ctrl.ngModel);
+			
+			
 
 			ctrl.initOptions();
 
 			ctrl.ngModel.$render = function() {
-				console.log('ctrl.ngModel.$render', arguments);
+				
 
 				let datetime;
 				if (ctrl.ngModel.$viewValue !== undefined) {
@@ -110,10 +110,10 @@ export const lgDatetime = {
 				const html = datetime || ctrl.placeholder;
 				const elt = $element.find('my-input');
 				if (datetime !== undefined) {
-					console.log('filled');
+					
 					elt.addClass('filled');
 				} else {
-					console.log('not filled');
+					
 					elt.removeClass('filled');
 
 				}
@@ -124,21 +124,21 @@ export const lgDatetime = {
 		};
 
 		ctrl.$onChanges = function(changesObj) {
-			console.log('LgDatetimeCtrl $onChanges', changesObj);
+			
 			let offset = ctrl.offset || 0;
 			offset = Math.ceil(offset / 3600) * 3600;
 			if (changesObj.after) {
 				ctrl.opts.after = changesObj.after.currentValue instanceof Date;
-				console.log('LgDatetimeCtrl $onChanges ctrl.opts.start', ctrl.opts.start);
+				
 			}
 			if (ctrl.opts.after) {
-				console.log('LgDatetimeCtrl $onChanges offset', offset);
+				
 				ctrl.opts.start = new Date(ctrl.after.getTime() +
 					(offset * 1000));
-				console.log('LgDatetimeCtrl $onChanges check start is before selectedDate');
+				
 			}
 			if (ctrl.opts.start > ctrl.selectedDate) {
-				console.log('LgDatetimeCtrl $onChanges : start is after selectedDate');
+				
 				ctrl.update(undefined);
 			}
 		};

@@ -3,9 +3,9 @@ export function Password($injector, $http, $rootScope, $q, $state, lgConfig) {
 	const service = this;
 
 	service.retrieveFromCode = function(id, code) {
-		console.log('sign in with code');
-		console.log('code', code);
-		console.log('id', id);
+		
+		
+		
 		$http({
 			url: lgConfig.wsDir() + 'user/retrieveFromCode.php',
 			method: 'POST',
@@ -15,7 +15,7 @@ export function Password($injector, $http, $rootScope, $q, $state, lgConfig) {
 			},
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				$state.go('error');
@@ -23,7 +23,7 @@ export function Password($injector, $http, $rootScope, $q, $state, lgConfig) {
 			}
 			service.error = undefined;
 			service.current = response.data.user;
-			console.log('service.current', service.current);
+			
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -36,7 +36,7 @@ export function Password($injector, $http, $rootScope, $q, $state, lgConfig) {
 	};
 
 	service.forgottenPassword = function(data) {
-		console.log('user->forgottenPasswordData');
+		
 
 		// TODO: include recaptcha data
 		$http({
@@ -45,7 +45,7 @@ export function Password($injector, $http, $rootScope, $q, $state, lgConfig) {
 			data: data,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;

@@ -64,7 +64,7 @@ module.exports = function(gulp, pathConfig) {
 	gulp.task('build:htaccess', ['build:htaccess:app', 'build:htaccess:ws']);
 
 	gulp.task('build', function() {
-		console.log('gulp build');
+		
 		runSequence('build:webpack', ['build:resources', 'build:html', 'build:htaccess']);
 	});
 

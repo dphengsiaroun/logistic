@@ -11,7 +11,7 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 
 
 	service.create = function() {
-		console.log('proposal->create', service.createData);
+		
 		const createData = service.createData;
 		if (user.current) {
 			$http({
@@ -22,7 +22,7 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 					'Content-Type': 'application/x-www-form-urlencoded'
 				}
 			}).then(function(response) {
-				console.log('response', response);
+				
 				if (response.data.status === 'ko') {
 					service.error = response;
 					return;
@@ -50,14 +50,14 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 	service.createAfterConnect = function() {
 		service.createData = angular.fromJson(localStorage.getItem('proposal'));
 		localStorage.removeItem('proposal');
-		console.log('proposal->createAfterConnect', service.createData);
+		
 		service.create();
 	};
 
 	service.listData = {};
 
 	service.list = function(data) {
-		console.log('proposal->list');
+		
 		if (data === undefined) {
 			data = {};
 		}
@@ -69,7 +69,7 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return $q.reject(response);
@@ -83,7 +83,7 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 	};
 
 	service.get = function(id) {
-		console.log('service.proposals', service.proposals);
+		
 		return this.list().then(function(proposals) {
 			service.proposals = proposals;
 			service.proposalMap = $window.makeMap(proposals);
@@ -93,7 +93,7 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 	service.updateData = {};
 
 	service.update = function() {
-		console.log('updateProposal->update', service.updateData);
+		
 		$http({
 			url: lgConfig.wsDir() + 'proposals/' + service.updateData.id,
 			method: 'PUT',
@@ -102,14 +102,14 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
 			service.error = undefined;
 			service.current = response.data.proposal;
-			console.log('about to go to', response);
+			
 			$state.go('proposal:updated');
 		}).catch(function(error) {
 			service.error = error;
@@ -118,7 +118,7 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 	};
 
 	service.delete = function(id) {
-		console.log('proposal->delete');
+		
 		return $http({
 			url: lgConfig.wsDir() + 'proposals/' + id,
 			method: 'DELETE',
@@ -129,7 +129,7 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				return $q.reject(response);
 			}

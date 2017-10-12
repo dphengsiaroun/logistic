@@ -19,12 +19,12 @@ module.exports = function(gulp, pathConfig) {
 		}).then(function(str) {
 			return fs.writeFileAsync('./app/ws/include/suggested.config.php', str);
 		}).then(function() {
-			console.log('./app/ws/include/suggested.config.php saved.');
+			
 			return consolidate.ejs('./cfg/svg.tmpl', svg);
 		}).then(function(str) {
 			return fs.writeFileAsync('./app/modules/technic/lg-widget/tmpl/lg-image.html', str);
 		}).then(function() {
-			console.log('./app/modules/technic/lg-widget/tmpl/lg-image.html saved.');
+			
 			callback();
 		}).catch(function(error) {
 			console.error('error', error);

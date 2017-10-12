@@ -27,7 +27,7 @@ app.component('lgChoice', {
 		};
 
 		ctrl.closeInput = function() {
-			console.log('closeInput');
+			
 			$element.find('input')[0].blur();
 		};
 
@@ -36,7 +36,7 @@ app.component('lgChoice', {
 		};
 
 		ctrl.start = function() {
-			console.log('start');
+			
 			lgScroll.save();
 			ctrl.showLgChoice = true;
 			ctrl.setNormalMode();
@@ -49,7 +49,7 @@ app.component('lgChoice', {
 		};
 
 		ctrl.update = function(choice) {
-			console.log('update', arguments);
+			
 			ctrl.stop();
 
 			ctrl.ngModel.$setViewValue(choice);
@@ -94,7 +94,7 @@ app.component('lgChoice', {
 
 		ctrl.getIcon = function() {
 			if (ctrl.defaultsOptions.icon) {
-				// console.log('ctrl.getIcon', ctrl.defaultsOptions.icon.apply(null, arguments));
+				// 
 				return ctrl.defaultsOptions.icon.apply(null, arguments);
 			}
 			return '';
@@ -126,16 +126,16 @@ app.component('lgChoice', {
 				ctrl.currentValue = ctrl.getLabel(choice) || ctrl.placeholder;
 				const elt = $element.find('my-input');
 				if (choice !== undefined) {
-					console.log('filled');
+					
 					elt.addClass('filled');
 				} else {
-					console.log('not filled');
+					
 					elt.removeClass('filled');
 
 				}
 				checkValidity(1);
 			};
-			console.log('ngModel', ngModel);
+			
 
 			ctrl.myFilter = function(value, index, array) {
 				if (ngModel.$modelValue !== undefined && ngModel.$modelValue === value) {

@@ -3,13 +3,13 @@ function initCtrl(ctrl, $scope, $injector) {
 	ctrl.connection = $injector.get('connection');
 	ctrl.user.error = undefined;
 	$scope.$watch('$ctrl.user.signupData.content.login', function() {
-		console.log('ctrl.user', ctrl.user);
-		console.log('ctrl.user.signupData.content.login', ctrl.user.signupData.content.login);
+		
+		
 		ctrl.user.signupData.content.login = angular.lowercase(ctrl.user.signupData.content.login);
 	});
 	$scope.$watch('$ctrl.user.updateData.content.login', function() {
-		console.log('ctrl.user', ctrl.user);
-		console.log('ctrl.user.updateData.content.login', ctrl.user.updateData.content.login);
+		
+		
 		ctrl.user.updateData.content.login = angular.lowercase(ctrl.user.updateData.content.login);
 	});
 	$scope.$watch('$ctrl.user.current', function() {

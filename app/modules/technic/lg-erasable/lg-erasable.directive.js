@@ -11,10 +11,10 @@ app.directive('lgErasable', function lgErasable($compile) {
 		require: '?ngModel',
 		scope: {},
 		controller: function() {
-			console.log('lgErasable ctrl', arguments);
+			
 		},
 		link: function(scope, element, attrs, ctrl) {
-			console.log('lgErasable link', arguments);
+			
 
 			const elt = angular.element(`<div 
 				class="erase" 
@@ -26,9 +26,9 @@ app.directive('lgErasable', function lgErasable($compile) {
 			$compile(elt)(scope);
 
 			scope.isNotEmpty = () => {
-				// console.log('ctrl.isNotEmpty', ctrl);
+				// 
 				if (ctrl) {
-					// console.log('$modelValue', ctrl.$modelValue);
+					// 
 
 					return !ctrl.$isEmpty(ctrl.$modelValue);
 				}
@@ -36,7 +36,7 @@ app.directive('lgErasable', function lgErasable($compile) {
 			};
 
 			scope.erase = () => {
-				console.log('ctrl.erase', ctrl);
+				
 				if (ctrl) {
 					ctrl.$setViewValue('');
 					ctrl.$render();

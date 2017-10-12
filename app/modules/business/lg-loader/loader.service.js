@@ -14,7 +14,7 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 
 
 	service.create = function() {
-		console.log('loader->create', service.createData);
+		
 		const createData = service.createData;
 		if (user.current) {
 			$http({
@@ -25,7 +25,7 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				}
 			}).then(function(response) {
-				console.log('response', response);
+				
 				if (response.data.status === 'ko') {
 					service.error = response;
 					return;
@@ -54,14 +54,14 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 	service.createAfterConnect = function() {
 		service.createData = angular.fromJson(localStorage.getItem('loader'));
 		localStorage.removeItem('loader');
-		console.log('loader->createAfterConnect', service.createData);
+		
 		service.create();
 	};
 
 	service.listData = {};
 
 	service.list = function(data) {
-		console.log('loader->list');
+		
 		return $http({
 			url: lgConfig.wsDir() + 'loaders',
 			method: 'GET',
@@ -70,7 +70,7 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return $q.reject(response);
@@ -94,7 +94,7 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 	service.updateData = {};
 
 	service.update = function() {
-		console.log('updateLoader->update', service.updateData);
+		
 		$http({
 			url: lgConfig.wsDir() + 'loaders/' + service.updateData.id,
 			method: 'PUT',
@@ -103,14 +103,14 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
 			service.error = undefined;
 			service.current = response.data.loader;
-			console.log('about to go to', response);
+			
 			$state.go('loader:updated');
 		}).catch(function(error) {
 			service.error = error;
@@ -119,12 +119,12 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 	};
 
 	service.delete = function(id) {
-		console.log('loader->delete');
+		
 		return $http({
 			url: lgConfig.wsDir() + 'loaders/' + id,
 			method: 'DELETE'
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				return $q.reject(response);
 			}

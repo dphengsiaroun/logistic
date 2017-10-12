@@ -10,7 +10,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 	service.initCreateData();
 
 	service.create = function() {
-		console.log('truck->createTruck');
+		
 		const createData = service.createData;
 		if (user.current) {
 			$http({
@@ -21,7 +21,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				}
 			}).then(function(response) {
-				console.log('response', response);
+				
 				if (response.data.status === 'ko') {
 					service.error = response;
 					return;
@@ -33,7 +33,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 				console.error('error', error);
 			});
 		} else {
-			console.log('user not connected');
+			
 			createData.userNotConnected = true;
 			localStorage.setItem('truck', angular.toJson(createData));
 			connection.setAfterConnectAction({
@@ -50,35 +50,35 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 	service.createAfterConnect = function() {
 		service.createData = angular.fromJson(localStorage.getItem('truck'));
 		localStorage.removeItem('truck');
-		console.log('truck->createAfterConnect', service.createData);
+		
 		service.create();
 	};
 
 	service.list = function() {
-		console.log('truck->list');
+		
 		return connection.waitForCheckConnection('TruckList').then(function() {
 			return $http({
 				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks',
 				method: 'GET'
 			});
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
 			service.error = undefined;
 			service.truckMap = response.data.trucks;
-			console.log('service.truckMap', service.truckMap);
+			
 			service.trucks = $window.values(service.truckMap);
-			console.log('service.trucks', service.trucks);
+			
 		}).catch(function(error) {
 			service.error = error;
 		});
 	};
 
 	service.get = function(id) {
-		console.log('get', arguments);
+		
 		if (id === undefined) {
 			return $q.reject('id is undefined');
 		}
@@ -92,7 +92,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 	};
 
 	service.empty = function() {
-		console.log('empty', arguments);
+		
 		return connection.waitForCheckConnection().then(function() {
 			return service.list();
 		}).then(function() {
@@ -108,7 +108,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 	service.updateData = {};
 
 	service.update = function() {
-		console.log('updateTruck->update');
+		
 		connection.waitForCheckConnection().then(function() {
 			return $http({
 				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks/' + service.updateData.id,
@@ -119,14 +119,14 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 				}
 			});
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
 			service.error = undefined;
 			service.current = response.data.truck;
-			console.log('about to go to', response);
+			
 			$state.go('truck:updated');
 		}).catch(function(error) {
 			service.error = error;
@@ -135,7 +135,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 	};
 
 	this.delete = function(id) {
-		console.log('truck->delete');
+		
 		return connection.waitForCheckConnection().then(function() {
 			return $http({
 				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks/' + id,
@@ -148,7 +148,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 				}
 			});
 		}).then(function(response) {
-			console.log('response', response);
+			
 			if (response.data.status === 'ko') {
 				return $q.reject(response);
 			}

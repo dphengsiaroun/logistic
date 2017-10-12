@@ -23,21 +23,21 @@ export function LgConfigProvider() {
 				$rootScope.config = config;
 
 				$rootScope.back = function() {
-					console.log('back', arguments);
+					
 					$window.history.back();
 				};
 
 				$rootScope.goto = function(url) {
-					console.log('goto', arguments);
+					
 					$window.location.href = url;
 				};
 
 				$rootScope.goToState = function(state) {
-					console.log('goToState', arguments);
+					
 					const array = state.split(/[()]/);
 					const to = array[0];
 					const params = $parse(array[1])({});
-					console.log('goto', to, params);
+					
 					$state.go(to, params);
 				};
 
@@ -78,7 +78,7 @@ export function LgConfigProvider() {
 				const year = (new Date()).getFullYear();
 				config.years = [...Array(19).keys()].map((n, i) => year - i);
 				config.years.push('avant ' + (year - 18));
-				console.log('config.years', config.years);
+				
 				config.loaderTypes = ['Animaux', 'Classique', 'Dangereux', 'Frigo', 'Massif'];
 
 				config.transportCategories = ['Camion', 'Avion', 'Bateau'];
@@ -155,7 +155,7 @@ export function LgConfigProvider() {
 
 				$http.get(wsDir + 'config/retrieve.php').then(function(response) {
 					config.serverConfig = response.data.serverConfig;
-					console.log('config', config);
+					
 				}).catch(function(error) {
 					console.error('error', error);
 				});
