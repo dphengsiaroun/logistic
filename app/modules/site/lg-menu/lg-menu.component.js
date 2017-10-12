@@ -77,7 +77,9 @@ export const lgMenu = {
 			if (ctrl.isMenuOn === true) {
 				ctrl.isMenuOn = false;
 				ctrl.lgMenuContentElt.css('display', 'none');
+				return true;
 			}
+			return false;
 		};
 
 		this.refresh = function() {

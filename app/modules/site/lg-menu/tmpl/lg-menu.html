@@ -1,6 +1,6 @@
 <my-head>
 	<head-left ng-show="$root.isBackPresent">
-		<i ng-click="$root.back();" class="fa fa-chevron-left" aria-hidden="true"></i>
+		<i ng-click="$ctrl.off() || $root.back();" class="fa fa-chevron-left" aria-hidden="true"></i>
 	</head-left>
 	<head-left ng-hide="$root.isBackPresent">
 	</head-left>
