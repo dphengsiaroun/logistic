@@ -20,7 +20,7 @@ import lgFormValidator from './modules/form/lg-form-validator/lg-form-validator.
 import lgOrderby from './modules/form/lg-orderby/lg-orderby.component.js';
 import lgNum from './modules/form/lg-num/lg-num.js';
 import lgSlider from './modules/form/lg-slider/lg-slider.component.js';
-import lgLoadImage from './modules/form/lg-load-image/lg-load-image.js';
+import lgLoadImage from './modules/form/lg-load-image/lg-load-image.module.js';
 
 import lgDesktop from './modules/site/lg-desktop/lg-desktop.component.js';
 import lgMenu from './modules/site/lg-menu/lg-menu.js';
