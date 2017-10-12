@@ -43,7 +43,7 @@ export const lgMenu = {
 				ctrl.myProposals = proposals;
 				console.log('ctrl.myProposals', ctrl.myProposals);
 			}).catch(function(error) {
-				console.error('error', error);
+				console.log('error', error);
 			});
 		};
 		ctrl.refreshNotifications();
