@@ -175,3 +175,33 @@ button {
 .success-error i {
 	color: #c9302c;
 }
+
+.link {
+	display: table;
+	table-layout: fixed;
+}
+
+.link a {
+	display: table-cell;
+	width: 30%;
+	background-color: hsl(120, 60%, 50%);
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+	margin: 10px 0px;
+}
+
+.link .critical {
+	background-color: red;
+}
+
+.link span {
+	display: table-cell;
+	width: 60%;
+}
