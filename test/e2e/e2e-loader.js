@@ -85,7 +85,7 @@ describe('Loader CRUD', function() {
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('loader-list ad-block'));
 		adElt.element(by.css('title')).click();
-		element(by.linkText('Supprimer cette annonce')).click();
+		element(by.linkText('Supprimer')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');

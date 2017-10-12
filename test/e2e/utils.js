@@ -106,7 +106,7 @@ utils.user.truck.delete = function(user, truck) {
 	element(by.css('menu-bar')).click();
 	element(by.linkText('Mes véhicules')).click();
 	element(by.css('.img-fix')).click();
-	element(by.linkText('Supprimer ce véhicule')).click();
+	element(by.linkText('Supprimer')).click();
 	element(by.css('button.confirm')).click();
 	element(by.css('button.ok')).click();
 	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/truck`);
