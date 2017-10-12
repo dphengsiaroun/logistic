@@ -42,7 +42,13 @@ module.exports = function(gulp, pathConfig) {
 			.pipe(gulp.dest(pathConfig.dist));
 	});
 
-	gulp.task('build:html', ['build:html:install', 'build:html:index']);
+	gulp.task('build:html:admin', function() {
+		return gulp.src(pathConfig.adminHtml, { base: pathConfig.base })
+			.pipe(replace(/\/app\//, '/dist/'))
+			.pipe(gulp.dest(pathConfig.dist));
+	});
+
+	gulp.task('build:html', ['build:html:install', 'build:html:index', 'build:html:admin']);
 
 	gulp.task('build:htaccess:app', function() {
 		return gulp.src(pathConfig.htaccess, { base: pathConfig.base })

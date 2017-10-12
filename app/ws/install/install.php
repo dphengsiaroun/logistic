@@ -20,6 +20,8 @@
 		createConfigIniFile($request);
 		installDatabase($request);
 
+		// Supprimer le dossier install
+		// deleteDirectory(INSTALL_DIR);
 
 		$result = array(
 			"status" => "ok"

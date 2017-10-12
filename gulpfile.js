@@ -8,6 +8,7 @@ const pathConfig = {
 	wpk: 'app/wpk',
 	coverage: './coverage',
 	installHtml: ['app/install/index.html'],
+	adminHtml: ['app/admin/index.html'],
 	indexHtml: 'app/index.html',
 	htaccess: ['app/.htaccess.tmpl'],
 	htaccessWs: ['app/ws/.htaccess'],

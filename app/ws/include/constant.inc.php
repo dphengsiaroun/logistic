@@ -20,6 +20,8 @@
 	define('UPLOAD_DIR', dirname(BASE_DIR) . '/files/');
 	define('UPLOAD_URL', 'files/');
 
+	define('INSTALL_DIR', dirname(BASE_DIR) . '/install/');	
+
 	// 20 Mega par personne d'image max.
 	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 20000000);
 	// 2 Mega par personne anonyme d'image max.
