@@ -14,9 +14,6 @@
 	</head-center>
 	<head-right>
 		<menu-bar ng-click="$ctrl.toggle();" class="fa fa-bars" aria-hidden="true"></menu-bar>
-		<span ng-show="$ctrl.myCarriers.length + $ctrl.myLoaders.length + $ctrl.myProposals.length >= 1" class="notification">
-				{{$ctrl.myCarriers.length + $ctrl.myLoaders.length + $ctrl.myProposals.length}}
-		</span>
 	</head-right>
 </my-head>
 
@@ -28,22 +25,23 @@
 	<div ng-show="$ctrl.user.current">
 		<a id="my-proposals" ng-click="$ctrl.toggle();" ui-sref="user:proposals({login: $ctrl.user.current.content.login})">
 			<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-			<span ng-show="$ctrl.myProposals.length >= 1" class="notification">{{$ctrl.myProposals.length}}</span>
-			<p>Mes propositions</p>
+			<p>Mes propositions
+				<span ng-show="$ctrl.myProposals.length > 0">({{$ctrl.myProposals.length}})</span>
+			</p>		
 		</a>
 		<!-- <a ng-click="$ctrl.toggle();" href=""><i class="fa fa-handshake-o" aria-hidden="true"></i><span class="notification">1</span><p>Mes engagements</p></a> -->
 		<a id="pr-my-ads-link" ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.user.current.content.login})">
 			<i class="fa fa-files-o" aria-hidden="true"></i>
-			<span ng-show="$ctrl.myCarriers.length + $ctrl.myLoaders.length >= 1" class="notification">
-				{{$ctrl.myCarriers.length + $ctrl.myLoaders.length}}
-			</span>
-			<p>Mes annonces</p>
+			<p>Mes annonces
+				<span ng-show="$ctrl.myCarriers.length + $ctrl.myLoaders.length > 0">
+						({{$ctrl.myCarriers.length + $ctrl.myLoaders.length}})
+				</span>
+			</p>
 		</a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user-o" aria-hidden="true"></i> <p>Mon profil</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.current.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
 		<br/><br/>
-		<a ng-click="$ctrl.toggle();" ui-sref="connection:delete" class="btn-logout" ><i class="fa fa-sign-out" aria-hidden="true"></i> <p>Se déconnecter</p></a>
+		<a ng-click="$ctrl.toggle();" ui-sref="connection:delete" class="btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i> <p>Se déconnecter</p></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a>
 	</div>
 </lg-menu-content>
-

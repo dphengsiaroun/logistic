@@ -21,12 +21,7 @@ export const lgMenu = {
 
 		ctrl.refreshNotifications = function() {
 			console.log('refreshNotifications');
-			ctrl.myCarriers = [];
-			ctrl.myLoaders = [];
-			ctrl.myProposals = [];
-			connection.waitForCheckConnection().then(function() {
-				return $timeout(function() {}, 2000);
-			}).then(function(carriers) {
+			connection.waitForCheckConnection().then(function(carriers) {
 				return carrier.list({
 					userId: user.current.id
 				});
@@ -51,6 +46,7 @@ export const lgMenu = {
 				console.error('error', error);
 			});
 		};
+		ctrl.refreshNotifications();
 		ctrl.isMenuOn = false;
 
 		ctrl.toggle = function() {

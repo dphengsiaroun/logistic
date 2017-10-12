@@ -21,7 +21,6 @@ loader-list {
 			width: 100%;
 			margin: 0px;
 			padding: 5px 10px;
-			background-color: white;
 			title {
 				display: block;
 				width: 100%;
@@ -92,20 +91,21 @@ loader-list {
 				}
 			}
 		}
+		&:hover {
+			box-shadow: 1px 1px 5px 0px $littleGray;
+		}
 	}
 	content {
 		display: table;
 		width: 100%;
 		margin: 0px;
 		padding: 0px;
-		background-color: white;
 		content-left {
 			display: table-cell;
 			width: 40%;
 			margin: 0px;
 			padding: 5px 10px 10px;
 			vertical-align: top;
-			background-color: white;
 			img {
 				display: block;
 				height: 100px;
@@ -117,7 +117,6 @@ loader-list {
 			margin: 0px;
 			padding: 5px 10px 5px 0px;
 			vertical-align: top;
-			background-color: white;
 			* {
 				display: block;
 				text-align: right;
