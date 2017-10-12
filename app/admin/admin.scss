@@ -189,6 +189,7 @@ admin-nav-route {
 						opacity: 1;
 						background: rgba(255, 255, 255, 0.35);
 						border-radius: 3px;
+						transition: all 350ms ease-out;
 					}
 					i.fa {
 						font-size: 18px;
@@ -207,13 +208,22 @@ admin-section {
 	min-height: 800px;
 	background-color: #F5F5F5;
 	header {
-		display: block;
+		display: table;
 		width: 100%;
 		padding: 15px 30px;
 		background-color: white;
 		border-bottom: 1px solid #e7e7e7;
-		i.fa {
-			margin-right: 20px;
+		h2 {
+			display: table-cell;
+			vertical-align: middle;
+			width: 87%;
+			i.fa {
+				margin-right: 20px;
+			}
+		}
+		a {
+			display: table-cell;
+			vertical-align: middle;
 		}
 	}
 	section {
@@ -238,6 +248,9 @@ admin-section {
 				h4 {
 					font-size: 23px;
 					text-align: left;
+					i.fa {
+						margin-right: 10px;	
+					}
 				}
 				.description {
 					font-size: 13px;
