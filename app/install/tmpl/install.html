@@ -8,12 +8,6 @@
 		<input class="form-control" type="text" id="appName" ng-model="obj.appName" />
 	</div>
 
-	<h2><i class="fa fa-user-secret" aria-hidden="true"></i>Admin</h2>
-	<div>
-		<label for="adminPassword">Admin Password</label>
-		<input class="form-control" type="text" id="adminPassword" ng-model="obj.adminPassword" />
-	</div>
-
 	<h2><i class="fa fa-database" aria-hidden="true"></i>Database</h2>
 	<div>
 		<label for="hostname">Hostname</label>
@@ -30,6 +24,14 @@
 		<input class="form-control" type="text" id="prefix" ng-model="obj.prefix" />
 		<input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
 		<label for="dbCreation">Create the tables</label>
+	</div>
+
+	<h2><i class="fa fa-user-secret" aria-hidden="true"></i>Admin</h2>
+	<div>
+		<label for="adminLogin">Login</label>
+		<input class="form-control" type="text" id="adminLogin" ng-model="obj.adminLogin" />
+		<label for="adminPassword">Password</label>
+		<input class="form-control" type="text" id="adminPassword" ng-model="obj.adminPassword" />
 	</div>
 
 	<h2><i class="fa fa-shield" aria-hidden="true"></i>OAuth2</h2>
