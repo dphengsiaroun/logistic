@@ -8,7 +8,7 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         name: 'admin',
         url: '/',
         component: 'adminRoute',
-        needsUser: true
+        needsAdminUser: true
     });
     $stateProvider.state({
         name: 'admin:login',
@@ -19,25 +19,25 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         name: 'admin:users',
         url: '/users',
         component: 'adminUsersRoute',
-        needsUser: true
+        needsAdminUser: true
     });
     $stateProvider.state({
         name: 'admin:loaders',
         url: '/loaders',
         component: 'adminLoadersRoute',
-        needsUser: true
+        needsAdminUser: true
     });
     $stateProvider.state({
         name: 'admin:carriers',
         url: '/carriers',
         component: 'adminCarriersRoute',
-        needsUser: true
+        needsAdminUser: true
     });
     $stateProvider.state({
         name: 'admin:proposals',
         url: '/proposals',
         component: 'adminProposalsRoute',
-        needsUser: true
+        needsAdminUser: true
     });
     $urlRouterProvider.otherwise('/');
 }

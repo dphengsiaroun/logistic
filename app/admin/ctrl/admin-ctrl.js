@@ -1,33 +1,33 @@
-export function AdminCtrl($stateParams, user) {
+export function AdminCtrl($stateParams, adminUser) {
     'ngInject';
     const ctrl = this;
-    ctrl.user = user;
+    ctrl.adminUser = adminUser;
 }
 
-export function AdminConnectionCtrl($stateParams, user) {
+export function AdminConnectionCtrl($stateParams, adminUser) {
     'ngInject';
     const ctrl = this;
-    ctrl.user = user;
+    ctrl.adminUser = adminUser;
 }
 
-export function AdminUsersCtrl($stateParams, user) {
+export function AdminUsersCtrl($stateParams, adminUser) {
     'ngInject';
     const ctrl = this;
-    ctrl.user = user;
+    ctrl.adminUser = adminUser;
     ctrl.$onInit = function() {
         
     };
 }
 
-export function AdminLoadersCtrl($stateParams, user, connection, loader) {
+export function AdminLoadersCtrl($stateParams, adminUser, connection, loader) {
     'ngInject';
     const ctrl = this;
-    ctrl.user = user;
+    ctrl.adminUser = adminUser;
     ctrl.loader = loader;
     ctrl.$onInit = function() {
         connection.waitForCheckConnection().then(function() {
             return loader.list({
-                userId: user.current.id
+                adminUserId: adminUser.current.id
             });
         }).then(function(loaders) {
             
@@ -38,15 +38,15 @@ export function AdminLoadersCtrl($stateParams, user, connection, loader) {
     };
 }
 
-export function AdminCarriersCtrl($stateParams, user, connection, carrier) {
+export function AdminCarriersCtrl($stateParams, adminUser, connection, carrier) {
     'ngInject';
     const ctrl = this;
-    ctrl.user = user;
+    ctrl.adminUser = adminUser;
     ctrl.carrier = carrier;
     ctrl.$onInit = function() {
         connection.waitForCheckConnection().then(function() {
             return carrier.list({
-                userId: user.current.id
+                adminUserId: adminUser.current.id
             });
         }).then(function(carriers) {
             
@@ -57,10 +57,10 @@ export function AdminCarriersCtrl($stateParams, user, connection, carrier) {
     };
 }
 
-export function AdminTrucksCtrl($stateParams, user, truck) {
+export function AdminTrucksCtrl($stateParams, adminUser, truck) {
     'ngInject';
     const ctrl = this;
-    ctrl.user = user;
+    ctrl.adminUser = adminUser;
     ctrl.truck = truck;
     ctrl.$onInit = function() {
         
@@ -68,10 +68,10 @@ export function AdminTrucksCtrl($stateParams, user, truck) {
     };
 }
 
-export function AdminProposalsCtrl($stateParams, user, connection, proposal) {
+export function AdminProposalsCtrl($stateParams, adminUser, connection, proposal) {
     'ngInject';
     const ctrl = this;
-    ctrl.user = user;
+    ctrl.adminUser = adminUser;
     ctrl.proposal = proposal;
     ctrl.$onInit = function() {
         connection.waitForCheckConnection().then(function() {

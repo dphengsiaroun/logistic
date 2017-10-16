@@ -76,6 +76,7 @@ angular.module('main', [
 	lgBackDetector
 ]).config((lgConfigProvider) => {
 	lgConfigProvider.wsDir('ws/');
-}).run((lgConfig) =>{
+}).run((connection, lgConfig) =>{
 	lgConfig.init();
+	connection.check();
 });
