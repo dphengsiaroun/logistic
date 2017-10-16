@@ -165,6 +165,24 @@ EOF;
 			throw new Exception('Error: ' . sprint_r($db->errorInfo()));
 		}
 	}
+	
+	function createUserAdmin($request) {
+		global $db;
+		$sql = <<<EOF
+INSERT INTO {$request->prefix}user_admin (login, password) VALUES
+	(:login, :password);
+EOF;
+		debug("start 1", $sql);
+		$st = $db->prepare($sql,
+					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+		if ($st->execute(array(
+			':login' => $request->adminLogin,
+			':password' => $request->adminPassword,
+		)) === FALSE) {
+			throw new Exception('Cannot insert row in database: '.sprint_r($db->errorInfo()));
+		}
+		debug("start 3");
+	}
 
 	function removeConfigIniFile() {
 		unlink(CONFIG_INI);
@@ -191,5 +209,5 @@ EOF;
 	 closedir($dir_handle);
 	 rmdir($dirname);
 	 return true;
-}
+	}
 ?>

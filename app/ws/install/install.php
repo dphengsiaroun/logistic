@@ -9,7 +9,7 @@
 	try {
 		// Permet de récuperer les données au format Json depuis angular
 		$postdata = file_get_contents("php://input");
-		debug("start2");
+		debug("start1");
 		// on décode le json en variable PHP
 		$request = json_decode($postdata);
 		initAttr($request, 'dbCreation');
@@ -19,9 +19,13 @@
 
 		createConfigIniFile($request);
 		installDatabase($request);
+		require_once(BASE_DIR . '/include/database.inc.php');
+		
 
-		// Supprimer le dossier install
-		// deleteDirectory(INSTALL_DIR);
+		debug("start createUserAdmin");
+		createUserAdmin($request);
+		debug("end createUserAdmin");
+		
 
 		$result = array(
 			"status" => "ok"
