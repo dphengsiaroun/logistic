@@ -63,7 +63,7 @@ export const adminRoute =  {
 
 export const adminLoginRoute =  {
     template: adminLoginHtml,
-    controller: ctrlLib.AdminLoginCtrl,
+    controller: ctrlLib.AdminConnectionCtrl,
 };
 
 export const adminUsersRoute =  {

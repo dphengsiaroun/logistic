@@ -1,6 +1,6 @@
 <section>
 	<div class="login-page">
-		<form method="formCtrl" ng-submit="create()">
+		<form method="formCtrl" ng-submit="$ctrl.adminConnection.create()">
 	
 			<div class="card">
 				<div class="header">
@@ -8,11 +8,11 @@
 					<span>Administration</span>
 				</div>
 				<div class="content">
-					<input type="email" placeholder="Username ou Email">
-					<input type="password" placeholder="Mot de passe">
+					<input type="login" placeholder="Login" ng-model="$ctrl.adminConnection.createConnectionData.adminLogin">
+					<input type="password" placeholder="Mot de passe" ng-model="$ctrl.adminConnection.createConnectionData.adminPassword">
 				</div>
 				<div class="footer">
-					<button type="submit" ng-click="" class="btn">Se connecter</button>
+					<button type="submit" class="btn">Se connecter</button>
 				</div>
 			</div>
 	

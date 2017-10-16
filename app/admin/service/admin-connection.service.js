@@ -3,32 +3,32 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 	const service = this;
 	service.isConnected = undefined;
 	service.createConnectionData = {};
-	$rootScope.connection = service;
+	$rootScope.adminConnection = service;
 
 	service.create = function() {
-
 		$http({
 			url: lgConfig.wsDir() + 'admin/connections',
 			method: 'POST',
 			data: {
-				login: service.createConnectionData.login,
-				// permet de crypter le password
-				password: service.createConnectionData.password
+				login: service.createConnectionData.adminLogin,
+				password: service.createConnectionData.adminPassword
 			},
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		}).then(function(response) {
-
+			console.log('response', response);
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return;
 			}
+			console.log('connected');
 			service.error = undefined;
 			adminUser.current = response.data.connection.adminUser;
 			service.isConnected = true;
 			service.goToStateAfterConnect();
 		}).catch(function(error) {
+			console.log('error');			
 			service.error = error;
 		});
 	};

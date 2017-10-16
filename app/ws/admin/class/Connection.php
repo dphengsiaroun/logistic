@@ -2,7 +2,7 @@
 
 	require_once(BASE_DIR . '/class/User.php');
 
-	class AdminConnection {
+	class Connection {
 
         public function create() {
 			$request = getRequest();
