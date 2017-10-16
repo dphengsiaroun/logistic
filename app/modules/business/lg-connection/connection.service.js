@@ -65,9 +65,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 
 	service.waitForCheckConnection = function(reason) {
 		return $q(function(resolve, reject) {
-			
-			
-			
+
 			if (service.isConnected === true) {
 				resolve();
 				return;

@@ -1,5 +1,3 @@
-import Hashes from 'jshashes';
-
 export function Admin($http, $rootScope, $injector, $q, $state, user, lgConfig) {
 	'ngInject';
 	const service = this;
@@ -9,14 +7,13 @@ export function Admin($http, $rootScope, $injector, $q, $state, user, lgConfig) 
 
 	service.create = function() {
 		
-		const SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 		$http({
-			url: lgConfig.wsDir() + 'connections',
+			url: lgConfig.wsDir() + 'AdminConnection.php',
 			method: 'POST',
 			data: {
 				login: service.createConnectionData.login,
 				// permet de crypter le password
-				password: SHA256.hex(service.createConnectionData.password)
+				password: service.createConnectionData.password
 			},
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'

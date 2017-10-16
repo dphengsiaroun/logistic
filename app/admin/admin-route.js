@@ -8,43 +8,36 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         name: 'admin',
         url: '/',
         component: 'adminRoute',
-        // needsUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:login',
         url: '/login',
         component: 'adminLoginRoute',
-        // needsUser: true
     });
     $stateProvider.state({
         name: 'admin:users',
         url: '/users',
         component: 'adminUsersRoute',
-        // needsUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:loaders',
         url: '/loaders',
         component: 'adminLoadersRoute',
-        // needsUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:carriers',
         url: '/carriers',
         component: 'adminCarriersRoute',
-        // needsUser: true
-    });
-    $stateProvider.state({
-        name: 'admin:trucks',
-        url: '/trucks',
-        component: 'adminTrucksRoute',
-        // needsUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:proposals',
         url: '/proposals',
         component: 'adminProposalsRoute',
-        // needsUser: true
+        needsUser: true
     });
     $urlRouterProvider.otherwise('/');
 }

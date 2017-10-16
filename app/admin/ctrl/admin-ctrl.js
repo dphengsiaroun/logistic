@@ -4,7 +4,7 @@ export function AdminCtrl($stateParams, user) {
     ctrl.user = user;
 }
 
-export function AdminLoginCtrl($stateParams, user) {
+export function AdminConnectionCtrl($stateParams, user) {
     'ngInject';
     const ctrl = this;
     ctrl.user = user;
