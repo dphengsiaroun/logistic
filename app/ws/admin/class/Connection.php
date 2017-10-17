@@ -2,7 +2,6 @@
 
 	debug('connection admin 1');
 	require_once(BASE_DIR . '/class/User.php');
-	debug('BASE_DIR in connection admin', BASE_DIR);
 
 	class Connection {
 
