@@ -20,13 +20,13 @@ export function AdminUsersCtrl($stateParams, adminUser) {
     };
 }
 
-export function AdminLoadersCtrl($stateParams, adminUser, connection, loader) {
+export function AdminLoadersCtrl($stateParams, adminUser, adminConnection, loader) {
     'ngInject';
     const ctrl = this;
     ctrl.adminUser = adminUser;
     ctrl.loader = loader;
     ctrl.$onInit = function() {
-        connection.waitForCheckConnection().then(function() {
+        adminConnection.waitForCheckConnection().then(function() {
             return loader.list({
                 adminUserId: adminUser.current.id
             });
@@ -39,13 +39,13 @@ export function AdminLoadersCtrl($stateParams, adminUser, connection, loader) {
     };
 }
 
-export function AdminCarriersCtrl($stateParams, adminUser, connection, carrier) {
+export function AdminCarriersCtrl($stateParams, adminUser, adminConnection, carrier) {
     'ngInject';
     const ctrl = this;
     ctrl.adminUser = adminUser;
     ctrl.carrier = carrier;
     ctrl.$onInit = function() {
-        connection.waitForCheckConnection().then(function() {
+        adminConnection.waitForCheckConnection().then(function() {
             return carrier.list({
                 adminUserId: adminUser.current.id
             });
@@ -58,24 +58,13 @@ export function AdminCarriersCtrl($stateParams, adminUser, connection, carrier) 
     };
 }
 
-export function AdminTrucksCtrl($stateParams, adminUser, truck) {
-    'ngInject';
-    const ctrl = this;
-    ctrl.adminUser = adminUser;
-    ctrl.truck = truck;
-    ctrl.$onInit = function() {
-        
-        ctrl.truck.list();        
-    };
-}
-
-export function AdminProposalsCtrl($stateParams, adminUser, connection, proposal) {
+export function AdminProposalsCtrl($stateParams, adminUser, adminConnection, proposal) {
     'ngInject';
     const ctrl = this;
     ctrl.adminUser = adminUser;
     ctrl.proposal = proposal;
     ctrl.$onInit = function() {
-        connection.waitForCheckConnection().then(function() {
+        adminConnection.waitForCheckConnection().then(function() {
             return proposal.list();
         }).then(function(proposals) {
             

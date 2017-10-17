@@ -1,12 +1,14 @@
 <?php
 
+	debug('connection admin 1');
 	require_once(BASE_DIR . '/class/User.php');
+	debug('BASE_DIR in connection admin', BASE_DIR);
 
 	class Connection {
 
         public function create() {
 			$request = getRequest();
-			debug('connection start', $request);
+			debug('admin connection start', $request);
 			$user = self::signin($request->login, $request->password);
 			$result = new static();
 			$result->id = $user->lastToken->code;
@@ -14,13 +16,30 @@
 			return $result;
 		}
 
+		public function retrieve($id) {
+			$user = User::getConnected();
+			$this->id = $id;
+			$this->user = $user;
+			return $this;
+		}
+
+		public function delete($id) {
+			$request = new stdClass();
+			$request->id = $id;
+			$user = User::getConnected();
+			$request->userId = $user->id;
+			$e = Event::insert('/' . strtolower($this->getName()) . '/delete', $request);
+			Event::synchronize();
+			User::signout();
+		}
+
         public static function signin($login, $password) {
 			global $db, $cfg;
-			self::signout();
+			User::signout();
 			
 			$sql = <<<EOF
 SELECT id FROM {$cfg->prefix}user_admin WHERE
-	(login = :login) AND
+	login = :login AND
 	password = :password;
 EOF;
 
@@ -44,13 +63,6 @@ EOF;
 
 			return $user;
         }
-
-        public static function signout() {
-			try {
-				$user = User::getConnected();
-				$user->getRememberMe()->disconnect();
-			} catch (Exception $e) {}
-		}
     }
         
 ?>

@@ -22,13 +22,13 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 				service.error = response;
 				return;
 			}
-			console.log('connected');
 			service.error = undefined;
-			adminUser.current = response.data.connection.adminUser;
+			adminUser.current = response.data.adminConnection.adminUser;
+			console.log('adminUser.current');			
 			service.isConnected = true;
 			service.goToStateAfterConnect();
 		}).catch(function(error) {
-			console.log('error');			
+			console.log('create connexion error');			
 			service.error = error;
 		});
 	};
@@ -52,7 +52,7 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 				return;
 			}
 			service.isConnected = true;
-			adminUser.current = response.data.connection.adminUser;
+			adminUser.current = response.data.adminConnection.adminUser;
 		}).catch(function(error) {
 			console.log('On arrive pas à se connecter');
 			service.error = error;
@@ -77,7 +77,7 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 				reject('No adminUser connected');
 				return;
 			}
-			const deregister = $rootScope.$watch('connection.isConnected', function() {
+			const deregister = $rootScope.$watch('adminConnection.isConnected', function() {
 				if (service.isConnected === true) {
 
 					deregister();
