@@ -27,9 +27,9 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 			console.log('adminUser.current');			
 			service.isConnected = true;
 			service.goToStateAfterConnect();
-		}).catch(function(error) {
-			console.log('create connexion error');			
+		}).catch(function(error) {			
 			service.error = error;
+			console.log('create connexion error');
 		});
 	};
 
