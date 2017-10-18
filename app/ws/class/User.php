@@ -29,6 +29,8 @@
 		public function retrieve($id) {
 			global $db, $cfg;
 			// On lance notre requête de vérification
+			debug('User retrieve');
+
 			$this->id = $id;
 			$sql = <<<EOF
 SELECT * FROM {$cfg->prefix}user WHERE id=:id
@@ -55,7 +57,8 @@ EOF;
 		}
 
 		public function update($id = NULL) {
-
+			debug('User update');
+			
 			if ($id === NULL) {
 				debug('user update without id');
 				$request = $this;

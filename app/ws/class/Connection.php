@@ -7,7 +7,7 @@
 
 		public function create() {
 			$request = getRequest();
-			debug('connection start', $request);
+			debug('connection create start', $request);
 			$user = self::signin($request->login, $request->password);
 			debug('connection about to insert event', $user);
 			$e = Event::insert('/'. strtolower($this->getName()) .'/create', $request);
@@ -19,6 +19,7 @@
 		}
 
 		public function retrieve($id) {
+			debug('Connection retrieve');
 			$user = User::getConnected();
 			$this->id = $id;
 			$this->user = $user;
@@ -26,6 +27,7 @@
 		}
 
 		public function delete($id) {
+			debug('Connection delete');
 			$request = new stdClass();
 			$request->id = $id;
 			$user = User::getConnected();
@@ -37,6 +39,9 @@
 
 		public static function signin($login, $password) {
 			global $db, $cfg;
+
+			debug('Connection signin');
+
 			User::signout();
 			
 			$sql = <<<EOF

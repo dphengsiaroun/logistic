@@ -7,15 +7,18 @@
 
         public function create() {
 			$request = getRequest();
-			debug('admin connection start', $request);
+			debug('admin connection create', $request);
 			$user = self::signin($request->login, $request->password);
 			$result = new static();
-			$result->id = $user->lastToken->code;
+			debug('admin connection start');
+			$result->id = $user->id;
 			$result->user = $user;
 			return $result;
 		}
 
 		public function retrieve($id) {
+			debug('Connection admin retrieve');
+
 			$user = User::getConnected();
 			$this->id = $id;
 			$this->user = $user;
@@ -35,6 +38,8 @@
         public static function signin($login, $password) {
 			global $db, $cfg;
 			User::signout();
+
+			debug('Connection admin signin start');
 			
 			$sql = <<<EOF
 SELECT id FROM {$cfg->prefix}user_admin WHERE
