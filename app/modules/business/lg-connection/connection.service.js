@@ -29,7 +29,9 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 			}
 			service.error = undefined;
 			user.current = response.data.connection.user;
+			console.log('user.current', user.current);
 			service.isConnected = true;
+			console.log('service.isConnected', service.isConnected);
 			service.goToStateAfterConnect();
 		}).catch(function(error) {
 			service.error = error;
@@ -56,6 +58,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 			}
 			service.isConnected = true;
 			user.current = response.data.connection.user;
+			console.log('$state', $state);
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -89,7 +92,6 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 	function refreshState() {
 		service.waitForCheckConnection('needsUser').catch(function() {
 			if ($state.$current.needsUser) {
-				
 				$state.go('connection:create');
 			}
 		});

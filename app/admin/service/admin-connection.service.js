@@ -23,13 +23,14 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 				return;
 			}
 			service.error = undefined;
-			adminUser.current = response.data.adminConnection.adminUser;
-			console.log('adminUser.current');			
+			adminUser.current = response.data.connection.user;
+			console.log('adminUser.current', service);			
 			service.isConnected = true;
+			console.log('service.isConnected', service.isConnected);	
 			service.goToStateAfterConnect();
 		}).catch(function(error) {			
 			service.error = error;
-			console.log('create connexion error');
+			console.log('Erreur lors de la connection');
 		});
 	};
 
@@ -46,20 +47,20 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 			if (response.data.status === 'ko') {
 				service.current = undefined;
 				service.isConnected = false;
-				if ($state.$current.needsAdminUser) {
+				if ($state.$current.needsUser) {
 					$state.go('admin:login');
 				}
 				return;
 			}
 			service.isConnected = true;
-			adminUser.current = response.data.adminConnection.adminUser;
+			adminUser.current = response.data.connection.user;
 		}).catch(function(error) {
 			console.log('On arrive pas à se connecter');
 			service.error = error;
 			service.current = undefined;
 			service.isConnected = false;
 			console.log('$state', $state);
-			if ($state.$current.needsAdminUser) {
+			if ($state.$current.needsUser) {
 				console.log('Redirection vers login');
 				$state.go('admin:login');
 			}
@@ -92,9 +93,9 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 	};
 
 	function refreshState() {
-		service.waitForCheckConnection('needsAdminUser').catch(function() {
-			if ($state.$current.needsAdminUser) {
-
+		service.waitForCheckConnection('needsUser').catch(function() {
+			if ($state.$current.needsUser) {
+				console.log('$state', $state);
 				$state.go('admin:login');
 			}
 		});

@@ -1,5 +1,4 @@
 <?php
-
 	require_once(BASE_DIR . "/class/User.php");
 	require_once(BASE_DIR . "/class/Event.php");
 	require_once(BASE_DIR . "/class/Image.php");

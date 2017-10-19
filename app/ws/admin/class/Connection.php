@@ -1,7 +1,7 @@
 <?php
 
-	debug('connection admin 1');
-	require_once(BASE_DIR . '/class/User.php');
+	debug('connection admin start', BASE_DIR);
+	require_once(BASE_DIR . '/admin/class/User.php');
 
 	class Connection {
 
@@ -11,14 +11,14 @@
 			$user = self::signin($request->login, $request->password);
 			$result = new static();
 			debug('admin connection start');
-			$result->id = $user->id;
+			$result->id = $user->lastTokenAdmin->code;
 			$result->user = $user;
+			debug('$result', $result);
 			return $result;
 		}
 
 		public function retrieve($id) {
 			debug('Connection admin retrieve');
-
 			$user = User::getConnected();
 			$this->id = $id;
 			$this->user = $user;

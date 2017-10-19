@@ -4,11 +4,13 @@ export function AdminCtrl($stateParams, adminUser) {
     ctrl.adminUser = adminUser;
 }
 
-export function AdminConnectionCtrl($stateParams, adminConnection) {
+export function AdminConnectionCtrl($stateParams, adminConnection, adminUser) {
     'ngInject';
     const ctrl = this;
     ctrl.adminConnection = adminConnection;
+    ctrl.adminUser = adminUser;
     console.log('ctrl.adminConnection', ctrl.adminConnection);
+    console.log('ctrl.adminUser', ctrl.adminUser);
 }
 
 export function AdminUsersCtrl($stateParams, adminUser) {

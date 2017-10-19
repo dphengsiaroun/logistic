@@ -8,37 +8,53 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         name: 'admin',
         url: '/',
         component: 'adminRoute',
-        needsAdminUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:login',
-        url: '/login',
+        url: '/signin',
         component: 'adminLoginRoute',
     });
     $stateProvider.state({
         name: 'admin:users',
         url: '/users',
         component: 'adminUsersRoute',
-        needsAdminUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:loaders',
         url: '/loaders',
         component: 'adminLoadersRoute',
-        needsAdminUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:carriers',
         url: '/carriers',
         component: 'adminCarriersRoute',
-        needsAdminUser: true
+        needsUser: true
     });
     $stateProvider.state({
         name: 'admin:proposals',
         url: '/proposals',
         component: 'adminProposalsRoute',
-        needsAdminUser: true
+        needsUser: true
     });
+    $stateProvider.state({
+		name: 'admin:signout',
+		url: '/signout',
+		// component: 'lgPrompt',
+		// resolve: {
+		// 	service: function($rootScope, adminConnection) {
+		// 		'ngInject';
+		// 		return {
+		// 			questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
+		// 			doNo: $rootScope.back,
+		// 			doYes: adminConnection.delete
+		// 		};
+		// 	}
+		// },
+		needsUser: true
+	});
     $urlRouterProvider.otherwise('/');
 }
 

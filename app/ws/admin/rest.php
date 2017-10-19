@@ -26,7 +26,7 @@
 	$array = preg_split('/\//', $url);
 	debug('$array', $array);
 	if (count($array) > 2) {
-		$resource = $array[2];
+		$resource = $array[1];
 		debug('resource', $resource);
 	} else {
 		$resource = $array[1];
@@ -35,6 +35,7 @@
 
 	if (endsWith($resource, 's')) {
 		$resource = substr($resource, 0, -1);
+		debug('resource', $resource);
 	}
 	debug('resource', $resource);
 
@@ -57,7 +58,7 @@
 		$class = ucfirst($resource);
 		debug('Coucou 3', $class);
 		$obj = new $class();
-		debug('Coucou 4');
+		debug('Coucou 4', $obj);
 		if ($method == 'GET') {
 			if ($id) {
 				$result[$resource] = $obj->retrieve($id);
@@ -67,7 +68,7 @@
 			return;
 		}
 		if ($method == 'POST') {
-			debug('Post');
+			debug('Method === POST');
 			$result[$resource] = $obj->create();
 			return;
 		}
