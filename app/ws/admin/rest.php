@@ -17,6 +17,8 @@
 		require_once(BASE_DIR . '/admin/class/' . $class . '.php');
 	}
 
+	debug('toto');
+
 	$requestUri = $_SERVER['REQUEST_URI'];
 	$url = preg_replace('/^.*\/ws\/(.*?)(?:\?.*?)?$/', '$1', $requestUri);
 	debug('url', $url);
@@ -49,8 +51,8 @@
 	if (count($array) == 4) {
 		$id = $array[3];
 		debug('valeur de id', $id);
-	} elseif (count($array) == 2) {
-		$id = $array[1];
+	} elseif (count($array) == 3) {
+		$id = $array[2];
 	}
 	debug('Coucou');
 	function run($resource, $method, $id) {
@@ -59,9 +61,13 @@
 		debug('Coucou 3', $class);
 		$obj = new $class();
 		debug('Coucou 4', $obj);
+		debug('Coucou 4.1', $method);
+		debug('Coucou 4.2', $id);
 		if ($method == 'GET') {
 			if ($id) {
+				debug('Coucou 5');
 				$result[$resource] = $obj->retrieve($id);
+				debug('Coucou 6');				
 				return;
 			}
 			$result[$resource . 's'] = $obj->listAll();

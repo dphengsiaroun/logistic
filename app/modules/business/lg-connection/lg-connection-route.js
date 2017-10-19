@@ -30,7 +30,7 @@ class ConnectionCtrl {
 	/* @ngInject */
 	constructor(connection) {
 		this.connection = connection;
-		
+		console.log('this.connection', this.connection);
 	}
 }
 

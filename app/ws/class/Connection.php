@@ -1,5 +1,5 @@
 <?php
-
+	debug('connection forbidden');
 	require_once(BASE_DIR . '/class/RestResource.php');
 	require_once(BASE_DIR . '/class/User.php');
 
