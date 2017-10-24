@@ -2,38 +2,10 @@
 <admin-section>
 	<header>
 		<h2><i class="fa fa-files-o" aria-hidden="true"></i> Liste des annonces transporteurs</h2>
-		<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>			
+		<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
 	</header>
 	<section>
 		<div class="container">
-			<!-- <table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Image</th>
-					<th>Titre</th>
-					<th>Ville d'origine</th>
-					<th>Disponibilité</th>
-					<th>Transport (catégorie)</th>
-					<th>Transport (type)</th>
-					<th>Prix</th>
-					<th>Supprimer</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="carrier in $ctrl.carriers">
-					<th scope="row">{{carrier.id}}</th>
-					<td><img ng-src="{{carrier.content.truck.image.thumbnailUrl}}"></td>
-					<td>{{carrier.content.truck.name}}</td>
-					<td>{{carrier.content.truck.city.city}}</td>
-					<td>{{carrier.content.availability}}</td>
-					<td>{{carrier.content.truck.transportCategory}}</td>
-					<td>{{carrier.content.truck.transportTruckType}}</td>
-					<td>{{carrier.content.pricing.priceWantedPerKm}}</td>
-					<td style="text-align: center;"><i class="fa fa-trash" aria-hidden="true"></i></td>
-				</tr>
-			</tbody>
-		</table> -->
 			<div class="card">
 				<div class="content">
 					<div class="fresh-datatables">
@@ -65,80 +37,16 @@
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr>
-									<td>Tiger Nixon</td>
-									<td>System Architect</td>
-									<td>Edinburgh</td>
-									<td>61</td>
-									<td>2011/04/25</td>
-									<td>Edinburgh</td>
-									<td>61</td>
-									<td>2011/04/25</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Garrett Winters</td>
-									<td>Accountant</td>
-									<td>Tokyo</td>
-									<td>63</td>
-									<td>2011/07/25</td>
-									<td>Tokyo</td>
-									<td>63</td>
-									<td>2011/07/25</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Ashton Cox</td>
-									<td>Junior Technical Author</td>
-									<td>San Francisco</td>
-									<td>San Francisco</td>
-									<td>66</td>
-									<td>66</td>
-									<td>2009/01/12</td>
-									<td>2009/01/12</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Cedric Kelly</td>
-									<td>Senior Javascript Developer</td>
-									<td>Edinburgh</td>
-									<td>22</td>
-									<td>2012/03/29</td>
-									<td>Edinburgh</td>
-									<td>22</td>
-									<td>2012/03/29</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Airi Satou</td>
-									<td>Accountant</td>
-									<td>Tokyo</td>
-									<td>33</td>
-									<td>2008/11/28</td>
-									<td>Tokyo</td>
-									<td>33</td>
-									<td>2008/11/28</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Brielle Williamson</td>
-									<td>Integration Specialist</td>
-									<td>New York</td>
-									<td>61</td>
-									<td>2012/12/02</td>
-									<td>New York</td>
-									<td>61</td>
-									<td>2012/12/02</td>
+								<tr ng-repeat="ad in $ctrl.carrier">
+									<td>{{ad.id}}</td>
+									<td><img ng-src="{{ad.content.truck.image.thumbnailUrl}}"/></td>
+									<td>{{ad.content.truck.name}}</td>
+									<td>{{ad.content.trip.departureCity.city}} - {{ad.content.trip.departureCity.region}}</td>
+									<td ng-show="ad.content.availability === 'total'">Disponibilité totale</td>
+									<td ng-show="ad.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
+									<td>{{ad.content.truck.transportCategory}}</td>
+									<td>{{ad.content.truck.transportTruckType}}</td>
+									<td>{{ad.content.pricing.priceWantedPerKm}} DZD/km</td>
 									<td class="text-right">
 										<a href="#" class="remove"><i class="fa fa-times"></i></a>
 									</td>

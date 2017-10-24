@@ -64,7 +64,6 @@ export function LoaderCreateCtrl(
 	ctrl.editDimension = function() {
 		
 		const dimensionElt = $element.find('lg-dimension');
-		
 		const dimensionCtrl = dimensionElt.controller('lgDimension');
 		
 		dimensionCtrl.start();

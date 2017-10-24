@@ -89,12 +89,12 @@ export const adminUsersRoute =  {
 
 export const adminLoadersRoute =  {
     template: adminLoadersHtml,
-    controller: ctrlLib.AdminCtrl,
+    controller: ctrlLib.AdminLoadersCtrl,
 };
 
 export const adminCarriersRoute =  {
     template: adminCarriersHtml,
-    controller: ctrlLib.AdminCtrl,
+    controller: ctrlLib.AdminCarriersCtrl,
 };
 
 export const adminProposalsRoute =  {

@@ -6,8 +6,8 @@
 	require_once(BASE_DIR . '/include/database.inc.php');
 
 	$objects = array(
-		// 'Carrier',
-		// 'Loader',
+		'Carrier',
+		'Loader',
 		'User',
 		'Connection',
 		// 'Proposal'
@@ -71,6 +71,7 @@
 				return;
 			}
 			$result[$resource . 's'] = $obj->listAll();
+			debug('fais moi un listAll()');
 			return;
 		}
 		if ($method == 'POST') {

@@ -10,7 +10,6 @@
 
 	class User {
 
-		// retrieve admin
 		public function retrieve($id) {
 			global $db, $cfg;
 			// On lance notre requête de vérification
@@ -39,10 +38,7 @@ EOF;
 			debug('user admin retrieved', $array);
 			return $this;
 		}
-		// End
 
-
-		// getConnected ADMIN
 		public static function getConnected() {
 			debug('getConnected Admin start');
 			if (isset($_COOKIE['userIdAdmin'])) {
@@ -51,9 +47,6 @@ EOF;
 				debug('new User');
 				$user->retrieve($_COOKIE['userIdAdmin']);
 				debug('User Admin', $user);
-				// if (!$user->getRememberMe()->checkToken()) {
-				// 	throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
-				// }
 				return $user;
 			}
 			throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);

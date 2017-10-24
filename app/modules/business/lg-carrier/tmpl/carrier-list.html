@@ -47,7 +47,7 @@
 		<content ng-show="ad.content.availability === 'specificTrip'">
 			<content-left>
 				<img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
-				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
+				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.url}}">
 			</content-left>
 			<content-right>
 				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
