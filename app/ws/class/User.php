@@ -56,37 +56,6 @@ EOF;
 			return $this;
 		}
 
-		// retrieve admin
-		public function retrieveUserAdmin($id) {
-			global $db, $cfg;
-			// On lance notre requête de vérification
-			debug('User admin retrieveUserAdmin');
-
-			$this->id = $id;
-			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}user_admin WHERE id=:id
-EOF;
-
-			$st = $db->prepare($sql,
-						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
-			if ($st->execute(array(
-				':id' => $this->id
-			)) === FALSE) {
-				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
-			}
-
-			if ($st->rowCount() == 0) {
-				throw new Exception('User not found for id = ' . $this->id);
-			}
-
-			$array = $st->fetch();
-			$this->login = $array['login'];
-			$this->password = $array['password'];
-			debug('user admin retrieved', $array);
-			return $this;
-		}
-		// End
-
 		public function update($id = NULL) {
 			debug('User update');
 			
@@ -124,23 +93,6 @@ EOF;
 				$user->retrieve($_COOKIE['userId']);
 				debug('User', $user);
 				if (!$user->getRememberMe()->checkToken()) {
-					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
-				}
-				return $user;
-			}
-			throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
-		}
-
-		// GetConnectedAdmin ADMIN
-		public static function getConnectedAdmin() {
-			debug('getConnected Admin start');
-			if (isset($_COOKIE['userIdAdmin'])) {
-				debug('cookie found', $_COOKIE['userIdAdmin']);
-				$user = new User();
-				debug('new User');
-				$user->retrieveUserAdmin($_COOKIE['userIdAdmin']);
-				debug('User Admin', $user);
-				if (!$user->getRememberMe()->checkTokenAdmin()) {
 					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
 				}
 				return $user;
@@ -309,12 +261,6 @@ EOF;
 			debug('connect', $this);
 			$this->lastToken = $this->getRememberMe()->connect();
 			debug('end connect');
-		}
-
-		public function connectAdmin() {
-			debug('connect admin', $this);
-			$this->lastTokenAdmin = $this->getRememberMe()->connectAdmin();
-			debug('end connect admin');
 		}
 
 		public function getRememberMe() {

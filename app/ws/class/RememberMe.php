@@ -20,16 +20,6 @@
 			return $token;
 		}
 
-		// connectAdmin
-		public function connectAdmin() {
-			$token = $this->addTokenAdmin();
-			debug('token admin', $token);
-			setcookie('rememberMeAdmin', $token->code,  $token->expirationTime, '/');
-			setcookie('userIdAdmin', '' . $this->user->id,  $token->expirationTime, '/');
-			return $token;
-		}
-		// End
-
 		public function disconnect() {
 			$token = $this->removeToken();
 			setcookie('userId', '', 0, '/');
@@ -49,20 +39,6 @@
 			$this->user->update();
 			return $token;
 		}
-
-		// addTokenAdmin
-		public function addTokenAdmin() {
-			$now = time();
-			$code = hash('sha256', $this->user->id . SECRET . $this->user->password . $now);
-			$expirationTime =  $now + (7 * 24 * 3600);
-
-			$token = new stdClass();
-			$token->code = $code;
-			$token->expirationTime = $expirationTime;
-			$this->user->content->tokens[] = $token;
-			return $token;
-		}
-		// end
 
 		public function removeToken() {
 			if (!isset($_COOKIE['rememberMe'])) {
@@ -93,19 +69,5 @@
 			}
 			return false;
 		}
-
-		// checkTokenAdmin
-		public function checkTokenAdmin() {
-			if (!isset($_COOKIE['rememberMeAdmin'])) {
-				return false;
-			}
-			foreach ($this->user->content->tokens as $token) {
-				if ($token->code == $_COOKIE['rememberMeAdmin'] && $token->expirationTime > time()) {
-					return true;
-				}
-			}
-			return false;
-		}
-		// end
 	}
 
