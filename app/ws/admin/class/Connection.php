@@ -1,6 +1,6 @@
 <?php
 
-	debug('connection admin start', BASE_DIR);
+	debug('connection forbidden');
 	require_once(BASE_DIR . '/admin/class/User.php');
 
 	class Connection {

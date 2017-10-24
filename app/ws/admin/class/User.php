@@ -51,9 +51,9 @@ EOF;
 				debug('new User');
 				$user->retrieve($_COOKIE['userIdAdmin']);
 				debug('User Admin', $user);
-				if (!$user->getRememberMe()->checkToken()) {
-					throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
-				}
+				// if (!$user->getRememberMe()->checkToken()) {
+				// 	throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);
+				// }
 				return $user;
 			}
 			throw new Exception(ERROR_NEED_AUTHENTICATION_MSG, ERROR_NEED_AUTHENTICATION_CODE);

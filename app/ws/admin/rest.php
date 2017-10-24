@@ -8,7 +8,7 @@
 	$objects = array(
 		// 'Carrier',
 		// 'Loader',
-		// 'User',
+		'User',
 		'Connection',
 		// 'Proposal'
 	);
@@ -65,9 +65,9 @@
 		debug('Coucou 4.2', $id);
 		if ($method == 'GET') {
 			if ($id) {
-				debug('Coucou 5');
+				debug('Coucou 5', $result);
 				$result[$resource] = $obj->retrieve($id);
-				debug('Coucou 6');				
+				debug('Coucou 6', $result[$resource]);				
 				return;
 			}
 			$result[$resource . 's'] = $obj->listAll();
