@@ -54,7 +54,7 @@
 									<th>Transport (catégorie)</th>
 									<th>Transport (type)</th>
 									<th>Prix</th>
-									<th class="disabled-sorting text-right">Actions</th>
+									<th class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -69,13 +69,13 @@
 									<th>Transport (catégorie)</th>
 									<th>Transport (type)</th>
 									<th>Prix</th>
-									<th class="text-right">Actions</th>
+									<th class="text-center">Actions</th>
 								</tr>
 							</tfoot>
 							<tbody>
 								<tr ng-repeat="loader in $ctrl.loader">
-									<th scope="row">{{loader.id}}</th>
-									<td><img ng-src="{{loader.content.image.thumbnailUrl}}"></td>
+									<td>{{loader.id}}</td>
+									<td><img ng-src="../{{loader.content.image.thumbnailUrl}}"></td>
 									<td>{{loader.content.title}}</td>
 									<td>{{loader.content.departureCity.city}} {{loader.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
 									<td>{{loader.content.arrivalCity.city}} {{loader.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
@@ -84,7 +84,7 @@
 									<td>{{loader.content.transportCategory}}</td>
 									<td>{{loader.content.transportTruckType}}</td>
 									<td>{{loader.content.priceWanted}}</td>
-									<td class="text-right">
+									<td class="text-center">
 										<a href="#" class="remove"><i class="fa fa-times"></i></a>
 									</td>
 								</tr>

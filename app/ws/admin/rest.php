@@ -10,7 +10,7 @@
 		'Loader',
 		'User',
 		'Connection',
-		// 'Proposal'
+		'Proposal'
 	);
 
 	foreach ($objects as $class) {

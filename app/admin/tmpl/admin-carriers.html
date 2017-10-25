@@ -20,7 +20,7 @@
 									<th>Transport (catégorie)</th>
 									<th>Transport (type)</th>
 									<th>Prix</th>
-									<th class="disabled-sorting text-right">Actions</th>
+									<th class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -33,13 +33,13 @@
 									<th>Transport (catégorie)</th>
 									<th>Transport (type)</th>
 									<th>Prix</th>
-									<th class="text-right">Actions</th>
+									<th class="text-center">Actions</th>
 								</tr>
 							</tfoot>
 							<tbody>
 								<tr ng-repeat="ad in $ctrl.carrier">
 									<td>{{ad.id}}</td>
-									<td><img ng-src="{{ad.content.truck.image.thumbnailUrl}}"/></td>
+									<td><img ng-src="../{{ad.content.truck.image.thumbnailUrl}}"/></td>
 									<td>{{ad.content.truck.name}}</td>
 									<td>{{ad.content.trip.departureCity.city}} - {{ad.content.trip.departureCity.region}}</td>
 									<td ng-show="ad.content.availability === 'total'">Disponibilité totale</td>
@@ -47,7 +47,7 @@
 									<td>{{ad.content.truck.transportCategory}}</td>
 									<td>{{ad.content.truck.transportTruckType}}</td>
 									<td>{{ad.content.pricing.priceWantedPerKm}} DZD/km</td>
-									<td class="text-right">
+									<td class="text-center">
 										<a href="#" class="remove"><i class="fa fa-times"></i></a>
 									</td>
 								</tr>

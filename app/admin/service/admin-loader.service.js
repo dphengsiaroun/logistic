@@ -28,7 +28,7 @@ export function AdminLoader($http, $state, $q, $window, adminConnection, adminUs
 		
 		return this.list().then(function(loaders) {
 			service.loaders = loaders;
-			service.loaders$Map = $window.makeMap(loaders);
+			service.loaderMap = $window.makeMap(loaders);
 			service.current = service.loaderMap[id];
 		});
 	};
