@@ -8,6 +8,7 @@ import { AdminConnection } from './service/admin-connection.service.js';
 import { AdminUser } from './service/admin-user.service.js';
 import { AdminCarrier } from './service/admin-carrier.service.js';
 import { AdminLoader } from './service/admin-loader.service.js';
+import { AdminProposal } from './service/admin-proposal.service.js';
 
 import * as lib from './admin-route.js';
 angular.module(module.exports, ['ui.router', lgProposal, lgConfig, lgMisc])
@@ -20,6 +21,7 @@ angular.module(module.exports, ['ui.router', lgProposal, lgConfig, lgMisc])
 	.service('adminUser', AdminUser)
 	.service('adminCarrier', AdminCarrier)
 	.service('adminLoader', AdminLoader)
+	.service('adminProposal', AdminProposal)
 	.component('adminNavRoute', lib.adminNavRoute)
 	.component('adminRoute', lib.adminRoute)
 	.component('adminLoginRoute', lib.adminLoginRoute)

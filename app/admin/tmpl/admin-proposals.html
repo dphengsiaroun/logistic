@@ -29,7 +29,8 @@
 									<th>Titre de l'annonce</th>
 									<th>Type d'annonce</th>
 									<th>Message</th>
-									<th class="disabled-sorting text-right">Actions</th>
+									<th>Envoyé le</th>
+									<th class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -39,67 +40,20 @@
 									<th>Titre de l'annonce</th>
 									<th>Type d'annonce</th>
 									<th>Message</th>
-									<th class="text-right">Actions</th>
+									<th>Envoyé le</th>
+									<th class="text-center">Actions</th>
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr>
-									<td>Tiger Nixon</td>
-									<td>System Architect</td>
-									<td>Edinburgh</td>
-									<td>61</td>
-									<td>2011/04/25</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Garrett Winters</td>
-									<td>Accountant</td>
-									<td>Tokyo</td>
-									<td>63</td>
-									<td>2011/07/25</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Ashton Cox</td>
-									<td>Junior Technical Author</td>
-									<td>San Francisco</td>
-									<td>66</td>
-									<td>2009/01/12</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Cedric Kelly</td>
-									<td>Senior Javascript Developer</td>
-									<td>Edinburgh</td>
-									<td>22</td>
-									<td>2012/03/29</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Airi Satou</td>
-									<td>Accountant</td>
-									<td>Tokyo</td>
-									<td>33</td>
-									<td>2008/11/28</td>
-									<td class="text-right">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>Brielle Williamson</td>
-									<td>Integration Specialist</td>
-									<td>New York</td>
-									<td>61</td>
-									<td>2012/12/02</td>
-									<td class="text-right">
+								<tr ng-repeat="proposal in $ctrl.proposal">
+									<td>{{proposal.id}}</td>
+									<td><img src="../{{proposal.content.imageUrl}}" /></td>
+									<td>{{proposal.content.titleAd}}</td>
+									<td ng-show="proposal.content.adType === 'loader'">Chargeur</td>
+									<td ng-show="proposal.content.adType === 'carrier'">Transporteur</td>
+									<td>{{proposal.content.message}}</td>
+									<td>{{proposal.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
+									<td class="text-center">
 										<a href="#" class="remove"><i class="fa fa-times"></i></a>
 									</td>
 								</tr>

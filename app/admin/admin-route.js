@@ -84,7 +84,7 @@ export const adminLoginRoute =  {
 
 export const adminUsersRoute =  {
     template: adminUsersHtml,
-    controller: ctrlLib.AdminCtrl,
+    controller: ctrlLib.AdminUsersCtrl,
 };
 
 export const adminLoadersRoute =  {
@@ -99,5 +99,5 @@ export const adminCarriersRoute =  {
 
 export const adminProposalsRoute =  {
     template: adminProposalsHtml,
-    controller: ctrlLib.AdminCtrl,
+    controller: ctrlLib.AdminProposalsCtrl,
 };
