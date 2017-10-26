@@ -1,0 +1,10 @@
+<question ng-bind-html="$ctrl.service.confirmationMsg"></question>
+<div class="response">
+	<div>
+		<button class="normal cancel" ng-click="$ctrl.service.doCancel();">{{$ctrl.service.cancelMsg}}</button>
+	</div>
+	<div>
+		<button class="critical confirm" ng-click="$ctrl.service.doConfirm();">{{$ctrl.service.confirmMsg}}</button>
+	</div>
+</div>
+

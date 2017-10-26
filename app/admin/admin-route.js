@@ -22,10 +22,56 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         needsUser: true
     });
     $stateProvider.state({
+        name: 'admin:user:delete',
+        url: '/user/{id}/delete',
+        component: 'adminConfirm',
+        resolve: {
+            service: function($state, adminUser, $stateParams) {
+                'ngInject';
+                const result = {};
+                result.doCancel = function() {
+                    $state.go('admin:users');
+                };
+                result.doConfirm = function() {
+                    adminUser.delete($stateParams.id).catch(function(error) {
+                        result.error = error;
+                    });
+                };
+                result.confirmationMsg = 'Voulez-vous vraiment supprimer cette utilisateur&nbsp;?';
+                result.cancelMsg = 'Non, annuler';
+                result.confirmMsg = 'Oui, supprimer';
+                return result;
+            }
+        }
+    });
+    $stateProvider.state({
         name: 'admin:loaders',
         url: '/loaders',
         component: 'adminLoadersRoute',
         needsUser: true
+    });
+    $stateProvider.state({
+        name: 'admin:loader:delete',
+        url: '/loader/{id}/delete',
+        component: 'adminConfirm',
+        resolve: {
+            service: function($state, adminLoader, $stateParams) {
+                'ngInject';
+                const result = {};
+                result.doCancel = function() {
+                    $state.go('admin:loaders');
+                };
+                result.doConfirm = function() {
+                    adminLoader.delete($stateParams.id).catch(function(error) {
+                        result.error = error;
+                    });
+                };
+                result.confirmationMsg = 'Voulez-vous vraiment supprimer cette annonce de chargement&nbsp;?';
+                result.cancelMsg = 'Non, annuler';
+                result.confirmMsg = 'Oui, supprimer';
+                return result;
+            }
+        }
     });
     $stateProvider.state({
         name: 'admin:carriers',
@@ -34,25 +80,73 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         needsUser: true
     });
     $stateProvider.state({
+        name: 'admin:carrier:delete',
+        url: '/carrier/{id}/delete',
+        component: 'adminConfirm',
+        resolve: {
+            service: function($state, adminCarrier, $stateParams) {
+                'ngInject';
+                const result = {};
+                result.doCancel = function() {
+                    $state.go('admin:carriers');
+                };
+                result.doConfirm = function() {
+                    adminCarrier.delete($stateParams.id).catch(function(error) {
+                        result.error = error;
+                    });
+                };
+                result.confirmationMsg = 'Voulez-vous vraiment supprimer cette annonce de transport&nbsp;?';
+                result.cancelMsg = 'Non, annuler';
+                result.confirmMsg = 'Oui, supprimer';
+                return result;
+            }
+        }
+    });
+    $stateProvider.state({
         name: 'admin:proposals',
         url: '/proposals',
         component: 'adminProposalsRoute',
         needsUser: true
     });
     $stateProvider.state({
+        name: 'admin:proposal:delete',
+        url: '/proposal/{id}/delete',
+        component: 'adminConfirm',
+        resolve: {
+            service: function($state, adminProposal, $stateParams) {
+                'ngInject';
+                const result = {};
+                result.doCancel = function() {
+                    $state.go('admin:proposals');
+                };
+                result.doConfirm = function() {
+                    adminProposal.delete($stateParams.id).catch(function(error) {
+                        result.error = error;
+                    });
+                };
+                result.confirmationMsg = 'Voulez-vous vraiment supprimer cette proposition&nbsp;?';
+                result.cancelMsg = 'Non, annuler';
+                result.confirmMsg = 'Oui, supprimer';
+                return result;
+            }
+        }
+    });
+    $stateProvider.state({
 		name: 'admin:signout',
 		url: '/signout',
-		// component: 'lgPrompt',
-		// resolve: {
-		// 	service: function($rootScope, adminConnection) {
-		// 		'ngInject';
-		// 		return {
-		// 			questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
-		// 			doNo: $rootScope.back,
-		// 			doYes: adminConnection.delete
-		// 		};
-		// 	}
-		// },
+		component: 'adminPrompt',
+		resolve: {
+			service: function($state, adminConnection) {
+                'ngInject';
+				return {
+					questionMsg: 'Voulez vous vraiment vous déconnecter&nbsp;?',
+					doNo: function() {
+						$state.go('admin');
+					},
+					doYes: adminConnection.delete
+				};
+			}
+		},
 		needsUser: true
 	});
     $urlRouterProvider.otherwise('/');

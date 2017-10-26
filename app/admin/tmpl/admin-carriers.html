@@ -37,18 +37,18 @@
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr ng-repeat="ad in $ctrl.carrier">
+								<tr ng-repeat="carrier in $ctrl.carrier">
 									<td>{{ad.id}}</td>
-									<td><img ng-src="../{{ad.content.truck.image.thumbnailUrl}}"/></td>
-									<td>{{ad.content.truck.name}}</td>
-									<td>{{ad.content.trip.departureCity.city}} - {{ad.content.trip.departureCity.region}}</td>
-									<td ng-show="ad.content.availability === 'total'">Disponibilité totale</td>
-									<td ng-show="ad.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
-									<td>{{ad.content.truck.transportCategory}}</td>
-									<td>{{ad.content.truck.transportTruckType}}</td>
-									<td>{{ad.content.pricing.priceWantedPerKm}} DZD/km</td>
+									<td><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}"/></td>
+									<td>{{carrier.content.truck.name}}</td>
+									<td>{{carrier.content.trip.departureCity.city}} - {{carrier.content.trip.departureCity.region}}</td>
+									<td ng-show="carrier.content.availability === 'total'">Disponibilité totale</td>
+									<td ng-show="carrier.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
+									<td>{{carrier.content.truck.transportCategory}}</td>
+									<td>{{carrier.content.truck.transportTruckType}}</td>
+									<td>{{carrier.content.pricing.priceWantedPerKm}} DZD/km</td>
 									<td class="text-center">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
+										<a ui-sref="admin:carrier:delete({id: carrier.id})" class="remove"><i class="fa fa-times"></i></a>
 									</td>
 								</tr>
 							</tbody>

@@ -54,7 +54,7 @@
 									<td>{{proposal.content.message}}</td>
 									<td>{{proposal.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
 									<td class="text-center">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
+										<a ui-sref="admin:proposal:delete({id: proposal.id})" class="remove"><i class="fa fa-times"></i></a>
 									</td>
 								</tr>
 							</tbody>

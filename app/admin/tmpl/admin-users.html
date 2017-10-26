@@ -53,7 +53,7 @@
 									<td>{{user.content.address.country}}</td>
 									<td>{{user.content.phone}}</td>
 									<td class="text-center">
-										<a href="#" class="remove"><i class="fa fa-times"></i></a>
+										<a ui-sref="admin:user:delete({id: user.id})" class="remove"><i class="fa fa-times"></i></a>
 									</td>
 								</tr>
 							</tbody>
