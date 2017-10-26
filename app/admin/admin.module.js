@@ -35,15 +35,4 @@ angular.module(module.exports, ['ui.router', 'ngSanitize', lgProposal, lgConfig,
 	.component('adminCarriersRoute', lib.adminCarriersRoute)
 	.component('adminProposalsRoute', lib.adminProposalsRoute)
 	.component('adminPrompt', adminPrompt)
-	.component('adminConfirm', adminConfirm)
-	.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-        $locationProvider.hashPrefix('');
-        $locationProvider.html5Mode(true);
-        $stateProvider.state({
-            name: 'admin',
-            url: '/',
-            component: 'adminRoute'
-        });
-
-        $urlRouterProvider.otherwise('/');
-    });
+	.component('adminConfirm', adminConfirm);
