@@ -30,6 +30,7 @@ export function AdminLoader($http, $state, $q, $window, adminConnection, adminUs
 			service.loaders = loaders;
 			service.loaderMap = $window.makeMap(loaders);
 			service.current = service.loaderMap[id];
+			console.log('loaders service.current', service.current);
 		});
 	};
 

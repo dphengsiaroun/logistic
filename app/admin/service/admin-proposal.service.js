@@ -33,22 +33,22 @@ export function AdminProposal($http, $state, $q, $window, adminConnection, admin
 		});
 	};
 
-	// service.delete = function(id) {
+	service.delete = function(id) {
 		
-	// 	return $http({
-	// 		url: lgConfig.wsDir() + 'admin/carriers/' + id,
-	// 		method: 'DELETE'
-	// 	}).then(function(response) {
+		return $http({
+			url: lgConfig.wsDir() + 'admin/proposals/' + id,
+			method: 'DELETE'
+		}).then(function(response) {
 			
-	// 		if (response.data.status === 'ko') {
-	// 			return $q.reject(response);
-	// 		}
-	// 		service.error = undefined;
-	// 		service.carriers = undefined;
-	// 		service.current = undefined;
-	// 		$state.go('carrier:deleted');
-	// 	});
-	// };
+			if (response.data.status === 'ko') {
+				return $q.reject(response);
+			}
+			service.error = undefined;
+			service.proposals = undefined;
+			service.current = undefined;
+			$state.go('admin:proposals');
+		});
+	};
 
 }
 

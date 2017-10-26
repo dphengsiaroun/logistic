@@ -26,11 +26,25 @@ EOF;
 			return $result;
 		}
 
-		public function delete($id) {
+		public static function delete($id) {
+			global $db, $cfg;
+
 			$request = new stdClass();
 			$request->id = $id;
-			$user = User::getConnected();
-			$request->userId = $user->id;
+			debug('$request', $request);
+			
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}loader WHERE id=:id
+EOF;
+	
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $request->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
 		}
 	}
 

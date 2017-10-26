@@ -109,8 +109,8 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         needsUser: true
     });
     $stateProvider.state({
-        name: 'admin:proposal:delete',
-        url: '/proposal/{id}/delete',
+        name: 'admin:proposal:remove',
+        url: '/proposal/{id}/remove',
         component: 'adminConfirm',
         resolve: {
             service: function($state, adminProposal, $stateParams) {

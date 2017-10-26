@@ -8,9 +8,9 @@ app.service('lgBackDetector', function LgBackDetector($rootScope, $location, $tr
 	service.last = undefined;
 	$transitions.onStart({}, function(trans) {
 		const from = trans.$from();
-		
+		console.log('from', from);
 		const to = trans.$to();
-		
+		console.log('to', to);
 		if (to === service.last) {
 			service.isBack = true;
 		} else {

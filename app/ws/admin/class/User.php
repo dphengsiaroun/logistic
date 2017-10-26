@@ -103,5 +103,26 @@ EOF;
 			return $result;
 		}
 
+		public static function delete($id) {
+			global $db, $cfg;
+
+			$request = new stdClass();
+			$request->id = $id;
+			debug('$request', $request);
+			
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}user WHERE id=:id
+EOF;
+	
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $request->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+		}
+
 	}
 

@@ -5,7 +5,6 @@ export function LgRoute($document, $transitions, $rootScope, $window, carrier, l
 			$rootScope.isBackPresent = true;
 			
 			const from = trans.$from();
-			
 			const to = trans.$to();
 			
 			if (from.noBackForNextState) {
@@ -34,7 +33,6 @@ export function LgRoute($document, $transitions, $rootScope, $window, carrier, l
 				$window.scrollTo(0, 0);
 				$document[0].querySelector('lg-body').scrollTop = 0;
 			}
-
 		});
 	};
 }

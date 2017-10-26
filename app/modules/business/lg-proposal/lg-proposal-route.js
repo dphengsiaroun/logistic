@@ -54,7 +54,6 @@ export function config($stateProvider) {
 			}
 		}
 	});
-
 	$stateProvider.state({
 		name: 'proposal:delete',
 		url: '/proposal/{id}/delete',
