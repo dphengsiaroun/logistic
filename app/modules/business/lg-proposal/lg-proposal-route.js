@@ -120,8 +120,6 @@ export function config($stateProvider) {
 			}
 		}
 	});
-
-
 }
 
 import proposalCreateHtml from './tmpl/proposal-create.html';
