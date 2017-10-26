@@ -498,16 +498,6 @@ admin-login-route {
 			}
 		}
 	}
-	section::after {
-		background: #FFA534;
-		background: -moz-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, rgba(236, 22, 87, 0.6)));
-		background: -webkit-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
-		background: -o-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
-		background: -ms-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
-		background: linear-gradient(to bottom, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
-		background-size: 150% 150%;
-	}
 }
 
 admin-prompt, admin-confirm {
