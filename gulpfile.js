@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const pathConfig = {
 	base: 'app',
 	dist: 'dist',
-	zipSrc: ['dist/**/*', 'dist/.htaccess', 'dist/ws/.htaccess', '!dist/**/*.map'],
+	zipSrc: ['dist/**/*', 'dist/.htaccess', 'dist/ws/.htaccess', 'dist/ws/admin/.htaccess', '!dist/**/*.map'],
 	zip: 'dist.zip',
 	wpk: 'app/wpk',
 	coverage: './coverage',
@@ -12,6 +12,7 @@ const pathConfig = {
 	indexHtml: 'app/index.html',
 	htaccess: ['app/.htaccess.tmpl'],
 	htaccessWs: ['app/ws/.htaccess'],
+	htaccessWsAdmin: ['app/ws/admin/.htaccess'],
 	resources: ['app/img/**/*', 'app/json/**/*', 'app/wpk/**/*', 'app/ws/**/*',
 		'!app/ws/**/*.log', '!app/ws/**/*.ini', '!app/ws/**/*.tmpl',
 		'!app/img/**/*.svg', 'app/*.html', '!app/index.html'
