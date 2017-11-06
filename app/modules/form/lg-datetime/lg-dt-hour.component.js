@@ -12,7 +12,7 @@ export const lgDtHour = {
 		lgDatetime: '^^lgDatetime'
 	},
 	template: lgDtHourHtml,
-	controller: function LgDtHourCtrl($scope, $element, $timeout, $window) {
+	controller: function LgDtHourCtrl($scope, $element, $timeout, $window, lgMobile) {
 		'ngInject';
 		const ctrl = this;
 		let hourElt;
@@ -46,7 +46,7 @@ export const lgDtHour = {
 			isUpdating = true;
 			
 			let pos = (0 + $index * 1.3) * width / 44;
-			if ($window.mobilecheck()) {
+			if (lgMobile.isMobile()) {
 				pos = (0 + $index * 1.3) * width / 10;
 			}
 			

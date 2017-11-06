@@ -2,7 +2,7 @@ export function LgBackDetector($transitions) {
 	'ngInject';
 	this.history = [];
 	$transitions.onStart({}, trans => {
-		
+		console.log('scroll', );
 		const from = trans.$from().name;
 		console.log('from', from);
 		const to = trans.$to().name;
