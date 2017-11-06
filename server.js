@@ -44,6 +44,14 @@ app.use(serveIndex('.', {
 	icons: true
 }));
 
+app.use('/app/admin/', function(req, res, next) {
+	res.sendFile('./app/admin/index.html', {root: __dirname});
+});
+
+app.use('/dist/admin/', function(req, res, next) {
+	res.sendFile('./dist/admin/index.html', {root: __dirname});
+});
+
 app.use('/app/', function(req, res, next) {
 	
 	if (req.url.match(/app\/files/)) {
