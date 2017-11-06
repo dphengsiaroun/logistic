@@ -1,21 +1,23 @@
-module.exports = 'lg-back-detector';
-
-const app = angular.module(module.exports, []);
-
-app.service('lgBackDetector', function LgBackDetector($rootScope, $location, $transitions, $window) {
+export function LgBackDetector($transitions) {
 	'ngInject';
-	const service = this;
-	service.last = undefined;
-	$transitions.onStart({}, function(trans) {
-		const from = trans.$from();
+	this.history = [];
+	$transitions.onStart({}, trans => {
+		
+		const from = trans.$from().name;
 		console.log('from', from);
-		const to = trans.$to();
+		const to = trans.$to().name;
 		console.log('to', to);
-		if (to === service.last) {
-			service.isBack = true;
+		const last = this.history[this.history.length - 1];
+		console.log('last', last);
+		if (this.history.length > 0 && to === last) {
+			console.log('isBack true');
+			this.isBack = true;
+			this.history.pop();
 		} else {
-			service.isBack = false;
+			console.log('isBack false');
+			this.isBack = false;
+			this.history.push(from);
 		}
-		service.last = from;
+		console.log('this.history', this.history);
 	});
-});
+}

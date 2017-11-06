@@ -24,7 +24,7 @@ import lgLoadImage from './modules/form/lg-load-image/lg-load-image.module.js';
 
 import lgDesktop from './modules/site/lg-desktop/lg-desktop.component.js';
 import lgMenu from './modules/site/lg-menu/lg-menu.js';
-import lgRoute from './modules/site/lg-route/lg-route.js';
+import lgRoute from './modules/site/lg-route/lg-route.module.js';
 
 import lgDebug from './modules/technic/lg-debug/lg-debug.service.js';
 import lgError from './modules/technic/lg-error/lg-error.js';
@@ -34,7 +34,7 @@ import lgHttp from './modules/technic/lg-http/lg-http.js';
 import lgMisc from './modules/technic/lg-misc/lg-misc.module.js';
 import lgTest from './modules/technic/lg-test/lg-test.module.js';
 import lgWidget from './modules/technic/lg-widget/lg-widget.js';
-import lgBackDetector from './modules/technic/lg-back-detector/lg-back-detector.service.js';
+import lgTransition from './modules/technic/lg-transition/lg-transition.module.js';
 
 angular.module('main', [
 	'ngSanitize',
@@ -65,7 +65,7 @@ angular.module('main', [
 	lgMenu,
 	lgRoute,
 
-	lgDebug,
+	// lgDebug,
 	lgError,
 	lgFilterList,
 	lgGeoloc,
@@ -73,7 +73,7 @@ angular.module('main', [
 	lgMisc,
 	lgTest,
 	lgWidget,
-	lgBackDetector
+	lgTransition
 ]).config((lgConfigProvider) => {
 	lgConfigProvider.wsDir('ws/');
 }).run((connection, lgConfig) =>{

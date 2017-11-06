@@ -28,11 +28,6 @@ export function LgRoute($document, $transitions, $rootScope, $window, carrier, l
 					carrier.initCreateData();
 				}
 			}
-			
-			if (lgBackDetector.isBack === false) {
-				$window.scrollTo(0, 0);
-				$document[0].querySelector('lg-body').scrollTop = 0;
-			}
 		});
 	};
 }
