@@ -28,20 +28,6 @@
 									<th>Téléphone</th>
 								</tr>
 							</thead>
-							<tfoot>
-								<tr>
-									<th>Id</th>
-									<th>Nom</th>
-									<th>Prénom</th>
-									<th>Pseudo</th>
-									<th>Email</th>
-									<th>Adresse</th>
-									<th>CP</th>
-									<th>Ville</th>
-									<th>Pays</th>
-									<th>Téléphone</th>
-								</tr>
-							</tfoot>
 							<tbody>
 								<tr ng-repeat="user in $ctrl.user | limitTo : 5"> 
 									<td>{{user.id}}</td>
@@ -90,16 +76,6 @@
 									<th>Envoyé le</th>									
 								</tr>
 							</thead>
-							<tfoot>
-								<tr>
-									<th>Id</th>
-									<th>Image</th>
-									<th>Titre de l'annonce</th>
-									<th>Type d'annonce</th>
-									<th>Message</th>
-									<th>Envoyé le</th>									
-								</tr>
-							</tfoot>
 							<tbody>
 								<tr ng-repeat="proposal in $ctrl.proposal | limitTo : 5">
 									<td>{{proposal.id}}</td>
@@ -147,18 +123,6 @@
 									<th>Prix</th>
 								</tr>
 							</thead>
-							<tfoot>
-								<tr>
-									<th>Id</th>
-									<th>Image</th>
-									<th>Titre</th>
-									<th>Ville d'origine</th>
-									<th>Disponibilité</th>
-									<th>Transport (catégorie)</th>
-									<th>Transport (type)</th>
-									<th>Prix</th>
-								</tr>
-							</tfoot>
 							<tbody>
 								<tr ng-repeat="ad in $ctrl.carrier | limitTo : 5">
 									<td>{{ad.id}}</td>
@@ -210,20 +174,6 @@
 									<th>Prix</th>
 								</tr>
 							</thead>
-							<tfoot>
-								<tr>
-									<th>Id</th>
-									<th>Image</th>
-									<th>Titre</th>
-									<th>Départ</th>
-									<th>Arrivée</th>
-									<th>Conditionnement</th>
-									<th>Marchandise (type)</th>
-									<th>Transport (catégorie)</th>
-									<th>Transport (type)</th>
-									<th>Prix</th>
-								</tr>
-							</tfoot>
 							<tbody>
 								<tr ng-repeat="loader in $ctrl.loader | limitTo : 5">
 									<td>{{loader.id}}</td>
