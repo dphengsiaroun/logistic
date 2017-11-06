@@ -34,7 +34,7 @@ import lgHttp from './modules/technic/lg-http/lg-http.js';
 import lgMisc from './modules/technic/lg-misc/lg-misc.module.js';
 import lgTest from './modules/technic/lg-test/lg-test.module.js';
 import lgWidget from './modules/technic/lg-widget/lg-widget.js';
-import lgTransition from './modules/technic/lg-transition/lg-transition.module.js';
+import './modules/technic/lg-back-detector/lg-back-detector.module.js';
 
 angular.module('main', [
 	'ngSanitize',
@@ -73,10 +73,11 @@ angular.module('main', [
 	lgMisc,
 	lgTest,
 	lgWidget,
-	lgTransition
+	'lg-back-detector',
 ]).config((lgConfigProvider) => {
 	lgConfigProvider.wsDir('ws/');
-}).run((connection, lgConfig) =>{
+}).run((connection, lgConfig, lgBackDetector) =>{
 	lgConfig.init();
+	lgBackDetector.init();
 	connection.check();
 });
