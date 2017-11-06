@@ -14,7 +14,7 @@ export function LgBackDetector($document, $timeout, $transitions, lgScroll) {
 			const scroll = this.history.pop().scroll;
 			$timeout(() => {
 				lgScroll.setScrollY(scroll);
-			}, 0);
+			}, 100);
 			
 		} else {
 			console.log('isBack false');
@@ -22,7 +22,7 @@ export function LgBackDetector($document, $timeout, $transitions, lgScroll) {
 			this.history.push({name: from, scroll: lgScroll.getScrollY()});
 			$timeout(() => {
 				lgScroll.setScrollY(0);
-			}, 0);
+			}, 20);
 		}
 		console.log('this.history', this.history);
 	});

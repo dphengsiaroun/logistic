@@ -17,6 +17,8 @@ import { adminPrompt } from './widget/admin-prompt.component.js';
 import { adminConfirm } from './widget/admin-confirm.component.js';
 
 import * as lib from './admin-route.js';
+import '../modules/technic/lg-back-detector/lg-back-detector.module.js';
+
 
 angular.module(module.exports, [
 	'ui.router', 
@@ -29,12 +31,14 @@ angular.module(module.exports, [
 
 	lgConfig, 
 	lgMisc, 
-	lgDebug
+	lgDebug,
+	'lg-back-detector'
 	])
 	.config(lib.config)
-	.run((adminConnection) => {
+	.run((adminConnection, lgBackDetector) => {
 		console.log('run');
 		adminConnection.check();
+		lgBackDetector.init();
 	})
 	.component('adminNavRoute', lib.adminNavRoute)
 	.component('adminRoute', lib.adminRoute)
