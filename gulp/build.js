@@ -56,6 +56,12 @@ module.exports = function(gulp, pathConfig) {
 			.pipe(gulp.dest(pathConfig.dist));
 	});
 
+	gulp.task('build:htaccess:app:admin', function() {
+		return gulp.src(pathConfig.htaccess, { base: pathConfig.base })
+			.pipe(rename('.htaccess'))
+			.pipe(gulp.dest(pathConfig.dist + '/admin'));
+	});
+
 	gulp.task('build:htaccess:ws', function() {
 		return gulp.src(pathConfig.htaccessWs, { base: pathConfig.base })
 			.pipe(gulp.dest(pathConfig.dist));
@@ -66,10 +72,15 @@ module.exports = function(gulp, pathConfig) {
 			.pipe(gulp.dest(pathConfig.dist));
 	});
 
-	gulp.task('build:htaccess', ['build:htaccess:app', 'build:htaccess:ws', 'build:htaccess:ws:admin']);
+	gulp.task('build:htaccess', [
+		'build:htaccess:app',
+		'build:htaccess:ws', 
+		'build:htaccess:app:admin', 
+		'build:htaccess:ws:admin'
+	]);
 
 	gulp.task('build', function() {
-		
+
 		runSequence('build:webpack', ['build:resources', 'build:html', 'build:htaccess']);
 	});
 
