@@ -245,7 +245,7 @@ admin-section {
 		display: block;
 		width: 100%;
 		min-height: 800px;
-		padding: 25px;
+		padding: 25px 10px;
 		.row-1,
 		.row-2 {
 			display: table;
@@ -274,7 +274,11 @@ admin-section {
 					margin-bottom: 0px;
 				}
 				.content {
-					padding: 15px;
+					padding: 15px 0px;
+					p {
+						margin: 20px 0px;
+						font-size: 14px;
+					}
 					table {
 						thead>tr>th {
 							border: none !important;
@@ -372,6 +376,10 @@ admin-section {
 				margin-bottom: 30px;
 				.content {
 					padding: 15px;
+					p {
+						margin: 20px 0px;
+						font-size: 14px;
+					}
 					table {
 						thead>tr>th {
 							border: none !important;
@@ -490,6 +498,15 @@ admin-login-route {
 					margin: 0 auto;
 					background-color: transparent;
 					line-height: 30px;
+					text-align: center;
+					a {
+						display: block;
+						margin: 10px 0px;
+						font-size: 15px;
+						i.fa {
+							margin-right: 5px;
+						}
+					}
 					.btn {
 						width: 100%;
 						background: #8bc63f;
@@ -522,7 +539,7 @@ admin-prompt, admin-confirm {
 	}
 	.response {
 		display: table;
-		width: 50%;
+		width: 30%;
 		margin: 50px auto;
 		font-size: 0px;
 		padding: 0px;
@@ -538,13 +555,17 @@ admin-prompt, admin-confirm {
 				background: #8bc63f;
 				color: #fff;
 				height: 50px;
-				font-size: 16px;
+				font-size: 17px;
 				cursor: pointer;
 				border: none;
 				border-radius: 3px;
 				margin: 10px 0;
 				&.critical {
 					background-color: red;
+					color: white;
+				}
+				&.disconnect {
+					background-color: #8de61a;
 					color: white;
 				}
 			}

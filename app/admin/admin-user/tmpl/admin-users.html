@@ -1,14 +1,14 @@
 <admin-nav-route></admin-nav-route>
 <admin-section>
 	<header>
-		<h2><i class="fa fa-users" aria-hidden="true"></i> Liste des utilisateurs</h2>
+		<h2><i class="fa fa-users" aria-hidden="true"></i> Liste des utilisateurs</h2>	
 		<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>	
 	</header>
 	<section>
 		<div class="container">
 			<div class="card">
 				<div class="content">
-					<div class="fresh-datatables">
+					<div ng-show="$ctrl.user.length > 0" class="fresh-datatables">
 						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
 							<thead>
 								<tr>
@@ -44,6 +44,7 @@
 							</tbody>
 						</table>
 					</div>
+					<p ng-show="$ctrl.user.length === 0">Aucun utilisateur inscrit pour le moment.</p>					
 				</div>
 				<!-- end content-->
 			</div>
