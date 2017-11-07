@@ -1,8 +1,8 @@
 <admin-nav-route></admin-nav-route>
 <admin-section>
 	<header>
-		<h2><i class="fa fa-users" aria-hidden="true"></i> Liste des utilisateurs</h2>	
-		<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>	
+		<h2><i class="fa fa-users" aria-hidden="true"></i> Liste des utilisateurs</h2>
+		<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
 	</header>
 	<section>
 		<div class="container">
@@ -44,14 +44,12 @@
 							</tbody>
 						</table>
 					</div>
-					<p ng-show="$ctrl.user.length === 0">Aucun utilisateur inscrit pour le moment.</p>					
+					<p ng-show="$ctrl.user.length === 0">Aucun utilisateur inscrit pour le moment.</p>
 				</div>
 				<!-- end content-->
 			</div>
 			<!--  end card  -->
 		</div>
 	</section>
-	<footer>
-		<span><b>iGoroute ©</b>  Tous droits réservés. <a href="#">Mentions légales</a></span>
-	</footer>
+	<admin-footer-route></admin-footer-route>
 </admin-section>

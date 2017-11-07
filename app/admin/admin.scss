@@ -98,6 +98,7 @@ textarea {
 }
 
 admin-route,
+admin-terms-route,
 admin-users-route,
 admin-users-update-route,
 admin-carriers-route,
@@ -568,6 +569,35 @@ admin-prompt, admin-confirm {
 					background-color: #8de61a;
 					color: white;
 				}
+			}
+		}
+	}
+}
+
+admin-terms-route {
+	.article {
+		display: block;
+		width: 100%;
+		padding: 0px 10px 10px 0px;
+		font-size: 14px;
+		h2 {
+			display: block;
+			width: 100%;
+			margin: 10px 0px;
+			padding: 10px;
+			text-align: left;
+			background-color: #223c5d;
+			color: #fff;
+			border-radius: 0px 40px 40px 0px;
+			font-size: 15px;
+		}
+		p {
+			padding: 10px;
+			text-align: justify;
+		}
+		ul {
+			li {
+				margin-left: 30px;
 			}
 		}
 	}

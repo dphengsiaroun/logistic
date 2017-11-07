@@ -10,11 +10,19 @@ export function config($locationProvider, $stateProvider, $urlRouterProvider, lg
         component: 'adminRoute',
         needsUser: true
     });
+    $stateProvider.state({
+        name: 'admin:terms',
+        url: '/terms',
+        component: 'adminTermsRoute',
+        needsUser: true
+    });
     $urlRouterProvider.otherwise('/');
 }
 
 import adminNavHtml from './tmpl/admin-nav.html';
+import adminFooterHtml from './tmpl/admin-footer.html';
 import adminHtml from './tmpl/admin.html';
+import adminTermsHtml from './tmpl/terms.html';
 import * as ctrlLib from './ctrl/admin-ctrl.js';
 
 export const adminNavRoute = {
@@ -22,8 +30,17 @@ export const adminNavRoute = {
 	controller: ctrlLib.AdminCtrl,
 };
 
+export const adminFooterRoute = {
+	template: adminFooterHtml,
+};
+
 export const adminRoute =  {
     template: adminHtml,
+    controller: ctrlLib.AdminCtrl,
+};
+
+export const adminTermsRoute =  {
+    template: adminTermsHtml,
     controller: ctrlLib.AdminCtrl,
 };
 

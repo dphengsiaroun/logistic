@@ -41,6 +41,8 @@ angular.module(module.exports, [
 		lgBackDetector.init();
 	})
 	.component('adminNavRoute', lib.adminNavRoute)
+	.component('adminFooterRoute', lib.adminFooterRoute)
 	.component('adminRoute', lib.adminRoute)
+	.component('adminTermsRoute', lib.adminTermsRoute)
 	.component('adminPrompt', adminPrompt)
 	.component('adminConfirm', adminConfirm);
