@@ -578,22 +578,23 @@ admin-terms-route {
 	.article {
 		display: block;
 		width: 100%;
-		padding: 0px 10px 10px 0px;
+		padding: 0px 0px 10px 0px;
 		font-size: 14px;
 		h2 {
 			display: block;
 			width: 100%;
 			margin: 10px 0px;
-			padding: 10px;
+			padding: 10px !important;
 			text-align: left;
 			background-color: #223c5d;
 			color: #fff;
-			border-radius: 0px 40px 40px 0px;
-			font-size: 15px;
+			border-radius: 2px;
+			font-size: 15px !important;
 		}
 		p {
 			padding: 10px;
 			text-align: justify;
+			margin: 0px !important;
 		}
 		ul {
 			li {
