@@ -19,7 +19,6 @@ export const lgDtHour = {
 		let isUpdating = false;
 		const width = screen.width;
 		const hourRange = makeRange(0, 23);
-
 		ctrl.hourRange = hourRange;
 
 		let isScrolling = false;

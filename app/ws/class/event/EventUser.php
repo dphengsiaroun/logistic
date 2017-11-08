@@ -68,6 +68,6 @@ EOF;
 			throw new Exception('Cannot delete user : '.sprint_r($db->errorInfo()));
 		}
 		debug("delete user ok");
+		}
 	}
-}
 
