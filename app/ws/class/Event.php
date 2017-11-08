@@ -100,6 +100,9 @@ EOF;
 						break;
 					case '/user/delete':
 						EventUser::delete($this);
+						EventUser::deleteProposal($this);
+						EventUser::deleteLoader($this);
+						EventUser::deleteCarrier($this);
 						break;
 					case '/user/update':
 						EventUser::update($this);
