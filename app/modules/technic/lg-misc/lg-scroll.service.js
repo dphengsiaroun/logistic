@@ -12,12 +12,11 @@ export function LgScroll($window, $document, lgMobile) {
 	};
 
 	this.getScrollY = () => {
-		console.log('kiki', $document[0].querySelector('lg-body'));
 		if (!lgMobile.isMobile() && $document[0].querySelector('lg-body') !== null) {
-			console.log('getScrollY method $document', $document[0].querySelector('lg-body').scrollTop);
+			// console.log('getScrollY method $document', $document[0].querySelector('lg-body').scrollTop);
 			return $document[0].querySelector('lg-body').scrollTop;
 		} else {
-			console.log('getScrollY method $window', $window.scrollY);
+			// console.log('getScrollY method $window', $window.scrollY);
 			return $window.scrollY;
 		}
 	};
@@ -25,10 +24,10 @@ export function LgScroll($window, $document, lgMobile) {
 	this.setScrollY = y => {
 		console.log('LgScroll: about to scroll to y', y);
 		if (!lgMobile.isMobile() && $document[0].querySelector('lg-body') !== null) {
-			console.log('setScrollY method $document');
+			// console.log('setScrollY method $document');
 			$document[0].querySelector('lg-body').scrollTop = y;
 		} else {
-			console.log('setScrollY method $window');
+			// console.log('setScrollY method $window');
 			$window.scrollTo(0, y);
 		}
 	};

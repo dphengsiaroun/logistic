@@ -5,7 +5,7 @@ export function LoaderListCtrl($scope, loader, lgFilterList) {
 	ctrl.loader = loader;
 	ctrl.$onInit = function() {
 		loader.list().then(function(list) {
-			
+
 			ctrl.list = list;
 			lgFilterList.setup($scope, '$ctrl', ctrl);
 		}).catch(function(error) {
@@ -21,17 +21,17 @@ export function LoaderCtrl($scope, $stateParams, loader, user, connection) {
 	ctrl.user = user;
 	ctrl.connection = connection;
 	ctrl.isEditable = false;
-	
-	
+
+
 	ctrl.$onInit = function() {
 		ctrl.loader.get($stateParams.id).then(function() {
 			return connection.waitForCheckConnection('LoaderCtrl');
 		}).then(function() {
 			ctrl.isEditable = (ctrl.loader.current.content.userId === ctrl.user.current.id);
-			
+
 		}).catch(function() {
 			ctrl.isEditable = false;
-			
+
 		});
 	};
 }
@@ -52,7 +52,7 @@ export function LoaderCreateCtrl(
 		ctrl.loader.createData.volume = ctrl.loader.createData.dimension.height *
 			ctrl.loader.createData.dimension.depth * ctrl.loader.createData.dimension.width;
 		ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
-		
+
 		if (ctrl.user.current) {
 			ctrl.loader.createData.phone = ctrl.user.current.content.phone;
 		}
@@ -62,16 +62,24 @@ export function LoaderCreateCtrl(
 	geoloc.updateInfoRoute($scope, '$ctrl.loader.createData');
 
 	ctrl.editDimension = function() {
-		
+
 		const dimensionElt = $element.find('lg-dimension');
 		const dimensionCtrl = dimensionElt.controller('lgDimension');
-		
+
 		dimensionCtrl.start();
 	};
 
+	$scope.$watch('$ctrl.loader.createData.departureDatetime', function(newValue, oldValue) {
+		console.log('watch date', arguments);
+		if (ctrl.loader.createData.departureDatetime && oldValue === undefined) {
+			ctrl.loader.createData.arrivalDatetime =
+				new Date(ctrl.loader.createData.departureDatetime.getTime() + ctrl.loader.createData.minDuration * 1000);
+		}
+	});
+
 	$scope.$watchGroup(['$ctrl.loader.createData.departureDatetime', '$ctrl.loader.createData.arrivalDatetime'],
-		function() {
-			
+		function(newValues, oldValues) {
+
 			if (!(ctrl.loader.createData.departureDatetime && ctrl.loader.createData.arrivalDatetime)) {
 				ctrl.loader.createData.infoDuration = '';
 				return;
@@ -94,11 +102,11 @@ export function LoaderUpdateCtrl($stateParams, loader, user, connection, formVal
 		connection.waitForCheckConnection('LoaderUpdateCtrl').then(function() {
 			return ctrl.loader.get($stateParams.id);
 		}).then(function() {
-			
+
 			ctrl.loader.updateData = angular.copy(ctrl.loader.current.content);
-			
+
 			ctrl.loader.updateData.id = $stateParams.id;
-			
+
 		}).catch(function() {
 			console.error('you should not see this');
 		});
