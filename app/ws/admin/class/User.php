@@ -124,5 +124,68 @@ EOF;
 			}
 		}
 
+		public static function deleteProposal($id) {
+			global $db, $cfg;
+
+			$request = new stdClass();
+			$request->id = $id;
+			debug('$request', $request);
+			
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}proposal WHERE user_id=:id
+EOF;
+	
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $request->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+		}
+
+		public static function deleteLoader($id) {
+			global $db, $cfg;
+
+			$request = new stdClass();
+			$request->id = $id;
+			debug('$request', $request);
+			
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}loader WHERE user_id=:id
+EOF;
+	
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $request->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+		}
+
+		public static function deleteCarrier($id) {
+			global $db, $cfg;
+
+			$request = new stdClass();
+			$request->id = $id;
+			debug('$request', $request);
+			
+			// On lance notre requête de vérification
+			$sql = <<<EOF
+DELETE FROM {$cfg->prefix}carrier WHERE user_id=:id
+EOF;
+	
+			$st = $db->prepare($sql,
+						array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array(
+				':id' => $request->id
+			)) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+		}
+
 	}
 

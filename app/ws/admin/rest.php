@@ -94,6 +94,9 @@
 		}
 		if ($method == 'DELETE') {
 			$obj->delete($id);
+			$obj->deleteProposal($id);
+			$obj->deleteLoader($id);
+			$obj->deleteCarrier($id);
 			return;
 		}
 	}
