@@ -1,19 +1,13 @@
 <?php
-require_once(__DIR__ . '/../../../vendor/autoload.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
+require_once(__DIR__ . '/global.php');
 
-function sprint_r($var) {
-    ob_start();
-    print_r($var);
-    $output=ob_get_contents();
-    ob_end_clean();
-    return $output;
-}
 
 class Console {
 
-    public function __construct() {
+    public function __construct($path = __DIR__ . '/../logs/trace.log') {
         $this->log = new Monolog\Logger('log');
-        $stream = new Monolog\Handler\StreamHandler(__DIR__ . '/trace.log', Monolog\Logger::DEBUG);
+        $stream = new Monolog\Handler\StreamHandler($path, Monolog\Logger::DEBUG);
         $format = "[%datetime%] %channel%.%level_name%: %message% \n";
         $formatter = new Monolog\Formatter\LineFormatter($format, null, true);
         $stream->setFormatter($formatter);
@@ -34,4 +28,3 @@ class Console {
     }
 }
 
-$console = new Console();

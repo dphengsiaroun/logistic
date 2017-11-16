@@ -1,7 +1,9 @@
 <?php
 
-require(__DIR__ . '/modules/express/index.php');
-require(__DIR__ . '/modules/log/index.php');
+require_once(__DIR__ . '/modules/express/index.php');
+require_once(__DIR__ . '/../JLG/Console.php');
+
+$console = new Console(__DIR__ . '/../logs/express.log');
 
 $app = new Express();
 
