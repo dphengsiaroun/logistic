@@ -1,7 +1,8 @@
 <?php
-require_once(__DIR__ . '/../vendor/autoload.php');
+namespace JLG;
 require_once(__DIR__ . '/global.php');
 
+use Monolog;
 
 class Console {
 
@@ -15,7 +16,7 @@ class Console {
     }
 
     public function log($msg, $object = NULL) {
-        $e = new Exception("");
+        $e = new \Exception("");
         $traces = $e->getTrace();
         $line = $traces[0]['line'];
         $filename = $traces[0]['file'];

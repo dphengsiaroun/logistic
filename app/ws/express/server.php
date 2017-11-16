@@ -1,9 +1,11 @@
 <?php
+$loader = require(__DIR__ . '/../vendor/autoload.php');
+$loader->addPsr4('JLG\\', __DIR__ . '/../JLG/');
 
 require_once(__DIR__ . '/modules/express/index.php');
-require_once(__DIR__ . '/../JLG/Console.php');
-
-$console = new Console(__DIR__ . '/../logs/express.log');
+use JLG;
+$console = new JLG\Console(__DIR__ . '/../logs/express.log');
+$console->log('test');
 
 $app = new Express();
 
