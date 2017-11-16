@@ -1,6 +1,6 @@
 import Hashes from 'jshashes';
 
-export function Connection($http, $rootScope, $injector, $q, $state, user, lgConfig) {
+export function Connection($http, $rootScope, $injector, $q, $state, user, lgConfig, afterConnect) {
 	'ngInject';
 	const service = this;
 	service.isConnected = undefined;
@@ -32,7 +32,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 			console.log('user.current', user.current);
 			service.isConnected = true;
 			console.log('service.isConnected', service.isConnected);
-			service.goToStateAfterConnect();
+			afterConnect.execute();
 		}).catch(function(error) {
 			service.error = error;
 		});
@@ -118,33 +118,4 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 			service.error = error;
 		});
 	};
-
-	service.setAfterConnectAction = function(obj) {
-		localStorage.setItem('afterConnect', angular.toJson(obj));
-	};
-
-	service.goToStateAfterConnect = function() {
-		
-		const json = localStorage.getItem('afterConnect');
-		localStorage.removeItem('afterConnect');
-		if (json === null) {
-			if ($state.$current.name === 'home') {
-				return;
-			}
-			$state.go('home');
-			return;
-		}
-		const obj = angular.fromJson(json);
-		
-		if (obj.fn && obj.service) {
-			const service = $injector.get(obj.service);
-			if (obj.fn in service) {
-				
-				service[obj.fn].apply(null, obj.args);
-			}
-		}
-		
-		$state.go(obj.state);
-	};
-
 }

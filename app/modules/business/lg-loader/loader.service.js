@@ -1,4 +1,4 @@
-export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
+export function Loader($http, $state, $q, $window, connection, user, lgConfig, afterConnect) {
 	'ngInject';
 
 	const service = this;
@@ -13,9 +13,7 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 	service.initCreateData();
 
 
-	service.create = function() {
-		
-		const createData = service.createData;
+	service.create = function(createData) {
 		if (user.current) {
 			$http({
 				url: lgConfig.wsDir() + 'loaders',
@@ -37,14 +35,13 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig) {
 				console.error('error', error);
 			});
 		} else {
-			createData.userNotConnected = true;
-			localStorage.setItem('loader', angular.toJson(createData));
-			connection.setAfterConnectAction({
+			afterConnect.set({
 				state: 'loader:created',
 				service: 'loader',
-				fn: 'createAfterConnect',
-				args: []
+				fn: 'create',
+				args: [createData],
 			});
+
 			service.initCreateData();
 			$state.go('user:hasAccount');
 		}

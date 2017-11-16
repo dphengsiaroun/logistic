@@ -1,5 +1,5 @@
 
-export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
+export function Truck($q, $http, $state, $window, user, connection, lgConfig, afterConnect) {
 	'ngInject';
 	const service = this;
 	service.initCreateData = function() {
@@ -9,9 +9,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 	};
 	service.initCreateData();
 
-	service.create = function() {
-		
-		const createData = service.createData;
+	service.create = function(createData) {
 		if (user.current) {
 			$http({
 				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks',
@@ -33,25 +31,15 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig) {
 				console.error('error', error);
 			});
 		} else {
-			
-			createData.userNotConnected = true;
-			localStorage.setItem('truck', angular.toJson(createData));
-			connection.setAfterConnectAction({
+			afterConnect.set({
 				state: 'truck:created',
 				service: 'truck',
 				fn: 'createAfterConnect',
-				args: []
+				args: [createData]
 			});
 			service.initCreateData();
 			$state.go('user:hasAccount');
 		}
-	};
-
-	service.createAfterConnect = function() {
-		service.createData = angular.fromJson(localStorage.getItem('truck'));
-		localStorage.removeItem('truck');
-		
-		service.create();
 	};
 
 	service.list = function() {

@@ -1,4 +1,4 @@
-export function Carrier($http, $state, $q, $window, connection, user, lgConfig) {
+export function Carrier($http, $state, $q, $window, connection, user, lgConfig, afterConnect) {
 	'ngInject';
 
 	const service = this;
@@ -12,13 +12,13 @@ export function Carrier($http, $state, $q, $window, connection, user, lgConfig) 
 	};
 	service.initCreateData();
 
-	service.create = function() {
+	service.create = function(createData) {
 		
 		if (user.current) {
 			$http({
 				url: lgConfig.wsDir() + 'carriers',
 				method: 'POST',
-				data: service.createData,
+				data: createData,
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function(response) {
 				
@@ -33,12 +33,11 @@ export function Carrier($http, $state, $q, $window, connection, user, lgConfig) 
 				console.error('error', error);
 			});
 		} else {
-			localStorage.setItem('carrier', angular.toJson(service.createData));
-			connection.setAfterConnectAction({
+			afterConnect.set({
 				state: 'carrier:created',
 				service: 'carrier',
 				fn: 'createAfterConnect',
-				args: []
+				args: [createData]
 			});
 			service.initCreateData();
 			$state.go('user:hasAccount');
