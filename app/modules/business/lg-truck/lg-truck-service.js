@@ -1,5 +1,5 @@
 
-export function Truck($q, $http, $state, $window, connection, lgConfig, afterConnect) {
+export function Truck($q, $http, $state, $window, connection, lgConfig) {
 	'ngInject';
 	const service = this;
 	service.initCreateData = function() {
@@ -31,7 +31,7 @@ export function Truck($q, $http, $state, $window, connection, lgConfig, afterCon
 				console.error('error', error);
 			});
 		} else {
-			afterConnect.set({
+			connection.afterConnect.set({
 				state: 'truck:created',
 				service: 'truck',
 				fn: 'create',

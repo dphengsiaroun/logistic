@@ -1,4 +1,4 @@
-export function Proposal($http, $state, $q, $window, connection, lgConfig, afterConnect) {
+export function Proposal($http, $state, $q, $window, connection, lgConfig) {
 	'ngInject';
 
 	const service = this;
@@ -32,7 +32,7 @@ export function Proposal($http, $state, $q, $window, connection, lgConfig, after
 				console.error('error', error);
 			});
 		} else {
-			afterConnect.set({
+			connection.afterConnect.set({
 				state: 'proposal:created',
 				service: 'proposal',
 				fn: 'create',

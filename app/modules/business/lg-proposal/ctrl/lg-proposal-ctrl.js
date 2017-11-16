@@ -1,8 +1,8 @@
-export function ProposalCtrl($scope, $injector, connection) {
+export function ProposalCtrl($scope, $injector, connection, proposal) {
 	'ngInject';
 	const ctrl = this;
-	ctrl.proposal = $injector.get('proposal');
-	ctrl.user = $injector.get('user');
+	ctrl.proposal = proposal;
+	ctrl.connection = connection;
 	ctrl.isEditable = false;
 	const $stateParams = $injector.get('$stateParams');
 	
@@ -29,11 +29,13 @@ export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 	this.$onInit = function() {
 		
 		connection.waitForCheckConnection('ProposalCreateCtrl').then(function() {
-			
-			ctrl.proposal.createData.name = ctrl.connection.user.content.login;
-			ctrl.proposal.createData.email = ctrl.connection.user.email;
-			ctrl.proposal.createData.proposalAccountId = ctrl.connection.user.id;
+			console.log('youpi');
+			ctrl.proposal.createData.name = connection.user.content.login;
+			ctrl.proposal.createData.email = connection.user.email;
+			ctrl.proposal.createData.proposalAccountId = connection.user.id;
 			ctrl.proposal.createData.adId = $stateParams.id;
+
+			console.log('$stateParams.type', $stateParams.type);
 
 			if ($stateParams.type === 'loader') {
 				ctrl.proposal.createData.titleAd = ctrl[$stateParams.type].current.content.title;

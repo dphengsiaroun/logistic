@@ -1,4 +1,4 @@
-export function Carrier($http, $state, $q, $window, connection, lgConfig, afterConnect) {
+export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 	'ngInject';
 
 	const service = this;
@@ -33,7 +33,7 @@ export function Carrier($http, $state, $q, $window, connection, lgConfig, afterC
 				console.error('error', error);
 			});
 		} else {
-			afterConnect.set({
+			connection.afterConnect.set({
 				state: 'carrier:created',
 				service: 'carrier',
 				fn: 'createAfterConnect',

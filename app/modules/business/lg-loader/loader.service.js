@@ -1,4 +1,4 @@
-export function Loader($http, $state, $q, $window, connection, lgConfig, afterConnect) {
+export function Loader($http, $state, $q, $window, connection, lgConfig) {
 	'ngInject';
 
 	const service = this;
@@ -35,7 +35,7 @@ export function Loader($http, $state, $q, $window, connection, lgConfig, afterCo
 				console.error('error', error);
 			});
 		} else {
-			afterConnect.set({
+			connection.afterConnect.set({
 				state: 'loader:created',
 				service: 'loader',
 				fn: 'create',

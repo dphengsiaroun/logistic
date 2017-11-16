@@ -7,6 +7,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, a
 	service.user = undefined;
 	service.createConnectionData = {};
 	$rootScope.connection = service;
+	service.afterConnect = afterConnect;
 
 	service.create = function(createConnectionData) {
 		
@@ -67,7 +68,6 @@ export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, a
 
 	service.waitForCheckConnection = function(reason) {
 		return $q(function(resolve, reject) {
-
 			if (service.isConnected === true) {
 				resolve();
 				return;
@@ -78,11 +78,9 @@ export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, a
 			}
 			const deregister = $rootScope.$watch('connection.isConnected', function() {
 				if (service.isConnected === true) {
-					
 					deregister();
 					resolve();
 				} else if (service.isConnected === false) {
-					
 					deregister();
 					reject('No user connected');
 				}

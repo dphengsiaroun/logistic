@@ -27,7 +27,7 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 			console.log('adminUser.current', service);			
 			service.isConnected = true;
 			console.log('service.isConnected', service.isConnected);	
-			service.goToStateAfterConnect();
+			$state.go('admin');
 		}).catch(function(error) {			
 			service.error = error;
 			console.log('Erreur lors de la connection');
@@ -121,34 +121,6 @@ export function AdminConnection($http, $rootScope, $injector, $q, $state, adminU
 		}).catch(function(error) {
 			service.error = error;
 		});
-	};
-
-	service.setAfterConnectAction = function(obj) {
-		localStorage.setItem('afterConnect', angular.toJson(obj));
-	};
-
-	service.goToStateAfterConnect = function() {
-
-		const json = localStorage.getItem('afterConnect');
-		localStorage.removeItem('afterConnect');
-		if (json === null) {
-			if ($state.$current.name === 'admin') {
-				return;
-			}
-			$state.go('admin');
-			return;
-		}
-		const obj = angular.fromJson(json);
-
-		if (obj.fn && obj.service) {
-			const service = $injector.get(obj.service);
-			if (obj.fn in service) {
-
-				service[obj.fn].apply(null, obj.args);
-			}
-		}
-
-		$state.go(obj.state);
 	};
 
 }
