@@ -34,7 +34,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig, af
 			afterConnect.set({
 				state: 'truck:created',
 				service: 'truck',
-				fn: 'createAfterConnect',
+				fn: 'create',
 				args: [createData]
 			});
 			service.initCreateData();
