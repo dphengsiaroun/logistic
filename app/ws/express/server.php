@@ -9,6 +9,7 @@ $app->use('/toto', function($req, $res, $next) {
     global $console;
     $console->log('$req->url', $req->url);
     $res->send("toto: $req->url");
+    $next();
 });
 
 $app->use(function($req, $res, $next) {
@@ -16,6 +17,8 @@ $app->use(function($req, $res, $next) {
     $console->log('$req->url', $req->url);
     $res->send("Coucoux: $req->url");
 });
+
+$console->log('$_SERVER', $_SERVER);
 
 
 $app->run();

@@ -18,17 +18,13 @@ class Express {
         $numargs = func_num_args();
         if ($numargs === 1) {
             $middleware = func_get_arg(0);
-            
             array_push($this->middlewares, $middleware);
-           
             return;
         }
         if ($numargs === 2) {
-            $prefixUrl = '/logistic/app/ws/express';
+            $prefixUrl = dirname($_SERVER['SCRIPT_NAME']);
             $url = $_SERVER['REQUEST_URI'];
             $prefix = $prefixUrl . func_get_arg(0);
-           
-            
             if (substr($url, 0, strlen($prefix)) !== $prefix) {
                 return;
             }

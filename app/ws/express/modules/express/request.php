@@ -5,7 +5,9 @@ class Request {
     public $url;
 
     public function __construct() {
-        $this->url = $_SERVER['REQUEST_URI'];
+        $prefixUrl = dirname($_SERVER['SCRIPT_NAME']);
+        $absoluteUrl = $_SERVER['REQUEST_URI'];
+        $this->url = substr($absoluteUrl, strlen($prefixUrl));
     }
     
 }
