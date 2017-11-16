@@ -5,9 +5,9 @@ export function config($stateProvider) {
 		url: '/created-carrier',
 		component: 'lgMessage',
 		resolve: {
-			service: function(user) {
+			service: function(connection) {
 				'ngInject';
-				const login = user.current.content.login;
+				const login = connection.user.content.login;
 				
 				const state = 'carrier:list({login: \'' + login + '\'})';
 				

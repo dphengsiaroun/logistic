@@ -1,4 +1,4 @@
-export function Carrier($http, $state, $q, $window, connection, user, lgConfig, afterConnect) {
+export function Carrier($http, $state, $q, $window, connection, lgConfig, afterConnect) {
 	'ngInject';
 
 	const service = this;
@@ -14,7 +14,7 @@ export function Carrier($http, $state, $q, $window, connection, user, lgConfig, 
 
 	service.create = function(createData) {
 		
-		if (user.current) {
+		if (connection.user) {
 			$http({
 				url: lgConfig.wsDir() + 'carriers',
 				method: 'POST',

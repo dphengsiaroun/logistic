@@ -1,5 +1,5 @@
 
-export function Truck($q, $http, $state, $window, user, connection, lgConfig, afterConnect) {
+export function Truck($q, $http, $state, $window, connection, lgConfig, afterConnect) {
 	'ngInject';
 	const service = this;
 	service.initCreateData = function() {
@@ -10,9 +10,9 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig, af
 	service.initCreateData();
 
 	service.create = function(createData) {
-		if (user.current) {
+		if (connection.user) {
 			$http({
-				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks',
+				url: lgConfig.wsDir() + 'users/' + connection.user.content.login + '/trucks',
 				method: 'POST',
 				data: createData,
 				headers: {
@@ -46,7 +46,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig, af
 		
 		return connection.waitForCheckConnection('TruckList').then(function() {
 			return $http({
-				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks',
+				url: lgConfig.wsDir() + 'users/' + connection.user.content.login + '/trucks',
 				method: 'GET'
 			});
 		}).then(function(response) {
@@ -99,7 +99,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig, af
 		
 		connection.waitForCheckConnection().then(function() {
 			return $http({
-				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks/' + service.updateData.id,
+				url: lgConfig.wsDir() + 'users/' + connection.user.content.login + '/trucks/' + service.updateData.id,
 				method: 'PUT',
 				data: service.updateData,
 				headers: {
@@ -126,7 +126,7 @@ export function Truck($q, $http, $state, $window, user, connection, lgConfig, af
 		
 		return connection.waitForCheckConnection().then(function() {
 			return $http({
-				url: lgConfig.wsDir() + 'users/' + user.current.content.login + '/trucks/' + id,
+				url: lgConfig.wsDir() + 'users/' + connection.user.content.login + '/trucks/' + id,
 				method: 'DELETE',
 				data: {
 					id: id

@@ -1,6 +1,7 @@
 function initCtrl(ctrl, $scope, $injector) {
 	ctrl.user = $injector.get('user');
 	ctrl.connection = $injector.get('connection');
+	ctrl.afterConnect = $injector.get('afterConnect');
 	ctrl.user.error = undefined;
 	$scope.$watch('$ctrl.user.signupData.content.login', function() {
 		
@@ -12,9 +13,9 @@ function initCtrl(ctrl, $scope, $injector) {
 		
 		ctrl.user.updateData.content.login = angular.lowercase(ctrl.user.updateData.content.login);
 	});
-	$scope.$watch('$ctrl.user.current', function() {
-		if (ctrl.user.current) {
-			ctrl.user.updateData = angular.copy(ctrl.user.current);
+	$scope.$watch('$ctrl.connection.user', function() {
+		if (ctrl.connection.user) {
+			ctrl.user.updateData = angular.copy(ctrl.connection.user);
 		}
 	});
 }

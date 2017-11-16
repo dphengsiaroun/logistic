@@ -38,10 +38,10 @@ export function config($stateProvider) {
 		url: '/updated-proposal',
 		component: 'lgMessage',
 		resolve: {
-			service: function(user, truck, connection) {
+			service: function(connection, truck) {
 				'ngInject';
 				return connection.waitForCheckConnection().then(function() {
-					const login = user.current.content.login;
+					const login = connection.user.content.login;
 					
 					const state = 'user:proposals({login: \'' + login + '\'})';
 					
@@ -82,10 +82,10 @@ export function config($stateProvider) {
 		url: '/deleted-proposal',
 		component: 'lgMessage',
 		resolve: {
-			service: function(connection, user, proposal) {
+			service: function(connection, proposal) {
 				'ngInject';
 				return connection.waitForCheckConnection('proposal:deleted').then(function() {
-					const login = user.current.content.login;
+					const login = connection.user.content.login;
 					
 					const state = 'user:proposals({login: \'' + login + '\'})';
 					
@@ -104,10 +104,10 @@ export function config($stateProvider) {
 		url: '/mail-sent',
 		component: 'lgMessage',
 		resolve: {
-			service: function(user, truck, connection) {
+			service: function(connection, truck) {
 				'ngInject';
 				return connection.waitForCheckConnection().then(function() {
-					const login = user.current.content.login;
+					const login = connection.user.content.login;
 					
 					const state = 'user:proposals({login: \'' + login + '\'})';
 					

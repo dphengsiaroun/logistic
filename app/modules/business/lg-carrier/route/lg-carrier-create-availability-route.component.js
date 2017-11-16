@@ -2,7 +2,7 @@ import lgCarrierCreateAvailabilityHtml from '../tmpl/carrier-create-availability
 
 export const lgCarrierCreateAvailabilityRoute = {
 	template: lgCarrierCreateAvailabilityHtml,
-	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, user, carrier) {
+	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, connection, carrier) {
 		'ngInject';
 		const ctrl = this;
 		ctrl.select = function(str) {
@@ -11,7 +11,8 @@ export const lgCarrierCreateAvailabilityRoute = {
 				if (carrier.type === 'create') {
 					$state.go('carrier:create');
 				} else {
-					$state.go('carrier:' + carrier.type, { login: user.current.content.login, id: carrier.current.id });
+					$state.go('carrier:' + carrier.type, 
+						{ login: connection.user.content.login, id: carrier.current.id });
 				}
 			}
 			if (str === 'specificTrip') {

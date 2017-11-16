@@ -8,7 +8,7 @@
 		<subtitle ng-show="$ctrl.proposal.createData.adType === 'carrier'">au transporteur</subtitle>
 	</right>
 </div>
-<form name="formCtrl" ng-submit="$ctrl.proposal.create()" class="ad">
+<form name="formCtrl" ng-submit="$ctrl.proposal.create($ctrl.proposal.createData)" class="ad">
 	<img-ad>
 		<img ng-show="$ctrl.proposal.createData.imageUrl" src="{{$ctrl.proposal.createData.imageUrl}}">
 	</img-ad>

@@ -18,7 +18,7 @@ import { lgCarrierCreateTruckCreateRoute } from './route/lg-carrier-create-truck
 import { lgCarrierCreateRoute } from './route/lg-carrier-create-route.component.js';
 import { lgCarrierUpdateRoute } from './route/lg-carrier-update-route.component.js';
 
-angular.module(module.exports, ['ui.router'])
+angular.module(module.exports, ['ui.router', 'lg-connection'])
 
 	.service('carrier', Carrier)
 	.service('carrierStepManager', CarrierStepManager)

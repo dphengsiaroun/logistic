@@ -1,20 +1,20 @@
 
 
-export function TruckListCtrl($scope, user, truck) {
+export function TruckListCtrl($scope, connection, truck) {
 	'ngInject';
 	const ctrl = this;
     ctrl.truck = truck;
-    ctrl.user = user;
+    ctrl.connection = connection;
     this.$onInit = function() {
         this.truck.list();
     };
 }
 
-export function TruckCtrl($stateParams, truck, user) {
+export function TruckCtrl($stateParams, connection, truck) {
     'ngInject';
     const ctrl = this;
     ctrl.truck = truck;
-    ctrl.user = user;
+    ctrl.connection = connection;
     ctrl.$onInit = function() {
         ctrl.truck.get($stateParams.id);
     };

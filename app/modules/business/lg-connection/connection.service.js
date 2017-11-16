@@ -4,19 +4,20 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 	'ngInject';
 	const service = this;
 	service.isConnected = undefined;
+	service.user = undefined;
 	service.createConnectionData = {};
 	$rootScope.connection = service;
 
-	service.create = function() {
+	service.create = function(createConnectionData) {
 		
 		const SHA256 = new Hashes.SHA256; // on crée la variable de cryptage
 		$http({
 			url: lgConfig.wsDir() + 'connections',
 			method: 'POST',
 			data: {
-				login: service.createConnectionData.login,
+				login: createConnectionData.login,
 				// permet de crypter le password
-				password: SHA256.hex(service.createConnectionData.password)
+				password: SHA256.hex(createConnectionData.password)
 			},
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
@@ -28,8 +29,8 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 				return;
 			}
 			service.error = undefined;
-			user.current = response.data.connection.user;
-			console.log('user.current', user.current);
+			service.user = response.data.connection.user;
+			console.log('connection.user', service.user);
 			service.isConnected = true;
 			console.log('service.isConnected', service.isConnected);
 			afterConnect.execute();
@@ -57,7 +58,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 				return;
 			}
 			service.isConnected = true;
-			user.current = response.data.connection.user;
+			service.user = response.data.connection.user;
 			console.log('$state', $state);
 		}).catch(function(error) {
 			service.error = error;
@@ -111,7 +112,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, user, lgCon
 				return;
 			}
 			service.error = undefined;
-			user.current = undefined;
+			service.user = undefined;
 			service.isConnected = false;
 			$state.go('home');
 		}).catch(function(error) {

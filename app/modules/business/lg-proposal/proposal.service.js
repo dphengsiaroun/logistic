@@ -1,4 +1,4 @@
-export function Proposal($http, $state, $q, $window, connection, user, lgConfig) {
+export function Proposal($http, $state, $q, $window, connection, lgConfig, afterConnect) {
 	'ngInject';
 
 	const service = this;
@@ -10,10 +10,8 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 	service.initCreateData();
 
 
-	service.create = function() {
-		
-		const createData = service.createData;
-		if (user.current) {
+	service.create = function(createData) {
+		if (connection.user) {
 			$http({
 				url: lgConfig.wsDir() + 'proposals',
 				method: 'POST',
@@ -34,24 +32,15 @@ export function Proposal($http, $state, $q, $window, connection, user, lgConfig)
 				console.error('error', error);
 			});
 		} else {
-			createData.userNotConnected = true;
-			localStorage.setItem('proposal', angular.toJson(createData));
-			connection.setAfterConnectAction({
+			afterConnect.set({
 				state: 'proposal:created',
 				service: 'proposal',
-				fn: 'createAfterConnect',
-				args: []
+				fn: 'create',
+				args: [createData]
 			});
 			service.initCreateData();
 			$state.go('user:hasAccount');
 		}
-	};
-
-	service.createAfterConnect = function() {
-		service.createData = angular.fromJson(localStorage.getItem('proposal'));
-		localStorage.removeItem('proposal');
-		
-		service.create();
 	};
 
 	service.listData = {};

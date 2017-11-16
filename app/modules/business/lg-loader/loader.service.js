@@ -1,4 +1,4 @@
-export function Loader($http, $state, $q, $window, connection, user, lgConfig, afterConnect) {
+export function Loader($http, $state, $q, $window, connection, lgConfig, afterConnect) {
 	'ngInject';
 
 	const service = this;
@@ -14,7 +14,7 @@ export function Loader($http, $state, $q, $window, connection, user, lgConfig, a
 
 
 	service.create = function(createData) {
-		if (user.current) {
+		if (connection.user) {
 			$http({
 				url: lgConfig.wsDir() + 'loaders',
 				method: 'POST',

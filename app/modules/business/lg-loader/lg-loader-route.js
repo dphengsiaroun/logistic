@@ -20,9 +20,9 @@ export function config($stateProvider) {
         url: '/created-loader',
         component: 'lgMessage',
         resolve: {
-            service: function(user) {
+            service: function(connection) {
                 'ngInject';
-                const login = user.current.content.login;
+                const login = connection.user.content.login;
                 
                 const state = 'loader:list({login: \'' + login + '\'})';
                 
@@ -45,10 +45,10 @@ export function config($stateProvider) {
         url: '/updated-loader',
         component: 'lgMessage',
         resolve: {
-            service: function(connection, user, loader) {
+            service: function(connection, loader) {
                 'ngInject';
                 return connection.waitForCheckConnection('loader:updated').then(function() {
-                    const login = user.current.content.login;
+                    const login = connection.user.content.login;
                     
                     const state = 'loader:list({login: \'' + login + '\'})';
                     
@@ -89,10 +89,10 @@ export function config($stateProvider) {
         url: '/deleted-loader',
         component: 'lgMessage',
         resolve: {
-            service: function(connection, user, loader) {
+            service: function(connection, loader) {
                 'ngInject';
                 return connection.waitForCheckConnection('loader:deleted').then(function() {
-                    const login = user.current.content.login;
+                    const login = connection.user.content.login;
                     
                     const state = 'loader:list({login: \'' + login + '\'})';
                     

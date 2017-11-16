@@ -4,12 +4,12 @@
 	</head-left>
 	<head-left ng-hide="$root.isBackPresent">
 	</head-left>
-	<head-center ng-show="!$ctrl.user.current">
+	<head-center ng-show="!$ctrl.connection.user">
 		<a ng-click="$ctrl.off() || $root.goToState('home')"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGoroute</span></a>
 	</head-center>
-	<head-center class="connected" ng-show="$ctrl.user.current">
+	<head-center class="connected" ng-show="$ctrl.connection.user">
 		<a ng-click="$ctrl.off()|| $root.goToState('home')"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGoroute</span><br/>
-			<span ng-show="$ctrl.user.current" class="user-identity">{{$ctrl.user.current.content.firstname}} {{$ctrl.user.current.content.lastname | uppercase }}</span>
+			<span ng-show="$ctrl.connection.user" class="user-identity">{{$ctrl.connection.user.content.firstname}} {{$ctrl.connection.user.content.lastname | uppercase }}</span>
 		</a>
 	</head-center>
 	<head-right>
@@ -18,19 +18,19 @@
 </my-head>
 
 <lg-menu-content>
-	<div ng-hide="$ctrl.user.current">
+	<div ng-hide="$ctrl.connection.user">
 		<a ng-click="$ctrl.toggle();" ui-sref="connection:create"><i class="fa fa-sign-in" aria-hidden="true"></i> <p>Se connecter</p></a>
 		<!-- <a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a> -->
 	</div>
-	<div ng-show="$ctrl.user.current">
-		<a id="my-proposals" ng-click="$ctrl.toggle();" ui-sref="user:proposals({login: $ctrl.user.current.content.login})">
+	<div ng-show="$ctrl.connection.user">
+		<a id="my-proposals" ng-click="$ctrl.toggle();" ui-sref="user:proposals({login: $ctrl.connection.user.content.login})">
 			<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 			<p>Mes propositions
 				<span ng-show="$ctrl.myProposals.length > 0">({{$ctrl.myProposals.length}})</span>
 			</p>		
 		</a>
 		<!-- <a ng-click="$ctrl.toggle();" href=""><i class="fa fa-handshake-o" aria-hidden="true"></i><span class="notification">1</span><p>Mes engagements</p></a> -->
-		<a id="pr-my-ads-link" ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.user.current.content.login})">
+		<a id="pr-my-ads-link" ng-click="$ctrl.toggle();" ui-sref="user:ads({login: $ctrl.connection.user.content.login})">
 			<i class="fa fa-files-o" aria-hidden="true"></i>
 			<p>Mes annonces
 				<span ng-show="$ctrl.myCarriers.length + $ctrl.myLoaders.length > 0">
@@ -39,7 +39,7 @@
 			</p>
 		</a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user-o" aria-hidden="true"></i> <p>Mon profil</p></a>
-		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.user.current.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
+		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.connection.user.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <p>Mes véhicules</p></a>
 		<br/><br/>
 		<a ng-click="$ctrl.toggle();" ui-sref="connection:delete" class="btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i> <p>Se déconnecter</p></a>
 		<!-- <a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a> -->

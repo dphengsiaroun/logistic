@@ -15,10 +15,10 @@ export function config($stateProvider) {
         url: '/updated-carrier',
         component: 'lgMessage',
         resolve: {
-            service: function(connection, user, carrier) {
+            service: function(connection, carrier) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
-                    const login = user.current.content.login;
+                    const login = connection.user.content.login;
                     
                     const state = 'carrier:list({login: \'' + login + '\'})';
                     
@@ -62,7 +62,7 @@ export function config($stateProvider) {
             service: function(connection, user, carrier) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
-                    const login = user.current.content.login;
+                    const login = connection.user.content.login;
                     
                     const state = 'carrier:list({login: \'' + login + '\'})';
                     

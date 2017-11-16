@@ -1,7 +1,7 @@
 import lgCarrierCreateTripCreateHtml from '../tmpl/carrier-create-trip-create.html';
 export const lgCarrierCreateTripCreateRoute = {
 	template: lgCarrierCreateTripCreateHtml,
-	controller: function LgCarrierCreateTripCreateRouteCtrl($scope, $state, user, carrier, geoloc) {
+	controller: function LgCarrierCreateTripCreateRouteCtrl($scope, $state, connection, carrier, geoloc) {
 		'ngInject';
 		const ctrl = this;
 		if (carrier.type === 'create') {
@@ -16,7 +16,7 @@ export const lgCarrierCreateTripCreateRoute = {
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {
-				$state.go('carrier:' + carrier.type, {login: user.current.content.login, id: carrier.current.id});
+				$state.go('carrier:' + carrier.type, {login: connection.user.content.login, id: carrier.current.id});
 			}
 		};
 

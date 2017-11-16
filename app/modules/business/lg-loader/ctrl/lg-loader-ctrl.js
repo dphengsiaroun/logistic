@@ -14,11 +14,10 @@ export function LoaderListCtrl($scope, loader, lgFilterList) {
 	};
 }
 
-export function LoaderCtrl($scope, $stateParams, loader, user, connection) {
+export function LoaderCtrl($scope, $stateParams, loader, connection) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.loader = loader;
-	ctrl.user = user;
 	ctrl.connection = connection;
 	ctrl.isEditable = false;
 
@@ -27,7 +26,7 @@ export function LoaderCtrl($scope, $stateParams, loader, user, connection) {
 		ctrl.loader.get($stateParams.id).then(function() {
 			return connection.waitForCheckConnection('LoaderCtrl');
 		}).then(function() {
-			ctrl.isEditable = (ctrl.loader.current.content.userId === ctrl.user.current.id);
+			ctrl.isEditable = (ctrl.loader.current.content.userId === ctrl.connection.user.id);
 
 		}).catch(function() {
 			ctrl.isEditable = false;
@@ -36,10 +35,9 @@ export function LoaderCtrl($scope, $stateParams, loader, user, connection) {
 	};
 }
 export function LoaderCreateCtrl(
-	$scope, $element, $http, $q, $window, $filter, loader, user, connection, geoloc, formValidator) {
+	$scope, $element, $http, $q, $window, $filter, loader, connection, geoloc, formValidator) {
 	'ngInject';
 	const ctrl = this;
-	ctrl.user = user;
 	ctrl.connection = connection;
 	ctrl.loader = loader;
 	ctrl.fv = formValidator;
@@ -53,8 +51,8 @@ export function LoaderCreateCtrl(
 			ctrl.loader.createData.dimension.depth * ctrl.loader.createData.dimension.width;
 		ctrl.loader.createData.volume = Number((ctrl.loader.createData.volume).toFixed(2));
 
-		if (ctrl.user.current) {
-			ctrl.loader.createData.phone = ctrl.user.current.content.phone;
+		if (ctrl.connection.user) {
+			ctrl.loader.createData.phone = ctrl.connection.user.content.phone;
 		}
 
 	});
@@ -73,7 +71,8 @@ export function LoaderCreateCtrl(
 		console.log('watch date', arguments);
 		if (ctrl.loader.createData.departureDatetime && oldValue === undefined) {
 			ctrl.loader.createData.arrivalDatetime =
-				new Date(ctrl.loader.createData.departureDatetime.getTime() + ctrl.loader.createData.minDuration * 1000);
+				new Date(ctrl.loader.createData.departureDatetime.getTime() + 
+					ctrl.loader.createData.minDuration * 1000);
 		}
 	});
 
@@ -92,11 +91,10 @@ export function LoaderCreateCtrl(
 	);
 }
 
-export function LoaderUpdateCtrl($stateParams, loader, user, connection, formValidator) {
+export function LoaderUpdateCtrl($stateParams, loader, connection, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.loader = loader;
-	ctrl.user = user;
 	ctrl.fv = formValidator;
 	this.$onInit = function() {
 		connection.waitForCheckConnection('LoaderUpdateCtrl').then(function() {

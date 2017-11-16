@@ -2,7 +2,7 @@ import carrierCreateTruckChooseHtml from '../tmpl/carrier-create-truck-choose.ht
 
 export const lgCarrierCreateTruckChooseRoute = {
 	template: carrierCreateTruckChooseHtml,
-	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, user, truck, carrier) {
+	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, connection, truck, carrier) {
 		'ngInject';
 		const ctrl = this;
 		ctrl.hasTruck = false;
@@ -17,7 +17,7 @@ export const lgCarrierCreateTruckChooseRoute = {
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {
-				$state.go('carrier:' + carrier.type, {login: user.current.content.login, id: carrier.current.id});
+				$state.go('carrier:' + carrier.type, {login: connection.user.content.login, id: carrier.current.id});
 			}
 		};
 	}

@@ -5,11 +5,11 @@ import lgMenuHtml from './tmpl/lg-menu.html';
 export const lgMenu = {
 	template: lgMenuHtml,
 	controller: function LgMenuCtrl($element, $scope, $state, $rootScope,
-		$timeout, $window, user, carrier, loader, proposal, connection, lgMobile) {
+		$timeout, $window, carrier, loader, proposal, connection, lgMobile) {
 
 		'ngInject';
 		const ctrl = this;
-		ctrl.user = user;
+		ctrl.connection = connection;
 		ctrl.carrier = carrier;
 		ctrl.loader = loader;
 		ctrl.proposal = proposal;
@@ -23,21 +23,21 @@ export const lgMenu = {
 			
 			connection.waitForCheckConnection().then(function(carriers) {
 				return carrier.list({
-					userId: user.current.id
+					userId: connection.user.id
 				});
 			}).then(function(carriers) {
 				ctrl.myCarriers = carriers;
 				
 			}).then(function(loaders) {
 				return loader.list({
-					userId: user.current.id
+					userId: connection.user.id
 				});
 			}).then(function(loaders) {
 				ctrl.myLoaders = loaders;
 				
 			}).then(function(proposals) {
 				return proposal.list({
-					userId: user.current.id
+					userId: connection.user.id
 				});
 			}).then(function(proposals) {
 				ctrl.myProposals = proposals;
@@ -57,7 +57,7 @@ export const lgMenu = {
 			
 			if (ctrl.isMenuOn) {
 				ctrl.lgMenuContentElt.css('display', 'block');
-				if (ctrl.user.current) {
+				if (ctrl.connection.user) {
 					ctrl.refreshNotifications();
 				}
 			} else {

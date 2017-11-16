@@ -23,9 +23,9 @@ export function config($stateProvider) {
         url: '/created-truck',
         component: 'lgMessage',
         resolve: {
-            service: function(user, context) {
+            service: function(connection, context) {
                 'ngInject';
-                const login = user.current.content.login;
+                const login = connection.user.content.login;
                 
                 let state = context.pop();
                 if (state === undefined) {
@@ -51,10 +51,10 @@ export function config($stateProvider) {
         url: '/updated-truck',
         component: 'lgMessage',
         resolve: {
-            service: function(user, truck, connection) {
+            service: function(connection, truck) {
                 'ngInject';
                 return connection.waitForCheckConnection().then(function() {
-                    const login = user.current.content.login;
+                    const login = connection.user.content.login;
                     
                     const state = 'truck:list({login: \'' + login + '\'})';
                     
@@ -95,10 +95,10 @@ export function config($stateProvider) {
         url: '/deleted-truck',
         component: 'lgMessage',
         resolve: {
-            service: function(user, truck, connection) {
+            service: function(connection, truck) {
                 'ngInject';
                 return connection.waitForCheckConnection('truck:deleted').then(function() {
-                    const login = user.current.content.login;
+                    const login = connection.user.content.login;
                     
                     const state = 'truck:list({login: \'' + login + '\'})';
                     

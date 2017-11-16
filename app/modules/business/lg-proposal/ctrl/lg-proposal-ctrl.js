@@ -11,29 +11,28 @@ export function ProposalCtrl($scope, $injector, connection) {
 		ctrl.proposal.get($stateParams.id).then(function() {
 			return connection.waitForCheckConnection();
 		}).then(function() {
-			ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.user.current.id);
+			ctrl.isEditable = (ctrl.proposal.current.content.userId === ctrl.connection.user.id);
 			
 		});
 	};
 }
 
-export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
-	user, connection, loader, carrier, formValidator) {
+export function ProposalCreateCtrl($scope, $window, $stateParams, proposal, 
+	connection, loader, carrier, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.proposal = proposal;
 	ctrl.loader = loader;
 	ctrl.carrier = carrier;
-	ctrl.user = user;
 	ctrl.fv = formValidator;
 	
 	this.$onInit = function() {
 		
 		connection.waitForCheckConnection('ProposalCreateCtrl').then(function() {
 			
-			ctrl.proposal.createData.name = ctrl.user.current.content.login;
-			ctrl.proposal.createData.email = ctrl.user.current.email;
-			ctrl.proposal.createData.proposalAccountId = ctrl.user.current.id;
+			ctrl.proposal.createData.name = ctrl.connection.user.content.login;
+			ctrl.proposal.createData.email = ctrl.connection.user.email;
+			ctrl.proposal.createData.proposalAccountId = ctrl.connection.user.id;
 			ctrl.proposal.createData.adId = $stateParams.id;
 
 			if ($stateParams.type === 'loader') {
@@ -58,11 +57,10 @@ export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 }
 
 export function ProposalUpdateCtrl($scope, $stateParams, 
-	proposal, user, connection, formValidator) {
+	proposal, connection, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.proposal = proposal;
-	ctrl.user = user;
 	ctrl.fv = formValidator;	
 	this.$onInit = function() {
 		ctrl.proposal.get($stateParams.id).then(function() {
