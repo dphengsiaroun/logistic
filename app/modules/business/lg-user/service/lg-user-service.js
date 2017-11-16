@@ -1,6 +1,6 @@
 import Hashes from 'jshashes';
 
-export function User($injector, $http, $rootScope, $q, $state, userValidator, lgConfig) {
+export function User($injector, $http, $rootScope, $q, $state, connection, userValidator, lgConfig) {
 	'ngInject';
 	const service = this;
 
@@ -28,8 +28,7 @@ export function User($injector, $http, $rootScope, $q, $state, userValidator, lg
 				return;
 			}
 			service.error = undefined;
-			service.current = response.data.user;
-			const connection = $injector.get('connection');
+			connection.user = response.data.user;
 			connection.isConnected = true;
 			$state.go('user:create:success');
 		}).catch(function(error) {

@@ -1,6 +1,6 @@
 import Hashes from 'jshashes';
 
-export function Connection($http, $rootScope, $injector, $q, $state, user, lgConfig, afterConnect) {
+export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, afterConnect) {
 	'ngInject';
 	const service = this;
 	service.isConnected = undefined;
