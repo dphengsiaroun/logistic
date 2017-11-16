@@ -29,7 +29,6 @@ export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 	this.$onInit = function() {
 		
 		connection.waitForCheckConnection('ProposalCreateCtrl').then(function() {
-			console.log('youpi');
 			ctrl.proposal.createData.name = connection.user.content.login;
 			ctrl.proposal.createData.email = connection.user.email;
 			ctrl.proposal.createData.proposalAccountId = connection.user.id;
