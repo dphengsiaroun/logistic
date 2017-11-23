@@ -1,12 +1,13 @@
-const utils = require('./utils.js');
-const data = require('./data/data.js');
+const init = require('./init.js');
+const utils = require('../utils.js');
+const data = require('../data/data.js');
 const loaderAd = data.loaderAd[0];
 const user = data.users[0];
 
-describe('Loader CRUD', function() {
+describe('LOADER CRUD', function() {
 
 	beforeEach(function() {
-		console.log('Loader ad CRUD', arguments);
+		console.log('LOADER CRUD', arguments);
 	});
 
 	afterEach(function() {
@@ -16,6 +17,27 @@ describe('Loader CRUD', function() {
 			}
 			expect(browserLog.length).toEqual(0);
 		});
+	});
+
+
+	it('should make uninstall', function() {
+		console.log('-> should make uninstall', arguments);
+		init.uninstall();
+	});
+
+	it('should make install', function() {
+		console.log('-> should make install', arguments);
+		init.install();
+	});
+
+	it('should go to website', function() {
+		console.log('-> should go to website', arguments);
+		init.goToWebsite();
+	});
+
+	it('should insert geoloc stub', function() {
+		console.log('-> should insert geoloc stub', arguments);	
+		init.geolocStub();
 	});
 
 	it('should create a loader ad', function() {
@@ -72,7 +94,9 @@ describe('Loader CRUD', function() {
 		element(by.name('priceWanted')).clear().sendKeys('5000');
 		// browser.sleep(5000);
 		utils.submitForm();
+		// browser.sleep(5000);
 		element(by.css('button.ok')).click();
+		// browser.sleep(5000);
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 

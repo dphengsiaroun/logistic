@@ -1,13 +1,14 @@
 'use strict';
 
-const utils = require('./utils.js');
-const data = require('./data/data.js');
+const init = require('./init.js');
+const utils = require('../utils.js');
+const data = require('../data/data.js');
 const user = data.users[0];
 
-describe('Already exist', function() {
+describe('Test ALREADY EXIST', function() {
 
 	beforeEach(function() {
-		console.log('Init', arguments);
+		console.log('Test ALREADY EXIST', arguments);
 	});
 
 	afterEach(function() {
@@ -17,6 +18,26 @@ describe('Already exist', function() {
 			}
 			expect(browserLog.length).toEqual(0);
 		});
+	});
+
+	it('should make uninstall', function() {
+		console.log('-> should make uninstall', arguments);
+		init.uninstall();
+	});
+
+	it('should make install', function() {
+		console.log('-> should make install', arguments);
+		init.install();
+	});
+
+	it('should go to website', function() {
+		console.log('-> should go to website', arguments);
+		init.goToWebsite();
+	});
+
+	it('should create a user', function() {
+		console.log('-> create a user', arguments);
+		utils.user.create(user);
 	});
 
 	it('should create another user', function() {
@@ -48,15 +69,15 @@ describe('Already exist', function() {
 		expect(element(by.id('phone-already-taken-error-msg')).isDisplayed()).toEqual(true);
 
 		element(by.name('login')).clear().sendKeys(user.login + '2');
-		// browser.sleep(1000);
+		browser.sleep(1000);
 		expect(btn.getAttribute('disabled')).toEqual('true');
 
 		element(by.name('email')).clear().sendKeys(user.email + '2');
-		// browser.sleep(1000);
+		browser.sleep(1000);
 		expect(btn.getAttribute('disabled')).toEqual('true');
 
 		element(by.name('phone')).clear().sendKeys(user.phone + '2000');
-		// browser.sleep(1000);
+		browser.sleep(1000);
 		expect(btn.getAttribute('disabled')).toEqual(null);
 
 	});

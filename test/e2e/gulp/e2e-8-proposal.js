@@ -1,14 +1,14 @@
 'use strict';
 
-const utils = require('./utils.js');
-const data = require('./data/data.js');
+const utils = require('../utils.js');
+const data = require('../data/data.js');
 const fs = require('fs');
 const user = data.users[1];
 
-describe('Proposal CRUD', function() {
+describe('PROPOSAL CRUD', function() {
 
 	beforeEach(function() {
-		console.log('Proposal CRUD', arguments);
+		console.log('PROPOSAL CRUD', arguments);
 	});
 
 	afterEach(function() {

@@ -1,12 +1,35 @@
 'use strict';
 
-const utils = require('./utils.js');
-const data = require('./data/data.js');
+const init = require('./init.js');
+const utils = require('../utils.js');
+const data = require('../data/data.js');
+const user = data.users[0];
 
-describe('Test CHECK ADS DELETION', function() {
+
+describe('CHECK ADS DELETION', function() {
 
 	beforeEach(function() {
 		console.log('Test CHECK ADS DELETION', arguments);
+	});
+
+	it('should make uninstall', function() {
+		console.log('-> should make uninstall', arguments);
+		init.uninstall();
+	});
+
+	it('should make install', function() {
+		console.log('-> should make install', arguments);
+		init.install();
+	});
+
+	it('should go to website', function() {
+		console.log('-> should go to website', arguments);
+		init.goToWebsite();
+	});
+
+	it('should create a user', function() {
+		console.log('-> create a user', arguments);
+		utils.user.create(user);
 	});
 
 	it('should create a Loader ad', function() {

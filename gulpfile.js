@@ -27,6 +27,7 @@ require('./gulp/clean.js')(gulp, pathConfig);
 require('./gulp/build.js')(gulp, pathConfig);
 require('./gulp/deploy.js')(gulp, pathConfig);
 require('./gulp/undeploy.js')(gulp, pathConfig);
+require('./gulp/protractor.js')(gulp);
 
 gulp.task('default', ['rebuild']);
 

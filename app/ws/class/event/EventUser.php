@@ -92,7 +92,7 @@ EOF;
 		global $db, $cfg;
 		debug('$e->id', $e);
 		$sql = <<<EOF
-DELETE FROM {$cfg->prefix}proposal
+DELETE FROM {$cfg->prefix}loader
 WHERE user_id = :id;
 EOF;
 

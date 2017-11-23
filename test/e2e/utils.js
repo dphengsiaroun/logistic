@@ -26,7 +26,7 @@ utils.lgChoiceSelect = function(name, choice) {
 
 utils.lgUploadSelect = function(name, p) {
 	element(by.css('lg-load-image input[type="file"]')).sendKeys(p);
-	browser.sleep(1000);
+	// browser.sleep(1000);
 };
 
 utils.isDirectoryExisting = function(p) {
@@ -81,7 +81,7 @@ utils.user.truck.create = function(truck) {
 utils.user.truck.retrieve = function(user, truck) {
 	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
-	browser.sleep(5000);	
+	// browser.sleep(5000);	
 	element(by.linkText('Mes véhicules')).click();
 	element(by.css('truck-list img')).click();
 	expect(browser.getCurrentUrl()).toEqual(

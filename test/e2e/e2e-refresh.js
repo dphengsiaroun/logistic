@@ -38,11 +38,11 @@ describe('Create ADS', function() {
 		console.log('-> start', arguments);
 		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
-		browser.sleep(5000);	
+		// browser.sleep(5000);	
 		element(by.linkText('Mes véhicules')).click();
-		browser.sleep(5000);
+		// browser.sleep(5000);
 		browser.refresh();
-		browser.sleep(5000);
+		// browser.sleep(5000);
 		element(by.css('truck-list img')).click();
 		expect(browser.getCurrentUrl()).toEqual(
 			`${data.mainUrl}${user.login.toLowerCase()}/truck/${truck.name}`

@@ -67,7 +67,7 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 		
 
 		return $http({
-			url: lgConfig.wsDir() + 'users/' + service.current.id,
+			url: lgConfig.wsDir() + 'users/' + connection.user.id,
 			method: 'DELETE',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).then(function(response) {

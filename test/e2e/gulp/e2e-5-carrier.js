@@ -1,13 +1,14 @@
-const utils = require('./utils.js');
-const data = require('./data/data.js');
+const init = require('./init.js');
+const utils = require('../utils.js');
+const data = require('../data/data.js');
 const truck = data.trucks[0];
 const carrierAd = data.carrierAd[0];
 const user = data.users[0];
 
-describe('Carrier CRUD', function() {
+describe('CARRIER CRUD', function() {
 
 	beforeEach(function() {
-		console.log('Carrier ad CRUD', arguments);
+		console.log('CARRIER CRUD', arguments);
 	});
 
 	afterEach(function() {
@@ -17,6 +18,26 @@ describe('Carrier CRUD', function() {
 			}
 			expect(browserLog.length).toEqual(0);
 		});
+	});
+
+	it('should make uninstall', function() {
+		console.log('-> should make uninstall', arguments);
+		init.uninstall();
+	});
+
+	it('should make install', function() {
+		console.log('-> should make install', arguments);
+		init.install();
+	});
+
+	it('should go to website', function() {
+		console.log('-> should go to website', arguments);
+		init.goToWebsite();
+	});
+
+	it('should insert geoloc stub', function() {
+		console.log('-> should insert geoloc stub', arguments);	
+		init.geolocStub();
 	});
 
 	it('should create carrier ad', function() {
