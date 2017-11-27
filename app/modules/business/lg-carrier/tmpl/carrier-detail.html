@@ -116,7 +116,8 @@
 	<br/>
 	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
 	<bottom ng-show="!$ctrl.isEditable">
-		<a ng-show="$ctrl.carrier.current.content.phone" href="tel:{{$ctrl.carrier.current.content.phone}}">Appeler</a>
+		<a ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Appeler</a>
+		<a ng-show="$ctrl.connection.isConnected == true" href="tel:{{$ctrl.carrier.current.content.phone}}">Appeler</a>
 		<a id="create-proposal-not-connected" ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Faire une proposition</a>
 		<a id="create-proposal" ng-show="$ctrl.connection.isConnected == true" ui-sref="proposal:create({id: $ctrl.carrier.current.id, type: 'carrier'})">Faire une proposition</a>
 	</bottom>
