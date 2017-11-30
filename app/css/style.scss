@@ -68,6 +68,14 @@ my-input[readonly] {
 	background-color: $littleLightGray;
 }
 
+my-input {
+	color: $placeholderColor;
+}
+
+my-input.filled {
+	color: black;
+}
+
 textarea {
 	-webkit-appearance: none;
 	display: block;
@@ -123,15 +131,6 @@ lg-menu [ng-click] {
 	/* Firefox 4 - 18 */
 	color: $placeholderColor;
 	opacity: 1;
-}
-
-my-input {
-	color: $placeholderColor;
-	line-height: 18px;
-}
-
-my-input.filled {
-	color: black;
 }
 
 label {

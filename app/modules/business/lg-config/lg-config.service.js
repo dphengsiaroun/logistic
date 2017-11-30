@@ -73,7 +73,7 @@ export function LgConfigProvider() {
 
 				config.typeOfGoods = ['Classique', 'Dangereux', 'Animaux', 'Massif', 'Frigo'];
 				config.vehicleTypes = ['Bâche', 'Benne', 'Frigo'];
-				config.countries = ['Algérie', 'France', 'Maroc'];
+				config.countries = ['Algérie'];
 				config.conditioningTypes = ['Colis', 'Palette', 'Vrac', 'Indifférent'];
 				const year = (new Date()).getFullYear();
 				config.years = [...Array(19).keys()].map((n, i) => year - i);

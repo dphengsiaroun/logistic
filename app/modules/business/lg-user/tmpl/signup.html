@@ -2,7 +2,7 @@
 <sign-form>
 	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
-	<form name="formCtrl" ng-submit="$ctrl.user.create()">
+	<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.user.create()" novalidate>
 		<div>
 			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" required />
 			<message-form-validator>
@@ -85,7 +85,7 @@
 		</div>
 		<div>
 			<lg-choice name="country" choices="$root.config.countries" title="Pays d'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
-			    is-mandatory="true"></lg-choice>
+			    is-mandatory="true" required></lg-choice>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.country)">
@@ -112,6 +112,6 @@
 		</error-message>
 		<br/>
 		<lg-error error="$ctrl.user.error"></lg-error>
-		<button type="submit" id="pr-create-user-button" ng-disabled="formCtrl.$invalid">Créer le compte</button>
+		<button type="submit" id="pr-create-user-button">Créer le compte</button>
 	</form>
 </sign-form>

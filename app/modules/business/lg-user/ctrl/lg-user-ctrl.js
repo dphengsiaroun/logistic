@@ -4,8 +4,7 @@ function initCtrl(ctrl, $scope, $injector) {
 	ctrl.afterConnect = $injector.get('afterConnect');
 	ctrl.user.error = undefined;
 	$scope.$watch('$ctrl.user.signupData.content.login', function() {
-		
-		
+	
 		ctrl.user.signupData.content.login = angular.lowercase(ctrl.user.signupData.content.login);
 	});
 	$scope.$watch('$ctrl.user.updateData.content.login', function() {
