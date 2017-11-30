@@ -28,11 +28,12 @@ export function TruckCreateCtrl($scope, user, truck, formValidator) {
     ctrl.fv = formValidator;
 }
 
-export function TruckUpdateCtrl($scope, $stateParams, truck, user, connection) {
+export function TruckUpdateCtrl($scope, $stateParams, truck, user, connection, formValidator) {
     'ngInject';
     const ctrl = this;
     ctrl.truck = truck;
     ctrl.user = user;
+    ctrl.fv = formValidator;    
 
     ctrl.$onInit = function() {
         ctrl.truck.get($stateParams.id).then(function() {

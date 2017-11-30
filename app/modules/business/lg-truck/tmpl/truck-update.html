@@ -7,12 +7,24 @@
 		<subtitle>Modifier un véhicule</subtitle>
 	</right>
 </div>
-<form name="formCtrl" ng-submit="$ctrl.truck.update()" class="ad">
+<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.truck.update()" class="ad" novalidate>
 	<section class="dark">
 		<label>Immatriculation ou libellé du vehicule</label>
 		<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.name)">
+				<span ng-show="formCtrl.name.$error.required">Immatriculation ou libellé du vehicule obligatoire.</span>
+			</error-message>
+		</message-form-validator>
 		<label>Description succinte du modèle</label>
 		<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
+		<message-form-validator>
+			<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.model)">
+				<span ng-show="formCtrl.model.$error.required">Description succinte du modèle obligatoire.</span>
+			</error-message>
+		</message-form-validator>
 	</section>
 	<section>
 		<label>Ville d'origine</label>
@@ -51,6 +63,6 @@
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>
-		<button type="submit" ng-disabled="formCtrl.$invalid">Mettre à jour</button>
+		<button type="submit">Mettre à jour</button>
 	</section>
 </form>
