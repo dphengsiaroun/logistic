@@ -2,7 +2,7 @@
 <title>Bienvenue</title>
 <subtitle>{{$ctrl.connection.user.content.firstname}} {{$ctrl.connection.user.content.lastname | uppercase }}</subtitle>
 
-<form name="formCtrl" ng-submit="$ctrl.user.update()" class="edit-profile">
+<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.user.update()" class="edit-profile" novalidate>
 	<div>
 		<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" required />
 		<message-form-validator>
@@ -100,7 +100,7 @@
 	<br/>
 	<lg-error error="$ctrl.user.error"></lg-error>
 	<div class="bouton">
-		<button type="submit" ng-disabled="formCtrl.$invalid">Modifier</button>
+		<button type="submit">Modifier</button>
 	</div>
 	<lg-hr>ou</lg-hr>
 	<a ng-show="$ctrl.connection.user.password !== ''" ui-sref="user:updatePassword">Modifier mot de passe</a>
