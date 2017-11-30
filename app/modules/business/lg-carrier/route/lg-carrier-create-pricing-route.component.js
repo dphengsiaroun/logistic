@@ -2,9 +2,11 @@ import lgCarrierCreatePricingHtml from '../tmpl/carrier-create-pricing.html';
 
 export const lgCarrierCreatePricingRoute = {
 	template: lgCarrierCreatePricingHtml,
-	controller: function LgCarrierCreatePricingRouteCtrl($state, connection, carrier) {
+	controller: function LgCarrierCreatePricingRouteCtrl($state, connection, carrier, formValidator) {
 		'ngInject';
 		const ctrl = this;
+		ctrl.fv = formValidator;
+		
 		if (carrier.type === 'create') {
 			ctrl.pricingData = {};
 		} else {

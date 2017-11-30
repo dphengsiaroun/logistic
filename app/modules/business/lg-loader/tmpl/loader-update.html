@@ -135,7 +135,13 @@
 		</lg-dimension>
 		<br/>
 		<comment>Votre annonce sera davantage consultée si elle contient une photo.</comment>
-		<lg-load-image form-data="{suffix: '_ad' + $ctrl.loader.updateData.imageId}" ng-model="$ctrl.loader.updateData.image"></lg-load-image>
+		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.loader.updateData.imageId}" ng-model="$ctrl.loader.updateData.image"
+		    required></lg-load-image>
+		<message-form-validator>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.image)">
+				<span ng-show="formCtrl.image.$error.required">L'image est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
 	</section>
 	<section class="dark">
 		<big-label>Prix</big-label>

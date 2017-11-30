@@ -59,8 +59,8 @@
 	<section>
 		<big-label>Horaires</big-label>
 		<label>Date et heure de chargement</label>
-		<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime" options="{defaultHour: 14}"
-		    required>
+		<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime"
+		    options="{defaultHour: 14}" required>
 		</lg-datetime>
 		<message-form-validator>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.departureDatetime)">
@@ -135,7 +135,13 @@
 		</lg-dimension>
 		<br/>
 		<comment class="above">Votre annonce sera davantage consultée si elle contient une photo.</comment>
-		<lg-load-image form-data="{suffix: '_ad' + $ctrl.loader.createData.imageId}" ng-model="$ctrl.loader.createData.image"></lg-load-image>
+		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.loader.createData.imageId}" ng-model="$ctrl.loader.createData.image"
+		    required></lg-load-image>
+		<message-form-validator>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.image)">
+				<span ng-show="formCtrl.image.$error.required">L'image est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
 	</section>
 	<section class="dark">
 		<big-label>Prix</big-label>

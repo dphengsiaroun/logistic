@@ -18,22 +18,34 @@
 		</div>
 	</step>
 </breadcrumb>
-<form name="formCtrl" ng-submit="$ctrl.addPricing()" class="ad">
+<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.addPricing()" class="ad" novalidate>
 	<section ng-show="$ctrl.carrier.createData.availability === 'specificTrip'">
 		<label>Tarif souhaité pour le trajet en DZD (facultatif)</label>
-		<input id="pr-price-wanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted" />
+		<input id="pr-price-wanted" name="priceWanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted"
+		    required />
+		<message-form-validator>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.priceWanted)">
+				<span ng-show="formCtrl.priceWanted.$error.required">Le tarif est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
 		<info-route ng-bind-html="$ctrl.carrier.createData.trip.infoRoute"></info-route>
 		<price-per-km>Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.createData.trip.distance | currency : 'DZD' : 0 }}</price-per-km>
 	</section>
 	<section ng-show="$ctrl.carrier.createData.availability === 'total'">
 		<label>Tarif souhaité en DZD/km (facultatif)</label>
-		<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm" />
+		<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm"
+		    required/>
+		<message-form-validator>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.priceWantedPerKm)">
+				<span ng-show="formCtrl.priceWantedPerKm.$error.required">Le tarif par km est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
 	</section>
 	<section class="dark">
 		<label>Commentaire (facultatif)</label>
 		<textarea id="pr-comments" ng-model="$ctrl.pricingData.comments"></textarea>
 	</section>
 	<section>
-		<button type="submit" ng-disabled="formCtrl.$invalid">Valider</button>
+		<button type="submit">Valider</button>
 	</section>
 </form>
