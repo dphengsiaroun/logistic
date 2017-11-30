@@ -17,8 +17,7 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input type="eyepassword" name="password" placeholder="Mot de passe" ng-model="$ctrl.connection.createConnectionData.password"
-			    required/>
+			<lg-eyepassword name="password" password="$ctrl.connection.createConnectionData.password" placeholder="Mot de passe"></lg-eyepassword>
 			<message-form-validator>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.password)">
 					<span ng-show="formCtrl.password.$error.required">Le mot de passe est obligatoire.</span>

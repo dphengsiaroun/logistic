@@ -14,7 +14,7 @@ import lgTruck from './modules/business/lg-truck/lg-truck.module.js';
 import lgChoice from './modules/form/lg-choice/lg-choice.component.js';
 import lgDatetime from './modules/form/lg-datetime/lg-datetime.js';
 import lgDimension from './modules/form/lg-dimension/lg-dimension.component.js';
-import lgEyePassword from './modules/form/lg-eyepassword/lg-eyepassword.js';
+import lgEyePassword from './modules/form/lg-eyepassword/lg-eyepassword.module.js';
 import lgFilter from './modules/form/lg-filter/lg-filter.component.js';
 import lgFormValidator from './modules/form/lg-form-validator/lg-form-validator.js';
 import lgOrderby from './modules/form/lg-orderby/lg-orderby.component.js';

@@ -106,7 +106,7 @@
 			</message-form-validator>
 		</div>
 		<br/>
-		<input type="eyepassword" name="password" placeholder="Mot de passe" ng-model="$ctrl.user.signupData.password" required />
+		<lg-eyepassword name="password" placeholder="Mot de passe" password="$ctrl.user.signupData.password"></lg-eyepassword>		
 		<error-message ng-show="$ctrl.fv.isError(formCtrl.password)">
 			<span ng-show="formCtrl.password.$error.required">Le mot de passe est obligatoire.</span>
 		</error-message>
