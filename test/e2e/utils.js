@@ -73,7 +73,9 @@ utils.user.truck.create = function(truck) {
 	utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
 	utils.lgChoiceSelect('birthyear', truck.birthyear);
 	utils.lgUploadSelect('imageId', truck.imageId);
+	browser.sleep(5000);		
 	utils.submitForm();
+	browser.sleep(5000);	
 	element(by.css('button.ok')).click();
 	expect(browser.getCurrentUrl()).toEqual(`${data.mainUrl}${user.login.toLowerCase()}/truck`);
 };
@@ -81,8 +83,9 @@ utils.user.truck.create = function(truck) {
 utils.user.truck.retrieve = function(user, truck) {
 	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
-	// browser.sleep(5000);	
+	browser.sleep(5000);	
 	element(by.linkText('Mes véhicules')).click();
+	browser.sleep(5000);		
 	element(by.css('truck-list img')).click();
 	expect(browser.getCurrentUrl()).toEqual(
 		`${data.mainUrl}${user.login.toLowerCase()}/truck/${truck.name}`
@@ -92,7 +95,9 @@ utils.user.truck.retrieve = function(user, truck) {
 utils.user.truck.update = function(user, truck) {
 	browser.get(data.mainUrl);
 	element(by.css('menu-bar')).click();
+	browser.sleep(5000);		
 	element(by.linkText('Mes véhicules')).click();
+	browser.sleep(5000);		
 	element(by.css('truck-list img')).click();
 	element(by.id('pr-update-button')).click();
 	element(by.name('model')).clear().sendKeys('Renault');
@@ -167,7 +172,7 @@ utils.login = function(user) {
 	element(by.css('menu-bar.fa.fa-bars')).click();
 	element(by.linkText('Se connecter')).click();
 	element(by.name('login')).clear().sendKeys(user.login);
-	element(by.name('password-crypted')).clear().sendKeys(user.password);
+	element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 	utils.submitForm();
 	const userIdentity = element(by.css('.user-identity')).getText();
 	expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);

@@ -41,7 +41,7 @@ describe('Test CONNECTION', function() {
 		element(by.css('menu-bar.fa.fa-bars')).click();
 		element(by.linkText('Se connecter')).click();
 		element(by.name('login')).clear().sendKeys(user.email);
-		element(by.name('password-crypted')).clear().sendKeys(user.password);
+		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 		utils.submitForm();
 		const userIdentity = element(by.css('.user-identity')).getText();
 		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
@@ -57,7 +57,7 @@ describe('Test CONNECTION', function() {
 		element(by.css('menu-bar.fa.fa-bars')).click();
 		element(by.linkText('Se connecter')).click();
 		element(by.name('login')).clear().sendKeys(user.login);
-		element(by.name('password-crypted')).clear().sendKeys(user.password);
+		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 		utils.submitForm();		
 		const userIdentity = element(by.css('.user-identity')).getText();
 		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
@@ -73,7 +73,7 @@ describe('Test CONNECTION', function() {
 		element(by.css('menu-bar.fa.fa-bars')).click();
 		element(by.linkText('Se connecter')).click();
 		element(by.name('login')).clear().sendKeys(user.phone);
-		element(by.name('password-crypted')).clear().sendKeys(user.password);
+		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
 		utils.submitForm();		
 		const userIdentity = element(by.css('.user-identity')).getText();
 		expect(userIdentity).toEqual(`${user.firstname} ${user.lastname.toUpperCase()}`);
