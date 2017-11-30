@@ -28,7 +28,8 @@ import connectionCreateHtml from './tmpl/connection-create.html';
 
 class ConnectionCtrl {
 	/* @ngInject */
-	constructor(connection) {
+	constructor(connection, formValidator) {
+		this.fv = formValidator;
 		this.connection = connection;
 		console.log('connection', connection);
 	}
