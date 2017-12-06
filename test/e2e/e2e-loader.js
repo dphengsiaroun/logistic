@@ -27,7 +27,6 @@ describe('Loader CRUD', function() {
 		utils.lgCitySelect('departureCity', loaderAd.departureCity);
 		utils.lgCitySelect('arrivalCity', loaderAd.arrivalCity);
 		utils.lgDatetimeSelect('departureDatetime', loaderAd.departureDatetime);
-		// utils.lgDatetimeSelect('arrivalDatetime', loaderAd.arrivalDatetime);
 		utils.lgSelect('conditioning', loaderAd.conditioning);
 		utils.lgChoiceSelect('typeOfGoods', loaderAd.typeOfGoods);
 		utils.lgChoiceSelect('weightIntervals', loaderAd.weightIntervals);
@@ -54,29 +53,32 @@ describe('Loader CRUD', function() {
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 
-	// it('should retrieve loader ad', function() {
-	// 	console.log('-> retrieve a loader ad', arguments);
-	// 	browser.get(data.mainUrl);
-	// 	element(by.id('pr-retrieve-loader-ads-button')).click();
-	// 	const adElt = element(by.css('loader-list ad-block'));
-	// 	const titleElt = adElt.element(by.css('title'));
-	// 	expect(titleElt.getText()).toEqual(loaderAd.title);
-	// });
+	it('should retrieve loader ad', function() {
+		console.log('-> retrieve a loader ad', arguments);
+		browser.get(data.mainUrl);
+		element(by.id('pr-retrieve-loader-ads-button')).click();
+		const adElt = element(by.css('loader-list ad-block'));
+		const titleElt = adElt.element(by.css('title'));
+		expect(titleElt.getText()).toEqual(loaderAd.title);
+	});
 
-	// it('should update loader ad', function() {
-	// 	console.log('-> update a loader ad', arguments);
-	// 	browser.get(data.mainUrl);
-	// 	element(by.css('menu-bar')).click();
-	// 	element(by.id('pr-my-ads-link')).click();
-	// 	const adElt = element(by.css('loader-list ad-block'));
-	// 	adElt.element(by.css('title')).click();
-	// 	element(by.id('pr-edit-button')).click();
-	// 	element(by.name('priceWanted')).clear().sendKeys('5000');
-	// 	// browser.sleep(5000);
-	// 	utils.submitForm();
-	// 	element(by.css('button.ok')).click();
-	// 	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
-	// });
+	it('should update loader ad', function() {
+		console.log('-> update a loader ad', arguments);
+		browser.get(data.mainUrl);
+		element(by.css('menu-bar')).click();
+		element(by.id('pr-my-ads-link')).click();
+		const adElt = element(by.css('loader-list ad-block'));
+		adElt.element(by.css('title')).click();
+		element(by.id('pr-edit-button')).click();
+		browser.sleep(5000);		
+		element(by.name('priceWanted')).clear().sendKeys('5000');
+		browser.sleep(5000);
+		utils.submitForm();
+		browser.sleep(5000);		
+		element(by.css('button.ok')).click();
+		browser.sleep(5000);		
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
+	});
 
 	// it('should delete a loader ad', function() {
 	// 	console.log('-> delete a loader ad', arguments);

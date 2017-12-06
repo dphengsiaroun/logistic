@@ -99,12 +99,10 @@ export function LoaderUpdateCtrl($stateParams, loader, connection, formValidator
 	this.$onInit = function() {
 		connection.waitForCheckConnection('LoaderUpdateCtrl').then(function() {
 			return ctrl.loader.get($stateParams.id);
-		}).then(function() {
-
+		}).then(function() {	
 			ctrl.loader.updateData = angular.copy(ctrl.loader.current.content);
-
 			ctrl.loader.updateData.id = $stateParams.id;
-
+			console.log('ctrl.loader.updateData', ctrl.loader.updateData);
 		}).catch(function() {
 			console.error('you should not see this');
 		});

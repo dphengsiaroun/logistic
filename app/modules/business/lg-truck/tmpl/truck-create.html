@@ -80,12 +80,7 @@
 			</message-form-validator>
 		</div>
 		<label>Insérer une photo</label>
-		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image" required></lg-load-image>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.image)">
-				<span ng-show="formCtrl.image.$error.required">L'image est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
+		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-load-image>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>

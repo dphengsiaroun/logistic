@@ -64,13 +64,7 @@
 		<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear"
 		    is-mandatory="true"></lg-choice>
 		<label>Insérer une photo</label>
-		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"
-		    required></lg-load-image>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.image)">
-				<span ng-show="formCtrl.image.$error.required">L'image est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
+		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-load-image>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>

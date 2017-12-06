@@ -41,7 +41,7 @@ export function TruckUpdateCtrl($scope, $stateParams, truck, user, connection, f
         }).then(function() {
             ctrl.truck.updateData = angular.copy(ctrl.truck.current);
             ctrl.truck.updateData.id = $stateParams.id;
-            
+            console.log('ctrl.truck', ctrl.truck.updateData);
         }).catch(function() {
             console.error('you should not see this');
         });
