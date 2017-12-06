@@ -19,6 +19,17 @@ utils.lgSelect = function(name, value) {
 	element(by.css(`[name=${name}] lg-option[value=${value}]`)).click();
 };
 
+utils.lgDatetimeSelect = function(name, value) {
+	// element(by.css(`lg-datetime my-input[name=${name}]`)).click();
+	// element(by.xpath(`//lg-datetime//span[.="${choice}"]`)).click();
+	browser.sleep(5000);	
+	element(by.id('lgCalendarInput')).click();
+	browser.sleep(5000);
+	element(by.xpath(`//lg-datetime[@name='${name}']//span[.="${value}"]`)).click();
+	browser.sleep(5000);	
+	element(by.id('selected-date')).click();
+};
+
 utils.lgChoiceSelect = function(name, choice) {
 	element(by.css(`lg-choice my-input[name=${name}]`)).click();
 	element(by.xpath(`//lg-choice//span[.="${choice}"]`)).click();

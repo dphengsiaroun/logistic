@@ -37,6 +37,8 @@ data.loaderAd = [{
 	transportTruckType: 'Semi-remorque',
 	departureCity: 'Abi Youcef',
 	arrivalCity: 'Abdelmalek Ramdane',
+	departureDatetime: '12',
+	arrivalDatetime: '12',
 	conditioning: 'Colis',
 	typeOfGoods: 'Classique',
 	weightIntervals: 'De 20 à 50 kg',
@@ -67,7 +69,7 @@ data.users = [{
 	street: '99 rue de Paris',
 	city: 'Torcy',
 	zipcode: '77200',
-	country: 'France',
+	country: 'Algérie',
 	password: 'test',
 	phone: '0654342214'
 
@@ -80,7 +82,7 @@ data.users = [{
 	street: '10 rue de Paris',
 	city: 'Torcy',
 	zipcode: '77200',
-	country: 'France',
+	country: 'Algérie',
 	password: 'test',
 	phone: '0754342214'
 }];

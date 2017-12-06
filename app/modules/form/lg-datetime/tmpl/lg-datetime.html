@@ -10,10 +10,10 @@
 		<head-center>
 			<p>{{$ctrl.title}}</p>
 		</head-center>
-		<head-right ng-show="$ctrl.selectedDate" ng-click="$ctrl.stop()">
+		<head-right id="selected-date" ng-show="$ctrl.selectedDate" ng-click="$ctrl.stop()">
 			<i class="fa fa-check" aria-hidden="true"></i>
 		</head-right>
-		<head-right ng-hide="$ctrl.selectedDate">
+		<head-right id="selected-date" ng-hide="$ctrl.selectedDate">
 		</head-right>
 	</my-head>
 	<month-list ng-show="$ctrl.state === 'dateState'">
