@@ -232,10 +232,26 @@ admin-section {
 		h2 {
 			display: table-cell;
 			vertical-align: middle;
-			width: 87%;
+			width: 65%;
 			i.fa {
 				margin-right: 20px;
 			}
+		}
+		.download {
+			width: 230px;
+			background-color: #8bc63f;
+			color: #fff;
+			padding: 15px;
+			font-size: 14px;
+			border-radius: 3px;
+			>i.fa {
+				color: white;
+			}
+		}
+		space {
+			display: table-cell;
+			vertical-align: middle;
+			width: 3%;
 		}
 		a {
 			display: table-cell;
