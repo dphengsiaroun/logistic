@@ -2,15 +2,17 @@
 <admin-section>
 	<header>
 		<h2><i class="fa fa-files-o" aria-hidden="true"></i> Liste des annonces chargeurs</h2>
-		<a class="download" ui-sref="admin:signout"><i class="fa fa-download" aria-hidden="true"></i> Télécharger la base de données</a>
-		<space>&nbsp;</space>
-		<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
+		<div>
+			<admin-export-db-route></admin-export-db-route>
+			<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
+		</div>
 	</header>
 	<section>
 		<div class="container">
 			<div class="card">
 				<div class="content">
 					<div ng-show="$ctrl.loader.length > 0" class="fresh-datatables">
+						<button class="download" export-to-csv>Exporter en fichier csv</button>
 						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
 							<thead>
 								<tr>
@@ -46,12 +48,12 @@
 							</tbody>
 						</table>
 					</div>
-					<p ng-show="$ctrl.loader.length === 0">Aucune annonce de chargement pour le moment.</p>					
+					<p ng-show="$ctrl.loader.length === 0">Aucune annonce de chargement pour le moment.</p>
 				</div>
 				<!-- end content-->
 			</div>
 			<!--  end card  -->
 		</div>
 	</section>
-	<admin-footer-route></admin-footer-route>	
+	<admin-footer-route></admin-footer-route>
 </admin-section>

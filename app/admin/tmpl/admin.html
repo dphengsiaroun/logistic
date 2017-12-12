@@ -2,9 +2,10 @@
 <admin-section>
 	<header>
 		<h2><i class="fa fa-pie-chart" aria-hidden="true"></i> Tableau de bord</h2>
-		<a class="download" ui-sref="admin:signout"><i class="fa fa-download" aria-hidden="true"></i> Télécharger la base de données</a>
-		<space>&nbsp;</space>
-		<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>			
+		<div>
+			<admin-export-db-route></admin-export-db-route>
+			<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
+		</div>
 	</header>
 	<section>
 		<div class="row-1">
@@ -31,7 +32,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="user in $ctrl.user | limitTo : 5"> 
+								<tr ng-repeat="user in $ctrl.user | limitTo : 5">
 									<td>{{user.id}}</td>
 									<td>{{user.content.lastname}}</td>
 									<td>{{user.content.firstname}}</td>
@@ -76,7 +77,7 @@
 									<th>Titre de l'annonce</th>
 									<th>Type d'annonce</th>
 									<th>Message</th>
-									<th>Envoyé le</th>									
+									<th>Envoyé le</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -92,7 +93,7 @@
 							</tbody>
 						</table>
 					</div>
-					<p ng-show="$ctrl.proposal.length === 0">Aucune proposition envoyée pour le moment.</p>					
+					<p ng-show="$ctrl.proposal.length === 0">Aucune proposition envoyée pour le moment.</p>
 				</div>
 				<!-- end content-->
 				<div class="footer">
@@ -130,7 +131,7 @@
 							<tbody>
 								<tr ng-repeat="carrier in $ctrl.carrier | limitTo : 5">
 									<td>{{carrier.id}}</td>
-									<td><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}"/></td>
+									<td><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" /></td>
 									<td>{{carrier.content.truck.name}}</td>
 									<td>{{carrier.content.trip.departureCity.city}} - {{carrier.content.trip.departureCity.region}}</td>
 									<td ng-show="carrier.content.availability === 'total'">Disponibilité totale</td>
@@ -142,7 +143,7 @@
 							</tbody>
 						</table>
 					</div>
-					<p ng-show="$ctrl.carrier.length === 0">Aucune annonce de transporteur pour le moment.</p>										
+					<p ng-show="$ctrl.carrier.length === 0">Aucune annonce de transporteur pour le moment.</p>
 				</div>
 				<!-- end content-->
 				<div class="footer">
@@ -195,7 +196,7 @@
 							</tbody>
 						</table>
 					</div>
-					<p ng-show="$ctrl.loader.length === 0">Aucune annonce de chargement pour le moment.</p>															
+					<p ng-show="$ctrl.loader.length === 0">Aucune annonce de chargement pour le moment.</p>
 				</div>
 				<!-- end content-->
 				<div class="footer">

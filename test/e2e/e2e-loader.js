@@ -80,16 +80,16 @@ describe('Loader CRUD', function() {
 		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
 	});
 
-	// it('should delete a loader ad', function() {
-	// 	console.log('-> delete a loader ad', arguments);
-	// 	browser.get(data.mainUrl);
-	// 	element(by.css('menu-bar')).click();
-	// 	element(by.id('pr-my-ads-link')).click();
-	// 	const adElt = element(by.css('loader-list ad-block'));
-	// 	adElt.element(by.css('title')).click();
-	// 	element(by.linkText('Supprimer')).click();
-	// 	element(by.css('button.confirm')).click();
-	// 	element(by.css('button.ok')).click();
-	// 	expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
-	// });
+	it('should delete a loader ad', function() {
+		console.log('-> delete a loader ad', arguments);
+		browser.get(data.mainUrl);
+		element(by.css('menu-bar')).click();
+		element(by.id('pr-my-ads-link')).click();
+		const adElt = element(by.css('loader-list ad-block'));
+		adElt.element(by.css('title')).click();
+		element(by.linkText('Supprimer')).click();
+		element(by.css('button.confirm')).click();
+		element(by.css('button.ok')).click();
+		expect(browser.getCurrentUrl()).toEqual(data.mainUrl + 'ads/loaders');
+	});
 });

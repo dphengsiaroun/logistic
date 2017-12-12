@@ -27,8 +27,8 @@ angular.module(module.exports, [
 	adminConnection,
 	adminLoader, 
 	adminProposal,
-	adminUser,	
-
+	adminUser,
+	
 	lgConfig, 
 	lgMisc, 
 	lgDebug,

@@ -232,30 +232,29 @@ admin-section {
 		h2 {
 			display: table-cell;
 			vertical-align: middle;
-			width: 65%;
+			width: 85%;
 			i.fa {
 				margin-right: 20px;
 			}
 		}
-		.download {
-			width: 230px;
-			background-color: #8bc63f;
-			color: #fff;
-			padding: 15px;
-			font-size: 14px;
-			border-radius: 3px;
-			>i.fa {
-				color: white;
+		div {
+			display: table-cell;
+			vertical-align: middle;
+			.download {
+				cursor: pointer;
+				background-color: #8bc63f;
+				color: #fff;
+				padding: 10px 15px;
+				font-size: 13px;
+				border-radius: 3px;
+				border: none;
+				>i.fa {
+					color: white;
+				}
 			}
-		}
-		space {
-			display: table-cell;
-			vertical-align: middle;
-			width: 3%;
-		}
-		a {
-			display: table-cell;
-			vertical-align: middle;
+			a {
+				margin-left: 20px;
+			}
 		}
 	}
 	section {
@@ -389,13 +388,24 @@ admin-section {
 			.card {
 				border-radius: 4px;
 				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-				background-color: #FFFFFF;
-				// margin-bottom: 30px;
+				background-color: #FFFFFF; // margin-bottom: 30px;
 				.content {
 					padding: 15px;
 					p {
 						margin: 20px 0px;
 						font-size: 14px;
+					}
+					.download {
+						cursor: pointer;
+						background-color: #8bc63f;
+						color: #fff;
+						padding: 10px 15px;
+						font-size: 13px;
+						border-radius: 3px;
+						border: none;
+						>i.fa {
+							color: white;
+						}
 					}
 					table {
 						thead>tr>th {
@@ -461,6 +471,7 @@ admin-section {
 		}
 	}
 }
+
 
 admin-login-route {
 	section {
@@ -541,7 +552,8 @@ admin-login-route {
 	}
 }
 
-admin-prompt, admin-confirm {
+admin-prompt,
+admin-confirm {
 	display: block;
 	width: 100%;
 	padding: 0px 10px;

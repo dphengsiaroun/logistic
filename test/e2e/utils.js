@@ -148,6 +148,7 @@ utils.user.loaderAd.create = function(loaderAd) {
 	utils.lgChoiceSelect('transportTruckType', loaderAd.transportTruckType);
 	utils.lgCitySelect('departureCity', loaderAd.departureCity);
 	utils.lgCitySelect('arrivalCity', loaderAd.arrivalCity);
+	utils.lgDatetimeSelect('departureDatetime', loaderAd.departureDatetime);	
 	utils.lgSelect('conditioning', loaderAd.conditioning);
 	utils.lgChoiceSelect('typeOfGoods', loaderAd.typeOfGoods);
 	utils.lgChoiceSelect('weightIntervals', loaderAd.weightIntervals);
