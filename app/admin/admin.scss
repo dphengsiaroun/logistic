@@ -252,6 +252,7 @@ admin-section {
 					color: white;
 				}
 			}
+
 			a {
 				margin-left: 20px;
 			}
@@ -406,6 +407,9 @@ admin-section {
 						>i.fa {
 							color: white;
 						}
+					}
+					.download:hover {
+						background-color: #66912f;
 					}
 					table {
 						thead>tr>th {
@@ -635,5 +639,26 @@ admin-terms-route {
 				margin-left: 30px;
 			}
 		}
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1048px) {
+	admin-section header h2 {
+		width: 80%;
+	}
+	admin-nav-route nav div.nav-logo a {
+		font-size: 26px;
+	}
+	admin-nav-route nav div.nav-logo span {
+		font-size: 15px;
+	}
+	admin-nav-route nav div.nav-bar ul li a {
+		text-align: center;
+		font-size: 12px;
+	}
+	admin-nav-route nav div.nav-bar ul li i.fa {
+		display: block;
+		font-size: 25px;
+		margin-bottom: 10px;
 	}
 }

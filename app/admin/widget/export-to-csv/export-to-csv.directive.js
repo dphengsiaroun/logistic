@@ -23,9 +23,10 @@ app.directive('exportToCsv', function exportToCsv() {
 					csvString = csvString + '\n';
 				}
 				csvString = csvString.substring(0, csvString.length - 1);
+				console.log('csvString',csvString);
 				const a = angular.element('<a/>', {
 					href: 'data:application/octet-stream;base64,' + btoa(csvString),
-					download: 'user.csv'
+					download: 'export.csv'
 				}).append('body');
 				a[0].click();
 				a.remove();
