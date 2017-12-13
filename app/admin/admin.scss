@@ -400,7 +400,7 @@ admin-section {
 						cursor: pointer;
 						background-color: #8bc63f;
 						color: #fff;
-						padding: 10px 15px;
+						padding: 7px 10px;
 						font-size: 13px;
 						border-radius: 3px;
 						border: none;
@@ -642,7 +642,7 @@ admin-terms-route {
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 1048px) {
+@media screen and (min-width: 768px) and (max-width: 1183px) {
 	admin-section header h2 {
 		width: 80%;
 	}
