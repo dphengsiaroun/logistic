@@ -3,7 +3,7 @@
 	<header>
 		<h2><i class="fa fa-truck" aria-hidden="true"></i> Liste des annonces transporteurs</h2>
 		<div>
-			<admin-export-db-route></admin-export-db-route>
+			
 			<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
 		</div>
 	</header>
@@ -12,39 +12,42 @@
 			<div class="card">
 				<div class="content">
 					<div ng-show="$ctrl.carrier.length > 0">
-						<button class="download" export-to-csv>Export en fichier csv</button>
+						<div style="display: block;">
+							<button class="download" export-to-csv>Export en fichier csv</button>
+							<input ng-model="$ctrl.query" placeholder="Recherche" />
+						</div>
 						<div style="overflow-x: auto">
-						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-							<thead>
-								<tr>
-									<th>Id</th>
-									<th>Image</th>
-									<th>Titre</th>
-									<th>Ville d'origine</th>
-									<th>Disponibilité</th>
-									<th>Transport (catégorie)</th>
-									<th>Transport (type)</th>
-									<th>Prix</th>
-									<th class="text-center">Actions</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr ng-repeat="carrier in $ctrl.carrier">
-									<td data-label="Id">{{carrier.id}}</td>
-									<td data-label="Image"><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" /></td>
-									<td data-label="Titre">{{carrier.content.truck.name}}</td>
-									<td data-label="Ville d'origine"><b>{{carrier.content.truck.city.city}}</b><br>{{carrier.content.truck.city.region}}</td>
-									<td data-label="Disponibilité" ng-show="carrier.content.availability === 'total'">Disponibilité totale</td>
-									<td data-label="Disponibilité" ng-show="carrier.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
-									<td data-label="Transport (catégorie)">{{carrier.content.truck.transportCategory}}</td>
-									<td data-label="Transport (type)">{{carrier.content.truck.transportTruckType}}</td>
-									<td data-label="Prix">{{carrier.content.pricing.priceWantedPerKm}} DZD/km</td>
-									<td data-label="Actions" class="text-center">
-										<a ui-sref="admin:carrier:delete({id: carrier.id})" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+							<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Image</th>
+										<th>Titre</th>
+										<th>Ville d'origine</th>
+										<th>Disponibilité</th>
+										<th>Transport (catégorie)</th>
+										<th>Transport (type)</th>
+										<th>Prix</th>
+										<th class="text-center">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="carrier in $ctrl.carrier | filter:$ctrl.query">
+										<td data-label="Id">{{carrier.id}}</td>
+										<td data-label="Image"><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" /></td>
+										<td data-label="Titre">{{carrier.content.truck.name}}</td>
+										<td data-label="Ville d'origine"><b>{{carrier.content.truck.city.city}}</b><br>{{carrier.content.truck.city.region}}</td>
+										<td data-label="Disponibilité" ng-show="carrier.content.availability === 'total'">Disponibilité totale</td>
+										<td data-label="Disponibilité" ng-show="carrier.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
+										<td data-label="Transport (catégorie)">{{carrier.content.truck.transportCategory}}</td>
+										<td data-label="Transport (type)">{{carrier.content.truck.transportTruckType}}</td>
+										<td data-label="Prix">{{carrier.content.pricing.priceWantedPerKm}} DZD/km</td>
+										<td data-label="Actions" class="text-center">
+											<a ui-sref="admin:carrier:delete({id: carrier.id})" class="remove"><i class="fa fa-times"></i></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 					<p ng-show="$ctrl.carrier.length === 0">Aucune annonce de transporteur pour le moment.</p>

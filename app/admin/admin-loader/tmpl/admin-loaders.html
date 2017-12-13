@@ -3,7 +3,7 @@
 	<header>
 		<h2><i class="fa fa-archive" aria-hidden="true"></i> Liste des annonces chargeurs</h2>
 		<div>
-			<admin-export-db-route></admin-export-db-route>
+			
 			<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
 		</div>
 	</header>
@@ -12,7 +12,10 @@
 			<div class="card">
 				<div class="content">
 					<div ng-show="$ctrl.loader.length > 0">
-						<button class="download" export-to-csv>Export en fichier csv</button>
+						<div style="display: block;">
+							<button class="download" export-to-csv>Export en fichier csv</button>
+							<input ng-model="$ctrl.query" placeholder="Recherche" />
+						</div>
 						<div style="overflow-x: auto">
 							<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
 								<thead>
@@ -32,7 +35,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="loader in $ctrl.loader">
+									<tr ng-repeat="loader in $ctrl.loader | filter:$ctrl.query">
 										<td data-label="Id">{{loader.id}}</td>
 										<td data-label="Image"><img ng-src="../{{loader.content.image.thumbnailUrl}}"></td>
 										<td data-label="Titre">{{loader.content.title}}</td>

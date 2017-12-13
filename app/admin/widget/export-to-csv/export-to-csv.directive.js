@@ -11,7 +11,8 @@ app.directive('exportToCsv', function exportToCsv() {
 			const el = element[0];
 			console.log('el', el);
 			element.bind('click', function(e) {
-				const table = e.target.nextElementSibling;
+				const table = e.target.ownerDocument.all.datatables;
+				console.log('table', table);
 				let csvString = '';
 				for (let i = 0; i < table.rows.length; i++) {
 					const rowData = table.rows[i].cells;
@@ -28,6 +29,7 @@ app.directive('exportToCsv', function exportToCsv() {
 					href: 'data:application/octet-stream;base64,' + btoa(csvString),
 					download: 'export.csv'
 				}).append('body');
+				console.log('a', a);
 				a[0].click();
 				a.remove();
 			});

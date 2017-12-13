@@ -3,7 +3,7 @@
 	<header>
 		<h2><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Liste des propositions</h2>
 		<div>
-			<admin-export-db-route></admin-export-db-route>
+			
 			<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
 		</div>
 	</header>
@@ -12,7 +12,10 @@
 			<div class="card">
 				<div class="content">
 					<div ng-show="$ctrl.proposal.length > 0">
-						<button class="download" export-to-csv>Export en fichier csv</button>
+						<div style="display: block;">
+							<button class="download" export-to-csv>Export en fichier csv</button>
+							<input ng-model="$ctrl.query" placeholder="Recherche" />
+						</div>
 						<div style="overflow-x: auto">
 							<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
 								<thead>
@@ -27,7 +30,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="proposal in $ctrl.proposal">
+									<tr ng-repeat="proposal in $ctrl.proposal | filter:$ctrl.query">
 										<td data-label="Id">{{proposal.id}}</td>
 										<td data-label="Image"><img src="../{{proposal.content.imageUrl}}" /></td>
 										<td data-label="Titre de l'annonce">{{proposal.content.titleAd}}</td>

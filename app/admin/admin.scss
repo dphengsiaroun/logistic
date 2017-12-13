@@ -426,7 +426,8 @@ admin-section {
 						margin: 20px 0px;
 						font-size: 14px;
 					}
-					.download {
+					
+					div .download {
 						cursor: pointer;
 						background-color: #8bc63f;
 						color: #fff;
@@ -434,13 +435,22 @@ admin-section {
 						font-size: 13px;
 						border-radius: 3px;
 						border: none;
-						margin-bottom: 10px;
+						margin-bottom: 5px;
 						>i.fa {
 							color: white;
 						}
 					}
-					.download:hover {
+					div .download:hover {
 						background-color: #66912f;
+					}
+					div input {
+						margin: 0 0px 5px;
+						width: 255px;
+						float: right;
+						// left: 59%;
+						// position: relative;
+						font-size: 15px;
+						padding: 5px;
 					}
 					table {
 						thead>tr>th {
