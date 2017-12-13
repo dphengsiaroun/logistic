@@ -889,6 +889,9 @@ admin-terms-route {
 	admin-section section .row-1 .card .description, admin-section section .row-2 .card .description {
 		font-size: 12px;
 	}
+	admin-section section div.container .card .content div input {
+		width: 120px;
+	}
 	table td {
 		font-size: 13px !important;
 	}
