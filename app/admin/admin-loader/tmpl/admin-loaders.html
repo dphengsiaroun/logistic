@@ -11,42 +11,48 @@
 		<div class="container">
 			<div class="card">
 				<div class="content">
-					<div ng-show="$ctrl.loader.length > 0" class="fresh-datatables">
+					<div ng-show="$ctrl.loader.length > 0">
 						<button class="download" export-to-csv>Export en fichier csv</button>
-						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-							<thead>
-								<tr>
-									<th>Id</th>
-									<th>Image</th>
-									<th>Titre</th>
-									<th>Départ</th>
-									<th>Arrivée</th>
-									<th>Conditionnement</th>
-									<th>Marchandise (type)</th>
-									<th>Transport (catégorie)</th>
-									<th>Transport (type)</th>
-									<th>Prix</th>
-									<th class="text-center">Actions</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr ng-repeat="loader in $ctrl.loader">
-									<td>{{loader.id}}</td>
-									<td><img ng-src="../{{loader.content.image.thumbnailUrl}}"></td>
-									<td>{{loader.content.title}}</td>
-									<td>{{loader.content.departureCity.city}} {{loader.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
-									<td>{{loader.content.arrivalCity.city}} {{loader.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
-									<td>{{loader.content.conditioning}}</td>
-									<td>{{loader.content.typeOfGoods}}</td>
-									<td>{{loader.content.transportCategory}}</td>
-									<td>{{loader.content.transportTruckType}}</td>
-									<td>{{loader.content.priceWanted}}</td>
-									<td class="text-center">
-										<a ui-sref="admin:loader:delete({id: loader.id})" class="remove"><i class="fa fa-times"></i></a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<div style="overflow-x: auto">
+							<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Image</th>
+										<th>Titre</th>
+										<th>Transport (catégorie)</th>
+										<th>Transport (type)</th>
+										<th>Départ</th>
+										<th>Arrivée</th>
+										<th>Conditionnement</th>
+										<th>Marchandise (type)</th>
+										<th>Poids (tranche)</th>
+										<th>Prix</th>
+										<th class="text-center">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="loader in $ctrl.loader">
+										<td data-label="Id">{{loader.id}}</td>
+										<td data-label="Image"><img ng-src="../{{loader.content.image.thumbnailUrl}}"></td>
+										<td data-label="Titre">{{loader.content.title}}</td>
+										<td data-label="Transport (catégorie)">{{loader.content.transportCategory}}</td>
+										<td data-label="Transport (type)">{{loader.content.transportTruckType}}</td>
+										<td data-label="Départ"><b>{{loader.content.departureCity.city}}</b><br>{{loader.content.departureDatetime | date : "EEEE d LLLL yyyy à
+											H'h'" | ucfirst}}</td>
+										<td data-label="Arrivée"><b>{{loader.content.arrivalCity.city}}</b><br>{{loader.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'"
+											| ucfirst}}</td>
+										<td data-label="Conditionnement">{{loader.content.conditioning}}</td>
+										<td data-label="Marchandise (type)">{{loader.content.typeOfGoods}}</td>
+										<td data-label="Poids (tranche)">{{loader.content.weightInterval}}</td>
+										<td data-label="Prix">{{loader.content.priceWanted}}</td>
+										<td data-label="Actions">
+											<a ui-sref="admin:loader:delete({id: loader.id})" class="remove"><i class="fa fa-times"></i></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 					<p ng-show="$ctrl.loader.length === 0">Aucune annonce de chargement pour le moment.</p>
 				</div>

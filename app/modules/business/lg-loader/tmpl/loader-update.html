@@ -106,11 +106,11 @@
 	</section>
 	<section>
 		<big-label>Définir le chargement</big-label>
-		<label>Poids total</label>
+		<label>Tranche de poids</label>
 		<lg-choice name="weightIntervals" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement"
 		    placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.updateData.weightInterval" is-mandatory="true" required></lg-choice>
 
-		<label ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'">Poids unitaire (ex : poids d’une palette)</label>
+		<label ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'">Poids total</label>
 		<div>
 			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'"
 			    placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" />

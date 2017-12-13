@@ -210,10 +210,6 @@ admin-nav-route {
 	}
 }
 
-.text-center {
-	text-align: center !important;
-}
-
 tbody tr td img {
 	width: 100px;
 }
@@ -296,51 +292,54 @@ admin-section {
 						margin: 20px 0px;
 						font-size: 14px;
 					}
-					table {
-						thead>tr>th {
-							border: none !important;
-						}
-					}
-					.table {
-						thead>tr>th,
-						tbody>tr>th,
-						tfoot>tr>th,
-						thead>tr>td,
-						tbody>tr>td,
-						tfoot>tr>td {
-							padding: 12px 8px;
-							vertical-align: middle;
-							border-color: #E3E3E3;
-							text-align: left;
-							border-top: 1px solid #ddd;
-						}
-						thead>tr>th {
-							border-bottom-width: 1px;
-							font-size: 12px;
-							text-transform: uppercase;
-							color: #9A9A9A;
-							font-weight: 400;
-							padding-bottom: 5px;
-						}
-						tbody>tr>td,
-						tbody>tr>th,
-						tfoot>tr>td,
-						tfoot>tr>th,
-						thead>tr>td,
-						thead>tr>th {
-							padding: 8px;
-							line-height: 1.42857143;
-							vertical-align: top;
-						}
-						tbody>tr>td>a {
-							text-align: center;
-							i.fa {
-								color: #FB404B !important;
+					.fresh-datatables {
+						overflow-x: auto;
+						table {
+							thead>tr>th {
+								border: none !important;
 							}
 						}
-					}
-					.table-striped>tbody>tr:nth-of-type(odd) {
-						background-color: #f9f9f9;
+						.table {
+							thead>tr>th,
+							tbody>tr>th,
+							tfoot>tr>th,
+							thead>tr>td,
+							tbody>tr>td,
+							tfoot>tr>td {
+								padding: 12px 8px;
+								vertical-align: middle;
+								border-color: #E3E3E3;
+								text-align: left;
+								border-top: 1px solid #ddd;
+							}
+							thead>tr>th {
+								border-bottom-width: 1px;
+								font-size: 12px !important;
+								text-transform: uppercase;
+								color: #9A9A9A;
+								font-weight: 400;
+								padding-bottom: 5px;
+							}
+							tbody>tr>td,
+							tbody>tr>th,
+							tfoot>tr>td,
+							tfoot>tr>th,
+							thead>tr>td,
+							thead>tr>th {
+								padding: 8px;
+								vertical-align: top;
+								font-size: 15px;
+							}
+							tbody>tr>td>a {
+								text-align: center;
+								i.fa {
+									color: #FB404B !important;
+								}
+							}
+						}
+						.table-striped>tbody>tr:nth-of-type(odd) {
+							background-color: #f9f9f9;
+						}
 					}
 				}
 				.footer {
@@ -404,6 +403,7 @@ admin-section {
 						font-size: 13px;
 						border-radius: 3px;
 						border: none;
+						margin-bottom: 10px;
 						>i.fa {
 							color: white;
 						}
@@ -446,9 +446,9 @@ admin-section {
 							padding: 8px;
 							line-height: 1.42857143;
 							vertical-align: top;
+							text-align: center;
 						}
 						tbody>tr>td>a {
-							text-align: center;
 							i.fa {
 								color: #FB404B !important;
 							}
@@ -644,7 +644,7 @@ admin-terms-route {
 
 @media screen and (min-width: 768px) and (max-width: 1183px) {
 	admin-section header h2 {
-		width: 80%;
+		width: 78%;
 	}
 	admin-nav-route nav div.nav-logo a {
 		font-size: 26px;
@@ -660,5 +660,52 @@ admin-terms-route {
 		display: block;
 		font-size: 25px;
 		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	admin-section header h2 {
+		width: 75%;
+	}
+	table thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+	table tr {
+		border-top: 3px solid #ddd;
+		border-bottom: 3px solid #ddd;
+		display: block;
+		margin-bottom: .625em;
+	}
+	table td {
+		border-bottom: 1px solid #ddd;
+		border-top: none !important;
+		display: block;
+		font-size: 14px;
+		text-align: right !important;
+		a i.fa {
+			font-size: 20px;
+		}
+	}
+	table td:before {
+		/*
+	  * aria-label has no advantage, it won't be read inside a table
+	  content: attr(aria-label);
+	  */
+		content: attr(data-label);
+		float: left;
+		font-size: 12px!important;
+		text-transform: uppercase;
+		color: #9a9a9a;
+		font-weight: 400;
+	}
+	table td:last-child {
+		border-bottom: 0;
 	}
 }

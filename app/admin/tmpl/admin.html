@@ -33,16 +33,16 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="user in $ctrl.user | limitTo : 5">
-									<td>{{user.id}}</td>
-									<td>{{user.content.lastname}}</td>
-									<td>{{user.content.firstname}}</td>
-									<td>{{user.content.login}}</td>
-									<td>{{user.email}}</td>
-									<td>{{user.content.address.street}}</td>
-									<td>{{user.content.address.zipcode}}</td>
-									<td>{{user.content.address.city}}</td>
-									<td>{{user.content.address.country}}</td>
-									<td>{{user.content.phone}}</td>
+									<td data-label="Id">{{user.id}}</td>
+									<td data-label="Nom">{{user.content.lastname}}</td>
+									<td data-label="Prénom">{{user.content.firstname}}</td>
+									<td data-label="Pseudo">{{user.content.login}}</td>
+									<td data-label="Email">{{user.email}}</td>
+									<td data-label="Adresse">{{user.content.address.street}}</td>
+									<td data-label="CP">{{user.content.address.zipcode}}</td>
+									<td data-label="Ville">{{user.content.address.city}}</td>
+									<td data-label="Pays">{{user.content.address.country}}</td>
+									<td data-label="Téléphone">{{user.content.phone}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -82,13 +82,13 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="proposal in $ctrl.proposal | limitTo : 5">
-									<td>{{proposal.id}}</td>
-									<td><img src="../{{proposal.content.imageUrl}}" /></td>
-									<td>{{proposal.content.titleAd}}</td>
-									<td ng-show="proposal.content.adType === 'loader'">Chargeur</td>
-									<td ng-show="proposal.content.adType === 'carrier'">Transporteur</td>
-									<td>{{proposal.content.message}}</td>
-									<td>{{proposal.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
+									<td data-label="Id">{{proposal.id}}</td>
+									<td data-label="Image"><img src="../{{proposal.content.imageUrl}}" /></td>
+									<td data-label="Titre de l'annonce">{{proposal.content.titleAd}}</td>
+									<td data-label="Type d'annonce" ng-show="proposal.content.adType === 'loader'">Chargeur</td>
+									<td data-label="Type d'annonce" ng-show="proposal.content.adType === 'carrier'">Transporteur</td>
+									<td data-label="Message">{{proposal.content.message}}</td>
+									<td data-label="Envoyé le">{{proposal.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -130,15 +130,15 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="carrier in $ctrl.carrier | limitTo : 5">
-									<td>{{carrier.id}}</td>
-									<td><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" /></td>
-									<td>{{carrier.content.truck.name}}</td>
-									<td>{{carrier.content.trip.departureCity.city}} - {{carrier.content.trip.departureCity.region}}</td>
-									<td ng-show="carrier.content.availability === 'total'">Disponibilité totale</td>
-									<td ng-show="carrier.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
-									<td>{{carrier.content.truck.transportCategory}}</td>
-									<td>{{carrier.content.truck.transportTruckType}}</td>
-									<td>{{carrier.content.pricing.priceWantedPerKm}} DZD/km</td>
+									<td data-label="Id">{{carrier.id}}</td>
+									<td data-label="Image"><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" /></td>
+									<td data-label="Titre">{{carrier.content.truck.name}}</td>
+									<td data-label="Ville d'origine"><b>{{carrier.content.truck.city.city}}</b><br>{{carrier.content.truck.city.region}}</td>
+									<td data-label="Disponibilité" ng-show="carrier.content.availability === 'total'">Disponibilité totale</td>
+									<td data-label="Disponibilité" ng-show="carrier.content.availability === 'specificTrip'">Disponible pour un trajet spécifique</td>
+									<td data-label="Transport (catégorie)">{{carrier.content.truck.transportCategory}}</td>
+									<td data-label="Transport (type)">{{carrier.content.truck.transportTruckType}}</td>
+									<td data-label="Prix">{{carrier.content.pricing.priceWantedPerKm}} DZD/km</td>
 								</tr>
 							</tbody>
 						</table>
@@ -171,27 +171,29 @@
 									<th>Id</th>
 									<th>Image</th>
 									<th>Titre</th>
+									<th>Transport (catégorie)</th>
+									<th>Transport (type)</th>
 									<th>Départ</th>
 									<th>Arrivée</th>
 									<th>Conditionnement</th>
 									<th>Marchandise (type)</th>
-									<th>Transport (catégorie)</th>
-									<th>Transport (type)</th>
+									<th>Poids (Tranche)</th>
 									<th>Prix</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr ng-repeat="loader in $ctrl.loader | limitTo : 5">
-									<td>{{loader.id}}</td>
-									<td><img ng-src="../{{loader.content.image.thumbnailUrl}}"></td>
-									<td>{{loader.content.title}}</td>
-									<td>{{loader.content.departureCity.city}} {{loader.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
-									<td>{{loader.content.arrivalCity.city}} {{loader.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
-									<td>{{loader.content.conditioning}}</td>
-									<td>{{loader.content.typeOfGoods}}</td>
-									<td>{{loader.content.transportCategory}}</td>
-									<td>{{loader.content.transportTruckType}}</td>
-									<td>{{loader.content.priceWanted}} DZD</td>
+									<td data-label="Id">{{loader.id}}</td>
+									<td data-label="Image"><img ng-src="../{{loader.content.image.thumbnailUrl}}"></td>
+									<td data-label="Titre">{{loader.content.title}}</td>
+									<td data-label="Transport (catégorie)">{{loader.content.transportCategory}}</td>
+									<td data-label="Transport (type)">{{loader.content.transportTruckType}}</td>
+									<td data-label="Départ"><b>{{loader.content.departureCity.city}}</b><br>{{loader.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
+									<td data-label="Arrivée"><b>{{loader.content.arrivalCity.city}}</b><br>{{loader.content.arrivalDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
+									<td data-label="Conditionnement">{{loader.content.conditioning}}</td>
+									<td data-label="Marchandise (type)">{{loader.content.typeOfGoods}}</td>
+									<td data-label="Poids (Tranche)">{{loader.content.weightInterval}}</td>
+									<td data-label="Prix">{{loader.content.priceWanted}} DZD</td>
 								</tr>
 							</tbody>
 						</table>
