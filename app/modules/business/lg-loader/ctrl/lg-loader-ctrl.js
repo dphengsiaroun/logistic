@@ -91,7 +91,7 @@ export function LoaderCreateCtrl(
 	);
 }
 
-export function LoaderUpdateCtrl($stateParams, loader, connection, formValidator) {
+export function LoaderUpdateCtrl($stateParams, $scope, $filter, geoloc, loader, connection, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.loader = loader;
@@ -107,4 +107,19 @@ export function LoaderUpdateCtrl($stateParams, loader, connection, formValidator
 			console.error('you should not see this');
 		});
 	};
+	
+	$scope.$watchGroup(['$ctrl.loader.updateData.departureDatetime', '$ctrl.loader.updateData.arrivalDatetime'],
+		function(newValues, oldValues) {
+
+			if (!(ctrl.loader.updateData.departureDatetime && ctrl.loader.updateData.arrivalDatetime)) {
+				ctrl.loader.updateData.infoDuration = '';
+				return;
+			}
+			ctrl.loader.updateData.infoDuration = 'Durée effective : <b>' +
+				$filter('duration')((ctrl.loader.updateData.arrivalDatetime -
+					ctrl.loader.updateData.departureDatetime) / 1000) +
+				'</b>';
+		}
+	);
+	geoloc.updateInfoRoute($scope, '$ctrl.loader.updateData');
 }
