@@ -24,7 +24,7 @@ con.connect(function(err) {
 		const sql = 'INSERT INTO xx_carrier (id, content, user_id) VALUES ?';
 		const values = [
 			[i, 
-				`{"truck":{"imageId":1513155757668,"name":"110000-111-24",
+				`{"truck":{"imageId":1513155757668,"name":"110000-111-${i}",
 				"model":"Volvo","city":{"city":"Abi Youcef","region":"Tizi Ouzou","country":"Algérie"},
 				"transportCategory":"Camion","transportTruckType":"Citerne","birthyear":2014,
 				"image":{"name":"camion-citerne.jpg","size":95525,"type":"image/jpeg","url":"img/truck-default.svg",
