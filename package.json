@@ -76,7 +76,11 @@
 		"e2e-check-ads-deletion": "protractor test/e2e/cfg/check-ads-deletion.js",
 		"e2e-check-ae": "protractor test/e2e/cfg/check-ae.js",
 		"e2e-password": "protractor test/e2e/cfg/password.js",
-		"e2e-refresh": "protractor test/e2e/cfg/refresh.js"
+		"e2e-refresh": "protractor test/e2e/cfg/refresh.js",
+		"load-user": "node test/load/load-user.js",
+		"load-loader": "node test/load/load-loader.js",
+		"load-carrier": "node test/load/load-carrier.js",
+		"load-proposal": "node test/load/load-proposal.js"
 	},
 	"dependencies": {
 		"angular": "1.6.1",

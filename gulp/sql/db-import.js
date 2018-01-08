@@ -1,4 +1,3 @@
-const exec = require('child_process').exec;
 const mysql = require('mysql');
 const phpUtils = require('./phpUtils.js');
 const fs = require('fs');
