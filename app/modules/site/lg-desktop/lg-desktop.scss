@@ -37,6 +37,7 @@ lg-mobile {
 	body {
 		overflow: hidden;
 	}
+
 	lg-menu,
 	{
 		width: 325px;
@@ -44,6 +45,7 @@ lg-mobile {
 		top: 110px;
 		left: 139px;
 	}
+
 	lg-body {
 		display: block;
 		position: relative;
@@ -55,13 +57,13 @@ lg-mobile {
 		top: 110px;
 		left: 139px;
 	}
+
 	lg-menu-content {
 		width: 325px;
 		height: 517px;
 		top: 169px;
 		left: 139px;
 	}
-
 	/* lg-choice */
 	lg-choice {
 		overlay,
@@ -77,9 +79,7 @@ lg-mobile {
 		fixed-list {
 			height: 576px !important;
 		}
-	}
-
-	// /* lg-user-ads-route */
+	} // /* lg-user-ads-route */
 	// lg-user-ads-route,
 	// lg-user-create-route,
 	// lg-user-signup-success-route,
@@ -128,9 +128,9 @@ lg-mobile {
 	// 	top: 110px;
 	// 	left: 139px;
 	// }
-	
 	/* lg-filter */
-	overlay, overlay fixed {
+	overlay,
+	overlay fixed {
 		width: 325px;
 		top: 110px;
 		left: 139px;
@@ -139,17 +139,14 @@ lg-mobile {
 	lg-filter overlay filter {
 		height: 517px !important;
 	}
-
 	/* lg-erasable */
 	div.erase {
 		top: 103px !important;
 	}
-
 	/* lg-user-retrieve-route */
 	lg-user-retrieve-route {
 		padding: 20px 0px;
 	}
-
 	/* lg-datetime */
 	lg-datetime-content {
 		my-head,
@@ -166,12 +163,14 @@ lg-mobile {
 			height: 517px !important;
 			top: 169px !important;
 		}
-		lg-dt-hour,
-		retroaction-msg {
-			bottom: 113px !important;
+		lg-dt-hour {
+			top: 561px !important;
 		}
-	}
+		retroaction-msg{
+			top: 636px!important;
+		}
 
+	}
 	/* lg-dimension */
 	lg-edit {
 		my-head {
@@ -194,22 +193,21 @@ lg-mobile {
 			height: 300px !important;
 		}
 	}
-
 	/* lg-truck */
 	add-ads {
 		width: 325px !important;
 		left: 139px!important;
 		bottom: 113px!important;
 	}
-
 	/* lg-proposal */
-	bottom, bottom-edit {
+	bottom,
+	bottom-edit {
 		width: 325px;
 		left: 139px;
 		top: 636px;
 	}
 
-	lg-footer {	
+	lg-footer {
 		width: 325px;
 	}
 }
