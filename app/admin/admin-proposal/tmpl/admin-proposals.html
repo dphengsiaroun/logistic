@@ -35,7 +35,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="proposal in $ctrl.proposal | filter:$ctrl.query">
+									<tr ng-repeat="proposal in $ctrl.proposal | filter:$ctrl.query | limitTo:$ctrl.limit">
 										<td data-label="Id">{{proposal.id}}</td>
 										<td data-label="Image"><img src="../{{proposal.content.imageUrl}}" /></td>
 										<td data-label="Titre de l'annonce">{{proposal.content.titleAd}}</td>
@@ -49,6 +49,7 @@
 									</tr>
 								</tbody>
 							</table>
+							<button class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Load More</button>
 						</div>
 					</div>
 					<p ng-show="$ctrl.proposal.length === 0">Aucune proposition envoyée pour le moment.</p>

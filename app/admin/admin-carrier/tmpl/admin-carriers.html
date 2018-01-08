@@ -37,7 +37,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="carrier in $ctrl.carrier | filter:$ctrl.query">
+									<tr ng-repeat="carrier in $ctrl.carrier | filter:$ctrl.query | limitTo:$ctrl.limit">
 										<td data-label="Id">{{carrier.id}}</td>
 										<td data-label="Image"><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" /></td>
 										<td data-label="Titre">{{carrier.content.truck.name}}</td>
@@ -53,6 +53,7 @@
 									</tr>
 								</tbody>
 							</table>
+							<button class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Load More</button>
 						</div>
 					</div>
 					<p ng-show="$ctrl.carrier.length === 0">Aucune annonce de transporteur pour le moment.</p>
