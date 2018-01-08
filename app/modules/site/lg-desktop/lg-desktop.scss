@@ -40,10 +40,10 @@ lg-mobile {
 
 	lg-menu,
 	{
-		width: 325px;
+		width: 326px;
 		height: 59px;
-		top: 110px;
-		left: 139px;
+		top: 109px;
+		left: 138px;
 	}
 
 	lg-body {
@@ -52,24 +52,24 @@ lg-mobile {
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background: #f5f5f5;
-		width: 325px;
-		height: 576px;
-		top: 110px;
-		left: 139px;
+		width: 326px;
+		height: 577px;
+		top: 109px;
+		left: 138px;
 	}
 
 	lg-menu-content {
-		width: 325px;
+		width: 326px;
 		height: 517px;
 		top: 169px;
-		left: 139px;
+		left: 138px;
 	}
 	/* lg-choice */
 	lg-choice {
 		overlay,
 		fixed,
 		fixed-list {
-			width: 325px !important;
+			width: 326px !important;
 			left: 139px !important;
 			top: 110px !important;
 		}
@@ -123,17 +123,17 @@ lg-mobile {
 	// 	overflow-y: scroll;
 	// 	overflow-x: hidden;
 	// 	background: #f5f5f5;
-	// 	width: 325px;
+	// 	width: 326px;
 	// 	height: 518px;
-	// 	top: 110px;
-	// 	left: 139px;
+	// 	top: 109px;
+	// 	left: 138px;
 	// }
 	/* lg-filter */
 	overlay,
 	overlay fixed {
-		width: 325px;
-		top: 110px;
-		left: 139px;
+		width: 326px;
+		top: 109px;
+		left: 138px;
 	}
 
 	lg-filter overlay filter {
@@ -153,8 +153,8 @@ lg-mobile {
 		month-list,
 		lg-dt-hour,
 		retroaction-msg {
-			width: 325px !important;
-			left: 139px !important;
+			width: 326px !important;
+			left: 138px !important;
 		}
 		my-head {
 			top: 110px !important;
@@ -174,14 +174,14 @@ lg-mobile {
 	/* lg-dimension */
 	lg-edit {
 		my-head {
-			width: 325px !important;
+			width: 326px !important;
 			left: 139px !important;
 		}
 		my-head {
 			top: 110px !important;
 		}
 		my-body {
-			width: 325px !important;
+			width: 326px !important;
 			left: 139px !important;
 			top: 169px !important;
 			height: 517px !important;
@@ -189,25 +189,25 @@ lg-mobile {
 		settings {
 			top: 362px !important;
 			left: 139px !important;
-			width: 325px !important;
+			width: 326px !important;
 			height: 300px !important;
 		}
 	}
 	/* lg-truck */
 	add-ads {
-		width: 325px !important;
+		width: 326px !important;
 		left: 139px!important;
 		bottom: 113px!important;
 	}
 	/* lg-proposal */
 	bottom,
 	bottom-edit {
-		width: 325px;
-		left: 139px;
+		width: 326px;
+		left: 138px;
 		top: 636px;
 	}
 
 	lg-footer {
-		width: 325px;
+		width: 326px;
 	}
 }
