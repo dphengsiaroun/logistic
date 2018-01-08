@@ -60,7 +60,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<button class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Load More</button>
+							<button ng-show="$ctrl.loader.length > 50" class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Load More</button>
 						</div>
 					</div>
 					<p ng-show="$ctrl.loader.length === 0">Aucune annonce de chargement pour le moment.</p>

@@ -4,13 +4,13 @@ export function AdminCarriersCtrl($stateParams, adminCarrier) {
 	ctrl.adminCarrier = adminCarrier;
 	
 	ctrl.limit = function() {
-		this.limit = 40;
+		this.limit = 50;
 		console.log('ctrl.limit', ctrl);
 	};
 
 	ctrl.loadMore = function() {
 		console.log('ctrl.loadMore', ctrl.loadMore);
-			const moreData = ctrl.limit + 10;
+			const moreData = ctrl.limit + 50;
 			ctrl.limit = moreData > ctrl.carrier.length ? ctrl.carrier.length : moreData;
 	};
 

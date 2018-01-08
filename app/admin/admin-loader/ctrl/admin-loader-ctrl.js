@@ -4,13 +4,13 @@ export function AdminLoadersCtrl($stateParams, adminLoader) {
 	ctrl.adminLoader = adminLoader;
 
 	ctrl.limit = function() {
-		this.limit = 40;
+		this.limit = 50;
 		console.log('ctrl.limit', ctrl);
 	};
 
 	ctrl.loadMore = function() {
 		console.log('ctrl.loadMore', ctrl.loadMore);
-			const moreData = ctrl.limit + 10;
+			const moreData = ctrl.limit + 50;
 			ctrl.limit = moreData > ctrl.loader.length ? ctrl.loader.length : moreData;
 	};
 
