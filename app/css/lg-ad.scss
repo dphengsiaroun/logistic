@@ -113,6 +113,14 @@
 	}
 }
 
+.load-more-app {
+	background-color: transparent;
+	color: $primaryColor;
+	i.fa {
+		color: $primaryColor;
+	}
+}
+
 .filter {
 	display: table;
 	width: 100%;

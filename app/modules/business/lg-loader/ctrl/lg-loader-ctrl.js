@@ -3,10 +3,22 @@ export function LoaderListCtrl($scope, loader, lgFilterList) {
 	const ctrl = this;
 	ctrl.order = true;
 	ctrl.loader = loader;
+
+	ctrl.limit = function() {
+		this.limit = 50;
+		console.log('ctrl.limit', ctrl);
+	};
+
+	ctrl.loadMore = function() {
+		console.log('ctrl.loadMore', ctrl.loadMore);
+			const moreData = ctrl.limit + 50;
+			ctrl.limit = moreData > ctrl.loader.length ? ctrl.loader.length : moreData;
+	};
+
 	ctrl.$onInit = function() {
 		loader.list().then(function(list) {
-
 			ctrl.list = list;
+			ctrl.limit();
 			lgFilterList.setup($scope, '$ctrl', ctrl);
 		}).catch(function(error) {
 			console.error('error', error);

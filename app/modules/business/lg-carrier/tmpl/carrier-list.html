@@ -12,7 +12,7 @@
 	<lg-orderby order="$ctrl.order"></lg-orderby>
 </section>
 <carrier-list>
-	<ad-block ng-repeat="ad in $ctrl.filteredlist" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
+	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo:$ctrl.limit" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'specificTrip'">
 			<title>{{ad.content.truck.name}}</title>
 			<subtitle>
@@ -77,6 +77,7 @@
 			</content-right>
 		</content>
 	</ad-block>
+	<button ng-show="$ctrl.filteredlist.length > 50" class="load-more-app" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Annonces suivantes</button>	
 </carrier-list>
 <!--<add-ads>
 	<button ui-sref="carrier:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ajouter une annonce</button>
