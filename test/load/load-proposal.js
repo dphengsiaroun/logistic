@@ -29,7 +29,7 @@ con.connect(function(err) {
 		];
 		con.query(sql, [value], function(err, result) {
 			if (err) throw err;
-			console.log('Number of records inserted: ' + i);
+			console.log('Number of records inserted: ', i);
 		});
     }
 });
