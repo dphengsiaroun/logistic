@@ -10,7 +10,7 @@
 </section>
 <lg-hr ng-show="$ctrl.carriers.length > 0">Propositions</lg-hr>
 <proposal-list>
-    <ad-block ng-repeat="proposal in $ctrl.proposals" ng-click="$root.goToState('proposal:retrieve({ id: '+ proposal.id +'})')">
+    <ad-block ng-repeat="proposal in $ctrl.proposals | limitTo: $ctrl.limit" ng-click="$root.goToState('proposal:retrieve({ id: '+ proposal.id +'})')">
         <span>
             <div>
                 <div class="img-fix">
@@ -30,4 +30,5 @@
             </div>
         </span>
     </ad-block>
+    <button ng-show="$ctrl.proposals.length > 50" class="load-more-app" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Annonces suivantes</button>	
 </proposal-list>

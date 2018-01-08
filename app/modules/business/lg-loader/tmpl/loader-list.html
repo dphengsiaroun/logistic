@@ -12,7 +12,7 @@
 	<lg-orderby order="$ctrl.order"></lg-orderby>
 </section>
 <loader-list>
-	<ad-block ng-repeat="ad in $ctrl.filteredlist" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
+	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo: $ctrl.limit" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}">
 			<title>{{ad.content.title}}</title>
 			<subtitle>
