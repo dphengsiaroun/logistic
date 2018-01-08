@@ -32,7 +32,7 @@ con.connect(function(err) {
 				"arrivalCity":{"city":"Abi Youcef","region":"Tizi Ouzou","country":"Algerie"},
 				"minDuration":0,"distance":0,"departureDatetime":"2017-12-21T13:00:00.000Z",
 				"arrivalDatetime":"2017-12-21T20:14:41.900Z","conditioning":"Colis","priceWanted":${i},
-				"title":"Chargement de${i}palette","userId":"45","login":"tata","created_t":1513251680,"id":"60",
+				"title":"Chargement de ${i} palette","userId":"45","login":"tata","created_t":1513251680,"id":"60",
 				"image":{"name":"palette.JPG","size":202970,"type":"image/jpeg","url":"img/loader-default.svg",
 				"thumbnailUrl":"img/loader-default.svg","deleteUrl":"ws/upload.php?file=palette.JPG",
 				"deleteType":"DELETE"}}`,
