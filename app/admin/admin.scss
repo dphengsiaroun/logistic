@@ -426,7 +426,7 @@ admin-section {
 						margin: 20px 0px;
 						font-size: 14px;
 					}
-					
+
 					div .download {
 						display: block;
 						cursor: pointer;
@@ -444,15 +444,42 @@ admin-section {
 					div .download:hover {
 						background-color: #66912f;
 					}
-					div input {
-						margin: 0 0px 5px;
+					div .load-more {
+						display: block;
+						cursor: pointer;
+						background-color: #8bc63f;
+						color: #fff;
+						padding: 7px 20px;
+						font-size: 15px;
+						margin: 20px auto 5px;
+						text-align: center;
+						border-radius: 3px;
+						border: none;
+						>i.fa {
+							color: white;
+						}
+					}
+					div .load-more:hover {
+						background-color: #66912f;
+					}
+					div.filter {
 						width: 255px;
 						float: none;
-						right: 25px;
+						right: -7px;
 						position: absolute;
-						top: 13%;
+						top: 93px;
+						margin: 0 0 5px;						
 						font-size: 15px;
 						padding: 5px;
+						i.fa {
+							position: relative;
+							left: -8px;
+						}
+						input {
+							display: inline-block;
+							width: 200px;
+							padding: 3px 10px;
+						}
 					}
 					table {
 						thead>tr>th {
@@ -522,8 +549,8 @@ admin-section {
 
 admin-login-route {
 	display: table;
-    width: 100%;
-    min-height: 100vh;
+	width: 100%;
+	min-height: 100vh;
 	section {
 		display: table-cell;
 		width: 100%;
@@ -739,7 +766,7 @@ admin-terms-route {
 		display: none !important;
 	}
 	div.nav-bar {
-		display: none !important;	
+		display: none !important;
 	}
 	div.nav-bar-mobile {
 		display: block !important;
@@ -770,7 +797,8 @@ admin-terms-route {
 	div.nav-bar-mobile {
 		display: block !important;
 	}
-	admin-section section .row-1 .card h4, admin-section section .row-2 .card h4 {
+	admin-section section .row-1 .card h4,
+	admin-section section .row-2 .card h4 {
 		font-size: 20px;
 	}
 	admin-section section div.container .card .content div input {
@@ -854,7 +882,8 @@ admin-terms-route {
 	admin-section header h2 i.fa {
 		margin-right: 10px;
 	}
-	admin-section section .row-1 .card h4, admin-section section .row-2 .card h4 {
+	admin-section section .row-1 .card h4,
+	admin-section section .row-2 .card h4 {
 		font-size: 15px;
 	}
 	admin-section section div.container .card .content div input {
@@ -915,10 +944,12 @@ admin-terms-route {
 	admin-section header div a {
 		font-size: 14px;
 	}
-	admin-section section .row-1 .card h4, admin-section section .row-2 .card h4 {
+	admin-section section .row-1 .card h4,
+	admin-section section .row-2 .card h4 {
 		font-size: 16px;
 	}
-	admin-section section .row-1 .card .description, admin-section section .row-2 .card .description {
+	admin-section section .row-1 .card .description,
+	admin-section section .row-2 .card .description {
 		font-size: 12px;
 	}
 	table td {
@@ -927,7 +958,8 @@ admin-terms-route {
 	table td:before {
 		font-size: 11px;
 	}
-	admin-confirm .response, admin-prompt .response {
+	admin-confirm .response,
+	admin-prompt .response {
 		width: 65%;
 	}
 	admin-section section div.container .card .content div input {
@@ -943,7 +975,6 @@ admin-terms-route {
 	admin-section footer span {
 		font-size: 13px;
 	}
-	
 }
 
 @media screen and (max-width: 320px) {
@@ -985,7 +1016,8 @@ admin-terms-route {
 	table td {
 		font-size: 12px!important;
 	}
-	admin-confirm .response, admin-prompt .response {
+	admin-confirm .response,
+	admin-prompt .response {
 		width: 65%;
 	}
 }
