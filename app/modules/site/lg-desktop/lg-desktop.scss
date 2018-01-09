@@ -38,16 +38,9 @@ lg-mobile {
 		overflow: hidden;
 	}
 
-	lg-menu {
-		width: 460px;
-		height: 59px;
-		top: 65px;
-		left: 130px;
-	}
-
 	lg-body {
 		display: block;
-		position: relative;		
+		position: relative;
 		width: 460px;
 		height: 675px;
 		top: 65px;
@@ -55,21 +48,30 @@ lg-mobile {
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background: #f5f5f5;
-		box-shadow: 0 25px 30px -13px rgba(40,40,40,.4);
+		box-shadow: 0 25px 30px -13px rgba(40, 40, 40, .4);
 		border-radius: 10px 10px 0px 0px;
 	}
 
-	lg-menu-content {
+	/* lg-menu */
+	lg-menu {
 		width: 460px;
-		height: 616px;
-		top: 124px;
+		height: 59px;
+		top: 65px;
 		left: 130px;
+		lg-menu-content {
+			width: 460px;
+			height: 616px;
+			top: 124px;
+			left: 130px;
+		}
 	}
 
+
+
 	my-head {
-		border-radius: 10px 10px 0px 0px;		
+		border-radius: 10px 10px 0px 0px;
 	}
-	
+
 	/* lg-choice */
 	lg-choice {
 		overlay,
@@ -88,29 +90,50 @@ lg-mobile {
 		}
 	}
 
-	carrier-list, truck-list, loader-list, proposal-list {
+	carrier-list,
+	truck-list,
+	loader-list,
+	proposal-list {
 		padding: 5px 25px !important;
 	}
 
-	/* lg-filter */
-	overlay,
-	overlay fixed {
-		width: 460px;
-		top: 65px;
-		left: 130px;
+	/* lg-home */
+	lg-home-route {
+		header {
+			logo {
+				width: 20%;
+			}
+			tagline {
+				font-size: 20px;
+			}
+		}
 	}
 
-	lg-filter overlay filter {
-		height: 616px !important;
+	/* lg-filter */
+	lg-filter {
+		overlay {
+			filter {
+				height: 616px !important;
+			}
+		}
+		overlay,
+		overlay fixed {
+			width: 460px;
+			top: 65px;
+			left: 130px;
+		}
 	}
+
 	/* lg-erasable */
 	div.erase {
 		top: 103px !important;
 	}
+
 	/* lg-user-retrieve-route */
 	lg-user-retrieve-route {
 		padding: 20px 0px;
 	}
+
 	/* lg-datetime */
 	lg-datetime-content {
 		my-head,
@@ -130,13 +153,12 @@ lg-mobile {
 		lg-dt-hour {
 			top: 615px !important;
 		}
-		retroaction-msg{
+		retroaction-msg {
 			top: 690px!important;
 		}
 		lg-dt-month table tbody tr td.selected span {
 			line-height: 60px;
 		}
-
 	}
 	/* lg-dimension */
 	lg-edit {
@@ -160,12 +182,14 @@ lg-mobile {
 			height: 300px !important;
 		}
 	}
+
 	/* lg-truck */
 	add-ads {
 		width: 460px !important;
 		left: 130px!important;
 		top: 695px!important;
 	}
+
 	/* lg-proposal */
 	bottom,
 	bottom-edit {
@@ -174,6 +198,17 @@ lg-mobile {
 		top: 690px;
 	}
 
+	/* lg-terms */
+	lg-terms-route {
+		.article {
+			padding: 0 15px 10px 0px;
+			p {
+				padding: 10px 15px 10px 25px;
+			}
+		}
+	}
+
+	/* lg-footer */
 	lg-footer {
 		width: 460px;
 		margin-top: 30px;
