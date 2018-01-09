@@ -717,7 +717,7 @@ admin-terms-route {
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 1366px) {
+@media screen and (min-width: 1000px) and (max-width: 1366px) {
 	admin-section header h2 {
 		width: 84%;
 	}
@@ -736,14 +736,20 @@ admin-terms-route {
 		font-size: 25px;
 		margin-bottom: 10px;
 	}
-	admin-section section div.container .card .content div input {
-		top: 102px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+	admin-section section div.container .card .content div.filter {
+		top: 101px;
+	}
+	admin-section header h2 {
+		width: 77%;
 	}
 }
 
 @media screen and (max-width: 768px) {
 	admin-section header h2 {
-		width: 77%;
+		width: 75%;
 	}
 	admin-nav-route nav div.nav-logo a {
 		font-size: 20px;
@@ -770,6 +776,11 @@ admin-terms-route {
 	}
 	div.nav-bar-mobile {
 		display: block !important;
+	}
+	admin-section section div.container .card .content div.filter {
+		width: 100%;
+		position: initial;
+		top: 101px;
 	}
 }
 
@@ -800,16 +811,6 @@ admin-terms-route {
 	admin-section section .row-1 .card h4,
 	admin-section section .row-2 .card h4 {
 		font-size: 20px;
-	}
-	admin-section section div.container .card .content div input {
-		width: 100%;
-		float: none;
-		position: relative;
-		top: 35%;
-		left: 0;
-	}
-	admin-section section div.container .card .content .download {
-		display: none !important;
 	}
 	table thead {
 		border: none;
@@ -886,13 +887,6 @@ admin-terms-route {
 	admin-section section .row-2 .card h4 {
 		font-size: 15px;
 	}
-	admin-section section div.container .card .content div input {
-		width: 100%;
-		float: none;
-	}
-	admin-section section div.container .card .content .download {
-		display: none !important;
-	}
 	table td {
 		font-size: 14px !important;
 	}
@@ -962,13 +956,6 @@ admin-terms-route {
 	admin-prompt .response {
 		width: 65%;
 	}
-	admin-section section div.container .card .content div input {
-		width: 100%;
-		float: none;
-	}
-	admin-section section div.container .card .content .download {
-		display: none !important;
-	}
 	admin-section footer span b {
 		font-size: 14px;
 	}
@@ -1003,15 +990,6 @@ admin-terms-route {
 	}
 	admin-section header div a {
 		font-size: 12px;
-	}
-	admin-section section div.container .card .content div input {
-		width: 100%;
-		float: none;
-		position: relative;
-		left: 0px;
-	}
-	admin-section section div.container .card .content div .download {
-		display: none;
 	}
 	table td {
 		font-size: 12px!important;
