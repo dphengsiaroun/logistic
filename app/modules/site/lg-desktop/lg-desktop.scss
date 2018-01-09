@@ -104,12 +104,12 @@ lg-mobile {
 
 	.ad {
 		section {
-			padding: 10px 20px;				
+			padding: 10px 20px;
 			.dark {
 				padding: 10px 20px;
 			}
 		}
-	}	
+	}
 
 	/* lg-home */
 	lg-home-route {
@@ -150,7 +150,7 @@ lg-mobile {
 		padding: 20px 0px;
 	}
 
-	/* lg-carrier-create-route */	
+	/* lg-carrier */
 	lg-carrier-create-route {
 		summary {
 			padding: 20px;
@@ -159,9 +159,26 @@ lg-mobile {
 
 	lg-carrier-create-availability-route {
 		trajet {
-			padding: 20px;			
+			padding: 20px;
 		}
 	}
+	lg-carrier-create-truck-choose-route {
+		no-vehicle {
+			padding: 20px;
+		}
+		at-list-one-vehicle {
+			padding: 15px 20px;
+		}
+	}
+
+	lg-user-signup-success-route {
+		padding: 0 20px;
+	}
+
+	lg-message {
+		padding: 20px;
+	}
+
 
 	/* lg-datetime */
 	lg-datetime-content {
