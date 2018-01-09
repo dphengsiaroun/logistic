@@ -120,6 +120,9 @@ lg-dt-month {
                 td.selected {
                     span {
                         border-radius: 84%;
+                        line-height: 48px;
+                        font-size: 22px;
+                        font-weight: bold;
                         background-color: $selectedColor;
                         color: white;
                     }

@@ -38,106 +38,70 @@ lg-mobile {
 		overflow: hidden;
 	}
 
-	lg-menu,
-	{
-		width: 326px;
+	lg-menu {
+		width: 460px;
 		height: 59px;
-		top: 109px;
-		left: 138px;
+		top: 65px;
+		left: 130px;
 	}
 
 	lg-body {
 		display: block;
-		position: relative;
+		position: relative;		
+		width: 460px;
+		height: 675px;
+		top: 65px;
+		left: 130px;
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background: #f5f5f5;
-		width: 326px;
-		height: 577px;
-		top: 109px;
-		left: 138px;
+		box-shadow: 0 25px 30px -13px rgba(40,40,40,.4);
+		border-radius: 10px 10px 0px 0px;
 	}
 
 	lg-menu-content {
-		width: 326px;
-		height: 517px;
-		top: 169px;
-		left: 138px;
+		width: 460px;
+		height: 616px;
+		top: 124px;
+		left: 130px;
 	}
+
+	my-head {
+		border-radius: 10px 10px 0px 0px;		
+	}
+	
 	/* lg-choice */
 	lg-choice {
 		overlay,
 		fixed,
 		fixed-list {
-			width: 326px !important;
-			left: 139px !important;
-			top: 110px !important;
+			width: 460px !important;
+			left: 130px !important;
+			top: 65px!important;
+			border-radius: 10px;
 		}
 		overlay {
-			height: 517px !important;
+			height: 616px !important;
 		}
 		fixed-list {
-			height: 576px !important;
+			height: 675px !important;
 		}
-	} // /* lg-user-ads-route */
-	// lg-user-ads-route,
-	// lg-user-create-route,
-	// lg-user-signup-success-route,
-	// lg-user-proposals-route,
-	// lg-user-retrieve-route,
-	// lg-user-forgotten-password-route,
-	// lg-user-update-password-route,
-	// lg-home-route,
-	// lg-connection-signin-route,
-	// lg-carrier-create-route,
-	// lg-loader-create-route,
-	// lg-carrier-list-route,
-	// lg-carrier-retrieve-route,
-	// lg-carrier-create-truck-create-route,
-	// lg-carrier-create-truck-choose-route,
-	// lg-carrier-create-availability-route,
-	// lg-carrier-create-trip-create-route,
-	// lg-carrier-create-pricing-route,
-	// lg-carrier-update-route,
-	// lg-loader-list-route,
-	// lg-loader-retrieve-route,
-	// lg-loader-update-route,
-	// lg-truck-create-route,
-	// lg-truck-list-route,
-	// lg-truck-retrieve-route,
-	// lg-truck-update-route,
-	// lg-proposal-create-route,
-	// lg-proposal-retrieve-route,
-	// lg-proposal-update-route,
-	// tests,
-	// lg-test-calendar-route,
-	// lg-test-datetime-route,
-	// lg-test-load-image,
-	// lg-test-num,
-	// lg-test-slider,
-	// lg-prompt,
-	// lg-message,
-	// lg-confirm {
-	// 	display: block;
-	// 	position: relative;
-	// 	overflow-y: scroll;
-	// 	overflow-x: hidden;
-	// 	background: #f5f5f5;
-	// 	width: 326px;
-	// 	height: 518px;
-	// 	top: 109px;
-	// 	left: 138px;
-	// }
+	}
+
+	carrier-list, truck-list, loader-list, proposal-list {
+		padding: 5px 25px !important;
+	}
+
 	/* lg-filter */
 	overlay,
 	overlay fixed {
-		width: 326px;
-		top: 109px;
-		left: 138px;
+		width: 460px;
+		top: 65px;
+		left: 130px;
 	}
 
 	lg-filter overlay filter {
-		height: 517px !important;
+		height: 616px !important;
 	}
 	/* lg-erasable */
 	div.erase {
@@ -153,61 +117,65 @@ lg-mobile {
 		month-list,
 		lg-dt-hour,
 		retroaction-msg {
-			width: 326px !important;
-			left: 138px !important;
+			width: 460px !important;
+			left: 130px !important;
 		}
 		my-head {
-			top: 110px !important;
+			top: 65px !important;
 		}
 		month-list {
-			height: 517px !important;
-			top: 169px !important;
+			height: 616px !important;
+			top: 124px!important;
 		}
 		lg-dt-hour {
-			top: 561px !important;
+			top: 615px !important;
 		}
 		retroaction-msg{
-			top: 636px!important;
+			top: 690px!important;
+		}
+		lg-dt-month table tbody tr td.selected span {
+			line-height: 60px;
 		}
 
 	}
 	/* lg-dimension */
 	lg-edit {
 		my-head {
-			width: 326px !important;
-			left: 139px !important;
+			width: 460px !important;
+			left: 130px !important;
 		}
 		my-head {
-			top: 110px !important;
+			top: 65px !important;
 		}
 		my-body {
-			width: 326px !important;
-			left: 139px !important;
-			top: 169px !important;
-			height: 517px !important;
+			width: 460px !important;
+			left: 130px !important;
+			top: 124px !important;
+			height: 616px !important;
 		}
 		settings {
 			top: 362px !important;
-			left: 139px !important;
-			width: 326px !important;
+			left: 130px !important;
+			width: 460px !important;
 			height: 300px !important;
 		}
 	}
 	/* lg-truck */
 	add-ads {
-		width: 326px !important;
-		left: 139px!important;
-		bottom: 113px!important;
+		width: 460px !important;
+		left: 130px!important;
+		top: 695px!important;
 	}
 	/* lg-proposal */
 	bottom,
 	bottom-edit {
-		width: 326px;
-		left: 138px;
-		top: 636px;
+		width: 460px;
+		left: 130px;
+		top: 690px;
 	}
 
 	lg-footer {
-		width: 326px;
+		width: 460px;
+		margin-top: 30px;
 	}
 }

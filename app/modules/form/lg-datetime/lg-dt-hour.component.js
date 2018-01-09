@@ -44,7 +44,7 @@ export const lgDtHour = {
 			
 			isUpdating = true;
 			
-			let pos = (0 + $index * 1.3) * width / 44;
+			let pos = (0 + $index * 1.6) * width / 38.7;
 			if (lgMobile.isMobile()) {
 				pos = (0 + $index * 1.3) * width / 10;
 			}

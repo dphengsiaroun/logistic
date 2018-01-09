@@ -12,6 +12,7 @@ lg-dt-hour {
     background-color: $headCalendarColor;
     border-top: 1px solid $veryDarkBorderColor;
     text-align: center;
+    overflow: hidden;
     p {
         display: block;
         font-size: 15px;
