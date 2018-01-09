@@ -94,17 +94,32 @@ lg-mobile {
 	truck-list,
 	loader-list,
 	proposal-list {
-		padding: 5px 25px !important;
+		padding: 10px 20px !important;
 	}
+
+	/* Form */
+	form {
+		padding: 0px 20px;
+	}
+
+	.ad {
+		section {
+			padding: 10px 20px;				
+			.dark {
+				padding: 10px 20px;
+			}
+		}
+	}	
 
 	/* lg-home */
 	lg-home-route {
+		padding: 30px 10px !important;
 		header {
 			logo {
-				width: 20%;
+				width: 20% !important;
 			}
 			tagline {
-				font-size: 20px;
+				font-size: 20px !important;
 			}
 		}
 	}
@@ -121,6 +136,7 @@ lg-mobile {
 			width: 460px;
 			top: 65px;
 			left: 130px;
+			border-radius: 10px;
 		}
 	}
 
@@ -132,6 +148,19 @@ lg-mobile {
 	/* lg-user-retrieve-route */
 	lg-user-retrieve-route {
 		padding: 20px 0px;
+	}
+
+	/* lg-carrier-create-route */	
+	lg-carrier-create-route {
+		summary {
+			padding: 20px;
+		}
+	}
+
+	lg-carrier-create-availability-route {
+		trajet {
+			padding: 20px;			
+		}
 	}
 
 	/* lg-datetime */
@@ -160,6 +189,7 @@ lg-mobile {
 			line-height: 60px;
 		}
 	}
+
 	/* lg-dimension */
 	lg-edit {
 		my-head {
@@ -179,7 +209,7 @@ lg-mobile {
 			top: 362px !important;
 			left: 130px !important;
 			width: 460px !important;
-			height: 300px !important;
+			height: 370px!important;
 		}
 	}
 
