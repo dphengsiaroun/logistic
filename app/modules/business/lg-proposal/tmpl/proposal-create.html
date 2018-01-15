@@ -13,18 +13,10 @@
 		<img ng-show="$ctrl.proposal.createData.imageUrl" src="{{$ctrl.proposal.createData.imageUrl}}">
 	</img-ad>
 	<section>
-		<label>Titre de l'annonce</label>
-		<div>
-			<input type="text" name="titleAd" placeholder="Titre de l'annonce" ng-model="$ctrl.proposal.createData.titleAd" required />
-			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(formCtrl.titleAd)" class="fa fa-check" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.titleAd)">
-					<span ng-show="formCtrl.titleAd.$error.required">Le titre de l'annonce est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
-		</div>
+		<p>Proposition à l'annonce :</p>
+		<p class="title-ad-proposal">{{$ctrl.proposal.createData.titleAd}}</p>
 
-		<label>Message</label>
+		<label style="font-weight: normal">Message :</label>
 		<div>
 			<textarea name="message" ng-model="$ctrl.proposal.createData.message" required></textarea>
 			<message-form-validator>
