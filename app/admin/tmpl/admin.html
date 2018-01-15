@@ -77,6 +77,8 @@
 									<th>Titre de l'annonce</th>
 									<th>Type d'annonce</th>
 									<th>Message</th>
+									<th>De</th>
+									<th>A</th>
 									<th>Envoyé le</th>
 								</tr>
 							</thead>
@@ -88,6 +90,8 @@
 									<td data-label="Type d'annonce" ng-show="proposal.content.adType === 'loader'">Chargeur</td>
 									<td data-label="Type d'annonce" ng-show="proposal.content.adType === 'carrier'">Transporteur</td>
 									<td data-label="Message">{{proposal.content.message}}</td>
+									<td data-label="De">{{proposal.from}}</td>
+									<td data-label="A">{{proposal.to}}</td>
 									<td data-label="Envoyé le">{{proposal.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
 								</tr>
 							</tbody>
@@ -126,6 +130,7 @@
 									<th>Transport (catégorie)</th>
 									<th>Transport (type)</th>
 									<th>Prix</th>
+									<th>De</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -139,6 +144,7 @@
 									<td data-label="Transport (catégorie)">{{carrier.content.truck.transportCategory}}</td>
 									<td data-label="Transport (type)">{{carrier.content.truck.transportTruckType}}</td>
 									<td data-label="Prix">{{carrier.content.pricing.priceWantedPerKm}} DZD/km</td>
+									<td data-label="De">{{carrier.from}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -179,6 +185,7 @@
 									<th>Marchandise (type)</th>
 									<th>Poids (Tranche)</th>
 									<th>Prix</th>
+									<th>De</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -194,6 +201,7 @@
 									<td data-label="Marchandise (type)">{{loader.content.typeOfGoods}}</td>
 									<td data-label="Poids (Tranche)">{{loader.content.weightInterval}}</td>
 									<td data-label="Prix">{{loader.content.priceWanted}} DZD</td>
+									<td data-label="De">{{loader.from}}</td>									
 								</tr>
 							</tbody>
 						</table>

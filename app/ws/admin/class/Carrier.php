@@ -8,7 +8,14 @@
 			global $db, $cfg;
 
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}carrier
+SELECT 
+	c.*, 
+	u.login as `from`
+FROM 
+	{$cfg->prefix}carrier c, 
+	{$cfg->prefix}user u
+WHERE 
+	u.id = c.user_id
 EOF;
 			$array = array();
 

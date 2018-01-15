@@ -36,6 +36,7 @@
 										<th>Marchandise (type)</th>
 										<th>Poids (tranche)</th>
 										<th>Prix</th>
+										<th>De</th>
 										<th class="text-center">Actions</th>
 									</tr>
 								</thead>
@@ -54,6 +55,7 @@
 										<td data-label="Marchandise (type)">{{loader.content.typeOfGoods}}</td>
 										<td data-label="Poids (tranche)">{{loader.content.weightInterval}}</td>
 										<td data-label="Prix">{{loader.content.priceWanted}}</td>
+										<td data-label="De">{{loader.from}}</td>
 										<td data-label="Actions">
 											<a ui-sref="admin:loader:delete({id: loader.id})" class="remove"><i class="fa fa-times"></i></a>
 										</td>

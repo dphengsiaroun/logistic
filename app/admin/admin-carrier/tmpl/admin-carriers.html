@@ -33,6 +33,7 @@
 										<th>Transport (catégorie)</th>
 										<th>Transport (type)</th>
 										<th>Prix</th>
+										<th>De</th>
 										<th class="text-center">Actions</th>
 									</tr>
 								</thead>
@@ -47,6 +48,7 @@
 										<td data-label="Transport (catégorie)">{{carrier.content.truck.transportCategory}}</td>
 										<td data-label="Transport (type)">{{carrier.content.truck.transportTruckType}}</td>
 										<td data-label="Prix">{{carrier.content.pricing.priceWantedPerKm}} DZD/km</td>
+										<td data-label="De">{{carrier.from}}</td>
 										<td data-label="Actions" class="text-center">
 											<a ui-sref="admin:carrier:delete({id: carrier.id})" class="remove"><i class="fa fa-times"></i></a>
 										</td>

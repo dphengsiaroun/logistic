@@ -43,7 +43,7 @@ lg-mobile {
 		position: relative;
 		width: 460px;
 		height: 675px;
-		top: 65px;
+		top: 40px;
 		left: 130px;
 		overflow-y: scroll;
 		overflow-x: hidden;
@@ -55,14 +55,13 @@ lg-mobile {
 	lg-menu {
 		width: 460px;
 		height: 59px;
-		top: 65px;
+		top: 40px;
 		left: 130px;
 		lg-menu-content {
 			width: 460px;
 			height: 616px;
-			top: 124px;
+			top: 100px;
 			left: 130px;
-			border-radius: 0 0 10px 10px;
 		}
 	}
 
@@ -76,8 +75,7 @@ lg-mobile {
 		fixed-list {
 			width: 460px !important;
 			left: 130px !important;
-			top: 65px!important;
-			border-radius: 10px;
+			top: 40px !important;
 		}
 		overlay {
 			height: 616px !important;
@@ -119,15 +117,13 @@ lg-mobile {
 		overlay {
 			filter {
 				height: 616px !important;
-				border-radius: 0 0 10px 10px;
 			}
 		}
 		overlay,
 		overlay fixed {
 			width: 460px;
-			top: 65px;
+			top: 40px;
 			left: 130px;
-			border-radius: 10px;
 		}
 	}
 
@@ -196,9 +192,8 @@ lg-mobile {
 	add-ads {
 		width: 460px !important;
 		left: 130px!important;
-		top: 695px!important;
+		top: 670px!important;
 		button {
-			border-radius: 0 0 10px 10px !important;
 		}
 	}
 
@@ -207,25 +202,7 @@ lg-mobile {
 	bottom-edit {
 		width: 460px;
 		left: 130px;
-		top: 690px;
-	}
-
-	bottom-edit {
-		a:nth-child(1) {
-			border-radius: 0 0 0 10px !important;
-		}
-		a:nth-child(2) {
-			border-radius: 0 0 10px 0 !important;
-		}
-	}
-
-	bottom {
-		a:nth-child(2) {
-			border-radius: 0 0 0 10px !important;
-		}
-		a:nth-child(4) {
-			border-radius: 0 0 10px 0 !important;
-		}
+		top: 666px;
 	}
 
 	lg-proposal-retrieve-route {
@@ -255,21 +232,19 @@ lg-mobile {
 		retroaction-msg {
 			width: 460px !important;
 			left: 130px !important;
-			border-radius: 0 0 10px 10px;
 		}
 		my-head {
-			top: 65px !important;
-			border-radius: 10px 10px 0 0;
+			top: 40px !important;
 		}
 		month-list {
 			height: 616px !important;
-			top: 124px!important;
+			top: 100px!important;
 		}
 		lg-dt-hour {
-			top: 615px !important;
+			top: 591px !important;
 		}
 		retroaction-msg {
-			top: 690px!important;
+			top: 666px!important;
 		}
 		lg-dt-month table tbody tr td.selected span {
 			line-height: 60px;
@@ -283,17 +258,16 @@ lg-mobile {
 			left: 130px !important;
 		}
 		my-head {
-			top: 65px !important;
+			top: 40px !important;
 		}
 		my-body {
 			width: 460px !important;
 			left: 130px !important;
-			top: 124px !important;
+			top: 100px !important;
 			height: 616px !important;
-			border-radius: 0 0 10px 10px;
 		}
 		settings {
-			top: 362px !important;
+			top: 335px !important;
 			left: 130px !important;
 			width: 460px !important;
 			height: 370px!important;
