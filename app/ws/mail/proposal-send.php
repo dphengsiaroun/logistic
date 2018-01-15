@@ -112,7 +112,7 @@
                 <tr>
                     <td align="center" valign="top" style="padding: 15px 0;" class="logo">
                         <a href="#">
-                            <img alt="Logo" src="https://jlg-consulting.com/ali/proto/img/image2.png" width="80" height="85" style="display: block; font-family: Helvetica Neue, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                            <img alt="Logo" src="https://<?php echo $_SERVER[HTTP_HOST]?>/ali/proto/img/image2.png" width="80" height="85" style="display: block; font-family: Helvetica Neue, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
                 </tr>
@@ -138,7 +138,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                   <td class="padding" align="center">
-                                    <a href="#"><img src="https://jlg-consulting.com/ali/proto/img/laptop.png" width="120" border="0" alt="iGoroute" style="display: block; padding: 0; color: #666666; text-decoration: none; font-family: Helvetica Neue, arial, sans-serif; font-size: 16px;" class="img-max"></a>
+                                    <a href="#"><img src="https://<?php echo $_SERVER[HTTP_HOST]?>/ali/proto/img/laptop.png" width="120" border="0" alt="iGoroute" style="display: block; padding: 0; color: #666666; text-decoration: none; font-family: Helvetica Neue, arial, sans-serif; font-size: 16px;" class="img-max"></a>
                                 </td>
                             </tr>
                             <tr>
