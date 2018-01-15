@@ -77,6 +77,7 @@ describe('Carrier CRUD', function() {
 		browser.get(data.mainUrl);
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
+		// browser.sleep(5000);		
 		const adElt = element(by.css('carrier-list ad-block'));
 		adElt.element(by.css('title')).click();
 		element(by.id('pr-edit-button')).click();

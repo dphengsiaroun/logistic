@@ -24,28 +24,6 @@
 			</message-form-validator>
 		</div>
 
-		<label>Nom</label>
-		<div>
-			<input type="text" name="name" placeholder="Nom" ng-model="$ctrl.proposal.createData.name" required />
-			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.name)">
-					<span ng-show="formCtrl.name.$error.required">Le nom est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
-		</div>
-
-		<label>Email</label>
-		<div>
-			<input type="text" name="email" placeholder="Email" ng-model="$ctrl.proposal.createData.email" required />
-			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(formCtrl.email)" class="fa fa-check" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.email)">
-					<span ng-show="formCtrl.email.$error.required">L'email est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
-		</div>
-
 		<label>Message</label>
 		<div>
 			<textarea name="message" ng-model="$ctrl.proposal.createData.message" required></textarea>

@@ -49,7 +49,7 @@ lg-mobile {
 		overflow-x: hidden;
 		background: #f5f5f5;
 		box-shadow: 0 25px 30px -13px rgba(40, 40, 40, .4);
-		border-radius: 10px 10px 0px 0px;
+		border-radius: 10px;
 	}
 
 	/* lg-menu */
@@ -63,6 +63,7 @@ lg-mobile {
 			height: 616px;
 			top: 124px;
 			left: 130px;
+			border-radius: 0 0 10px 10px;
 		}
 	}
 
@@ -88,13 +89,6 @@ lg-mobile {
 		fixed-list {
 			height: 675px !important;
 		}
-	}
-
-	carrier-list,
-	truck-list,
-	loader-list,
-	proposal-list {
-		padding: 10px 20px !important;
 	}
 
 	/* Form */
@@ -129,6 +123,7 @@ lg-mobile {
 		overlay {
 			filter {
 				height: 616px !important;
+				border-radius: 0 0 10px 10px;
 			}
 		}
 		overlay,
@@ -145,9 +140,27 @@ lg-mobile {
 		top: 103px !important;
 	}
 
-	/* lg-user-retrieve-route */
+	carrier-list,
+	truck-list,
+	loader-list,
+	proposal-list {
+		padding: 10px 20px !important;
+	}
+
+	/* lg-user */
 	lg-user-retrieve-route {
 		padding: 20px 0px;
+	}
+
+	lg-user-signup-success-route {
+		padding: 0 20px;
+	}
+
+	/* lg-loader */
+	lg-loader-retrieve-route {
+		recap {
+			padding: 15px 20px;
+		}
 	}
 
 	/* lg-carrier */
@@ -171,14 +184,72 @@ lg-mobile {
 		}
 	}
 
-	lg-user-signup-success-route {
-		padding: 0 20px;
+	lg-carrier-retrieve-route {
+		recap {
+			padding: 15px 20px;
+		}
 	}
 
-	lg-message {
-		padding: 20px;
+	/* lg-truck */
+	lg-truck-retrieve-route {
+		recap {
+			padding: 15px 20px;
+		}
 	}
 
+	add-ads {
+		width: 460px !important;
+		left: 130px!important;
+		top: 695px!important;
+		button {
+			border-radius: 0 0 10px 10px !important;
+		}
+	}
+
+	/* lg-proposal */
+	bottom,
+	bottom-edit {
+		width: 460px;
+		left: 130px;
+		top: 690px;
+	}
+
+	bottom-edit {
+		a:nth-child(1) {
+			border-radius: 0 0 0 10px !important;
+		}
+		a:nth-child(2) {
+			border-radius: 0 0 10px 0 !important;
+		}
+	}
+
+	bottom {
+		a:nth-child(2) {
+			border-radius: 0 0 0 10px !important;
+		}
+		a:nth-child(4) {
+			border-radius: 0 0 10px 0 !important;
+		}
+	}
+
+	lg-proposal-retrieve-route {
+		recap {
+			padding: 15px 20px;
+		}
+	}
+
+	lg-user-forgotten-password-route {
+		form {
+			.email {
+				top: 252px !important;
+			}
+		}
+	}
+
+	lg-message,
+	lg-confirm {
+		padding: 20px !important;
+	}
 
 	/* lg-datetime */
 	lg-datetime-content {
@@ -188,9 +259,11 @@ lg-mobile {
 		retroaction-msg {
 			width: 460px !important;
 			left: 130px !important;
+			border-radius: 0 0 10px 10px;
 		}
 		my-head {
 			top: 65px !important;
+			border-radius: 10px 10px 0 0;
 		}
 		month-list {
 			height: 616px !important;
@@ -221,6 +294,7 @@ lg-mobile {
 			left: 130px !important;
 			top: 124px !important;
 			height: 616px !important;
+			border-radius: 0 0 10px 10px;
 		}
 		settings {
 			top: 362px !important;
@@ -230,20 +304,7 @@ lg-mobile {
 		}
 	}
 
-	/* lg-truck */
-	add-ads {
-		width: 460px !important;
-		left: 130px!important;
-		top: 695px!important;
-	}
 
-	/* lg-proposal */
-	bottom,
-	bottom-edit {
-		width: 460px;
-		left: 130px;
-		top: 690px;
-	}
 
 	/* lg-terms */
 	lg-terms-route {

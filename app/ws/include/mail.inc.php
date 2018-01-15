@@ -6,6 +6,7 @@ require_once(BASE_DIR . "/class/TestMail.php");
 function sendmail($user, $type, $content = NULL) {
 	global $cfg;
 	debug('sending mail', $user);
+	debug('sending mail content', $content);
 
 	$mail = NULL;
 	debug('Test if protractor');
@@ -45,8 +46,14 @@ function sendmail($user, $type, $content = NULL) {
 		$mail->Body    = getTemplate(BASE_DIR . '/mail/forgotten-password.html', $user);
 		$mail->AltBody = html2txt($mail->Body);
 	} else if ($type == 'proposal-send') {
-		$mail->Subject = 'Nouvelle proposition';
-		$mail->Body    = getTemplate(BASE_DIR . '/mail/proposal-send.html', $user, $content);
+		$mail->Subject = 'Une proposition pour votre annonce sur iGoroute.com';
+		$mail->Body    = getTemplate(BASE_DIR . '/mail/proposal-send.html', $user, 
+		'<span style="display; block; font-weight: bold;">Annonce : ' . $content->content->titleAd . '</span>
+		<br/>
+		<span style="display; block;">' . $content->content->message . '</span>
+		<br/>
+		<span>Contact : ' . $content->content->name . ' - 
+			<a href="mailto:'. $content->content->email . '">' . $content->content->email .'</a></span>');
 		$mail->AltBody = html2txt($mail->Body);
 	} else {
 		$mail->Subject = 'Here is the subject';
