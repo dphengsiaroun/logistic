@@ -8,7 +8,17 @@
 			global $db, $cfg;
 
 			$sql = <<<EOF
-SELECT * FROM {$cfg->prefix}proposal
+SELECT 
+	p.*, 
+	u1.login as `from`,
+	u2.login as `to`
+FROM 
+	{$cfg->prefix}proposal p, 
+	{$cfg->prefix}user u1,
+	{$cfg->prefix}user u2
+WHERE 
+	u1.id = p.user_id
+	AND u2.id = p.ad_user_id
 EOF;
 			$array = array();
 
