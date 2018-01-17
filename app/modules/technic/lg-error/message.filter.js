@@ -20,7 +20,7 @@ export function messageFilter() {
 		if (error === undefined) {
 			return '';
 		}
-		if (error.data && error.data.errorCode) {
+		if (error.data && error.data.errorCode !== undefined) {
 			if (cfg[error.data.errorCode]) {
 				return cfg[error.data.errorCode];
 			}
@@ -29,7 +29,7 @@ export function messageFilter() {
 		if (error.status && error.status >= 400) {
 			return 'Technical Error: HTTP status = ' + error.status;
 		}
-		console.error('TODO: implement message for error ' + error.data);
-		return 'Unknown error.';
+		console.error(`TODO: implement message for error  ${error.data.errorCode} ${error.status}`, error.data);
+		return 'Erreur technique.';
 	};
 }
