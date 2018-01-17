@@ -1,3 +1,4 @@
+import '../css/reset.scss';
 import './admin.scss';
 module.exports = 'admin';
 
@@ -39,8 +40,9 @@ angular.module(module.exports, [
 	'lg-back-detector'
 	])
 	.config(lib.config)
-	.run((adminConnection, lgBackDetector) => {
+	.run((adminConnection, lgBackDetector, lgConfig) => {
 		console.log('run');
+		lgConfig.init();
 		adminConnection.check();
 		lgBackDetector.init();
 	})

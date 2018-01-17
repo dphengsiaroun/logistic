@@ -17,16 +17,12 @@
 								<tr>
 									<th>Date</th>
 									<th>Détails</th>
-									<th class="text-center">Voir</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="log in $ctrl.logs">
-									<td data-label="Date">17-01-2018</td>
-									<td data-label="Détails">_trace-2018-01-17.log</td>
-									<td data-label="Voir" class="text-center">
-										<a href="#"><i class="fa fa-download"></i></a>
-									</td>
+								<tr ng-repeat="log in $ctrl.logs" ng-click="$root.goto('../ws/logs/' + log.name, true);">
+									<td data-label="Date">{{log.stat.mtime | ts2date | date: 'medium'}}</td>
+									<td data-label="Détails">{{log.name}}</td>
 								</tr>
 							</tbody>
 						</table>

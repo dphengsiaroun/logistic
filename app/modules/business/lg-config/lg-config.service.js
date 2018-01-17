@@ -1,5 +1,5 @@
 export function LgConfigProvider() {
-	
+
 	let wsDir;
 
 	this.wsDir = function(val) {
@@ -11,6 +11,7 @@ export function LgConfigProvider() {
 
 	this.$get = function($rootScope, $http, $window, $state, $parse) {
 		'ngInject';
+
 		function LgConfig() {
 			'ngInject';
 			const config = this;
@@ -23,21 +24,29 @@ export function LgConfigProvider() {
 				$rootScope.config = config;
 
 				$rootScope.back = function() {
-					
+
 					$window.history.back();
 				};
-
-				$rootScope.goto = function(url) {
-					
-					$window.location.href = url;
+				console.log('toto');
+				
+				$rootScope.goto = function(url, blank) {
+					console.log('hello');
+					if (blank) {
+						const win = $window.open(url, '_blank');
+						win.focus();
+					} else {
+						$window.location.href = url;
+					}
 				};
 
+				$rootScope.toto = 'titi';
+
 				$rootScope.goToState = function(state) {
-					
+
 					const array = state.split(/[()]/);
 					const to = array[0];
 					const params = $parse(array[1])({});
-					
+
 					$state.go(to, params);
 				};
 
@@ -78,7 +87,7 @@ export function LgConfigProvider() {
 				const year = (new Date()).getFullYear();
 				config.years = [...Array(19).keys()].map((n, i) => year - i);
 				config.years.push('avant ' + (year - 18));
-				
+
 				config.loaderTypes = ['Animaux', 'Classique', 'Dangereux', 'Frigo', 'Massif'];
 
 				config.transportCategories = ['Camion', 'Avion', 'Bateau'];
@@ -155,7 +164,7 @@ export function LgConfigProvider() {
 
 				$http.get(wsDir + 'config/retrieve.php').then(function(response) {
 					config.serverConfig = response.data.serverConfig;
-					
+
 				}).catch(function(error) {
 					console.error('error', error);
 				});

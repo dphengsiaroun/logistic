@@ -14,9 +14,11 @@
 					while (($file = readdir($dh)) !== false) {
 						if( $file != '.' && $file != '..') {
 							$path = "toto/logs/" . $file;
+							$stat = stat ( $dir . '/' . $file );
 							$result[] = array(
 								'name' => $file,
-								'path' => $path
+								'path' => $path,
+								'stat' => $stat
 							);
 						}
 					}
