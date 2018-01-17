@@ -157,8 +157,8 @@ admin-nav-route {
 			display: block;
 			width: 85%;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-			padding-bottom: 20px;
-			margin: 30px auto 0px;
+			padding-bottom: 15px;
+			margin: 20px auto 0;
 			span {
 				text-align: center;
 				color: #FFFFFF;
@@ -189,7 +189,7 @@ admin-nav-route {
 						display: block;
 						width: 100%;
 						cursor: pointer;
-						padding: 20px 20px;
+						padding: 15px 10px;
 						color: #fff;
 						font-size: 13px;
 					}
@@ -468,7 +468,7 @@ admin-section {
 						right: -7px;
 						position: absolute;
 						top: 93px;
-						margin: 0 0 5px;						
+						margin: 0 0 5px;
 						font-size: 15px;
 						padding: 5px;
 						i.fa {
@@ -738,16 +738,27 @@ admin-terms-route {
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 1000px) {
+@media screen and (min-width: 800px) and (max-width: 1000px) {
 	admin-section section div.container .card .content div.filter {
 		top: 101px;
 	}
 	admin-section header h2 {
 		width: 77%;
 	}
+	admin-nav-route nav div.nav-bar ul li a {
+		text-align: center;
+		font-size: .70em;
+	}
+	admin-nav-route nav div.nav-bar ul li i.fa {
+		display: block;
+		margin: 0 auto 10px;
+	}
+	admin-nav-route nav div.nav-logo a {
+		font-size: 25px;
+	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
 	admin-section header h2 {
 		width: 75%;
 	}
@@ -793,14 +804,17 @@ admin-terms-route {
 		font-size: 18px;
 	}
 	admin-nav-route nav div.nav-logo a {
-		font-size: 20px;
+		font-size: 15px;
+	}
+	admin-nav-route nav div.user span {
+		font-size: 12px;
 	}
 	admin-nav-route nav div.nav-logo span {
 		font-size: 14px;
 	}
 	admin-nav-route nav div.user .photo {
-		width: 70px;
-		height: 70px;
+		width: 50px;
+		height: 50px;
 	}
 	div.nav-bar {
 		display: none !important;

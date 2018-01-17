@@ -1,5 +1,5 @@
 <img-ad>
-	<img ng-show="$ctrl.carrier.current.content.truck.image === undefined" src="img/truck-default.svg">
+	<img-svg ng-show="$ctrl.carrier.current.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
 	<img ng-show="$ctrl.carrier.current.content.truck.image.url" ng-src="{{$ctrl.carrier.current.content.truck.image.url}}">
 </img-ad>
 <recap>
@@ -124,6 +124,6 @@
 	<bottom-edit ng-show="$ctrl.isEditable">
 		<a id="pr-edit-button" ui-sref="carrier:update({login: $ctrl.connection.user.content.login, id: $ctrl.carrier.current.id})"><i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
 		<a class="btn-critical" ui-sref="carrier:delete({login: $ctrl.connection.user.content.login, id: $ctrl.carrier.current.id})"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
-		
+
 	</bottom-edit>
 </recap>

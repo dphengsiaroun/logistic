@@ -7,10 +7,12 @@ import adminCarrier from './admin-carrier/admin-carrier.module.js';
 import adminConnection from './admin-connection/admin-connection.module.js';
 import adminLoader from './admin-loader/admin-loader.module.js';
 import adminProposal from './admin-proposal/admin-proposal.module.js';
+import adminSettings from './admin-settings/admin-settings.module.js';
 import adminUser from './admin-user/admin-user.module.js';
 
 import lgDebug from '../modules/technic/lg-debug/lg-debug.service.js';
 import lgMisc from '../modules/technic/lg-misc/lg-misc.module.js';
+import lgImgSvg from '../modules/technic/lg-img-svg/lg-img-svg.module.js';
 import lgConfig from '../modules/business/lg-config/lg-config.module.js';
 
 import { adminPrompt } from './widget/admin-prompt.component.js';
@@ -27,10 +29,12 @@ angular.module(module.exports, [
 	adminConnection,
 	adminLoader, 
 	adminProposal,
+	adminSettings,
 	adminUser,
 	
 	lgConfig, 
-	lgMisc, 
+	lgMisc,
+	lgImgSvg,
 	lgDebug,
 	'lg-back-detector'
 	])

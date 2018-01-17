@@ -2,7 +2,7 @@
 	<div class="qty-ad">
 		<span id="noAds" ng-show="$ctrl.filteredlist.length === 0" ng-init="$ctrl.list">Aucune annonce de transporteur</span>
 		<span ng-show="$ctrl.filteredlist.length === 1" ng-init="$ctrl.list">1 annonce de transporteur</span>
-		<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de transporteur</span>		
+		<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de transporteur</span>
 		<br/>
 		<span ng-show="$ctrl.removedByFilterLength === 0" class="total-filter"></span>
 		<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrées</span>
@@ -46,7 +46,7 @@
 		</header>
 		<content ng-show="ad.content.availability === 'specificTrip'">
 			<content-left>
-				<img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
+				<img-svg ng-show="ad.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
 				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.url}}">
 			</content-left>
 			<content-right>
@@ -67,7 +67,7 @@
 		</header>
 		<content ng-show="ad.content.availability === 'total'">
 			<content-left>
-				<img ng-show="ad.content.truck.image === undefined" src="img/truck-default.svg">
+				<img-svg ng-show="ad.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
 				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
 			</content-left>
 			<content-right>
@@ -77,7 +77,7 @@
 			</content-right>
 		</content>
 	</ad-block>
-	<button ng-show="$ctrl.filteredlist.length > 50" class="load-more-app" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Annonces suivantes</button>	
+	<button ng-show="$ctrl.filteredlist.length > 50" class="load-more-app" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Annonces suivantes</button>
 </carrier-list>
 <!--<add-ads>
 	<button ui-sref="carrier:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ajouter une annonce</button>

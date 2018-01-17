@@ -6,7 +6,7 @@
 
 
 	$log = new Monolog\Logger('log');
-	$stream = new Monolog\Handler\StreamHandler(TRACE_LOG, TRACE_LEVEL);
+	$stream = new Monolog\Handler\RotatingFileHandler(TRACE_LOG, 30, TRACE_LEVEL);
 	$format = "[%datetime%] %channel%.%level_name%: %message% \n";
 	$formatter = new Monolog\Formatter\LineFormatter($format, null, true);
 	$stream->setFormatter($formatter);

@@ -45,7 +45,7 @@
 										<td data-label="Id">{{loader.id}}</td>
 										<td data-label="Image">
 											<img ng-show="loader.content.image.thumbnailUrl" ng-src="../{{loader.content.image.thumbnailUrl}}">
-											<img ng-show="!loader.content.image.thumbnailUrl" ng-src="../img/loader-default.svg">
+											<img-svg ng-show="!loader.content.image.thumbnailUrl" src="/img/loader-default.svg"></img-svg>
 										</td>
 										<td data-label="Titre">{{loader.content.title}}</td>
 										<td data-label="Transport (catégorie)">{{loader.content.transportCategory}}</td>

@@ -31,6 +31,7 @@ import lgError from './modules/technic/lg-error/lg-error.js';
 import lgFilterList from './modules/technic/lg-filter-list/lg-filter-list.service.js';
 import lgGeoloc from './modules/technic/lg-geoloc/geoloc.service.js';
 import lgHttp from './modules/technic/lg-http/lg-http.js';
+import lgImgSvg from './modules/technic/lg-img-svg/lg-img-svg.module.js';
 import lgMisc from './modules/technic/lg-misc/lg-misc.module.js';
 import lgTest from './modules/technic/lg-test/lg-test.module.js';
 import lgWidget from './modules/technic/lg-widget/lg-widget.js';
@@ -70,6 +71,7 @@ angular.module('main', [
 	lgFilterList,
 	lgGeoloc,
 	lgHttp,
+	lgImgSvg,
 	lgMisc,
 	lgTest,
 	lgWidget,

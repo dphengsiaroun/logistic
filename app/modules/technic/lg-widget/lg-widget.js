@@ -1,8 +1,6 @@
 module.exports = 'lg-widget';
 import './lg-widget.scss';
 
-import './tmpl/lg-image.html';
-
 import { lgHr } from './lg-hr.component.js';
 import { lgPrompt } from './lg-prompt.component.js';
 import { lgConfirm } from './lg-confirm.component.js';
@@ -13,7 +11,6 @@ import { lgShowPicture } from './lg-show-picture.component.js';
 import { lgSelect } from './lg-select.component.js';
 import { lgCity } from './lg-city.component.js';
 import { lgBindHtmlCompile } from './lg-bind-html-compile.directive.js';
-import { imgSvg } from './img-svg.component.js';
 import { lgSocialLogin } from './lg-social-login.component.js';
 import { lgBreadcrumb } from './lg-breadcrumb.component.js';
 
@@ -28,6 +25,5 @@ angular.module(module.exports, [])
 	.component('lgSelect', lgSelect)
 	.component('lgCity', lgCity)
 	.directive('lgBindHtmlCompile', lgBindHtmlCompile)
-	.component('imgSvg', imgSvg)
 	.component('lgSocialLogin', lgSocialLogin)
 	.component('lgBreadcrumb', lgBreadcrumb);

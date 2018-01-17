@@ -42,7 +42,7 @@
 										<td data-label="Id">{{carrier.id}}</td>
 										<td data-label="Image">
 											<img ng-show="carrier.content.truck.image.thumbnailUrl" ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" />
-											<img ng-show="!carrier.content.truck.image.thumbnailUrl" ng-src="../img/truck-default.svg">
+											<img-svg ng-show="!carrier.content.truck.image.thumbnailUrl" src="/img/truck-default.svg"></img-svg>
 										</td>
 										<td data-label="Titre">{{carrier.content.truck.name}}</td>
 										<td data-label="Ville d'origine"><b>{{carrier.content.truck.city.city}}</b><br>{{carrier.content.truck.city.region}}</td>

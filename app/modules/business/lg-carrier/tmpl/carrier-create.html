@@ -16,7 +16,7 @@
 				<label ng-hide="$ctrl.carrierStepManager.getStep() === 1">
 					<item>
 						<left>
-							<img ng-show="$ctrl.carrier.createData.truck.image === undefined" src="img/truck-default.svg">
+							<img-svg ng-show="$ctrl.carrier.createData.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
 							<img ng-show="$ctrl.carrier.createData.truck.image.thumbnailUrl" ng-src="{{$ctrl.carrier.createData.truck.image.thumbnailUrl}}">
 						</left>
 						<right>

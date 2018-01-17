@@ -22,7 +22,7 @@ module.exports = function(gulp, pathConfig) {
 			
 			return consolidate.ejs('./cfg/svg.tmpl', svg);
 		}).then(function(str) {
-			return fs.writeFileAsync('./app/modules/technic/lg-widget/tmpl/lg-image.html', str);
+			return fs.writeFileAsync('./app/modules/technic/lg-img-svg/tmpl/lg-image.html', str);
 		}).then(function() {
 			
 			callback();
