@@ -38,6 +38,7 @@
         /* ADJUSTS LAYOUT OF LOGO IMAGE */
         .logo img {
           margin: 0 auto !important;
+          width: 20%;
         }
 
         /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
@@ -46,8 +47,8 @@
         }
 
         .img-max {
-          max-width: 100% !important;
-          width: 100% !important;
+          max-width: 50% !important;
+          width: 50% !important;
           height: auto !important;
         }
 
