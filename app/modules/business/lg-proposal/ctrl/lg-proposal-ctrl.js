@@ -42,16 +42,16 @@ export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 				ctrl.proposal.createData.titleAd = ctrl[$stateParams.type].current.content.truck.name;
 			}
 
-			// let image = ctrl.proposal.createData.imageUrl;
-			// if (image !== undefined) {
+			let image = ctrl.proposal.createData.imageUrl;
+			if (image !== undefined) {
 				if ($stateParams.type === 'loader') {
 					image = ctrl[$stateParams.type].current.content.image.url;
 				} else {
 					image = ctrl[$stateParams.type].current.content.truck.image.url;
 				}
-			// } else {
-			// 	image = undefined;
-			// }
+			} else {
+				image = undefined;
+			}
 
 			ctrl.proposal.createData.adAccountId = ctrl[$stateParams.type].current.content.userId;
 			ctrl.proposal.createData.adType = $stateParams.type;

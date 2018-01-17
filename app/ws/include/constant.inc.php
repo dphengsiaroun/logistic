@@ -9,8 +9,8 @@
 	define('TEST_MAIL_FORGOTTEN_PASSWORD', BASE_DIR . '/logs/temp-mail-password.log');
 
 
-	// define('TRACE_LEVEL', Monolog\Logger::WARNING);
-	define('TRACE_LEVEL', Monolog\Logger::DEBUG);
+	define('TRACE_LEVEL', Monolog\Logger::WARNING);
+	// define('TRACE_LEVEL', Monolog\Logger::DEBUG);
 
 	define('SECRET', 'This is a secret...#&@!');
 
