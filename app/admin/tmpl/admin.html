@@ -85,7 +85,11 @@
 							<tbody>
 								<tr ng-repeat="proposal in $ctrl.proposal | limitTo : 5">
 									<td data-label="Id">{{proposal.id}}</td>
-									<td data-label="Image"><img src="../{{proposal.content.imageUrl}}" /></td>
+									<td data-label="Image">
+										<img ng-show="proposal.content.imageUrl" src="../{{proposal.content.imageUrl}}" />
+										<img ng-show="!proposal.content.imageUrl && proposal.content.adType === 'carrier'" ng-src="../img/truck-default.svg">
+										<img ng-show="!proposal.content.imageUrl && proposal.content.adType === 'loader'" ng-src="../img/loader-default.svg">										
+									</td>
 									<td data-label="Titre de l'annonce">{{proposal.content.titleAd}}</td>
 									<td data-label="Type d'annonce" ng-show="proposal.content.adType === 'loader'">Chargeur</td>
 									<td data-label="Type d'annonce" ng-show="proposal.content.adType === 'carrier'">Transporteur</td>
@@ -136,7 +140,10 @@
 							<tbody>
 								<tr ng-repeat="carrier in $ctrl.carrier | limitTo : 5">
 									<td data-label="Id">{{carrier.id}}</td>
-									<td data-label="Image"><img ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" /></td>
+									<td data-label="Image">
+										<img ng-show="carrier.content.truck.image.thumbnailUrl" ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" />
+										<img ng-show="!carrier.content.truck.image.thumbnailUrl" ng-src="../img/truck-default.svg">
+									</td>
 									<td data-label="Titre">{{carrier.content.truck.name}}</td>
 									<td data-label="Ville d'origine"><b>{{carrier.content.truck.city.city}}</b><br>{{carrier.content.truck.city.region}}</td>
 									<td data-label="Disponibilité" ng-show="carrier.content.availability === 'total'">Disponibilité totale</td>
@@ -191,7 +198,10 @@
 							<tbody>
 								<tr ng-repeat="loader in $ctrl.loader | limitTo : 5">
 									<td data-label="Id">{{loader.id}}</td>
-									<td data-label="Image"><img ng-src="../{{loader.content.image.thumbnailUrl}}"></td>
+									<td data-label="Image">
+										<img ng-show="loader.content.image.thumbnailUrl" ng-src="../{{loader.content.image.thumbnailUrl}}">
+										<img ng-show="!loader.content.image.thumbnailUrl" ng-src="../img/loader-default.svg">
+									</td>
 									<td data-label="Titre">{{loader.content.title}}</td>
 									<td data-label="Transport (catégorie)">{{loader.content.transportCategory}}</td>
 									<td data-label="Transport (type)">{{loader.content.transportTruckType}}</td>
