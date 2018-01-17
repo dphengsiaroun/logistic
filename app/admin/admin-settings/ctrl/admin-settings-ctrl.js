@@ -1,5 +1,8 @@
-export function AdminSettingsCtrl($stateParams, adminUser) {
+export function AdminSettingsCtrl($stateParams, adminSettings) {
 	'ngInject';
-	const ctrl = this;
-	ctrl.adminUser = adminUser;
+	this.adminSettings = adminSettings;
+
+	adminSettings.list().then((logs) => {
+		this.logs = logs;
+	});
 }
