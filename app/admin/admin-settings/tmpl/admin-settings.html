@@ -1,7 +1,7 @@
 <admin-nav-route></admin-nav-route>
 <admin-section>
 	<header>
-		<h2><i class="fa fa-users" aria-hidden="true"></i> Liste des utilisateurs</h2>
+		<h2><i class="fa fa-cog" aria-hidden="true"></i> Paramètres</h2>
 		<div>
 
 			<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
@@ -11,55 +11,27 @@
 		<div class="container">
 			<div class="card">
 				<div class="content">
-					<div ng-show="$ctrl.user.length > 0">
-						<div style="display: block;">
-							<button class="download" export-to-csv>
-								<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export en fichier csv
-							</button>
-							<div class="filter">
-								<i class="fa fa-filter" aria-hidden="true"></i>
-								<input ng-model="$ctrl.query" placeholder="Filtre" />
-							</div>
-						</div>
-						<div style="overflow-x: auto">
-							<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-								<thead>
-									<tr>
-										<th>Id</th>
-										<th>Nom</th>
-										<th>Prénom</th>
-										<th>Pseudo</th>
-										<th>Email</th>
-										<th>Adresse</th>
-										<th>CP</th>
-										<th>Ville</th>
-										<th>Pays</th>
-										<th>Téléphone</th>
-										<th class="text-center">Actions</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr ng-repeat="user in $ctrl.user | filter:$ctrl.query | limitTo:$ctrl.limit">
-										<td data-label="Id">{{user.id}}</td>
-										<td data-label="Nom">{{user.content.lastname}}</td>
-										<td data-label="Prénom">{{user.content.firstname}}</td>
-										<td data-label="Pseudo">{{user.login}}</td>
-										<td data-label="Email">{{user.email}}</td>
-										<td data-label="Adresse">{{user.content.address.street}}</td>
-										<td data-label="CP">{{user.content.address.zipcode}}</td>
-										<td data-label="Ville">{{user.content.address.city}}</td>
-										<td data-label="Pays">{{user.content.address.country}}</td>
-										<td data-label="Téléphone">{{user.phone}}</td>
-										<td data-label="Actions" class="text-center">
-											<a ui-sref="admin:user:delete({id: user.id})" class="remove"><i class="fa fa-times"></i></a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<button ng-show="$ctrl.user.length > 50" class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Charger plus</button>
-						</div>
+					<div style="overflow-x: auto">
+						<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Détails</th>
+									<th class="text-center">Voir</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td data-label="Date">17-01-2018</td>
+									<td data-label="Détails">_trace-2018-01-17.log</td>
+									<td data-label="Voir" class="text-center">
+										<a href="#"><i class="fa fa-download"></i></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<button ng-show="$ctrl.proposal.length > 50" class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Charger plus</button>
 					</div>
-					<p ng-show="$ctrl.user.length === 0">Aucun utilisateur inscrit pour le moment.</p>
 				</div>
 				<!-- end content-->
 			</div>

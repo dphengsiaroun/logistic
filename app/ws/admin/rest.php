@@ -10,14 +10,13 @@
 		'Loader',
 		'User',
 		'Connection',
-		'Proposal'
+		'Proposal',
+		'Log'
 	);
 
 	foreach ($objects as $class) {
 		require_once(BASE_DIR . '/admin/class/' . $class . '.php');
 	}
-
-	debug('toto');
 
 	$requestUri = $_SERVER['REQUEST_URI'];
 	$url = preg_replace('/^.*\/ws\/(.*?)(?:\?.*?)?$/', '$1', $requestUri);

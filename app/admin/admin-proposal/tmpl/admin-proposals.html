@@ -33,7 +33,7 @@
 										<th>De</th>
 										<th>A</th>
 										<th>Envoyé le</th>
-										<th class="text-center">Actions</th>
+										<th class="text-center">Supprimer</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -51,7 +51,7 @@
 										<td data-label="De">{{proposal.content.name}}</td>
 										<td data-label="A">{{proposal.to}}</td>
 										<td data-label="Envoyé le">{{proposal.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
-										<td data-label="Actions" class="text-center">
+										<td data-label="Supprimer" class="text-center">
 											<a ui-sref="admin:proposal:remove({id: proposal.id})" class="remove"><i class="fa fa-times"></i></a>
 										</td>
 									</tr>

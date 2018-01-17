@@ -35,7 +35,7 @@
 										<th>Ville</th>
 										<th>Pays</th>
 										<th>Téléphone</th>
-										<th class="text-center">Actions</th>
+										<th class="text-center">Supprimer</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -50,7 +50,7 @@
 										<td data-label="Ville">{{user.content.address.city}}</td>
 										<td data-label="Pays">{{user.content.address.country}}</td>
 										<td data-label="Téléphone">{{user.phone}}</td>
-										<td data-label="Actions" class="text-center">
+										<td data-label="Supprimer" class="text-center">
 											<a ui-sref="admin:user:delete({id: user.id})" class="remove"><i class="fa fa-times"></i></a>
 										</td>
 									</tr>

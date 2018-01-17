@@ -4,3 +4,4 @@ RewriteRule loaders rest.php
 RewriteRule users rest.php
 RewriteRule connections rest.php
 RewriteRule proposals rest.php
+RewriteRule logs rest.php
