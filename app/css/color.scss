@@ -6,6 +6,7 @@ $fontColor: $primaryColor;
 $disabledFontColor: gray(80%);
 $inputColor: $fontColor;
 
+// cannot use CSS4 gray() if darken or lighten are used
 $backgroundColor: hsl(0, 0%, 96%);
 
 $buttonColor: hsl(86, 54%, 51%);
@@ -27,8 +28,7 @@ $veryLightGreen: hsl(86, 80%, 50%);
 
 $borderColor: gray(92%);
 $darkBorderColor: gray(88%);
-$veryDarkBorderColor: gray(66%);
-$disabledColor: gray(66%);
+
 $disabledButtonColor: gray(88%);
 $placeholderColor: gray(66%);
 

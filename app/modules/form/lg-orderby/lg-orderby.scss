@@ -11,7 +11,7 @@ lg-orderby {
 			top: -10px;
 			left: 20px;
 			&[disabled] {
-				color: $disabledColor;
+				color: gray(66%);
 			}
 		}
 	}

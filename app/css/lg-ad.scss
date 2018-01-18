@@ -3,7 +3,7 @@
 	display: table;
 	width: 100%;
 	padding: 10px 0;
-	background-color: $adColor; // border-bottom: 1px solid $darkBorderColor;
+	background-color: $adColor;
 	left {
 		display: table-cell;
 		width: 100px;
@@ -310,6 +310,6 @@ lg-select.conditioning svg {
 }
 
 .total-filter {
-	color: $disabledColor;
+	color: gray(66%);
 }
 
