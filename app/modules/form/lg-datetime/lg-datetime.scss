@@ -142,26 +142,6 @@ lg-dt-month {
                     background: $thirdColor;
                     color: blue;
                 }
-                td.interval {
-                    background-color: $transparentSelectedColor;
-                }
-                td.other-month.interval {
-                    background-color: transparent;
-                    border: 1px solid $transparentSelectedColor;
-                    color: gray(80%);
-                }
-                td.interval-start {
-                    border-radius: 84% 0% 0% 84%;
-                    background-color: $transparentSelectedColor;
-                }
-                td.interval.selected {
-                    border-radius: 0% 84% 84% 0%;
-                    background-color: $transparentSelectedColor;
-                }
-                td.interval-start.selected {
-                    border-radius: 84% 84% 84% 84%;
-                    background-color: $transparentSelectedColor;
-                }
             }
         }
     }
