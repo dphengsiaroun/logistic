@@ -17,8 +17,6 @@ $buttonColor: hsl(86, 54%, 51%);
 
 $criticalColor: red;
 
-
-
 $loaderColor: hsl(214, 41%, 85%);
 
 $carrierColor: hsl(86, 75%, 75%);
@@ -27,14 +25,10 @@ $carrierActiveStepColor: $buttonColor;
 $adColor: hsl(86, 75%, 75%);
 $priceColor: $buttonColor;
 
-
-
-
 $veryLightGreen: hsl(86, 80%, 50%);
-$darkGreen: hsl(171, 99%, 20%);
 
-$transparentDarkBlue: hsla(214, 46%, 25%, 0.6);
-$transparentLightGreen: hsla(171, 99%, 38%, 0.3);
+// $transparentDarkBlue: hsla(214, 46%, 25%, 0.6);
+// $transparentLightGreen: hsla(171, 99%, 38%, 0.3);
 
 $backgroundColor: $gray96;
 $backgroundDarkColor: $gray92;
@@ -42,17 +36,12 @@ $borderColor: $gray92;
 $darkBorderColor: $gray88;
 $veryDarkBorderColor: $gray66;
 $disabledColor: $gray66;
-
 $disabledButtonColor: $gray88;
-
-
-
-
 $placeholderColor: $gray66;
 
 $selectedColor: $buttonColor;
 $selectedColorCmpl: $secondaryColor;
 
-$transparentFontColor: $transparentDarkBlue;
-$transparentSelectedColor: $transparentLightGreen;
+$transparentFontColor: hsla(214, 46%, 25%, 0.6);
+$transparentSelectedColor: hsla(171, 99%, 38%, 0.3);
 
