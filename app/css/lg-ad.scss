@@ -109,7 +109,7 @@
 		}
 	}
 	section.dark {
-		background-color: $backgroundDarkColor;
+		background-color: darken($backgroundColor, 4%);
 	}
 }
 
