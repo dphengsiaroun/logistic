@@ -1,4 +1,5 @@
 @import '../../../css/color';
+@import '../../../css/layout';
 lg-dimension {
     my-input {
         display: table;
@@ -43,7 +44,7 @@ lg-edit {
     my-body {
         z-index: 102;
         position: fixed;
-        top: 59px;
+        top: $headerHeight;
         bottom: 0;
         left: 0;
         right: 0;

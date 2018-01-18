@@ -1,18 +1,21 @@
 @import './color';
+@import './layout';
+
+body {
+	background: $backgroundColor;
+	color: $fontColor;
+	min-height: 100vh;
+}
 
 svg {
 	fill: $fontColor;
 }
 
-body {
-	background: $backgroundColor;
-	color: $fontColor;
-}
+
 
 ui-view {
 	display: block;
-	min-height: 540px;
-	padding: 58px 0 0;
+	padding: $headerHeight 0 0;
 }
 
 h1,
@@ -84,6 +87,7 @@ lg-menu [ng-click] {
 		}
 	}
 }
+
 
 /* placeholder */
 
@@ -200,7 +204,5 @@ button.critical {
 
 .btn-critical {
 	background: red;
-    color: #fff;
+	color: #fff;
 }
-
-

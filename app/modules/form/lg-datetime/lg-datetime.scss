@@ -1,4 +1,5 @@
 @import '../../../css/color';
+@import '../../../css/layout';
 $headCalendarColor: gray(85%);
 $monthColor: $fontColor;
 lg-datetime {
@@ -57,7 +58,7 @@ lg-datetime-content {
         height: 100%;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        top: 59px;
+        top: $headerHeight;
         left: 0;
         padding-bottom: 200px;
         background-color: $secondaryColor;

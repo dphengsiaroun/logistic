@@ -1,4 +1,5 @@
-	@import '../../../css/color';
+@import '../../../css/color';
+@import '../../../css/layout';
 tests {
 	display: block;
 	background-color: #ebebeb;
@@ -30,7 +31,7 @@ tests {
 fixed {
 	display: block;
 	position: fixed;
-	top: 59px;
+	top: $headerHeight;
 	left: 0;
 	bottom: 0;
 	background-color: $secondaryColor;
@@ -121,4 +122,3 @@ fixed {
 		}
 	}
 }
-
