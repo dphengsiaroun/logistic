@@ -10,7 +10,7 @@ lg-choice {
 	}
 	.region {
 		font-size: 15px;
-		color: $selectedColor;
+		color: $thirdColor;
 	}
 	>icon {
 		position: absolute;
@@ -18,14 +18,14 @@ lg-choice {
 		right: 19px;
 		font-size: 30px;
 		i {
-			color: $selectedColor;
+			color: $thirdColor;
 		}
 		svg {
 			position: absolute;
 			width: 34px;
 			left: -35px;
 			top: 3px;
-			fill: $selectedColor;
+			fill: $thirdColor;
 		}
 	}
 

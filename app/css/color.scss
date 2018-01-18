@@ -1,25 +1,29 @@
 $darkBlue: hsl(214, 46%, 25%);
 $primaryColor: $darkBlue;
 $secondaryColor: white;
+$thirdColor: hsl(86, 54%, 51%);
 
 $fontColor: $primaryColor;
 $disabledFontColor: gray(80%);
+
 $inputColor: $fontColor;
+$placeholderColor: gray(66%);
 
 // cannot use CSS4 gray() if darken or lighten are used
 $backgroundColor: hsl(0, 0%, 96%);
 
-$buttonColor: hsl(86, 54%, 51%);
+$buttonColor: $thirdColor;
+$disabledButtonColor: gray(88%);
 
 $criticalColor: red;
 
 $loaderColor: hsl(214, 41%, 85%);
 
 $carrierColor: hsl(86, 75%, 75%);
-$carrierActiveStepColor: $buttonColor;
+$carrierActiveStepColor: $thirdColor;
 
 $adColor: hsl(86, 75%, 75%);
-$priceColor: $buttonColor;
+$priceColor: $thirdColor;
 
 $veryLightGreen: hsl(86, 80%, 50%);
 
@@ -29,10 +33,6 @@ $veryLightGreen: hsl(86, 80%, 50%);
 $borderColor: gray(92%);
 $darkBorderColor: gray(88%);
 
-$disabledButtonColor: gray(88%);
-$placeholderColor: gray(66%);
-
-$selectedColor: $buttonColor;
 $selectedColorCmpl: $secondaryColor;
 
 $transparentFontColor: hsla(214, 46%, 25%, 0.6);
