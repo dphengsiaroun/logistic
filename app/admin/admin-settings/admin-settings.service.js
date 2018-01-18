@@ -48,6 +48,7 @@ function LogLevel($http, $q, lgConfig, service) {
 				return $q.reject(response);
 			}
 			service.error = undefined;
+			return response.data.logLevels;
 		}).catch(function(error) {
 			service.error = error;
 			return $q.reject(error);
