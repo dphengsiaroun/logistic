@@ -409,6 +409,7 @@ admin-section {
 		div.container {
 			display: block;
 			width: 100%;
+			margin: 0 0 30px;
 			h2 {
 				font-size: 30px;
 				padding: 0px 20px 50px;
@@ -718,6 +719,13 @@ admin-terms-route {
 			}
 		}
 	}
+}
+
+.combobox select {
+	display: block;
+    height: 25px;
+    width: 120px;
+    font-size: 14px;
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
