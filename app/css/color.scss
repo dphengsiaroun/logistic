@@ -1,16 +1,9 @@
-$gray96: hsl(0, 0%, 96%);
-$gray92: hsl(0, 0%, 92%);
-$gray88: hsl(0, 0%, 88%);
-$gray85: hsl(0, 0%, 85%);
-$gray80: hsl(0, 0%, 80%);
-$gray66: hsl(0, 0%, 66%);
-
 $darkBlue: hsl(214, 46%, 25%);
 $primaryColor: $darkBlue;
 $secondaryColor: white;
 
 $fontColor: $primaryColor;
-$disabledFontColor: $gray80;
+$disabledFontColor: gray(80%);
 $inputColor: $fontColor;
 
 $buttonColor: hsl(86, 54%, 51%);
@@ -30,14 +23,14 @@ $veryLightGreen: hsl(86, 80%, 50%);
 // $transparentDarkBlue: hsla(214, 46%, 25%, 0.6);
 // $transparentLightGreen: hsla(171, 99%, 38%, 0.3);
 
-$backgroundColor: $gray96;
-$backgroundDarkColor: $gray92;
-$borderColor: $gray92;
-$darkBorderColor: $gray88;
-$veryDarkBorderColor: $gray66;
-$disabledColor: $gray66;
-$disabledButtonColor: $gray88;
-$placeholderColor: $gray66;
+$backgroundColor: gray(96%);
+$backgroundDarkColor: gray(92%);
+$borderColor: gray(92%);
+$darkBorderColor: gray(88%);
+$veryDarkBorderColor: gray(66%);
+$disabledColor: gray(66%);
+$disabledButtonColor: gray(88%);
+$placeholderColor: gray(66%);
 
 $selectedColor: $buttonColor;
 $selectedColorCmpl: $secondaryColor;

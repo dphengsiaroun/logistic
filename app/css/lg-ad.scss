@@ -165,7 +165,7 @@ recap {
 	display: block;
 	width: 100%;
 	padding: 15px 5px;
-	background-color: $gray96;
+	background-color: gray(96%);
 	h1 {
 		font-size: 25px;
 		text-align: left;
@@ -182,7 +182,7 @@ recap {
 		margin: 10px 0;
 		p {
 			font-size: 12px;
-			color: $gray66;
+			color: gray(66%);
 		}
 	}
 	iframe {
@@ -199,7 +199,7 @@ recap {
 		}
 		region {
 			font-size: 13px;
-			color: $gray66;
+			color: gray(66%);
 		}
 	}
 	description {
