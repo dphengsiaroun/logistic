@@ -1,6 +1,12 @@
+$darkBlue: hsl(214, 46%, 25%);
+$primaryColor: $darkBlue;
+
+$fontColor: $primaryColor;
+
+
 $yellow: hsl(52, 100%, 66%);
 $red: hsl(0, 100%, 50%);
-$darkBlue: hsl(214, 46%, 25%);
+
 $extraLightBlue: hsl(214, 41%, 85%);
 $veryLightGray: hsl(0, 0%, 96%);
 $lightGray: hsl(0, 0%, 92%);
@@ -19,10 +25,9 @@ $transparentLightGreen: hsla(171, 99%, 38%, 0.3);
 $carrierColor: $extraLightGreen;
 $loaderColor: $extraLightBlue;
 
-$primaryColor: $darkBlue;
 
-$headerColor: $darkBlue;
-$fontColor: $darkBlue;
+
+
 $backgroundColor: $veryLightGray;
 $backgroundDarkColor: $lightGray;
 $borderColor: $lightGray;
@@ -41,8 +46,6 @@ $criticalButtonColor: $red;
 $criticalFontColor: $red;
 $disabledFontColor: $littleGray;
 $notificationColor: $red;
-
-$progressBarColor: $darkBlue;
 
 $inputColor: $darkBlue;
 $placeholderColor: $gray;
