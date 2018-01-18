@@ -14,6 +14,8 @@ $backgroundColor: hsl(0, 0%, 96%);
 
 $buttonColor: $thirdColor;
 $disabledButtonColor: gray(88%);
+$alternateButtonColor: hsl(86, 80%, 50%);
+
 
 $criticalColor: red;
 
@@ -25,13 +27,5 @@ $carrierActiveStepColor: $thirdColor;
 $adColor: hsl(86, 75%, 75%);
 $priceColor: $thirdColor;
 
-$veryLightGreen: hsl(86, 80%, 50%);
-
-// $transparentDarkBlue: hsla(214, 46%, 25%, 0.6);
-// $transparentLightGreen: hsla(171, 99%, 38%, 0.3);
-
 $borderColor: gray(92%);
 $darkBorderColor: gray(88%);
-
-$transparentSelectedColor: hsla(171, 99%, 38%, 0.3);
-
