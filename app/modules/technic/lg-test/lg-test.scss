@@ -31,8 +31,8 @@ fixed {
 	display: block;
 	position: fixed;
 	top: 59px;
-	left: 0px;
-	bottom: 0px;
+	left: 0;
+	bottom: 0;
 	background-color: white;
 	width: 100%;
 	height: 100%;
@@ -40,7 +40,7 @@ fixed {
 		display: block;
 		width: 100%;
 		height: 100%;
-		margin: 0px;
+		margin: 0;
 		dimension {
 			display: table;
 			table-layout: fixed;
@@ -53,9 +53,9 @@ fixed {
 				font-weight: normal;
 				font-size: 13px;
 				input {
-					margin: 0px 0px;
-					padding: 0px 0px;
-					min-height: 0px;
+					margin: 0 0;
+					padding: 0 0;
+					min-height: 0;
 					text-align: center;
 					border: none;
 					background-color: transparent;
@@ -66,8 +66,8 @@ fixed {
 		volume {
 			display: block;
 			width: 100%;
-			margin: 0px 0px;
-			padding: 0px 10px;
+			margin: 0 0;
+			padding: 0 10px;
 			background-color: $primaryColor;
 			color: white;
 		}
@@ -76,22 +76,22 @@ fixed {
 			position: fixed;
 			overflow-y: auto;
 			top: 255px;
-			bottom: 0px;
-			left: 0px;
+			bottom: 0;
+			left: 0;
 			width: 100%;
-			margin: 0px 0px;
-			padding: 0px 0px;
+			margin: 0 0;
+			padding: 0 0;
 			my-table {
 				display: table;
 				width: 100%;
 				height: 100%;
-				margin: 0px 0px;
-				padding: 0px 0px;
+				margin: 0 0;
+				padding: 0 0;
 				span {
 					display: table-cell;
 					text-align: center;
-					margin: 0px 0px;
-					padding: 0px 0px;
+					margin: 0 0;
+					padding: 0 0;
 				}
 			}
 		}
@@ -100,7 +100,7 @@ fixed {
 		display: table;
 		table-layout: fixed;
 		width: 100%;
-		padding: 0px 5px;
+		padding: 0 5px;
 		label {
 			display: table;
 			position: relative;
@@ -114,9 +114,9 @@ fixed {
 				width: 100%;
 				font-size: 23px;
 				text-align: center;
-				padding: 0px 5px;
-				min-height: 0px;
-				margin: 5px 0px;
+				padding: 0 5px;
+				min-height: 0;
+				margin: 5px 0;
 			}
 		}
 	}

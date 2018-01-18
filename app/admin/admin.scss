@@ -8,8 +8,8 @@
 
 * {
 	box-sizing: border-box;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
 svg {
@@ -70,7 +70,7 @@ my-input {
 	display: block;
 	font-size: 18px;
 	width: 100%;
-	margin: 5px 0px;
+	margin: 5px 0;
 	background: white;
 	box-shadow: none;
 	padding: 15px 10px;
@@ -89,7 +89,7 @@ textarea {
 	font-size: 18px;
 	width: 100%;
 	min-height: 100px;
-	margin: 5px 0px;
+	margin: 5px 0;
 	background: white;
 	box-shadow: none;
 	padding: 17px 10px;
@@ -133,7 +133,7 @@ admin-nav-route {
 			width: 85%;
 			text-align: center;
 			margin: 0 auto;
-			padding: 0px 0px 30px;
+			padding: 0 0 30px;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 			img {
 				width: 70px;
@@ -145,7 +145,7 @@ admin-nav-route {
 				color: white;
 				font-size: 35px;
 				font-weight: bold;
-				padding: 20px 0px 0px;
+				padding: 20px 0 0;
 			}
 			span {
 				display: block;
@@ -220,7 +220,7 @@ admin-nav-route {
 					a {
 						display: block;
 						width: 100%;
-						padding: 20px 0px;
+						padding: 20px 0;
 						cursor: pointer;
 						color: #fff;
 						font-size: 13px;
@@ -296,7 +296,7 @@ admin-section {
 			display: table;
 			table-layout: fixed;
 			width: 100%;
-			padding: 0px 0px 35px;
+			padding: 0 0 35px;
 			.card {
 				display: table-cell;
 				width: 45%;
@@ -317,13 +317,13 @@ admin-section {
 						font-size: 13px;
 						font-weight: 400;
 						color: #888888;
-						margin-bottom: 0px;
+						margin-bottom: 0;
 					}
 				}
 				.content {
-					padding: 15px 0px;
+					padding: 15px 0;
 					p {
-						margin: 20px 0px;
+						margin: 20px 0;
 						font-size: 14px;
 					}
 					.fresh-datatables {
@@ -396,7 +396,7 @@ admin-section {
 					.stats {
 						color: #a9a9a9;
 						font-size: 12px;
-						margin: 11px 0px 0px;
+						margin: 11px 0 0;
 						i.fa {
 							color: #a9a9a9;
 						}
@@ -414,7 +414,7 @@ admin-section {
 			margin: 0 0 30px;
 			h2 {
 				font-size: 30px;
-				padding: 0px 20px 50px;
+				padding: 0 20px 50px;
 				text-align: left;
 				i.fa {
 					margin-right: 25px;
@@ -447,7 +447,7 @@ admin-section {
 				.content {
 					padding: 15px;
 					p {
-						margin: 20px 0px;
+						margin: 20px 0;
 						font-size: 14px;
 					}
 
@@ -619,7 +619,7 @@ admin-login-route {
 						font-size: 14px;
 						font-weight: 400;
 						color: lightgray;
-						margin-bottom: 0px;
+						margin-bottom: 0;
 					}
 					input {
 						margin-bottom: 15px;
@@ -634,7 +634,7 @@ admin-login-route {
 					text-align: center;
 					a {
 						display: block;
-						margin: 10px 0px;
+						margin: 10px 0;
 						font-size: 15px;
 						i.fa {
 							margin-right: 5px;
@@ -661,7 +661,7 @@ admin-prompt,
 admin-confirm {
 	display: block;
 	width: 100%;
-	padding: 0px 10px;
+	padding: 0 10px;
 	color: black;
 	question {
 		display: block;
@@ -675,13 +675,13 @@ admin-confirm {
 		display: table;
 		width: 30%;
 		margin: 50px auto;
-		font-size: 0px;
-		padding: 0px;
+		font-size: 0;
+		padding: 0;
 		>div {
 			display: table-cell;
 			width: 40%;
-			margin: 0px;
-			padding: 0px 5px;
+			margin: 0;
+			padding: 0 5px;
 			font-size: 14px;
 			text-align: center;
 			button {
@@ -710,19 +710,19 @@ admin-confirm {
 admin-terms-route {
 	.title-block {
 		font-size: 30px;
-		padding: 0px !important;
+		padding: 0 !important;
 		margin-bottom: 20px;
 		text-align: left;
 	}
 	.article {
 		display: block;
 		width: 100%;
-		padding: 0px 0px 10px 0px;
+		padding: 0 0 10px 0;
 		font-size: 14px;
 		h2 {
 			display: block;
 			width: 100%;
-			margin: 10px 0px;
+			margin: 10px 0;
 			padding: 10px !important;
 			text-align: left;
 			background-color: #223c5d;
@@ -733,7 +733,7 @@ admin-terms-route {
 		p {
 			padding: 10px;
 			text-align: justify;
-			margin: 0px !important;
+			margin: 0 !important;
 		}
 		ul {
 			li {
@@ -909,7 +909,7 @@ admin-terms-route {
 	}
 	admin-login-route section .login-page {
 		width: 100%;
-		padding: 0px 10px;
+		padding: 0 10px;
 	}
 	admin-section {
 		width: 80%;
@@ -958,7 +958,7 @@ admin-terms-route {
 	}
 	admin-login-route section .login-page {
 		width: 100%;
-		padding: 0px 10px;
+		padding: 0 10px;
 	}
 	admin-login-route section .login-page .card .footer {
 		width: 90%;

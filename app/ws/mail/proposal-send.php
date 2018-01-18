@@ -63,7 +63,7 @@
         }
 
         .padding-meta {
-          padding: 30px 5% 0px 5% !important;
+          padding: 30px 5% 0 5% !important;
           text-align: center;
         }
 
@@ -147,7 +147,7 @@
                                     <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica Neue, Arial, sans-serif; font-weight: bold; color: #223c5d; padding: 50px 0px 15px;" class="padding">Une proposition pour votre annonce !</td>
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica Neue, Arial, sans-serif; font-weight: bold; color: #223c5d; padding: 50px 0 15px;" class="padding">Une proposition pour votre annonce !</td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica Neue, Arial, sans-serif; color: #666666;" class="padding"><?php print_r($context);?></td>
@@ -167,7 +167,7 @@
         </td>
     </tr>
     <tr>
-        <td bgcolor="#fff" align="center" style="padding: 20px 0px;">
+        <td bgcolor="#fff" align="center" style="padding: 20px 0;">
             <!--[if (gte mso 9)|(IE)]>
             <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
             <tr>

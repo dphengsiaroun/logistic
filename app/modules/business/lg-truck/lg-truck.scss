@@ -3,7 +3,7 @@
     svg {
         width: 70px;
         height: 70px;
-        margin: 0px;
+        margin: 0;
     }
 }
 
@@ -13,8 +13,8 @@
     padding: 3px;
     .block-ad {
         width: 100%;
-        font-size: 0px;
-        margin: 0px 0px 3px;
+        font-size: 0;
+        margin: 0 0 3px;
         border-bottom: 1px solid $lightGray;
         a {
             width: 100%;
@@ -35,7 +35,7 @@
                 vertical-align: middle;
                 .details {
                     width: 70%;
-                    padding: 0px 10px;
+                    padding: 0 10px;
                     font-size: 13px;
                     text-align: left;
                     background-color: white;
@@ -78,16 +78,16 @@
 truck-list {
     display: block;
 	width: 100%;
-    padding: 0px 5px;
+    padding: 0 5px;
     ad-block {
         width: 100%;
-        font-size: 0px;
+        font-size: 0;
         border-bottom: 1px solid $lightGray;
         a {
             width: 100%;
             display: block;
             height: inherit;
-			margin: 3px 0px;
+			margin: 3px 0;
             .img-fix {
                 display: inline-block;
                 width: 30%;
@@ -104,14 +104,14 @@ truck-list {
                 .details {
 					display: inline-block;
                     width: 70%;
-                    padding: 0px 10px;
+                    padding: 0 10px;
                     font-size: 13px;
                     text-align: left;
                     background-color: white;
                     h2 {
                         text-align: left;
                         font-size: 16px;
-						margin: 0px 0px 5px;
+						margin: 0 0 5px;
                     }
                     div {
                         display: table;
@@ -150,9 +150,9 @@ add-ads {
 		display: table-cell;
 		width: 100%;
 		height: 45px;
-		margin: 0px;
+		margin: 0;
 		padding: 5px;
 		vertical-align: top;
-		border-radius: 0px;
+		border-radius: 0;
 	}
 }

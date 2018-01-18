@@ -1,28 +1,28 @@
 @import '../../../../css/color';
 lg-terms-route {
 	display: block;
-	margin: 0px;
+	margin: 0;
 	font-size: 14px;
 	.title-block {
 		display: block;
 		width: 100%;
-		margin: 20px 0px;
+		margin: 20px 0;
 		text-align: center;
 	}
 	.article {
 		display: block;
 		width: 100%;
-		padding: 0px 10px 10px 0px;
+		padding: 0 10px 10px 0;
 		font-size: 14px;
 		h2 {
 			display: block;
 			width: 100%;
-			margin: 10px 0px;
+			margin: 10px 0;
 			padding: 10px;
 			text-align: left;
 			background-color: #223c5d;
 			color: #fff;
-			border-radius: 0px 40px 40px 0px;
+			border-radius: 0 40px 40px 0;
 			font-size: 15px;
 		}
 		p {

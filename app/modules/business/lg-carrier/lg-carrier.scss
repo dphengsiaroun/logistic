@@ -114,16 +114,16 @@ at-list-one-vehicle {
 		width: 100%;
 		font-size: 20px;
 		text-align: center;
-		margin: 0px 0px 30px;
+		margin: 0 0 30px;
 		font-weight: bold;
 	}
 	list {
 		display: block;
-		margin: 0px;
-		padding: 0px;
+		margin: 0;
+		padding: 0;
 		width: 100%;
 		item {
-			margin: 5px 0px;
+			margin: 5px 0;
 		}
 	}
 }
@@ -133,8 +133,8 @@ item {
 	border-collapse: collapse;
 	table-layout: fixed;
 	width: 100%;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	background-color: white;
 	border: 1px solid #eeeeee;
 	border-top: none;
@@ -142,8 +142,8 @@ item {
 	left,
 	right {
 		display: table-cell;
-		margin: 0px;
-		padding: 0px;
+		margin: 0;
+		padding: 0;
 		vertical-align: middle;
 		h2 {
 			font-size: 17px;
@@ -154,14 +154,14 @@ item {
 		img {
 			display: block;
 			height: 70px;
-			margin: 0px;
-			padding: 0px;
+			margin: 0;
+			padding: 0;
 		}
 		span {
 			display: block;
 			width: 100%;
-			margin: 0px;
-			padding: 0px 5px;
+			margin: 0;
+			padding: 0 5px;
 			font-size: 14px;
 			text-align: right;
 		}
@@ -218,17 +218,17 @@ carrier-list {
 	display: block;
 	position: relative;
 	width: 100%;
-	padding: 0px 5px;
+	padding: 0 5px;
 	ad-block {
 		display: block;
 		width: 100%;
-		margin: 5px 0px;
-		padding: 0px;
+		margin: 5px 0;
+		padding: 0;
 		background-color: white;
 		header {
 			display: block;
 			width: 100%;
-			margin: 0px;
+			margin: 0;
 			padding: 5px 10px;
 			title {
 				display: block;
@@ -241,22 +241,22 @@ carrier-list {
 			}
 			subtitle {
 				display: table;
-				margin: 0px;
-				padding: 0px;
+				margin: 0;
+				padding: 0;
 				width: 100%;
 				date {
 					display: table-cell;
 					width: 60%;
-					margin: 0px;
-					padding: 0px;
+					margin: 0;
+					padding: 0;
 					text-align: left;
 					font-size: 13px;
 				}
 				distance {
 					display: table-cell;
 					width: 40%;
-					margin: 0px;
-					padding: 0px;
+					margin: 0;
+					padding: 0;
 					text-align: right;
 					font-size: 13px; // color: $gray;
 				}
@@ -264,8 +264,8 @@ carrier-list {
 				by {
 					display: block;
 					width: 100%;
-					margin: 0px;
-					padding: 0px;
+					margin: 0;
+					padding: 0;
 					text-align: left;
 					font-size: 11px;
 					color: $gray;
@@ -301,18 +301,18 @@ carrier-list {
 			}
 		}
 		&:hover {
-			box-shadow: 1px 1px 5px 0px $littleGray;
+			box-shadow: 1px 1px 5px 0 $littleGray;
 		}
 	}
 	content {
 		display: table;
 		width: 100%;
-		margin: 0px;
-		padding: 0px;
+		margin: 0;
+		padding: 0;
 		content-left {
 			display: table-cell;
 			width: 40%;
-			margin: 0px;
+			margin: 0;
 			padding: 5px 10px 10px;
 			vertical-align: top;
 			img {
@@ -323,8 +323,8 @@ carrier-list {
 		content-right {
 			display: table-cell;
 			width: 60%;
-			margin: 0px;
-			padding: 5px 10px 5px 0px;
+			margin: 0;
+			padding: 5px 10px 5px 0;
 			vertical-align: top;
 			* {
 				display: block;
@@ -353,12 +353,12 @@ carrier-list {
 	total {
 		display: table;
 		width: 100%;
-		margin: 0px;
-		padding: 0px;
+		margin: 0;
+		padding: 0;
 		content-left {
 			display: table-cell;
 			width: 40%;
-			margin: 0px; // padding: 5px 10px;
+			margin: 0; // padding: 5px 10px;
 			vertical-align: top;
 			img {
 				display: block;
@@ -368,7 +368,7 @@ carrier-list {
 		content-right {
 			display: table-cell;
 			width: 60%;
-			margin: 0px;
+			margin: 0;
 			padding: 5px 10px;
 			vertical-align: top;
 			text-align: right;

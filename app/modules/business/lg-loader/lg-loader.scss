@@ -8,18 +8,18 @@ lg-loader-list-route {
 loader-list {
 	display: block;
 	width: 100%;
-	margin: 0px;
-	padding: 0px 5px;
+	margin: 0;
+	padding: 0 5px;
 	ad-block {
 		display: block;
 		width: 100%;
-		margin: 5px 0px;
-		padding: 0px;
+		margin: 5px 0;
+		padding: 0;
 		background-color: white;
 		header {
 			display: block;
 			width: 100%;
-			margin: 0px;
+			margin: 0;
 			padding: 5px 10px;
 			title {
 				display: block;
@@ -32,22 +32,22 @@ loader-list {
 			}
 			subtitle {
 				display: table;
-				margin: 0px;
-				padding: 0px;
+				margin: 0;
+				padding: 0;
 				width: 100%;
 				date {
 					display: table-cell;
 					width: 60%;
-					margin: 0px;
-					padding: 0px;
+					margin: 0;
+					padding: 0;
 					text-align: left;
 					font-size: 13px;
 				}
 				distance {
 					display: table-cell;
 					width: 40%;
-					margin: 0px;
-					padding: 0px;
+					margin: 0;
+					padding: 0;
 					text-align: right;
 					font-size: 13px;
 				}
@@ -55,8 +55,8 @@ loader-list {
 				by {
 					display: block;
 					width: 100%;
-					margin: 0px;
-					padding: 0px;
+					margin: 0;
+					padding: 0;
 					text-align: left;
 					font-size: 11px;
 					color: $gray;
@@ -92,18 +92,18 @@ loader-list {
 			}
 		}
 		&:hover {
-			box-shadow: 1px 1px 5px 0px $littleGray;
+			box-shadow: 1px 1px 5px 0 $littleGray;
 		}
 	}
 	content {
 		display: table;
 		width: 100%;
-		margin: 0px;
-		padding: 0px;
+		margin: 0;
+		padding: 0;
 		content-left {
 			display: table-cell;
 			width: 40%;
-			margin: 0px;
+			margin: 0;
 			padding: 5px 10px 10px;
 			vertical-align: top;
 			img {
@@ -114,8 +114,8 @@ loader-list {
 		content-right {
 			display: table-cell;
 			width: 60%;
-			margin: 0px;
-			padding: 5px 10px 5px 0px;
+			margin: 0;
+			padding: 5px 10px 5px 0;
 			vertical-align: top;
 			* {
 				display: block;

@@ -6,7 +6,7 @@ lg-message {
 	title {
 		display: block;
 		width: 100%;
-		padding: 80px 0px;
+		padding: 80px 0;
 		font-size: 23px;
 		text-align: center;
 		margin: 30px 0;
@@ -27,7 +27,7 @@ lg-error span {
 
 lg-prompt {
 	display: block;
-	padding: 0px 10px;
+	padding: 0 10px;
 	question {
 		display: block;
 		text-align: center;
@@ -38,13 +38,13 @@ lg-prompt {
 	.response {
 		margin: 50px auto;
 		width: 100%;
-		font-size: 0px;
-		padding: 0px;
+		font-size: 0;
+		padding: 0;
 		>div {
 			display: inline-block;
 			width: 50%;
-			margin: 0px;
-			padding: 0px 5px;
+			margin: 0;
+			padding: 0 5px;
 			font-size: 14px;
 			text-align: center;
 		}
@@ -67,10 +67,10 @@ lg-show-picture {
 	veil {
 		position: fixed;
 		z-index: 200;
-		top: 0px;
-		bottom: 0px;
-		left: 0px;
-		right: 0px;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 		background-color: black;
 		display: block;
 		text-align: center;
@@ -86,8 +86,8 @@ lg-show-picture {
 	.fa {
 		position: fixed;
 		z-index: 200;
-		top: 0px;
-		right: 0px;
+		top: 0;
+		right: 0;
 		margin: 10px;
 		font-size: 40px;
 		color: white;
@@ -103,7 +103,7 @@ lg-select {
 	background-color: white;
 	border-radius: 5px;
 	text-align: center;
-	margin: 10px 0px;
+	margin: 10px 0;
 	lg-option {
 		display: table-cell;
 		width: 1%;
@@ -131,17 +131,17 @@ lg-select {
 		}
 	}
 	lg-option:first-child[selected] {
-		border-radius: 5px 0px 0px 5px;
+		border-radius: 5px 0 0 5px;
 	}
 	lg-option:last-child[selected] {
-		border-radius: 0px 5px 5px 0px;
+		border-radius: 0 5px 5px 0;
 	}
 }
 
 lg-create-button {
 	display: block;
 	position: fixed;
-	bottom: 0px;
+	bottom: 0;
 	left: 14%;
 	padding: 0 10px;
 	button {
@@ -163,13 +163,13 @@ lg-hr {
 	position: relative;
 	width: 100%;
 	text-align: center;
-	margin: 10px 0px;
+	margin: 10px 0;
 	div {
 		position: relative;
 		display: inline-block;
 		background-color: $backgroundColor;
 		padding: 5px 5px;
-		top: 0px;
+		top: 0;
 		span {
 			font-size: 17px;
 		}

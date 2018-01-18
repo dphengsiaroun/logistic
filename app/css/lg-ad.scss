@@ -2,24 +2,24 @@
 .ad-title {
 	display: table;
 	width: 100%;
-	padding: 10px 0px;
+	padding: 10px 0;
 	background-color: $breadcrumbColor; // border-bottom: 1px solid $darkBorderColor;
 	left {
 		display: table-cell;
 		width: 100px;
-		padding: 0px;
-		margin: 0px;
-		font-size: 0px;
+		padding: 0;
+		margin: 0;
+		font-size: 0;
 		text-align: center;
 		vertical-align: middle;
 		svg {
 			width: 55px;
 			height: 55px;
 			position: relative;
-			top: 0px;
+			top: 0;
 			left: 25px;
-			padding: 0px;
-			margin: 0px 39px 0px 0px;
+			padding: 0;
+			margin: 0 39px 0 0;
 		}
 		.fa {
 			color: #223c5d;
@@ -41,7 +41,7 @@
 		subtitle {
 			font-weight: bold;
 			font-size: 14px;
-			padding: 0px 0px;
+			padding: 0 0;
 		}
 	}
 	hr {
@@ -52,11 +52,11 @@
 }
 
 .ad {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 	section {
 		padding: 10px 5px;
-		margin: 0px;
+		margin: 0;
 		border-bottom: 1px solid $darkBorderColor;
 		big-label {
 			display: block;
@@ -72,8 +72,8 @@
 		dimension {
 			display: table;
 			width: 100%;
-			margin: 0px;
-			padding: 0px;
+			margin: 0;
+			padding: 0;
 			div {
 				display: table-cell;
 				width: 30%;
@@ -91,8 +91,8 @@
 			div.truck {
 				svg {
 					position: relative;
-					top: 0px;
-					left: 0px;
+					top: 0;
+					left: 0;
 					width: 90px;
 				}
 			}
@@ -126,7 +126,7 @@
 	width: 100%;
 	height: 55px;
 	background-color: $breadcrumbColor;
-	padding: 10px 0px 10px 15px;
+	padding: 10px 0 10px 15px;
 	text-align: center;
 	div,
 	a {
@@ -150,8 +150,8 @@
 
 img-ad {
 	width: 100%;
-	font-size: 0px;
-	margin: 0px;
+	font-size: 0;
+	margin: 0;
 	img {
 		width: 100%;
 	}
@@ -171,7 +171,7 @@ recap {
 		text-align: left;
 	}
 	h2 {
-		margin: 20px 0px;
+		margin: 20px 0;
 		font-size: 21px;
 		text-align: center;
 	}
@@ -179,18 +179,18 @@ recap {
 		text-align: center;
 	}
 	info {
-		margin: 10px 0px;
+		margin: 10px 0;
 		p {
 			font-size: 12px;
 			color: $gray;
 		}
 	}
 	iframe {
-		margin: 10px 0px 0px;
+		margin: 10px 0 0;
 	}
 	img {
 		width: 100%;
-		margin: 10px 0px;
+		margin: 10px 0;
 	}
 	origin {
 		city {
@@ -215,12 +215,12 @@ recap {
 		}
 		p {
 			font-size: 15px;
-			margin: 10px 0px;
+			margin: 10px 0;
 		}
 		table {
 			width: 100%;
 			max-width: 100%;
-			margin: 10px 0px;
+			margin: 10px 0;
 			border-collapse: collapse;
 			tbody {
 				tr {
@@ -263,10 +263,10 @@ bottom {
 	a {
 		display: table-cell;
 		width: 50%;
-		margin: 0px;
-		padding: 15px 0px;
+		margin: 0;
+		padding: 15px 0;
 		vertical-align: middle;
-		border-radius: 0px;
+		border-radius: 0;
 		text-align: center;
 		background: #8bc63f;
 		color: white;
@@ -286,10 +286,10 @@ bottom-edit {
 	a {
 		display: table-cell;
 		width: 50%;
-		margin: 0px;
-		padding: 15px 0px;
+		margin: 0;
+		padding: 15px 0;
 		vertical-align: middle;
-		border-radius: 0px;
+		border-radius: 0;
 		text-align: center;
 		background: #8bc63f;
 		color: white;

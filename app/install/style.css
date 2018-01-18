@@ -1,8 +1,8 @@
 * {
 	box-sizing: border-box;
 	font-family: 'Lato', sans-serif;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 	color: hsla(214, 46%, 25%, 1);
 }
 
@@ -13,23 +13,23 @@ h2,
 h3 {
 	display: block;
 	width: 100%;
-	padding: 8px 0px;
+	padding: 8px 0;
 }
 
 h1 {
 	text-align: center;
 	color: #0275d8;
-	margin: 10px 0px;
+	margin: 10px 0;
 }
 
 h2 {
 	width: 95%;
-	margin: 10px 0px;
+	margin: 10px 0;
 	text-align: left;
 	font-size: 20px;
 	background-color: #0275d8;
 	color: white;
-	border-radius: 0px 0px 100px 0px;
+	border-radius: 0 0 100px 0;
 }
 
 h2>.fa {
@@ -38,7 +38,7 @@ h2>.fa {
 }
 
 h3>.fa {
-	padding: 5px 10px 5px 0px;
+	padding: 5px 10px 5px 0;
 }
 
 label {
@@ -144,7 +144,7 @@ button {
 	color: #0275d8;
 	border-radius: 0;
 	border-color: transparent;
-	padding: 0px;
+	padding: 0;
 }
 
 .success-msg h3,
@@ -189,12 +189,12 @@ button {
 	text-align: center;
 	text-decoration: none;
 	padding: 10px;
-	margin: 0px 20px;
+	margin: 0 20px;
 	font-size: 16px;
 	cursor: pointer;
 	border: none;
 	border-radius: 3px;
-	margin: 10px 0px;
+	margin: 10px 0;
 }
 
 .link .critical {

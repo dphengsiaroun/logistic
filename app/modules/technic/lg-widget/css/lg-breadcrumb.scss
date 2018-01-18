@@ -13,7 +13,7 @@ breadcrumb {
 		display: table-cell;
 		position: relative;
 		background-color: $breadcrumbColor;
-		padding: 0px 0px;
+		padding: 0 0;
 		text-align: center;
 		vertical-align: middle;
 		div {
@@ -28,7 +28,7 @@ breadcrumb {
 			}
 			span {
 				display: inline-block;
-				margin: 5px 9px 0px;
+				margin: 5px 9px 0;
 				font-size: 12px;
 				font-weight: bold;
 			}
@@ -47,7 +47,7 @@ breadcrumb {
 			content: '';
 		}
 		&:before {
-			top: 0px;
+			top: 0;
 			transform: skew(20deg);
 		}
 		&:after {

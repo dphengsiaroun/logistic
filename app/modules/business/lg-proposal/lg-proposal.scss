@@ -2,16 +2,16 @@
 proposal-list {
 	width: 100%;
 	display: block;
-	padding: 0px 3px;
+	padding: 0 3px;
 	ad-block {
 		width: 100%;
-		font-size: 0px;
+		font-size: 0;
 		border-bottom: 1px solid $lightGray;
 		span {
 			width: 100%;
 			display: block;
 			height: inherit;
-			margin: 3px 0px;
+			margin: 3px 0;
 			.img-fix {
 				display: inline-block;
 				width: 30%;
@@ -28,14 +28,14 @@ proposal-list {
 				.details {
 					display: inline-block;
 					width: 70%;
-					padding: 0px 10px;
+					padding: 0 10px;
 					font-size: 13px;
 					text-align: left;
 					background-color: white;
 					h2 {
 						text-align: left;
 						font-size: 16px;
-						margin: 0px 0px 5px;
+						margin: 0 0 5px;
 					}
 					div {
 						display: table;
@@ -67,7 +67,7 @@ proposal-list {
 }
 
 .title-ad-proposal {
-	padding: 10px 0px 20px;
+	padding: 10px 0 20px;
 	font-size: 25px;
 	font-weight: bold;
 }

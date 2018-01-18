@@ -3,7 +3,7 @@ sign-form {
 	display: block;
 	text-align: left;
 	width: 100%;
-	padding: 0px;
+	padding: 0;
 	.table {
 		display: table;
 		width: 100%;
@@ -20,7 +20,7 @@ sign-form {
 		width: 60px;
 	}
 	a {
-		margin: 0px;
+		margin: 0;
 		text-decoration: none;
 		font-size: 20px;
 		padding-bottom: 20px;
@@ -73,14 +73,14 @@ lg-user-create-route {
 
 lg-user-signup-success-route {
 	display: block;
-	padding: 0px 5px;
+	padding: 0 5px;
 }
 
 .profil {
 	text-align: center;
 	width: 100%;
-	padding: 0px;
-	margin: 20px 0px 10px;
+	padding: 0;
+	margin: 20px 0 10px;
 	i {
 		font-size: 70px;
 	}

@@ -9,7 +9,7 @@ lg-filter {
 			display: block;
 			width: 100%;
 			height: 510px;
-			padding: 10px 0px;
+			padding: 10px 0;
 			background-color: $lightGray;
 			label {
 				text-align: left;
@@ -19,7 +19,7 @@ lg-filter {
 				}
 				input {
 					width: 100%;
-					margin: 0px 0px;
+					margin: 0 0;
 					font-size: 17px;
 					padding: 15px 5px;
 					border-radius: 3px;

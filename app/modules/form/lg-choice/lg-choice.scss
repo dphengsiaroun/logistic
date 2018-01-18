@@ -2,8 +2,8 @@
 lg-choice {
 	display: block;
 	position: relative;
-	top: 0px;
-	right: 0px;
+	top: 0;
+	right: 0;
 	width: 100%;
 	my-input.filled {
 		color: $inputColor;
@@ -38,7 +38,7 @@ lg-choice {
 			background-color: $lightGray;
 			input {
 				width: 100%;
-				margin: 0px 0px;
+				margin: 0 0;
 				font-size: 17px;
 				padding: 15px 10px;
 				border-radius: 3px;

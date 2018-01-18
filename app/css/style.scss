@@ -8,8 +8,8 @@
 
 * {
 	box-sizing: border-box;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 	color: $fontColor;
 	font-family: 'Source Sans Pro', sans-serif; // letter-spacing: -0.5px;
 	-webkit-font-smoothing: antialiased;	
@@ -26,7 +26,7 @@ body {
 ui-view {
 	display: block;
 	min-height: 540px;
-	padding: 58px 0px 0px;
+	padding: 58px 0 0;
 }
 
 h1,
@@ -55,7 +55,7 @@ my-input {
 	display: block;
 	font-size: 18px;
 	width: 100%;
-	margin: 5px 0px;
+	margin: 5px 0;
 	background: white;
 	box-shadow: none;
 	padding: 15px 10px;
@@ -82,7 +82,7 @@ textarea {
 	font-size: 18px;
 	width: 100%;
 	min-height: 100px;
-	margin: 5px 0px;
+	margin: 5px 0;
 	background: white;
 	box-shadow: none;
 	padding: 17px 10px;
@@ -160,14 +160,14 @@ title {
 }
 
 title {
-	padding: 0px;
+	padding: 0;
 }
 
 subtitle {
 	display: block;
 	font-size: 19px;
 	text-align: center;
-	padding: 0px 10px 10px;
+	padding: 0 10px 10px;
 }
 
 title-icon {
@@ -175,7 +175,7 @@ title-icon {
 	font-size: 60px;
 	font-weight: bold;
 	text-align: center;
-	padding: 0px;
+	padding: 0;
 }
 
 info-route {
@@ -192,7 +192,7 @@ button {
 	cursor: pointer;
 	border: none;
 	border-radius: 3px;
-	margin: 10px 0px;
+	margin: 10px 0;
 }
 
 button[disabled] {
