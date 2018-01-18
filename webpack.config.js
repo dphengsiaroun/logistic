@@ -17,22 +17,40 @@ module.exports = {
 		rules: [{
 			test: /\.js$/,
 			exclude: /node_modules/,
-			use: [{
-				loader: 'ng-annotate-loader',
-			}, {
-				loader: 'babel-loader',
-			}]
+			use: ['ng-annotate-loader', 'babel-loader']
 		}, {
 			test: /\.css$/,
 			use: ExtractTextPlugin.extract({
 				fallback: 'style-loader',
-				use: 'css-loader?minimize&sourceMap'
+				use: [{
+					loader: 'css-loader',
+					options: {
+						minimize: true,
+						sourceMap: true
+					}
+				}]
 			})
 		}, {
 			test: /\.scss$/,
 			use: ExtractTextPlugin.extract({
 				fallback: 'style-loader',
-				use: 'css-loader?minimize&sourceMap!sass-loader?sourceMap'
+				use: [{
+					loader: 'css-loader',
+					options: {
+						minimize: true,
+						sourceMap: true
+					}
+				}, {
+					loader: 'postcss-loader',
+					options: {
+						sourceMap: true
+					}
+				}, {
+					loader: 'sass-loader',
+					options: {
+						sourceMap: true
+					}
+				}]
 			})
 		}, {
 			test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,

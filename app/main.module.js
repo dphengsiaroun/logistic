@@ -1,3 +1,4 @@
+import 'normalize.css';
 import './css/reset.scss';
 import './css/lg-ad.scss';
 import './css/create-ad.scss';
