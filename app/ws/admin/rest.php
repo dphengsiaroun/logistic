@@ -11,7 +11,8 @@
 		'User',
 		'Connection',
 		'Proposal',
-		'Log'
+		'Log',
+		'LogLevel',
 	);
 
 	foreach ($objects as $class) {
