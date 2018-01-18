@@ -190,12 +190,12 @@ button i {
 }
 
 button.critical {
-	background: $criticalButtonColor;
+	background: $criticalColor;
 	color: $secondaryColor;
 }
 
 .critical {
-	color: $criticalFontColor;
+	color: $criticalColor;
 }
 
 .btn-critical {
