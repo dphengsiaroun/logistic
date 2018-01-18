@@ -4,9 +4,8 @@ $secondaryColor: white;
 
 $fontColor: $primaryColor;
 
+$criticalColor: red;
 
-
-$red: hsl(0, 100%, 50%);
 
 $extraLightBlue: hsl(214, 41%, 85%);
 $veryLightGray: hsl(0, 0%, 96%);
@@ -35,17 +34,17 @@ $borderColor: $lightGray;
 $darkBorderColor: $littleLightGray;
 $veryDarkBorderColor: $gray;
 $disabledColor: $gray;
-$errorColor: $red;
+$errorColor: red;
 
 $breadcrumbColor: $extraLightGreen;
 
 $buttonColor: $lightGreen;
 $disabledButtonColor: $littleLightGray;
-$criticalButtonColor: $red;
+$criticalButtonColor: red;
 
-$criticalFontColor: $red;
+$criticalFontColor: red;
 $disabledFontColor: $littleGray;
-$notificationColor: $red;
+$notificationColor: red;
 
 $inputColor: $darkBlue;
 $placeholderColor: $gray;
