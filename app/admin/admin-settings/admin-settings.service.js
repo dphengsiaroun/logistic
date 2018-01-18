@@ -18,7 +18,7 @@ function LogFile($http, $q, lgConfig, service) {
 			params: data,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		}).then(function(response) {
-
+			console.log('response', response);
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return $q.reject(response);
@@ -33,6 +33,26 @@ function LogFile($http, $q, lgConfig, service) {
 }
 
 function LogLevel($http, $q, lgConfig, service) {
+
+	this.get = function() {
+
+		return $http({
+			url: lgConfig.wsDir() + 'admin/logLevels',
+			method: 'GET',
+			params: {},
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+		}).then(function(response) {
+
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return $q.reject(response);
+			}
+			service.error = undefined;
+		}).catch(function(error) {
+			service.error = error;
+			return $q.reject(error);
+		});
+	};
 
 	this.update = function(data) {
 
