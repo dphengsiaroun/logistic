@@ -117,14 +117,14 @@ lg-mobile {
 	lg-filter {
 		overlay {
 			filter {
-				height: 616px !important;
+				height: $desktopHeight - $headerHeight !important;
 			}
 		}
 		overlay,
 		overlay fixed {
-			width: 460px;
-			top: 40px;
-			left: 130px;
+			width: $desktopWidth;
+			top: $desktopTop;
+			left: $desktopLeft;
 		}
 	}
 
@@ -191,17 +191,17 @@ lg-mobile {
 	}
 
 	add-ads {
-		width: 460px !important;
-		left: 130px!important;
-		top: 670px!important;
+		width: $desktopWidth !important;
+		left: $desktopLeft !important;
+		top: $desktopHeight - 5px !important;
 	}
 
 	/* lg-proposal */
 	bottom,
 	bottom-edit {
-		width: 460px;
-		left: 130px;
-		top: 666px;
+		width: $desktopWidth;
+		left: $desktopLeft;
+		top: $desktopHeight - 9px;
 	}
 
 	lg-proposal-retrieve-route {
