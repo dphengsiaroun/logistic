@@ -13,10 +13,11 @@
 				<div class="header">
 					<h4 class="title"><i class="fa fa-file-text-o"></i> Logs</h4>
 					<div class="combobox">
-						<select>
-							<option value="debug">Mode Debug</option>
-							<option value="warning">Mode Warning</option>
+						<label><span>Log Level</span>
+						<select ng-model="$ctrl.logLevel" ng-change="$ctrl.confirm();" ng-options="item for item in $ctrl.logLevels">
+							
 						</select>
+						</label>
 					</div>
 				</div>
 				<div class="content">
