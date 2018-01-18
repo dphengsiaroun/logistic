@@ -1,4 +1,6 @@
-import './style.css';
+import 'normalize.css';
+import '../css/reset.scss';
+import './style.scss';
 import 'angular-route';
 
 import * as lib from './install-route.js';

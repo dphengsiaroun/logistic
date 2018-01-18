@@ -1,10 +1,4 @@
-* {
-	box-sizing: border-box;
-	font-family: 'Lato', sans-serif;
-	padding: 0;
-	margin: 0;
-	color: hsla(214, 46%, 25%, 1);
-}
+@import '../css/color';
 
 h1,
 h2,
@@ -16,7 +10,7 @@ h3 {
 
 h1 {
 	text-align: center;
-	color: #0275d8;
+	color: $primaryColor;
 	margin: 10px 0;
 }
 
@@ -25,7 +19,7 @@ h2 {
 	margin: 10px 0;
 	text-align: left;
 	font-size: 20px;
-	background-color: #0275d8;
+	background-color: $primaryColor;
 	color: $secondaryColor;
 	border-radius: 0 0 100px 0;
 }
@@ -41,7 +35,7 @@ h3>.fa {
 
 label {
 	font-size: 13px;
-	color: #0275d8;
+	color: $primaryColor;
 	line-height: 25px;
 }
 
@@ -67,7 +61,7 @@ div {
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #555;
-	background-color: #fff;
+	background-color: $secondaryColor;
 	background-image: none;
 	border: 1px solid #ccc;
 	border-radius: 4px;
