@@ -1,5 +1,7 @@
 @import '../../../../css/color';
 
+$breadcrumbColor: $adColor;
+
 $breadcrumbHeight: 70px;
 $breadcrumbDisabledBgColor: lighten(desaturate($breadcrumbColor, 70%), 5%);
 $breadcrumbDisabledColor: desaturate(lighten($primaryColor, 20%), 50%);

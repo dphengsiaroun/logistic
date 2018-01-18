@@ -1,49 +1,54 @@
+$gray96: hsl(0, 0%, 96%);
+$gray92: hsl(0, 0%, 92%);
+$gray88: hsl(0, 0%, 88%);
+$gray85: hsl(0, 0%, 85%);
+$gray80: hsl(0, 0%, 80%);
+$gray66: hsl(0, 0%, 66%);
+
 $darkBlue: hsl(214, 46%, 25%);
 $primaryColor: $darkBlue;
 $secondaryColor: white;
 
 $fontColor: $primaryColor;
+$disabledFontColor: $gray80;
+$inputColor: $fontColor;
+
+$buttonColor: hsl(86, 54%, 51%);
 
 $criticalColor: red;
 
 
-$extraLightBlue: hsl(214, 41%, 85%);
-$veryLightGray: hsl(0, 0%, 96%);
-$lightGray: hsl(0, 0%, 92%);
-$littleLightGray: hsl(0, 0%, 88%);
-$littleGray: hsl(0, 0%, 80%);
-$mediumGray: hsl(0, 0%, 85%);
-$gray: hsl(0, 0%, 66%);
-$lightGreen: hsl(86, 54%, 51%);
+
+$loaderColor: hsl(214, 41%, 85%);
+
+$carrierColor: hsl(86, 75%, 75%);
+$carrierActiveStepColor: $buttonColor;
+
+$adColor: hsl(86, 75%, 75%);
+$priceColor: $buttonColor;
+
+
+
+
 $veryLightGreen: hsl(86, 80%, 50%);
-$extraLightGreen: hsl(86, 75%, 75%);
 $darkGreen: hsl(171, 99%, 20%);
 
 $transparentDarkBlue: hsla(214, 46%, 25%, 0.6);
 $transparentLightGreen: hsla(171, 99%, 38%, 0.3);
 
-$carrierColor: $extraLightGreen;
-$loaderColor: $extraLightBlue;
+$backgroundColor: $gray96;
+$backgroundDarkColor: $gray92;
+$borderColor: $gray92;
+$darkBorderColor: $gray88;
+$veryDarkBorderColor: $gray66;
+$disabledColor: $gray66;
+
+$disabledButtonColor: $gray88;
 
 
 
 
-$backgroundColor: $veryLightGray;
-$backgroundDarkColor: $lightGray;
-$borderColor: $lightGray;
-$darkBorderColor: $littleLightGray;
-$veryDarkBorderColor: $gray;
-$disabledColor: $gray;
-
-$breadcrumbColor: $extraLightGreen;
-
-$buttonColor: $lightGreen;
-$disabledButtonColor: $littleLightGray;
-
-$disabledFontColor: $littleGray;
-
-$inputColor: $darkBlue;
-$placeholderColor: $gray;
+$placeholderColor: $gray66;
 
 $selectedColor: $buttonColor;
 $selectedColorCmpl: $secondaryColor;

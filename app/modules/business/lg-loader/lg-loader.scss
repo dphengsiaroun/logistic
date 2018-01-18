@@ -59,7 +59,7 @@ loader-list {
 					padding: 0;
 					text-align: left;
 					font-size: 11px;
-					color: $gray;
+					color: $gray66;
 				}
 			}
 			places {
@@ -85,14 +85,14 @@ loader-list {
 						region {
 							padding-left: 5px;
 							font-size: 12px;
-							color: $gray;
+							color: $gray66;
 						}
 					}
 				}
 			}
 		}
 		&:hover {
-			box-shadow: 1px 1px 5px 0 $littleGray;
+			box-shadow: 1px 1px 5px 0 $gray80;
 		}
 	}
 	content {
@@ -129,7 +129,7 @@ loader-list {
 				font-size: 13px;
 			}
 			rate-km {
-				color: $gray;
+				color: $gray66;
 			}
 			span {
 				font-size: 13px;

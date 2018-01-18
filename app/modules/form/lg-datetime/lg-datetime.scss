@@ -1,5 +1,5 @@
 @import '../../../css/color';
-$headCalendarColor: $mediumGray;
+$headCalendarColor: $gray85;
 $monthColor: $fontColor;
 lg-datetime {
     position: relative;
@@ -68,7 +68,7 @@ lg-dt-month {
     text-align: center;
     padding: 0 0 10px;
     background: $secondaryColor;
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid $gray66;
     header {
         position: relative;
     }
@@ -99,7 +99,7 @@ lg-dt-month {
             font-weight: 600;
             text-transform: uppercase;
             td {
-                color: $gray;
+                color: $gray66;
                 font-size: 17px;
                 line-height: 22px;
             }
@@ -133,7 +133,7 @@ lg-dt-month {
                 td.other-month.selected {
                     background-color: transparent;
                     border: 1px solid $selectedColor;
-                    color: $littleGray;
+                    color: $gray80;
                 }
                 td.disabled span {
                     color: $disabledFontColor;
@@ -148,7 +148,7 @@ lg-dt-month {
                 td.other-month.interval {
                     background-color: transparent;
                     border: 1px solid $transparentSelectedColor;
-                    color: $littleGray;
+                    color: $gray80;
                 }
                 td.interval-start {
                     border-radius: 84% 0% 0% 84%;

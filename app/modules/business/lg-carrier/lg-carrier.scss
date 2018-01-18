@@ -32,7 +32,7 @@ summary {
 						date,
 						distance {
 							display: block;
-							color: $gray;
+							color: $gray66;
 							font-size: 13px;
 						}
 						places {
@@ -60,7 +60,7 @@ summary {
 				}
 			}
 			step.active {
-				background-color: $lightGreen;
+				background-color: $carrierActiveStepColor;
 				num-step,
 				label,
 				.fa {
@@ -69,7 +69,7 @@ summary {
 			}
 			step.disabled {
 				opacity: 0.2;
-				background-color: $gray;
+				background-color: $gray66;
 			}
 			step.done {
 				background-color: $secondaryColor;
@@ -87,7 +87,7 @@ city {
 }
 
 region {
-	color: $gray;
+	color: $gray66;
 	font-size: 12px;
 }
 
@@ -144,7 +144,7 @@ item {
 		display: table-cell;
 		margin: 0;
 		padding: 0;
-		vertical-align: middle;
+		vertical-align: top;
 		h2 {
 			font-size: 17px;
 			text-align: left;
@@ -258,7 +258,7 @@ carrier-list {
 					margin: 0;
 					padding: 0;
 					text-align: right;
-					font-size: 13px; // color: $gray;
+					font-size: 13px; // color: $gray66;
 				}
 				created,
 				by {
@@ -268,7 +268,7 @@ carrier-list {
 					padding: 0;
 					text-align: left;
 					font-size: 11px;
-					color: $gray;
+					color: $gray66;
 				}
 			}
 			places {
@@ -294,14 +294,14 @@ carrier-list {
 						region {
 							padding-left: 5px;
 							font-size: 12px;
-							color: $gray;
+							color: $gray66;
 						}
 					}
 				}
 			}
 		}
 		&:hover {
-			box-shadow: 1px 1px 5px 0 $littleGray;
+			box-shadow: 1px 1px 5px 0 $gray80;
 		}
 	}
 	content {
@@ -339,7 +339,7 @@ carrier-list {
 				font-size: 13px;
 			}
 			rate-km {
-				color: $gray;
+				color: $gray66;
 			}
 			rate {
 				margin-top: 15px;
@@ -386,7 +386,7 @@ carrier-list {
 			}
 			rate-km {
 				display: block;
-				color: $gray;
+				color: $gray66;
 			}
 			rate {
 				// margin-top: 15px;
