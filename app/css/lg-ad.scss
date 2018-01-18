@@ -231,7 +231,7 @@ recap {
 					th {
 						padding: 10px;
 						vertical-align: middle;
-						background-color: white;
+						background-color: $secondaryColor;
 						font-size: 15px;
 					}
 					th {
@@ -269,7 +269,7 @@ bottom {
 		border-radius: 0;
 		text-align: center;
 		background: #8bc63f;
-		color: white;
+		color: $secondaryColor;
 	}
 }
 
@@ -292,9 +292,9 @@ bottom-edit {
 		border-radius: 0;
 		text-align: center;
 		background: #8bc63f;
-		color: white;
+		color: $secondaryColor;
 		i.fa {
-			color: white;
+			color: $secondaryColor;
 			margin-right: 5px;
 		}
 	}

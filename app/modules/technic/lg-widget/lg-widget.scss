@@ -13,7 +13,7 @@ lg-message {
 		font-weight: bold;
 	}
 	i {
-		color: white;
+		color: $secondaryColor;
 	}
 }
 
@@ -90,7 +90,7 @@ lg-show-picture {
 		right: 0;
 		margin: 10px;
 		font-size: 40px;
-		color: white;
+		color: $secondaryColor;
 		background-color: black;
 	}
 }
@@ -100,7 +100,7 @@ lg-select {
 	table-layout: fixed;
 	width: 100%;
 	border: 1px solid $borderColor;
-	background-color: white;
+	background-color: $secondaryColor;
 	border-radius: 5px;
 	text-align: center;
 	margin: 10px 0;
@@ -121,13 +121,13 @@ lg-select {
 	}
 	lg-option[selected] {
 		background-color: $fontColor;
-		color: white;
+		color: $secondaryColor;
 		i,
 		span,
 		svg {
 			background-color: $fontColor;
-			color: white;
-			fill: white;
+			color: $secondaryColor;
+			fill: $secondaryColor;
 		}
 	}
 	lg-option:first-child[selected] {

@@ -1,10 +1,11 @@
 $darkBlue: hsl(214, 46%, 25%);
 $primaryColor: $darkBlue;
+$secondaryColor: white;
 
 $fontColor: $primaryColor;
 
 
-$yellow: hsl(52, 100%, 66%);
+
 $red: hsl(0, 100%, 50%);
 
 $extraLightBlue: hsl(214, 41%, 85%);
@@ -33,7 +34,6 @@ $backgroundDarkColor: $lightGray;
 $borderColor: $lightGray;
 $darkBorderColor: $littleLightGray;
 $veryDarkBorderColor: $gray;
-$secondaryColor: $yellow;
 $disabledColor: $gray;
 $errorColor: $red;
 
@@ -51,7 +51,7 @@ $inputColor: $darkBlue;
 $placeholderColor: $gray;
 
 $selectedColor: $buttonColor;
-$selectedColorCmpl: white;
+$selectedColorCmpl: $secondaryColor;
 
 $transparentFontColor: $transparentDarkBlue;
 $transparentSelectedColor: $transparentLightGreen;

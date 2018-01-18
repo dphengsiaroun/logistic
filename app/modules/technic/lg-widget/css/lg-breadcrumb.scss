@@ -41,7 +41,7 @@ breadcrumb {
 			left: -8px;
 			height: $breadcrumbHeight / 2;
 			width: 3px;
-			background: white;
+			background: $secondaryColor;
 			border-left: 10px solid $breadcrumbColor;
 			border-right: 10px solid $breadcrumbColor;
 			content: '';

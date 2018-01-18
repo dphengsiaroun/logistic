@@ -23,25 +23,25 @@ my-head {
 		vertical-align: top;
 		padding: 17px 10px 0;
 		i.fa {
-			color: white;
+			color: $secondaryColor;
 			font-size: 26px;
 		}
 	}
 	head-center {
 		display: table-cell;
 		text-align: center;
-		color: white;
+		color: $secondaryColor;
 		font-size: 13px;
 		line-height: 0;
 		a {
-			color: white;
+			color: $secondaryColor;
 			font-size: 13px;
 			span {
 				display: block;
 				width: 100%;
 				padding: 29px;
 				font-size: 25px;
-				color: white;
+				color: $secondaryColor;
 			}
 		}
 		img-svg {
@@ -52,7 +52,7 @@ my-head {
 			}
 		}
 		p {
-			color: white;
+			color: $secondaryColor;
 			padding: 29px 0 0;
 			font-size: 17px;
 		}
@@ -83,7 +83,7 @@ my-head {
 		padding: 14px 10px;
 		menu-bar.fa,
 		i.fa {
-			color: white;
+			color: $secondaryColor;
 			font-size: 30px;
 		}
 		.notification {
@@ -95,7 +95,7 @@ my-head {
 			top: 27px;
 			border-radius: 30px;
 			font-size: 13px;
-			color: white;
+			color: $secondaryColor;
 			background-color: $notificationColor;
 		}
 	}
@@ -115,7 +115,7 @@ lg-menu-content {
 	text-align: left;
 	a {
 		display: block;
-		background: white;
+		background: $secondaryColor;
 		border-bottom: 1px solid $borderColor;
 		padding: 10px;
 		width: 100%;
@@ -136,7 +136,7 @@ lg-menu-content {
 			left: 30px;
 			border-radius: 30px;
 			font-size: 13px;
-			color: white;
+			color: $secondaryColor;
 			background-color: $notificationColor;
 		}
 		p {

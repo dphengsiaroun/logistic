@@ -21,7 +21,7 @@ proposal-list {
 				}
 			}
 			div {
-				background-color: white;
+				background-color: $secondaryColor;
 				width: 100%;
 				.details {
 					display: inline-block;
@@ -29,7 +29,7 @@ proposal-list {
 					padding: 0 10px;
 					font-size: 13px;
 					text-align: left;
-					background-color: white;
+					background-color: $secondaryColor;
 					h2 {
 						text-align: left;
 						font-size: 16px;

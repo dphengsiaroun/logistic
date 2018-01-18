@@ -7,7 +7,7 @@ summary {
 		steps {
 			display: table;
 			width: 100%;
-			background-color: white;
+			background-color: $secondaryColor;
 			step {
 				display: table-row;
 				width: 100%;
@@ -64,7 +64,7 @@ summary {
 				num-step,
 				label,
 				.fa {
-					color: white;
+					color: $secondaryColor;
 				}
 			}
 			step.disabled {
@@ -72,7 +72,7 @@ summary {
 				background-color: $gray;
 			}
 			step.done {
-				background-color: white;
+				background-color: $secondaryColor;
 				label {
 					color: $fontColor;
 				}
@@ -135,7 +135,7 @@ item {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: white;
+	background-color: $secondaryColor;
 	border: 1px solid #eeeeee;
 	border-top: none;
 	border-bottom: none;
@@ -184,7 +184,7 @@ trajet {
 			padding: 15px;
 			font-size: 20px;
 			border-bottom: 1px solid $borderColor;
-			background-color: white;
+			background-color: $secondaryColor;
 			availability {
 				display: table;
 				width: 100%;
@@ -224,7 +224,7 @@ carrier-list {
 		width: 100%;
 		margin: 5px 0;
 		padding: 0;
-		background-color: white;
+		background-color: $secondaryColor;
 		header {
 			display: block;
 			width: 100%;

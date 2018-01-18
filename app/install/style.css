@@ -26,12 +26,12 @@ h2 {
 	text-align: left;
 	font-size: 20px;
 	background-color: #0275d8;
-	color: white;
+	color: $secondaryColor;
 	border-radius: 0 0 100px 0;
 }
 
 h2>.fa {
-	color: white;
+	color: $secondaryColor;
 	padding: 5px 10px;
 }
 
@@ -183,7 +183,7 @@ button {
 	display: table-cell;
 	width: 30%;
 	background-color: hsl(120, 60%, 50%);
-	color: white;
+	color: $secondaryColor;
 	text-align: center;
 	text-decoration: none;
 	padding: 10px;

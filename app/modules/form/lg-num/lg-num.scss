@@ -7,7 +7,7 @@ lg-num {
     minus {
         display: table-cell;
         background: $buttonColor;
-        color: white;
+        color: $secondaryColor;
         border: 1px solid $borderColor;
         ;
         width: 20%;
@@ -46,6 +46,6 @@ lg-num {
         background-color: $veryLightGray;
     }
     .fa {
-        color: white;
+        color: $secondaryColor;
     }
 }

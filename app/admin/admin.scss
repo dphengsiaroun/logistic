@@ -50,7 +50,7 @@ my-input {
 	font-size: 18px;
 	width: 100%;
 	margin: 5px 0;
-	background: white;
+	background: $secondaryColor;
 	box-shadow: none;
 	padding: 15px 10px;
 	border-radius: 3px;
@@ -69,7 +69,7 @@ textarea {
 	width: 100%;
 	min-height: 100px;
 	margin: 5px 0;
-	background: white;
+	background: $secondaryColor;
 	box-shadow: none;
 	padding: 17px 10px;
 	border-radius: 3px;
@@ -121,7 +121,7 @@ admin-nav-route {
 			a {
 				display: block;
 				width: 100%;
-				color: white;
+				color: $secondaryColor;
 				font-size: 35px;
 				font-weight: bold;
 				padding: 20px 0 0;
@@ -130,7 +130,7 @@ admin-nav-route {
 				display: block;
 				width: 100%;
 				font-size: 18px;
-				color: white;
+				color: $secondaryColor;
 			}
 		}
 		div.user {
@@ -182,7 +182,7 @@ admin-nav-route {
 					}
 					i.fa {
 						font-size: 18px;
-						color: white;
+						color: $secondaryColor;
 						margin-right: 10px;
 					}
 				}
@@ -213,7 +213,7 @@ admin-nav-route {
 					}
 					i.fa {
 						font-size: 24px;
-						color: white;
+						color: $secondaryColor;
 					}
 				}
 			}
@@ -234,7 +234,7 @@ admin-section {
 		display: table;
 		width: 100%;
 		padding: 15px 30px;
-		background-color: white;
+		background-color: $secondaryColor;
 		border-bottom: 1px solid #e7e7e7;
 		h2 {
 			display: table-cell;
@@ -256,7 +256,7 @@ admin-section {
 				border-radius: 3px;
 				border: none;
 				>i.fa {
-					color: white;
+					color: $secondaryColor;
 				}
 			}
 
@@ -441,7 +441,7 @@ admin-section {
 						border: none;
 						margin-bottom: 5px;
 						>i.fa {
-							color: white;
+							color: $secondaryColor;
 						}
 					}
 					div .download:hover {
@@ -459,7 +459,7 @@ admin-section {
 						border-radius: 3px;
 						border: none;
 						>i.fa {
-							color: white;
+							color: $secondaryColor;
 						}
 					}
 					div .load-more:hover {
@@ -540,7 +540,7 @@ admin-section {
 		display: block;
 		width: 100%;
 		padding: 20px;
-		background-color: white;
+		background-color: $secondaryColor;
 		border-top: 1px solid #e7e7e7;
 		span {
 			font-size: 14px;
@@ -570,7 +570,7 @@ admin-login-route {
 			padding: 30px;
 			.card {
 				display: block;
-				background-color: white;
+				background-color: $secondaryColor;
 				box-shadow: 0 25px 30px -13px rgba(40, 40, 40, 0.4);
 				border-radius: 10px;
 				padding: 30px 20px;
@@ -675,11 +675,11 @@ admin-confirm {
 				margin: 10px 0;
 				&.critical {
 					background-color: red;
-					color: white;
+					color: $secondaryColor;
 				}
 				&.disconnect {
 					background-color: #8de61a;
-					color: white;
+					color: $secondaryColor;
 				}
 			}
 		}

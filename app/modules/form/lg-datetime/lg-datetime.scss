@@ -60,14 +60,14 @@ lg-datetime-content {
         top: 59px;
         left: 0;
         padding-bottom: 200px;
-        background-color: white;
+        background-color: $secondaryColor;
     }
 }
 
 lg-dt-month {
     text-align: center;
     padding: 0 0 10px;
-    background: white;
+    background: $secondaryColor;
     border-bottom: 1px solid $gray;
     header {
         position: relative;
@@ -124,7 +124,7 @@ lg-dt-month {
                         font-size: 22px;
                         font-weight: bold;
                         background-color: $selectedColor;
-                        color: white;
+                        color: $secondaryColor;
                     }
                 }
                 td.week-end.selected {
