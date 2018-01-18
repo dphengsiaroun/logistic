@@ -112,7 +112,7 @@ lg-dt-month {
                     font-weight: 400;
                 }
                 td.week-end span {
-                    color: $transparentFontColor;
+                    opacity: 0.6;
                 }
                 td.other-month {
                     opacity: 0;
