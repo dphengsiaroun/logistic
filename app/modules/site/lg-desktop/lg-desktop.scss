@@ -42,10 +42,10 @@ lg-mobile {
 	lg-body {
 		display: block;
 		position: relative;
-		width: 460px;
-		height: 675px;
-		top: 40px;
-		left: 130px;
+		width: $desktopWidth;
+		height: $desktopHeight;
+		top: $desktopTop;
+		left: $desktopLeft;
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background: #f5f5f5;
@@ -54,15 +54,15 @@ lg-mobile {
 
 	/* lg-menu */
 	lg-menu {
-		width: 460px;
+		width: $desktopWidth;
 		height: $headerHeight;
-		top: 40px;
-		left: 130px;
+		top: $desktopTop;
+		left: $desktopLeft;
 		lg-menu-content {
-			width: 460px;
-			height: 616px;
-			top: 100px;
-			left: 130px;
+			width: $desktopWidth;
+			height: $desktopHeight - $headerHeight;
+			top: $desktopTop + $headerHeight;
+			left: $desktopLeft;
 		}
 	}
 
