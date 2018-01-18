@@ -120,12 +120,12 @@ lg-select {
 		}
 	}
 	lg-option[selected] {
-		background-color: $primaryColor;
+		background-color: $fontColor;
 		color: white;
 		i,
 		span,
 		svg {
-			background-color: $primaryColor;
+			background-color: $fontColor;
 			color: white;
 			fill: white;
 		}
