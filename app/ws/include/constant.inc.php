@@ -1,16 +1,13 @@
 <?php
 
 	require_once(BASE_DIR . '/include/init.inc.php');
+	require_once(BASE_DIR . '/include/settings.inc.php');
 	define('CONFIG_INI', BASE_DIR . '/include/config.ini');
 	define('SUGGESTED_CONFIG_PHP', BASE_DIR . '/include/suggested.config.php');
 
 
 	define('TRACE_LOG', BASE_DIR . '/logs/_trace.log');
 	define('TEST_MAIL_FORGOTTEN_PASSWORD', BASE_DIR . '/logs/temp-mail-password.log');
-
-
-	// define('TRACE_LEVEL', Monolog\Logger::WARNING);
-	define('TRACE_LEVEL', Monolog\Logger::DEBUG);
 
 	define('SECRET', 'This is a secret...#&@!');
 
