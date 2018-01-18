@@ -23,6 +23,12 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+// normalize.css overwrite
+button, input, optgroup, select, textarea {
+	font-family: 'Source Sans Pro', sans-serif; // letter-spacing: -0.5px;
+	-webkit-font-smoothing: antialiased;
+}
+
 [ng-click] {
 	cursor: pointer;
 }
