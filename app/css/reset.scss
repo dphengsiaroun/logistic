@@ -1,3 +1,28 @@
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('font/SourceSansPro.woff') format('woff');
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Source Sans Pro', sans-serif; // letter-spacing: -0.5px;
+	-webkit-font-smoothing: antialiased;
+}
+
 [ng-click] {
 	cursor: pointer;
 }
