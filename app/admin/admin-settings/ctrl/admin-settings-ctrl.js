@@ -5,7 +5,9 @@ export function AdminSettingsCtrl($window, $stateParams, adminSettings) {
 	this.logLevels = ['Debug', 'Warning', 'Error'];
 
 	adminSettings.logLevel.get().then(logLevel => {
-		this.logLevel = logLevel;
+		console.log('logLevel', logLevel);
+		this.logLevel = logLevel.level;
+		this.previousLogLevel = logLevel.level;
 	});
 
 

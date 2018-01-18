@@ -70,8 +70,9 @@
 				debug('Coucou 6', $result[$resource]);				
 				return;
 			}
-			$result[$resource . 's'] = $obj->listAll();
 			debug('fais moi un listAll()');
+			$result[$resource . 's'] = $obj->listAll();
+			debug('listAll() effectué');
 			return;
 		}
 		if ($method == 'POST') {

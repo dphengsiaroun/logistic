@@ -42,7 +42,7 @@ function LogLevel($http, $q, lgConfig, service) {
 			params: {},
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		}).then(function(response) {
-
+			console.log('response logLevel', response);
 			if (response.data.status === 'ko') {
 				service.error = response;
 				return $q.reject(response);
