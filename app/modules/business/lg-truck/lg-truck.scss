@@ -99,8 +99,8 @@ truck-list {
             }
             div {
                 background-color: $secondaryColor;
-                display: block;
                 width: 100%;
+                vertical-align: middle;
                 .details {
 					display: inline-block;
                     width: 70%;
