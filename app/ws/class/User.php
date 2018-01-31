@@ -11,8 +11,10 @@
 
 	class User extends RestResource {
 
-		public function create() {
-			$request = getRequest();
+		public function create($request) {
+			if ($request === null) {
+				$request = getRequest();
+			}
 			debug('create user', $request);
 			debug('existLogin start', $request);
 			$this->checkAlreadyExists($request);
@@ -331,7 +333,8 @@ EOF;
 				$content->firstname = $ownerDetails->getFirstName();
 				$content->login = preg_replace('/@.*$/', '', $request->email);
 				$content->sync = 'google';
-				self::create($request);
+				$user = new User();
+				$user->create($request);
 			}
 		}
 

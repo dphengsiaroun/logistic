@@ -21,7 +21,7 @@ EOF;
 			':created_t' => $e->content->created_t,
 			':email' => $e->content->email,
 			':login' => $e->content->content->login,
-			':phone' => $e->content->content->phone,
+			':phone' => $e->content->content->phone || '',
 			':password' => $e->content->password,
 			':content' => json_encode($e->content->content)
 		)) === FALSE) {

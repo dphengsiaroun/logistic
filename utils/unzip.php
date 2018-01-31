@@ -78,7 +78,10 @@ function create_dirs($path) {
 
 function setBase($filename) {
     $index = file_get_contents($filename);
-	$baseUrl = dirname($_SERVER['SCRIPT_NAME']) . '/';
+    $baseUrl = dirname($_SERVER['SCRIPT_NAME']) . '/';
+    if ($baseUrl === '//') {
+        $baseUrl = '/';
+    }
 	$modified = preg_replace('/\/dist\//', $baseUrl, $index);
 	file_put_contents($filename, $modified);
 }
