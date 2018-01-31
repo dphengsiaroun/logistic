@@ -1,8 +1,8 @@
-export function AdminCarriersCtrl($stateParams, adminCarrier) {
+export function AdminCarriersCtrl($stateParams, adminCarrier, exportToCsv) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.adminCarrier = adminCarrier;
-	
+
 	ctrl.limit = function() {
 		this.limit = 50;
 		console.log('ctrl.limit', ctrl);
@@ -10,18 +10,42 @@ export function AdminCarriersCtrl($stateParams, adminCarrier) {
 
 	ctrl.loadMore = function() {
 		console.log('ctrl.loadMore', ctrl.loadMore);
-			const moreData = ctrl.limit + 50;
-			ctrl.limit = moreData > ctrl.carrier.length ? ctrl.carrier.length : moreData;
+		const moreData = ctrl.limit + 50;
+		ctrl.limit = moreData > ctrl.carrier.length ? ctrl.carrier.length : moreData;
 	};
 
 	console.log('AdminCarriersCtrl');
 	ctrl.$onInit = function() {
 		adminCarrier.list().then(function(list) {
-			ctrl.carrier = list;
+			ctrl.carriers = list;
 			ctrl.limit();
-			console.log('ctrl.carrier', ctrl.carrier);
+			console.log('ctrl.carriers', ctrl.carriers);
 		}).catch(function(error) {
 			console.error('error', error);
 		});
+	};
+
+	ctrl.export2Csv = () => {
+		console.log('export2Csv');
+
+		let csv = ctrl.carriers.map((carrier) => {
+			return [
+				carrier.id,
+				carrier.content.truck.name,
+				carrier.content.truck.city.city,
+				carrier.content.truck.city.region,
+				(carrier.content.availability === 'total') ? 'Disponibilité totale' : 'Disponible pour un trajet spécifique',
+				carrier.content.truck.transportCategory,
+				carrier.content.truck.transportTruckType,
+				carrier.content.pricing.priceWantedPerKm,
+				carrier.from
+			];
+		}).join('\n');
+		/* eslint-disable */
+		csv = `Sep=,
+ID,TITRE,VILLE D'ORIGINE,REGION,DISPONIBILITE,CATEGORIE,TYPE DE TRANSPORT,PRIX DZD/KM,AUTEUR
+` + csv;
+		/* eslint-enable */
+		exportToCsv.export(csv);
 	};
 }

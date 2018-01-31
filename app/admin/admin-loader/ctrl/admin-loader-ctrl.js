@@ -44,10 +44,11 @@ export function AdminLoadersCtrl($filter, $stateParams, adminLoader, exportToCsv
 				loader.from
 			];
 		}).join('\n');
+		/* eslint-disable */
 		csv = `Sep=,
 ID,TITRE,CATEGORIE,TYPE DE CAMION,VILLE DEPART,DATE DEPART,VILLE ARRIVEE,DATE ARRIVEE,CONDITIONING,TYPE DE MARCHANDISE,TRANCHE DE POIDS,PRIX SOUHAITE,AUTEUR
 ` + csv;
-
+		/* eslint-enable */
 		exportToCsv.export(csv);
 	};
 }
