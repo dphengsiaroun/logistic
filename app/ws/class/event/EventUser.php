@@ -10,14 +10,15 @@ class EventUser {
 			throw new Exception('Cannot create account with login = tutu');
 		}
  		$sql = <<<EOF
-INSERT INTO {$cfg->prefix}user (id, email, login, phone, password, content) VALUES
-	(:id, :email, :login, :phone, :password, :content);
+INSERT INTO {$cfg->prefix}user (id, created_t, email, login, phone, password, content) VALUES
+	(:id, :created_t, :email, :login, :phone, :password, :content);
 EOF;
 
 		$st = $db->prepare($sql,
 					array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
 		if ($st->execute(array(
 			':id' => $e->id,
+			':created_t' => $e->content->created_t,
 			':email' => $e->content->email,
 			':login' => $e->content->content->login,
 			':phone' => $e->content->content->phone,

@@ -11,7 +11,8 @@
 		'Truck',
 		'User',
 		'Connection',
-		'Proposal'
+		'Proposal',
+		'Synchronize'
 	);
 
 	foreach ($objects as $class) {

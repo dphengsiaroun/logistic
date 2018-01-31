@@ -20,6 +20,7 @@
 							<thead>
 								<tr>
 									<th>Id</th>
+									<th>Date création</th>
 									<th>Nom</th>
 									<th>Prénom</th>
 									<th>Pseudo</th>
@@ -34,6 +35,7 @@
 							<tbody>
 								<tr ng-repeat="user in $ctrl.user | limitTo : 5">
 									<td data-label="Id">{{user.id}}</td>
+									<td data-label="Date création">{{user.created_t * 1000 | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
 									<td data-label="Nom">{{user.content.lastname}}</td>
 									<td data-label="Prénom">{{user.content.firstname}}</td>
 									<td data-label="Pseudo">{{user.login}}</td>

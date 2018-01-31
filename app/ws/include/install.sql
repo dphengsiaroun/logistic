@@ -22,6 +22,7 @@ CREATE TABLE `<?php echo $context->prefix; ?>event_error` (
 
 CREATE TABLE `<?php echo $context->prefix; ?>user` (
 	`id` INT(16) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `created_t` VARCHAR(255) NOT NULL ,
 	`email` VARCHAR(255) NOT NULL ,
 	`login` VARCHAR(255) NOT NULL ,
 	`phone` VARCHAR(255) NOT NULL ,
