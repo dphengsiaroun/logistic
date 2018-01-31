@@ -1,4 +1,4 @@
-export function AdminLoadersCtrl($stateParams, adminLoader) {
+export function AdminLoadersCtrl($filter, $stateParams, adminLoader, exportToCsv) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.adminLoader = adminLoader;
@@ -16,11 +16,38 @@ export function AdminLoadersCtrl($stateParams, adminLoader) {
 
 	ctrl.$onInit = function() {
 		adminLoader.list().then(function(list) {
-			ctrl.loader = list;
+			ctrl.loaders = list;
 			ctrl.limit();
 			console.log('ctrl.loader', ctrl.loader);
 		}).catch(function(error) {
 			console.error('error', error);
 		});
+	};
+
+	ctrl.export2Csv = () => {
+		console.log('export2Csv');
+
+		let csv = ctrl.loaders.map((loader) => {
+			return [
+				loader.id,
+				loader.content.title,
+				loader.content.transportCategory,
+				loader.content.transportTruckType,
+				loader.content.departureCity.city,
+				$filter('date')(loader.content.departureDatetime, `EEEE d LLLL yyyy à H'h'`),
+				loader.content.arrivalCity.city,
+				$filter('date')(loader.content.arrivalDatetime, `EEEE d LLLL yyyy à H'h'`),				
+				loader.content.conditioning,
+				loader.content.typeOfGoods,
+				loader.content.weightInterval,
+				loader.content.priceWanted,
+				loader.from
+			];
+		}).join('\n');
+		csv = `Sep=,
+ID,TITRE,CATEGORIE,TYPE DE CAMION,VILLE DEPART,DATE DEPART,VILLE ARRIVEE,DATE ARRIVEE,CONDITIONING,TYPE DE MARCHANDISE,TRANCHE DE POIDS,PRIX SOUHAITE,AUTEUR
+` + csv;
+
+		exportToCsv.export(csv);
 	};
 }

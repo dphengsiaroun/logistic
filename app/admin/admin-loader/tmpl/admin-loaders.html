@@ -11,9 +11,9 @@
 		<div class="container">
 			<div class="card">
 				<div class="content">
-					<div ng-show="$ctrl.loader.length > 0">
+					<div ng-show="$ctrl.loaders.length > 0">
 						<div style="display: block;">
-							<button class="download" export-to-csv>
+							<button class="download" ng-click="$ctrl.export2Csv()">
 								<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export en fichier csv
 							</button>
 							<div class="filter">
@@ -41,7 +41,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="loader in $ctrl.loader | filter:$ctrl.query | limitTo:$ctrl.limit">
+									<tr ng-repeat="loader in $ctrl.loaders | filter:$ctrl.query | limitTo:$ctrl.limit">
 										<td data-label="Id">{{loader.id}}</td>
 										<td data-label="Image">
 											<img ng-show="loader.content.image.thumbnailUrl" ng-src="../{{loader.content.image.thumbnailUrl}}">
@@ -65,10 +65,10 @@
 									</tr>
 								</tbody>
 							</table>
-							<button ng-show="$ctrl.loader.length > 50" class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Charger plus</button>
+							<button ng-show="$ctrl.loaders.length > 50" class="load-more" ng-click="$ctrl.loadMore()"><i class="fa fa-download" aria-hidden="true"></i> Charger plus</button>
 						</div>
 					</div>
-					<p ng-show="$ctrl.loader.length === 0">Aucune annonce de chargement pour le moment.</p>
+					<p ng-show="$ctrl.loaders.length === 0">Aucune annonce de chargement pour le moment.</p>
 				</div>
 				<!-- end content-->
 			</div>
