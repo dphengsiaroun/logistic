@@ -1,4 +1,4 @@
-export function AdminCarriersCtrl($stateParams, adminCarrier, exportToCsv) {
+export function AdminCarriersCtrl($filter, $stateParams, adminCarrier, exportToCsv) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.adminCarrier = adminCarrier;
@@ -31,6 +31,7 @@ export function AdminCarriersCtrl($stateParams, adminCarrier, exportToCsv) {
 		let csv = ctrl.carriers.map((carrier) => {
 			return [
 				carrier.id,
+				$filter('date')(new Date(carrier.content.created_t * 1000), `EEEE d LLLL yyyy à H'h'`),
 				carrier.content.truck.name,
 				carrier.content.truck.city.city,
 				carrier.content.truck.city.region,
@@ -38,7 +39,7 @@ export function AdminCarriersCtrl($stateParams, adminCarrier, exportToCsv) {
 				carrier.content.truck.transportCategory,
 				carrier.content.truck.transportTruckType,
 				carrier.content.pricing.priceWantedPerKm,
-				carrier.from
+				carrier.from,
 			];
 		}).join('\n');
 		/* eslint-disable */
