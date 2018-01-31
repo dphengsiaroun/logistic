@@ -40,9 +40,9 @@
 									<tr ng-repeat="proposal in $ctrl.proposal | filter:$ctrl.query | limitTo:$ctrl.limit">
 										<td data-label="Id">{{proposal.id}}</td>
 										<td data-label="Image">
-											<img src="../{{proposal.content.imageUrl}}" />
-											<img-svg ng-show="proposal.content.adType === 'loader' && !proposal.content.imageUrl" src="/img/loader-default.svg"></img-svg>
-											<img-svg ng-show="proposal.content.adType === 'carrier' && !proposal.content.imageUrl" src="/img/truck-default.svg"></img-svg>
+											<img ng-if="proposal.content.imageUrl" src="../{{proposal.content.imageUrl}}" />
+											<img-svg ng-if="proposal.content.adType === 'loader' && !proposal.content.imageUrl" src="/img/loader-default.svg"></img-svg>
+											<img-svg ng-if="proposal.content.adType === 'carrier' && !proposal.content.imageUrl" src="/img/truck-default.svg"></img-svg>
 										</td>
 										<td data-label="Titre de l'annonce">{{proposal.content.titleAd}}</td>
 										<td data-label="Type d'annonce" ng-show="proposal.content.adType === 'loader'">Chargeur</td>

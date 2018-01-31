@@ -3,9 +3,9 @@
 	<header>
 		<h2><i class="fa fa-pie-chart" aria-hidden="true"></i> Tableau de bord</h2>
 		<div>
-			
 			<a ui-sref="admin:signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
 		</div>
+		<div class="clear"></div>
 	</header>
 	<section>
 		<div class="row-1">
@@ -51,9 +51,9 @@
 				</div>
 				<!-- end content-->
 				<div class="footer">
-					<div class="legend">
+					<a ui-sref="admin:users" class="legend">
 						<i class="fa fa-globe"></i> Total des utilisateurs inscrits : {{$ctrl.user.total}}
-					</div>
+					</a>
 					<hr>
 					<div class="stats">
 						<i class="fa fa-clock-o"></i> Mise à jour le {{date | date: 'dd/MM/yyyy'}}
@@ -105,9 +105,9 @@
 				</div>
 				<!-- end content-->
 				<div class="footer">
-					<div class="legend">
+					<a ui-sref="admin:proposals" class="legend">
 						<i class="fa fa-globe"></i> Total des propositions : {{$ctrl.proposal.total}}
-					</div>
+					</a>
 					<hr>
 					<div class="stats">
 						<i class="fa fa-clock-o"></i> Mise à jour le {{date | date: 'dd/MM/yyyy'}}
@@ -160,9 +160,9 @@
 				</div>
 				<!-- end content-->
 				<div class="footer">
-					<div class="legend">
+					<a ui-sref="admin:carriers" class="legend">
 						<i class="fa fa-globe"></i> Total des annonces transporteurs : {{$ctrl.carrier.total}}
-					</div>
+					</a>
 					<hr>
 					<div class="stats">
 						<i class="fa fa-clock-o"></i> Mise à jour le {{date | date: 'dd/MM/yyyy'}}
@@ -220,9 +220,9 @@
 				</div>
 				<!-- end content-->
 				<div class="footer">
-					<div class="legend">
+					<a ui-sref="admin:loaders" class="legend">
 						<i class="fa fa-globe"></i> Total des annonces chargeurs : {{$ctrl.loader.total}}
-					</div>
+					</a>
 					<hr>
 					<div class="stats">
 						<i class="fa fa-clock-o"></i> Mise à jour le {{date | date: 'dd/MM/yyyy'}}
