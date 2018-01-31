@@ -39,13 +39,13 @@ export function AdminUsersCtrl($filter, $stateParams, adminUser, exportToCsv) {
 				user.content.address.zipcode,
 				user.content.address.city,
 				user.content.address.country,
-				$filter('date')(new Date(user.content.created_t * 1000), `EEEE d LLLL yyyy à H'h'`)
+				$filter('date')(new Date(user.content.created_t * 1000), `short`)
 			];
 		}).join('\n');
 		csv = `Sep=,
 ID,NOM,PRENOM,LOGIN,EMAIL,TELEPHONE,ADRESSE,CODE POSTAL,VILLE,PAYS,DATE CREATION
 ` + csv;
 
-		exportToCsv.export(csv);
+		exportToCsv.export(csv, 'utilisateurs.csv');
 	};
 }

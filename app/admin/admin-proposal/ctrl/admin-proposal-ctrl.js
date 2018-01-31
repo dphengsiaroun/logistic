@@ -35,14 +35,14 @@ export function AdminProposalsCtrl($filter, $stateParams, adminProposal, exportT
 				`"${proposal.content.message.replace(/"/g, '')}"`,
 				proposal.content.name,
 				proposal.to,
-				$filter('date')(new Date(proposal.content.created_t * 1000), `EEEE d LLLL yyyy à H'h'`)
+				$filter('date')(new Date(proposal.content.created_t * 1000), `short`)
 			];
 		}).join('\n');
 		csv = `Sep=,
 ID,TITRE DE L'ANNONCE,TYPE D'ANNONCE,MESSAGE,PROPOSEUR,ANNONCEUR,DATE
 ` + csv;
 
-		exportToCsv.export(csv);
+		exportToCsv.export(csv, 'propositions.csv');
 	};
 
 }

@@ -31,7 +31,7 @@ export function AdminCarriersCtrl($filter, $stateParams, adminCarrier, exportToC
 		let csv = ctrl.carriers.map((carrier) => {
 			return [
 				carrier.id,
-				$filter('date')(new Date(carrier.content.created_t * 1000), `EEEE d LLLL yyyy à H'h'`),
+				$filter('date')(new Date(carrier.content.created_t * 1000), `short`),
 				carrier.content.truck.name,
 				carrier.content.truck.city.city,
 				carrier.content.truck.city.region,
@@ -44,9 +44,9 @@ export function AdminCarriersCtrl($filter, $stateParams, adminCarrier, exportToC
 		}).join('\n');
 		/* eslint-disable */
 		csv = `Sep=,
-ID,TITRE,VILLE D'ORIGINE,REGION,DISPONIBILITE,CATEGORIE,TYPE DE TRANSPORT,PRIX DZD/KM,AUTEUR
+ID,DATE CREATION,TITRE,VILLE D'ORIGINE,REGION,DISPONIBILITE,CATEGORIE,TYPE DE TRANSPORT,PRIX DZD/KM,AUTEUR
 ` + csv;
 		/* eslint-enable */
-		exportToCsv.export(csv);
+		exportToCsv.export(csv, 'annonces_transporteurs.csv');
 	};
 }

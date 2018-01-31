@@ -30,13 +30,14 @@ export function AdminLoadersCtrl($filter, $stateParams, adminLoader, exportToCsv
 		let csv = ctrl.loaders.map((loader) => {
 			return [
 				loader.id,
+				$filter('date')(new Date(loader.content.created_t * 1000), `short`),
 				loader.content.title,
 				loader.content.transportCategory,
 				loader.content.transportTruckType,
 				loader.content.departureCity.city,
-				$filter('date')(loader.content.departureDatetime, `EEEE d LLLL yyyy à H'h'`),
+				$filter('date')(loader.content.departureDatetime, `short`),
 				loader.content.arrivalCity.city,
-				$filter('date')(loader.content.arrivalDatetime, `EEEE d LLLL yyyy à H'h'`),				
+				$filter('date')(loader.content.arrivalDatetime, `short`),				
 				loader.content.conditioning,
 				loader.content.typeOfGoods,
 				loader.content.weightInterval,
@@ -46,9 +47,9 @@ export function AdminLoadersCtrl($filter, $stateParams, adminLoader, exportToCsv
 		}).join('\n');
 		/* eslint-disable */
 		csv = `Sep=,
-ID,TITRE,CATEGORIE,TYPE DE CAMION,VILLE DEPART,DATE DEPART,VILLE ARRIVEE,DATE ARRIVEE,CONDITIONING,TYPE DE MARCHANDISE,TRANCHE DE POIDS,PRIX SOUHAITE,AUTEUR
+ID,DATE CREATION,TITRE,CATEGORIE,TYPE DE CAMION,VILLE DEPART,DATE DEPART,VILLE ARRIVEE,DATE ARRIVEE,CONDITIONING,TYPE DE MARCHANDISE,TRANCHE DE POIDS,PRIX SOUHAITE,AUTEUR
 ` + csv;
 		/* eslint-enable */
-		exportToCsv.export(csv);
+		exportToCsv.export(csv, 'annonces_chargeurs.csv');
 	};
 }
