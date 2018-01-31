@@ -30,6 +30,7 @@ export function AdminUsersCtrl($filter, $stateParams, adminUser, exportToCsv) {
 		let csv = ctrl.users.map((user) => {
 			return [
 				user.id,
+				$filter('date')(new Date(user.created_t * 1000), `short`),
 				user.content.lastname,
 				user.content.firstname,
 				user.login,
@@ -39,11 +40,10 @@ export function AdminUsersCtrl($filter, $stateParams, adminUser, exportToCsv) {
 				user.content.address.zipcode,
 				user.content.address.city,
 				user.content.address.country,
-				$filter('date')(new Date(user.content.created_t * 1000), `short`)
 			];
 		}).join('\n');
 		csv = `Sep=,
-ID,NOM,PRENOM,LOGIN,EMAIL,TELEPHONE,ADRESSE,CODE POSTAL,VILLE,PAYS,DATE CREATION
+ID,DATE CREATION,NOM,PRENOM,LOGIN,EMAIL,TELEPHONE,ADRESSE,CODE POSTAL,VILLE,PAYS
 ` + csv;
 
 		exportToCsv.export(csv, 'utilisateurs.csv');
