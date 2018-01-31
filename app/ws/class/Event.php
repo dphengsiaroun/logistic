@@ -92,6 +92,16 @@ EOF;
 		public function propagate() {
 			global $db, $cfg;
 
+			$sql = <<<EOF
+START TRANSACTION;
+EOF;
+
+			$st = $db->prepare($sql,
+			array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE));
+			if ($st->execute(array()) === FALSE) {
+				throw new Exception('MySQL error: ' . sprint_r($db->errorInfo()));
+			}
+
 			try {
 
 				switch ($this->type) {
@@ -175,6 +185,7 @@ EOF;
 
 			$sql = <<<EOF
 UPDATE {$cfg->prefix}event_id SET id = :id;
+COMMIT;
 EOF;
 
 			$st = $db->prepare($sql,

@@ -30,7 +30,7 @@ export function AdminUsersCtrl($filter, $stateParams, adminUser, exportToCsv) {
 		let csv = ctrl.users.map((user) => {
 			return [
 				user.id,
-				$filter('date')(new Date(user.created_t * 1000), `short`),
+				$filter('date')(new Date(user.content.created_t * 1000), `short`),
 				user.content.lastname,
 				user.content.firstname,
 				user.login,
