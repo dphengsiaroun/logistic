@@ -17,7 +17,7 @@ module.exports = {
 		'no-use-before-define': 'error',
 		'no-undef-init': 'error',
 		'semi': ['error', 'always'],
-		'quotes': ['error', 'single'],
+		'quotes': ['error', 'single', {avoidEscape: true, allowTemplateLiterals: true}],
 		'eqeqeq': ['error', 'always'],
 		'max-lines': ["error", { max: 200, skipBlankLines: false }],
 		'angular/file-name': [2, { typeSeparator: 'dot', nameStyle: 'dash' }],
