@@ -24,12 +24,6 @@ EOF;
 		)) === FALSE) {
 			throw new Exception('Cannot insert event: '.sprint_r($db->errorInfo()));
 		}
-		debug('database synchronized');
-		$user = new User();
-		$user->retrieve($e->content->adAccountId);
-		debug('user retrieved');
-		sendmail($user, 'proposal-send', $e);
-		debug('Mail sent');
 	}
 
 	public static function delete($e) {
