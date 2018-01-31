@@ -169,7 +169,7 @@ admin-nav-route {
 						display: block;
 						width: 100%;
 						cursor: pointer;
-						padding: 13px 10px;
+						padding: 20px 10px;
 						color: white;
 						font-size: 13px;
 					}
@@ -741,6 +741,7 @@ admin-terms-route {
 	admin-nav-route nav div.nav-bar ul li a {
 		text-align: center;
 		font-size: 12px;
+		padding: 13px 10px;
 	}
 	admin-nav-route nav div.nav-bar ul li i.fa {
 		display: block;
@@ -803,6 +804,9 @@ admin-terms-route {
 		width: 100%;
 		position: initial;
 		top: 101px;
+	}
+	admin-nav-route nav div.nav-bar-mobile ul li a {
+		padding: 25px 0;
 	}
 }
 
@@ -932,6 +936,9 @@ admin-terms-route {
 	}
 	admin-nav-route nav div.nav-logo a {
 		font-size: 13px;
+	}
+	admin-nav-route nav div.nav-bar-mobile ul li a {
+		padding: 18px 0;
 	}
 	admin-nav-route nav div.user .photo {
 		width: 55px;
