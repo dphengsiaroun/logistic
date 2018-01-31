@@ -54,7 +54,6 @@ export function ProposalCreateCtrl($scope, $window, $stateParams, proposal,
 				// nothing to do.
 			}
 			
-
 			ctrl.proposal.createData.adAccountId = ctrl[$stateParams.type].current.content.userId;
 			ctrl.proposal.createData.adType = $stateParams.type;
 

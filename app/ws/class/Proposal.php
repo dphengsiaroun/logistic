@@ -8,7 +8,7 @@ class Proposal extends RestResource {
         $proposal = parent::create();
 		$user = new User();
 		$user->retrieve($proposal->content->adAccountId);
-		sendmail($user, 'proposal-send', $e);
+		sendmail($user, 'proposal-send', $proposal);
 		debug('Mail sent');
     }
 }
