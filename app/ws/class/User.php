@@ -354,7 +354,8 @@ EOF;
 				$content->firstname = $ownerDetails->getFirstName();
 				$content->login = preg_replace('/@.*$/', '', $request->email);
 				$content->sync = 'facebook';
-				self::create($request);
+				$user = new User();
+				$user->create($request);
 			}
 		}
 
