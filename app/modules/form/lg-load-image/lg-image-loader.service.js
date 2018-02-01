@@ -2,7 +2,7 @@ const url = './ws/upload.php';
 
 
 
-export function LgImageLoader($http, $rootScope, lgPicture) {
+export function LgImageLoader($http, $rootScope) {
 	'ngInject';
 
 	function ImageLoader(ctrl) {

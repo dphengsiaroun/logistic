@@ -4,17 +4,14 @@ export const LgLoadImage = {
 	template: lgLoadImageHtml,
 	require: {ngModel: 'ngModel'},
 	bindings: {
-		formData: '<'
+		formData: '<',
 	},
 	controller: function LgLoadImageCtrl($element, $scope, lgImageLoader) {
 		'ngInject';
-		
-		const ctrl = this;
-		
-		ctrl.active = false;
-		ctrl.progress = 0;
-		ctrl.$onInit = function() {
-			const imageLoader = lgImageLoader.newInstance(ctrl);			
+		this.active = false;
+		this.progress = 0;
+		this.$onInit = () => {
+			const imageLoader = lgImageLoader.newInstance(this);			
 			$scope.$watch('$ctrl.formData', function() {
 				imageLoader.init();
 			}, true);
@@ -24,5 +21,26 @@ export const LgLoadImage = {
 				imageLoader.send(inputElt);
 			});
 		};
+
+		this.overlay = 0;
+		const overlayElt = $element.find('img-overlay');
+
+		this.openOverlay = () => {
+			console.log('openOverlay', this.file);
+			this.overlay = 1;
+		};
+		this.closeOverlay = () => {
+			console.log('closeOverlay');
+			this.overlay = 0;
+		};
+		$scope.$watch('$ctrl.overlay', () => {
+			if (this.overlay) {
+				overlayElt.addClass('on');
+			} else {
+				overlayElt.removeClass('on');
+			}
+		});
+
+
 	}
 };

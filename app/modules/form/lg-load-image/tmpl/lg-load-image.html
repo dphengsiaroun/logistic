@@ -1,4 +1,3 @@
-<lg-show-picture></lg-show-picture>
 <div>
 	<state ng-hide="$ctrl.file">
 		<my-input empty ng-hide="$ctrl.active">
@@ -20,7 +19,7 @@
 	</state>
 	<state ng-show="$ctrl.file.thumbnailUrl">
 		<my-input loaded>
-			<img ng-click="$ctrl.showImage()" ng-src="{{$ctrl.file.thumbnailUrl}}" />
+			<img ng-click="$ctrl.openOverlay()" ng-src="{{$ctrl.file.thumbnailUrl}}" />
 			<span class="btn-remove" ng-show="$ctrl.file.$destroy" ng-click="$ctrl.file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</span>
 		</my-input>
 	</state>
@@ -30,3 +29,6 @@
 		</my-input>
 	</state>
 </div>
+<img-overlay ng-click="$ctrl.closeOverlay()">
+	<img ng-click="$ctrl.closeOverlay()" ng-src="{{$ctrl.file.url}}" />
+</img-overlay>

@@ -62,39 +62,6 @@ lg-footer {
 	}
 }
 
-lg-show-picture {
-	display: none;
-	veil {
-		position: fixed;
-		z-index: 200;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background-color: black;
-		display: block;
-		text-align: center;
-		line-height: 100vh;
-		img {
-			max-width: 100vw;
-			max-height: 100vh;
-			width: auto;
-			height: auto;
-			vertical-align: middle;
-		}
-	}
-	.fa {
-		position: fixed;
-		z-index: 200;
-		top: 0;
-		right: 0;
-		margin: 10px;
-		font-size: 40px;
-		color: $secondaryColor;
-		background-color: black;
-	}
-}
-
 lg-select {
 	display: table;
 	table-layout: fixed;
