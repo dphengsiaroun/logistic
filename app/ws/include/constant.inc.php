@@ -19,10 +19,10 @@
 
 	define('INSTALL_DIR', dirname(BASE_DIR) . '/install/');	
 
-	// 20 Mega par personne d'image max.
-	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 20000000);
-	// 2 Mega par personne anonyme d'image max.
-	define('MAX_PICTURE_SIZE_PER_ANONYMOUS_SESSION', 2000000);
+	// 100 Mega par personne d'image max.
+	define('MAX_PICTURE_SIZE_PER_ACCOUNT', 100000000);
+	// 10 Mega par personne anonyme d'image max.
+	define('MAX_PICTURE_SIZE_PER_ANONYMOUS_SESSION', 10000000);
 
 	define('FORGOTTEN_PASSWORD_EXPIRED_DELAY', (24 * 3600));
 
