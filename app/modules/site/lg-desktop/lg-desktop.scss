@@ -4,6 +4,16 @@ lg-desktop {
 	display: none;
 }
 
+
+@media all and (min-width: 1300px) {
+	lg-body {
+		width: $desktopWidth;
+		height: $desktopHeight;
+		top: $desktopTop;
+		left: $desktopLeft;
+	}
+}
+
 @media all and (min-width: 768px) {
 	lg-desktop {
 		display: block;
@@ -245,9 +255,9 @@ lg-mobile {
 		retroaction-msg {
 			top: 666px!important;
 		}
-		lg-dt-month table tbody tr td.selected span {
-			line-height: 60px;
-		}
+		// lg-dt-month table tbody tr td.selected span {
+		// 	// line-height: 60px;
+		// }
 	}
 
 	/* lg-dimension */

@@ -21,7 +21,7 @@
 	<state ng-show="$ctrl.file.thumbnailUrl">
 		<my-input loaded>
 			<img ng-click="$ctrl.showImage()" ng-src="{{$ctrl.file.thumbnailUrl}}" />
-			<button ng-show="$ctrl.file.$destroy" ng-click="$ctrl.file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</button>
+			<span class="btn-remove" ng-show="$ctrl.file.$destroy" ng-click="$ctrl.file.$destroy();"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</span>
 		</my-input>
 	</state>
 	<state ng-show="$ctrl.file.error">

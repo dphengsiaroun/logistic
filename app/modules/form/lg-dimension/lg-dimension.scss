@@ -13,6 +13,9 @@ lg-dimension {
 			padding: 10px 0;
             color: $placeholderColor;
             border-right: 1px solid $borderColor;
+            b {
+                color: $primaryColor;
+            }
         }
         span:last-child {
             border: none;

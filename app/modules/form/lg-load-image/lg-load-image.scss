@@ -62,6 +62,29 @@ lg-load-image {
         height: 80px;
         max-width: 150px;
     }
+    .btn-remove {
+        background: #8bc63f;
+        color: #fff;
+        border-radius: 3px;
+        float: right;
+        padding: 10px;
+        margin: 20px 0;
+        background-color: red;
+        width: auto;
+        height: 40px;
+        line-height: 19px;
+        font-size: 16px;
+        i.fa {
+            color: $secondaryColor;
+            line-height: 0;
+        }
+    }
+    .btn-remove[cancel] {
+        margin: 20px 0;
+        float: right;
+        width: auto;
+        height: auto;
+    }
     button {
         float: right;
         padding: 10px;
