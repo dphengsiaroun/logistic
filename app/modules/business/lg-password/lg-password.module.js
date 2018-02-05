@@ -1,4 +1,3 @@
-import './lg-password.scss';
 module.exports = 'lg-password';
 
 import * as lib from './lg-password-route.js';

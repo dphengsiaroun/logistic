@@ -25,10 +25,12 @@ div {
 }
 
 message-form-validator {
+	display: block;
+	position: relative;
 	.fa {
 		display: block;
 		position: absolute;
-		top: 15px;
+		top: -43px;
 		left: 88%;
 		font-size: 25px;
 		color: green;

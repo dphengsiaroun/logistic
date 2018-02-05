@@ -31,7 +31,7 @@ export function Password($injector, $http, $rootScope, $q, $state, lgConfig) {
 
 
 	service.forgottenPasswordData = {
-		email: 'dphengsiaroun@outlook.fr',
+		email: '',
 		type: 'forgotten-password'
 	};
 
