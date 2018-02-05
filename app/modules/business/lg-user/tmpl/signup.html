@@ -1,5 +1,5 @@
-<lg-title>Créer un compte</lg-title>
-<sign-form>
+<section>
+	<lg-title>Créer un compte</lg-title>
 	<lg-social-login></lg-social-login>
 	<lg-hr>ou</lg-hr>
 	<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.user.create()" novalidate>
@@ -106,7 +106,7 @@
 			</message-form-validator>
 		</div>
 		<br/>
-		<lg-eyepassword name="password" placeholder="Mot de passe" password="$ctrl.user.signupData.password"></lg-eyepassword>		
+		<lg-eyepassword name="password" placeholder="Mot de passe" password="$ctrl.user.signupData.password"></lg-eyepassword>
 		<error-message ng-show="$ctrl.fv.isError(formCtrl.password)">
 			<span ng-show="formCtrl.password.$error.required">Le mot de passe est obligatoire.</span>
 		</error-message>
@@ -114,4 +114,4 @@
 		<lg-error error="$ctrl.user.error"></lg-error>
 		<button type="submit" id="pr-create-user-button">Créer le compte</button>
 	</form>
-</sign-form>
+</section>

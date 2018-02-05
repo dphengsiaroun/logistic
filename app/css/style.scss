@@ -91,19 +91,13 @@ label.checkbox {
 	opacity: 1;
 }
 
-comment {
-	display: block;
-	font-size: 15px;
-	margin-bottom: 20px;
-}
-
 a {
 	text-decoration: none;
-	color: $fontColor;
+	color: $primaryColor;
 }
 
-.clear {
-	clear: both;
+section {
+	padding: 0 0.5em;
 }
 
 lg-title,

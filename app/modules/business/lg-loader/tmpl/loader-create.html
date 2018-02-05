@@ -154,7 +154,7 @@
 			</lg-dimension>
 		</label>
 		<br/>
-		<comment class="above">Votre annonce sera davantage consultée si elle contient une photo.</comment>
+		<div class="comment">Votre annonce sera davantage consultée si elle contient une photo.</div>
 		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.loader.createData.imageId}" ng-model="$ctrl.loader.createData.image"></lg-load-image>
 		<!-- <message-form-validator>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.image)">
@@ -200,7 +200,7 @@
 	<section>
 		<h2>Finaliser</h2>
 		<label>Attention</label>
-		<comment>En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</comment>
+		<div class="comment">En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</div>
 		<lg-error error="$ctrl.loader.error"></lg-error>
 		<button type="submit">Mettre en ligne votre annonce</button>
 	</section>

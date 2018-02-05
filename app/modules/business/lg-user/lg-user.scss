@@ -1,34 +1,5 @@
 @import '../../../css/variable';
-sign-form {
-	display: block;
-	text-align: left;
-	width: 100%;
-	padding: 0;
-	.table {
-		display: table;
-		width: 100%;
-	}
-	.row {
-		display: table-row;
-	}
-	.cell {
-		display: table-cell;
-		text-align: center;
-	}
-	img-svg {
-		display: inline-block;
-		width: 60px;
-	}
-	a {
-		margin: 0;
-		text-decoration: none;
-		font-size: 20px;
-		padding-bottom: 20px;
-	}
-	comment {
-		text-align: center;
-	}
-}
+
 
 lg-user-create-route {
 	div {
