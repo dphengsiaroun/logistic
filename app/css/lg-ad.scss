@@ -32,14 +32,15 @@
 		height: 10px;
 		width: 200px;
 		vertical-align: middle;
-		title {
+		h1 {
 			display: block;
+			margin: 0 auto;
 			text-align: center;
 			font-weight: bold;
-			font-size: 20px;
+			font-size: 23px;
 		}
-		subtitle {
-			font-weight: bold;
+		h2 {
+			font-weight: 500;
 			font-size: 14px;
 			padding: 0 0;
 		}
@@ -58,7 +59,7 @@
 		padding: 10px 5px;
 		margin: 0;
 		border-bottom: 1px solid $darkBorderColor;
-		big-label {
+		h2 {
 			display: block;
 			font-weight: bold;
 			font-size: 25px;
@@ -155,10 +156,6 @@ img-ad {
 	img {
 		width: 100%;
 	}
-}
-
-.filter.loader {
-	background-color: $loaderColor;
 }
 
 recap {

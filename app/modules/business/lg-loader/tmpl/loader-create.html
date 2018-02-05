@@ -3,13 +3,13 @@
 		<img-svg src="/img/delivery-trolley.svg"></img-svg>
 	</left>
 	<right>
-		<title>Chargeur</title>
-		<subtitle>Ajouter une annonce</subtitle>
+		<h1>Chargeur</h1>
+		<h2>Ajouter une annonce</h2>
 	</right>
 </div>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.loader.create($ctrl.loader.createData)" class="ad" novalidate>
 	<section>
-		<big-label>Transport souhaité</big-label>
+		<h2>Transport souhaité</h2>
 		<lg-select name="transportCategory" ng-model="$ctrl.loader.createData.transportCategory" required>
 			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
@@ -43,7 +43,7 @@
 		</div>
 	</section>
 	<section class="dark">
-		<big-label>Trajet</big-label>
+		<h2>Trajet</h2>
 		<label>
 			<span>Départ</span>
 			<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"
@@ -67,7 +67,7 @@
 		<info ng-bind-html="$ctrl.loader.createData.infoRoute"></info>
 	</section>
 	<section>
-		<big-label>Horaires</big-label>
+		<h2>Horaires</h2>
 		<label>
 			<span>Date et heure de chargement</span>
 			<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime"
@@ -95,7 +95,7 @@
 		<br/>
 	</section>
 	<section class="dark">
-		<big-label>Type de marchandise</big-label>
+		<h2>Type de marchandise</h2>
 		<lg-select name="conditioning" class="conditioning" ng-model="$ctrl.loader.createData.conditioning" required>
 			<lg-option value="Indifférent">
 				<img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
@@ -120,7 +120,7 @@
 		</div>
 	</section>
 	<section>
-		<big-label>Définir le chargement</big-label>
+		<h2>Définir le chargement</h2>
 		<label>
 			<span>Tranche de poids</span>
 			<lg-choice name="weightIntervals" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement"
@@ -163,7 +163,7 @@
 		</message-form-validator> -->
 	</section>
 	<section class="dark">
-		<big-label>Prix</big-label>
+		<h2>Prix</h2>
 		<label class="checkbox" -ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'">
 			<input type="checkbox" -ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.createData.negociate"/> 
 			<span>Négocier en direct</span>
@@ -198,7 +198,7 @@
 		</label>
 	</section>
 	<section>
-		<big-label>Finaliser</big-label>
+		<h2>Finaliser</h2>
 		<label>Attention</label>
 		<comment>En appuyant sur le bouton "Enregistrer", j'accepte les conditions d'utilisations du site.</comment>
 		<lg-error error="$ctrl.loader.error"></lg-error>

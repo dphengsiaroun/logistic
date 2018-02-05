@@ -9,7 +9,7 @@
 </div>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.loader.update()" class="ad" novalidate>
 	<section>
-		<big-label>Transport</big-label>
+		<h2>Transport</h2>
 		<lg-select name="transportCategory" ng-model="$ctrl.loader.updateData.transportCategory" required>
 			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
@@ -44,7 +44,7 @@
 		</div>
 	</section>
 	<section class="dark">
-		<big-label>Trajet</big-label>
+		<h2>Trajet</h2>
 		<label>
 			<span>Départ</span>
 			<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.updateData.departureCity"
@@ -68,7 +68,7 @@
 		<info ng-bind-html="$ctrl.loader.updateData.infoRoute"></info>
 	</section>
 	<section>
-		<big-label>Horaires</big-label>
+		<h2>Horaires</h2>
 		<label>
 			<span>Date et heure de chargement</span>
 			<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.updateData.departureDatetime"
@@ -96,7 +96,7 @@
 		<br/>
 	</section>
 	<section class="dark">
-		<big-label>Marchandises</big-label>
+		<h2>Marchandises</h2>
 		<lg-select name="conditioning" class="conditioning" ng-model="$ctrl.loader.updateData.conditioning" required>
 			<lg-option value="Indifférent">
 				<img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
@@ -121,7 +121,7 @@
 		</div>
 	</section>
 	<section>
-		<big-label>Définir le chargement</big-label>
+		<h2>Définir le chargement</h2>
 		<label>
 			<span>Tranche de poids</span>
 			<lg-choice name="weightIntervals" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement"
@@ -157,7 +157,7 @@
 		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.loader.updateData.imageId}" ng-model="$ctrl.loader.updateData.image"></lg-load-image>
 	</section>
 	<section class="dark">
-		<big-label>Prix</big-label>
+		<h2>Prix</h2>
 		<label for="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'">
 			<input type="checkbox" id="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.updateData.negociate"/> 
 			<span>Négocier en direct</span>

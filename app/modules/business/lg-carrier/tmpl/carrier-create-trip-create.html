@@ -20,7 +20,7 @@
 </breadcrumb>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.addTrip()" class="ad" novalidate>
 	<section class="dark">
-		<big-label>Trajet</big-label>
+		<h2>Trajet</h2>
 		<label>
 			<span>Départ</span>
 			<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.departureCity"
@@ -44,7 +44,7 @@
 		<info-route ng-bind-html="$ctrl.tripData.infoRoute"></info-route>
 	</section>
 	<section>
-		<big-label>Horaires</big-label>
+		<h2>Horaires</h2>
 		<label>
 			<span>Date et heure de chargement</span>
 			<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.tripData.departureDatetime"
@@ -71,7 +71,7 @@
 		<br/>
 	</section>
 	<section class="dark">
-		<big-label>Chargement restant</big-label>
+		<h2>Chargement restant</h2>
 		<label>
 			<span>Dimensions en mètre</span>
 			<dimension ng-click="$ctrl.editDimension()">

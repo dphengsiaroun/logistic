@@ -14,15 +14,15 @@
 <carrier-list>
 	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo:$ctrl.limit" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'specificTrip'">
-			<title>{{ad.content.truck.name}}</title>
-			<subtitle>
+			<h1>{{ad.content.truck.name}}</h1>
+			<h2>
 				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
 				<by>Par {{ad.content.login | ucfirst}}</by>
-			</subtitle>
-			<subtitle>
+			</h2>
+			<h2>
 				<date>Départ le {{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.trip.distance}}km - {{ad.content.trip.minDuration | duration}}</distance>
-			</subtitle>
+			</h2>
 			<places>
 				<from>
 					<labels>
