@@ -13,13 +13,13 @@
 	);
 	try {
 		// Try to remove the database
-		removeDatabase();
+		// removeDatabase();
 		// Try to remove the ini file
 		removeConfigIniFile();
 		// Try to remove the ini file
-		removeLogFiles();
+		// removeLogFiles();
 		// Try to remove images directory
-		deleteDirectory(UPLOAD_DIR);
+		// deleteDirectory(UPLOAD_DIR);
 
 		if (isset($_SESSION['id'])) {
 			unset($_SESSION['id']);
