@@ -51,19 +51,14 @@ my-input {
 	padding: 15px 10px;
 	border-radius: 3px;
 	border: 1px solid $borderColor;
-}
-
-input[readonly],
-my-input[readonly] {
-	background-color: gray(88%);
-}
-
-my-input {
-	color: $placeholderColor;
-}
-
-my-input.filled {
 	color: black;
+	&[readonly] {
+		background-color: gray(88%);
+	}
+}
+
+my-input.empty {
+	color: $placeholderColor;
 }
 
 label.checkbox {

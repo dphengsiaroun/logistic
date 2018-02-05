@@ -109,13 +109,10 @@ export const lgDatetime = {
 				}
 				const html = datetime || ctrl.placeholder;
 				const elt = $element.find('my-input');
-				if (datetime !== undefined) {
-					
-					elt.addClass('filled');
+				if (datetime) {
+					elt.removeClass('empty');
 				} else {
-					
-					elt.removeClass('filled');
-
+					elt.addClass('empty');
 				}
 				elt.html(html);
 				checkValidity(1);

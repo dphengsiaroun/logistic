@@ -126,12 +126,9 @@ app.component('lgChoice', {
 				ctrl.currentValue = ctrl.getLabel(choice) || ctrl.placeholder;
 				const elt = $element.find('my-input');
 				if (choice !== undefined) {
-					
-					elt.addClass('filled');
+					elt.removeClass('empty');
 				} else {
-					
-					elt.removeClass('filled');
-
+					elt.addClass('empty');
 				}
 				checkValidity(1);
 			};

@@ -99,11 +99,11 @@ export const LgNum = {
 			ngModelCtrl.$render = function() {
 				
 				let valueStr = ctrl.placeholder;
-				if (ngModelCtrl.$viewValue !== undefined) {
+				if (ngModelCtrl.$viewValue) {
 					valueStr = $filter('number')(ngModelCtrl.$viewValue, ctrl.myOptions.format);
-					elt.addClass('filled');
+					elt.removeClass('empty');
 				} else {
-					elt.removeClass('filled');
+					elt.addClass('empty');
 				}
 				elt.html(valueStr);
 			};
