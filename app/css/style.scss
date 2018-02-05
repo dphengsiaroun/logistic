@@ -1,9 +1,9 @@
 @import './variable';
 
 body {
+	// min-height: 100vh;
 	background: $backgroundColor;
 	color: $fontColor;
-	min-height: 100vh;
 }
 
 svg {

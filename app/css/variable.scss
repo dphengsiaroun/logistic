@@ -1,5 +1,6 @@
 // Colors
-$darkBlue: hsl(214, 46%, 25%);
+$hue: 214;
+$darkBlue: hsl($hue, 46%, 25%);
 $primaryColor: $darkBlue;
 $secondaryColor: white;
 $thirdColor: hsl(86, 54%, 51%);

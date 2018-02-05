@@ -1,8 +1,8 @@
 import 'normalize.css';
 import './css/reset.scss';
+import './css/style.scss';
 import './css/lg-ad.scss';
 import './css/create-ad.scss';
-import './css/style.scss';
 import './css/overlay.scss';
 
 import lgCarrier from './modules/business/lg-carrier/lg-carrier.module.js';

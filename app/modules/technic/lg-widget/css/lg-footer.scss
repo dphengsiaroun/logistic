@@ -1,0 +1,17 @@
+@import '../../../../css/variable';
+
+lg-footer {
+	display: block;
+	color: hsl($hue, 15%, 50%);
+	a {
+		color: hsl($hue, 15%, 50%);
+		text-decoration: underline;
+	}
+	p {
+		width: 100%;
+		padding: 15px;
+		margin-top: 5px;
+		font-size: 12px;
+		text-align: center;
+	}
+}
