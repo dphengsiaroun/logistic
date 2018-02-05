@@ -64,7 +64,7 @@
 				<span ng-show="formCtrl.arrivalCity.$error.required">La ville de la livraison est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
-		<info ng-bind-html="$ctrl.loader.createData.infoRoute"></info>
+		<div ng-bind-html="$ctrl.loader.createData.infoRoute"></div>
 	</section>
 	<section>
 		<h2>Horaires</h2>
@@ -91,7 +91,7 @@
 				<span ng-show="formCtrl.arrivalDatetime.$error.required">La date et heure de livraison est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
-		<info ng-bind-html="$ctrl.loader.createData.infoDuration"></info>
+		<div ng-bind-html="$ctrl.loader.createData.infoDuration"></div>
 		<br/>
 	</section>
 	<section class="dark">

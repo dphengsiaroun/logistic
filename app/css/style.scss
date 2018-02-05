@@ -85,16 +85,10 @@ label.checkbox {
 
 }
 
-
+// Thank you autoprefixer.
 ::placeholder {
 	color: $placeholderColor;
 	opacity: 1;
-}
-
-info {
-	display: block;
-	font-weight: normal;
-	font-size: 17px;
 }
 
 comment {
