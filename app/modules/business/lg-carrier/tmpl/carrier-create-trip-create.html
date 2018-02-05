@@ -21,17 +21,21 @@
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.addTrip()" class="ad" novalidate>
 	<section class="dark">
 		<big-label>Trajet</big-label>
-		<label>Départ</label>
-		<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.departureCity"
-		    required></lg-city>
+		<label>
+			<span>Départ</span>
+			<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.departureCity"
+				required></lg-city>
+		</label>
 		<message-form-validator>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.departureCity)">
 				<span ng-show="formCtrl.departureCity.$error.required">La ville du chargement est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
-		<label>Arrivée</label>
-		<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.arrivalCity"
-		    required></lg-city>
+		<label>
+			<span>Arrivée</span>
+			<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.arrivalCity"
+				required></lg-city>
+		</label>
 		<message-form-validator>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalCity)">
 				<span ng-show="formCtrl.arrivalCity.$error.required">La ville de la livraison est obligatoire.</span>
@@ -41,19 +45,23 @@
 	</section>
 	<section>
 		<big-label>Horaires</big-label>
-		<label>Date et heure de chargement</label>
-		<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.tripData.departureDatetime"
-		    options="{defaultHour: 14}" required>
-		</lg-datetime>
+		<label>
+			<span>Date et heure de chargement</span>
+			<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.tripData.departureDatetime"
+				options="{defaultHour: 14}" required>
+			</lg-datetime>
+		</label>
 		<message-form-validator>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.departureDatetime)">
 				<span ng-show="formCtrl.departureDatetime.$error.required">La date et heure de chargement est obligatoire.</span>
 			</error-message>
 		</message-form-validator>
-		<label>Date et heure de livraison</label>
-		<lg-datetime name="arrivalDatetime" title="Date et heure de livraison" placeholder="Date de livraison" ng-model="$ctrl.tripData.arrivalDatetime" options="{defaultHour: 14}"
-		    after="$ctrl.tripData.departureDatetime" offset="$ctrl.tripData.minDuration" required>
-		</lg-datetime>
+		<label>
+			<span>Date et heure de livraison</span>
+			<lg-datetime name="arrivalDatetime" title="Date et heure de livraison" placeholder="Date de livraison" ng-model="$ctrl.tripData.arrivalDatetime" options="{defaultHour: 14}"
+				after="$ctrl.tripData.departureDatetime" offset="$ctrl.tripData.minDuration" required>
+			</lg-datetime>
+		</label>
 		<message-form-validator>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalDatetime)">
 				<span ng-show="formCtrl.arrivalDatetime.$error.required">La date et heure de livraison est obligatoire.</span>
@@ -64,20 +72,22 @@
 	</section>
 	<section class="dark">
 		<big-label>Chargement restant</big-label>
-		<label>Dimensions en mètre</label>
-		<dimension ng-click="$ctrl.editDimension()">
-			<div class="box no-zoom">
-				<img-svg src="/img/truck/truck-width.svg"></img-svg>
-			</div>
-			<div class="box no-zoom">
-				<img-svg src="/img/truck/truck-height.svg"></img-svg>
-			</div>
-			<div class="box no-zoom">
-				<img-svg src="/img/truck/truck-depth.svg"></img-svg>
-			</div>
-		</dimension>
-		<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.tripData.dimension">
-		</lg-dimension>
+		<label>
+			<span>Dimensions en mètre</span>
+			<dimension ng-click="$ctrl.editDimension()">
+				<div class="box no-zoom">
+					<img-svg src="/img/truck/truck-width.svg"></img-svg>
+				</div>
+				<div class="box no-zoom">
+					<img-svg src="/img/truck/truck-height.svg"></img-svg>
+				</div>
+				<div class="box no-zoom">
+					<img-svg src="/img/truck/truck-depth.svg"></img-svg>
+				</div>
+			</dimension>
+			<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.tripData.dimension">
+			</lg-dimension>
+		</label>
 	</section>
 	<section>
 		<lg-error error="$ctrl.trip.error"></lg-error>

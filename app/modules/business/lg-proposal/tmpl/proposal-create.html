@@ -19,15 +19,15 @@
 		<p>Proposition à l'annonce :</p>
 		<p class="title-ad-proposal">{{$ctrl.proposal.createData.titleAd}}</p>
 
-		<label style="font-weight: normal">Message :</label>
-		<div>
+		<label style="font-weight: normal">
+			<span>Message :</span>
 			<textarea name="message" ng-model="$ctrl.proposal.createData.message" required></textarea>
-			<message-form-validator>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.message)">
-					<span ng-show="formCtrl.message.$error.required">Le message est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
-		</div>
+		</label>
+		<message-form-validator>
+			<error-message ng-show="$ctrl.fv.isError(formCtrl.message)">
+				<span ng-show="formCtrl.message.$error.required">Le message est obligatoire.</span>
+			</error-message>
+		</message-form-validator>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.proposal.error"></lg-error>

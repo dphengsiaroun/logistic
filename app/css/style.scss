@@ -28,6 +28,16 @@ h1 {
 	margin-bottom: 1em;
 }
 
+label {
+	display: block;
+	margin-bottom: 1em;
+	span {
+		display: block;
+		margin-bottom: 0.3em;
+		font-weight: bold;
+	}
+}
+
 input,
 my-input {
 	// Avoid safari to put its own settings
@@ -70,7 +80,7 @@ label.checkbox {
 	}
 	span {
 		display: inline-block;	
-		vertical-align: middle;	
+		vertical-align: middle;
 	}
 
 }
@@ -121,12 +131,6 @@ lg-menu [ng-click] {
 	/* Firefox 4 - 18 */
 	color: $placeholderColor;
 	opacity: 1;
-}
-
-label {
-	display: block;
-	font-weight: bold;
-	font-size: 17px;
 }
 
 info {

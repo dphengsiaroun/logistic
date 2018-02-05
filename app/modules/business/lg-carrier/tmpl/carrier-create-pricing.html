@@ -28,13 +28,16 @@
 		<price-per-km>Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.createData.trip.distance | currency : 'DZD' : 0 }}</price-per-km>
 	</section>
 	<section ng-show="$ctrl.carrier.createData.availability === 'total'">
-		<label>Tarif souhaité en DZD/km (facultatif)</label>
-		<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm"
-		/>
+		<label>
+			<span>Tarif souhaité en DZD/km (facultatif)</span>
+			<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm"/>
+		</label>
 	</section>
 	<section class="dark">
-		<label>Commentaire (facultatif)</label>
-		<textarea id="pr-comments" ng-model="$ctrl.pricingData.comments"></textarea>
+		<label>
+			<span>Commentaire (facultatif)</span>
+			<textarea id="pr-comments" ng-model="$ctrl.pricingData.comments"></textarea>
+		</label>
 	</section>
 	<section>
 		<button type="submit">Valider</button>

@@ -48,13 +48,16 @@
 			<img-svg compile src="/img/box/truck-angular.svg"></img-svg>
 		</my-canvas>
 		<dimension>
-			<label>Largeur (cm)
+			<label>
+				<span>Largeur (cm)</span>
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-			<label>Hauteur (cm)
+			<label>
+				<span>Hauteur (cm)</span>
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.height" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
-			<label>Profondeur (cm)
+			<label>
+				<span>Profondeur (cm)</span>
 				<input type="number" pattern="[0-9]*" ng-model="$ctrl.depth" ng-model-options="{ updateOn: 'blur' }" />
 			</label>
 		</dimension>

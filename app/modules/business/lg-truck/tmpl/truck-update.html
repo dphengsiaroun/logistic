@@ -9,16 +9,20 @@
 </div>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.truck.update()" class="ad" novalidate>
 	<section class="dark">
-		<label>Immatriculation ou libellé du vehicule</label>
-		<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
+		<label>
+			<span>Immatriculation ou libellé du véhicule</span>
+			<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
+		</label>
 		<message-form-validator>
 			<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.name)">
 				<span ng-show="formCtrl.name.$error.required">Immatriculation ou libellé du vehicule obligatoire.</span>
 			</error-message>
 		</message-form-validator>
-		<label>Description succinte du modèle</label>
-		<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
+		<label>
+			<span>Description succinte du modèle</span>
+			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
+		</label>
 		<message-form-validator>
 			<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.model)">
@@ -27,8 +31,10 @@
 		</message-form-validator>
 	</section>
 	<section>
-		<label>Ville d'origine</label>
-		<lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.updateData.city" required></lg-city>
+		<label>
+			<span>Ville d'origine</span>
+			<lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.updateData.city" required></lg-city>
+		</label>
 		<message-form-validator>
 			<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
 				<span ng-show="formCtrl.city.$error.required">La ville d'origine est obligatoire.</span>
@@ -42,29 +48,38 @@
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
 			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
 		</lg-select>
-
 		<div ng-show="$ctrl.truck.updateData.transportCategory === 'Camion'">
-			<label>Type de camion</label>
-			<lg-choice name="transportTruckType" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes"
-			    title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.updateData.transportTruckType"></lg-choice>
+			<label>
+				<span>Type de camion</span>
+				<lg-choice name="transportTruckType" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes"
+					title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.updateData.transportTruckType"></lg-choice>
+			</label>
 		</div>
 		<div ng-show="$ctrl.truck.updateData.transportCategory === 'Bateau'">
-			<label>Type de bateau</label>
-			<lg-choice name="transportBoatType" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
-			    ng-model="$ctrl.truck.updateData.transportBoatType"></lg-choice>
+			<label>
+				<span>Type de bateau</span>
+				<lg-choice name="transportBoatType" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
+					ng-model="$ctrl.truck.updateData.transportBoatType"></lg-choice>
+			</label>
 		</div>
 		<div ng-show="$ctrl.truck.updateData.transportCategory === 'Avion'">
-			<label>Type d'avion</label>
-			<lg-choice name="transportPlaneType" choices="$root.config.transportPlaneTypes" title="Type d'avion" placeholder="Ex : Cargo, Passagers, etc."
-			    ng-model="$ctrl.truck.updateData.transportPlaneType"></lg-choice>
+			<label>
+				<span>Type d'avion</span>
+				<lg-choice name="transportPlaneType" choices="$root.config.transportPlaneTypes" title="Type d'avion" placeholder="Ex : Cargo, Passagers, etc."
+					ng-model="$ctrl.truck.updateData.transportPlaneType"></lg-choice>
+			</label>
 		</div>
 	</section>
 	<section class="dark">
-		<label>Année du vehicule</label>
-		<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear"
-		    is-mandatory="true"></lg-choice>
-		<label>Insérer une photo</label>
-		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-load-image>
+		<label>
+			<span>Année du véhicule</span>
+			<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.updateData.birthyear"
+				is-mandatory="true"></lg-choice>
+		</label>
+		<label>
+			<span>Insérer une photo</span>
+			<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.updateData.imageId}" ng-model="$ctrl.truck.updateData.image"></lg-load-image>
+		</label>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>

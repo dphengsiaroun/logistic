@@ -4,73 +4,115 @@
 
 	<h2><i class="fa fa-tablet" aria-hidden="true"></i>Application</h2>
 	<div>
-		<label for="appName">Name</label>
-		<input class="form-control" type="text" id="appName" ng-model="obj.appName" />
+		<label for="appName">
+			<span>Name</span>
+			<input class="form-control" type="text" id="appName" ng-model="obj.appName" />
+		</label>
 	</div>
 
 	<h2><i class="fa fa-database" aria-hidden="true"></i>Database</h2>
 	<div>
-		<label for="hostname">Hostname</label>
-		<input class="form-control" type="text" id="hostname" ng-model="obj.hostname" />
-		<label for="port">Port</label>
+		<label for="hostname">
+			<span>Hostname</span>
+			<input class="form-control" type="text" id="hostname" ng-model="obj.hostname" />
+		</label>
+		<label for="port">
+			<span>Port</span>
 		<input class="form-control" type="text" id="port" ng-model="obj.port" />
-		<label for="username">Username</label>
-		<input class="form-control" type="text" id="username" ng-model="obj.username" />
-		<label for="password">Password</label>
-		<input class="form-control" type="text" id="password" ng-model="obj.password" />
-		<label for="databaseName">Database name</label>
-		<input class="form-control" type="text" id="databaseName" ng-model="obj.databaseName" />
-		<label for="prefix">Prefix for tables</label>
-		<input class="form-control" type="text" id="prefix" ng-model="obj.prefix" />
-		<input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
-		<label for="dbCreation">Create the tables</label>
+		</label>
+		<label for="username">
+			<span>Username</span>
+			<input class="form-control" type="text" id="username" ng-model="obj.username" />
+		</label>
+		<label for="password">
+			<span>Password</span>
+			<input class="form-control" type="text" id="password" ng-model="obj.password" />
+		</label>
+		<label for="databaseName">
+			<span>Database name</span>
+			<input class="form-control" type="text" id="databaseName" ng-model="obj.databaseName" />
+		</label>
+		<label for="prefix">
+			<span>Prefix for tables</span>
+			<input class="form-control" type="text" id="prefix" ng-model="obj.prefix" />
+		</label>
+		<label for="dbCreation">
+			<input type="checkbox" id="dbCreation" ng-model="obj.dbCreation" />
+			<span>Create the tables</span>
+		</label>
 	</div>
 
 	<h2><i class="fa fa-user-secret" aria-hidden="true"></i>Admin</h2>
 	<div>
-		<label for="adminLogin">Login</label>
-		<input class="form-control" type="text" id="adminLogin" ng-model="obj.adminLogin" />
-		<label for="adminPassword">Password</label>
-		<input class="form-control" type="text" id="adminPassword" ng-model="obj.adminPassword" />
+		<label for="adminLogin">
+			<span>Login</span>
+			<input class="form-control" type="text" id="adminLogin" ng-model="obj.adminLogin" />
+		</label>
+		<label for="adminPassword">
+			<span>Password</span>
+			<input class="form-control" type="text" id="adminPassword" ng-model="obj.adminPassword" />
+		</label>
 	</div>
 
 	<h2><i class="fa fa-shield" aria-hidden="true"></i>OAuth2</h2>
 	<div>
 		<h3><i class="fa fa-google" aria-hidden="true"></i>Google</h3>
-		<label for="OAuth2.Google.ClientID">ClientID</label>
-		<input class="form-control" type="text" id="OAuth2.Google.ClientID" ng-model="obj.oauth2.google.clientID" />
-		<label for="OAuth2.Google.ClientSecret">Client Secret</label>
-		<input class="form-control" type="text" id="OAuth2.Google.ClientSecret" ng-model="obj.oauth2.google.clientSecret" />
+		<label for="OAuth2.Google.ClientID">
+			<span>ClientID</span>
+			<input class="form-control" type="text" id="OAuth2.Google.ClientID" ng-model="obj.oauth2.google.clientID" />
+		</label>
+		<label for="OAuth2.Google.ClientSecret">
+			<span>Client Secret</span>
+			<input class="form-control" type="text" id="OAuth2.Google.ClientSecret" ng-model="obj.oauth2.google.clientSecret" />
+		</label>
 
 		<h3><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</h3>
-		<label for="OAuth2.Facebook.ClientID">ClientID</label>
-		<input class="form-control" type="text" id="OAuth2.Facebook.ClientID" ng-model="obj.oauth2.facebook.clientID" />
-		<label for="OAuth2.Facebook.ClientSecret">Client Secret</label>
-		<input class="form-control" type="text" id="OAuth2.Facebook.ClientSecret" ng-model="obj.oauth2.facebook.clientSecret" />
+		<label for="OAuth2.Facebook.ClientID">
+			<span>ClientID</span>
+			<input class="form-control" type="text" id="OAuth2.Facebook.ClientID" ng-model="obj.oauth2.facebook.clientID" />
+		</label>
+		<label for="OAuth2.Facebook.ClientSecret">
+			<span>Client Secret</span>
+			<input class="form-control" type="text" id="OAuth2.Facebook.ClientSecret" ng-model="obj.oauth2.facebook.clientSecret" />
+		</label>
 	</div>
 
 
 	<h2><i class="fa fa-envelope" aria-hidden="true"></i>Mail</h2>
 	<div>
-		<label for="smtp.server.host">SMTP Server Host</label>
-		<input class="form-control" type="text" id="smtp.server.host" ng-model="obj.smtp.host" />
-		<label for="smtp.server.port">SMTP Server Port</label>
-		<input class="form-control" type="text" id="smtp.server.port" ng-model="obj.smtp.port" />
-		<label for="smtp.server.secure">SMTP Secure</label>
-		<input class="form-control" type="text" id="smtp.server.secure" ng-model="obj.smtp.secure" />
-		<label for="smtp.server.username">SMTP Server Username</label>
-		<input class="form-control" type="text" id="smtp.server.username" ng-model="obj.smtp.username" />
-		<label for="smtp.server.password">SMTP Server Password</label>
-		<input class="form-control" type="text" id="smtp.server.password" ng-model="obj.smtp.password" />
-		<label for="smtp.server.from">SMTP Server From</label>
-		<input class="form-control" type="text" id="smtp.server.from" ng-model="obj.smtp.from" />
+		<label for="smtp.server.host">
+			<span>SMTP Server Host</span>
+			<input class="form-control" type="text" id="smtp.server.host" ng-model="obj.smtp.host" />
+		</label>
+		<label for="smtp.server.port">
+			<span>SMTP Server Port</span>
+			<input class="form-control" type="text" id="smtp.server.port" ng-model="obj.smtp.port" />
+		</label>
+		<label for="smtp.server.secure">
+			<span>SMTP Secure</span>
+			<input class="form-control" type="text" id="smtp.server.secure" ng-model="obj.smtp.secure" />
+		</label>
+		<label for="smtp.server.username">
+			<span>SMTP Server Username</span>
+			<input class="form-control" type="text" id="smtp.server.username" ng-model="obj.smtp.username" />
+		</label>
+		<label for="smtp.server.password">
+			<span>SMTP Server Password</span>
+			<input class="form-control" type="text" id="smtp.server.password" ng-model="obj.smtp.password" />
+		</label>
+		<label for="smtp.server.from">
+			<span>SMTP Server From</span>
+			<input class="form-control" type="text" id="smtp.server.from" ng-model="obj.smtp.from" />
+		</label>
 	</div>
 	<h2><i class="fa fa-google" aria-hidden="true"></i>Google API</h2>
 	<div>
-		<label for="routeGoogleAPIKey">Route Google API Key</label>
-		<input class="form-control" type="text" id="routeGoogleAPIKey" ng-model="obj.routeGoogleAPIKey" />
+		<label for="routeGoogleAPIKey">
+			<span>Route Google API Key</span>
+			<input class="form-control" type="text" id="routeGoogleAPIKey" ng-model="obj.routeGoogleAPIKey" />
+		</label>
 	</div>
 	<div>
-        <button class="btn btn-primary" type="formCtrl.$submit()">Install</button>
-    </div>
+		<button class="btn btn-primary" type="formCtrl.$submit()">Install</button>
+	</div>
 </form>
