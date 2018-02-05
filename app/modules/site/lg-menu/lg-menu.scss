@@ -2,6 +2,15 @@
 
 $headerColor: $fontColor;
 
+lg-menu [ng-click] {
+	&:hover {
+		opacity: 0.85;
+		* {
+			opacity: 0.85;
+		}
+	}
+}
+
 lg-menu {
 	position: fixed;
 	top: 0;

@@ -39,28 +39,32 @@ label {
 }
 
 input,
-my-input {
+my-input, textarea {
 	// Avoid safari to put its own settings
 	-webkit-appearance: none;
 	display: block;
 	width: 100%;
 	margin: 0 0 0.3em;
-	font-size: 18px;
 	background: $secondaryColor;
 	box-shadow: none;
-	padding: 15px 10px;
-	border-radius: 3px;
+	padding: 1em 0.6em;
+	border-radius: 0.3em;
 	border: 1px solid $borderColor;
-	color: black;
+	color: $primaryColor;
 	&[readonly] {
 		background-color: gray(88%);
 	}
+}
+
+textarea {
+	min-height: 6em;
 }
 
 my-input.empty {
 	color: $placeholderColor;
 }
 
+// Used for "Negocier en direct"
 label.checkbox {
 	display: block;
 	text-align: center;
@@ -78,29 +82,6 @@ label.checkbox {
 		vertical-align: middle;
 	}
 
-}
-
-textarea {
-	-webkit-appearance: none;
-	display: block;
-	font-size: 18px;
-	width: 100%;
-	min-height: 100px;
-	margin: 5px 0;
-	background: $secondaryColor;
-	box-shadow: none;
-	padding: 17px 10px;
-	border-radius: 3px;
-	border: 1px solid #ebebeb;
-}
-
-lg-menu [ng-click] {
-	&:hover {
-		opacity: 0.85;
-		* {
-			opacity: 0.85;
-		}
-	}
 }
 
 
