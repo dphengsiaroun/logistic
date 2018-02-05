@@ -10,44 +10,44 @@ error-message {
 	}
 }
 
-form {
-	div {
-		display: block;
-		position: relative;	
-	}
-	.ng-dirty.ng-invalid.ng-touched {
+div {
+	display: block;
+	position: relative;
+}
+
+.ng-dirty.ng-invalid.ng-touched {
+	background-color: hsl(0, 100%, 97%);
+	border-color: hsl(0, 100%, 80%);
+	my-input {
 		background-color: hsl(0, 100%, 97%);
 		border-color: hsl(0, 100%, 80%);
-		my-input {
-			background-color: hsl(0, 100%, 97%);
-			border-color: hsl(0, 100%, 80%);
-		}
 	}
-	message-form-validator {
-		.fa {
-			display: block;
-			position: absolute;
-			top: 15px;
-			left: 88%;
-			font-size: 25px;
-			color: green;
-		}
-		.error {
+}
+
+message-form-validator {
+	.fa {
+		display: block;
+		position: absolute;
+		top: 15px;
+		left: 88%;
+		font-size: 25px;
+		color: green;
+	}
+	.error {
+		color: red;
+	}
+	div {
+		display: block;
+		span {
+			display: inline-block;
+			font-size: 13px;
 			color: red;
 		}
-		div {
-			display: block;
-			span {
-				display: inline-block;
-				font-size: 13px;
-				color: red;
-			}
-		}
-		.profile {
-			display: block;
-			font-size: 15px;
-			text-align: center;
-			color: $fontColor;
-		}
+	}
+	.profile {
+		display: block;
+		font-size: 15px;
+		text-align: center;
+		color: $fontColor;
 	}
 }

@@ -95,11 +95,6 @@ lg-mobile {
 		}
 	}
 
-	/* Form */
-	form {
-		padding: 0 20px;
-	}
-
 	.ad {
 		section {
 			padding: 10px 20px;
@@ -220,10 +215,8 @@ lg-mobile {
 	}
 
 	lg-user-forgotten-password-route {
-		form {
-			.email {
-				top: 252px !important;
-			}
+		.email {
+			top: 252px !important;
 		}
 	}
 
@@ -246,15 +239,14 @@ lg-mobile {
 		}
 		month-list {
 			height: 616px !important;
-			top: 100px!important;
+			top: 100px !important;
 		}
 		lg-dt-hour {
 			top: 591px !important;
 		}
 		retroaction-msg {
-			top: 666px!important;
-		}
-		// lg-dt-month table tbody tr td.selected span {
+			top: 666px !important;
+		} // lg-dt-month table tbody tr td.selected span {
 		// 	// line-height: 60px;
 		// }
 	}
@@ -278,7 +270,7 @@ lg-mobile {
 			top: 335px !important;
 			left: 130px !important;
 			width: 460px !important;
-			height: 370px!important;
+			height: 370px !important;
 		}
 	}
 

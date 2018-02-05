@@ -1,7 +1,6 @@
 @import './variable';
 
 body {
-	// min-height: 100vh;
 	background: $backgroundColor;
 	color: $fontColor;
 }
@@ -9,8 +8,6 @@ body {
 svg {
 	fill: $fontColor;
 }
-
-
 
 ui-view {
 	display: block;
@@ -23,17 +20,12 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0;
 	text-align: center;
 }
 
 h1 {
-	font-size: 30px;
-	margin-bottom: 10px;
-}
-
-form {
-	padding: 0 5px;
+	font-size: 2em;
+	margin-bottom: 1em;
 }
 
 input,
