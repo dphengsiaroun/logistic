@@ -144,10 +144,10 @@
 	</section>
 	<section class="dark">
 		<big-label>Prix</big-label>
-		<div class="checkbox">
-			<input type="checkbox" id="negociate" ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.createData.negociate"
-			/><label for="negociate" ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'"> Négocier en direct</label>
-		</div>
+		<label class="checkbox" -ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'">
+			<input type="checkbox" -ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.createData.negociate"/> 
+			<span>Négocier en direct</span>
+		</label>
 
 		<label>Tarif souhaité en DZD (facultatif)</label>
 		<div>
