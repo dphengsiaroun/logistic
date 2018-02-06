@@ -126,14 +126,12 @@ section {
 
 button {
 	width: 100%;
-	background: $buttonColor;
-	color: $secondaryColor;
 	height: 50px;
-	font-size: 16px;
-	cursor: pointer;
 	border: none;
 	border-radius: 3px;
-	margin: 10px 0;
+	background: $buttonColor;
+	color: $secondaryColor;
+	cursor: pointer;
 }
 
 button[disabled] {
