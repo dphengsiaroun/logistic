@@ -119,12 +119,6 @@ section {
 	}
 }
 
-.title-icon {
-	display: block;
-	text-align: center;
-	font-size: 4em;
-}
-
 button, .button {
 	width: 100%;
 	height: 50px;
@@ -140,6 +134,12 @@ button, .button {
 		background: $criticalColor;
 		color: $secondaryColor;
 	}
+}
+
+.title-icon {
+	display: block;
+	text-align: center;
+	font-size: 4em;
 }
 
 .critical {
