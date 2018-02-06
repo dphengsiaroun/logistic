@@ -1,17 +1,12 @@
 @import './variable';
+
 .ad-title {
-	display: table;
-	width: 100%;
-	padding: 10px 0;
+	display: block;
+	padding: 0.6em 0;
 	background: $adColor;
-	left {
-		display: table-cell;
-		width: 100px;
-		padding: 0;
-		margin: 0;
-		font-size: 0;
+	.left {
+		width: 9em;
 		text-align: center;
-		vertical-align: middle;
 		svg {
 			width: 55px;
 			height: 55px;
@@ -22,27 +17,19 @@
 			margin: 0 39px 0 0;
 		}
 		.fa {
-			color: #223c5d;
 			text-align: center;
-			font-size: 43px;
+			font-size: 3em;
 		}
 	}
-	right {
-		display: table-cell;
-		height: 10px;
-		width: 200px;
-		vertical-align: middle;
+	.right {
+		width: 17em;
+		padding: 0.5em 0 0;
 		h1 {
-			display: block;
-			margin: 0 auto;
-			text-align: center;
-			font-weight: bold;
-			font-size: 23px;
+			font-size: 1.2em;
 		}
 		h2 {
 			font-weight: 500;
-			font-size: 14px;
-			padding: 0 0;
+			font-size: 1em;
 		}
 	}
 	hr {
@@ -53,11 +40,8 @@
 }
 
 .ad {
-	padding: 0;
-	margin: 0;
 	section {
 		padding: 10px 5px;
-		margin: 0;
 		border-bottom: 1px solid $darkBorderColor;
 		h2 {
 			display: block;
@@ -109,9 +93,7 @@
 			}
 		}
 	}
-	section.dark {
-		background: darken($backgroundColor, 4%);
-	}
+	
 }
 
 .load-more-app {

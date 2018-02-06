@@ -48,6 +48,10 @@ h2 {
 	font-size: 1.5em;
 }
 
+form {
+	display: block;
+}
+
 label {
 	display: block;
 	>span {
@@ -116,6 +120,9 @@ section {
 	padding: 1em 0.5em;
 	a {
 		text-align: center;
+	}
+	&.dark {
+		background: darken($backgroundColor, 4%);
 	}
 }
 

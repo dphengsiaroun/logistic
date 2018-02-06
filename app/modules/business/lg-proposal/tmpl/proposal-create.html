@@ -1,12 +1,12 @@
-<div class="ad-title">
-	<left>
+<div class="ad-title clearfix">
+	<div class="left">
 		<i class="fa fa-tag" aria-hidden="true"></i>
-	</left>
-	<right>
-		<title>Proposition</title>
-		<subtitle ng-show="$ctrl.proposal.createData.adType === 'loader'">au chargeur</subtitle>
-		<subtitle ng-show="$ctrl.proposal.createData.adType === 'carrier'">au transporteur</subtitle>
-	</right>
+	</div>
+	<div class="right">
+		<h1>Proposition</h1>
+		<h2 ng-show="$ctrl.proposal.createData.adType === 'loader'">au chargeur</h2>
+		<h2 ng-show="$ctrl.proposal.createData.adType === 'carrier'">au transporteur</h2>
+	</div>
 </div>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.proposal.create($ctrl.proposal.createData)" class="ad"
     novalidate>
