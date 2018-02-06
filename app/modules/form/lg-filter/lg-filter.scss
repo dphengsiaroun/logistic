@@ -1,9 +1,13 @@
 @import '../../../css/variable';
 lg-filter {
-	display: table-cell;
-	width: 15%;
-	vertical-align: middle;
-
+	display: inline-block;
+	height: 100%;
+	div.table {
+		height: 100%;
+	}
+	.fa {
+		font-size: 2em;
+	}
 	section {
 		background: gray(92%);
 		// Todo manage height overlay etc.

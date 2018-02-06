@@ -1,16 +1,20 @@
-<section class="filter">
-	<div class="qty-ad">
-		<span id="noAds" ng-show="$ctrl.filteredlist.length === 0" ng-init="$ctrl.list">Aucune annonce de transporteur</span>
-		<span ng-show="$ctrl.filteredlist.length === 1" ng-init="$ctrl.list">1 annonce de transporteur</span>
-		<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de transporteur</span>
-		<br>
-		<span ng-show="$ctrl.removedByFilterLength === 0"></span>
-		<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrée</span>
-		<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filter">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
+<div class="filter clearfix">
+	<div class="left">
+		<div>
+			<span id="noAds" ng-show="$ctrl.filteredlist.length === 0" ng-init="$ctrl.list">Aucune annonce de transporteur</span>
+			<span ng-show="$ctrl.filteredlist.length === 1" ng-init="$ctrl.list">1 annonce de transporteur</span>
+			<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de transporteur</span>
+			<br>
+			<span ng-show="$ctrl.removedByFilterLength === 0"></span>
+			<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrée</span>
+			<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filter">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
+		</div>
 	</div>
-	<lg-filter filter="$ctrl.filter"></lg-filter>
-	<lg-orderby order="$ctrl.order"></lg-orderby>
-</section>
+	<div class="right">
+		<lg-filter filter="$ctrl.filter"></lg-filter>
+		<lg-orderby order="$ctrl.order"></lg-orderby>
+	</div>
+</div>
 <carrier-list>
 	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo:$ctrl.limit" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'specificTrip'">
@@ -29,7 +33,8 @@
 						De :
 					</labels>
 					<values>
-						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.departureCity.city}}</city>
+						<city>
+							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.departureCity.city}}</city>
 						<region>{{ad.content.trip.departureCity.region}}</region>
 					</values>
 				</from>
@@ -38,7 +43,8 @@
 						A :
 					</labels>
 					<values>
-						<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.arrivalCity.city}}</city>
+						<city>
+							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.arrivalCity.city}}</city>
 						<region>{{ad.content.trip.arrivalCity.region}}</region>
 					</values>
 				</to>
@@ -62,7 +68,8 @@
 				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
 				<by>Par {{ad.content.login | ucfirst}}</by>
 			</div>
-			<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.truck.city.city}}</city>
+			<city>
+				<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.truck.city.city}}</city>
 			<region>{{ad.content.truck.city.region}}</region>
 		</header>
 		<content ng-show="ad.content.availability === 'total'">
@@ -77,7 +84,8 @@
 			</content-right>
 		</content>
 	</ad-block>
-	<button ng-show="$ctrl.filteredlist.length > 50" class="transparent" ng-click="$ctrl.loadMore()"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i> Annonces suivantes</button>
+	<button ng-show="$ctrl.filteredlist.length > 50" class="transparent" ng-click="$ctrl.loadMore()">
+		<i class="fa fa-chevron-circle-down" aria-hidden="true"></i> Annonces suivantes</button>
 </carrier-list>
 <!--<add-ads>
 	<button ui-sref="carrier:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ajouter une annonce</button>

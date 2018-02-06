@@ -1,10 +1,4 @@
 @import '../../../css/variable';
-lg-loader-list-route {
-	.filter {
-		background: $loaderColor;
-	}
-}
-
 loader-list {
 	display: block;
 	width: 100%;
@@ -146,6 +140,6 @@ loader-list {
 }
 
 
-.title-bar.loader {
+.loader {
 	background: $loaderColor;
 }

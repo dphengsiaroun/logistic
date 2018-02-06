@@ -1,8 +1,6 @@
 @import '../../../css/variable';
 lg-orderby {
-	display: table-cell;
-	width: 15%;
-	vertical-align: middle;
+	display: inline-block;
 	>div {
 		display: block;
 		position: relative;
