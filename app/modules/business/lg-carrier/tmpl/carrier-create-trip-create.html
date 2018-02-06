@@ -1,19 +1,22 @@
 <breadcrumb>
 	<step start>
 		<div>
-			<i class="fa fa-truck" aria-hidden="true"></i><br>
+			<i class="fa fa-truck" aria-hidden="true"></i>
+			<br>
 			<span>Véhicule</span>
 		</div>
 	</step>
 	<step first disabled>
 		<div>
-			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i><br>
+			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i>
+			<br>
 			<span>Disponibilité</span>
 		</div>
 	</step>
 	<step disabled>
 		<div>
-			<i class="fa fa-money" aria-hidden="true"></i><br>
+			<i class="fa fa-money" aria-hidden="true"></i>
+			<br>
 			<span>Prix</span>
 		</div>
 	</step>
@@ -24,50 +27,50 @@
 		<label>
 			<span>Départ</span>
 			<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.departureCity"
-				required></lg-city>
+			    required></lg-city>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.departureCity)">
+					<span ng-show="formCtrl.departureCity.$error.required">La ville du chargement est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.departureCity)">
-				<span ng-show="formCtrl.departureCity.$error.required">La ville du chargement est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 		<label>
 			<span>Arrivée</span>
 			<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.arrivalCity"
-				required></lg-city>
+			    required></lg-city>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalCity)">
+					<span ng-show="formCtrl.arrivalCity.$error.required">La ville de la livraison est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalCity)">
-				<span ng-show="formCtrl.arrivalCity.$error.required">La ville de la livraison est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
-		<info-route ng-bind-html="$ctrl.tripData.infoRoute"></info-route>
+		<div ng-bind-html="$ctrl.tripData.infoRoute"></div>
 	</section>
 	<section>
 		<h2>Horaires</h2>
 		<label>
 			<span>Date et heure de chargement</span>
 			<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.tripData.departureDatetime"
-				options="{defaultHour: 14}" required>
+			    options="{defaultHour: 14}" required>
 			</lg-datetime>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.departureDatetime)">
+					<span ng-show="formCtrl.departureDatetime.$error.required">La date et heure de chargement est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.departureDatetime)">
-				<span ng-show="formCtrl.departureDatetime.$error.required">La date et heure de chargement est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 		<label>
 			<span>Date et heure de livraison</span>
-			<lg-datetime name="arrivalDatetime" title="Date et heure de livraison" placeholder="Date de livraison" ng-model="$ctrl.tripData.arrivalDatetime" options="{defaultHour: 14}"
-				after="$ctrl.tripData.departureDatetime" offset="$ctrl.tripData.minDuration" required>
+			<lg-datetime name="arrivalDatetime" title="Date et heure de livraison" placeholder="Date de livraison" ng-model="$ctrl.tripData.arrivalDatetime"
+			    options="{defaultHour: 14}" after="$ctrl.tripData.departureDatetime" offset="$ctrl.tripData.minDuration" required>
 			</lg-datetime>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalDatetime)">
+					<span ng-show="formCtrl.arrivalDatetime.$error.required">La date et heure de livraison est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalDatetime)">
-				<span ng-show="formCtrl.arrivalDatetime.$error.required">La date et heure de livraison est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
-		<info-route ng-bind-html="$ctrl.tripData.infoDuration"></info-route>
+		<div ng-bind-html="$ctrl.tripData.infoDuration"></div>
 		<br>
 	</section>
 	<section class="dark">

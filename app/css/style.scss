@@ -14,6 +14,11 @@ ui-view {
 	padding: $headerHeight 0 0;
 }
 
+a {
+	text-decoration: none;
+	color: $primaryColor;
+}
+
 h1,
 h2,
 h3,
@@ -33,10 +38,6 @@ h5,
 h6 {
 	margin: 0;
 	text-align: center;
-}
-
-p {
-	text-align: left;
 }
 
 h1 {
@@ -110,11 +111,6 @@ label.checkbox {
 	opacity: 1;
 }
 
-a {
-	text-decoration: none;
-	color: $primaryColor;
-}
-
 section {
 	padding: 1em 0.5em;
 	a {
@@ -126,15 +122,6 @@ section {
 	display: block;
 	text-align: center;
 	font-size: 4em;
-}
-
-.center {
-	text-align: center;
-}
-
-info-route {
-	display: block;
-	font-size: 15px;
 }
 
 button {
