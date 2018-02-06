@@ -87,7 +87,7 @@
 								<tr ng-repeat="proposal in $ctrl.proposal | limitTo : 5">
 									<td data-label="Id">{{proposal.id}}</td>
 									<td data-label="Image">
-										<img ng-show="proposal.content.imageUrl" src="../{{proposal.content.imageUrl}}" />
+										<img ng-show="proposal.content.imageUrl" src="../{{proposal.content.imageUrl}}">
 										<img-svg ng-show="!proposal.content.imageUrl && proposal.content.adType === 'carrier'" src="/img/truck-default.svg"></img-svg>
 										<img-svg ng-show="!proposal.content.imageUrl && proposal.content.adType === 'loader'" src="/img/loader-default.svg"></img-svg>										
 									</td>
@@ -142,7 +142,7 @@
 								<tr ng-repeat="carrier in $ctrl.carrier | limitTo : 5">
 									<td data-label="Id">{{carrier.id}}</td>
 									<td data-label="Image">
-										<img ng-show="carrier.content.truck.image.thumbnailUrl" ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" />
+										<img ng-show="carrier.content.truck.image.thumbnailUrl" ng-src="../{{carrier.content.truck.image.thumbnailUrl}}">
 										<img-svg ng-show="!carrier.content.truck.image.thumbnailUrl" src="/img/truck-default.svg"></img-svg>
 									</td>
 									<td data-label="Titre">{{carrier.content.truck.name}}</td>

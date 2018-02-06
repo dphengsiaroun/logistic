@@ -1,19 +1,19 @@
 <breadcrumb>
 	<step>
 		<div>
-			<i class="fa fa-truck" aria-hidden="true"></i><br/>
+			<i class="fa fa-truck" aria-hidden="true"></i><br>
 			<span>Véhicule</span>
 		</div>
 	</step>
 	<step>
 		<div>
-			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i><br/>
+			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i><br>
 			<span>Disponibilité</span>
 		</div>
 	</step>
 	<step>
 		<div>
-			<i class="fa fa-money" aria-hidden="true"></i><br/>
+			<i class="fa fa-money" aria-hidden="true"></i><br>
 			<span>Prix</span>
 		</div>
 	</step>
@@ -22,7 +22,7 @@
 	<section ng-show="$ctrl.carrier.createData.availability === 'specificTrip'">
 		<label>
 			<span>Tarif souhaité pour le trajet en DZD (facultatif)</span>
-			<input id="pr-price-wanted" name="priceWanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted"/>
+			<input id="pr-price-wanted" name="priceWanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted">
 		</label>
 		<info-route ng-bind-html="$ctrl.carrier.createData.trip.infoRoute"></info-route>
 		<price-per-km>Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.createData.trip.distance | currency : 'DZD' : 0 }}</price-per-km>
@@ -30,7 +30,7 @@
 	<section ng-show="$ctrl.carrier.createData.availability === 'total'">
 		<label>
 			<span>Tarif souhaité en DZD/km (facultatif)</span>
-			<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm"/>
+			<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm">
 		</label>
 	</section>
 	<section class="dark">

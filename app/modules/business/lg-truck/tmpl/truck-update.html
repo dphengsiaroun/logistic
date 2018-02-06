@@ -11,7 +11,7 @@
 	<section class="dark">
 		<label>
 			<span>Immatriculation ou libellé du véhicule</span>
-			<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required/>
+			<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.updateData.name" required>
 		</label>
 		<message-form-validator>
 			<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
 		</message-form-validator>
 		<label>
 			<span>Description succinte du modèle</span>
-			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required/>
+			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.updateData.model" required>
 		</label>
 		<message-form-validator>
 			<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
@@ -42,7 +42,7 @@
 		</message-form-validator>
 	</section>
 	<section class="dark">
-		<h2>Transport</h2><br/>
+		<h2>Transport</h2><br>
 		<lg-select name="transportCategory" ng-model="$ctrl.truck.updateData.transportCategory">
 			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
 			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>

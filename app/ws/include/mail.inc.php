@@ -49,9 +49,9 @@ function sendmail($user, $type, $content = NULL) {
 		$mail->Subject = 'Une proposition pour votre annonce sur iGoroute.com';
 		$mail->Body    = getTemplate(BASE_DIR . '/mail/proposal-send.php', $user, 
 		'<span style="display; block; font-weight: bold;">Annonce : ' . $content->content->titleAd . '</span>
-		<br/>
+		<br>
 		<span style="display; block;">' . $content->content->message . '</span>
-		<br/>
+		<br>
 		<span>Contact : ' . $content->content->name . ' - 
 			<a href="mailto:'. $content->content->email . '">' . $content->content->email .'</a></span>');
 		$mail->AltBody = html2txt($mail->Body);

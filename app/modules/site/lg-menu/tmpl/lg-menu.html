@@ -8,7 +8,7 @@
 		<a ng-click="$ctrl.off() || $root.goToState('home')"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGoroute</span></a>
 	</head-center>
 	<head-center class="connected" ng-show="$ctrl.connection.user">
-		<a ng-click="$ctrl.off()|| $root.goToState('home')"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGoroute</span><br/>
+		<a ng-click="$ctrl.off()|| $root.goToState('home')"><!--<img-svg src="/img/logo.svg"></img-svg>--><span>iGoroute</span><br>
 			<span ng-show="$ctrl.connection.user" class="user-identity">{{$ctrl.connection.user.content.firstname}} {{$ctrl.connection.user.content.lastname | uppercase }}</span>
 		</a>
 	</head-center>
@@ -35,7 +35,7 @@
 		</a>
 		<a ng-click="$ctrl.toggle();" ui-sref="user:retrieve"><i class="fa fa-user-o" aria-hidden="true"></i> <span>Mon profil</span></a>
 		<a ng-click="$ctrl.toggle();" ui-sref="truck:list({login: $ctrl.connection.user.content.login})"><i class="fa fa-truck" aria-hidden="true"></i> <span>Mes véhicules</span></a>
-		<br/><br/>
+		<br><br>
 		<a ng-click="$ctrl.toggle();" ui-sref="connection:delete" class="btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Se déconnecter</span></a>
 		<!-- <a ng-click="$ctrl.toggle();" ui-sref="tests"><i class="fa fa-comments" aria-hidden="true"></i> <p>Tests</p></a> -->
 	</div>

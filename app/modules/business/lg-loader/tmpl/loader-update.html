@@ -93,7 +93,7 @@
 			</error-message>
 		</message-form-validator>
 		<div ng-bind-html="$ctrl.loader.updateData.infoDuration"></div>
-		<br/>
+		<br>
 	</section>
 	<section class="dark">
 		<h2>Marchandises</h2>
@@ -130,7 +130,7 @@
 		<label ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'">
 			<span>Poids total</span>
 			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.updateData.conditioning === 'Vrac' || $ctrl.loader.updateData.conditioning === 'Indifférent'"
-				placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*" />
+				placeholder="Ex: 1500" ng-model="$ctrl.loader.updateData.preciseWeight" pattern="[0-9]*">
 		</label>
 		<message-form-validator>
 			<i ng-show="$ctrl.fv.isOk(formCtrl.preciseWeight)" class="fa fa-check" aria-hidden="true"></i>
@@ -152,20 +152,20 @@
 			<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.loader.updateData.dimension">
 			</lg-dimension>
 		</label>
-		<br/>
+		<br>
 		<div class="comment">Votre annonce sera davantage consultée si elle contient une photo.</div>
 		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.loader.updateData.imageId}" ng-model="$ctrl.loader.updateData.image"></lg-load-image>
 	</section>
 	<section class="dark">
 		<h2>Prix</h2>
 		<label for="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'">
-			<input type="checkbox" id="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.updateData.negociate"/> 
+			<input type="checkbox" id="negociate" ng-show="$ctrl.loader.updateData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.updateData.negociate"> 
 			<span>Négocier en direct</span>
 		</label>
 
 		<label>
 			<span>Tarif souhaité en DZD (facultatif)</span>
-			<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.updateData.priceWanted" required />
+			<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.updateData.priceWanted" required>
 		</label>
 		<message-form-validator>
 			<i ng-show="$ctrl.fv.isOk(formCtrl.priceWanted)" class="fa fa-check" aria-hidden="true"></i>
@@ -176,7 +176,7 @@
 
 		<label>
 			<span>Titre de l'annonce</span>
-			<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.updateData.title" required/>
+			<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.updateData.title" required>
 		</label>
 		<message-form-validator>
 			<i ng-show="$ctrl.fv.isOk(formCtrl.title)" class="fa fa-check" aria-hidden="true"></i>

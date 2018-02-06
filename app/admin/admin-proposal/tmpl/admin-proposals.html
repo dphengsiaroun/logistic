@@ -18,7 +18,7 @@
 							</button>
 							<div class="filter">
 								<i class="fa fa-filter" aria-hidden="true"></i>
-								<input ng-model="$ctrl.query" placeholder="Filtre" />
+								<input ng-model="$ctrl.query" placeholder="Filtre">
 							</div>
 						</div>
 						<div style="overflow-x: auto">
@@ -40,7 +40,7 @@
 									<tr ng-repeat="proposal in $ctrl.proposals | filter:$ctrl.query | limitTo:$ctrl.limit">
 										<td data-label="Id">{{proposal.id}}</td>
 										<td data-label="Image">
-											<img ng-if="proposal.content.imageUrl" src="../{{proposal.content.imageUrl}}" />
+											<img ng-if="proposal.content.imageUrl" src="../{{proposal.content.imageUrl}}">
 											<img-svg ng-if="proposal.content.adType === 'loader' && !proposal.content.imageUrl" src="/img/loader-default.svg"></img-svg>
 											<img-svg ng-if="proposal.content.adType === 'carrier' && !proposal.content.imageUrl" src="/img/truck-default.svg"></img-svg>
 										</td>

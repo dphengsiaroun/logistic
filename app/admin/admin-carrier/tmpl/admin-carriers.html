@@ -18,7 +18,7 @@
 								</button>
 							<div class="filter">
 								<i class="fa fa-filter" aria-hidden="true"></i>
-								<input ng-model="$ctrl.query" placeholder="Filtre" />
+								<input ng-model="$ctrl.query" placeholder="Filtre">
 							</div>
 						</div>
 						<div style="overflow-x: auto">
@@ -42,7 +42,7 @@
 										<td data-label="Id">{{carrier.id}}</td>
 										<td data-label="Date">{{carrier.content.created_t * 1000 | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</td>
 										<td data-label="Image">
-											<img ng-show="carrier.content.truck.image.thumbnailUrl" ng-src="../{{carrier.content.truck.image.thumbnailUrl}}" />
+											<img ng-show="carrier.content.truck.image.thumbnailUrl" ng-src="../{{carrier.content.truck.image.thumbnailUrl}}">
 											<img-svg ng-show="!carrier.content.truck.image.thumbnailUrl" src="/img/truck-default.svg"></img-svg>
 										</td>
 										<td data-label="Titre">{{carrier.content.truck.name}}</td>

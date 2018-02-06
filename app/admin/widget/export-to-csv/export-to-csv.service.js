@@ -3,7 +3,7 @@ export function ExportToCsv() {
 	'ngInject';
 
 	this.export = (csv, name) => {
-		const a = angular.element('<a/>', {
+		const a = angular.element('<a></a>', {
 			href: 'data:application/octet-stream;base64,' + btoa(csv),
 			download: name
 		}).append('body');

@@ -1,17 +1,17 @@
 <my-input ng-show="$ctrl.dimension" ng-click="$ctrl.start()">
 	<span>
 		Largeur
-		<br/>
+		<br>
 		<b>{{$ctrl.dimension.width | distance }}</b>
 	</span>
 	<span>
 		Hauteur
-		<br/>
+		<br>
 		<b>{{$ctrl.dimension.height | distance }}</b>
 	</span>
 	<span>
 		Profondeur
-		<br/>
+		<br>
 		<b>{{$ctrl.dimension.depth | distance }}</b>
 	</span>
 </my-input>
@@ -50,15 +50,15 @@
 		<dimension>
 			<label>
 				<span>Largeur (cm)</span>
-				<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }" />
+				<input type="number" pattern="[0-9]*" ng-model="$ctrl.width" ng-model-options="{ updateOn: 'blur' }">
 			</label>
 			<label>
 				<span>Hauteur (cm)</span>
-				<input type="number" pattern="[0-9]*" ng-model="$ctrl.height" ng-model-options="{ updateOn: 'blur' }" />
+				<input type="number" pattern="[0-9]*" ng-model="$ctrl.height" ng-model-options="{ updateOn: 'blur' }">
 			</label>
 			<label>
 				<span>Profondeur (cm)</span>
-				<input type="number" pattern="[0-9]*" ng-model="$ctrl.depth" ng-model-options="{ updateOn: 'blur' }" />
+				<input type="number" pattern="[0-9]*" ng-model="$ctrl.depth" ng-model-options="{ updateOn: 'blur' }">
 			</label>
 		</dimension>
 		<volume>

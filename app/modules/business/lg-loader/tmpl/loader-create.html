@@ -11,34 +11,43 @@
 	<section>
 		<h2>Transport souhaité</h2>
 		<lg-select name="transportCategory" ng-model="$ctrl.loader.createData.transportCategory" required>
-			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
-			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
-			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
+			<lg-option value="Camion">
+				<i class="fa fa-truck" aria-hidden="true"></i>
+				<span>Camion</span>
+			</lg-option>
+			<lg-option value="Avion">
+				<i class="fa fa-plane" aria-hidden="true"></i>
+				<span>Avion</span>
+			</lg-option>
+			<lg-option value="Bateau">
+				<i class="fa fa-ship" aria-hidden="true"></i>
+				<span>Bateau</span>
+			</lg-option>
 		</lg-select>
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Camion'">
 			<label>
 				<span>Type de camion</span>
 				<lg-choice name="transportTruckType" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes"
-					title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.loader.createData.transportTruckType" required></lg-choice>
+				    title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.loader.createData.transportTruckType" required></lg-choice>
+				<message-form-validator>
+					<error-message ng-show="$ctrl.fv.isError(formCtrl.transportTruckType)">
+						<span ng-show="formCtrl.transportTruckType.$error.required">Le type de camion est obligatoire.</span>
+					</error-message>
+				</message-form-validator>
 			</label>
-			<message-form-validator>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.transportTruckType)">
-					<span ng-show="formCtrl.transportTruckType.$error.required">Le type de camion est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
 		</div>
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Bateau'">
 			<label>
 				<span>Type de bateau</span>
 				<lg-choice name="transportBoatType" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
-					ng-model="$ctrl.loader.createData.transportBoatType"></lg-choice>
+				    ng-model="$ctrl.loader.createData.transportBoatType"></lg-choice>
 			</label>
 		</div>
 		<div ng-show="$ctrl.loader.createData.transportCategory === 'Avion'">
 			<label>
 				<span>Type d'avion</span>
 				<lg-choice name="transportPlaneType" choices="$root.config.transportPlaneTypes" title="Type d'avion" placeholder="Ex : Cargo, Passagers, etc."
-					ng-model="$ctrl.loader.createData.transportPlaneType"></lg-choice>
+				    ng-model="$ctrl.loader.createData.transportPlaneType"></lg-choice>
 			</label>
 		</div>
 	</section>
@@ -47,23 +56,23 @@
 		<label>
 			<span>Départ</span>
 			<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.departureCity"
-				required></lg-city>
+			    required></lg-city>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.departureCity)">
+					<span ng-show="formCtrl.departureCity.$error.required">La ville du chargement est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.departureCity)">
-				<span ng-show="formCtrl.departureCity.$error.required">La ville du chargement est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 		<label>
 			<span>Arrivée</span>
 			<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.loader.createData.arrivalCity"
-				required></lg-city>
+			    required></lg-city>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalCity)">
+					<span ng-show="formCtrl.arrivalCity.$error.required">La ville de la livraison est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalCity)">
-				<span ng-show="formCtrl.arrivalCity.$error.required">La ville de la livraison est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 		<div ng-bind-html="$ctrl.loader.createData.infoRoute"></div>
 	</section>
 	<section>
@@ -71,52 +80,60 @@
 		<label>
 			<span>Date et heure de chargement</span>
 			<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.loader.createData.departureDatetime"
-				options="{defaultHour: 14}" required>
+			    options="{defaultHour: 14}" required>
 			</lg-datetime>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.departureDatetime)">
+					<span ng-show="formCtrl.departureDatetime.$error.required">La date et heure de chargement est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.departureDatetime)">
-				<span ng-show="formCtrl.departureDatetime.$error.required">La date et heure de chargement est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 		<label>
 			<span>Date et heure de livraison</span>
 			<lg-datetime name="arrivalDatetime" title="Date et heure de livraison" placeholder="Date et heure de livraison" ng-model="$ctrl.loader.createData.arrivalDatetime"
-				options="{defaultHour: 14}" after="$ctrl.loader.createData.departureDatetime" offset="$ctrl.loader.createData.minDuration"
-				required>
+			    options="{defaultHour: 14}" after="$ctrl.loader.createData.departureDatetime" offset="$ctrl.loader.createData.minDuration"
+			    required>
 			</lg-datetime>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalDatetime)">
+					<span ng-show="formCtrl.arrivalDatetime.$error.required">La date et heure de livraison est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.arrivalDatetime)">
-				<span ng-show="formCtrl.arrivalDatetime.$error.required">La date et heure de livraison est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 		<div ng-bind-html="$ctrl.loader.createData.infoDuration"></div>
-		<br/>
+		<br>
 	</section>
 	<section class="dark">
 		<h2>Type de marchandise</h2>
 		<lg-select name="conditioning" class="conditioning" ng-model="$ctrl.loader.createData.conditioning" required>
 			<lg-option value="Indifférent">
-				<img-svg src="/img/questions.svg"></img-svg><span>Indifférent</span></lg-option>
+				<img-svg src="/img/questions.svg"></img-svg>
+				<span>Indifférent</span>
+			</lg-option>
 			<lg-option value="Colis">
-				<img-svg src="/img/package.svg"></img-svg><span>Colis</span></lg-option>
+				<img-svg src="/img/package.svg"></img-svg>
+				<span>Colis</span>
+			</lg-option>
 			<lg-option value="Palette">
-				<img-svg src="/img/pallet.svg"></img-svg><span>Palette</span></lg-option>
+				<img-svg src="/img/pallet.svg"></img-svg>
+				<span>Palette</span>
+			</lg-option>
 			<lg-option value="Vrac">
-				<img-svg src="/img/vrac.svg"></img-svg><span>Vrac</span></lg-option>
+				<img-svg src="/img/vrac.svg"></img-svg>
+				<span>Vrac</span>
+			</lg-option>
 		</lg-select>
 		<div ng-show="$ctrl.loader.createData.conditioning">
 			<label>
 				<span>Type</span>
 				<lg-choice name="typeOfGoods" options="{icon: $root.config.getLoaderTypesIcon}" choices="$root.config.typeOfGoods" title="Type de marchandise"
-					placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.createData.typeOfGoods" is-mandatory="true" required></lg-choice>
+				    placeholder="Ex : Classique, Dangereux, etc." ng-model="$ctrl.loader.createData.typeOfGoods" is-mandatory="true" required></lg-choice>
+				<message-form-validator>
+					<error-message ng-show="$ctrl.fv.isError(formCtrl.typeOfGoods)">
+						<span ng-show="formCtrl.typeOfGoods.$error.required">Le type de marchandise est obligatoire.</span>
+					</error-message>
+				</message-form-validator>
 			</label>
-			<message-form-validator>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.typeOfGoods)">
-					<span ng-show="formCtrl.typeOfGoods.$error.required">Le type de marchandise est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
 		</div>
 	</section>
 	<section>
@@ -124,17 +141,17 @@
 		<label>
 			<span>Tranche de poids</span>
 			<lg-choice name="weightIntervals" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement"
-				placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.createData.weightInterval" is-mandatory="true" required></lg-choice>
+			    placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.createData.weightInterval" is-mandatory="true" required></lg-choice>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.weightIntervals)">
+					<span ng-show="formCtrl.weightIntervals.$error.required">La tranche de poids est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.weightIntervals)">
-				<span ng-show="formCtrl.weightIntervals.$error.required">La tranche de poids est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 		<label ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'">
 			<span>Poids total</span>
 			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'"
-				placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*" />
+			    placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*">
 		</label>
 
 		<label>
@@ -153,7 +170,7 @@
 			<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.loader.createData.dimension">
 			</lg-dimension>
 		</label>
-		<br/>
+		<br>
 		<div class="comment">Votre annonce sera davantage consultée si elle contient une photo.</div>
 		<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.loader.createData.imageId}" ng-model="$ctrl.loader.createData.image"></lg-load-image>
 		<!-- <message-form-validator>
@@ -165,33 +182,32 @@
 	<section class="dark">
 		<h2>Prix</h2>
 		<label class="checkbox" ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'">
-			<input type="checkbox" ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.createData.negociate"/> 
+			<input type="checkbox" ng-show="$ctrl.loader.createData.conditioning === 'Indifférent'" ng-model="$ctrl.loader.createData.negociate">
 			<span>Négocier en direct</span>
 		</label>
 
 		<label>
 			<span>Tarif souhaité en DZD (facultatif)</span>
 			<input name="priceWanted" type="number" placeholder="Ex: 200" pattern="[0-9]*" ng-model="$ctrl.loader.createData.priceWanted"
-				required />
+			    required>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.priceWanted)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.priceWanted)">
+					<span ng-show="formCtrl.priceWanted.$error.required">Le tarif souhaité est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(formCtrl.priceWanted)" class="fa fa-check" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.priceWanted)">
-				<span ng-show="formCtrl.priceWanted.$error.required">Le tarif souhaité est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 
 		<label>
 			<span>Titre de l'annonce</span>
-			<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.createData.title" required
-			/>
-		</label>			
-		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(formCtrl.title)" class="fa fa-check" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.title)">
-				<span ng-show="formCtrl.title.$error.required">Le titre de l'annonce est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
+			<input name="title" type="text" placeholder="Ex: Chargement de 12 veaux" ng-model="$ctrl.loader.createData.title" required>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.title)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.title)">
+					<span ng-show="formCtrl.title.$error.required">Le titre de l'annonce est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</label>
 		<label>
 			<span>Commentaire</span>
 			<textarea ng-model="$ctrl.loader.createData.comments"></textarea>
@@ -210,4 +226,5 @@
 	$('.no-zoom').bind('touchend', function(e) {
 		e.preventDefault();
 	});
+
 </script>

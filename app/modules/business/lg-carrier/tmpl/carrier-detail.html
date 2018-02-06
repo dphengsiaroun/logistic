@@ -113,8 +113,8 @@
 			</table>
 		</div>
 	</description>
-	<br/>
-	<div ng-show="!$ctrl.isEditable"><br/><br/><br/></div>
+	<br>
+	<div ng-show="!$ctrl.isEditable"><br><br><br></div>
 	<bottom ng-show="!$ctrl.isEditable">
 		<a ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Appeler</a>
 		<a ng-show="$ctrl.connection.isConnected == true" href="tel:{{$ctrl.carrier.current.content.phone}}">Appeler</a>

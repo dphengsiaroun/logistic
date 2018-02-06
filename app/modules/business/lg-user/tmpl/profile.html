@@ -5,7 +5,7 @@
 
 	<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.user.update()" novalidate>
 		<div>
-			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" required />
+			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.lastname)">
@@ -14,7 +14,7 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" required />
+			<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.firstname)">
@@ -24,7 +24,7 @@
 		</div>
 		<div>
 			<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder
-			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.updateData.content.login" required />
+			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.updateData.content.login" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.login)">
@@ -33,7 +33,7 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" required />
+			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
 				<i ng-show="$ctrl.fv.isError(formCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
@@ -43,15 +43,15 @@
 				</error-message>
 			</message-form-validator>
 		</div>
-		<br/>
+		<br>
 		<lg-select name="profile" ng-model="$ctrl.user.updateData.content.profile" required>
 			<lg-option value="loader" selected>Chargeur</lg-option>
 			<lg-option value="carrier" selected>Transporteur</lg-option>
 			<lg-option value="both" selected>Les deux</lg-option>
 		</lg-select>
-		<br/>
+		<br>
 		<div>
-			<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.updateData.content.address.street" required />
+			<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.updateData.content.address.street" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.street)">
@@ -61,7 +61,7 @@
 		</div>
 		<div>
 			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.updateData.content.address.zipcode"
-			    required />
+			    required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.zipcode)">
@@ -70,7 +70,7 @@
 			</message-form-validator>
 		</div>
 		<div>
-			<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.updateData.content.address.city" required />
+			<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.updateData.content.address.city" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
@@ -90,7 +90,7 @@
 		</div>
 		<div>
 			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.updateData.content.phone" required
-			/>
+			>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.phone)">
@@ -98,7 +98,7 @@
 				</error-message>
 			</message-form-validator>
 		</div>
-		<br/>
+		<br>
 		<lg-error error="$ctrl.user.error"></lg-error>
 		<div class="bouton">
 			<button type="submit">Modifier</button>

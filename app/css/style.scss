@@ -19,15 +19,24 @@ h2,
 h3,
 h4,
 h5,
+h6,
+p,
+label {
+	margin-bottom: 0.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
 	margin: 0;
 	text-align: center;
-	margin-bottom: 0.5em;
 }
 
 p {
 	text-align: left;
-	margin-bottom: 0.5em;
 }
 
 h1 {
@@ -40,10 +49,9 @@ h2 {
 
 label {
 	display: block;
-	margin-bottom: 1em;
 	>span {
 		display: block;
-		margin-bottom: 0.3em;
+		padding: 0.3em 0;
 		font-weight: bold;
 	}
 }

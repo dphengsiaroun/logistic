@@ -142,13 +142,13 @@ export const lgDatetime = {
 
 		$scope.$watch('$ctrl.selectedDate', function() {
 			if (!ctrl.selectedDate) {
-				ctrl.retroactionMsg = '&nbsp;<br/>&nbsp;';
+				ctrl.retroactionMsg = '&nbsp;<br>&nbsp;';
 				return;
 			}
 			let durationStr = '';
 			if (ctrl.opts.after) {
 				const duration = (ctrl.selectedDate - ctrl.after) / 1000;
-				durationStr = '<br/>Durée&nbsp;:&nbsp;' + $filter('duration')(duration);
+				durationStr = '<br>Durée&nbsp;:&nbsp;' + $filter('duration')(duration);
 			}
 			ctrl.retroactionMsg = $filter('date')(ctrl.selectedDate, ctrl.format) + durationStr;
 		}, true);
