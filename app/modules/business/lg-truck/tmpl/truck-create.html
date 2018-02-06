@@ -9,8 +9,9 @@
 </div>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.truck.create($ctrl.truck.createData)" class="ad" novalidate>
 	<section>
+		<h2>Véhicule</h2>
 		<label>
-			<span>Immatriculation ou libellé du véhicule</span>
+			<span>Immatriculation ou libellé</span>
 			<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
@@ -19,18 +20,6 @@
 				</error-message>
 			</message-form-validator>
 		</label>
-		<label>
-			<span>Description succinte du modèle</span>
-			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required>
-			<message-form-validator>
-				<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.model)">
-					<span ng-show="formCtrl.model.$error.required">Description succinte du modèle obligatoire.</span>
-				</error-message>
-			</message-form-validator>
-		</label>
-	</section>
-	<section class="dark">
 		<label>
 			<span>Ville d'origine</span>
 			<lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city" required></lg-city>
@@ -85,6 +74,17 @@
 		</div>
 	</section>
 	<section>
+		<h2>Détails</h2>
+		<label>
+			<span>Modèle</span>
+			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.model)">
+					<span ng-show="formCtrl.model.$error.required">Description succinte du modèle obligatoire.</span>
+				</error-message>
+			</message-form-validator>
+		</label>
 		<label>
 			<span>Année du véhicule</span>
 			<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear"
