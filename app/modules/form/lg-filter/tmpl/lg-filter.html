@@ -2,24 +2,22 @@
 	<i class="fa fa-filter" aria-hidden="true"></i>
 </div>
 <overlay ng-show="$ctrl.isEditing">
-	<fixed>
-		<my-head>
-			<head-left></head-left>
-			<head-center>
-				<p>Filtre</p>
-			</head-center>
-			<head-right ng-click="$ctrl.cancel()" class="menu">
-				<i class="fa fa-times" aria-hidden="true"></i>
-			</head-right>
-		</my-head>
-		<filter>
-			<form>
-				<label>
-					<span>Recherche par mots-clés</span>
-					<input type="text" placeholder="Ville, Utilisateur, Type de camion, etc." ng-model="$ctrl.filter" lg-erasable>					
-				</label>
-				<button ng-click="$ctrl.submit()">Valider</button>
-			</form>
-		</filter>
-	</fixed>
+	<my-head>
+		<head-left></head-left>
+		<head-center>
+			<p>Filtre</p>
+		</head-center>
+		<head-right ng-click="$ctrl.cancel()" class="menu">
+			<i class="fa fa-times" aria-hidden="true"></i>
+		</head-right>
+	</my-head>
+	<section>
+		<form>
+			<label>
+				<span>Recherche par mots-clés</span>
+				<input type="text" placeholder="Ville, Utilisateur, Type de camion, etc." ng-model="$ctrl.filter" lg-erasable>
+			</label>
+			<button ng-click="$ctrl.submit()">Valider</button>
+		</form>
+	</section>
 </overlay>
