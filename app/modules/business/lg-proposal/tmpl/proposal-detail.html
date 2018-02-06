@@ -14,7 +14,7 @@
 	<img-svg ng-show="$ctrl.proposal.current.ad_type === 'carrier' && !$ctrl.proposal.current.content.imageUrl" src="/img/truck-default.svg"></img-svg>
 	<img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
 </div>
-<recap>
+<section class="detail-ad">
 	<h1>{{$ctrl.proposal.current.content.titleAd}}</h1>
 	<info>
 		<div>Envoyé le {{$ctrl.proposal.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
@@ -36,4 +36,4 @@
 		<a class="button critical" ui-sref="proposal:delete({id: $ctrl.proposal.current.id})">
 			<i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
 	</div>
-</recap>
+</section>

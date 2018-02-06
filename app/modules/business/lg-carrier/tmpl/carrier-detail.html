@@ -2,7 +2,7 @@
 	<img-svg ng-show="$ctrl.carrier.current.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
 	<img ng-show="$ctrl.carrier.current.content.truck.image.url" ng-src="{{$ctrl.carrier.current.content.truck.image.url}}">
 </div>
-<recap>
+<section class="detail-ad">
 	<h1>{{$ctrl.carrier.current.content.truck.name}}</h1>
 	<span ng-show="$ctrl.carrier.current.content.availability === 'total'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWantedPerKm}} DZD/km</span>
 	<span ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWanted}} DZD</span>
@@ -132,4 +132,4 @@
 		<a class="button critical" ui-sref="carrier:delete({login: $ctrl.connection.user.content.login, id: $ctrl.carrier.current.id})">
 			<i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
 	</div>
-</recap>
+</section>
