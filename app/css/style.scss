@@ -20,12 +20,22 @@ h3,
 h4,
 h5,
 h6 {
+	margin: 0;
 	text-align: center;
+	margin-bottom: 0.5em;
+}
+
+p {
+	text-align: left;
+	margin-bottom: 0.5em;
 }
 
 h1 {
 	font-size: 2em;
-	margin-bottom: 1em;
+}
+
+h2 {
+	font-size: 1.5em;
 }
 
 label {
@@ -50,6 +60,7 @@ my-input, textarea {
 	padding: 1em 0.6em;
 	border-radius: 0.3em;
 	border: 1px solid $borderColor;
+	text-align: left;
 	color: $primaryColor;
 	line-height: 1.30;
 	&[readonly] {
@@ -97,35 +108,18 @@ a {
 }
 
 section {
-	padding: 0 0.5em;
-}
-
-lg-title,
-h1 {
-	display: block;
-	font-size: 30px;
-	font-weight: bold;
+	padding: 1em 0.5em;
 	text-align: center;
-	padding: 30px 10px 15px;
 }
 
-h1 {
-	padding: 0;
-}
-
-h2 {
+.title-icon {
 	display: block;
-	font-size: 19px;
 	text-align: center;
-	padding: 0 10px 10px;
+	font-size: 4em;
 }
 
-title-icon {
-	display: block;
-	font-size: 60px;
-	font-weight: bold;
+.center {
 	text-align: center;
-	padding: 0;
 }
 
 info-route {
