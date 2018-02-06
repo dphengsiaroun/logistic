@@ -83,8 +83,8 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 	};
 
 	this.updatePasswordData = {
-		oldPassword: 'test',
-		newPassword: 'test'
+		oldPassword: '',
+		newPassword: ''
 	};
 
 	this.updatePassword = function(data) {

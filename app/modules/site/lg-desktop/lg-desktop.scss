@@ -35,6 +35,9 @@ lg-desktop {
 			top: 16px;
 		}
 	}
+	ui-view {
+		min-height: $desktopHeight - $footerHeight;
+	}
 }
 
 lg-mobile {

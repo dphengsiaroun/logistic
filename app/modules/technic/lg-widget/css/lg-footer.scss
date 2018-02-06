@@ -2,6 +2,8 @@
 
 lg-footer {
 	display: block;
+	height: $footerHeight;
+	font-size: 0.8em;
 	color: hsl($hue, 15%, 50%);
 	background: darken($backgroundColor, 10%);
 	a {
@@ -9,9 +11,7 @@ lg-footer {
 		text-decoration: underline;
 	}
 	p {
-		width: 100%;
-		padding: 15px;
-		font-size: 12px;
+		padding: 1.5em 0;
 		text-align: center;
 	}
 }
