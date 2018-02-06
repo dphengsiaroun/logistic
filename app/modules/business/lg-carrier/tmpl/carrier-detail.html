@@ -7,8 +7,8 @@
 	<span ng-show="$ctrl.carrier.current.content.availability === 'total'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWantedPerKm}} DZD/km</span>
 	<span ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWanted}} DZD</span>
 	<info>
-		<p>Publié le {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
-		<p>Par {{$ctrl.carrier.current.content.login | ucfirst}}</p>
+		<div>Publié le {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
+		<div>Par {{$ctrl.carrier.current.content.login | ucfirst}}</div>
 	</info>
 	<description>
 		<comments ng-show="$ctrl.carrier.current.content.pricing.comments">

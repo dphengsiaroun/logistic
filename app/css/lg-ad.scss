@@ -177,7 +177,8 @@ recap {
 	}
 	info {
 		margin: 10px 0;
-		p {
+		div {
+			text-align: left;
 			font-size: 12px;
 			color: gray(66%);
 		}
