@@ -21,7 +21,7 @@ loader-list {
 			width: 100%;
 			margin: 0;
 			padding: 5px 10px;
-			title {
+			h1 {
 				display: block;
 				width: 100%;
 				text-align: left;
@@ -30,7 +30,7 @@ loader-list {
 				padding-bottom: 5px;
 				border-bottom: 1px solid $borderColor;
 			}
-			subtitle {
+			>div {
 				display: table;
 				margin: 0;
 				padding: 0;

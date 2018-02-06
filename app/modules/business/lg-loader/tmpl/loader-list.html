@@ -14,15 +14,15 @@
 <loader-list>
 	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo: $ctrl.limit" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}">
-			<title>{{ad.content.title}}</title>
-			<subtitle>
+			<h1>{{ad.content.title}}</h1>
+			<div>
 				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
 				<by>Par {{ad.content.login | ucfirst}}</by>
-			</subtitle>
-			<subtitle>
+			</div>
+			<div>
 				<date>Chargement le {{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
-			</subtitle>
+			</div>
 			<places>
 				<from>
 					<labels>
