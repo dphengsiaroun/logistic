@@ -1,12 +1,12 @@
-<img-ad>
+<div class="img-ad">
 	<img-svg ng-show="$ctrl.truck.current.image === undefined" src="/img/truck-default.svg"></img-svg>
 	<img ng-show="$ctrl.truck.current.image.url" ng-src="{{$ctrl.truck.current.image.url}}">
-</img-ad>
+</div>
 <recap>
 	<h1>{{$ctrl.truck.current.name}}</h1>
 	<info>
-		<p>Publié le {{$ctrl.truck.current.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
-		<p>Par {{$ctrl.truck.current.login | ucfirst}}</p>
+		<div>Publié le {{$ctrl.truck.current.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
+		<div>Par {{$ctrl.truck.current.login | ucfirst}}</div>
 	</info>
 	<origin>
 		<b>

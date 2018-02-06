@@ -1,13 +1,13 @@
-<img-ad>
+<div class="img-ad">
 	<img-svg ng-show="$ctrl.loader.current.content.image === undefined" src="/img/loader-default.svg"></img-svg>
 	<img ng-show="$ctrl.loader.current.content.image.url" ng-src="{{$ctrl.loader.current.content.image.url}}">
-</img-ad>
+</div>
 <recap>
 	<h1>{{$ctrl.loader.current.content.title}}</h1>
 	<span>Prix souhaité : {{$ctrl.loader.current.content.priceWanted}} DZD</span>
 	<info>
-		<p>Publié le {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
-		<p>Par {{$ctrl.loader.current.content.login | ucfirst}}</p>
+		<div>Publié le {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
+		<div>Par {{$ctrl.loader.current.content.login | ucfirst}}</div>
 	</info>
 	<description>
 		<p>{{$ctrl.loader.current.content.comments}}</p>

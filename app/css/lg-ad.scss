@@ -34,6 +34,30 @@
 	}
 }
 
+
+.filter-bar {
+	display: block;
+	background: $adColor;
+	height: 55px;
+	.left {
+		display: table;
+		width: 60%;
+		height: 100%;
+		>div {
+			display: table-cell;
+			vertical-align: middle;
+			padding-left: 1em;
+			font-size: 0.8em;
+		}
+	}
+	.right {
+		display: block;
+		width: 40%;
+		height: 100%;
+		text-align: center;
+	}
+}
+
 .dimension {
 	display: table;
 	margin-bottom: 0.5em;
@@ -71,33 +95,7 @@
 	}
 }
 
-.filter-bar {
-	display: block;
-	background: $adColor;
-	height: 55px;
-	.left {
-		display: table;
-		width: 60%;
-		height: 100%;
-		>div {
-			display: table-cell;
-			vertical-align: middle;
-			padding-left: 1em;
-			font-size: 0.8em;
-		}
-	}
-	.right {
-		display: block;
-		width: 40%;
-		height: 100%;
-		text-align: center;
-	}
-}
-
-img-ad {
-	width: 100%;
-	font-size: 0;
-	margin: 0;
+.img-ad {
 	img {
 		width: 100%;
 	}

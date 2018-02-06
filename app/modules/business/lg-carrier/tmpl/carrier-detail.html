@@ -1,7 +1,7 @@
-<img-ad>
+<div class="img-ad">
 	<img-svg ng-show="$ctrl.carrier.current.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
 	<img ng-show="$ctrl.carrier.current.content.truck.image.url" ng-src="{{$ctrl.carrier.current.content.truck.image.url}}">
-</img-ad>
+</div>
 <recap>
 	<h1>{{$ctrl.carrier.current.content.truck.name}}</h1>
 	<span ng-show="$ctrl.carrier.current.content.availability === 'total'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWantedPerKm}} DZD/km</span>
