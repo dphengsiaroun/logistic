@@ -1,40 +1,42 @@
 <main>
-	<h1>S'identifier</h1>
-	<lg-social-login></lg-social-login>
-	<lg-hr>ou</lg-hr>
+	<section>
+		<h1>S'identifier</h1>
+		<lg-social-login></lg-social-login>
+		<lg-hr>ou</lg-hr>
 
-	<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.connection.create($ctrl.connection.createConnectionData)"
-	    novalidate>
-		<label>
-			<input name="login" type="text" placeholder="email, n°tel, pseudo" ng-model="$ctrl.connection.createConnectionData.login"
-			    required>
-			<message-form-validator>
-				<!-- <i ng-show="$ctrl.fv.isOk(formCtrl.login)" class="fa fa-check email" aria-hidden="true"></i>
+		<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.connection.create($ctrl.connection.createConnectionData)"
+		    novalidate>
+			<label>
+				<input name="login" type="text" placeholder="email, n°tel, pseudo" ng-model="$ctrl.connection.createConnectionData.login"
+				    required>
+				<message-form-validator>
+					<!-- <i ng-show="$ctrl.fv.isOk(formCtrl.login)" class="fa fa-check email" aria-hidden="true"></i>
 				<i ng-show="$ctrl.fv.isError(formCtrl.login)" class="fa fa-times error" aria-hidden="true"></i> -->
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.login)">
-					<span ng-show="formCtrl.login.$error.required">L'identifiant est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
-		</label>
-		<label>
-			<lg-eyepassword name="password" password="$ctrl.connection.createConnectionData.password" placeholder="Mot de passe"></lg-eyepassword>
-			<message-form-validator>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.password)">
-					<span ng-show="formCtrl.password.$error.required">Le mot de passe est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
+					<error-message ng-show="$ctrl.fv.isError(formCtrl.login)">
+						<span ng-show="formCtrl.login.$error.required">L'identifiant est obligatoire.</span>
+					</error-message>
+				</message-form-validator>
+			</label>
+			<label>
+				<lg-eyepassword name="password" password="$ctrl.connection.createConnectionData.password" placeholder="Mot de passe"></lg-eyepassword>
+				<message-form-validator>
+					<error-message ng-show="$ctrl.fv.isError(formCtrl.password)">
+						<span ng-show="formCtrl.password.$error.required">Le mot de passe est obligatoire.</span>
+					</error-message>
+				</message-form-validator>
 
-		</label>
-		<lg-error error="$ctrl.connection.error"></lg-error>
-		<button type="submit">Se connecter</button>
-	</form>
+			</label>
+			<lg-error error="$ctrl.connection.error"></lg-error>
+			<button type="submit">Se connecter</button>
+		</form>
 
-	<lg-hr>ou</lg-hr>
-	<center>
-		<a ui-sref="user:create">Créer un nouveau compte</a>
-	</center>
-	<lg-hr>ou</lg-hr>
-	<center>
-		<a ui-sref="password:forgottenPassword">Mot de passe oublié ?</a>
-	</center>
+		<lg-hr>ou</lg-hr>
+		<center>
+			<a ui-sref="user:create">Créer un nouveau compte</a>
+		</center>
+		<lg-hr>ou</lg-hr>
+		<center>
+			<a ui-sref="password:forgottenPassword">Mot de passe oublié ?</a>
+		</center>
+	</section>
 </main>

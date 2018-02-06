@@ -11,7 +11,22 @@ svg {
 
 ui-view {
 	display: block;
-	padding: $headerHeight + 16px 0.5em 0;
+	padding: $headerHeight 0 0;
+}
+
+section {
+	padding: 1em 0.5em;
+	border-top: 1px solid $darkBorderColor;
+	a {
+		display: block;
+		text-align: center;
+	}
+	&.dark {
+		background: darken($backgroundColor, 4%);
+	}
+	&:first-child {
+		border-top: none;
+	}
 }
 
 a {
@@ -27,6 +42,7 @@ h5,
 h6,
 p,
 label {
+	margin-top: 0;
 	margin-bottom: 0.5em;
 }
 
@@ -113,18 +129,6 @@ label.checkbox {
 ::placeholder {
 	color: $placeholderColor;
 	opacity: 1;
-}
-
-section {
-	padding: 1em 0;
-	border-bottom: 1px solid $darkBorderColor;
-	a {
-		display: block;
-		text-align: center;
-	}
-	&.dark {
-		background: darken($backgroundColor, 4%);
-	}
 }
 
 button, .button {
