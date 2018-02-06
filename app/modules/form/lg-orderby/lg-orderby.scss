@@ -1,16 +1,28 @@
 @import '../../../css/variable';
 lg-orderby {
 	display: inline-block;
-	>div {
-		display: block;
-		position: relative;
-		>.fa {
-			position: absolute;
-			top: -10px;
-			left: 20px;
-			&[disabled] {
-				color: gray(66%);
+	padding-left: 2em;
+	height: 100%;
+	.table {
+		height: 100%;
+		.table-cell {
+			position: relative;
+			.fa {
+				top: 0;
+				left: 0;
+				font-size: 2em;
+				&[disabled] {
+					color: gray(66%);
+				}
+			}
+			.fa-sort-asc {
+				position: relative;
+			}
+			.fa-sort-desc {
+				position: absolute;
+				top: 13px;
 			}
 		}
 	}
+	
 }

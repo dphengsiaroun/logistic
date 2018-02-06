@@ -1,16 +1,20 @@
-<section class="filter">
-	<div class="qty-ad">
-		<span id="noAds" ng-show="$ctrl.filteredlist.length === 0" ng-init="$ctrl.list">Aucune annonce de chargeur</span>
-		<span ng-show="$ctrl.filteredlist.length === 1" ng-init="$ctrl.list">1 annonce de chargeur</span>
-		<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de chargeur</span>
-		<br>
-		<span ng-show="$ctrl.removedByFilterLength === 0"></span>
-		<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrée</span>
-		<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filter">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
+<div class="filter-bar clearfix loader">
+	<div class="left">
+		<div>
+			<span id="noAds" ng-show="$ctrl.filteredlist.length === 0" ng-init="$ctrl.list">Aucune annonce de chargeur</span>
+			<span ng-show="$ctrl.filteredlist.length === 1" ng-init="$ctrl.list">1 annonce de chargeur</span>
+			<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de chargeur</span>
+			<br>
+			<span ng-show="$ctrl.removedByFilterLength === 0"></span>
+			<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrée</span>
+			<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filter">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
+		</div>
 	</div>
-	<lg-filter filter="$ctrl.filter"></lg-filter>
-	<lg-orderby order="$ctrl.order"></lg-orderby>
-</section>
+	<div class="right">
+		<lg-filter filter="$ctrl.filter"></lg-filter>
+		<lg-orderby order="$ctrl.order"></lg-orderby>
+	</div>
+</div>
 <loader-list>
 	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo: $ctrl.limit" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}">

@@ -1,31 +1,34 @@
-<section class="filter">
-    <div class="qty-ad">
-		<span ng-show="$ctrl.truck.trucks.length === 0">Aucun véhicule dans votre flotte.</span>
-        <span ng-show="$ctrl.truck.trucks.length > 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicules dans votre flotte</span>
-        <span ng-show="$ctrl.truck.trucks.length === 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicule dans votre flotte</span>
-    </div>
-</section>
+<div class="filter-bar clearfix">
+	<div class="left">
+		<div>
+			<span ng-show="$ctrl.truck.trucks.length === 0">Aucun véhicule dans votre flotte.</span>
+			<span ng-show="$ctrl.truck.trucks.length > 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicules dans votre flotte</span>
+			<span ng-show="$ctrl.truck.trucks.length === 1" ng-init="$ctrl.truck.trucks">{{$ctrl.truck.trucks.length}} véhicule dans votre flotte</span>
+		</div>
+	</div>
+</div>
 <truck-list>
-    <ad-block ng-repeat="truck in $ctrl.truck.trucks">
-        <a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.connection.user.content.login })">
-            <div>
-                <div class="img-fix">
-                    <img-svg ng-show="truck.image === undefined" src="/img/truck-default.svg"></img-svg>
-                    <img ng-show="truck.image.url" ng-src="{{truck.image.url}}">
-                </div>
-                <div class="details">
-                    <h2>{{truck.name}}</h2>
-                    <div>
-                        <div class="detail-left">
-                            <span>{{truck.model}}</span>
-                            <span>{{truck.transportCategory}} - {{truck.transportTruckType}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </ad-block>
+	<ad-block ng-repeat="truck in $ctrl.truck.trucks">
+		<a ui-sref="truck:retrieve({ id: truck.id, login: $ctrl.connection.user.content.login })">
+			<div>
+				<div class="img-fix">
+					<img-svg ng-show="truck.image === undefined" src="/img/truck-default.svg"></img-svg>
+					<img ng-show="truck.image.url" ng-src="{{truck.image.url}}">
+				</div>
+				<div class="details">
+					<h2>{{truck.name}}</h2>
+					<div>
+						<div class="detail-left">
+							<span>{{truck.model}}</span>
+							<span>{{truck.transportCategory}} - {{truck.transportTruckType}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</ad-block>
 </truck-list>
 <add-ads>
-	<button id="pr-create-truck-button" ui-sref="truck:create"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Déclarer un véhicule</button>
+	<button id="pr-create-truck-button" ui-sref="truck:create">
+		<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Déclarer un véhicule</button>
 </add-ads>
