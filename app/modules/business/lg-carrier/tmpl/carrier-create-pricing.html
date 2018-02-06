@@ -25,7 +25,7 @@
 			<input id="pr-price-wanted" name="priceWanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted">
 		</label>
 		<div ng-bind-html="$ctrl.carrier.createData.trip.infoRoute"></div>
-		<price-per-km>Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.createData.trip.distance | currency : 'DZD' : 0 }}</price-per-km>
+		<div class="bold">Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.createData.trip.distance | currency : 'DZD' : 0 }}</div>
 	</section>
 	<section ng-show="$ctrl.carrier.createData.availability === 'total'">
 		<label>

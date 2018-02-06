@@ -156,7 +156,7 @@
 
 		<label>
 			<span>Dimensions en mètre (colis, palette)</span>
-			<dimension ng-click="$ctrl.editDimension()">
+			<div class="dimension" ng-click="$ctrl.editDimension()">
 				<div class="box no-zoom">
 					<img-svg src="/img/box/box-width.svg"></img-svg>
 				</div>
@@ -166,7 +166,7 @@
 				<div class="box no-zoom">
 					<img-svg src="/img/box/box-depth.svg"></img-svg>
 				</div>
-			</dimension>
+			</div>
 			<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.loader.createData.dimension">
 			</lg-dimension>
 		</label>

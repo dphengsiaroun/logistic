@@ -34,54 +34,45 @@
 	}
 }
 
-.ad {
-	section {
-		price-per-km {
-			font-weight: bold;
-		}
-		dimension {
-			display: table;
-			width: 100%;
-			margin: 0;
-			padding: 0;
-			div {
-				display: table-cell;
-				width: 30%;
-				text-align: center;
-				p {
-					font-size: 17px;
-					font-weight: normal;
-				}
-			}
-			div.box {
-				svg {
-					width: 70px;
-				}
-			}
-			div.truck {
-				svg {
-					position: relative;
-					top: 0;
-					left: 0;
-					width: 90px;
-				}
-			}
-			div.truck.height {
-				svg {
-					left: 4px;
-				}
-			}
-			div.truck.depth {
-				svg {
-					left: 4px;
-				}
-			}
+.dimension {
+	display: table;
+	margin-bottom: 0.5em;
+	width: 100%;
+	div {
+		display: table-cell;
+		width: 30%;
+		text-align: center;
+		p {
+			font-size: 1em;
 		}
 	}
-	
+	.box {
+		svg {
+			width: 70px;
+		}
+	}
+	.truck {
+		svg {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 90px;
+		}
+	}
+	.truck.height {
+		svg {
+			left: 4px;
+		}
+	}
+	.truck.depth {
+		svg {
+			left: 4px;
+		}
+	}
 }
 
-.load-more-app {
+
+.load-more {
 	background: transparent;
 	color: $fontColor;
 	i.fa {
@@ -110,8 +101,7 @@
 		text-align: left;
 		vertical-align: middle;
 		span {
-			font-size: 13px;
-			// font-weight: bold;
+			font-size: 13px; // font-weight: bold;
 		}
 	}
 }
@@ -277,4 +267,3 @@ lg-select.conditioning svg {
 .total-filter {
 	color: gray(66%);
 }
-

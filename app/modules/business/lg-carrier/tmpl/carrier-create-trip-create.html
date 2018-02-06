@@ -77,7 +77,7 @@
 		<h2>Chargement restant</h2>
 		<label>
 			<span>Dimensions en mètre</span>
-			<dimension ng-click="$ctrl.editDimension()">
+			<div class="dimension" ng-click="$ctrl.editDimension()">
 				<div class="box no-zoom">
 					<img-svg src="/img/truck/truck-width.svg"></img-svg>
 				</div>
@@ -87,7 +87,7 @@
 				<div class="box no-zoom">
 					<img-svg src="/img/truck/truck-depth.svg"></img-svg>
 				</div>
-			</dimension>
+			</div>
 			<lg-dimension title="Dimensions du chargement" ng-model="$ctrl.tripData.dimension">
 			</lg-dimension>
 		</label>

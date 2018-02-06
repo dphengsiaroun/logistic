@@ -146,12 +146,21 @@ button, .button {
 		background: $criticalColor;
 		color: $secondaryColor;
 	}
+	&.transparent {
+		background: transparent;
+		border: 1px solid $buttonColor;
+		color: $buttonColor;
+	}
 }
 
 .title-icon {
 	display: block;
 	text-align: center;
 	font-size: 4em;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 .critical {
