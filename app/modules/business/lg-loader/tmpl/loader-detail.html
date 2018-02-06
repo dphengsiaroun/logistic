@@ -9,7 +9,7 @@
 		<div>Publié le {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
 		<div>Par {{$ctrl.loader.current.content.login | ucfirst}}</div>
 	</div>
-	<description>
+	<div class="description">
 		<p>{{$ctrl.loader.current.content.comments}}</p>
 
 		<lg-hr>Trajet</lg-hr>
@@ -96,14 +96,14 @@
 				</tr>
 			</tbody>
 		</table>
-	</description>
-	<bottom ng-show="!$ctrl.isEditable">
+	</div>
+	<div class="bottom" ng-show="!$ctrl.isEditable">
 		<a ng-show="!$ctrl.connection.user" ui-sref="connection:create">Appeler</a>
 		<a ng-show="$ctrl.connection.user" href="tel:{{$ctrl.loader.current.content.phone}}">Appeler</a>
 		<a id="create-proposal-not-connected" ng-show="!$ctrl.connection.user" ui-sref="connection:create">Faire une proposition</a>
 		<a id="create-proposal" ng-show="$ctrl.connection.user" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</a>
-	</bottom>
-	<div class="bottom-edit" ng-show="$ctrl.isEditable">
+	</div>
+	<div class="bottom" ng-show="$ctrl.isEditable">
 		<a id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">
 			<i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
 		<a class="button critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})">

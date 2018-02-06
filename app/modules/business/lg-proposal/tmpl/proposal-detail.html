@@ -19,7 +19,7 @@
 	<div class="info">
 		<div>Envoyé le {{$ctrl.proposal.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
 	</div>
-	<description>
+	<div class="description">
 		<lg-hr>Détail de la proposition</lg-hr>
 		<table>
 			<tbody>
@@ -29,8 +29,8 @@
 				</tr>
 			</tbody>
 		</table>
-	</description>
-	<div class="bottom-edit">
+	</div>
+	<div class="bottom">
 		<a id="pr-update-button" ui-sref="proposal:update({id: $ctrl.proposal.current.id})">
 			<i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
 		<a class="button critical" ui-sref="proposal:delete({id: $ctrl.proposal.current.id})">

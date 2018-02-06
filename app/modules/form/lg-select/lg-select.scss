@@ -1,0 +1,55 @@
+@import '../../../css/variable';
+lg-select {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	border: 1px solid $borderColor;
+	background: $secondaryColor;
+	border-radius: 5px;
+	text-align: center;
+	margin: 10px 0;
+	lg-option {
+		display: table-cell;
+		width: 1%;
+		padding: 10px 2px;
+		font-size: 16px;
+		border-right: 1px solid $borderColor;
+		span {
+			display: block;
+			font-size: 15px;
+		}
+		i.fa {
+			display: block;
+			font-size: 60px;
+		}
+	}
+	lg-option[selected] {
+		background: $fontColor;
+		color: $secondaryColor;
+		i,
+		span,
+		svg {
+			background: $fontColor;
+			color: $secondaryColor;
+			fill: $secondaryColor;
+		}
+	}
+	lg-option:first-child[selected] {
+		border-radius: 5px 0 0 5px;
+	}
+	lg-option:last-child[selected] {
+		border-radius: 0 5px 5px 0;
+	}
+}
+
+lg-select.conditioning {
+	lg-option {
+		i.fa {
+			display: block;
+			font-size: 45px;
+		}
+	}
+	svg {
+		width: 40px;
+	}
+}

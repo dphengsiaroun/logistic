@@ -1,3 +1,5 @@
+import './lg-select.scss';
+
 export const lgSelect = {
 	require: {
 		ngModel: 'ngModel',

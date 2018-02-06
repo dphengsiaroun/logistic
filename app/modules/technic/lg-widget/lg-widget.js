@@ -6,7 +6,6 @@ import { lgPrompt } from './lg-prompt.component.js';
 import { lgConfirm } from './lg-confirm.component.js';
 import { lgMessage } from './lg-message.component.js';
 import { lgFooter } from './lg-footer.component.js';
-import { lgSelect } from './lg-select.component.js';
 import { lgCity } from './lg-city.component.js';
 import { lgBindHtmlCompile } from './lg-bind-html-compile.directive.js';
 import { lgSocialLogin } from './lg-social-login.component.js';
@@ -18,7 +17,6 @@ angular.module(module.exports, [])
 	.component('lgConfirm', lgConfirm)
 	.component('lgMessage', lgMessage)
 	.component('lgFooter', lgFooter)
-	.component('lgSelect', lgSelect)
 	.component('lgCity', lgCity)
 	.directive('lgBindHtmlCompile', lgBindHtmlCompile)
 	.component('lgSocialLogin', lgSocialLogin)

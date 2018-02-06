@@ -10,7 +10,7 @@
 		<div>Publié le {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
 		<div>Par {{$ctrl.carrier.current.content.login | ucfirst}}</div>
 	</div>
-	<description>
+	<div class="description">
 		<comments ng-show="$ctrl.carrier.current.content.pricing.comments">
 			<lg-hr>Commentaires</lg-hr>
 			<p>{{$ctrl.carrier.current.content.pricing.comments}}</p>
@@ -113,20 +113,14 @@
 				</tbody>
 			</table>
 		</div>
-	</description>
-	<br>
-	<div ng-show="!$ctrl.isEditable">
-		<br>
-		<br>
-		<br>
 	</div>
-	<bottom ng-show="!$ctrl.isEditable">
+	<div class="bottom" ng-show="!$ctrl.isEditable">
 		<a ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Appeler</a>
 		<a ng-show="$ctrl.connection.isConnected == true" href="tel:{{$ctrl.carrier.current.content.phone}}">Appeler</a>
 		<a id="create-proposal-not-connected" ng-show="$ctrl.connection.isConnected == false" ui-sref="connection:create">Faire une proposition</a>
 		<a id="create-proposal" ng-show="$ctrl.connection.isConnected == true" ui-sref="proposal:create({id: $ctrl.carrier.current.id, type: 'carrier'})">Faire une proposition</a>
-	</bottom>
-	<div class="bottom-edit" ng-show="$ctrl.isEditable">
+	</div>
+	<div class="bottom" ng-show="$ctrl.isEditable">
 		<a id="pr-edit-button" ui-sref="carrier:update({login: $ctrl.connection.user.content.login, id: $ctrl.carrier.current.id})">
 			<i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
 		<a class="button critical" ui-sref="carrier:delete({login: $ctrl.connection.user.content.login, id: $ctrl.carrier.current.id})">

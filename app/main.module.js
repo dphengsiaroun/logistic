@@ -20,6 +20,7 @@ import lgFilter from './modules/form/lg-filter/lg-filter.component.js';
 import lgFormValidator from './modules/form/lg-form-validator/lg-form-validator.js';
 import lgOrderby from './modules/form/lg-orderby/lg-orderby.component.js';
 import lgNum from './modules/form/lg-num/lg-num.js';
+import lgSelect from './modules/form/lg-select/lg-select.module.js';
 import lgSlider from './modules/form/lg-slider/lg-slider.component.js';
 import lgLoadImage from './modules/form/lg-load-image/lg-load-image.module.js';
 
@@ -60,6 +61,7 @@ angular.module('main', [
 	lgFormValidator,
 	lgOrderby,
 	lgNum,
+	lgSelect,
 	lgSlider,
 	lgLoadImage,
 
