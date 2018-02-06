@@ -34,6 +34,9 @@
 	}
 }
 
+.total-filtered {
+	color: gray(66%);
+}
 
 .filter-bar {
 	display: block;
@@ -191,8 +194,4 @@
 		color: $secondaryColor;
 		margin-right: 5px;
 	}
-}
-
-.total-filter {
-	color: gray(66%);
 }
