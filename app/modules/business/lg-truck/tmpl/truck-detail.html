@@ -1,44 +1,48 @@
 <img-ad>
-    <img-svg ng-show="$ctrl.truck.current.image === undefined" src="/img/truck-default.svg"></img-svg>
-    <img ng-show="$ctrl.truck.current.image.url" ng-src="{{$ctrl.truck.current.image.url}}">
+	<img-svg ng-show="$ctrl.truck.current.image === undefined" src="/img/truck-default.svg"></img-svg>
+	<img ng-show="$ctrl.truck.current.image.url" ng-src="{{$ctrl.truck.current.image.url}}">
 </img-ad>
 <recap>
-    <h1>{{$ctrl.truck.current.name}}</h1>
-    <info>
-        <p>Publié le {{$ctrl.truck.current.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
-        <p>Par {{$ctrl.truck.current.login | ucfirst}}</p>
-    </info>
-    <origin>
-        <b><i class="fa fa-map-marker" aria-hidden="true"></i></b>
-        <city>{{$ctrl.truck.current.city.city}}</city>
-        <region>{{$ctrl.truck.current.city.region}}
-            <region>
-    </origin>
-    <description>
-        <lg-hr>Description du véhicule</lg-hr>
-        <table>
-            <tbody>
-                <tr>
-                    <th>Catégorie</th>
-                    <td>{{$ctrl.truck.current.transportCategory}}</td>
-                </tr>
-                <tr>
-                    <th>Type</th>
-                    <td>{{$ctrl.truck.current.transportTruckType}}</td>
-                </tr>
-                <tr>
-                    <th>Modèle</th>
-                    <td>{{$ctrl.truck.current.model}}</td>
-                </tr>
-                <tr>
-                    <th>Année</th>
-                    <td>{{$ctrl.truck.current.birthyear}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </description>
-    <bottom-edit>
-        <a id="pr-update-button" ui-sref="truck:update({login: $ctrl.connection.user.content.login, id: $ctrl.truck.current.id})"><i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
-        <a class="btn-critical" ui-sref="truck:delete({login: $ctrl.connection.user.content.login, id: $ctrl.truck.current.id})"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
-    </bottom-edit>
+	<h1>{{$ctrl.truck.current.name}}</h1>
+	<info>
+		<p>Publié le {{$ctrl.truck.current.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</p>
+		<p>Par {{$ctrl.truck.current.login | ucfirst}}</p>
+	</info>
+	<origin>
+		<b>
+			<i class="fa fa-map-marker" aria-hidden="true"></i>
+		</b>
+		<city>{{$ctrl.truck.current.city.city}}</city>
+		<region>{{$ctrl.truck.current.city.region}}
+			<region>
+	</origin>
+	<description>
+		<lg-hr>Description du véhicule</lg-hr>
+		<table>
+			<tbody>
+				<tr>
+					<th>Catégorie</th>
+					<td>{{$ctrl.truck.current.transportCategory}}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{$ctrl.truck.current.transportTruckType}}</td>
+				</tr>
+				<tr>
+					<th>Modèle</th>
+					<td>{{$ctrl.truck.current.model}}</td>
+				</tr>
+				<tr>
+					<th>Année</th>
+					<td>{{$ctrl.truck.current.birthyear}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</description>
+	<div class="bottom-edit">
+		<a id="pr-update-button" ui-sref="truck:update({login: $ctrl.connection.user.content.login, id: $ctrl.truck.current.id})">
+			<i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
+		<a class="button critical" ui-sref="truck:delete({login: $ctrl.connection.user.content.login, id: $ctrl.truck.current.id})">
+			<i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
+	</div>
 </recap>

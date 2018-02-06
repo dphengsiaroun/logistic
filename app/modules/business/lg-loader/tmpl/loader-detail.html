@@ -31,7 +31,8 @@
 				</tr>
 			</tbody>
 		</table>
-		<a ng-href="{{$ctrl.loader.current.content | googlemap}}" target="_blank"><i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
+		<a ng-href="{{$ctrl.loader.current.content | googlemap}}" target="_blank">
+			<i class="fa fa-map-o" aria-hidden="true"></i> Voir la carte</a>
 
 		<lg-hr>Horaire</lg-hr>
 		<table>
@@ -97,15 +98,22 @@
 		</table>
 	</description>
 	<br>
-	<div ng-show="!$ctrl.isEditable"><br><br><br></div>
+	<div ng-show="!$ctrl.isEditable">
+		<br>
+		<br>
+		<br>
+	</div>
 	<bottom ng-show="!$ctrl.isEditable">
 		<a ng-show="!$ctrl.connection.user" ui-sref="connection:create">Appeler</a>
 		<a ng-show="$ctrl.connection.user" href="tel:{{$ctrl.loader.current.content.phone}}">Appeler</a>
 		<a id="create-proposal-not-connected" ng-show="!$ctrl.connection.user" ui-sref="connection:create">Faire une proposition</a>
 		<a id="create-proposal" ng-show="$ctrl.connection.user" ui-sref="proposal:create({id: $ctrl.loader.current.id, type: 'loader'})">Faire une proposition</a>
 	</bottom>
-	<bottom-edit ng-show="$ctrl.isEditable">
-		<a id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})"><i class="fa fa-pencil" aria-hidden="true"></i> Editer</button>
-		<a class="btn-critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
-	</bottom-edit>
+	<div class="bottom-edit" ng-show="$ctrl.isEditable">
+		<a id="pr-edit-button" ui-sref="loader:update({id: $ctrl.loader.current.id})">
+			<i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
+		<a class="button critical" ui-sref="loader:delete({id: $ctrl.loader.current.id})">
+			<i class="fa fa-trash" aria-hidden="true"></i> Supprimer
+		</a>
+	</div>
 </recap>
