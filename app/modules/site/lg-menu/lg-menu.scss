@@ -23,7 +23,7 @@ lg-menu {
 my-head {
 	display: table;
 	width: 100%;
-	background-color: $headerColor;
+	background: $headerColor;
 	height: $headerHeight;
 	head-left {
 		display: table-cell;
@@ -108,28 +108,27 @@ lg-menu-content {
 	bottom: 0;
 	left: 0;
 	z-index: 75;
-	background-color: $backgroundColor;
+	background: $backgroundColor;
 	text-align: left;
 	a {
 		display: block;
-		background: $secondaryColor;
-		border-bottom: 1px solid $borderColor;
-		padding: 10px;
-		width: 100%;
-		font-size: 23px;
 		position: relative;
+		width: 100%;
+		border-bottom: 1px solid $borderColor;
+		background: $secondaryColor;
+		padding: 10px;
 		.fa {
 			display: inline-block;
 			width: 15%;
-			font-size: 36px;
+			font-size: 2.2em;
 			color: $fontColor;
 			height: 100%;
 		}
-		p {
+		span {
 			display: inline-block;
 			vertical-align: top;
 			padding: 6px 11px;
-			font-size: 20px;
+			font-size: 1.3em;
 		}
 	}
 }

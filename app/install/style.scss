@@ -19,7 +19,7 @@ h2 {
 	margin: 10px 0;
 	text-align: left;
 	font-size: 20px;
-	background-color: $primaryColor;
+	background: $primaryColor;
 	color: $secondaryColor;
 	border-radius: 0 0 100px 0;
 }
@@ -61,7 +61,7 @@ div {
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #555;
-	background-color: $secondaryColor;
+	background: $secondaryColor;
 	background-image: none;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -109,25 +109,25 @@ button {
 
 .btn-primary {
 	color: #fff;
-	background-color: #0275d8;
+	background: #0275d8;
 	border-color: #0275d8;
 }
 
 .btn-primary:hover {
 	color: #fff;
-	background-color: #025aa5;
+	background: #025aa5;
 	border-color: #01549b;
 }
 
 .btn-danger {
 	color: #fff;
-	background-color: #d9534f;
+	background: #d9534f;
 	border-color: #d9534f;
 }
 
 .btn-danger:hover {
 	color: #fff;
-	background-color: #c9302c;
+	background: #c9302c;
 	border-color: #c12e2a;
 }
 
@@ -176,7 +176,7 @@ button {
 .link a {
 	display: table-cell;
 	width: 30%;
-	background-color: hsl(120, 60%, 50%);
+	background: hsl(120, 60%, 50%);
 	color: $secondaryColor;
 	text-align: center;
 	text-decoration: none;
@@ -190,7 +190,7 @@ button {
 }
 
 .link .critical {
-	background-color: red;
+	background: red;
 }
 
 .link span {

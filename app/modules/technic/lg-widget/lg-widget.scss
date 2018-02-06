@@ -56,7 +56,7 @@ lg-select {
 	table-layout: fixed;
 	width: 100%;
 	border: 1px solid $borderColor;
-	background-color: $secondaryColor;
+	background: $secondaryColor;
 	border-radius: 5px;
 	text-align: center;
 	margin: 10px 0;
@@ -76,12 +76,12 @@ lg-select {
 		}
 	}
 	lg-option[selected] {
-		background-color: $fontColor;
+		background: $fontColor;
 		color: $secondaryColor;
 		i,
 		span,
 		svg {
-			background-color: $fontColor;
+			background: $fontColor;
 			color: $secondaryColor;
 			fill: $secondaryColor;
 		}
@@ -124,7 +124,7 @@ lg-hr {
 		display: inline-block;
 		position: relative;
 		top: 0;
-		background-color: $backgroundColor;
+		background: $backgroundColor;
 		padding: 5px 5px;
 		span {
 			font-size: 17px;

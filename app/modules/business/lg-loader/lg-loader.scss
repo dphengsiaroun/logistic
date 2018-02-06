@@ -1,7 +1,7 @@
 @import '../../../css/variable';
 lg-loader-list-route {
 	.filter {
-		background-color: $loaderColor;
+		background: $loaderColor;
 	}
 }
 
@@ -15,7 +15,7 @@ loader-list {
 		width: 100%;
 		margin: 5px 0;
 		padding: 0;
-		background-color: $secondaryColor;
+		background: $secondaryColor;
 		header {
 			display: block;
 			width: 100%;
@@ -147,5 +147,5 @@ loader-list {
 
 
 .ad-title.loader {
-	background-color: $loaderColor;
+	background: $loaderColor;
 }

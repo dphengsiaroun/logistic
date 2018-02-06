@@ -1,7 +1,7 @@
 @import '../../../css/variable';
 tests {
 	display: block;
-	background-color: #ebebeb;
+	background: #ebebeb;
 	text-align: left;
 	a {
 		display: block;
@@ -33,7 +33,7 @@ fixed {
 	top: $headerHeight;
 	left: 0;
 	bottom: 0;
-	background-color: $secondaryColor;
+	background: $secondaryColor;
 	width: 100%;
 	height: 100%;
 	test-slider {
@@ -45,7 +45,7 @@ fixed {
 			display: table;
 			table-layout: fixed;
 			width: 100%;
-			background-color: $thirdColor;
+			background: $thirdColor;
 			label {
 				display: table-cell;
 				text-align: center;
@@ -58,7 +58,7 @@ fixed {
 					min-height: 0;
 					text-align: center;
 					border: none;
-					background-color: transparent;
+					background: transparent;
 					color: $secondaryColor;
 				}
 			}
@@ -68,7 +68,7 @@ fixed {
 			width: 100%;
 			margin: 0 0;
 			padding: 0 10px;
-			background-color: $fontColor;
+			background: $fontColor;
 			color: $secondaryColor;
 		}
 		settings {

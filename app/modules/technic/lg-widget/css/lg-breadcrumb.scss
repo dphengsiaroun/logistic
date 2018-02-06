@@ -14,7 +14,7 @@ breadcrumb {
 	>step {
 		display: table-cell;
 		position: relative;
-		background-color: $breadcrumbColor;
+		background: $breadcrumbColor;
 		padding: 0 0;
 		text-align: center;
 		vertical-align: middle;
@@ -61,7 +61,7 @@ breadcrumb {
 			content: none;
 		}
 		&[disabled] {
-			background-color: $breadcrumbDisabledBgColor;
+			background: $breadcrumbDisabledBgColor;
 			div {
 				i.fa {
 					color: $breadcrumbDisabledColor;

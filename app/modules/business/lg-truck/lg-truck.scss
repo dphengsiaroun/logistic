@@ -30,7 +30,7 @@
                 }
             }
             div {
-                background-color: $secondaryColor;
+                background: $secondaryColor;
                 display: inline-block;
                 width: 100%;
                 vertical-align: middle;
@@ -39,7 +39,7 @@
                     padding: 0 10px;
                     font-size: 13px;
                     text-align: left;
-                    background-color: $secondaryColor;
+                    background: $secondaryColor;
                     h2 {
                         text-align: left;
                         font-size: 16px;
@@ -98,7 +98,7 @@ truck-list {
                 }
             }
             div {
-                background-color: $secondaryColor;
+                background: $secondaryColor;
                 width: 100%;
                 vertical-align: middle;
                 .details {
@@ -107,7 +107,7 @@ truck-list {
                     padding: 0 10px;
                     font-size: 13px;
                     text-align: left;
-                    background-color: $secondaryColor;
+                    background: $secondaryColor;
                     h2 {
                         text-align: left;
                         font-size: 16px;

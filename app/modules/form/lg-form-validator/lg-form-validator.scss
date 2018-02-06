@@ -16,10 +16,10 @@ div {
 }
 
 .ng-dirty.ng-invalid.ng-touched {
-	background-color: hsl(0, 100%, 97%);
+	background: hsl(0, 100%, 97%);
 	border-color: hsl(0, 100%, 80%);
 	my-input {
-		background-color: hsl(0, 100%, 97%);
+		background: hsl(0, 100%, 97%);
 		border-color: hsl(0, 100%, 80%);
 	}
 }

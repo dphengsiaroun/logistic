@@ -64,7 +64,7 @@ my-input, textarea {
 	color: $primaryColor;
 	line-height: 1.30;
 	&[readonly] {
-		background-color: gray(88%);
+		background: gray(88%);
 	}
 }
 
@@ -109,7 +109,9 @@ a {
 
 section {
 	padding: 1em 0.5em;
-	text-align: center;
+	a {
+		text-align: center;
+	}
 }
 
 .title-icon {

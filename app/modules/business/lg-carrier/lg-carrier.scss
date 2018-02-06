@@ -7,7 +7,7 @@ summary {
 		steps {
 			display: table;
 			width: 100%;
-			background-color: $secondaryColor;
+			background: $secondaryColor;
 			step {
 				display: table-row;
 				width: 100%;
@@ -60,7 +60,7 @@ summary {
 				}
 			}
 			step.active {
-				background-color: $thirdColor;
+				background: $thirdColor;
 				num-step,
 				label,
 				.fa {
@@ -69,10 +69,10 @@ summary {
 			}
 			step.disabled {
 				opacity: 0.2;
-				background-color: gray(66%);
+				background: gray(66%);
 			}
 			step.done {
-				background-color: $secondaryColor;
+				background: $secondaryColor;
 				label {
 					color: $fontColor;
 				}
@@ -135,7 +135,7 @@ item {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: $secondaryColor;
+	background: $secondaryColor;
 	border: 1px solid #eeeeee;
 	border-top: none;
 	border-bottom: none;
@@ -149,7 +149,7 @@ item {
 			font-size: 17px;
 			text-align: left;
 			padding: 5px 8px 6px 100px;
-			background-color: rgba(255, 232, 82, 0.37);
+			background: rgba(255, 232, 82, 0.37);
 		}
 		img {
 			display: block;
@@ -184,7 +184,7 @@ trajet {
 			padding: 15px;
 			font-size: 20px;
 			border-bottom: 1px solid $borderColor;
-			background-color: $secondaryColor;
+			background: $secondaryColor;
 			availability {
 				display: table;
 				width: 100%;
@@ -224,7 +224,7 @@ carrier-list {
 		width: 100%;
 		margin: 5px 0;
 		padding: 0;
-		background-color: $secondaryColor;
+		background: $secondaryColor;
 		header {
 			display: block;
 			width: 100%;

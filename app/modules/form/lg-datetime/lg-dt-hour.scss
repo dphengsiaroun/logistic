@@ -9,7 +9,7 @@ lg-dt-hour {
     bottom: 0;
     width: 100%;
     height: 125px;
-    background-color: $headCalendarColor;
+    background: $headCalendarColor;
     border-top: 1px solid $veryDarkBorderColor;
     text-align: center;
     overflow: hidden;
@@ -33,7 +33,7 @@ lg-dt-hour {
                 left: 0;
                 padding: 0%;
                 white-space: nowrap;
-                // background-color: tomato;
+                // background: tomato;
                 span {
                     display: inline-block;
                     cursor: pointer;
@@ -46,7 +46,7 @@ lg-dt-hour {
                     padding-right: 3%;
                     font-weight: bold;
                     font-size: 18px;
-                    // background-color: green;
+                    // background: green;
                 }
                 span.padding {
                     width: 43%;
@@ -63,7 +63,7 @@ lg-dt-hour {
             width: 14%;
             height: 33px;
             border-radius: 25%;
-            background-color: $thirdColor;
+            background: $thirdColor;
         }
     }
 }

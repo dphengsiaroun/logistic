@@ -55,7 +55,7 @@ my-input {
 
 input[readonly],
 my-input[readonly] {
-	background-color: gray(88%);
+	background: gray(88%);
 }
 
 textarea {
@@ -240,12 +240,12 @@ admin-section {
 	display: table-cell;
 	width: 85%;
 	min-height: 800px;
-	background-color: #F5F5F5;
+	background: #F5F5F5;
 	header {
 		display: table;
 		width: 100%;
 		padding: 15px 30px;
-		background-color: $secondaryColor;
+		background: $secondaryColor;
 		border-bottom: 1px solid $borderColor;
 		h2 {
 			display: table-cell;
@@ -260,7 +260,7 @@ admin-section {
 			vertical-align: middle;
 			.download {
 				cursor: pointer;
-				background-color: $thirdColor;
+				background: $thirdColor;
 				color: white;
 				padding: 10px 15px;
 				font-size: 13px;
@@ -294,7 +294,7 @@ admin-section {
 				border-radius: 4px;
 				padding: 15px 20px;
 				box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05), 0 0 0 1px hsla(240, 4%, 26%, 0.1);
-				background-color: #FFFFFF;
+				background: #FFFFFF;
 				margin-bottom: 30px;
 				.header {
 					h4 {
@@ -363,7 +363,7 @@ admin-section {
 							}
 						}
 						.table-striped>tbody>tr:nth-of-type(odd) {
-							background-color: $rowTableColor;
+							background: $rowTableColor;
 						}
 					}
 				}
@@ -415,7 +415,7 @@ admin-section {
 			.card {
 				border-radius: 4px;
 				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-				background-color: #FFFFFF; // margin-bottom: 30px;
+				background: #FFFFFF; // margin-bottom: 30px;
 				.header {
 					padding: 15px 15px 0;
 					h4 {
@@ -446,7 +446,7 @@ admin-section {
 					div .download {
 						display: block;
 						cursor: pointer;
-						background-color: $thirdColor;
+						background: $thirdColor;
 						color: white;
 						padding: 7px 10px;
 						font-size: 13px;
@@ -458,12 +458,12 @@ admin-section {
 						}
 					}
 					div .download:hover {
-						background-color: #66912f;
+						background: #66912f;
 					}
 					div .load-more {
 						display: block;
 						cursor: pointer;
-						background-color: $thirdColor;
+						background: $thirdColor;
 						color: white;
 						padding: 7px 20px;
 						font-size: 15px;
@@ -476,7 +476,7 @@ admin-section {
 						}
 					}
 					div .load-more:hover {
-						background-color: #66912f;
+						background: #66912f;
 					}
 					div.filter {
 						width: 255px;
@@ -543,7 +543,7 @@ admin-section {
 						}
 					}
 					.table-striped>tbody>tr:nth-of-type(odd) {
-						background-color: $rowTableColor;
+						background: $rowTableColor;
 					}
 				}
 			}
@@ -553,7 +553,7 @@ admin-section {
 		display: block;
 		width: 100%;
 		padding: 20px;
-		background-color: $secondaryColor;
+		background: $secondaryColor;
 		border-top: 1px solid #e7e7e7;
 		span {
 			a {
@@ -586,7 +586,7 @@ admin-login-route {
 			padding: 30px;
 			.card {
 				display: block;
-				background-color: $secondaryColor;
+				background: $secondaryColor;
 				box-shadow: 0 25px 30px -13px rgba(40, 40, 40, 0.4);
 				border-radius: 10px;
 				padding: 30px 20px;
@@ -624,7 +624,7 @@ admin-login-route {
 					display: block;
 					width: 50%;
 					margin: 0 auto;
-					background-color: transparent;
+					background: transparent;
 					line-height: 30px;
 					text-align: center;
 					a {
@@ -690,11 +690,11 @@ admin-confirm {
 				border-radius: 3px;
 				margin: 10px 0;
 				&.critical {
-					background-color: red;
+					background: red;
 					color: $secondaryColor;
 				}
 				&.disconnect {
-					background-color: #8de61a;
+					background: #8de61a;
 					color: $secondaryColor;
 				}
 			}
@@ -720,7 +720,7 @@ admin-terms-route {
 			margin: 10px 0;
 			padding: 10px !important;
 			text-align: left;
-			background-color: $primaryColor;
+			background: $primaryColor;
 			color: white;
 			border-radius: 2px;
 			font-size: 15px !important;
