@@ -5,10 +5,10 @@
 <section class="detail-ad">
 	<h1>{{$ctrl.loader.current.content.title}}</h1>
 	<span>Prix souhaité : {{$ctrl.loader.current.content.priceWanted}} DZD</span>
-	<info>
+	<div class="info">
 		<div>Publié le {{$ctrl.loader.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
 		<div>Par {{$ctrl.loader.current.content.login | ucfirst}}</div>
-	</info>
+	</div>
 	<description>
 		<p>{{$ctrl.loader.current.content.comments}}</p>
 
@@ -97,12 +97,6 @@
 			</tbody>
 		</table>
 	</description>
-	<br>
-	<div ng-show="!$ctrl.isEditable">
-		<br>
-		<br>
-		<br>
-	</div>
 	<bottom ng-show="!$ctrl.isEditable">
 		<a ng-show="!$ctrl.connection.user" ui-sref="connection:create">Appeler</a>
 		<a ng-show="$ctrl.connection.user" href="tel:{{$ctrl.loader.current.content.phone}}">Appeler</a>

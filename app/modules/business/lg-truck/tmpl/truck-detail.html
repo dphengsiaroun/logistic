@@ -4,18 +4,18 @@
 </div>
 <section class="detail-ad">
 	<h1>{{$ctrl.truck.current.name}}</h1>
-	<info>
+	<div class="info">
 		<div>Publié le {{$ctrl.truck.current.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
 		<div>Par {{$ctrl.truck.current.login | ucfirst}}</div>
-	</info>
-	<origin>
+	</div>
+	<div class="origin">
 		<b>
 			<i class="fa fa-map-marker" aria-hidden="true"></i>
 		</b>
 		<city>{{$ctrl.truck.current.city.city}}</city>
 		<region>{{$ctrl.truck.current.city.region}}
 			<region>
-	</origin>
+	</div>
 	<description>
 		<lg-hr>Description du véhicule</lg-hr>
 		<table>

@@ -6,10 +6,10 @@
 	<h1>{{$ctrl.carrier.current.content.truck.name}}</h1>
 	<span ng-show="$ctrl.carrier.current.content.availability === 'total'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWantedPerKm}} DZD/km</span>
 	<span ng-show="$ctrl.carrier.current.content.availability === 'specificTrip'">Prix souhaité : {{$ctrl.carrier.current.content.pricing.priceWanted}} DZD</span>
-	<info>
+	<div class="info">
 		<div>Publié le {{$ctrl.carrier.current.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'"}}</div>
 		<div>Par {{$ctrl.carrier.current.content.login | ucfirst}}</div>
-	</info>
+	</div>
 	<description>
 		<comments ng-show="$ctrl.carrier.current.content.pricing.comments">
 			<lg-hr>Commentaires</lg-hr>

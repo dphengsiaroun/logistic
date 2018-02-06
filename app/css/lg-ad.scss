@@ -102,52 +102,27 @@
 }
 
 .detail-ad {
-	padding: 15px 5px;
-	background: gray(96%);
 	h1 {
-		font-size: 25px;
-		text-align: left;
+		font-size: 1.5em;
 	}
-	h2 {
-		margin: 20px 0;
-		font-size: 21px;
-		text-align: center;
-	}
-	div {
-		text-align: center;
-	}
-	info {
-		margin: 10px 0;
+	.info {
 		div {
-			text-align: left;
-			font-size: 12px;
+			font-size: 0.7em;
 			color: gray(66%);
 		}
 	}
-	iframe {
-		margin: 10px 0 0;
-	}
-	img {
-		width: 100%;
-		margin: 10px 0;
-	}
-	origin {
+	.origin {
 		city {
-			font-size: 14px;
+			font-size: 0.8em;
 			font-weight: bold;
 		}
 		region {
-			font-size: 13px;
+			font-size: 0.7em;
 			color: gray(66%);
 		}
 	}
 	description {
-		text-align: left;
-		h3 {
-			text-align: left;
-			margin: 10px 0;
-			font-size: 17px;
-		}
+		display: block;
 		a {
 			display: block;
 			text-align: center;
