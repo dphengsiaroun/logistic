@@ -4,7 +4,7 @@
 	<h2>{{$ctrl.connection.user.content.firstname}} {{$ctrl.connection.user.content.lastname | uppercase }}</h2>
 
 	<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.user.update()" novalidate>
-		<div>
+		<label>
 			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.updateData.content.lastname" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
@@ -12,8 +12,8 @@
 					<span ng-show="formCtrl.lastname.$error.required">Le nom est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
-		<div>
+		</label>
+		<label>
 			<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.updateData.content.firstname" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
@@ -21,8 +21,8 @@
 					<span ng-show="formCtrl.firstname.$error.required">Le prénom est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
-		<div>
+		</label>
+		<label>
 			<input name="login" type="text" ui-mask="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder
 			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.updateData.content.login" required>
 			<message-form-validator>
@@ -31,8 +31,8 @@
 					<span ng-show="formCtrl.login.$error.required">Le pseudo est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
-		<div>
+		</label>
+		<label>
 			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.updateData.email" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
@@ -42,7 +42,7 @@
 					<span ng-show="formCtrl.email.$error.email">Cet email n'est pas valide.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
+		</label>
 		<br>
 		<lg-select name="profile" ng-model="$ctrl.user.updateData.content.profile" required>
 			<lg-option value="loader" selected>Chargeur</lg-option>
@@ -50,7 +50,7 @@
 			<lg-option value="both" selected>Les deux</lg-option>
 		</lg-select>
 		<br>
-		<div>
+		<label>
 			<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.updateData.content.address.street" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
@@ -58,8 +58,8 @@
 					<span ng-show="formCtrl.street.$error.required">L'adresse est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
-		<div>
+		</label>
+		<label>
 			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.updateData.content.address.zipcode"
 			    required>
 			<message-form-validator>
@@ -68,8 +68,8 @@
 					<span ng-show="formCtrl.zipcode.$error.required">Le code postal est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
-		<div>
+		</label>
+		<label>
 			<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.updateData.content.address.city" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
@@ -77,8 +77,8 @@
 					<span ng-show="formCtrl.city.$error.required">La ville est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
-		<div>
+		</label>
+		<label>
 			<lg-choice name="country" choices="$root.config.countries" title="Pays d'origine" placeholder="Pays" ng-model="$ctrl.user.updateData.content.address.country"
 			    is-mandatory="true"></lg-choice>
 			<message-form-validator>
@@ -87,8 +87,8 @@
 					<span ng-show="formCtrl.country.$error.required">Le pays est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
-		<div>
+		</label>
+		<label>
 			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.updateData.content.phone" required
 			>
 			<message-form-validator>
@@ -97,7 +97,7 @@
 					<span ng-show="formCtrl.phone.$error.required">Le téléphone est obligatoire.</span>
 				</error-message>
 			</message-form-validator>
-		</div>
+		</label>
 		<br>
 		<lg-error error="$ctrl.user.error"></lg-error>
 		<div class="bouton">

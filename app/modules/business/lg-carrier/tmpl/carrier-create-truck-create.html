@@ -1,19 +1,22 @@
 <breadcrumb>
 	<step>
 		<div>
-			<i class="fa fa-truck" aria-hidden="true"></i><br>
+			<i class="fa fa-truck" aria-hidden="true"></i>
+			<br>
 			<span>Véhicule</span>
 		</div>
 	</step>
 	<step first disabled>
 		<div>
-			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i><br>
+			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i>
+			<br>
 			<span>Disponibilité</span>
 		</div>
 	</step>
 	<step disabled>
 		<div>
-			<i class="fa fa-money" aria-hidden="true"></i><br>
+			<i class="fa fa-money" aria-hidden="true"></i>
+			<br>
 			<span>Prix</span>
 		</div>
 	</step>
@@ -23,67 +26,76 @@
 		<label>
 			<span>Immatriculation ou libellé du véhicule</span>
 			<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.name)">
+					<span ng-show="formCtrl.name.$error.required">Immatriculation ou libellé du véhicule obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.name)">
-				<span ng-show="formCtrl.name.$error.required">Immatriculation ou libellé du véhicule obligatoire.</span>
-			</error-message>
-		</message-form-validator>
-		
+
 		<label>
 			<span>Description succinte du modèle</span>
 			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.model)">
+					<span ng-show="formCtrl.model.$error.required">Description succinte du modèle obligatoire</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.model)">
-				<span ng-show="formCtrl.model.$error.required">Description succinte du modèle obligatoire</span>
-			</error-message>
-		</message-form-validator>
 	</section>
 	<section class="dark">
 		<label>
 			<span>Ville d'origine</span>
 			<lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city" required></lg-city>
+			<message-form-validator>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
+					<span ng-show="formCtrl.city.$error.required">La ville d'origine est obligatoire.</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
-				<span ng-show="formCtrl.city.$error.required">La ville d'origine est obligatoire.</span>
-			</error-message>
-		</message-form-validator>
 	</section>
 	<section class="dark">
 		<h2>Transport</h2>
 		<lg-select name="transportCategory" ng-model="$ctrl.truck.createData.transportCategory" required>
-			<lg-option value="Camion"><i class="fa fa-truck" aria-hidden="true"></i><span>Camion</span></lg-option>
-			<lg-option value="Avion"><i class="fa fa-plane" aria-hidden="true"></i><span>Avion</span></lg-option>
-			<lg-option value="Bateau"><i class="fa fa-ship" aria-hidden="true"></i><span>Bateau</span></lg-option>
+			<lg-option value="Camion">
+				<i class="fa fa-truck" aria-hidden="true"></i>
+				<span>Camion</span>
+			</lg-option>
+			<lg-option value="Avion">
+				<i class="fa fa-plane" aria-hidden="true"></i>
+				<span>Avion</span>
+			</lg-option>
+			<lg-option value="Bateau">
+				<i class="fa fa-ship" aria-hidden="true"></i>
+				<span>Bateau</span>
+			</lg-option>
 		</lg-select>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Camion'">
 			<label>
 				<span>Type de camion</span>
 				<lg-choice name="transportTruckType" options="{icon: $root.config.getTruckTypesIcon}" choices="$root.config.transportTruckTypes"
-					title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType" required></lg-choice>
+				    title="Type de camion" placeholder="Ex : Benne, Bâché, etc." ng-model="$ctrl.truck.createData.transportTruckType" required></lg-choice>
+				<message-form-validator>
+					<error-message ng-show="$ctrl.fv.isError(formCtrl.transportTruckType)">
+						<span ng-show="formCtrl.transportTruckType.$error.required">Le type de camion est obligatoire.</span>
+					</error-message>
+				</message-form-validator>
 			</label>
-			<message-form-validator>
-				<error-message ng-show="$ctrl.fv.isError(formCtrl.transportTruckType)">
-					<span ng-show="formCtrl.transportTruckType.$error.required">Le type de camion est obligatoire.</span>
-				</error-message>
-			</message-form-validator>
 		</div>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Bateau'">
 			<label>
 				<span>Type de bateau</span>
 				<lg-choice name="transportBoatType" choices="$root.config.transportBoatTypes" title="Type de bateau" placeholder="Ex : Barge, Navire  Lo-Lo, etc."
-					ng-model="$ctrl.truck.createData.transportBoatType"></lg-choice>
+				    ng-model="$ctrl.truck.createData.transportBoatType"></lg-choice>
 			</label>
 		</div>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Avion'">
 			<label>
 				<span>Type d'avion</span>
 				<lg-choice name="transportPlaneType" choices="$root.config.transportPlaneTypes" title="Type d'avion" placeholder="Ex : Cargo, Passagers, etc."
-					ng-model="$ctrl.truck.createData.transportPlaneType"></lg-choice>
+				    ng-model="$ctrl.truck.createData.transportPlaneType"></lg-choice>
 			</label>
 		</div>
 	</section>
@@ -91,14 +103,14 @@
 		<label>
 			<span>Année du véhicule</span>
 			<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear"
-				is-mandatory="true" required></lg-choice>
+			    is-mandatory="true" required></lg-choice>
+			<message-form-validator>
+				<i ng-show="$ctrl.fv.isOk(formCtrl.birthyear)" class="fa fa-check" aria-hidden="true"></i>
+				<error-message ng-show="$ctrl.fv.isError(formCtrl.birthyear)">
+					<span ng-show="formCtrl.birthyear.$error.required">L'année du véhicule est obligatoire</span>
+				</error-message>
+			</message-form-validator>
 		</label>
-		<message-form-validator>
-			<i ng-show="$ctrl.fv.isOk(formCtrl.birthyear)" class="fa fa-check" aria-hidden="true"></i>
-			<error-message ng-show="$ctrl.fv.isError(formCtrl.birthyear)">
-				<span ng-show="formCtrl.birthyear.$error.required">L'année du véhicule est obligatoire</span>
-			</error-message>
-		</message-form-validator>
 		<label>
 			<span>Insérer une photo</span>
 			<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-load-image>
