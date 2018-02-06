@@ -6,8 +6,8 @@
 			<span ng-show="$ctrl.filteredlist.length > 1" ng-init="$ctrl.list">{{$ctrl.filteredlist.length}} annonces de chargeur</span>
 			<br>
 			<span ng-show="$ctrl.removedByFilterLength === 0"></span>
-			<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filter">1 annonce filtrée</span>
-			<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filter">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
+			<span ng-show="$ctrl.removedByFilterLength === 1" class="total-filtered">1 annonce filtrée</span>
+			<span ng-show="$ctrl.removedByFilterLength > 1" class="total-filtered">{{$ctrl.removedByFilterLength}} annonces filtrées</span>
 		</div>
 	</div>
 	<div class="right">
