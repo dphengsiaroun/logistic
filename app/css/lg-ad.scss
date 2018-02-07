@@ -200,3 +200,186 @@ ad-block {
 		padding-left: 5px;
 	}
 }
+
+
+carrier-list {
+	display: block;
+	position: relative;
+	width: 100%;
+	padding: 0 5px;
+	ad-block {
+		display: block;
+		width: 100%;
+		margin: 5px 0;
+		padding: 0;
+		background: $secondaryColor;
+		header {
+			display: block;
+			width: 100%;
+			margin: 0;
+			padding: 5px 10px;
+			h1 {
+				text-align: left;
+				font-size: 1.2em;
+				margin-bottom: 0.4em;
+				padding-bottom: 0.3em;
+				border-bottom: 1px solid $borderColor;
+			}
+			>div {
+				display: table;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				date {
+					display: table-cell;
+					width: 60%;
+					margin: 0;
+					padding: 0;
+					text-align: left;
+					font-size: 13px;
+				}
+				distance {
+					display: table-cell;
+					width: 40%;
+					margin: 0;
+					padding: 0;
+					text-align: right;
+					font-size: 13px; // color: gray(66%);
+				}
+				created,
+				by {
+					display: block;
+					width: 100%;
+					margin: 0;
+					padding: 0;
+					text-align: left;
+					font-size: 11px;
+					color: gray(66%);
+				}
+			}
+			places {
+				display: table;
+				width: 100%;
+				from,
+				to {
+					display: table-row;
+					width: 100%;
+					labels {
+						display: table-cell;
+						width: 15%;
+						text-align: left;
+						font-size: 13px;
+					}
+					values {
+						display: table-cell;
+						width: 85%;
+					}
+				}
+			}
+		}
+		&:hover {
+			box-shadow: 1px 1px 5px 0 gray(80%);
+		}
+	}
+	content {
+		display: table;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		content-left {
+			display: table-cell;
+			width: 40%;
+			margin: 0;
+			padding: 5px 10px 10px;
+			vertical-align: top;
+			img {
+				display: block;
+				height: 100px;
+			}
+		}
+		content-right {
+			display: table-cell;
+			width: 60%;
+			margin: 0;
+			padding: 5px 10px 5px 0;
+			vertical-align: top;
+			* {
+				display: block;
+				text-align: right;
+				font-size: 14px;
+			}
+			conditioning {
+				font-weight: bold;
+			}
+			transport-category,
+			model {
+				font-size: 13px;
+			}
+			rate-km {
+				color: gray(66%);
+			}
+			rate {
+				margin-top: 15px;
+				font-size: 25px;
+				font-weight: bold;
+				color: $thirdColor;
+				letter-spacing: -1px;
+			}
+		}
+	}
+	total {
+		display: table;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		content-left {
+			display: table-cell;
+			width: 40%;
+			margin: 0; // padding: 5px 10px;
+			vertical-align: top;
+			img {
+				display: block;
+				height: 100px;
+			}
+		}
+		content-right {
+			display: table-cell;
+			width: 60%;
+			margin: 0;
+			padding: 5px 10px;
+			vertical-align: top;
+			text-align: right;
+			title {
+				text-align: right;
+				font-size: 20px;
+			}
+			conditioning {
+				display: block;
+				font-weight: bold;
+			}
+			transport-category {
+				display: block;
+				font-size: 13px;
+			}
+			rate-km {
+				display: block;
+				color: gray(66%);
+			}
+			rate {
+				// margin-top: 15px;
+				font-size: 25px;
+				font-weight: bold;
+				color: $thirdColor;
+				letter-spacing: -1px;
+			}
+			city {
+				display: block;
+				font-size: 13px;
+				text-align: right;
+				region {
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}

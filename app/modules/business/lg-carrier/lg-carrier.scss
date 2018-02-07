@@ -85,305 +85,128 @@ lg-carrier-update-route {
 	}
 }
 
-no-vehicle {
-	display: block;
-	padding: 20px 10px;
-	text-align: center;
-	span {
+lg-carrier-create-truck-choose-route,
+lg-carrier-create-route {
+	no-vehicle {
 		display: block;
-		width: 100%;
-		font-size: 27px;
+		padding: 20px 10px;
 		text-align: center;
-		margin: 30px 0;
-		font-weight: bold;
-	}
-}
-
-at-list-one-vehicle {
-	display: block;
-	padding: 15px 5px;
-	text-align: center;
-	>span {
-		display: block;
-		width: 100%;
-		font-size: 20px;
-		text-align: center;
-		margin: 0 0 30px;
-		font-weight: bold;
-	}
-	list {
-		display: block;
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		item {
-			margin: 5px 0;
-		}
-	}
-}
-
-item {
-	display: table;
-	border-collapse: collapse;
-	table-layout: fixed;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	background: $secondaryColor;
-	border: 1px solid #eeeeee;
-	border-top: none;
-	border-bottom: none;
-	left,
-	right {
-		display: table-cell;
-		margin: 0;
-		padding: 0;
-		vertical-align: top;
-		h2 {
-			font-size: 17px;
-			text-align: left;
-			padding: 5px 8px 6px 100px;
-			background: rgba(255, 232, 82, 0.37);
-		}
-		img {
-			display: block;
-			height: 70px;
-			margin: 0;
-			padding: 0;
-		}
 		span {
 			display: block;
 			width: 100%;
-			margin: 0;
-			padding: 0 5px;
-			font-size: 14px;
-			text-align: right;
+			font-size: 27px;
+			text-align: center;
+			margin: 30px 0;
+			font-weight: bold;
 		}
 	}
-	left {
-		width: 1%;
-	}
-}
 
-trajet {
-	display: block;
-	width: 100%;
-	padding: 5px;
-	.way {
+	at-list-one-vehicle {
 		display: block;
-		width: 100%;
-		li {
-			display: inline-block;
-			width: 100%;
-			padding: 15px;
-			font-size: 20px;
-			border-bottom: 1px solid $borderColor;
-			background: $secondaryColor;
-			availability {
-				display: table;
-				width: 100%;
-				vertical-align: middle;
-				left,
-				right {
-					display: table-cell;
-					vertical-align: middle;
-				}
-				left {
-					width: 90%;
-					label {
-						display: block;
-						font-size: 18px;
-					}
-					comments {
-						display: block;
-						font-size: 14px;
-					}
-				}
-				right {
-					width: 10%;
-					text-align: right;
-				}
-			}
-		}
-	}
-}
-
-carrier-list {
-	display: block;
-	position: relative;
-	width: 100%;
-	padding: 0 5px;
-	ad-block {
-		display: block;
-		width: 100%;
-		margin: 5px 0;
-		padding: 0;
-		background: $secondaryColor;
-		header {
+		padding: 15px 5px;
+		text-align: center;
+		>span {
 			display: block;
 			width: 100%;
+			font-size: 20px;
+			text-align: center;
+			margin: 0 0 30px;
+			font-weight: bold;
+		}
+		list {
+			display: block;
 			margin: 0;
-			padding: 5px 10px;
-			h1 {
-				text-align: left;
-				font-size: 1.2em;
-				margin-bottom: 0.4em;
-				padding-bottom: 0.3em;
-				border-bottom: 1px solid $borderColor;
+			padding: 0;
+			width: 100%;
+			item {
+				margin: 5px 0;
 			}
-			>div {
-				display: table;
+		}
+	}
+
+	item {
+		display: table;
+		border-collapse: collapse;
+		table-layout: fixed;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background: $secondaryColor;
+		border: 1px solid #eeeeee;
+		border-top: none;
+		border-bottom: none;
+		left,
+		right {
+			display: table-cell;
+			margin: 0;
+			padding: 0;
+			vertical-align: top;
+			h2 {
+				font-size: 17px;
+				text-align: left;
+				padding: 5px 8px 6px 100px;
+				background: rgba(255, 232, 82, 0.37);
+			}
+			img {
+				display: block;
+				height: 70px;
 				margin: 0;
 				padding: 0;
-				width: 100%;
-				date {
-					display: table-cell;
-					width: 60%;
-					margin: 0;
-					padding: 0;
-					text-align: left;
-					font-size: 13px;
-				}
-				distance {
-					display: table-cell;
-					width: 40%;
-					margin: 0;
-					padding: 0;
-					text-align: right;
-					font-size: 13px; // color: gray(66%);
-				}
-				created,
-				by {
-					display: block;
-					width: 100%;
-					margin: 0;
-					padding: 0;
-					text-align: left;
-					font-size: 11px;
-					color: gray(66%);
-				}
 			}
-			places {
-				display: table;
-				width: 100%;
-				from,
-				to {
-					display: table-row;
-					width: 100%;
-					labels {
-						display: table-cell;
-						width: 15%;
-						text-align: left;
-						font-size: 13px;
-					}
-					values {
-						display: table-cell;
-						width: 85%;
-					}
-				}
-			}
-		}
-		&:hover {
-			box-shadow: 1px 1px 5px 0 gray(80%);
-		}
-	}
-	content {
-		display: table;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		content-left {
-			display: table-cell;
-			width: 40%;
-			margin: 0;
-			padding: 5px 10px 10px;
-			vertical-align: top;
-			img {
+			span {
 				display: block;
-				height: 100px;
-			}
-		}
-		content-right {
-			display: table-cell;
-			width: 60%;
-			margin: 0;
-			padding: 5px 10px 5px 0;
-			vertical-align: top;
-			* {
-				display: block;
-				text-align: right;
+				width: 100%;
+				margin: 0;
+				padding: 0 5px;
 				font-size: 14px;
+				text-align: right;
 			}
-			conditioning {
-				font-weight: bold;
-			}
-			transport-category,
-			model {
-				font-size: 13px;
-			}
-			rate-km {
-				color: gray(66%);
-			}
-			rate {
-				margin-top: 15px;
-				font-size: 25px;
-				font-weight: bold;
-				color: $thirdColor;
-				letter-spacing: -1px;
-			}
+		}
+		left {
+			width: 1%;
 		}
 	}
-	total {
-		display: table;
+}
+
+lg-carrier-create-availability-route {
+	trajet {
+		display: block;
 		width: 100%;
-		margin: 0;
-		padding: 0;
-		content-left {
-			display: table-cell;
-			width: 40%;
-			margin: 0; // padding: 5px 10px;
-			vertical-align: top;
-			img {
-				display: block;
-				height: 100px;
-			}
-		}
-		content-right {
-			display: table-cell;
-			width: 60%;
-			margin: 0;
-			padding: 5px 10px;
-			vertical-align: top;
-			text-align: right;
-			title {
-				text-align: right;
+		padding: 5px;
+		.way {
+			display: block;
+			width: 100%;
+			li {
+				display: inline-block;
+				width: 100%;
+				padding: 15px;
 				font-size: 20px;
-			}
-			conditioning {
-				display: block;
-				font-weight: bold;
-			}
-			transport-category {
-				display: block;
-				font-size: 13px;
-			}
-			rate-km {
-				display: block;
-				color: gray(66%);
-			}
-			rate {
-				// margin-top: 15px;
-				font-size: 25px;
-				font-weight: bold;
-				color: $thirdColor;
-				letter-spacing: -1px;
-			}
-			city {
-				display: block;
-				font-size: 13px;
-				text-align: right;
-				region {
-					margin-left: 5px;
+				border-bottom: 1px solid $borderColor;
+				background: $secondaryColor;
+				availability {
+					display: table;
+					width: 100%;
+					vertical-align: middle;
+					left,
+					right {
+						display: table-cell;
+						vertical-align: middle;
+					}
+					left {
+						width: 90%;
+						label {
+							display: block;
+							font-size: 18px;
+						}
+						comments {
+							display: block;
+							font-size: 14px;
+						}
+					}
+					right {
+						width: 10%;
+						text-align: right;
+					}
 				}
 			}
 		}
