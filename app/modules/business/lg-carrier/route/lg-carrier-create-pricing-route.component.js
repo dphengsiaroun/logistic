@@ -1,21 +1,22 @@
 import lgCarrierCreatePricingHtml from '../tmpl/carrier-create-pricing.html';
+import { breadcrumb } from '../carrier.breadcrumb.js';
 
 export const lgCarrierCreatePricingRoute = {
 	template: lgCarrierCreatePricingHtml,
 	controller: function LgCarrierCreatePricingRouteCtrl($state, connection, carrier, formValidator) {
 		'ngInject';
-		const ctrl = this;
-		ctrl.fv = formValidator;
+		this.breadcrumb = breadcrumb;
+		this.fv = formValidator;
 		
 		if (carrier.type === 'create') {
-			ctrl.pricingData = {};
+			this.pricingData = {};
 		} else {
-			ctrl.pricingData = carrier.createData.pricing;
+			this.pricingData = carrier.createData.pricing;
 			
 		}
-		ctrl.carrier = carrier;
-		ctrl.addPricing = function() {
-			carrier.createData.pricing = ctrl.pricingData;
+		this.carrier = carrier;
+		this.addPricing = function() {
+			carrier.createData.pricing = this.pricingData;
 			
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');

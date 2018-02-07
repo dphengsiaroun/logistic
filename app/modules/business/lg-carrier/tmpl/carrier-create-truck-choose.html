@@ -1,23 +1,4 @@
-<breadcrumb>
-	<step start>
-		<div>
-			<i class="fa fa-truck" aria-hidden="true"></i><br>
-			<span>Véhicule</span>
-		</div>
-	</step>
-	<step first disabled>
-		<div>
-			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i><br>
-			<span>Disponibilité</span>
-		</div>
-	</step>
-	<step disabled>
-		<div>
-			<i class="fa fa-money" aria-hidden="true"></i><br>
-			<span>Prix</span>
-		</div>
-	</step>
-</breadcrumb>
+<lg-breadcrumb config="$ctrl.breadcrumb" step="1"></lg-breadcrumb>
 <no-vehicle ng-hide="$ctrl.hasTruck">
 	<span>Ajouter un véhicule à votre flotte</span>
 	<button id="pr-continue-button" ui-sref="carrier:create:truck:create"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer</button>

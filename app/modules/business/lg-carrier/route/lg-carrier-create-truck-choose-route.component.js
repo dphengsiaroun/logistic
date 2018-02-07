@@ -1,18 +1,19 @@
 import carrierCreateTruckChooseHtml from '../tmpl/carrier-create-truck-choose.html';
+import { breadcrumb } from '../carrier.breadcrumb.js';
 
 export const lgCarrierCreateTruckChooseRoute = {
 	template: carrierCreateTruckChooseHtml,
 	controller: function LgCarrierCreateTruckChooseRouteCtrl($state, connection, truck, carrier) {
 		'ngInject';
-		const ctrl = this;
-		ctrl.hasTruck = false;
-		ctrl.truck = truck;
-		truck.empty().then(function() {
-			ctrl.hasTruck = true;
-		}).catch(function() {
-			ctrl.hasTruck = false;
+		this.breadcrumb = breadcrumb;
+		this.hasTruck = false;
+		this.truck = truck;
+		truck.empty().then(() => {
+			this.hasTruck = true;
+		}).catch(() => {
+			this.hasTruck = false;
 		});
-		ctrl.selectTruck = function(t) {
+		this.selectTruck = (t) => {
 			carrier.createData.truck = t;
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
