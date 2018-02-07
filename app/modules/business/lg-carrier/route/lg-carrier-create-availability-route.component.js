@@ -1,11 +1,12 @@
 import lgCarrierCreateAvailabilityHtml from '../tmpl/carrier-create-availability.html';
+import { breadcrumb } from '../carrier.breadcrumb.js';
 
 export const lgCarrierCreateAvailabilityRoute = {
 	template: lgCarrierCreateAvailabilityHtml,
 	controller: function LgCarrierCreateAvailabilityRouteCtrl($state, connection, carrier) {
 		'ngInject';
-		const ctrl = this;
-		ctrl.select = function(str) {
+		this.breadcrumb = breadcrumb;
+		this.select = (str) => {
 			carrier.createData.availability = str;
 			if (str === 'total') {
 				if (carrier.type === 'create') {

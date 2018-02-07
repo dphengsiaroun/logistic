@@ -1,14 +1,18 @@
-<breadcrumb>
-	<step-1>
-		<i class="fa fa-truck" aria-hidden="true"></i>
-		<step>Choix du véhicule</step>
-	</step-1>
-	<step-2>
-		<i class="fa fa-pie-chart" aria-hidden="true"></i>
-		<step>Disponibilité</step>
-	</step-2>
-	<step-3>
-		<i class="fa fa-money" aria-hidden="true"></i>
-		<step>Prix</step>
-	</step-3>
-</breadcrumb>
+<step>
+	<div>
+		<i class="{{$ctrl.config[0].class}}" aria-hidden="true"></i><br>
+		<span>{{$ctrl.config[0].label}}</span>
+	</div>
+</step>
+<step>
+	<div>
+		<i class="{{$ctrl.config[1].class}}" aria-hidden="true"></i><br>
+		<span>{{$ctrl.config[1].label}}</span>
+	</div>
+</step>
+<step>
+	<div>
+		<i class="{{$ctrl.config[2].class}}" aria-hidden="true"></i><br>
+		<span>{{$ctrl.config[2].label}}</span>
+	</div>
+</step>

@@ -6,7 +6,7 @@ $breadcrumbHeight: 70px;
 $breadcrumbDisabledBgColor: lighten(desaturate($breadcrumbColor, 70%), 5%);
 $breadcrumbDisabledColor: desaturate(lighten($primaryColor, 20%), 50%);
 
-breadcrumb {
+breadcrumb, lg-breadcrumb {
 	display: table;
 	table-layout: fixed;
 	width: 100%;
@@ -37,8 +37,8 @@ breadcrumb {
 		}
 
 
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			position: absolute;
 			left: -8px;
 			height: $breadcrumbHeight / 2;
@@ -48,16 +48,16 @@ breadcrumb {
 			border-right: 10px solid $breadcrumbColor;
 			content: '';
 		}
-		&:before {
+		&::before {
 			top: 0;
 			transform: skew(20deg);
 		}
-		&:after {
+		&::after {
 			top: $breadcrumbHeight / 2;
 			transform: skew(-20deg);
 		}
-		&:first-child:before,
-		&:first-child:after {
+		&:first-child::before,
+		&:first-child::after {
 			content: none;
 		}
 		&[disabled] {
