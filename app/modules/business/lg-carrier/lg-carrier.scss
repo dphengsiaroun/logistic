@@ -1,81 +1,82 @@
 @import '../../../css/variable';
-
-summary {
-	padding: 5px;
-	div {
-		display: block;
-		width: 100%;
-		steps {
-			display: table;
+lg-carrier-create-route {
+	summary {
+		padding: 5px;
+		div {
+			display: block;
 			width: 100%;
-			background: $secondaryColor;
-			step {
-				display: table-row;
+			steps {
+				display: table;
 				width: 100%;
-				height: 70px;
-				num-step,
-				label,
-				chevron {
-					display: table-cell;
-					vertical-align: middle;
-					font-size: 20px;
-					border-bottom: 1px solid $borderColor;
-				}
-				num-step {
-					width: 10%;
-					padding: 5px;
-					text-align: center;
-				}
-				label {
-					width: 80%;
-					font-weight: normal;
-					availability {
-						date,
-						distance {
-							display: block;
-							color: gray(66%);
-							font-size: 13px;
-						}
-						places {
-							display: table;
-							width: 100%;
-							from,
-							to {
-								display: table-row;
+				background: $secondaryColor;
+				step {
+					display: table-row;
+					width: 100%;
+					height: 70px;
+					num-step,
+					label,
+					chevron {
+						display: table-cell;
+						vertical-align: middle;
+						font-size: 20px;
+						border-bottom: 1px solid $borderColor;
+					}
+					num-step {
+						width: 10%;
+						padding: 5px;
+						text-align: center;
+					}
+					label {
+						width: 80%;
+						font-weight: normal;
+						availability {
+							date,
+							distance {
+								display: block;
+								color: gray(66%);
 								font-size: 13px;
-								labels {
-									display: table-cell;
-									width: 30px;
-								}
-								values {
-									display: table-cell;
+							}
+							places {
+								display: table;
+								width: 100%;
+								from,
+								to {
+									display: table-row;
+									font-size: 13px;
+									labels {
+										display: table-cell;
+										width: 30px;
+									}
+									values {
+										display: table-cell;
+									}
 								}
 							}
 						}
 					}
+					chevron {
+						width: 10%;
+						padding: 5px;
+						text-align: center;
+					}
 				}
-				chevron {
-					width: 10%;
-					padding: 5px;
-					text-align: center;
+				step.active {
+					background: $thirdColor;
+					num-step,
+					label,
+					.fa {
+						color: $secondaryColor;
+					}
 				}
-			}
-			step.active {
-				background: $thirdColor;
-				num-step,
-				label,
-				.fa {
-					color: $secondaryColor;
+				step.disabled {
+					opacity: 0.2;
+					background: gray(66%);
 				}
-			}
-			step.disabled {
-				opacity: 0.2;
-				background: gray(66%);
-			}
-			step.done {
-				background: $secondaryColor;
-				label {
-					color: $fontColor;
+				step.done {
+					background: $secondaryColor;
+					label {
+						color: $fontColor;
+					}
 				}
 			}
 		}
@@ -405,4 +406,3 @@ carrier-list {
 		}
 	}
 }
-

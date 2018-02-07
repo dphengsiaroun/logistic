@@ -5,38 +5,42 @@ lg-desktop {
 
 
 @media all and (min-width: 1300px) {
-	lg-body {
-		width: $desktopWidth;
-		height: $desktopHeight;
-		top: $desktopTop;
-		left: $desktopLeft;
+	body.desktop {
+		lg-body {
+			width: $desktopWidth;
+			height: $desktopHeight;
+			top: $desktopTop;
+			left: $desktopLeft;
+		}
 	}
 }
 
 @media all and (min-width: 768px) {
-	lg-desktop {
-		display: block;
-		div.slider {
+	body.desktop {
+		lg-desktop {
 			display: block;
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			background: url('../../../img/desktop-bg.jpg');
-			background-repeat: no-repeat;
-			background-origin: content-box;
-			background-position: center;
-			background-attachment: fixed;
-			background-size: cover;
+			div.slider {
+				display: block;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background: url('../../../img/desktop-bg.jpg');
+				background-repeat: no-repeat;
+				background-origin: content-box;
+				background-position: center;
+				background-attachment: fixed;
+				background-size: cover;
+			}
+			.emulator {
+				display: block;
+				width: 600px;
+				position: fixed;
+				top: 16px;
+			}
 		}
-		.emulator {
-			display: block;
-			width: 600px;
-			position: fixed;
-			top: 16px;
+		ui-view {
+			min-height: $desktopHeight - $footerHeight;
 		}
-	}
-	ui-view {
-		min-height: $desktopHeight - $footerHeight;
 	}
 }
 
@@ -47,229 +51,228 @@ lg-mobile {
 }
 
 @media all and (min-width: 768px) {
-	body {
+	body.desktop {
 		overflow: hidden;
-	}
-
-	lg-body {
-		display: block;
-		position: relative;
-		width: $desktopWidth;
-		height: $desktopHeight;
-		top: $desktopTop;
-		left: $desktopLeft;
-		overflow-y: scroll;
-		overflow-x: hidden;
-		background: #f5f5f5;
-		box-shadow: 0 25px 30px -13px rgba(40, 40, 40, .4);
-	}
-
-	/* lg-menu */
-	lg-menu {
-		width: $desktopWidth;
-		height: $headerHeight;
-		top: $desktopTop;
-		left: $desktopLeft;
-		lg-menu-content {
+		lg-body {
+			display: block;
+			position: relative;
 			width: $desktopWidth;
-			height: $desktopHeight - $headerHeight;
-			top: $desktopTop + $headerHeight;
-			left: $desktopLeft;
-		}
-	}
-
-
-
-
-	/* lg-choice */
-	lg-choice {
-		overlay,
-		fixed,
-		fixed-list {
-			width: 460px !important;
-			left: 130px !important;
-			top: 40px !important;
-		}
-		overlay {
-			height: 616px !important;
-		}
-		fixed-list {
-			height: 675px !important;
-		}
-	}
-
-	/* lg-home */
-	lg-home-route {
-		padding: 30px 10px !important;
-		header {
-			logo {
-				width: 20% !important;
-			}
-			tagline {
-				font-size: 20px !important;
-			}
-		}
-	}
-
-	/* lg-filter */
-	lg-filter {
-		overlay {
-			filter {
-				height: $desktopHeight - $headerHeight !important;
-			}
-		}
-		overlay,
-		overlay fixed {
-			width: $desktopWidth;
+			height: $desktopHeight;
 			top: $desktopTop;
 			left: $desktopLeft;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			background: #f5f5f5;
+			box-shadow: 0 25px 30px -13px rgba(40, 40, 40, .4);
 		}
-	}
 
-	/* lg-erasable */
-	div.erase {
-		top: 103px !important;
-	}
-
-	carrier-list,
-	truck-list,
-	loader-list,
-	proposal-list {
-		padding: 10px 20px !important;
-	}
-
-	/* lg-user */
-	lg-user-retrieve-route {
-		padding: 20px 0;
-	}
-
-	lg-user-signup-success-route {
-		padding: 0 20px;
-	}
-
-	/* lg-loader */
-	lg-loader-retrieve-route {
-		recap {
-			padding: 15px 20px;
+		/* lg-menu */
+		lg-menu {
+			width: $desktopWidth;
+			height: $headerHeight;
+			top: $desktopTop;
+			left: $desktopLeft;
+			lg-menu-content {
+				width: $desktopWidth;
+				height: $desktopHeight - $headerHeight;
+				top: $desktopTop + $headerHeight;
+				left: $desktopLeft;
+			}
 		}
-	}
-
-	/* lg-carrier */
-	lg-carrier-create-route {
-		summary {
-			padding: 20px;
-		}
-	}
-
-	lg-carrier-create-availability-route {
-		trajet {
-			padding: 20px;
-		}
-	}
-	lg-carrier-create-truck-choose-route {
-		no-vehicle {
-			padding: 20px;
-		}
-		at-list-one-vehicle {
-			padding: 15px 20px;
-		}
-	}
-
-	lg-carrier-retrieve-route {
-		recap {
-			padding: 15px 20px;
-		}
-	}
-
-	/* lg-truck */
-	lg-truck-retrieve-route {
-		recap {
-			padding: 15px 20px;
-		}
-	}
-
-	add-ads {
-		width: $desktopWidth !important;
-		left: $desktopLeft !important;
-		top: $desktopHeight - 5px !important;
-	}
-
-	/* lg-proposal */
-	bottom,
-	.bottom {
-		width: $desktopWidth;
-		left: $desktopLeft;
-		top: $desktopHeight - 8px;
-	}
-
-	lg-proposal-retrieve-route {
-		recap {
-			padding: 15px 20px;
-		}
-	}
-
-	lg-message,
-	lg-confirm {
-		padding: 20px !important;
-	}
-
-	/* lg-datetime */
-	lg-datetime-content {
-		my-head,
-		month-list,
-		lg-dt-hour,
-		retroaction-msg {
-			width: 460px !important;
-			left: 130px !important;
-		}
-		my-head {
-			top: 40px !important;
-		}
-		month-list {
-			height: 616px !important;
-			top: 100px !important;
-		}
-		lg-dt-hour {
-			top: 591px !important;
-		}
-		retroaction-msg {
-			top: 666px !important;
-		} // lg-dt-month table tbody tr td.selected span {
-		// 	// line-height: 60px;
-		// }
-	}
-
-	/* lg-dimension */
-	lg-edit {
-		my-head {
-			width: 460px !important;
-			left: 130px !important;
-		}
-		my-head {
-			top: 40px !important;
-		}
-		my-body {
-			width: 460px !important;
-			left: 130px !important;
-			top: 100px !important;
-			height: 616px !important;
-		}
-		settings {
-			top: 335px !important;
-			left: 130px !important;
-			width: 460px !important;
-			height: 370px !important;
-		}
-	}
 
 
 
-	/* lg-terms */
-	lg-terms-route {
-		.article {
-			padding: 0 15px 10px 0;
-			p {
-				padding: 10px 15px 10px 25px;
+
+		/* lg-choice */
+		lg-choice {
+			overlay,
+			fixed,
+			fixed-list {
+				width: 460px !important;
+				left: 130px !important;
+				top: 40px !important;
+			}
+			overlay {
+				height: 616px !important;
+			}
+			fixed-list {
+				height: 675px !important;
+			}
+		}
+
+		/* lg-home */
+		lg-home-route {
+			padding: 30px 10px !important;
+			header {
+				logo {
+					width: 20% !important;
+				}
+				tagline {
+					font-size: 20px !important;
+				}
+			}
+		}
+
+		/* lg-filter */
+		lg-filter {
+			overlay {
+				filter {
+					height: $desktopHeight - $headerHeight !important;
+				}
+			}
+			overlay,
+			overlay fixed {
+				width: $desktopWidth;
+				top: $desktopTop;
+				left: $desktopLeft;
+			}
+		}
+
+		/* lg-erasable */
+		div.erase {
+			top: 103px !important;
+		}
+
+		carrier-list,
+		truck-list,
+		loader-list,
+		proposal-list {
+			padding: 10px 20px !important;
+		}
+
+		/* lg-user */
+		lg-user-retrieve-route {
+			padding: 20px 0;
+		}
+
+		lg-user-signup-success-route {
+			padding: 0 20px;
+		}
+
+		/* lg-loader */
+		lg-loader-retrieve-route {
+			recap {
+				padding: 15px 20px;
+			}
+		}
+
+		/* lg-carrier */
+		lg-carrier-create-route {
+			summary {
+				padding: 20px;
+			}
+		}
+
+		lg-carrier-create-availability-route {
+			trajet {
+				padding: 20px;
+			}
+		}
+		lg-carrier-create-truck-choose-route {
+			no-vehicle {
+				padding: 20px;
+			}
+			at-list-one-vehicle {
+				padding: 15px 20px;
+			}
+		}
+
+		lg-carrier-retrieve-route {
+			recap {
+				padding: 15px 20px;
+			}
+		}
+
+		/* lg-truck */
+		lg-truck-retrieve-route {
+			recap {
+				padding: 15px 20px;
+			}
+		}
+
+		add-ads {
+			width: $desktopWidth !important;
+			left: $desktopLeft !important;
+			top: $desktopHeight - 5px !important;
+		}
+
+		/* lg-proposal */
+		bottom,
+		.bottom {
+			width: $desktopWidth;
+			left: $desktopLeft;
+			top: $desktopHeight - 8px;
+		}
+
+		lg-proposal-retrieve-route {
+			recap {
+				padding: 15px 20px;
+			}
+		}
+
+		lg-message,
+		lg-confirm {
+			padding: 20px !important;
+		}
+
+		/* lg-datetime */
+		lg-datetime-content {
+			my-head,
+			month-list,
+			lg-dt-hour,
+			retroaction-msg {
+				width: 460px !important;
+				left: 130px !important;
+			}
+			my-head {
+				top: 40px !important;
+			}
+			month-list {
+				height: 616px !important;
+				top: 100px !important;
+			}
+			lg-dt-hour {
+				top: 591px !important;
+			}
+			retroaction-msg {
+				top: 666px !important;
+			} // lg-dt-month table tbody tr td.selected span {
+			// 	// line-height: 60px;
+			// }
+		}
+
+		/* lg-dimension */
+		lg-edit {
+			my-head {
+				width: 460px !important;
+				left: 130px !important;
+			}
+			my-head {
+				top: 40px !important;
+			}
+			my-body {
+				width: 460px !important;
+				left: 130px !important;
+				top: 100px !important;
+				height: 616px !important;
+			}
+			settings {
+				top: 335px !important;
+				left: 130px !important;
+				width: 460px !important;
+				height: 370px !important;
+			}
+		}
+
+
+
+		/* lg-terms */
+		lg-terms-route {
+			.article {
+				padding: 0 15px 10px 0;
+				p {
+					padding: 10px 15px 10px 25px;
+				}
 			}
 		}
 	}

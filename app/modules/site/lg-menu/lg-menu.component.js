@@ -90,10 +90,10 @@ export const lgMenu = {
 			// 
 		};
 
-		$window.onresize = function(event) {
+		$window.addEventListener('resize', function(event) {
 			ctrl.refresh();
 			$scope.$apply();
-		};
+		});
 		ctrl.refresh();
 
 	}
