@@ -1,26 +1,4 @@
-<breadcrumb>
-	<step start>
-		<div>
-			<i class="fa fa-truck" aria-hidden="true"></i>
-			<br>
-			<span>Véhicule</span>
-		</div>
-	</step>
-	<step first disabled>
-		<div>
-			<i class="fa fa-pie-chart" aria-hidden="true" class=""></i>
-			<br>
-			<span>Disponibilité</span>
-		</div>
-	</step>
-	<step disabled>
-		<div>
-			<i class="fa fa-money" aria-hidden="true"></i>
-			<br>
-			<span>Prix</span>
-		</div>
-	</step>
-</breadcrumb>
+<lg-breadcrumb config="$ctrl.breadcrumb" step="2"></lg-breadcrumb>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.addTrip()" class="ad" novalidate>
 	<section class="dark">
 		<h2>Trajet</h2>

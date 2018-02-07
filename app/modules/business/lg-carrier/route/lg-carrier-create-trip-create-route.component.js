@@ -1,18 +1,21 @@
 import lgCarrierCreateTripCreateHtml from '../tmpl/carrier-create-trip-create.html';
+import { breadcrumb } from '../carrier.breadcrumb.js';
+
 export const lgCarrierCreateTripCreateRoute = {
 	template: lgCarrierCreateTripCreateHtml,
-	controller: function LgCarrierCreateTripCreateRouteCtrl($scope, $state, connection, carrier, geoloc, formValidator) {
+	controller: function LgCarrierCreateTripCreateRouteCtrl(
+		$scope, $state, connection, carrier, geoloc, formValidator) {
 		'ngInject';
-		const ctrl = this;
-		ctrl.fv = formValidator;
+		this.breadcrumb = breadcrumb;
+		this.fv = formValidator;
 		if (carrier.type === 'create') {
-			ctrl.tripData = {};
+			this.tripData = {};
 		} else {
-			ctrl.tripData = carrier.createData.trip;
+			this.tripData = carrier.createData.trip;
 			
 		}
-		ctrl.addTrip = function() {
-			carrier.createData.trip = ctrl.tripData;
+		this.addTrip = () => {
+			carrier.createData.trip = this.tripData;
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {
