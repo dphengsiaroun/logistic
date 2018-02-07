@@ -1,5 +1,6 @@
 @import '../../../css/variable';
-lg-carrier-create-route {
+lg-carrier-create-route,
+lg-carrier-update-route {
 	summary {
 		padding: 5px;
 		div {
@@ -9,6 +10,7 @@ lg-carrier-create-route {
 				display: table;
 				width: 100%;
 				background: $secondaryColor;
+				margin-bottom: 0.5em;
 				step {
 					display: table-row;
 					width: 100%;
@@ -81,16 +83,6 @@ lg-carrier-create-route {
 			}
 		}
 	}
-}
-
-city {
-	font-size: 14px;
-	font-weight: bold;
-}
-
-region {
-	color: gray(66%);
-	font-size: 12px;
 }
 
 no-vehicle {
@@ -287,15 +279,6 @@ carrier-list {
 					values {
 						display: table-cell;
 						width: 85%;
-						city {
-							font-size: 14px;
-							font-weight: bold;
-						}
-						region {
-							padding-left: 5px;
-							font-size: 12px;
-							color: gray(66%);
-						}
 					}
 				}
 			}
