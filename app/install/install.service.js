@@ -74,4 +74,17 @@ export function Install($rootScope, $http, $location, $window) {
 			console.error('error', error);
 		});
 	};
+
+	$rootScope.uninstallProd = function() {
+		
+		$http({
+			url: '../ws/install/uninstall-prod.php',
+			method: 'GET'
+		}).then(function(response) {
+			
+			$location.path('/install');
+		}).catch(function(error) {
+			console.error('error', error);
+		});
+	};
 }
