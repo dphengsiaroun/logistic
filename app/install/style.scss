@@ -1,5 +1,11 @@
 @import '../css/variable';
 
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
 h1,
 h2,
 h3 {
@@ -49,8 +55,44 @@ input {
 
 div {
 	display: block;
-	width: 100%;
+	margin: 0 auto;
 	padding: 10px;
+	&.container {
+		width: 50%;
+		background: #eee;
+		border-radius: 0.6em;
+	}
+}
+
+.link {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	a {
+		display: inline-block;
+		width: 45%;
+		color: $secondaryColor;
+		text-align: center;
+		text-decoration: none;
+		padding: 10px;
+		margin: 0 10px;
+		font-size: 16px;
+		cursor: pointer;
+		border: none;
+		border-radius: 3px;
+		&.critical {
+			background: red;
+		}
+	}
+}
+
+form {
+	width: 50%;
+	margin: 0 auto 1.2em;
+	background: #eee;
+	padding: 0.3em 1em 0.3em 0;
+	border-radius: 0.5em;
 }
 
 .form-control {
@@ -81,29 +123,17 @@ input[type=checkbox] {
 }
 
 button {
-	display: block;
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 20px;
+	display: inline-block;
+	width: 45%;
+	margin: 0px 10px;
+	text-align: center;
 }
 
 .btn {
-	display: inline-block;
 	font-weight: 400;
-	line-height: 1.25;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	border: 1px solid transparent;
 	padding: .5rem 1rem;
-	font-size: 1rem;
 	border-radius: .25rem;
 	-webkit-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
 
@@ -129,6 +159,18 @@ button {
 	color: #fff;
 	background: #c9302c;
 	border-color: #c12e2a;
+}
+
+.btn-warning {
+	color: #fff;
+	background-color: #f0ad4e;
+	border-color: #f0ad4e;
+}
+
+.btn-warning:hover {
+	color: #fff;
+	background-color: #ec971f;
+	border-color: #eb9316;
 }
 
 .btn-link {
@@ -168,32 +210,16 @@ button {
 	color: #c9302c;
 }
 
-.link {
-	display: table;
-	table-layout: fixed;
-}
 
-.link a {
-	display: table-cell;
-	width: 30%;
-	background: hsl(120, 60%, 50%);
-	color: $secondaryColor;
-	text-align: center;
-	text-decoration: none;
-	padding: 10px;
-	margin: 0 20px;
-	font-size: 16px;
-	cursor: pointer;
-	border: none;
-	border-radius: 3px;
-	margin: 10px 0;
-}
-
-.link .critical {
-	background: red;
-}
-
-.link span {
-	display: table-cell;
-	width: 60%;
+@media (max-width: 768px) {
+	form {
+		width: 100%;
+	}
+	div.container {
+		width: 70%;
+	}
+	button, .link a {
+		width: 100%;
+		margin: 5px 0px;
+	}
 }

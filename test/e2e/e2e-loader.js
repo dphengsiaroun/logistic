@@ -57,8 +57,9 @@ describe('Loader CRUD', function() {
 		console.log('-> retrieve a loader ad', arguments);
 		browser.get(data.mainUrl);
 		element(by.id('pr-retrieve-loader-ads-button')).click();
+		browser.sleep(5000);
 		const adElt = element(by.css('loader-list ad-block'));
-		const titleElt = adElt.element(by.css('title'));
+		const titleElt = adElt.element(by.css('h1'));
 		expect(titleElt.getText()).toEqual(loaderAd.title);
 	});
 
@@ -68,7 +69,7 @@ describe('Loader CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('loader-list ad-block'));
-		adElt.element(by.css('title')).click();
+		adElt.element(by.css('h1')).click();
 		element(by.id('pr-edit-button')).click();
 		browser.sleep(5000);		
 		element(by.name('priceWanted')).clear().sendKeys('5000');
@@ -86,7 +87,7 @@ describe('Loader CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('loader-list ad-block'));
-		adElt.element(by.css('title')).click();
+		adElt.element(by.css('h1')).click();
 		element(by.linkText('Supprimer')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();

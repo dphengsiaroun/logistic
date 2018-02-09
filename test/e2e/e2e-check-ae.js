@@ -39,24 +39,26 @@ describe('Already exist', function() {
 
 		utils.lgChoiceSelect('country', user.country);
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
-		browser.sleep(3000);
+		browser.sleep(5000);
 		const btn = element(by.id('pr-create-user-button'));
+		browser.sleep(5000);
 		expect(btn.getAttribute('disabled')).toEqual('true');
+		browser.sleep(5000);
 
 		expect(element(by.id('login-already-taken-error-msg')).isDisplayed()).toEqual(true);
 		expect(element(by.id('email-already-taken-error-msg')).isDisplayed()).toEqual(true);
 		expect(element(by.id('phone-already-taken-error-msg')).isDisplayed()).toEqual(true);
 
 		element(by.name('login')).clear().sendKeys(user.login + '2');
-		// browser.sleep(1000);
+		browser.sleep(3000);
 		expect(btn.getAttribute('disabled')).toEqual('true');
 
 		element(by.name('email')).clear().sendKeys(user.email + '2');
-		// browser.sleep(1000);
+		browser.sleep(3000);
 		expect(btn.getAttribute('disabled')).toEqual('true');
 
 		element(by.name('phone')).clear().sendKeys(user.phone + '2000');
-		// browser.sleep(1000);
+		browser.sleep(3000);
 		expect(btn.getAttribute('disabled')).toEqual(null);
 
 	});

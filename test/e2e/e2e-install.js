@@ -33,7 +33,7 @@ describe('Install', function() {
 		element(by.xpath('//label[@for=\'dbCreation\']')).click();
 		element(by.id('smtp.server.from')).clear().sendKeys('protractor@test.com');
 		element(by.css('button')).click();
-		const message = element(by.css('h3'));
+		const message = element(by.css('h1'));
 		expect(message.getText()).toEqual('Successfully installed');
 	});
 

@@ -79,7 +79,7 @@ describe('LOADER CRUD', function() {
 		browser.get(data.mainUrl);
 		element(by.id('pr-retrieve-loader-ads-button')).click();
 		const adElt = element(by.css('loader-list ad-block'));
-		const titleElt = adElt.element(by.css('title'));
+		const titleElt = adElt.element(by.css('h1'));
 		expect(titleElt.getText()).toEqual(loaderAd.title);
 	});
 
@@ -89,7 +89,7 @@ describe('LOADER CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('loader-list ad-block'));
-		adElt.element(by.css('title')).click();
+		adElt.element(by.css('h1')).click();
 		element(by.id('pr-edit-button')).click();
 		element(by.name('priceWanted')).clear().sendKeys('5000');
 		// browser.sleep(5000);
@@ -106,7 +106,7 @@ describe('LOADER CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('loader-list ad-block'));
-		adElt.element(by.css('title')).click();
+		adElt.element(by.css('h1')).click();
 		element(by.linkText('Supprimer')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();

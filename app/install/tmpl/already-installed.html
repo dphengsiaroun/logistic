@@ -2,12 +2,13 @@
 	<i class="fa fa-info-circle" aria-hidden="true"></i>
 	<h1>Already installed</h1>
 </div>
-<div>
-	<button type="button" class="btn btn-danger" ng-click="uninstall()">Uninstall</button>
-	<button type="button" class="btn btn-danger" ng-click="uninstallProd()">Uninstall prod</button>
+<div class="container">
 	<div class="link">
-		<a href="../" class="btn btn-link">Go to website</a>
-		<span></span>
+		<button type="button" class="btn btn-danger" ng-click="uninstall()">Uninstall</button>
+		<button type="button" class="btn btn-warning" ng-click="uninstallProd()">Uninstall prod</button>
+	</div>
+	<div class="link">
+		<a href="../" class="btn-primary">Go to website</a>
 		<a href="../ws/install/remove-install.php" class="critical">Suppress the installer</a>
 	</div>
 </div>

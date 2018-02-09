@@ -89,7 +89,7 @@ describe('CARRIER CRUD', function() {
 		browser.get(data.mainUrl);
 		element(by.id('pr-retrieve-carrier-ads-button')).click();
 		const adElt = element(by.css('carrier-list ad-block'));
-		const titleElt = adElt.element(by.css('title'));
+		const titleElt = adElt.element(by.css('h1'));
 		expect(titleElt.getText()).toEqual(truck.name);
 	});
 
@@ -99,7 +99,7 @@ describe('CARRIER CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('carrier-list ad-block'));
-		adElt.element(by.css('title')).click();
+		adElt.element(by.css('h1')).click();
 		element(by.id('pr-edit-button')).click();
 		element(by.id('pr-select-price')).click();
 		element(by.name('priceWantedPerKm')).clear().sendKeys('80');
@@ -115,7 +115,7 @@ describe('CARRIER CRUD', function() {
 		element(by.css('menu-bar')).click();
 		element(by.id('pr-my-ads-link')).click();
 		const adElt = element(by.css('carrier-list ad-block'));
-		adElt.element(by.css('title')).click();
+		adElt.element(by.css('h1')).click();
 		element(by.linkText('Supprimer')).click();
 		element(by.css('button.confirm')).click();
 		element(by.css('button.ok')).click();

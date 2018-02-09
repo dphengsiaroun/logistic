@@ -34,7 +34,7 @@ describe('PROPOSAL CRUD', function() {
 		browser.get(data.mainUrl);
 		element(by.id('pr-retrieve-loader-ads-button')).click();
 		const adElt = element.all(by.css('loader-list ad-block')).get(0);
-		adElt.element(by.css('title')).click();
+		adElt.element(by.css('h1')).click();
 		// browser.sleep(5000);
 		element(by.id('create-proposal')).click();
 		utils.submitForm();

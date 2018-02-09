@@ -186,5 +186,6 @@ utils.login = function(user) {
 };
 
 utils.submitForm = function() {
+	// browser.sleep(5000);
 	element(by.css('form button[type=submit]')).click();
 };
