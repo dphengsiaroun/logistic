@@ -81,10 +81,14 @@ export function LoaderCreateCtrl(
 
 	$scope.$watch('$ctrl.loader.createData.departureDatetime', function(newValue, oldValue) {
 		console.log('watch date', arguments);
-		if (ctrl.loader.createData.departureDatetime && oldValue === undefined) {
-			ctrl.loader.createData.arrivalDatetime =
-				new Date(ctrl.loader.createData.departureDatetime.getTime() + 
-					ctrl.loader.createData.minDuration * 1000);
+		if (!ctrl.loader.createData.infoRoute) {
+			ctrl.loader.createData.arrivalDatetime = '';
+		} else {
+			if (ctrl.loader.createData.departureDatetime && oldValue === undefined) {
+				ctrl.loader.createData.arrivalDatetime =
+					new Date(ctrl.loader.createData.departureDatetime.getTime() + 
+						ctrl.loader.createData.minDuration * 1000);
+			}
 		}
 	});
 
