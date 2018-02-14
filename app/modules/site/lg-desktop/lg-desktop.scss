@@ -137,56 +137,56 @@ lg-mobile {
 		truck-list,
 		loader-list,
 		proposal-list {
-			padding: 10px 20px !important;
+			padding: 0.7em 1.3em !important;
 		}
 
 		/* lg-user */
 		lg-user-retrieve-route {
-			padding: 20px 0;
+			padding: 1.3em 0;
 		}
 
 		lg-user-signup-success-route {
-			padding: 0 20px;
+			padding: 1.3em;
 		}
 
 		/* lg-loader */
 		lg-loader-retrieve-route {
 			recap {
-				padding: 15px 20px;
+				padding: 1em 1.3em;
 			}
 		}
 
 		/* lg-carrier */
 		lg-carrier-create-route, lg-carrier-update-route {
 			summary {
-				padding: 20px;
+				padding: 1.3em;
 			}
 		}
 
 		lg-carrier-create-availability-route {
 			trajet {
-				padding: 20px;
+				padding: 1.3em;
 			}
 		}
 		lg-carrier-create-truck-choose-route {
 			no-vehicle {
-				padding: 20px;
+				padding: 1.3em;
 			}
 			at-list-one-vehicle {
-				padding: 15px 20px;
+				padding: 1em 1.3em;
 			}
 		}
 
 		lg-carrier-retrieve-route {
 			recap {
-				padding: 15px 20px;
+				padding: 15px 1.3em;
 			}
 		}
 
 		/* lg-truck */
 		lg-truck-retrieve-route {
 			recap {
-				padding: 15px 20px;
+				padding: 15px 1.3em;
 			}
 		}
 
