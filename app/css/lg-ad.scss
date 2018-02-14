@@ -225,11 +225,12 @@ carrier-list {
 				padding-bottom: 0.3em;
 				border-bottom: 1px solid $borderColor;
 			}
-			>div {
+			>h2 {
 				display: table;
 				margin: 0;
 				padding: 0;
 				width: 100%;
+				font-weight: normal;
 				date {
 					display: table-cell;
 					width: 60%;

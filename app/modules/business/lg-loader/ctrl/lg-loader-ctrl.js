@@ -47,7 +47,7 @@ export function LoaderCtrl($scope, $stateParams, loader, connection) {
 	};
 }
 export function LoaderCreateCtrl(
-	$scope, $element, $http, $q, $window, $filter, loader, connection, geoloc, formValidator) {
+	$scope, $element, $q, $window, $filter, loader, connection, geoloc, formValidator) {
 	'ngInject';
 	const ctrl = this;
 	ctrl.connection = connection;
@@ -81,7 +81,7 @@ export function LoaderCreateCtrl(
 
 	$scope.$watch('$ctrl.loader.createData.departureDatetime', function(newValue, oldValue) {
 		console.log('watch date', arguments);
-		if (!ctrl.loader.createData.infoRoute) {
+		if (ctrl.loader.createData.infoRoute  === '') {
 			ctrl.loader.createData.arrivalDatetime = '';
 		} else {
 			if (ctrl.loader.createData.departureDatetime && oldValue === undefined) {
