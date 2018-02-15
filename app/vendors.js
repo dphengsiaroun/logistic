@@ -1,6 +1,7 @@
 import 'angular/angular-csp.css';
 import 'font-awesome/css/font-awesome.css';
 
+import 'babel-polyfill';
 import 'angular';
 import 'angular-touch';
 import 'angular-i18n/angular-locale_fr-dz.js';
