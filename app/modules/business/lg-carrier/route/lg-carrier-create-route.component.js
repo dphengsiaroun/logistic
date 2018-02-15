@@ -1,6 +1,6 @@
-import carrierCreateHtml from '../tmpl/carrier-create.html';
+import carrierStepHtml from '../tmpl/carrier-step.html';
 export const lgCarrierCreateRoute = {
-	template: carrierCreateHtml,
+	template: carrierStepHtml,
 	controller: function LgCarrierCreateRouteCtrl(connection, carrier, carrierStepManager) {
 		'ngInject';
 		const ctrl = this;
