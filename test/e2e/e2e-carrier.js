@@ -32,6 +32,7 @@ describe('Carrier CRUD', function() {
 		utils.lgChoiceSelect('transportTruckType', truck.transportTruckType);
 		utils.lgChoiceSelect('birthyear', truck.birthyear);
 		utils.lgUploadSelect('imageId', truck.imageId);
+		browser.sleep(5000);
 		utils.submitForm();
 		console.log('-> truck created', arguments);
 		element(by.css('button.no')).click();
@@ -46,7 +47,7 @@ describe('Carrier CRUD', function() {
 		element(by.name('phone')).clear().sendKeys(user.phone);
         utils.lgChoiceSelect('country', user.country);
 		element(by.css('lg-eyepassword input[type="password"]')).clear().sendKeys(user.password);
-		// browser.sleep(5000);
+		browser.sleep(5000);
         utils.submitForm();
 		element(by.css('button')).click();
 		console.log('-> user created', arguments);
@@ -56,6 +57,7 @@ describe('Carrier CRUD', function() {
 		element(by.id('pr-availability-total')).click();
 		element(by.id('pr-select-price')).click();
 		element(by.name('priceWantedPerKm')).sendKeys(carrierAd.priceWantedPerKm);
+		browser.sleep(5000);
 		utils.submitForm();
 		element(by.id('pr-create-carrier-button')).click();
 		element(by.css('button.ok')).click();

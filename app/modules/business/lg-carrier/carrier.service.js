@@ -1,27 +1,25 @@
 export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 	'ngInject';
 
-	const service = this;
-
-	service.initStepData = function() {
-		service.stepData = {
+	this.initStepData = () => {
+		this.stepData = {
 			truck: undefined,
 			availability: undefined,
 			pricing: undefined
 		};
 	};
-	service.initStepData();
+	this.initStepData();
 
-	service.isInitialized = () => {
-		if (service.stepData.truck === undefined &&
-			service.stepData.availability === undefined &&
-			service.stepData.pricing === undefined) {
+	this.isInitialized = () => {
+		if (this.stepData.truck === undefined &&
+			this.stepData.availability === undefined &&
+			this.stepData.pricing === undefined) {
 			return true;
 		}
 		return false;
 	};
-	
-	service.create = function(stepData) {
+
+	this.create = (stepData) => {
 
 		if (connection.user) {
 			$http({
@@ -29,16 +27,16 @@ export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 				method: 'POST',
 				data: stepData,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-			}).then(function(response) {
+			}).then((response) => {
 
 				if (response.data.status === 'ko') {
-					service.error = response;
+					this.error = response;
 					return;
 				}
-				service.error = undefined;
-				service.initStepData();
+				this.error = undefined;
+				this.initStepData();
 				$state.go('carrier:created');
-			}).catch(function(error) {
+			}).catch((error) => {
 				console.error('error', error);
 			});
 		} else {
@@ -48,89 +46,89 @@ export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 				fn: 'createAfterConnect',
 				args: [stepData]
 			});
-			service.initStepData();
+			this.initStepData();
 			$state.go('user:hasAccount');
 		}
 
 	};
 
-	service.createAfterConnect = function() {
-		service.stepData = angular.fromJson(localStorage.getItem('carrier'));
+	this.createAfterConnect = () => {
+		this.stepData = angular.fromJson(localStorage.getItem('carrier'));
 		localStorage.removeItem('carrier');
 
-		service.create();
+		this.create();
 	};
 
-	service.list = function(data) {
+	this.list = (data) => {
 
 		return $http({
 			url: lgConfig.wsDir() + 'carriers',
 			method: 'GET',
 			params: data,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-		}).then(function(response) {
+		}).then((response) => {
 
 			if (response.data.status === 'ko') {
-				service.error = response;
+				this.error = response;
 				return $q.reject(response);
 			}
-			service.error = undefined;
+			this.error = undefined;
 			return response.data.carriers;
-		}).catch(function(error) {
-			service.error = error;
+		}).catch((error) => {
+			this.error = error;
 			return $q.reject(error);
 		});
 	};
 
-	service.get = function(id) {
+	this.get = (id) => {
 
-		return this.list().then(function(carriers) {
-			service.carriers = carriers;
-			service.carrierMap = $window.makeMap(carriers);
-			service.current = service.carrierMap[id];
+		return this.list().then((carriers) => {
+			this.carriers = carriers;
+			this.carrierMap = $window.makeMap(carriers);
+			this.current = this.carrierMap[id];
 		});
 	};
 
-	service.updateData = {};
+	this.updateData = {};
 
-	service.update = function() {
-		service.updateData = service.stepData;
-		service.initStepData();
+	this.update = () => {
+		this.updateData = this.stepData;
+		this.initStepData();
 
 		$http({
-			url: lgConfig.wsDir() + 'carriers/' + service.updateData.id,
+			url: lgConfig.wsDir() + 'carriers/' + this.updateData.id,
 			method: 'PUT',
-			data: service.updateData,
+			data: this.updateData,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-		}).then(function(response) {
+		}).then((response) => {
 
 			if (response.data.status === 'ko') {
-				service.error = response;
+				this.error = response;
 				return;
 			}
-			service.error = undefined;
-			service.current = response.data.carrier;
+			this.error = undefined;
+			this.current = response.data.carrier;
 
 			$state.go('carrier:updated');
-		}).catch(function(error) {
-			service.error = error;
+		}).catch((error) => {
+			this.error = error;
 			console.error('error', error);
 		});
 	};
 
-	service.delete = function(id) {
+	this.delete = (id) => {
 
 		return $http({
 			url: lgConfig.wsDir() + 'carriers/' + id,
 			method: 'DELETE'
-		}).then(function(response) {
+		}).then((response) => {
 
 			if (response.data.status === 'ko') {
 				return $q.reject(response);
 			}
-			service.error = undefined;
-			service.carriers = undefined;
-			service.current = undefined;
+			this.error = undefined;
+			this.carriers = undefined;
+			this.current = undefined;
 			$state.go('carrier:deleted');
 		});
 	};
