@@ -11,9 +11,11 @@ export const lgCarrierUpdateRoute = {
 			connection.waitForCheckConnection('LgCarrierUpdateRouteCtrl').then(() => {
 				return this.carrier.get($stateParams.id);
 			}).then(() => {
-				this.carrier.stepData = this.carrier.current.content;
-				this.carrier.stepData.id = $stateParams.id;
-				this.carrier.type = 'update';
+				if (this.carrier.isInitialized()) {
+					this.carrier.stepData = this.carrier.current.content;
+					this.carrier.stepData.id = $stateParams.id;
+					this.carrier.type = 'update';
+				}
 			}).catch(function() {
 				console.error('you should not see this');
 			});
