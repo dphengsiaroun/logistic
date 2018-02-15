@@ -14,7 +14,7 @@ export const lgCarrierCreateTruckChooseRoute = {
 			this.hasTruck = false;
 		});
 		this.selectTruck = (t) => {
-			carrier.createData.truck = t;
+			carrier.stepData.truck = t;
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {

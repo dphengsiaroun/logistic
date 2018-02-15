@@ -7,7 +7,7 @@ export const lgCarrierCreateRoute = {
 		ctrl.carrier = carrier;
 		ctrl.carrierStepManager = carrierStepManager;
 		if (connection.user) {
-			carrier.createData.phone = connection.user.content.phone;
+			carrier.stepData.phone = connection.user.content.phone;
 		}
 
 		carrier.type = 'create';

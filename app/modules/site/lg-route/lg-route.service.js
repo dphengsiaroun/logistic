@@ -25,7 +25,7 @@ export function LgRoute($document, $transitions, $rootScope, $window, carrier, l
 
 			if (from.name.substr(0, 7) === 'carrier' && to.name.substr(0, 7) !== 'carrier') {
 				if (carrier.type === 'update') {
-					carrier.initCreateData();
+					carrier.initStepData();
 				}
 			}
 		});

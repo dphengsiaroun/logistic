@@ -1,14 +1,14 @@
 <lg-breadcrumb config="$ctrl.breadcrumb" step="3"></lg-breadcrumb>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.addPricing()" class="ad" novalidate>
-	<section ng-show="$ctrl.carrier.createData.availability === 'specificTrip'">
+	<section ng-show="$ctrl.carrier.stepData.availability === 'specificTrip'">
 		<label>
 			<span>Tarif souhaité pour le trajet en DZD (facultatif)</span>
 			<input id="pr-price-wanted" name="priceWanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted">
 		</label>
-		<div ng-bind-html="$ctrl.carrier.createData.trip.infoRoute"></div>
-		<div class="bold">Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.createData.trip.distance | currency : 'DZD' : 0 }}</div>
+		<div ng-bind-html="$ctrl.carrier.stepData.trip.infoRoute"></div>
+		<div class="bold">Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.stepData.trip.distance | currency : 'DZD' : 0 }}</div>
 	</section>
-	<section ng-show="$ctrl.carrier.createData.availability === 'total'">
+	<section ng-show="$ctrl.carrier.stepData.availability === 'total'">
 		<label>
 			<span>Tarif souhaité en DZD/km (facultatif)</span>
 			<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm">

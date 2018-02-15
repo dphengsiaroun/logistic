@@ -3,22 +3,22 @@ export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 
 	const service = this;
 
-	service.initCreateData = function() {
-		service.createData = {
+	service.initStepData = function() {
+		service.stepData = {
 			truck: undefined,
 			availability: undefined,
 			pricing: undefined
 		};
 	};
-	service.initCreateData();
+	service.initStepData();
 
-	service.create = function(createData) {
+	service.create = function(stepData) {
 		
 		if (connection.user) {
 			$http({
 				url: lgConfig.wsDir() + 'carriers',
 				method: 'POST',
-				data: createData,
+				data: stepData,
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function(response) {
 				
@@ -27,7 +27,7 @@ export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 					return;
 				}
 				service.error = undefined;
-				service.initCreateData();
+				service.initStepData();
 				$state.go('carrier:created');
 			}).catch(function(error) {
 				console.error('error', error);
@@ -37,16 +37,16 @@ export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 				state: 'carrier:created',
 				service: 'carrier',
 				fn: 'createAfterConnect',
-				args: [createData]
+				args: [stepData]
 			});
-			service.initCreateData();
+			service.initStepData();
 			$state.go('user:hasAccount');
 		}
 
 	};
 
 	service.createAfterConnect = function() {
-		service.createData = angular.fromJson(localStorage.getItem('carrier'));
+		service.stepData = angular.fromJson(localStorage.getItem('carrier'));
 		localStorage.removeItem('carrier');
 		
 		service.create();
@@ -85,8 +85,8 @@ export function Carrier($http, $state, $q, $window, connection, lgConfig) {
 	service.updateData = {};
 
 	service.update = function() {
-		service.updateData = service.createData;
-		service.initCreateData();
+		service.updateData = service.stepData;
+		service.initStepData();
 		
 		$http({
 			url: lgConfig.wsDir() + 'carriers/' + service.updateData.id,

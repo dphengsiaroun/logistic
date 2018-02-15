@@ -1,13 +1,13 @@
 export function CarrierStepManager(carrier) {
 	'ngInject';
 	this.getStep = function() {
-		if (carrier.createData.truck === undefined) {
+		if (carrier.stepData.truck === undefined) {
 			return 1;
 		}
-		if (carrier.createData.availability === undefined) {
+		if (carrier.stepData.availability === undefined) {
 			return 2;
 		}
-		if (carrier.createData.pricing === undefined) {
+		if (carrier.stepData.pricing === undefined) {
 			return 3;
 		}
 		return 4;

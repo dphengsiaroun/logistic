@@ -12,11 +12,11 @@ export const lgCarrierCreateTripCreateRoute = {
 		if (carrier.type === 'create') {
 			this.tripData = {};
 		} else {
-			this.tripData = carrier.createData.trip;
+			this.tripData = carrier.stepData.trip;
 
 		}
 		this.addTrip = () => {
-			carrier.createData.trip = this.tripData;
+			carrier.stepData.trip = this.tripData;
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {

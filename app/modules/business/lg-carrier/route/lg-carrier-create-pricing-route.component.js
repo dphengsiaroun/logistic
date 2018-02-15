@@ -11,13 +11,13 @@ export const lgCarrierCreatePricingRoute = {
 		if (carrier.type === 'create') {
 			this.pricingData = {};
 		} else {
-			this.pricingData = carrier.createData.pricing;
+			this.pricingData = carrier.stepData.pricing;
 			console.log('this.pricingData', this.pricingData);
 		}
 		this.carrier = carrier;
 		this.addPricing = function() {
-			carrier.createData.pricing = this.pricingData;
-			console.log('carrier.createData.pricingData', carrier.createData.pricingData);			
+			carrier.stepData.pricing = this.pricingData;
+			console.log('carrier.stepData.pricingData', carrier.stepData.pricingData);			
 			if (carrier.type === 'create') {
 				$state.go('carrier:create');
 			} else {

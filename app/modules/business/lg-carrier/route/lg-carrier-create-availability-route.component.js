@@ -7,7 +7,7 @@ export const lgCarrierCreateAvailabilityRoute = {
 		'ngInject';
 		this.breadcrumb = breadcrumb;
 		this.select = (str) => {
-			carrier.createData.availability = str;
+			carrier.stepData.availability = str;
 			if (str === 'total') {
 				if (carrier.type === 'create') {
 					$state.go('carrier:create');
