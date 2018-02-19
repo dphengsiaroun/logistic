@@ -20,11 +20,10 @@ export const lgCarrierCreateTruckChooseRoute = {
 		this.selectTruck = (t) => {
 			carrier.stepData.truck = t;
 			if (carrier.type === 'create' || carrier.type === undefined) {
-				console.log('carrier.type', carrier.type);				
 				$state.go('carrier:create');
 			} else {
-				console.log('carrier.type', carrier.type);
-				$state.go('carrier:' + carrier.type, {login: connection.user.content.login, id: carrier.stepData.truck.id});
+				$state.go('carrier:' + carrier.type, 
+					{login: connection.user.content.login, id: carrier.stepData.truck.id});
 			}
 		};
 	}
