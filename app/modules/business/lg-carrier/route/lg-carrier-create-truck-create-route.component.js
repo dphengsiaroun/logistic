@@ -10,21 +10,11 @@ export const lgCarrierCreateTruckCreateRoute = {
 		this.truck = truck;
 		this.fv = formValidator;
 
-		this.selectTruck = (t) => {
-			carrier.stepData.truck = t;
-			if (carrier.type === 'create' || carrier.type === undefined) {
-				$state.go('carrier:create');
-			} else {
-				$state.go('carrier:' + carrier.type, 
-					{login: connection.user.content.login, id: carrier.stepData.truck.id});
-			}
-		};
-
 		this.create = (createData) => {
 			console.log('create', createData);
-			this.truck.create(createData);
-			this.selectTruck(createData);
 			context.push('carrier:create');
+			carrier.stepData.truck = createData;
+			this.truck.create(createData);
 		};
 	}
 };
