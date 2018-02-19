@@ -7,57 +7,53 @@ proposal-list {
 		width: 100%;
 		font-size: 0;
 		border-bottom: 1px solid gray(92%);
-		span {
-			width: 100%;
-			display: block;
-			height: inherit;
-			margin: 3px 0;
-			.img-fix {
-				display: inline-block;
-				width: 30%;
-				img {
-					display: block;
-					width: 100%;
-				}
-			}
-			div {
-				background: $secondaryColor;
+		.img-fix {
+			display: table-cell;
+			width: 30%;
+			vertical-align: middle;
+			img {
+				display: block;
 				width: 100%;
-				.details {
-					display: inline-block;
-					width: 70%;
-					padding: 0 10px;
-					font-size: 13px;
+			}
+		}
+		div {
+			background: $secondaryColor;
+			width: 100%;
+			.details {
+				display: table-cell;
+				width: 70%;
+				vertical-align: middle;
+				padding: 0 10px;
+				font-size: 13px;
+				text-align: left;
+				background: $secondaryColor;
+				h2 {
 					text-align: left;
-					background: $secondaryColor;
-					h2 {
-						text-align: left;
-						font-size: 16px;
-						margin: 0 0 5px;
-					}
-					div {
-						display: table;
-						table-layout: fixed;
+					font-size: 16px;
+					margin: 0 0 5px;
+				}
+				div {
+					display: table;
+					table-layout: fixed;
+					width: 100%;
+					.detail-left {
+						display: table-cell;
 						width: 100%;
-						.detail-left {
-							display: table-cell;
-							width: 100%;
-							span {
-								display: block;
-								color: darkgrey;
-								font-size: 12px;
-							}
-						}
-						.detail-right {
-							display: table-cell;
-							width: 50%;
-							text-align: right;
+						span {
+							display: block;
+							color: darkgrey;
+							font-size: 12px;
 						}
 					}
-					p {
-						color: $fontColor;
-						font-size: 17px;
+					.detail-right {
+						display: table-cell;
+						width: 50%;
+						text-align: right;
 					}
+				}
+				p {
+					color: $fontColor;
+					font-size: 17px;
 				}
 			}
 		}
@@ -69,5 +65,3 @@ proposal-list {
 	font-size: 25px;
 	font-weight: bold;
 }
-
-
