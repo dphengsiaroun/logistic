@@ -9,7 +9,7 @@
 		</my-input>
 		<my-input active ng-show="$ctrl.active">
 			<span> Chargement...</span>
-			<button cancel ng-click="$ctrl.cancel()"><i class="fa fa-times" aria-hidden="true"></i> Annuler</button>
+			<span class="btn-remove" cancel ng-click="$ctrl.cancel()"><i class="fa fa-times" aria-hidden="true"></i> Annuler</span>			
 		</my-input>
 		<progress-bar ng-show="$ctrl.active">
 			<lg-progress ng-style="{width: $ctrl.progress + '%'}">

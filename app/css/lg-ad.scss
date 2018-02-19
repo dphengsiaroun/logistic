@@ -16,6 +16,11 @@
 			padding: 0;
 			margin: 0 39px 0 0;
 		}
+		.fa {
+			font-size: 3em;
+			position: relative;
+			top: 6px;
+		}
 	}
 	.right {
 		width: 70%;
@@ -173,7 +178,7 @@
 		background: $thirdColor;
 		color: $secondaryColor;
 	}
-	a+a {
+	a+a+a+a {
 		background: $alternateButtonColor;
 	}
 	a.critical {

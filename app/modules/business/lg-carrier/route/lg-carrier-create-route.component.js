@@ -11,5 +11,11 @@ export const lgCarrierCreateRoute = {
 		}
 
 		carrier.type = 'create';
+
+		this.carrier.reinitialize = () => {
+			console.log('reinitialize', arguments);
+			this.carrier.stepData.truck = undefined;
+			console.log('this.carrier.stepData', this.carrier.stepData);
+		};
 	}
 };
