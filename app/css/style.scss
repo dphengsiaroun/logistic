@@ -140,6 +140,7 @@ button,
 	border-radius: 3px;
 	background: $buttonColor;
 	color: $secondaryColor;
+    margin-bottom: 1em;
 	cursor: pointer;
 	&[disabled] {
 		background: $disabledButtonColor;
