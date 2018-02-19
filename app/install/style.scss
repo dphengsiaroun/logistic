@@ -64,6 +64,14 @@ div {
 	}
 }
 
+div.message {
+	display: block;
+	background: #fff;
+	width: 50%;
+	margin: 0 auto;
+	padding: 10px;
+}
+
 .link {
 	display: block;
 	width: 100%;
@@ -147,6 +155,18 @@ button {
 	color: #fff;
 	background: #025aa5;
 	border-color: #01549b;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
 }
 
 .btn-danger {
