@@ -12,6 +12,7 @@ export function CarrierStepManager(carrier) {
 		}
 		return 4;
 	};
+	
 	this.getClass = function(step) {
 		const currentStep = this.getStep();
 		
