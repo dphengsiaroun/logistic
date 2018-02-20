@@ -30,10 +30,16 @@
 					<i ng-show="$ctrl.carrierStepManager.getStep() >= 1" class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>
 			</step>
-			<step id="pr-select-availabilities" ng-click="$root.goToState('carrier:create:availability')" ng-class="$ctrl.carrierStepManager.getClass(2)">
+			<step ng-show="$ctrl.carrierStepManager.getStep() < 2" class="disabled">
 				<num-step>2</num-step>
-				<div ng-show="$ctrl.carrierStepManager.getStep() <= 2">Disponibilité</div>
-				<div ng-hide="$ctrl.carrierStepManager.getStep() <= 2">
+				<div>Disponibilité</div>
+				<chevron></chevron>
+			</step>
+			<step ng-hide="$ctrl.carrierStepManager.getStep() < 2" id="pr-select-availabilities" ng-click="$root.goToState('carrier:create:availability')"
+			    ng-class="$ctrl.carrierStepManager.getClass(2)">
+				<num-step>2</num-step>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 2">Disponibilité</div>
+				<div ng-show="$ctrl.carrierStepManager.getStep() > 2">
 					<span ng-show="$ctrl.carrier.stepData.availability === 'total'">Disponibilité totale</span>
 					<availability ng-show="$ctrl.carrier.stepData.availability === 'specificTrip'">
 						<date>{{$ctrl.carrier.stepData.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
@@ -44,7 +50,8 @@
 									De :
 								</labels>
 								<values>
-									<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{$ctrl.carrier.stepData.trip.departureCity.city}}</city>
+									<city>
+										<i class="fa fa-map-marker" aria-hidden="true"></i> {{$ctrl.carrier.stepData.trip.departureCity.city}}</city>
 									<region>{{$ctrl.carrier.stepData.trip.departureCity.region}}</region>
 								</values>
 							</from>
@@ -53,20 +60,26 @@
 									A :
 								</labels>
 								<values>
-									<city><i class="fa fa-map-marker" aria-hidden="true"></i> {{$ctrl.carrier.stepData.trip.arrivalCity.city}}</city>
+									<city>
+										<i class="fa fa-map-marker" aria-hidden="true"></i> {{$ctrl.carrier.stepData.trip.arrivalCity.city}}</city>
 									<region>{{$ctrl.carrier.stepData.trip.departureCity.region}}</region>
 								</values>
 							</to>
 						</places>
-					</header>
+						</header>
 				</div>
 				<chevron>
-					<i ng-show="$ctrl.carrierStepManager.getStep() >= 2" class="fa fa-chevron-right" aria-hidden="true"></i>
+					<i class="fa fa-chevron-right" aria-hidden="true"></i>
 				</chevron>
 			</step>
-			<step id="pr-select-price" ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.carrierStepManager.getClass(3)">
+			<step ng-show="$ctrl.carrierStepManager.getStep() < 3" class="disabled">
 				<num-step>3</num-step>
-				<div ng-show="$ctrl.carrierStepManager.getStep() <= 3">Prix</div>
+				<div>Prix</div>
+				<chevron></chevron>
+			</step>
+			<step ng-hide="$ctrl.carrierStepManager.getStep() < 3" id="pr-select-price" ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.carrierStepManager.getClass(3)">
+				<num-step>3</num-step>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 3">Prix</div>
 				<div ng-show="$ctrl.carrierStepManager.getStep() > 3">
 					<span ng-show="$ctrl.carrier.stepData.availability === 'total'">
 						<span ng-show="$ctrl.carrier.stepData.pricing.priceWantedPerKm">Prix : {{$ctrl.carrier.stepData.pricing.priceWantedPerKm}} DZD/km</span>
@@ -84,8 +97,10 @@
 		</steps>
 		<br>
 		<br>
-		<button id="pr-create-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'" ng-click="$ctrl.carrier.create($ctrl.carrier.stepData)">Mettre en ligne mon annonce</button>
-		<button id="pr-update-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'update'" ng-click="$ctrl.carrier.update()">Mettre en ligne mon annonce modifiée</button>
+		<button id="pr-create-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'"
+		    ng-click="$ctrl.carrier.create($ctrl.carrier.stepData)">Mettre en ligne mon annonce</button>
+		<button id="pr-update-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'update'"
+		    ng-click="$ctrl.carrier.update()">Mettre en ligne mon annonce modifiée</button>
 		<button ng-show="$ctrl.carrier.stepData.truck.name" class="transparent" ng-click="$ctrl.carrier.reinitialize()">Réinitialiser</button>
 	</div>
 </summary>
