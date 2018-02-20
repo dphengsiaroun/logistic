@@ -16,7 +16,6 @@ lg-carrier-update-route {
 					width: 100%;
 					height: 70px;
 					num-step,
-					div,
 					chevron {
 						display: table-cell;
 						vertical-align: middle;
@@ -27,10 +26,14 @@ lg-carrier-update-route {
 						width: 10%;
 						padding: 5px;
 						text-align: center;
+						font-size: 20px;
 					}
 					div {
+						display: table-cell;
+						vertical-align: middle;
 						width: 80%;
 						font-weight: normal;
+						border-bottom: 1px solid $borderColor;						
 						availability {
 							display: block;
 							width: 100%;
@@ -51,14 +54,15 @@ lg-carrier-update-route {
 								.to {
 									display: table-row;
 									width: 100%;
-									labels {
+									span {
 										display: table-cell;
 										width: 15%;
 										text-align: left;
+										font-size: 13px;
 									}
 									values {
 										display: table-cell;
-										width: 85%;
+										width: 65%;
 									}
 								}
 							}

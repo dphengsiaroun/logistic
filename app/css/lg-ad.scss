@@ -24,6 +24,8 @@
 	}
 	.right {
 		width: 70%;
+		position: relative;
+		top: 4px;
 		h1 {
 			font-size: 1.2em;
 		}
@@ -191,12 +193,12 @@
 }
 
 city {
-	font-size: 0.7em;
+	font-size: 0.9em;
 	font-weight: bold;
 }
 
 region {
-	font-size: 0.6em;
+	font-size: 0.7em;
 	color: gray(66%);
 }
 
