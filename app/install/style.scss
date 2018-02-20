@@ -230,6 +230,19 @@ button {
 	color: #c9302c;
 }
 
+@media (max-width: 900px) {
+	form {
+		width: 100%;
+	}
+	div.container {
+		width: 40%;
+	}
+	button, .link a {
+		width: 100%;
+		margin: 5px 0px;
+	}
+}
+
 
 @media (max-width: 768px) {
 	form {

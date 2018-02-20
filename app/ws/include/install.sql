@@ -12,7 +12,6 @@ CREATE TABLE `<?php echo $context->prefix; ?>event_id` (
 
 INSERT INTO `<?php echo $context->prefix; ?>event_id` (id) VALUES (0);
 
-
 CREATE TABLE `<?php echo $context->prefix; ?>event_error` (
   `id` INT(16) UNSIGNED NOT NULL,
   `message` longtext NOT NULL,
