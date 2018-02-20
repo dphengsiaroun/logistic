@@ -1,13 +1,3 @@
-<div class="title-bar clearfix">
-	<div class="left">
-		<i class="fa fa-tag" aria-hidden="true"></i>
-	</div>
-	<div class="right">
-		<h1>Proposition</h1>
-		<h2 ng-show="$ctrl.proposal.current.ad_type === 'loader'">au chargeur</h2>
-		<h2 ng-show="$ctrl.proposal.current.ad_type === 'carrier'">au transporteur</h2>
-	</div>
-</div>
 <div class="img-ad">
 	<img-svg ng-show="$ctrl.proposal.current.ad_type === 'loader' && !$ctrl.proposal.current.content.imageUrl" src="/img/loader-default.svg"></img-svg>
 	<img ng-show="$ctrl.proposal.current.ad_type === 'loader' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
