@@ -32,25 +32,33 @@ lg-carrier-update-route {
 						width: 80%;
 						font-weight: normal;
 						availability {
-							date,
-							distance {
-								display: block;
+							display: block;
+							width: 100%;
+							date {
+								float: left;
 								color: gray(66%);
-								font-size: 13px;
+								font-size: 15px;
+							}
+							distance {
+								float: right;
+								color: gray(66%);
+								font-size: 15px;
 							}
 							places {
 								display: table;
 								width: 100%;
-								from,
-								to {
+								.from,
+								.to {
 									display: table-row;
-									font-size: 13px;
+									width: 100%;
 									labels {
 										display: table-cell;
-										width: 30px;
+										width: 15%;
+										text-align: left;
 									}
 									values {
 										display: table-cell;
+										width: 85%;
 									}
 								}
 							}
@@ -143,10 +151,10 @@ lg-carrier-update-route {
 			padding: 0;
 			vertical-align: top;
 			h2 {
-				font-size: 17px;
-				text-align: left;
+				font-size: 18px;
+				text-align: center;
 				padding: 5px 8px 6px 100px;
-				background: rgba(255, 232, 82, 0.37);
+				background: #dfffb5;
 			}
 			img {
 				display: block;
@@ -158,9 +166,9 @@ lg-carrier-update-route {
 				display: block;
 				width: 100%;
 				margin: 0;
-				padding: 0 5px;
+				padding: 0px 8px 0px 100px;;
 				font-size: 14px;
-				text-align: right;
+				text-align: center;
 			}
 		}
 		left {

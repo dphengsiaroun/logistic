@@ -19,35 +19,34 @@
 	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo: $ctrl.limit" ng-click="$root.goToState('loader:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}">
 			<h1>{{ad.content.title}}</h1>
-			<div>
-				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-				<by>Par {{ad.content.login | ucfirst}}</by>
-			</div>
+			<span class="created">
+				Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}} par {{ad.content.login | ucfirst}}
+			</span>
 			<div>
 				<date>Chargement le {{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
 			</div>
 			<places>
-				<from>
+				<div class="from">
 					<labels>
-						De :
+						Départ
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.departureCity.city}}</city>
 						<region>{{ad.content.departureCity.region}}</region>
 					</values>
-				</from>
-				<to>
+				</div>
+				<div class="to">
 					<labels>
-						A :
+						Arrivée 
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.arrivalCity.city}}</city>
 						<region>{{ad.content.arrivalCity.region}}</region>
 					</values>
-				</to>
+				</div>
 			</places>
 		</header>
 		<content>

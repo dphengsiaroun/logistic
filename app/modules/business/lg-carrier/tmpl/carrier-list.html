@@ -19,35 +19,34 @@
 	<ad-block ng-repeat="ad in $ctrl.filteredlist | limitTo:$ctrl.limit" ng-click="$root.goToState('carrier:retrieve({ id: '+ ad.id +'})')">
 		<header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'specificTrip'">
 			<h1>{{ad.content.truck.name}}</h1>
-			<h2>
-				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-				<by>Par {{ad.content.login | ucfirst}}</by>
-			</h2>
+			<span class="created">
+				Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}} par {{ad.content.login | ucfirst}}
+			</span>
 			<h2>
 				<date>Départ le {{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.trip.distance}}km - {{ad.content.trip.minDuration | duration}}</distance>
 			</h2>
 			<places>
-				<from>
+				<div class="from">
 					<labels>
-						De :
+						Départ
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.departureCity.city}}</city>
 						<region>{{ad.content.trip.departureCity.region}}</region>
 					</values>
-				</from>
-				<to>
+				</div>
+				<div class="to">
 					<labels>
-						A :
+						Arrivée
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.arrivalCity.city}}</city>
 						<region>{{ad.content.trip.arrivalCity.region}}</region>
 					</values>
-				</to>
+				</div>
 			</places>
 		</header>
 		<content ng-show="ad.content.availability === 'specificTrip'">

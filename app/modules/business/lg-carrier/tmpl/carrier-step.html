@@ -45,26 +45,26 @@
 						<date>{{$ctrl.carrier.stepData.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 						<distance>{{$ctrl.carrier.stepData.trip.distance}}km - {{$ctrl.carrier.stepData.trip.minDuration | duration}}</distance>
 						<places>
-							<from>
-								<labels>
-									De :
-								</labels>
+							<div class="from">
+								<span style="font-size:15px;">
+									Départ
+								</span>
 								<values>
 									<city>
 										<i class="fa fa-map-marker" aria-hidden="true"></i> {{$ctrl.carrier.stepData.trip.departureCity.city}}</city>
 									<region>{{$ctrl.carrier.stepData.trip.departureCity.region}}</region>
 								</values>
-							</from>
-							<to>
-								<labels>
-									A :
-								</labels>
+							</div>
+							<div class="to">
+								<span style="font-size:15px;">
+									Arrivée
+								</span>
 								<values>
 									<city>
 										<i class="fa fa-map-marker" aria-hidden="true"></i> {{$ctrl.carrier.stepData.trip.arrivalCity.city}}</city>
 									<region>{{$ctrl.carrier.stepData.trip.departureCity.region}}</region>
 								</values>
-							</to>
+							</div>
 						</places>
 						</header>
 				</div>
@@ -82,11 +82,11 @@
 				<div ng-show="$ctrl.carrierStepManager.getStep() === 3">Prix</div>
 				<div ng-show="$ctrl.carrierStepManager.getStep() > 3">
 					<span ng-show="$ctrl.carrier.stepData.availability === 'total'">
-						<span ng-show="$ctrl.carrier.stepData.pricing.priceWantedPerKm">Prix : {{$ctrl.carrier.stepData.pricing.priceWantedPerKm}} DZD/km</span>
+						<span ng-show="$ctrl.carrier.stepData.pricing.priceWantedPerKm">Prix : <b>{{$ctrl.carrier.stepData.pricing.priceWantedPerKm}} DZD/km</b></span>
 						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWantedPerKm">Prix</span>
 					</span>
 					<span ng-show="$ctrl.carrier.stepData.availability === 'specificTrip'">
-						<span ng-show="$ctrl.carrier.stepData.pricing.priceWanted">Prix : {{$ctrl.carrier.stepData.pricing.priceWanted}} DZD</span>
+						<span ng-show="$ctrl.carrier.stepData.pricing.priceWanted">Prix : <b>{{$ctrl.carrier.stepData.pricing.priceWanted}} DZD</b></span>
 						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWanted">Prix</span>
 					</span>
 				</div>
