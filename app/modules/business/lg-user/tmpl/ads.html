@@ -18,34 +18,33 @@
 		<header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'specificTrip'">
 			<h1>{{ad.content.truck.name}}</h1>
 			<h2>
-				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-				<by>Par {{ad.content.login | ucfirst}}</by>
+				<span class="created">Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}} par {{ad.content.login | ucfirst}}</span>
 			</h2>
 			<h2>
 				<date>{{ad.content.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.trip.distance}}km - {{ad.content.trip.minDuration | duration}}</distance>
 			</h2>
 			<places>
-				<from>
+				<div class="from">
 					<labels>
-						De :
+						Départ
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.departureCity.city}}</city>
 						<region>{{ad.content.trip.departureCity.region}}</region>
 					</values>
-				</from>
-				<to>
+				</div>
+				<div class="to">
 					<labels>
-						A :
+						Arrivée
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.trip.arrivalCity.city}}</city>
 						<region>{{ad.content.trip.arrivalCity.region}}</region>
 					</values>
-				</to>
+				</div>
 			</places>
 		</header>
 		<content ng-show="ad.content.availability === 'specificTrip'">
@@ -63,8 +62,7 @@
 		<header ad-id="{{ad.id}}" ng-if="ad.content.availability === 'total'">
 			<h1>{{ad.content.truck.name}}</h1>
 			<h2>
-				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-				<by>Par {{ad.content.login | ucfirst}}</by>
+				<span class="created">Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}} par {{ad.content.login | ucfirst}}</span>
 			</h2>
 			<city>
 				<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.truck.city.city}}</city>
@@ -91,34 +89,33 @@
 		<header ad-id="{{ad.id}}">
 			<h1>{{ad.content.title}}</h1>
 			<div>
-				<created>Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</created>
-				<by>Par {{ad.content.login | ucfirst}}</by>
+				<span class="created">Publié le {{ad.content.created_t | ts2date | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}} par {{ad.content.login | ucfirst}}</span>
 			</div>
 			<div>
 				<date>{{ad.content.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 				<distance>{{ad.content.distance}}km - {{ad.content.minDuration | duration}}</distance>
 			</div>
 			<places>
-				<from>
+				<div class="from">
 					<labels>
-						De :
+						Départ
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.departureCity.city}}</city>
 						<region>{{ad.content.departureCity.region}}</region>
 					</values>
-				</from>
-				<to>
+				</div>
+				<div class="to">
 					<labels>
-						A :
+						Arrivée
 					</labels>
 					<values>
 						<city>
 							<i class="fa fa-map-marker" aria-hidden="true"></i> {{ad.content.arrivalCity.city}}</city>
 						<region>{{ad.content.arrivalCity.region}}</region>
 					</values>
-				</to>
+				</div>
 			</places>
 		</header>
 		<content>

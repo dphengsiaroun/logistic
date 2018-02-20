@@ -40,12 +40,11 @@ lg-breadcrumb {
 		&::before,
 		&::after {
 			position: absolute;
-			left: -8px;
+			left: -6px;
 			height: $breadcrumbHeight / 2;
 			width: 3px;
 			// background: $secondaryColor;
-			border-left: 10px solid $breadcrumbColor;
-			border-right: 10px solid $breadcrumbColor;
+			border: 8px solid #f5f5f5;
 			content: '';
 		}
 		&::before {
@@ -73,13 +72,12 @@ lg-breadcrumb {
 			}
 			&:before,
 			&:after {
-				border-left: 10px solid $breadcrumbDisabledBgColor;
-				border-right: 10px solid $breadcrumbDisabledBgColor;
+				border: 8px solid $breadcrumbDisabledBgColor;
 			}
 			&[first] {
 				&:before,
 				&:after {
-					border-left: 10px solid $breadcrumbColor;
+					border: 8px solid #f5f5f5;
 				}
 			}
 		}

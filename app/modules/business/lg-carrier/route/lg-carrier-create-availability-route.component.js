@@ -13,7 +13,7 @@ export const lgCarrierCreateAvailabilityRoute = {
 					$state.go('carrier:create');
 				} else {
 					$state.go('carrier:' + carrier.type, 
-						{ login: connection.user.content.login, id: carrier.current.id });
+						{ login: connection.user.content.login, id: carrier.stepData.availability.id });
 				}
 			}
 			if (str === 'specificTrip') {
