@@ -41,7 +41,6 @@ export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, a
 	};
 
 	service.check = function() {
-		
 		if (service.isConnected !== undefined) {
 			return;
 		}
@@ -99,7 +98,6 @@ export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, a
 	$rootScope.$on('$viewContentLoaded', refreshState);
 
 	service.delete = function() {
-		
 		$http({
 			url: lgConfig.wsDir() + 'connections/12',
 			method: 'DELETE'
@@ -112,6 +110,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, a
 			service.error = undefined;
 			service.user = undefined;
 			service.isConnected = false;
+			console.log('service.isConnected', service.isConnected);
 			$state.go('home');
 		}).catch(function(error) {
 			service.error = error;

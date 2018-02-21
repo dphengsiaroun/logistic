@@ -23,25 +23,35 @@ lg-user-create-route {
 }
 
 
+lg-user-initiate-password-route {
+	h1 {
+		display: block;
+		margin: 20px 0;
+		text-align: center;
+		font-size: 20px;
+		font-weight: 700;
+	}
+}
+
 lg-user-signup-success-route {
 	display: block;
 	padding: 20px;
 }
 
-.profil {
-	text-align: center;
-	width: 100%;
-	padding: 0;
-	margin: 20px 0 10px;
-	i {
-		font-size: 70px;
-	}
-	h1 {
-		font-size: 30px;
-		margin: 10px 0;
-	}
-	h2 {
-		font-size: 30px;
-		margin: 10px 0;
-	}
-}
+// .profil {
+// 	text-align: center;
+// 	width: 100%;
+// 	padding: 0;
+// 	margin: 20px 0 10px;
+// 	i {
+// 		font-size: 70px;
+// 	}
+// 	h1 {
+// 		font-size: 30px;
+// 		margin: 10px 0;
+// 	}
+// 	h2 {
+// 		font-size: 30px;
+// 		margin: 10px 0;
+// 	}
+// }

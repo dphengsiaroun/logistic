@@ -17,6 +17,8 @@ function initCtrl(ctrl, $scope, $injector) {
 			ctrl.user.updateData = angular.copy(ctrl.connection.user);
 		}
 	});
+	console.log('ctrl.connection', ctrl.connection);
+	console.log('ctrl.user', ctrl.user);
 }
 
 export function UserCtrl($scope, $injector, formValidator) {

@@ -11,7 +11,6 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 	};
 
 	this.create = function() {
-		
 		const SHA256 = new Hashes.SHA256;
 		const data = angular.copy(service.signupData);
 		data.password = SHA256.hex(service.signupData.password);
@@ -42,8 +41,6 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 	
 
 	this.update = function() {
-		
-
 		$http({
 			url: lgConfig.wsDir() + 'users/' + service.updateData.id,
 			method: 'PUT',
@@ -64,8 +61,6 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 	};
 
 	this.delete = function() {
-		
-
 		return $http({
 			url: lgConfig.wsDir() + 'users/' + connection.user.id,
 			method: 'DELETE',
@@ -76,7 +71,7 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 				return $q.reject(response);
 			}
 			service.current = undefined;
-			const connection = $injector.get('connection');
+			connection.user = undefined;
 			connection.isConnected = false;
 			$state.go('user:deleted');
 		});
@@ -88,14 +83,47 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 	};
 
 	this.updatePassword = function(data) {
-		
 		const SHA256 = new Hashes.SHA256;
 		const hashedData = angular.copy(data);
 		if (hashedData.oldPassword) {
 			hashedData.oldPassword = SHA256.hex(hashedData.oldPassword);
+			console.log('hashedData.oldPassword', hashedData.oldPassword);
 		}
 		if (hashedData.newPassword) {
 			hashedData.newPassword = SHA256.hex(hashedData.newPassword);
+			console.log('hashedData.newPassword', hashedData.newPassword);			
+		}
+		$http({
+			url: lgConfig.wsDir() + 'users/' + data.id,
+			method: 'PATCH',
+			data: hashedData,
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).then(function(response) {
+			
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return;
+			}
+			service.error = undefined;
+			service.current = response.data.user;
+			$state.go('user:updatedPassword');
+		}).catch(function(error) {
+			console.error('error', error);
+			service.error = error;
+		});
+	};
+
+	this.initiatePasswordData = {
+		newPassword: '',
+	};
+
+	this.initiatePassword = (data) => {
+		const SHA256 = new Hashes.SHA256;
+		const hashedData = angular.copy(data);
+		console.log('hashedData', hashedData);		
+		if (hashedData.newPassword) {
+			hashedData.newPassword = SHA256.hex(hashedData.newPassword);
+			console.log('hashedData.newPassword', hashedData.newPassword);
 		}
 		$http({
 			url: lgConfig.wsDir() + 'users/' + data.id,
