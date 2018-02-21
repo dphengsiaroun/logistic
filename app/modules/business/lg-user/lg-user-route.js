@@ -73,15 +73,29 @@ export function config($stateProvider) {
 		}
 	});
 	$stateProvider.state({
-		name: 'user:updatePassword',
-		url: '/update-password',
-		component: 'lgUserUpdatePasswordRoute',
-		needsUser: true
-	});
-	$stateProvider.state({
 		name: 'user:initiatePassword',
 		url: '/initiate-password',
 		component: 'lgUserInitiatePasswordRoute',
+		needsUser: true
+	});
+	$stateProvider.state({
+		name: 'user:initiatedPassword',
+		url: '/initiated-password',
+		component: 'lgMessage',
+		resolve: {
+			service: function() {
+				return {
+					state: 'home',
+					label: 'Accueil',
+					message: 'Votre mot de passe a bien été initialisé.'
+				};
+			}
+		},
+	});
+	$stateProvider.state({
+		name: 'user:updatePassword',
+		url: '/update-password',
+		component: 'lgUserUpdatePasswordRoute',
 		needsUser: true
 	});
 	$stateProvider.state({
