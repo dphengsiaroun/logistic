@@ -149,7 +149,7 @@ export function Truck($q, $http, $state, $window, connection, lgConfig) {
 			service.error = undefined;
 			service.trucks = undefined;
 			service.current = undefined;
-			service.truckMap === undefined;
+			service.truckMap = undefined;
 			$state.go('truck:deleted');
 		});
 	};
