@@ -67,16 +67,22 @@ export function Truck($q, $http, $state, $window, connection, lgConfig) {
 
 	service.get = function(id) {
 		
+		
 		if (id === undefined) {
 			return $q.reject('id is undefined');
 		}
-		if (service.truckMap === undefined) {
-			return service.list().then(function() {
-				service.current = service.truckMap[id];
-			});
-		}
-		service.current = service.truckMap[id];
-		return $q.resolve();
+		return connection.waitForCheckConnection('TruckGet').then(() => {
+			if (service.truckMap === undefined) {
+				return service.list().then(function() {
+					service.current = service.truckMap[id];
+				});
+			}
+			if (!service.truckMap[id]) {
+				return $q.reject('truck not found');
+			}
+			service.current = service.truckMap[id];
+		});
+		
 	};
 
 	service.empty = function() {
@@ -143,6 +149,7 @@ export function Truck($q, $http, $state, $window, connection, lgConfig) {
 			service.error = undefined;
 			service.trucks = undefined;
 			service.current = undefined;
+			service.truckMap === undefined;
 			$state.go('truck:deleted');
 		});
 	};

@@ -14,11 +14,20 @@ export const lgCarrierCreateRoute = {
 		}
 
 		console.log('this.carrier.stepData.truck', this.carrier.stepData.truck);
-		console.log('this.carrier', this.carrier);
+		this.$onInit = function() {
+			if (this.carrier.stepData.truck) {
+				ctrl.truck.get(this.carrier.stepData.truck.id).then(() => {	
+					console.log('truck found', ctrl.truck.current);
+				}).catch(() => {
+					this.reinitialize();
+				});
+			}
+			
+		};
 
 		carrier.type = 'create';
 
-		this.carrier.reinitialize = () => {
+		this.reinitialize = () => {
 			console.log('reinitialize', arguments);
 			this.carrier.stepData.truck = undefined;
 			this.carrier.stepData.availability = undefined;

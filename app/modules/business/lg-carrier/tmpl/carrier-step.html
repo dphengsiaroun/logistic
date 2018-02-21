@@ -101,6 +101,6 @@
 		    ng-click="$ctrl.carrier.create($ctrl.carrier.stepData)">Mettre en ligne mon annonce</button>
 		<button id="pr-update-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'update'"
 		    ng-click="$ctrl.carrier.update()">Mettre en ligne mon annonce modifiée</button>
-		<button ng-show="$ctrl.carrier.stepData.truck.name" class="transparent" ng-click="$ctrl.carrier.reinitialize()">Réinitialiser</button>
+		<button ng-show="$ctrl.carrier.stepData.truck.name" class="transparent" ng-click="$ctrl.reinitialize()">Réinitialiser</button>
 	</div>
 </summary>
