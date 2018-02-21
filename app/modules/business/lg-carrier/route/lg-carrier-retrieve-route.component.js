@@ -14,7 +14,6 @@ function CarrierDetailCtrl($scope, $stateParams, connection, carrier) {
 			
 		}).catch(function() {
 			ctrl.isEditable = false;
-			
 		});
 	};
 }
