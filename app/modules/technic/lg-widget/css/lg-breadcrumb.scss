@@ -40,12 +40,12 @@ lg-breadcrumb {
 		&::before,
 		&::after {
 			position: absolute;
-			left: -6px;
-			height: $breadcrumbHeight / 2;
+			left: -8px;
+			height: 35px;
 			width: 3px;
-			// background: $secondaryColor;
-			border: 8px solid #f5f5f5;
-			content: '';
+			border-left: 10px solid $breadcrumbColor;
+			border-right: 10px solid $breadcrumbColor;
+			content: "";
 		}
 		&::before {
 			top: 0;
@@ -72,15 +72,15 @@ lg-breadcrumb {
 			}
 			&:before,
 			&:after {
-				border: 8px solid $breadcrumbDisabledBgColor;
+				border-left: 10px solid $breadcrumbDisabledBgColor;
+				border-right: 10px solid $breadcrumbDisabledBgColor;
 			}
 			&[first] {
 				&:before,
 				&:after {
-					border: 8px solid #f5f5f5;
+					border-left: 10px solid $breadcrumbColor;
 				}
 			}
 		}
 	}
 }
-
