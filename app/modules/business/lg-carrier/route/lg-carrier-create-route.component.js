@@ -13,20 +13,6 @@ export const lgCarrierCreateRoute = {
 			carrier.stepData.phone = connection.user.content.phone;
 		}
 
-		console.log('this.carrier.stepData.truck', this.carrier.stepData.truck);
-		this.$onInit = function() {
-			if (this.carrier.stepData.truck) {
-				ctrl.truck.get(this.carrier.stepData.truck.id).then(() => {	
-					console.log('truck found', ctrl.truck.current);
-				}).catch(() => {
-					this.reinitialize();
-				});
-			}
-			
-		};
-
-		carrier.type = 'create';
-
 		this.reinitialize = () => {
 			console.log('reinitialize', arguments);
 			this.carrier.stepData.truck = undefined;
@@ -34,5 +20,19 @@ export const lgCarrierCreateRoute = {
 			this.carrier.stepData.pricing = undefined;
 			console.log('this.carrier.stepData', this.carrier.stepData);
 		};
+
+		console.log('this.carrier.stepData.truck', this.carrier.stepData.truck);
+		// this.$onInit = function() {
+		// 	if (this.carrier.stepData.truck) {
+		// 		ctrl.truck.get(this.carrier.stepData.truck.id).then(() => {	
+		// 			console.log('truck found', ctrl.truck.current);
+		// 		}).catch((e) => {
+		// 			console.error('Truck not found');
+		// 			this.reinitialize();
+		// 		});
+		// 	}
+		// };
+
+		carrier.type = 'create';
 	}
 };
