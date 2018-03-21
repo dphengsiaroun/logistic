@@ -11,9 +11,11 @@
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.proposal.create($ctrl.proposal.createData)" class="ad"
     novalidate>
 	<div class="img-ad">
-		<img-svg ng-show="$ctrl.proposal.createData.imageUrl === undefined && $ctrl.proposal.createData.adType === 'loader'" src="/img/loader-default.svg"></img-svg>
-		<img-svg ng-show="$ctrl.proposal.createData.imageUrl === undefined && $ctrl.proposal.createData.adType === 'carrier'" src="/img/truck-default.svg"></img-svg>
-		<img ng-show="$ctrl.proposal.createData.imageUrl" src="{{$ctrl.proposal.createData.imageUrl}}">
+		<div>
+			<img-svg ng-show="$ctrl.proposal.createData.imageUrl === undefined && $ctrl.proposal.createData.adType === 'loader'" src="/img/loader-default.svg"></img-svg>
+			<img-svg ng-show="$ctrl.proposal.createData.imageUrl === undefined && $ctrl.proposal.createData.adType === 'carrier'" src="/img/truck-default.svg"></img-svg>
+			<img ng-show="$ctrl.proposal.createData.imageUrl" src="{{$ctrl.proposal.createData.imageUrl}}">
+		</div>
 	</div>
 	<section>
 		<p>Proposition à l'annonce :</p>

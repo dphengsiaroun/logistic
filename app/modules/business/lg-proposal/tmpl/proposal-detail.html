@@ -1,8 +1,10 @@
 <div class="img-ad">
-	<img-svg ng-show="$ctrl.proposal.current.ad_type === 'loader' && !$ctrl.proposal.current.content.imageUrl" src="/img/loader-default.svg"></img-svg>
-	<img ng-show="$ctrl.proposal.current.ad_type === 'loader' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
-	<img-svg ng-show="$ctrl.proposal.current.ad_type === 'carrier' && !$ctrl.proposal.current.content.imageUrl" src="/img/truck-default.svg"></img-svg>
-	<img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
+	<div>
+		<img-svg ng-show="$ctrl.proposal.current.ad_type === 'loader' && !$ctrl.proposal.current.content.imageUrl" src="/img/loader-default.svg"></img-svg>
+		<img ng-show="$ctrl.proposal.current.ad_type === 'loader' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
+		<img-svg ng-show="$ctrl.proposal.current.ad_type === 'carrier' && !$ctrl.proposal.current.content.imageUrl" src="/img/truck-default.svg"></img-svg>
+		<img ng-show="$ctrl.proposal.current.ad_type === 'carrier' && $ctrl.proposal.current.content.imageUrl" src="{{$ctrl.proposal.current.content.imageUrl}}">
+	</div>
 </div>
 <section class="detail-ad">
 	<h1>{{$ctrl.proposal.current.content.titleAd}}</h1>

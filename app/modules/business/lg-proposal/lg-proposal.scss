@@ -7,13 +7,36 @@ proposal-list {
 		width: 100%;
 		font-size: 0;
 		border-bottom: 1px solid gray(92%);
-		.img-fix {
-			display: table-cell;
-			width: 30%;
-			vertical-align: middle;
-			img {
-				display: block;
-				width: 100%;
+		div {
+			margin: 3px 0;
+			.img-fix {
+				display: table-cell;
+				width: 30%;
+				margin: 0;
+				position: relative;
+				padding-top: 25%;
+				div {
+					display: block;
+					width: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					margin: 0;
+					overflow: hidden;
+					img {
+						display: block;
+                        height: 100%;
+						margin: 0 auto;
+					}
+					svg {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+						margin: 0 auto;
+					}
+				}
 			}
 		}
 		div {

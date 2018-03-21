@@ -1,6 +1,8 @@
 <div class="img-ad">
-	<img-svg ng-show="$ctrl.truck.current.image === undefined" src="/img/truck-default.svg"></img-svg>
-	<img ng-show="$ctrl.truck.current.image.url" ng-src="{{$ctrl.truck.current.image.url}}">
+	<div>
+		<img-svg ng-show="$ctrl.truck.current.image === undefined" src="/img/truck-default.svg"></img-svg>
+		<img ng-show="$ctrl.truck.current.image.url" ng-src="{{$ctrl.truck.current.image.url}}">
+	</div>
 </div>
 <section class="detail-ad">
 	<h1>{{$ctrl.truck.current.name}}</h1>
