@@ -1,6 +1,8 @@
 <div class="img-ad">
-	<img-svg ng-show="$ctrl.loader.current.content.image === undefined" src="/img/loader-default.svg"></img-svg>
-	<img ng-show="$ctrl.loader.current.content.image.url" ng-src="{{$ctrl.loader.current.content.image.url}}">
+	<div>
+		<img-svg ng-show="$ctrl.loader.current.content.image === undefined" src="/img/loader-default.svg"></img-svg>
+		<img ng-show="$ctrl.loader.current.content.image.url" ng-src="{{$ctrl.loader.current.content.image.url}}">
+	</div>
 </div>
 <section class="detail-ad">
 	<h1>{{$ctrl.loader.current.content.title}}</h1>

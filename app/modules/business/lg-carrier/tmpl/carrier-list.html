@@ -51,8 +51,10 @@
 		</header>
 		<content ng-show="ad.content.availability === 'specificTrip'">
 			<content-left>
-				<img-svg ng-show="ad.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
-				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.url}}">
+				<div>
+					<img-svg ng-show="ad.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
+					<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.url}}">
+				</div>
 			</content-left>
 			<content-right>
 				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>
@@ -72,8 +74,10 @@
 		</header>
 		<content ng-show="ad.content.availability === 'total'">
 			<content-left>
-				<img-svg ng-show="ad.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
-				<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
+				<div>
+					<img-svg ng-show="ad.content.truck.image === undefined" src="/img/truck-default.svg"></img-svg>
+					<img ng-show="ad.content.truck.image.thumbnailUrl" ng-src="{{ad.content.truck.image.thumbnailUrl}}">
+				</div>
 			</content-left>
 			<content-right>
 				<transport-category>{{ad.content.truck.transportCategory}} - {{ad.content.truck.transportTruckType}}</transport-category>

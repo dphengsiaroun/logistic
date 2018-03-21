@@ -39,7 +39,7 @@
 				</div>
 				<div class="to">
 					<labels>
-						Arrivée 
+						Arrivée
 					</labels>
 					<values>
 						<city>
@@ -51,8 +51,10 @@
 		</header>
 		<content>
 			<content-left>
-				<img-svg ng-show="ad.content.image === undefined" src="/img/loader-default.svg"></img-svg>
-				<img ng-show="ad.content.image.thumbnailUrl" ng-src="{{ad.content.image.thumbnailUrl}}">
+				<div>
+					<img-svg ng-show="ad.content.image === undefined" src="/img/loader-default.svg"></img-svg>
+					<img ng-show="ad.content.image.thumbnailUrl" ng-src="{{ad.content.image.thumbnailUrl}}">
+				</div>
 			</content-left>
 			<content-right>
 				<conditioning>{{ad.content.conditioning}} - {{ad.content.typeOfGoods}}</conditioning>
