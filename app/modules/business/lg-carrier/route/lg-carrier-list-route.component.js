@@ -1,6 +1,7 @@
 function CarrierListCtrl($scope, carrier, lgFilterList) {
 	'ngInject';
 	const ctrl = this;
+	ctrl.order = true;
 	ctrl.carrier = carrier;
 	ctrl.lgFilterList = lgFilterList;
 
