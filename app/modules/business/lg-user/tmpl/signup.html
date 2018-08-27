@@ -64,8 +64,7 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode"
-			    required>
+			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.zipcode)">
