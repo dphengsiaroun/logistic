@@ -1,0 +1,11 @@
+html[lang="fr"] {
+    [lang="ar"] {
+        display: none;
+    }
+}
+
+html[lang="ar"] {
+    [lang="fr"] {
+        display: none;
+    }
+}
