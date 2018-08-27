@@ -17,7 +17,7 @@ class LgI18n {
 
 	sync() {
 		this.connection.waitForCheckConnection().then(() => {
-			this.current = this.connection.user.content.language;
+			this.current = this.connection.user.content.language || FR;
 		}).catch(() => {}).then(() => {
 			const html = this.$document[0].querySelector('html');
 			console.log('html', html);
@@ -26,9 +26,7 @@ class LgI18n {
 	}
 
 	chooseLanguage(lang, user) {
-		console.log('chooseLanguage');
-		this.current = lang;
-
+		this.current = lang || FR;
 		this.connection.waitForCheckConnection().then(() => {
 			console.log('hello');
 			this.connection.user.content.language = this.current;
