@@ -139,9 +139,9 @@
 	<section>
 		<h2>Définir le chargement</h2>
 		<label>
-			<span>Tranche de poids</span>
+			<span>Poids du camion souhaité</span>
 			<lg-choice name="weightIntervals" options="{icon: $root.config.getWeightIcon}" choices="$root.config.weightIntervals" title="Poids du chargement"
-			    placeholder="Ex: De 100 à 200 kilos" ng-model="$ctrl.loader.createData.weightInterval" is-mandatory="true" required></lg-choice>
+			    placeholder="Ex: 10 tonnes" ng-model="$ctrl.loader.createData.weightInterval" is-mandatory="true" required></lg-choice>
 			<message-form-validator>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.weightIntervals)">
 					<span ng-show="formCtrl.weightIntervals.$error.required">La tranche de poids est obligatoire.</span>
@@ -149,9 +149,9 @@
 			</message-form-validator>
 		</label>
 		<label ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'">
-			<span>Poids total</span>
+			<span>Poids total (tonnes)</span>
 			<input name="preciseWeight" type="number" ng-hide="$ctrl.loader.createData.conditioning === 'Vrac' || $ctrl.loader.createData.conditioning === 'Indifférent'"
-			    placeholder="Ex: 1500" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*">
+			    placeholder="Ex: 10" ng-model="$ctrl.loader.createData.preciseWeight" pattern="[0-9]*">
 		</label>
 
 		<label>

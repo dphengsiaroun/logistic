@@ -103,8 +103,8 @@ export function LgConfigProvider() {
 					'Hélicoptère', 'Hydravion', 'Epandage Agricole', 'Avion de Tourisme', 'Avion lutte contre Incendie'
 				];
 
-				config.weightIntervals = ['Moins de 20 kg', 'De 20 à 50 kg', 'De 50 à 100 kg', 'De 100 à 500 kg',
-					'De 500 kg à 1 tonne', 'De 1 à 5 tonnes', 'Plus de 5 tonnes'
+				config.weightIntervals = ['1 tonne', '1.5 tonnes', '2.5 tonnes', '3 tonnes',
+					'5 tonnes', '7 tonnes', '10 tonnes', '15 tonnes', '20 tonnes', '30 tonnes', '40 tonnes', '50 tonnes'
 				];
 				config.volumes = ['100', '130', '180', '200'];
 				config.prices = ['100', '200', '1000', '2000'];

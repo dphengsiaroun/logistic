@@ -54,7 +54,7 @@ data.loaderAd = [{
 	conditioning: 'Colis',
 	typeOfGoods: 'Massif',
 	weightIntervals: 'De 1 à 5 tonnes',
-	preciseWeight: '1500',
+	preciseWeight: '10',
 	imageId: path.resolve(__dirname, './img/voiture.jpg'),
 	priceWanted: '28000',
 	title: 'Chargement de voiture'
