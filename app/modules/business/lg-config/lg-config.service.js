@@ -92,7 +92,7 @@ export function LgConfigProvider() {
 
 				config.transportCategories = ['Camion', 'Avion', 'Bateau'];
 				config.transportTruckTypes = ['Benne', 'Bâché', 'Frigo', 'Citerne', 'Porte voiture', 'Semi-remorque',
-					'Semi-frigo', 'Bétaillère', 'Taxi'
+					'Semi-frigo', 'Bétaillère', 'Fourgon', 'Bus', 'Taxi'
 				];
 				config.transportBoatTypes = ['Bateau Barge', 'Navire Lo-Lo', 'Navire Réfrigéré & Reefer',
 					'Navire Ro-Ro', 'Porte Conteneurs', 'Vraquiers', 'Ferries', 'Paquebots de croisière',
@@ -171,7 +171,7 @@ export function LgConfigProvider() {
 
 				config.getTruckTypesIcon = function(label) {
 					['Benne', 'Bâché', 'Frigo', 'Citerne', 'Porte voiture', 'Semi-remorque',
-						'Semi-frigo', 'Bétaillère', 'Taxi'
+						'Semi-frigo', 'Bétaillère', 'Fourgon', 'Bus', 'Taxi'
 					];
 					switch (label) {
 						case 'Benne':
@@ -190,6 +190,10 @@ export function LgConfigProvider() {
 							return '<img-svg src="/img/truck-type/semi-trailer-fridge.svg"></img-svg>';
 						case 'Bétaillère':
 							return '<img-svg src="/img/truck-type/animal-truck.svg"></img-svg>';
+						case 'Fourgon':
+							return '<img-svg src="/img/truck-type/van.svg"></img-svg>';
+						case 'Bus':
+							return '<img-svg src="/img/truck-type/bus.svg"></img-svg>';
 						case 'Taxi':
 							return '<img-svg src="/img/truck-type/taxi-truck.svg"></img-svg>';
 
