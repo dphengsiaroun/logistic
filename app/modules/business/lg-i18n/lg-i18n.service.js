@@ -7,6 +7,11 @@ class LgI18n {
 	constructor() {
 		this.current = FR;
 	}
+
+	chooseLanguage(lang) {
+		console.log('chooseLanguage');
+		this.current = lang;
+	}
 }
 
 angular.module(module.exports, [])

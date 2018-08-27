@@ -25,11 +25,11 @@
 
 <lg-menu-content>
 	<div ng-hide="$ctrl.connection.user">
-		<a ng-click="$ctrl.chooseLanguage('fr');" class="border-top">
+		<a ng-click="$ctrl.lgI18n.chooseLanguage('fr');" class="border-top">
 			<span class="lang">Français</span>
 			<i ng-if="$ctrl.lgI18n.current === 'fr'" class="fa fa-check" aria-hidden="true"></i>
 		</a>
-		<a ng-click="$ctrl.chooseLanguage('ar');">
+		<a ng-click="$ctrl.lgI18n.chooseLanguage('ar');">
 			<span class="lang">Arabe</span>
 			<i ng-if="$ctrl.lgI18n.current === 'ar'" class="fa fa-check" aria-hidden="true"></i>
 		</a>
@@ -62,11 +62,11 @@
 		</a>
 		<br>
 		<br>
-		<a ng-click="$ctrl.chooseLanguage('fr');" class="border-top">
+		<a ng-click="$ctrl.lgI18n.chooseLanguage('fr');" class="border-top">
 			<span class="lang">Français</span>
 			<i ng-if="$ctrl.lgI18n.current === 'fr'" class="fa fa-check" aria-hidden="true"></i>
 		</a>
-		<a ng-click="$ctrl.chooseLanguage('ar');">
+		<a ng-click="$ctrl.lgI18n.chooseLanguage('ar');">
 			<span class="lang">Arabe</span>
 			<i ng-if="$ctrl.lgI18n.current === 'ar'" class="fa fa-check" aria-hidden="true"></i>
 		</a>

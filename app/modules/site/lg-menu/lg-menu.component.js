@@ -77,11 +77,6 @@ export const lgMenu = {
 			return false;
 		};
 
-		ctrl.chooseLanguage = function(lang) {
-			console.log('chooseLanguage');
-			lgI18n.current = lang;
-		};
-
 		this.refresh = function() {
 			
 			ctrl.isSmallScreen = $window.innerWidth < 768;
