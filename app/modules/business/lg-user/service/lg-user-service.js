@@ -60,6 +60,25 @@ export function User($injector, $http, $rootScope, $q, $state, connection, userV
 		});
 	};
 
+	this.patch = function() {
+		$http({
+			url: lgConfig.wsDir() + 'users/' + connection.user.id,
+			method: 'PUT',
+			data: connection.user,
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).then(function(response) {
+			console.log('coucou');
+			if (response.data.status === 'ko') {
+				service.error = response;
+				return;
+			}
+			service.error = undefined;
+			service.current = response.data.user;
+		}).catch(function(error) {
+			service.error = error;
+		});
+	};
+
 	this.delete = function() {
 		return $http({
 			url: lgConfig.wsDir() + 'users/' + connection.user.id,

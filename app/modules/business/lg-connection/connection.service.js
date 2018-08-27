@@ -34,6 +34,7 @@ export function Connection($http, $rootScope, $injector, $q, $state, lgConfig, a
 			console.log('connection.user', service.user);
 			service.isConnected = true;
 			console.log('service.isConnected', service.isConnected);
+			$injector.get('lgI18n').sync();
 			afterConnect.execute();
 		}).catch(function(error) {
 			service.error = error;
