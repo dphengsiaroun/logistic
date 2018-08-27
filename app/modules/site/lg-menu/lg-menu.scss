@@ -130,9 +130,19 @@ lg-menu-content {
 			padding: 6px 11px;
 			font-size: 1.3em;
 		}
+		span.lang {
+			width: 84%;
+			padding-left: 3.9em;
+		}
+		.fa-check {
+			text-align: center;
+			font-size: 1.5em;
+			padding: 5px 0;
+		}
 	}
 }
 
-.btn-logout {
+.border-top {
 	border-top: 1px solid $borderColor;
 }
+

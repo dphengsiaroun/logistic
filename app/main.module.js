@@ -11,6 +11,7 @@ import lgLoader from './modules/business/lg-loader/lg-loader.module.js';
 import lgPassword from './modules/business/lg-password/lg-password.module.js';
 import lgProposal from './modules/business/lg-proposal/lg-proposal.module.js';
 import lgTruck from './modules/business/lg-truck/lg-truck.module.js';
+import lgI18n from './modules/business/lg-i18n/lg-i18n.service.js';
 
 import lgChoice from './modules/form/lg-choice/lg-choice.component.js';
 import lgDatetime from './modules/form/lg-datetime/lg-datetime.js';
@@ -28,7 +29,7 @@ import lgDesktop from './modules/site/lg-desktop/lg-desktop.component.js';
 import lgMenu from './modules/site/lg-menu/lg-menu.js';
 import lgRoute from './modules/site/lg-route/lg-route.module.js';
 
-import lgDebug from './modules/technic/lg-debug/lg-debug.service.js';
+// import lgDebug from './modules/technic/lg-debug/lg-debug.service.js';
 import lgError from './modules/technic/lg-error/lg-error.js';
 import lgFilterList from './modules/technic/lg-filter-list/lg-filter-list.service.js';
 import lgGeoloc from './modules/technic/lg-geoloc/geoloc.service.js';
@@ -52,6 +53,7 @@ angular.module('main', [
 	lgPassword,
 	lgProposal,
 	lgTruck,
+	lgI18n,
 
 	lgChoice,
 	lgDatetime,

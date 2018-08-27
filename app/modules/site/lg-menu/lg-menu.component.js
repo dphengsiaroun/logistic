@@ -5,7 +5,7 @@ import lgMenuHtml from './tmpl/lg-menu.html';
 export const lgMenu = {
 	template: lgMenuHtml,
 	controller: function LgMenuCtrl($element, $scope, $state, $rootScope,
-		$timeout, $window, carrier, loader, proposal, connection, lgMobile) {
+		$timeout, $window, carrier, loader, proposal, connection, lgMobile, lgI18n) {
 
 		'ngInject';
 		const ctrl = this;
@@ -13,6 +13,7 @@ export const lgMenu = {
 		ctrl.carrier = carrier;
 		ctrl.loader = loader;
 		ctrl.proposal = proposal;
+		ctrl.lgI18n = lgI18n;
 		
 
 		ctrl.myCarriers = [];
@@ -51,8 +52,6 @@ export const lgMenu = {
 
 		ctrl.toggle = function() {
 			
-			
-			
 			ctrl.isMenuOn = !ctrl.isMenuOn;
 			
 			if (ctrl.isMenuOn) {
@@ -76,6 +75,11 @@ export const lgMenu = {
 				return true;
 			}
 			return false;
+		};
+
+		ctrl.chooseLanguage = function(lang) {
+			console.log('chooseLanguage');
+			lgI18n.current = lang;
 		};
 
 		this.refresh = function() {
