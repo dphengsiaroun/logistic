@@ -1,10 +1,13 @@
 <section>
-	<h1>Créer un compte</h1>
+	<h1 lang="fr">Créer un compte</h1>
+	<h1 lang="ar">انشئ حسابك مجانا</h1>
 	<lg-social-login></lg-social-login>
-	<lg-hr>ou</lg-hr>
+	<lg-hr lang="fr">ou</lg-hr>
+	<lg-hr lang="ar">أو</lg-hr>
 	<form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.user.create()" novalidate>
 		<label>
-			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" required>
+			<input name="lastname" type="text" placeholder="Nom" ng-model="$ctrl.user.signupData.content.lastname" required lang="fr">
+			<input name="lastname" type="text" placeholder="اللقب" ng-model="$ctrl.user.signupData.content.lastname" required lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.lastname)" class="fa fa-check lastname" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.lastname)">
@@ -13,7 +16,8 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" required>
+			<input name="firstname" type="text" placeholder="Prenom" ng-model="$ctrl.user.signupData.content.firstname" required lang="fr">
+			<input name="firstname" type="text" placeholder="الإسم" ng-model="$ctrl.user.signupData.content.firstname" required lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.firstname)" class="fa fa-check firstname" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.firstname)">
@@ -24,7 +28,10 @@
 		<label>
 			<input name="login" type="text" ui-mask2="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="Pseudo" ui-mask-placeholder
 			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" ng-model-options="{ debounce: 300 }" ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'login\', $value)'}"
-			    required>
+			    required lang="fr">
+			<input name="login" type="text" ui-mask2="A***?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*?*" placeholder="اسم المستخدم" ui-mask-placeholder
+			    ui-mask-placeholder-char="space" ng-model="$ctrl.user.signupData.content.login" ng-model-options="{ debounce: 300 }" ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'login\', $value)'}"
+			    required lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.login)" class="fa fa-check login" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.login)">
@@ -35,7 +42,9 @@
 		</label>
 		<label>
 			<input name="email" type="email" placeholder="Email" ng-model="$ctrl.user.signupData.email" ng-model-options="{ debounce: 300 }"
-			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'email\', $value)'}">
+			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'email\', $value)'}" lang="fr">
+			<input name="email" type="email" placeholder="البريد الالكتروني" ng-model="$ctrl.user.signupData.email" ng-model-options="{ debounce: 300 }"
+			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'email\', $value)'}" lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.email)" class="fa fa-check email" aria-hidden="true"></i>
 				<i ng-show="$ctrl.fv.isError(formCtrl.email)" class="fa fa-times error" aria-hidden="true"></i>
@@ -47,15 +56,20 @@
 			</message-form-validator>
 		</label>
 		<br>
-		<span class="profile">Veuillez choisir votre profil</span>
+		<span class="profile" lang="fr">Veuillez choisir votre profil</span>
+		<span class="profile" lang="ar">إختار صفتك</span>
 		<lg-select name="profile" ng-model="$ctrl.user.signupData.content.profile" required>
-			<lg-option value="loader">Chargeur</lg-option>
-			<lg-option value="carrier">Transporteur</lg-option>
-			<lg-option value="both">Les deux</lg-option>
+			<lg-option value="loader" lang="fr">Chargeur</lg-option>
+			<lg-option value="loader" lang="ar">شاحن  البضائع</lg-option>
+			<lg-option value="carrier" lang="fr">Transporteur</lg-option>
+			<lg-option value="carrier" lang="ar">ناقل البضائع</lg-option>
+			<lg-option value="both" lang="fr">Les deux</lg-option>
+			<lg-option value="both" lang="ar">الإثنين سوياّ</lg-option>
 		</lg-select>
 		<br>
 		<label>
-			<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" required>
+			<input name="street" type="text" placeholder="Adresse" ng-model="$ctrl.user.signupData.content.address.street" required lang="fr">
+			<input name="street" type="text" placeholder="العنوان" ng-model="$ctrl.user.signupData.content.address.street" required lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.street)" class="fa fa-check street" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.street)">
@@ -64,7 +78,8 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode">
+			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="Code postal" ng-model="$ctrl.user.signupData.content.address.zipcode" lang="fr">
+			<input name="zipcode" type="text" pattern="[0-9]*" placeholder="الرقم البريدي" ng-model="$ctrl.user.signupData.content.address.zipcode" lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.zipcode)" class="fa fa-check zipcode" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.zipcode)">
@@ -74,7 +89,8 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" required>
+			<input name="city" type="text" placeholder="Ville" ng-model="$ctrl.user.signupData.content.address.city" required lang="fr">
+			<input name="city" type="text" placeholder="المدينة" ng-model="$ctrl.user.signupData.content.address.city" required lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.city)" class="fa fa-check city" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
@@ -84,7 +100,9 @@
 		</label>
 		<label>
 			<lg-choice name="country" choices="$root.config.countries" title="Pays d'origine" placeholder="Pays" ng-model="$ctrl.user.signupData.content.address.country"
-			    is-mandatory="true" required></lg-choice>
+			    is-mandatory="true" required lang="fr"></lg-choice>
+			<lg-choice name="country" choices="$root.config.countries" title="Pays d'origine" placeholder="البلد" ng-model="$ctrl.user.signupData.content.address.country"
+			    is-mandatory="true" required lang="ar"></lg-choice>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.country)" class="fa fa-check country" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.country)">
@@ -94,7 +112,9 @@
 		</label>
 		<label>
 			<input name="phone" type="text" pattern="[0-9]*" placeholder="Téléphone" ng-model="$ctrl.user.signupData.content.phone" ng-model-options="{ debounce: 300 }"
-			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'phone\', $value)'}">
+			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'phone\', $value)'}" lang="fr">
+			<input name="phone" type="text" pattern="[0-9]*" placeholder="رقم الهاتف" ng-model="$ctrl.user.signupData.content.phone" ng-model-options="{ debounce: 300 }"
+			    required ui-validate-async="{'already-taken': '$ctrl.user.userValidator.checkField(\'phone\', $value)'}" lang="ar">
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.phone)" class="fa fa-check phone" aria-hidden="true"></i>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.phone)">
@@ -105,12 +125,14 @@
 			</message-form-validator>
 		</label>
 		<br>
-		<lg-eyepassword name="password" placeholder="Mot de passe" password="$ctrl.user.signupData.password"></lg-eyepassword>
+		<lg-eyepassword name="password" placeholder="Mot de passe" password="$ctrl.user.signupData.password" lang="fr"></lg-eyepassword>
+		<lg-eyepassword name="password" placeholder="كلمة السرّ" password="$ctrl.user.signupData.password" lang="ar"></lg-eyepassword>
 		<error-message ng-show="$ctrl.fv.isError(formCtrl.password)">
 			<span ng-show="formCtrl.password.$error.required">Le mot de passe est obligatoire.</span>
 		</error-message>
 		<br>
 		<lg-error error="$ctrl.user.error"></lg-error>
-		<button type="submit" id="pr-create-user-button">Créer le compte</button>
+		<button type="submit" id="pr-create-user-button" lang="fr">Créer le compte</button>
+		<button type="submit" id="pr-create-user-button" lang="ar">إنشاء الحساب</button>
 	</form>
 </section>

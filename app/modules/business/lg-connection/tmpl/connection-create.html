@@ -1,6 +1,7 @@
 <main>
 	<section>
-		<h1>S'identifier</h1>
+		<h1 lang="fr">S'identifier</h1>
+		<h1 lang="ar"> تسجيل </h1>
 		<lg-social-login></lg-social-login>
 		<lg-hr>ou</lg-hr>
 
@@ -27,16 +28,21 @@
 
 			</label>
 			<lg-error error="$ctrl.connection.error"></lg-error>
-			<button type="submit">Se connecter</button>
+			<button type="submit" lang="fr">Se connecter</button>
+			<button type="submit" lang="ar">دخول</button>
 		</form>
 
-		<lg-hr>ou</lg-hr>
+		<lg-hr lang="fr">ou</lg-hr>
+		<lg-hr lang="ar">أو</lg-hr>
 		<center>
-			<a ui-sref="user:create">Créer un nouveau compte</a>
+			<a ui-sref="user:create" lang="fr">Créer un nouveau compte</a>
+			<a ui-sref="user:create" lang="ar">انشئ حسابك مجانا</a>
 		</center>
-		<lg-hr>ou</lg-hr>
+		<lg-hr lang="fr">ou</lg-hr>
+		<lg-hr lang="ar">أو</lg-hr>
 		<center>
-			<a ui-sref="password:forgottenPassword">Mot de passe oublié ?</a>
+			<a ui-sref="password:forgottenPassword" lang="fr">Mot de passe oublié ?</a>
+			<a ui-sref="password:forgottenPassword" lang="ar">نسيت كلمة السرّ ؟</a>
 		</center>
 	</section>
 </main>
