@@ -90,12 +90,16 @@
 				<div ng-show="$ctrl.carrierStepManager.getStep() === 3" lang="ar">السعر</div>
 				<div ng-show="$ctrl.carrierStepManager.getStep() > 3">
 					<span ng-show="$ctrl.carrier.stepData.availability === 'total'">
-						<span ng-show="$ctrl.carrier.stepData.pricing.priceWantedPerKm">Prix : <b>{{$ctrl.carrier.stepData.pricing.priceWantedPerKm}} DZD/km</b></span>
-						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWantedPerKm">Prix</span>
+						<span ng-show="$ctrl.carrier.stepData.pricing.priceWantedPerKm" lang="fr">Prix : <b>{{$ctrl.carrier.stepData.pricing.priceWantedPerKm}} DZD/km</b></span>
+						<span ng-show="$ctrl.carrier.stepData.pricing.priceWantedPerKm" lang="ar">السعر : <b>{{$ctrl.carrier.stepData.pricing.priceWantedPerKm}} DZD/km</b></span>
+						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWantedPerKm" lang="fr">Prix</span>
+						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWantedPerKm" lang="ar">السعر</span>
 					</span>
 					<span ng-show="$ctrl.carrier.stepData.availability === 'specificTrip'">
-						<span ng-show="$ctrl.carrier.stepData.pricing.priceWanted">Prix : <b>{{$ctrl.carrier.stepData.pricing.priceWanted}} DZD</b></span>
-						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWanted">Prix</span>
+						<span ng-show="$ctrl.carrier.stepData.pricing.priceWanted" lang="fr">Prix : <b>{{$ctrl.carrier.stepData.pricing.priceWanted}} DZD</b></span>
+						<span ng-show="$ctrl.carrier.stepData.pricing.priceWanted" lang="ar">السعر : <b>{{$ctrl.carrier.stepData.pricing.priceWanted}} DZD</b></span>
+						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWanted" lang="fr">Prix</span>
+						<span ng-hide="$ctrl.carrier.stepData.pricing.priceWanted" lang="ar">السعر</span>
 					</span>
 				</div>
 				<chevron>
