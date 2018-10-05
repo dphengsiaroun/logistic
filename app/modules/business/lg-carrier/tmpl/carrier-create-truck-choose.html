@@ -1,7 +1,9 @@
 <lg-breadcrumb config="$ctrl.breadcrumb" step="1"></lg-breadcrumb>
 <no-vehicle ng-hide="$ctrl.hasTruck">
-	<span>Ajouter un véhicule à votre flotte</span>
-	<button id="pr-continue-button" ui-sref="carrier:create:truck:create"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer</button>
+	<span lang="fr">Ajouter un véhicule à votre flotte</span>
+	<span lang="ar">إضافة مركبة</span>
+	<button id="pr-continue-button" ui-sref="carrier:create:truck:create" lang="fr"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Continuer</button>
+	<button id="pr-continue-button" ui-sref="carrier:create:truck:create" lang="ar"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> واصل</button>
 </no-vehicle>
 <at-list-one-vehicle ng-show="$ctrl.hasTruck">
 	<span>Sélectionner ou ajouter<br>un véhicule</span>

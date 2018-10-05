@@ -1,33 +1,46 @@
 <my-input ng-show="$ctrl.dimension" ng-click="$ctrl.start()">
-	<span>
+	<span lang="fr">
 		Largeur
 		<br>
 		<b>{{$ctrl.dimension.width | distance }}</b>
 	</span>
-	<span>
+	<span lang="ar">
+		العرض
+		<br>
+		<b>{{$ctrl.dimension.width | distance }}</b>
+	</span>
+	<span lang="fr">
 		Hauteur
 		<br>
 		<b>{{$ctrl.dimension.height | distance }}</b>
 	</span>
-	<span>
+	<span lang="ar">
+		الإرتفاع
+		<br>
+		<b>{{$ctrl.dimension.height | distance }}</b>
+	</span>
+	<span lang="fr">
 		Profondeur
+		<br>
+		<b>{{$ctrl.dimension.depth | distance }}</b>
+	</span>
+	<span lang="ar">
+		الطول
 		<br>
 		<b>{{$ctrl.dimension.depth | distance }}</b>
 	</span>
 </my-input>
 <my-input ng-hide="$ctrl.dimension" ng-click="$ctrl.start()">
-	<span>
-		Hauteur
-	</span>
-	<span>
-		Largeur
-	</span>
-	<span>
-		Profondeur
-	</span>
+	<span lang="fr">Hauteur</span>
+	<span lang="ar">الإرتفاع</span>
+	<span lang="fr">Largeur</span>
+	<span lang="ar">العرض</span>
+	<span lang="fr">Profondeur</span>
+	<span lang="ar">الطول</span>
 </my-input>
 <span>
-	<label>Volume résultant : <b>{{$ctrl.volumeStr}}</b></label>
+	<label lang="fr">Volume résultant : <b>{{$ctrl.volumeStr}}</b></label>
+	<label lang="ar">الحجم المتبقي للشحن : <span><b>{{$ctrl.volumeStr}}</b></span></label>
 </span>
 <lg-edit ng-show="$ctrl.state === 'editState'">
 	<my-head>

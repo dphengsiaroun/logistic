@@ -3,8 +3,10 @@
 		<img-svg src="/img/frontal-truck.svg"></img-svg>
 	</div>
 	<div class="right">
-		<h1>Transporteur</h1>
-		<h2>Déposer une annonce</h2>
+		<h1 lang="fr">Transporteur</h1>
+		<h1 lang="ar">ناقل  البضائع</h1>
+		<h2 lang="fr">Déposer une annonce</h2>
+		<h2 lang="ar">إضافة إعلانات النقل</h2>
 	</div>
 </div>
 <summary>
@@ -12,7 +14,8 @@
 		<steps>
 			<step id="pr-select-truck-link" ng-click="$root.goToState('carrier:create:truck:choose')" ng-class="$ctrl.carrierStepManager.getClass(1)">
 				<num-step>1</num-step>
-				<div ng-show="$ctrl.carrierStepManager.getStep() === 1">Choix du véhicule</div>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 1" lang="fr">Choix du véhicule</div>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 1" lang="ar">معلومات المركبة</div>
 				<div ng-hide="$ctrl.carrierStepManager.getStep() === 1">
 					<item>
 						<left>
@@ -32,15 +35,18 @@
 			</step>
 			<step ng-show="$ctrl.carrierStepManager.getStep() < 2" class="disabled">
 				<num-step>2</num-step>
-				<div>Disponibilité</div>
+				<div lang="fr">Disponibilité</div>
+				<div lang="ar">متوفر</div>
 				<chevron></chevron>
 			</step>
 			<step ng-hide="$ctrl.carrierStepManager.getStep() < 2" id="pr-select-availabilities" ng-click="$root.goToState('carrier:create:availability')"
 			    ng-class="$ctrl.carrierStepManager.getClass(2)">
 				<num-step>2</num-step>
-				<div ng-show="$ctrl.carrierStepManager.getStep() === 2">Disponibilité</div>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 2" lang="fr">Disponibilité</div>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 2" lang="ar">متوفر</div>
 				<div ng-show="$ctrl.carrierStepManager.getStep() > 2">
-					<span ng-show="$ctrl.carrier.stepData.availability === 'total'">Disponibilité totale</span>
+					<span ng-show="$ctrl.carrier.stepData.availability === 'total'" lang="fr">Disponibilité totale</span>
+					<span ng-show="$ctrl.carrier.stepData.availability === 'total'" lang="ar">متوفر كلياّ</span>
 					<availability ng-show="$ctrl.carrier.stepData.availability === 'specificTrip'">
 						<date>{{$ctrl.carrier.stepData.trip.departureDatetime | date : "EEEE d LLLL yyyy à H'h'" | ucfirst}}</date>
 						<distance>{{$ctrl.carrier.stepData.trip.distance}}km - {{$ctrl.carrier.stepData.trip.minDuration | duration}}</distance>
@@ -74,12 +80,14 @@
 			</step>
 			<step ng-show="$ctrl.carrierStepManager.getStep() < 3" class="disabled">
 				<num-step>3</num-step>
-				<div>Prix</div>
+				<div lang="fr">Prix</div>
+				<div lang="ar">السعر</div>
 				<chevron></chevron>
 			</step>
 			<step ng-hide="$ctrl.carrierStepManager.getStep() < 3" id="pr-select-price" ng-click="$root.goToState('carrier:create:pricing')" ng-class="$ctrl.carrierStepManager.getClass(3)">
 				<num-step>3</num-step>
-				<div ng-show="$ctrl.carrierStepManager.getStep() === 3">Prix</div>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 3" lang="fr">Prix</div>
+				<div ng-show="$ctrl.carrierStepManager.getStep() === 3" lang="ar">السعر</div>
 				<div ng-show="$ctrl.carrierStepManager.getStep() > 3">
 					<span ng-show="$ctrl.carrier.stepData.availability === 'total'">
 						<span ng-show="$ctrl.carrier.stepData.pricing.priceWantedPerKm">Prix : <b>{{$ctrl.carrier.stepData.pricing.priceWantedPerKm}} DZD/km</b></span>
@@ -97,10 +105,13 @@
 		</steps>
 		<br>
 		<br>
-		<button id="pr-create-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'"
+		<button lang="fr" id="pr-create-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'"
 		    ng-click="$ctrl.carrier.create($ctrl.carrier.stepData)">Mettre en ligne mon annonce</button>
+		<button lang="ar" id="pr-create-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'create'"
+		    ng-click="$ctrl.carrier.create($ctrl.carrier.stepData)">نشر الإعلان</button>
 		<button id="pr-update-carrier-button" ng-show="$ctrl.carrierStepManager.getStep() === 4 && $ctrl.carrier.type === 'update'"
 		    ng-click="$ctrl.carrier.update()">Mettre en ligne mon annonce modifiée</button>
-		<button ng-show="$ctrl.carrier.stepData.truck.name" class="transparent" ng-click="$ctrl.reinitialize()">Réinitialiser</button>
+		<button ng-show="$ctrl.carrier.stepData.truck.name" class="transparent" ng-click="$ctrl.reinitialize()" lang="fr">Réinitialiser</button>
+		<button ng-show="$ctrl.carrier.stepData.truck.name" class="transparent" ng-click="$ctrl.reinitialize()" lang="ar">إلغاء لإعادة المعلومات</button>
 	</div>
 </summary>

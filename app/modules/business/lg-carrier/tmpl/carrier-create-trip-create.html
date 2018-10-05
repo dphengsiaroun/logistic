@@ -1,9 +1,11 @@
 <lg-breadcrumb config="$ctrl.breadcrumb" step="2"></lg-breadcrumb>
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.addTrip()" class="ad" novalidate>
 	<section class="dark">
-		<h2>Trajet</h2>
+		<h2 lang="fr">Trajet</h2>
+		<h2 lang="ar">المسار</h2>
 		<label>
-			<span>Départ</span>
+			<span lang="fr">Départ</span>
+			<span lang="ar">مدينة الإنطلاق</span>
 			<lg-city name="departureCity" title="Ville du chargement" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.departureCity"
 			    required></lg-city>
 			<message-form-validator>
@@ -13,7 +15,8 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<span>Arrivée</span>
+			<span lang="fr">Arrivée</span>
+			<span lang="ar">مدينة الوصول</span>
 			<lg-city name="arrivalCity" title="Ville de la livraison" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.tripData.arrivalCity"
 			    required></lg-city>
 			<message-form-validator>
@@ -25,9 +28,11 @@
 		<div ng-bind-html="$ctrl.tripData.infoRoute"></div>
 	</section>
 	<section>
-		<h2>Horaires</h2>
+		<h2 lang="fr">Horaires</h2>
+		<h2 lang="ar">الأوقات</h2>
 		<label>
-			<span>Date et heure de chargement</span>
+			<span lang="fr">Date et heure de chargement</span>
+			<span lang="ar">تاريخ و ساعة شحن البضاعة</span>
 			<lg-datetime name="departureDatetime" title="Date et heure" placeholder="Choisir une date" ng-model="$ctrl.tripData.departureDatetime"
 			    options="{defaultHour: 14}" required>
 			</lg-datetime>
@@ -38,7 +43,8 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<span>Date et heure de livraison</span>
+			<span lang="fr">Date et heure de livraison</span>
+			<span lang="ar">تاريخ و ساعة تسليم البضاعة</span>
 			<lg-datetime name="arrivalDatetime" title="Date et heure de livraison" placeholder="Date de livraison" ng-model="$ctrl.tripData.arrivalDatetime"
 			    options="{defaultHour: 14}" after="$ctrl.tripData.departureDatetime" offset="$ctrl.tripData.minDuration" required>
 			</lg-datetime>
@@ -52,9 +58,11 @@
 		<br>
 	</section>
 	<section class="dark">
-		<h2>Chargement restant</h2>
+		<h2 lang="fr">Chargement restant</h2>
+		<h2 lang="ar">حجم متبقى للشحن في المركبة</h2>
 		<label>
-			<span>Dimensions en mètre</span>
+			<span lang="fr">Dimensions en mètre</span>
+			<span lang="ar">قياسات بالمتر</span>
 			<div class="dimension" ng-click="$ctrl.editDimension()">
 				<div class="box no-zoom">
 					<img-svg src="/img/truck/truck-width.svg"></img-svg>
@@ -72,6 +80,7 @@
 	</section>
 	<section>
 		<lg-error error="$ctrl.trip.error"></lg-error>
-		<button type="submit">Valider</button>
+		<button type="submit" lang="fr">Valider</button>
+		<button type="submit" lang="ar">واصل</button>
 	</section>
 </form>

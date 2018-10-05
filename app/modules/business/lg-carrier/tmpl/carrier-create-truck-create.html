@@ -2,9 +2,11 @@
 <!-- $ctrl.truck.create($ctrl.truck.createData) -->
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.create($ctrl.truck.createData)" class="ad" novalidate>
 	<section>
-		<h2>Véhicule</h2>
+		<h2 lang="fr">Véhicule</h2>
+		<h2 lang="ar">معلومات المركبة</h2>
 		<label>
-			<span>Immatriculation ou libellé</span>
+			<span lang="fr">Immatriculation ou libellé</span>
+			<span lang="ar">لوحة الترقيم</span>
 			<input name="name" type="text" placeholder="Ex : 123456-123-16" ng-model="$ctrl.truck.createData.name" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.name)" class="fa fa-check" aria-hidden="true"></i>
@@ -14,7 +16,8 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<span>Ville d'origine</span>
+			<span lang="fr">Ville d'origine</span>
+			<span lang="ar">مدينة تواجدك</span>
 			<lg-city name="city" title="Ville" placeholder="Ex : Oran, Alger, etc." ng-model="$ctrl.truck.createData.city" required></lg-city>
 			<message-form-validator>
 				<error-message ng-show="$ctrl.fv.isError(formCtrl.city)">
@@ -24,19 +27,23 @@
 		</label>
 	</section>
 	<section class="dark">
-		<h2>Transport</h2>
+		<h2 lang="fr">Transport</h2>
+		<h2 lang="ar">وسيلة النقل</h2>
 		<lg-select name="transportCategory" ng-model="$ctrl.truck.createData.transportCategory" required>
 			<lg-option value="Camion">
 				<i class="fa fa-truck" aria-hidden="true"></i>
-				<span>Camion</span>
+				<span lang="fr">Camion</span>
+				<span lang="ar">شاحنة</span>
 			</lg-option>
 			<lg-option value="Avion">
 				<i class="fa fa-plane" aria-hidden="true"></i>
-				<span>Avion</span>
+				<span lang="fr">Avion</span>
+				<span lang="ar">طائرة</span>
 			</lg-option>
 			<lg-option value="Bateau">
 				<i class="fa fa-ship" aria-hidden="true"></i>
-				<span>Bateau</span>
+				<span lang="fr">Bateau</span>
+				<span lang="ar">باخرة</span>
 			</lg-option>
 		</lg-select>
 		<div ng-show="$ctrl.truck.createData.transportCategory === 'Camion'">
@@ -67,9 +74,11 @@
 		</div>
 	</section>
 	<section>
-		<h2>Détails</h2>
+		<h2 lang="fr">Détails</h2>
+		<h2 lang="ar">تفاصيل</h2>
 		<label>
-			<span>Modèle</span>
+			<span lang="fr">Modèle</span>
+			<span lang="ar">النوع</span>
 			<input name="model" type="text" placeholder="Ex : Renault D Wide" ng-model="$ctrl.truck.createData.model" required>
 			<message-form-validator>
 				<i ng-show="$ctrl.fv.isOk(formCtrl.model)" class="fa fa-check phone" aria-hidden="true"></i>
@@ -79,7 +88,8 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<span>Année du véhicule</span>
+			<span lang="fr">Année du véhicule</span>
+			<span lang="ar">سنة المركبة</span>
 			<lg-choice name="birthyear" choices="$root.config.years" title="Année du camion" placeholder="Ex : 2005" ng-model="$ctrl.truck.createData.birthyear"
 			    is-mandatory="true" required></lg-choice>
 			<message-form-validator>
@@ -90,12 +100,14 @@
 			</message-form-validator>
 		</label>
 		<label>
-			<span>Insérer une photo</span>
+			<span lang="fr">Insérer une photo</span>
+			<span lang="ar">إضافة صورة</span>
 			<lg-load-image name="image" form-data="{suffix: '_ad' + $ctrl.truck.createData.imageId}" ng-model="$ctrl.truck.createData.image"></lg-load-image>
 		</label>
 	</section>
 	<section class="dark">
 		<lg-error error="$ctrl.truck.error"></lg-error>
-		<button type="submit">Ajouter ce véhicule à ma flotte</button>
+		<button type="submit" lang="fr">Ajouter ce véhicule à ma flotte</button>
+		<button type="submit" lang="ar">إضافة هذه المركبة</button>
 	</section>
 </form>

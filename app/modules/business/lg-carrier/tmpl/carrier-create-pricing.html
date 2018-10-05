@@ -2,25 +2,30 @@
 <form name="formCtrl" ng-submit="$ctrl.fv.check(formCtrl) && $ctrl.addPricing()" class="ad" novalidate>
 	<section ng-show="$ctrl.carrier.stepData.availability === 'specificTrip'">
 		<label>
-			<span>Tarif souhaité pour le trajet en DZD (facultatif)</span>
+			<span lang="fr">Tarif souhaité pour le trajet en DZD (facultatif)</span>
+			<span lang="ar">السعر المستحب للمسار</span>
 			<input id="pr-price-wanted" name="priceWanted" type="number" placeholder="Ex: 5000" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWanted">
 		</label>
 		<div ng-bind-html="$ctrl.carrier.stepData.trip.infoRoute"></div>
 		<div class="bold">Prix au km : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.stepData.trip.distance | currency : 'DZD' : 0 }}</div>
+		<div class="bold">سعر الكيلومتر : {{$ctrl.pricingData.priceWanted / $ctrl.carrier.stepData.trip.distance | currency : 'DZD' : 0 }}</div>
 	</section>
 	<section ng-show="$ctrl.carrier.stepData.availability === 'total'">
 		<label>
-			<span>Tarif souhaité en DZD/km (facultatif)</span>
+			<span lang="fr">Tarif souhaité en DZD/km (facultatif)</span>
+			<span lang="ar">السعر المستحب للمسار</span>
 			<input name="priceWantedPerKm" type="number" placeholder="Ex: 50" pattern="[0-9]*" ng-model="$ctrl.pricingData.priceWantedPerKm">
 		</label>
 	</section>
 	<section class="dark">
 		<label>
-			<span>Commentaire (facultatif)</span>
+			<span lang="fr">Commentaire (facultatif)</span>
+			<span lang="ar">تعليق</span>
 			<textarea id="pr-comments" ng-model="$ctrl.pricingData.comments"></textarea>
 		</label>
 	</section>
 	<section>
-		<button type="submit">Valider</button>
+		<button type="submit" lang="fr">Valider</button>
+		<button type="submit" lang="ar">واصل</button>
 	</section>
 </form>
